@@ -1,0 +1,78 @@
+{
+  "id": "l3-stats-prob-concepts-2024",
+  "title": "Level 3 Statistics — Probability Concepts 2024",
+  "level": 3,
+  "standard": "91585",
+  "year": 2024,
+  "subject": "statistics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "st585-24-q1a",
+      "number": "1a",
+      "text": "At a large school, 55% of students buy their lunch from the canteen. On any given day, each student independently decides whether to buy lunch.\n\nA group of 6 students is selected at random.\n\n(i) State why this situation can be modelled by a binomial distribution.\n(ii) Calculate the probability that exactly 4 of the 6 students buy their lunch from the canteen.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["binomial-distribution", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) Binomial because: fixed number of trials (n = 6), two outcomes (buy/don't buy), constant probability (p = 0.55), independent trials. (ii) P(X = 4) = C(6,4) × 0.55⁴ × 0.45² = 15 × 0.09150625 × 0.2025 = 15 × 0.018530 = 0.2780. Accept 0.278."
+    },
+    {
+      "id": "st585-24-q1b",
+      "number": "1b",
+      "text": "The school canteen manager wants to ensure there is enough food for at least 90% of the days. On a day when 200 students are at school, what is the expected number of students who buy lunch, and what is the standard deviation?",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["binomial-distribution", "expected-value-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Expected value: E(X) = np = 200 × 0.55 = 110 students. Standard deviation: σ = √(np(1-p)) = √(200 × 0.55 × 0.45) = √(49.5) = 7.04 (accept 7.04 or 7.0)."
+    },
+    {
+      "id": "st585-24-q1c",
+      "number": "1c",
+      "text": "Using your answers from Question 1b and a normal approximation, estimate the number of lunches the canteen should prepare each day to be at least 90% confident of having enough. Assume the number of students buying lunch is approximately normally distributed.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["normal-distribution", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Merit: Need P(X ≤ k) ≥ 0.90. Using normal approximation: X ~ N(110, 7.04²). The 90th percentile: z = 1.282. k = μ + zσ = 110 + 1.282 × 7.04 = 110 + 9.02 = 119.02. So the canteen should prepare at least 120 lunches (rounding up to a whole number). Must show clear working using the normal distribution."
+    },
+    {
+      "id": "st585-24-q2a",
+      "number": "2a",
+      "text": "Events A and B are such that P(A) = 0.4, P(B) = 0.5, and P(A ∪ B) = 0.7.\n\n(i) Find P(A ∩ B).\n(ii) Find P(A | B).\n(iii) Are A and B independent? Justify your answer.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["conditional-probability-l3", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) P(A ∪ B) = P(A) + P(B) - P(A ∩ B), so 0.7 = 0.4 + 0.5 - P(A ∩ B), P(A ∩ B) = 0.2. (ii) P(A | B) = P(A ∩ B)/P(B) = 0.2/0.5 = 0.4. (iii) P(A | B) = 0.4 = P(A), so A and B ARE independent. Alternatively: P(A) × P(B) = 0.4 × 0.5 = 0.2 = P(A ∩ B)."
+    },
+    {
+      "id": "st585-24-q2b",
+      "number": "2b",
+      "text": "Events C and D are mutually exclusive with P(C) = 0.3 and P(D) = 0.4.\n\n(i) Explain why mutually exclusive events with non-zero probabilities cannot be independent.\n(ii) Find P(C | D).",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["conditional-probability-l3", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Merit: (i) If C and D are mutually exclusive, P(C ∩ D) = 0. For independence, we need P(C ∩ D) = P(C) × P(D) = 0.3 × 0.4 = 0.12. Since 0 ≠ 0.12, they cannot be independent. Intuitively: if one event occurs, the other definitely cannot, so knowing one occurred gives information about the other — the opposite of independence. (ii) P(C | D) = P(C ∩ D)/P(D) = 0/0.4 = 0."
+    },
+    {
+      "id": "st585-24-q3",
+      "number": "3",
+      "text": "A taxi company finds that the number of bookings per hour follows a Poisson distribution with a mean of 8 bookings per hour.\n\n(i) Calculate the probability of receiving exactly 5 bookings in a given hour.\n(ii) Calculate the probability of receiving 3 or fewer bookings in a 30-minute period.\n(iii) The company has capacity to handle 12 bookings per hour. Find the probability that demand exceeds capacity in any given hour.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["poisson-distribution", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) P(X = 5) = e⁻⁸ × 8⁵/5! = 0.000335 × 32768/120 = 0.000335 × 273.07 = 0.0916. Merit: (ii) In 30 min, mean = 4. P(X ≤ 3) = P(0) + P(1) + P(2) + P(3) = e⁻⁴(1 + 4 + 8 + 10.667) = 0.01832 × 23.667 = 0.4335. Accept values from tables: P(X ≤ 3) = 0.4335. Excellence: (iii) P(X > 12) = 1 - P(X ≤ 12). Using Poisson tables or calculator with λ = 8: P(X ≤ 12) ≈ 0.9362, so P(X > 12) ≈ 0.0638 (about 6.4%). The company exceeds capacity about 1 in every 16 hours."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

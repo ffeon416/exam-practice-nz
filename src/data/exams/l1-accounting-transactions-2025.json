@@ -1,0 +1,148 @@
+{
+  "id": "l1-accounting-transactions-2025",
+  "title": "Level 1 Accounting — Processing Transactions Practice",
+  "level": 1,
+  "standard": "91924A",
+  "year": 2025,
+  "subject": "accounting",
+  "timeMinutes": 50,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "actr-q1",
+      "number": "1",
+      "text": "Which source document is issued when a business sells goods on credit to a customer?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["source-documents-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Receipt",
+        "Invoice",
+        "Credit note",
+        "Bank statement"
+      ],
+      "expectedAnswer": "Invoice",
+      "markingGuide": "The correct answer is 'Invoice'. An invoice is issued by the seller to the buyer when goods or services are sold on credit. It details the items, quantities, prices, GST, and payment terms. A receipt is issued for cash sales. A credit note is issued when goods are returned or an error is corrected."
+    },
+    {
+      "id": "actr-q2",
+      "number": "2",
+      "text": "In double-entry bookkeeping, when a business receives cash from a customer paying their account, which accounts are affected?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["transactions-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Debit Cash, Credit Sales Revenue",
+        "Debit Cash, Credit Accounts Receivable",
+        "Debit Accounts Receivable, Credit Cash",
+        "Debit Sales Revenue, Credit Cash"
+      ],
+      "expectedAnswer": "Debit Cash, Credit Accounts Receivable",
+      "markingGuide": "The correct answer is 'Debit Cash, Credit Accounts Receivable'. When a debtor pays their account: Cash (asset) increases, so it is debited. Accounts Receivable (asset) decreases because the customer no longer owes money, so it is credited. The sale was already recorded when the credit sale occurred."
+    },
+    {
+      "id": "actr-q3",
+      "number": "3",
+      "text": "Explain the purpose of a source document in accounting. Give TWO examples of source documents and describe what transaction each one records.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["source-documents-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining purpose: Source documents provide evidence that a transaction has occurred. They are the original records used to enter transactions into the accounting system. They help ensure accuracy, provide an audit trail, and are required for tax purposes (IRD).\n\n1 mark for TWO examples with descriptions: (1) Invoice — records a credit sale or credit purchase, showing items sold, prices, GST, and payment terms. (2) Receipt — records a cash payment received or made, proving money has changed hands. (3) Credit note — records a return of goods or correction to an invoice. (4) Bank statement — records all deposits and withdrawals from the business bank account. (5) Cheque butt — records details of a cheque payment made."
+    },
+    {
+      "id": "actr-q4",
+      "number": "4",
+      "text": "What is the purpose of a General Journal in accounting?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["transactions-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "To record the daily cash balance",
+        "To record all transactions in chronological order before posting to ledger accounts",
+        "To calculate the profit or loss",
+        "To list all the assets and liabilities of a business"
+      ],
+      "expectedAnswer": "To record all transactions in chronological order before posting to ledger accounts",
+      "markingGuide": "The correct answer is 'To record all transactions in chronological order before posting to ledger accounts'. The General Journal (or journal) is the book of original entry where transactions are first recorded with their debit and credit entries, along with a date and narration. These entries are then posted (transferred) to the relevant ledger accounts."
+    },
+    {
+      "id": "actr-q5",
+      "number": "5",
+      "text": "A business purchases office supplies for $230 including GST at 15%.\n\nCalculate the GST-exclusive price and the GST amount.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["gst-calculations"],
+      "answerType": "number",
+      "expectedAnswer": "200",
+      "markingGuide": "1 mark for correct method: GST-exclusive price = GST-inclusive price ÷ 1.15. $230 ÷ 1.15 = $200.00. 1 mark for GST amount: $230 - $200 = $30.00 GST. Accept answer of 200 (for the GST-exclusive price). Students should show they understand that to remove GST you divide by 1.15, not subtract 15%."
+    },
+    {
+      "id": "actr-q6",
+      "number": "6",
+      "text": "Which of the following correctly describes the debit and credit rules for assets and liabilities?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["transactions-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Assets increase with a credit; liabilities increase with a debit",
+        "Assets increase with a debit; liabilities increase with a credit",
+        "Both assets and liabilities increase with a debit",
+        "Both assets and liabilities increase with a credit"
+      ],
+      "expectedAnswer": "Assets increase with a debit; liabilities increase with a credit",
+      "markingGuide": "The correct answer is 'Assets increase with a debit; liabilities increase with a credit'. In double-entry bookkeeping: Assets have a normal debit balance (debit to increase, credit to decrease). Liabilities and Owner's Equity have a normal credit balance (credit to increase, debit to decrease). This ensures the accounting equation always balances."
+    },
+    {
+      "id": "actr-q7",
+      "number": "7",
+      "text": "A business's bank statement shows a closing balance of $4,280. The cash book shows a balance of $3,950. The following items have been identified:\n- A deposit of $500 has not yet appeared on the bank statement\n- A bank fee of $30 has not been recorded in the cash book\n- A cheque for $200 has not yet been presented to the bank\n\nExplain what a bank reconciliation is and why the balances differ.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["transactions-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining bank reconciliation: A bank reconciliation is the process of comparing the business's cash book balance with the bank statement balance to identify and explain any differences. It ensures the cash records are accurate and helps detect errors or fraud.\n\n1 mark for explaining why balances differ: The balances differ because of timing differences — transactions recorded in one book may not yet appear in the other. The unpresented cheque ($200) has been recorded in the cash book but not yet deducted by the bank. The unprocessed deposit ($500) has been recorded in the cash book but not yet credited by the bank. The bank fee ($30) appears on the bank statement but has not yet been recorded in the cash book. Adjusted bank balance: $4,280 + $500 - $200 = $4,580. Adjusted cash book: $3,950 - $30 = $3,920. (Note: full reconciliation is not required for 2 marks — understanding the concept and reasons for differences is sufficient.)"
+    },
+    {
+      "id": "actr-q8",
+      "number": "8",
+      "text": "A GST-registered business had the following for the two-month GST period:\n- GST collected on sales (output tax): $2,700\n- GST paid on purchases (input tax): $1,850\n\nHow much GST does the business owe to IRD?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["gst-calculations"],
+      "answerType": "number",
+      "expectedAnswer": "850",
+      "markingGuide": "1 mark for correct method: GST payable to IRD = Output tax (collected on sales) - Input tax (paid on purchases). 1 mark for correct answer: $2,700 - $1,850 = $850 owed to IRD. The business collects GST from customers and pays GST on its own purchases. The difference is paid to (or refunded by) IRD. Accept 850 or $850."
+    },
+    {
+      "id": "actr-q9",
+      "number": "9",
+      "text": "Explain the difference between a ledger and a journal in accounting. Why are both needed?",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["transactions-l1", "source-documents-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining the difference: A journal is the book of original entry where transactions are first recorded in chronological (date) order, showing the debit and credit entries for each transaction. A ledger contains individual accounts (e.g. Cash, Sales, Rent Expense) where transactions are grouped by account — each account shows all the debits and credits that affect it, and its running balance.\n\n1 mark for why both are needed: The journal provides a chronological record and audit trail of all transactions (useful for checking when something happened and what was recorded). The ledger organises information by account, making it easy to see the total for each account (e.g. total sales, total expenses) and prepare financial statements. Together they ensure transactions are recorded accurately and can be traced from source document to financial statement."
+    },
+    {
+      "id": "actr-q10",
+      "number": "10",
+      "text": "Tina runs a small clothing boutique in Napier. She is GST-registered. During April, the following transactions occurred:\n\n1. April 3: Sold clothing to a customer for $345 cash (GST inclusive)\n2. April 8: Purchased stock from a supplier on credit for $1,150 + GST\n3. April 15: A customer returned a faulty item. Tina issued a credit note for $92 (GST inclusive)\n4. April 22: Paid the electricity bill of $180 + GST by internet banking\n\nFor each transaction, identify the source document involved and explain the accounting entries (which accounts are debited and credited). Calculate the GST-exclusive amounts where applicable.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["transactions-l1", "source-documents-l1", "gst-calculations"],
+      "answerType": "working",
+      "markingGuide": "4 marks total.\n\n1 mark — Transaction 1 (Cash sale $345 incl GST): Source document: Receipt/cash register tape. GST-exclusive: $345 ÷ 1.15 = $300. GST: $45. Debit Cash $345, Credit Sales Revenue $300, Credit GST Collected $45.\n\n1 mark — Transaction 2 (Credit purchase $1,150 + GST): Source document: Invoice from supplier. GST: $1,150 × 0.15 = $172.50. Total: $1,322.50. Debit Purchases/Stock $1,150, Debit GST Paid $172.50, Credit Accounts Payable $1,322.50.\n\n1 mark — Transaction 3 (Customer return $92 incl GST): Source document: Credit note. GST-exclusive: $92 ÷ 1.15 = $80. GST: $12. Debit Sales Returns $80, Debit GST Collected $12, Credit Cash/Accounts Receivable $92.\n\n1 mark — Transaction 4 (Electricity $180 + GST): Source document: Invoice/bill and bank transaction record. GST: $180 × 0.15 = $27. Total: $207. Debit Electricity Expense $180, Debit GST Paid $27, Credit Cash/Bank $207.\n\nExcellence-level responses will correctly identify all source documents, calculate GST amounts accurately, and show correct debit/credit entries that maintain the accounting equation."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 14 },
+    "merit": { "min": 15, "max": 19 },
+    "excellence": { "min": 20, "max": 24 }
+  }
+}

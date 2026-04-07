@@ -1,0 +1,60 @@
+{
+  "id": "l3-geography-cultural-2025",
+  "title": "Level 3 Geography — Cultural Processes 2025",
+  "level": 3,
+  "standard": "91427",
+  "year": 2025,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91427-2025-q1a",
+      "number": "1(a)",
+      "text": "Name a geographic environment AND a cultural process to use to answer both parts of the question.\n\nUse the space provided to draw an annotated map(s) and/or diagram(s) to explain how your chosen cultural process has impacted on your chosen geographic environment.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "cultural-process",
+        "geographic-environment",
+        "annotated-diagram"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Draw annotated map/diagram explaining how a named cultural process has impacted a named...",
+      "markingGuide": "Achievement (N1-N2): Includes some relevant description of the cultural process with little or no evidence. Partially analyses how the cultural process has impacted the environment. Merit (A3-A4): Includes some supporting case study evidence. Analyses how the cultural process has impacted the environment. Excellence (M5-M6): Includes some detailed supporting case study evidence. Analyses how the operation of the cultural process has impacted the natural or cultural environment."
+    },
+    {
+      "id": "91427-2025-q1b",
+      "number": "1(b)",
+      "text": "How does the cultural process operate to create impacts on people in the geographic environment?\n\nYour response to part (b) should include:\n- how the operation of the cultural process has created impacts on people\n- links between the elements of the cultural process to draw conclusions\n- integrated comprehensive supporting case study evidence.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "cultural-process",
+        "impacts-on-people",
+        "case-study"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Analyses how the cultural process impacts people in the geographic environment, drawing...",
+      "markingGuide": "Achievement (N1-N2): Describes where or how people are impacted with little analysis. Merit (A3-A4): Includes supporting case study evidence. Describes how the cultural process operates to create impacts on people. Excellence (M5-E8): Includes detailed supporting case study evidence. Analyses how the cultural process creates impacts on people with insight, drawing conclusions about links between elements. At E7-E8, integrates comprehensive evidence throughout and analyses the links to draw conclusions about how the cultural process creates impacts on people."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

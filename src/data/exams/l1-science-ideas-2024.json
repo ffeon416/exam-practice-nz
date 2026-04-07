@@ -1,0 +1,145 @@
+{
+  "id": "l1-science-ideas-2024",
+  "title": "Level 1 Science Ideas — 2024",
+  "level": 1,
+  "standard": "91922",
+  "year": 2024,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "l1si24-p1a",
+      "number": "Part 1(a)",
+      "text": "Choose ONE science idea from the Resource Booklet:\n• Science Idea One: Using long-term studies to research human development\n• Science Idea Two: How are the oceans affected by increasing carbon dioxide in the atmosphere?\n\nFor Part One, focus on these two features of science (FOS):\n• the development of science ideas in response to new evidence or varied perspectives, such as Māori and Pacific knowledge systems\n• linking new evidence to existing models, theories, and ideas\n\nHow does EACH feature of science contribute to the development of the science idea?\n(i) How does the development of science ideas in response to new evidence or varied perspectives contribute?\n(ii) How does linking new evidence to existing models, theories, and ideas contribute?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-ideas",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify how each FOS contributed to the science idea with examples from the resource",
+      "markingGuide": "Achieved: Identify each FOS and outline how it contributed. Idea One: (i) The Dunedin Study collects data from ~1000 people of varying ethnicities. Te Kura Mai i Tawhiti adds a Māori perspective that may help understand the background. (ii) Adding brain scans to previously gathered information adds to the overall picture of participants' health. Idea Two: (i) Keeling found new evidence that atmospheric CO₂ was increasing. Dr Currie compared her ocean patterns with others worldwide. (ii) Based on Keeling's 1953 research, Dr Currie thought increasing atmospheric CO₂ was also increasing CO₂ in the ocean."
+    },
+    {
+      "id": "l1si24-p1b",
+      "number": "Part 1(b)",
+      "text": "Why are these features of science important to the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "science-ideas",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain WHY each FOS was significant, giving reasons and examples from the local context",
+      "markingGuide": "Merit: Explain why each identified FOS was significant. Idea One: Studying Māori separately is significant because they have a unique culture which might relate to their health as adults. By studying Māori at different life stages, researchers can see what factors are important in Māori development. By checking new data over time, new patterns related to health can be found — significant for early identification of health issues. Idea Two: Dr Currie was worried about increasing CO₂ and thought about how it might apply to the ocean. When she studied Keeling's results about the atmosphere, she decided to look for a pattern and found that it was making the oceans more acidic."
+    },
+    {
+      "id": "l1si24-p1c",
+      "number": "Part 1(c)",
+      "text": "How do the two features of science work together to support the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-ideas",
+        "evidence-analysis",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Discuss how the two FOS have interacted, with detailed relationship and examples from the local...",
+      "markingGuide": "Excellence: Discuss how the FOS have interacted, discussing the relationship between them and how they interact with each other. Idea One: The Dunedin Study has been gathering data for over 60 years. Each round leads to new information, allowing researchers to build on earlier data. Over time, patterns emerge and connections are made between participants' health and development. Te Kura Mai i Tawhiti is using earlier findings to create a Māori-only version. Without this new evidence, new theories on human development could not be considered or explored. Idea Two: Dr Currie had a different perspective. She took Keeling's evidence about the atmosphere and designed an experiment to find out whether increasing atmospheric CO₂ was affecting the oceans, discovering they were becoming more acidic. This is important because, without considering another perspective, this new evidence may not have been found."
+    },
+    {
+      "id": "l1si24-p2a",
+      "number": "Part 2(a)",
+      "text": "For Part Two, focus on these two features of science:\n• interpreting patterns and interactions\n• the influence of the development and use of technology on science\n\n(a) How does the interpretation of patterns and interactions add to the science idea?\n(b) How does the development and use of technology add to the science idea?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-ideas",
+        "data-interpretation-science"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify how each FOS contributed to the science idea",
+      "markingGuide": "Achieved: Identify each FOS and outline how it contributed. Idea One: (a) A pattern was found between people in their 40s with memory problems who also have lower intelligence or slower gait speed. Patterns/interactions can show interesting things to investigate further. (b) The invention of the MRI scanner allowed scientists to get a better picture of people's brains, increasing understanding. Idea Two: (a) Keeling found a pattern of atmospheric CO₂ increasing due to burning fossil fuels. Dr Currie found the ocean was becoming more acidic and wanted to investigate why. (b) Dr Currie had to build new instruments to measure CO₂ in the ocean; these became better as technology improved."
+    },
+    {
+      "id": "l1si24-p2c",
+      "number": "Part 2(c)",
+      "text": "Why are these two features of science important to the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "science-ideas",
+        "data-interpretation-science",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain WHY interpreting patterns and the use of technology were each significant",
+      "markingGuide": "Merit: Explain why each FOS was significant. Idea One: The link between poor memory, low intelligence, and gait speed was significant because the study is now exploring the ageing process. The interaction between these things tells researchers more about how participants are ageing. The MRI scan was significant because it allowed a new kind of assessment — researchers could see the brain and explore how parts were beginning to age. Idea Two: Dr Currie saw that atmospheric CO₂ was increasing and found a pattern of the ocean becoming more acidic. Dr Currie wanted to make accurate measurements over time; good technology meant she could compare her results and be sure the ocean was changing."
+    },
+    {
+      "id": "l1si24-p2d",
+      "number": "Part 2(d)",
+      "text": "How does one feature of science support the other in the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-ideas",
+        "data-interpretation-science",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Discuss how interpreting patterns and technology have interacted, with detailed examples",
+      "markingGuide": "Excellence: Discuss how the FOS have interacted. Idea One: The MRI scan allowed researchers to see inside participants' brains and examine how they were ageing. They already had information about participants' intelligence from previous assessments. By combining old information with the new MRI data, they could find a pattern linking brain ageing, gait speed, and intelligence. Idea Two: Dr Currie wanted to see if her patterns were similar to other scientists' results. Accurate measuring devices meant she could see a pattern over time that matched Keeling's findings. She was then able to use these patterns to communicate the reason for the ocean becoming more acidic."
+    },
+    {
+      "id": "l1si24-p3a",
+      "number": "Part 3(a)",
+      "text": "For Part Three, focus on these two features of science:\n• the influence of the development and use of technology on science\n• using specific language, symbols, and conventions\n\nHow do the use of technology and specific language, symbols, and conventions contribute to the science idea?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-ideas",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify how technology and scientific language/symbols/conventions each contributed to the...",
+      "markingGuide": "Achieved: Identify each FOS and outline how it contributed. Idea One: An MRI is the type of scan the participants had — it allows researchers to see inside the brain, giving more data to add to the study. Using the word 'cortical' focuses scientists on important data relevant to the Dunedin Study. Idea Two: Chemical notation (CO₂), ppm, labelled axes, longitude and latitude, pH are all specific language/symbols. pH is a measure of how acidic (or basic) a solution is. By showing pH on the carbon dioxide graph, other scientists can quickly understand the ocean is becoming more acidic over time. The new machinery built by Dr Currie allowed her to track ppm of CO₂."
+    },
+    {
+      "id": "l1si24-p3bc",
+      "number": "Part 3(b)–(c)",
+      "text": "(b) Why was each feature of science significant to the development of the science idea?\n\n(c) How do these two features of science work together to develop the science idea?",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-ideas",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain significance and discuss the interaction between technology and scientific language in...",
+      "markingGuide": "Merit (b): Explain why each FOS was significant. Idea One: All these terms were used by researchers to explore the connection between walking, memory, intelligence, and brain ageing. Using commonly accepted scientific language allows other scientists to easily understand what was being studied. The MRI scan was significant because it allowed researchers to measure cortical thickness. Idea Two: Using standardised units like ppm allowed Dr Currie to compare her results with scientists around the globe. Good technology meant she could make accurate measurements over time. Excellence (c): Discuss how the FOS have interacted. Idea One: An MRI scan was used to examine brain ageing. This technology allowed researchers to check cortical thickness and see if brain ageing in those areas was linked with gait speed and memory loss. Researchers would have used this shared language to discuss data and develop their science idea. Idea Two: Standardised symbols and units meant Dr Currie could see a pattern over time matching Keeling's findings. She was then able to use these patterns to communicate the reason for the ocean becoming more acidic."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

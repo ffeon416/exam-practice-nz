@@ -1,0 +1,91 @@
+{
+  "id": "l3-accounting-analysis-2025",
+  "title": "Level 3 Accounting Analysis — 2025",
+  "level": 3,
+  "standard": "91404",
+  "year": 2025,
+  "subject": "accounting",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3aa25-q1a",
+      "number": "1(a)",
+      "text": "Asset classification based on conversion to cash within 12-month period.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "asset classification",
+        "statement of financial position"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Current assets convertible to cash within 12 months, non-current otherwise.",
+      "markingGuide": "Clear criteria with examples of classification decisions."
+    },
+    {
+      "id": "l3aa25-q1b",
+      "number": "1(b)",
+      "text": "Recognition criteria for liabilities and tax payables.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "recognition criteria",
+        "liability definition",
+        "tax treatment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Liability: present obligation, probable outflow, reliable measurement of amount.",
+      "markingGuide": "Apply three recognition criteria to justify liability classification.",
+      "image": "/images/exams/91404-2025-q1b.png"
+    },
+    {
+      "id": "l3aa25-q2a",
+      "number": "2(a)",
+      "text": "Asset definition and economic benefit analysis.",
+      "marks": 7,
+      "gradeLevel": "merit",
+      "topics": [
+        "asset definition",
+        "economic benefit",
+        "control"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Asset: resource controlled, future economic benefit, past event recognized.",
+      "markingGuide": "Comprehensive application of asset definition criteria."
+    },
+    {
+      "id": "l3aa25-q2b",
+      "number": "2(b)",
+      "text": "Capital expenditure vs revenue expenditure justification.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "capital expenditure",
+        "classification criteria",
+        "accounting treatment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Capital: future benefit spans periods. Revenue: current period expense benefit.",
+      "markingGuide": "Detailed distinction with explicit reference to framework and examples.",
+      "image": "/images/exams/91404-2025-q2b.png"
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

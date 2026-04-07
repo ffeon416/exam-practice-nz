@@ -1,0 +1,28 @@
+{
+  "id": "l3-classical-ideas-2024",
+  "title": "Level 3 Classical Studies — Analyse Ideas and Values 2024",
+  "level": 3,
+  "standard": "91394",
+  "year": 2024,
+  "subject": "classical-studies",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "cs394-24-q1",
+      "number": "1",
+      "text": "Answer ONE of the following questions with reference to a classical literary text. You must answer using paragraphs. Characters in classical literary texts may be mythical, fictional, or historical. Support your answer with evidence from a classical literary text. Aim for a concise answer of no more than 5-6 pages.\n\nQuestion 1: Discuss the extent to which leadership demonstrated by one or more characters reflected qualities valued by classical society.\n\nQuestion 2: Discuss the extent to which the power* of one or more characters was enhanced or diminished by their friends and/or family. (*Power means authority, status, or influence over others.)\n\nQuestion 3: Discuss the extent to which one or more characters failed in their responsibilities.\n\nQuestion 4: Discuss the extent to which the identity of one or more characters was strengthened by the challenges they faced.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["classical-ideas-values", "classical-literary-texts", "classical-analysis"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4 marks): Analyse ideas and values of the classical world by undertaking a methodical examination and interpretation of the ideas and values of the ancient Greeks and/or Romans, as communicated through the literary texts. Discuss ideas and values in light of that examination, use primary-source evidence, and draw conclusions. The candidate may lack specific detail and aspects may be underdeveloped or omitted. Merit (5-6 marks): Analyse in-depth by undertaking an informed and coherent discussion. Use primary-source evidence of specific relevance to the context, explore more than one viewpoint, make comparisons, and draw conclusions supported by primary-source evidence. The candidate shows an in-depth understanding of how the literary text reflects the social, political, religious, and/or artistic environment of the time, and draws well-supported conclusions. Excellence (7-8 marks): Analyse with perception by discussing with insight the complexity of ideas and values. Establish textual connections, provide critical evaluation, show understanding of wider implications of the analysis, and draw developed conclusions. The candidate's response covers all aspects of the question in appropriate depth, with sophisticated discussion that synthesises information."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

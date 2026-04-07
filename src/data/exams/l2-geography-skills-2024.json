@@ -1,0 +1,148 @@
+{
+  "id": "l2-geography-skills-2024",
+  "title": "Level 2 Geography — Geographic Skills 2024",
+  "level": 2,
+  "standard": "91243",
+  "year": 2024,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91243-2024-q1ai",
+      "number": "1(a)(i)",
+      "text": "Refer to Figures 2 and 3 (maps of Stratford, London) in the resource booklet.\n\nIn the frame provided, complete a precis map showing features of Stratford, London. Accurately locate and label the following features:\n- Westfield Stratford City\n- London Stadium\n- the A12 road\n- Victoria Park",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "mapping-skills",
+        "precis-map"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/91243-2024-map.png"
+      ],
+      "expectedAnswer": "Precis map with Westfield Stratford City, London Stadium, A12 road, and Victoria Park accurately...",
+      "markingGuide": "Achievement: Completes the precis map using skills and geographic conventions — although with only some accuracy. Features of the map include Westfield Stratford City, London Stadium located in the lower half, Victoria Park is appropriately shaded, A12 road must be NORTH of the railway line. Title, north arrow, key, appropriate symbols. Merit: High level of accuracy in location of all features."
+    },
+    {
+      "id": "91243-2024-q1aii",
+      "number": "1(a)(ii)",
+      "text": "Provide your map with a title. Use appropriate symbols and key, and include the north arrow.",
+      "marks": 0,
+      "gradeLevel": "achieved",
+      "topics": [
+        "mapping-skills"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Map includes title, key with symbols, and north arrow.",
+      "markingGuide": "Included in marks for (a)(i). Title, although not detailed (e.g. Map of Stratford). Key provided. North arrow. Appropriate shading and symbols."
+    },
+    {
+      "id": "91243-2024-q1aiii",
+      "number": "1(a)(iii)",
+      "text": "Key features of Stratford, London\n\nUsing specific information, describe the key natural and cultural features of Stratford and the surrounding area that made it a suitable location for the development of the Olympic village.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "geographic-interpretation",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Natural features: River Lea, flat land.",
+      "markingGuide": "Achievement: Describes the natural and cultural features of Stratford. Merit: Describes in detail the natural and cultural features that made it a suitable location for the Olympic village. Shows understanding of the concept of change / pattern."
+    },
+    {
+      "id": "91243-2024-q1bi",
+      "number": "1(b)(i)",
+      "text": "Change in Stratford, London\n\nIdentify changes in Stratford before and after the 2012 Olympics. Complete the table:\n\n| | What was the change? | Was this change positive or negative? |\n|---|---|---|\n| Economic change | | Positive / Negative |\n| Social change | | Positive / Negative |\n| Environmental change | | Positive / Negative |",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Economic: new jobs/businesses from Westfield/Stadium (positive).",
+      "markingGuide": "Identifies changes in each of the three categories with whether positive or negative. Changes should relate to the 2012 Olympics development."
+    },
+    {
+      "id": "91243-2024-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Which of the changes identified in part (i) was most significant for Stratford?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identifies most significant change and justifies choice.",
+      "markingGuide": "Achievement: Identifies the most significant change. Merit: Identifies the most significant change AND provides justification. Excellence: Identifies the most significant change AND fully justifies using geographic terminology."
+    },
+    {
+      "id": "91243-2024-q1biii",
+      "number": "1(b)(iii)",
+      "text": "Explain the reasons for your choice in part (ii).",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explains why the chosen change was most significant, with evidence from the resource booklet.",
+      "markingGuide": "Explains the reasons for choosing the most significant change. Should use specific evidence and show understanding of geographic concepts."
+    },
+    {
+      "id": "91243-2024-q1biv",
+      "number": "1(b)(iv)",
+      "text": "Describe a pattern seen in Figure 9 (page 9 of the resource booklet), the graph showing the percentage of children living in low-income families.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "data-interpretation",
+        "patterns"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describes a pattern from the graph, e.g.",
+      "markingGuide": "Describes a pattern seen in the graph. Should reference specific data or trends visible in Figure 9."
+    },
+    {
+      "id": "91243-2024-q1c",
+      "number": "1(c)",
+      "text": "Sustainability in the urban environment\n\nHow have social, environmental, and economic sustainability been affected by changes in the environment of Stratford, London, since the Olympic development?\n\nIn your answer, refer to and integrate information from:\n- resources in the resource booklet\n- at least ONE geographic concept.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "sustainability",
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/91243-2024-diagram.png"
+      ],
+      "expectedAnswer": "Discusses how economic, social, and environmental sustainability have been affected by the...",
+      "markingGuide": "Achievement: Shows understanding of ONE aspect of sustainability with general references. Merit: Shows detailed understanding of TWO aspects with specific references, explicitly referring to at least two concepts. Excellence: Shows detailed understanding of all THREE aspects (social, economic, environmental sustainability), explicitly explains their interrelationship. Uses geographic terminology, shows insight, predicts future use and effects. Wide range of specific references throughout."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

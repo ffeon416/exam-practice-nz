@@ -1,0 +1,139 @@
+{
+  "id": "l2-geography-skills-2025",
+  "title": "Level 2 Geography — Geographic Skills 2025",
+  "level": 2,
+  "standard": "91243",
+  "year": 2025,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91243-2025-q1ai",
+      "number": "1(a)(i)",
+      "text": "Using Resources B and K (pages 4 and 10 of the resource booklet), complete the precis map below to show the following features:\n- Changi Airport area\n- Jurong Island area\n- Thomson Nature Park area in the centre of the island\n- Sentosa Island\n- bridge linking Singapore to Malaysia at Johor at 033236.\n\nInclude all mapping conventions.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "mapping-skills",
+        "precis-map"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/91243-2025-map.png"
+      ],
+      "expectedAnswer": "Precis map showing Changi Airport area, Jurong Island area, Thomson Nature Park in centre,...",
+      "markingGuide": "Achievement: Completes precis map using skills and conventions to show features of Singapore, although with only some accuracy. Merit: Completes precis map using skills and conventions to show most of the main features of Singapore to a high level of accuracy. Accuracy includes locating all features correctly. Conventions include appropriate detailed title, accurate key, north arrow."
+    },
+    {
+      "id": "91243-2025-q1aii",
+      "number": "1(a)(ii)",
+      "text": "Use the Figure 15 table and graph in Resource L (page 11 of the resource booklet) to describe, in detail, ONE temporal pattern shown.",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "data-interpretation",
+        "temporal-patterns"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describes temporal pattern of urban area or population growth in Singapore, e.g.",
+      "markingGuide": "Achievement: Describes the temporal pattern of urban area OR population of Singapore. Merit: Describes in detail the temporal pattern of urban area AND population, with specific data and evidence."
+    },
+    {
+      "id": "91243-2025-q1aiii",
+      "number": "1(a)(iii)",
+      "text": "Give reasons for the pattern described above and shown on the Figure 15 graph in Resource L (page 11 of the resource booklet).",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "data-interpretation",
+        "temporal-patterns"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "As population increases by 5.6 million, more urban land is needed.",
+      "markingGuide": "Achievement: Explains the reasons for the pattern. Merit: Explains in detail the reasons, e.g. as population increases more land needed, shows positive relationship between population growth and urban area increase. Excellence: Shows thorough understanding with insight, explaining the positive relationship with specific data."
+    },
+    {
+      "id": "91243-2025-q1aiv",
+      "number": "1(a)(iv)",
+      "text": "Use Resource H (page 9 of the resource booklet) and any other resources to accurately place these five events on the timeline outline below. Write the number of the event (1-5) on the timeline and give your timeline an accurate title.\n\n1. A new port opens\n2. East India Company buys the island\n3. Singapore tourism board established\n4. First container terminal at Tanjong Pagar opens\n5. Changi Airport opens",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "timeline",
+        "mapping-skills"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/91243-2025-timeline.png"
+      ],
+      "expectedAnswer": "Events placed accurately on timeline: East India Company buys island (earliest), new port opens,...",
+      "markingGuide": "Achievement: Places events with some level of accuracy, events labelled on timeline using numbers or text. Merit: Places events with a high level of accuracy, accurately locates and labels events using the text or numbers."
+    },
+    {
+      "id": "91243-2025-q1bi",
+      "number": "1(b)(i)",
+      "text": "Land use changes (1942 and 2018 maps)\n\nList THREE changes in Singapore's environment between Resource J (1942, page 10 of the resource booklet) compared with Resource K (2018, page 10 of the resource booklet).\n\n| Location | Change in the environment (natural or cultural) |",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "change",
+        "land-use"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Three changes such as: land reclamation creating new land (e.g.",
+      "markingGuide": "Achievement: Three land use changes identified with location. Merit: Three changes described in detail showing understanding of natural and cultural change. Excellence: Comprehensively explains significance of changes."
+    },
+    {
+      "id": "91243-2025-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Select ONE example from the table above. Explain why this change is significant for people and/or the environment.",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "change",
+        "significance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explains significance of one change, e.g.",
+      "markingGuide": "Achievement: Explains significance of one change. Merit: Explains in detail the significance with specific examples. Excellence: Comprehensively explains with insight, using geographic terminology and showing understanding of interconnections."
+    },
+    {
+      "id": "91243-2025-q1c",
+      "number": "1(c)",
+      "text": "Location, accessibility, and change in Singapore\n\nHow has the location and accessibility of Singapore contributed to the development/change of its natural and cultural environment over time?\n\nRefer to a range of resources from the resource booklet in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "location",
+        "accessibility",
+        "change",
+        "environment"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/91243-2025-diagram.png"
+      ],
+      "expectedAnswer": "Discusses how Singapore's strategic location as a trading hub and its accessibility via port and...",
+      "markingGuide": "Achievement: Shows understanding of ONE of location, accessibility, change, or environment with general references. Merit: Shows detailed understanding of TWO concepts with specific references and explicit explanation. Excellence: Shows comprehensive understanding of all concepts — location, accessibility, and change in both natural and cultural environments. Explicitly explains aspects and their interrelationship. Uses geographic terminology, shows insight, predicts future development. Wide range of specific references throughout."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

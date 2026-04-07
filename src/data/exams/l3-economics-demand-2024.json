@@ -1,0 +1,90 @@
+{
+  "id": "l3-economics-demand-2024",
+  "title": "Level 3 Economics Demand — 2024",
+  "level": 3,
+  "standard": "91399",
+  "year": 2024,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3ed24-q1a",
+      "number": "1(a)",
+      "text": "Analyse demand curve shifts using elasticity concepts.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "demand elasticity",
+        "price elasticity",
+        "consumer response"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Elasticity measures sensitivity of demand to price changes.",
+      "markingGuide": "Clear explanation of elasticity concept with examples."
+    },
+    {
+      "id": "l3ed24-q1b",
+      "number": "1(b)",
+      "text": "Explain determinants of demand elasticity in different markets.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "elasticity determinants",
+        "market characteristics",
+        "consumer behaviour"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Elasticity depends on substitutes, necessities, budget share, time horizon.",
+      "markingGuide": "Identify and explain multiple elasticity determinants."
+    },
+    {
+      "id": "l3ed24-q2a",
+      "number": "2(a)",
+      "text": "Analyse market equilibrium and disequilibrium using demand analysis.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "market equilibrium",
+        "demand shifts",
+        "price adjustments"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Show how demand changes lead to new equilibrium through price adjustments.",
+      "markingGuide": "Explain equilibrium mechanism and disequilibrium adjustment."
+    },
+    {
+      "id": "l3ed24-q2b",
+      "number": "2(b)",
+      "text": "Comprehensive demand analysis with policy and real-world applications.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "demand analysis",
+        "market dynamics",
+        "policy implications"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Apply demand analysis to real markets and evaluate policy interventions.",
+      "markingGuide": "Sophisticated application of demand theory to complex situations."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

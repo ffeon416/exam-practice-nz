@@ -1,0 +1,28 @@
+{
+  "id": "l2-media-genre-2025",
+  "title": "Level 2 Media Studies — Media Genre 2025",
+  "level": 2,
+  "standard": "91251",
+  "year": 2025,
+  "subject": "media-studies",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "ms51-25-q1",
+      "number": "1",
+      "text": "Choose ONE media genre. Write an essay discussing the extent to which you agree or disagree with ONE of the following statements, in relation to an aspect of your chosen media genre.\n\nSTATEMENTS (Choose ONE):\n1. Changes in the audience are what drive changes in the media genre.\n2. The need for profit means that genres will take very few creative risks.\n3. A media genre must take on influences from other genre(s) to remain relevant.\n4. A genre is successful only when it reflects what audiences are thinking about at the time.\n5. As a genre evolves, its conventions will also evolve.\n\nYou should aim to write a concise essay of no more than 4-5 pages. The quality of your writing is more important than the length of your essay. Make sure you respond only to your chosen statement throughout your essay, and support your discussion with evidence from media text(s) and/or other sources, which may include your own production experience.\n\nYou must specify your chosen media genre and statement number on the planning page.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["genre-conventions", "genre-change", "audience-genre", "media-essay-writing"],
+      "answerType": "working",
+      "markingGuide": "This is a holistic essay marked on a scale from N0 to E8.\n\nAchievement (A3-A4): Demonstrate understanding by identifying and describing an aspect of a specific media genre using detailed supporting evidence from a range of media texts within the genre, and/or other sources. Use detail from at least TWO media texts within the genre to support the description (may contain factual inaccuracies or unacknowledged sources). Address the chosen statement throughout some (A3) or most (A4) of the essay. A4 may attempt to explain how and/or why the aspect has an impact on the media genre.\n\nMerit (M5-M6): Demonstrate in-depth understanding by giving reasoned explanations of an aspect of a specific media genre. A reasoned explanation involves a logical argument of how and/or why the aspect has an impact on the media genre, by responding to the chosen statement, using specific supporting evidence from a range of media texts within the genre, and secondary sources. The candidate does not need to include evidence of additional texts to achieve Merit if the explanation is integrated within the description. Focus on the genre, using relevant evidence from a range of media texts within the genre, and/or other sources such as reviews or critical media analysis (may contain some factual inaccuracies). Address the chosen statement throughout the essay. M6 explains in detail how and/or why the aspect has an impact on the media genre, using detailed and relevant evidence from a range of media texts within the genre, and/or other sources. M6 may attempt to examine implications of the aspect for the media genre.\n\nThe explanation could cover: how and/or why changes (e.g. development of sub-genre, changes in the use of features) in the media genre have occurred; how and/or why audience expectations and/or response to the media genre exist, or have developed; how and/or why commercial considerations influence the media genre.\n\nExcellence (E7-E8): Demonstrate critical understanding by examining the likely implications of an aspect of a specific media genre and drawing conclusions with supporting evidence from relevant secondary sources. Focus on the genre, using some carefully selected (E7) or carefully selected (E8) evidence from secondary sources, such as articles, media criticism, statistics, quotes from media creators, or media theory, to support the discussion. E7 responds to the chosen statement throughout the essay, with some nuance. E8 responds with nuance. E8 shows an awareness of the complexities of the aspect for the media genre, media producers, or the audience.\n\nThe examination can be stated as: a broad generalisation drawing a conclusion about an earlier explanation well supported by detail and evidence; a detailed comparison with other genres or media forms with new evidence; a conclusion that shows insight or understanding of the complexities within the aspect, with detail and evidence.\n\nExamples of genres include but are not limited to: teenage magazines (print), western movies (film), documentaries (film or television), soaps (television), breakfast shows (radio), social networking sites (internet).\n\nN0 = No response; no relevant evidence. N1 = Shows limited understanding of an aspect of the media genre; OR genre not apparent; OR specific examples from texts are lacking. N2 = Provides a limited description of an aspect of a media genre; OR does not address the chosen statement; OR provides some evidence, but not enough to support the description."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

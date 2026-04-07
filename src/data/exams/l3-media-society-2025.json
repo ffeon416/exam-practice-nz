@@ -1,0 +1,28 @@
+{
+  "id": "l3-media-society-2025",
+  "title": "Level 3 Media Studies — Genre & Society 2025",
+  "level": 3,
+  "standard": "91493",
+  "year": 2025,
+  "subject": "media-studies",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "ms93-25-q1",
+      "number": "1",
+      "text": "Choose ONE media genre and society. (Note: 'Society' refers to a community in a specific time and place, or the audience for a genre.)\n\nWrite an essay discussing the extent to which you agree with ONE of the statements below. Respond critically to the statement by evaluating the influence, impact, and wider significance of a relationship between your chosen media genre and society.\n\nSTATEMENTS (Choose ONE):\n1. An emerging* genre can reflect cultural change.\n2. For better or worse, genre shows us how society used to be.\n3. Genre echoes political ideologies.\n4. Social discourse** shapes genre.\n5. Genre peers into society's shadows.\n\n* emerging — becoming recognised\n** discourse — exchange of ideas\n\nYou should aim to write a concise essay of no more than 5-6 pages. The quality of your writing is more important than the length of your essay. Make sure you respond only to your chosen statement throughout your essay, and include relevant, specific supporting detail from a range of media texts.\n\nYou must specify your chosen media genre, society, and statement number on the planning page.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["genre-society-relationship", "genre-conventions", "media-essay-writing", "societal-impact"],
+      "answerType": "working",
+      "markingGuide": "This is a holistic essay marked on a scale from N0 to E8.\n\nAchievement (A3-A4): Demonstrate understanding by explaining a relationship between a media genre and society. A3 shows some understanding; A4 shows a solid understanding. Use some detailed (A3) or detailed (A4) evidence from a range of media texts to support the discussion. Address the chosen statement some of the time (A3 — may be only in the introduction and conclusion) or generally throughout the response (A4).\n\nMerit (M5-M6): Demonstrate in-depth understanding by analysing a relationship between a media genre and society by explaining its impact on the genre and/or society. An impact may be social, cultural, political, historical, economic, technological, or ideological. M5 shows a reasoned understanding; M6 shows an in-depth understanding. M5 explains the impact on the chosen genre and/or society; M6 explains in detail the impact on the chosen genre and/or society and attempts some evaluation. Focus on the genre, using some detailed (M5) or detailed (M6) evidence from a range of media texts and/or secondary sources, such as articles, media criticism, and/or theory, to support the discussion. Address the chosen statement throughout the response (M5) or throughout most of the response with some nuance (M6).\n\nExcellence (E7-E8): Demonstrate perceptive understanding by evaluating the impact of a relationship between a media genre and society on the genre and/or society. E7 shows a perceptive understanding by drawing convincing conclusions about the wider significance of the relationship. E8 shows a perceptive and engaging understanding by drawing convincing conclusions about the wider significance of the relationship. E7 evaluates the impact on the chosen genre and/or society (may include discussion of the extent of the impact of the relationship). E8 evaluates convincingly the impact on the chosen genre and/or society (may include discussion of the wider significance and/or complexities of the relationship). Focus on the genre, using some relevant, insightful (E7) or relevant, insightful (E8) detail from a range of primary and secondary sources, such as articles, media criticism, and/or theory, to clearly support the discussion. E7 interrogates the chosen statement throughout the response, with nuance. E8 interrogates the chosen statement, with nuance, throughout the response.\n\nN0 = No response; no relevant evidence."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

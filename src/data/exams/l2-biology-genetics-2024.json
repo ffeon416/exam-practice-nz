@@ -1,0 +1,153 @@
+{
+  "id": "l2-biology-genetics-2024",
+  "title": "Level 2 Biology — Genetic Variation and Change (2024)",
+  "level": 2,
+  "standard": "91157",
+  "year": 2024,
+  "subject": "biology",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "bg24-q1a",
+      "number": "1(a)",
+      "text": "Some domestic cats exhibit a complete dominance pattern in coat colour. The allele for black fur (B) is dominant over the allele for brown fur (b). The gene for tail length is not linked and is located on a different chromosome from the coat colour gene. The allele for long tails (L) is dominant to the allele for short tails (l).\n\nA cat that is homozygous for both black fur and long tail is crossed with a cat that is homozygous for both brown fur and short tail.\n\nSpecify the genotype of individuals in the F1 generation produced by this cross.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "dominance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "BbLl",
+      "markingGuide": "Achieved: Identifies F1 genotype as BbLl."
+    },
+    {
+      "id": "bg24-q1b",
+      "number": "1(b)",
+      "text": "Use the Punnett square below to show:\n- the F1 gametes resulting from the cross and\n- the possible genotypes within the F2 generation of cats.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "punnett-square"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "F1 gametes: BL, Bl, bL, bl.",
+      "markingGuide": "Achieved: Punnett square completed with correct gametes for F2."
+    },
+    {
+      "id": "bg24-q1c",
+      "number": "1(c)",
+      "text": "Give the expected phenotype ratio resulting from this cross, indicating the phenotype each value represents.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "phenotype-ratio"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "9:3:3:1 — 9 Black long : 3 Black short : 3 Brown long : 1 Brown short.",
+      "markingGuide": "Achieved: Phenotype ratio (with correct appearance/description): 9 black long : 3 black short : 3 brown long : 1 brown short."
+    },
+    {
+      "id": "bg24-q1d",
+      "number": "1(d)",
+      "text": "Some cats have fur colour that is an example of co-dominance AND sex linkage. In cats with orange fur, phaeomelanin (orange pigment) completely replaces eumelanin (black or brown pigment). This gene is located on the X chromosome. The orange fur allele is (F) and is co-dominant with non-orange (f). Males can typically only be orange or non-orange (black, brown, etc.).\n\nSex determination in cats is the same as humans.\n\nFemale cats can have orange fur, fur without any orange (black, brown, etc.), or have tortoiseshell fur, in which some parts of the fur are orange and others are non-orange.\n\nSome cat diseases are known to be sex-linked as well. Male cats have been found to be more susceptible to recessive, sex-linked diseases than female cats.\n\nEvaluate the inheritance patterns of cats to include complete dominance, co-dominance, and sex-linkage.\n\nIn your answer, refer to the examples above and include a discussion of:\n- the two patterns of dominance\n- why only female cats can have tortoiseshell fur colour\n- the similarities and differences of recessive and dominant sex-linked genes.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "co-dominance",
+        "sex-linkage",
+        "inheritance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Complete dominance: one allele completely masks the other (e.g.",
+      "markingGuide": "Achieved (A3-A4): Describes complete dominance; co-dominance; sex-linked gene; genotype of male and/or female cat for tortoiseshell; that females have a homologous pair of sex chromosomes while males have XX and XY. Merit (M5-M6): Explains why female cats can have tortoiseshell-colour fur; why male cats can't have tortoiseshell (colour fur); only orange or non-orange; the difference between dominant and recessive sex-linked genes; why male cats are more likely to inherit a sex-linked disease. Excellence (E7-E8): Discusses the co-dominant and complete dominance inheritance patterns for fur colour in male and female cats; a dominant and recessive sex-linked genes, with reference to why males inherit recessive diseases more frequently than females."
+    },
+    {
+      "id": "bg24-q2",
+      "number": "2",
+      "text": "The flightless takahe (Porphyrio hochstetteri) has special cultural, spiritual, and traditional significance to Ngai Tahu, the iwi from New Zealand's South Island. Ngai Tahu value takahe as a taonga (treasure), and they continue to act as kaitiaki (guardians) of the takahe, working alongside the Department of Conservation / Te Papa Atawhai (DOC).\n\nGenetic analyses and fossil records show that takahe were restricted to isolated areas in the north-western South Island at the height of the last ice age, approximately 29 000 - 19 000 years ago. As the climate warmed, takahe shifted their distribution, migrating to eastern and southern regions. The takahe in the north-west South Island became locally extinct. Pressures from hunting, introduced predators, habitat destruction, and competition for food led to their decline and an extreme genetic bottleneck.\n\nAfter being presumed extinct for nearly 50 years, the takahe was famously rediscovered in 1948. The rediscovery of the takahe led to New Zealand's longest-running, endangered species programme. For more than 70 years, measures to protect and increase numbers of takahe have included predator control, captive breeding, and island translocations (moving small populations of birds to offshore islands).\n\nOngoing genetic analyses have found that introduced island populations of takahe have significantly lower levels of genetic variation than the main Fiordland population. The island population also has significantly different gene frequencies, with some alleles becoming fixed (with no variability in the gene pools) on the island sanctuaries.\n\nDiscuss the decline in genetic diversity in the takahe, with reference to the information provided.\n\nIn your answer, include discussion of:\n- the terms population bottleneck, founder effect, and genetic drift\n- how the genetic diversity of the gene pools of the takahe have been impacted by these processes\n- why the reduced genetic diversity from island translocation is a problem for the takahe population and how this may be improved in the future.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetic-variation",
+        "population-genetics",
+        "genetic-drift",
+        "bottleneck",
+        "founder-effect"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Population bottleneck: a drastic reduction in population size reducing genetic variation.",
+      "markingGuide": "Achieved (A3-A4): Describes population bottleneck; founder effect; genetic drift; gene pool; genetic diversity; a problem arising from reduced genetic diversity/reduced phenotype/inability to adapt to changing environments; a method of improvement for the future. Merit (M5-M6): Explains how genetic diversity is impacted by population bottleneck; how genetic diversity is impacted by founder effect; how genetic diversity is impacted by genetic drift; why the island populations are suffering the consequences of reduced/less-variable gene pools and inbreeding; a possible (realistic) way to improve the situation in the future. Excellence (E7-E8): Discusses the impacts of at least TWO of the three processes (bottleneck, founder effect, genetic drift) on genetic diversity, making reference to the information provided about the takahe population; the problems arising due to reduced genetic diversity, and a possible way that conservation could halt the decline and improve genetic diversity in the future."
+    },
+    {
+      "id": "bg24-q3a",
+      "number": "3(a)",
+      "text": "In 1907, Erwin Baur carried out research on the snapdragon plant, Antirrhinum majus, and studied the condition known as 'aurea', in which some plants produced golden leaves instead of green leaves. In this plant, the golden-leaf allele (G) is dominant to the green-leaf allele (g). When crossed with its own type (aurea x aurea), Baur observed a 2:1 phenotype ratio of golden:green-leafed plants, instead of the expected 3:1 ratio in the offspring.\n\nBy carrying out a number of test crosses, Baur concluded that all of the surviving golden-leafed plants were heterozygous. Homozygous dominant (GG) aurea plants lacked normal chlorophyll development and never survived.\n\nBaur is now recognised as the first scientist to discover lethal alleles in a plant, although they had already been recognised in animals, including humans.\n\nDescribe what is meant by the term lethal allele.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "lethal-alleles"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A lethal allele is a version of a gene that, in some conditions, may prevent development (i.e.",
+      "markingGuide": "Achieved: Describes a lethal allele correctly."
+    },
+    {
+      "id": "bg24-q3b",
+      "number": "3(b)",
+      "text": "In the space below, show the Punnett square for a test cross between a green-leaf plant and a surviving, golden-leaf plant.\n\nProvide the genotype ratio and phenotype ratio.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "punnett-square",
+        "lethal-alleles"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91157-2024-q3b.png",
+      "expectedAnswer": "Cross: Gg x gg.",
+      "markingGuide": "Achieved: Punnett square is correctly completed. Both ratios are correct. Genotype ratio 1:1 (Gg:gg). Phenotype ratio 1:1 (golden:green)."
+    },
+    {
+      "id": "bg24-q3c",
+      "number": "3(c)",
+      "text": "This lethal allele gives a dominant, non-lethal phenotype in the heterozygote. However, we say that the lethality (ability to prevent survival) is recessive in the snapdragon, even though the colour phenotype is dominant.\n\nUsing the information provided, discuss why this snapdragon allele must be recessive for lethality and why dominant lethal alleles are rare but can be found in some adult populations, including humans.\n\nIn your answer, include discussion of:\n- the terms and meaning of dominant and recessive alleles\n- why the snapdragon's allele must be recessive for lethality and how the test cross shows this\n- why dominant lethal alleles are rarer than recessive ones, but can sometimes exist in adult organisms.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "lethal-alleles",
+        "dominance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dominant allele: always expressed when present, masks the recessive allele.",
+      "markingGuide": "Achieved (A3-A4): Describes BOTH dominant and recessive alleles; that heterozygous individuals do not die; that the lethality must come later in life. Merit (M5-M6): Explains how lethal alleles affect the expected ratios of individual phenotypes due to the affected individuals not surviving; how the test cross shows that the lethal allele must be recessive even though the colour is dominant; how a dominant lethal allele can exist in an adult; how a dominant lethal allele can be passed on, as it is expressed after reproduction has occurred. Excellence (E7-E8): Discusses the inheritance of leaf colour for the snapdragon, using Punnett squares/ratios to support the discussion of dominant and recessive lethal alleles; comparing the rarity of dominant lethal alleles to recessive alleles and their existence in adult organisms."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

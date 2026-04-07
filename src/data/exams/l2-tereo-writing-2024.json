@@ -1,0 +1,28 @@
+{
+  "id": "l2-tereo-writing-2024",
+  "title": "Level 2 Te Reo Māori — Tuhituhi (Writing) 2024",
+  "level": 2,
+  "standard": "91287",
+  "year": 2024,
+  "subject": "te-reo",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "trm287-24-q1",
+      "number": "1",
+      "text": "Produce a piece of writing in te reo Māori (at least 250 words) on ONE of the following topics. Include a wide range of vocabulary and language structures. Include your own thoughts, ideas, or opinions.\n\nTopic 1: Kua kite koe i te rātaka o tō kuia/koroua, tekau mā ono tōna pakeke. Kua tuhia mai he kōrero mō ā rātou mahi pārekareka, ngākaunui ana ki a ia. Ko tāu mahi te tuhi tētahi kōrero paki mō ētahi āhuatanga i mahia e rātou.\nYou have just found the diary your kuia/koroua wrote as a 16-year-old. Write one of the diary entries that you read that talks about what they did as a teenager.\n\nTopic 2: He hoa hou tāu nō Hapani. E hiahia ana koe kia whakaariari i tō hapori ki a ia. Tēnā, tuhia tētahi mahere mātaki whenua. Ka haere kōrua ki hea, ā, he aha ai?\nYou have a new friend from Japan. You are going to show them around your local area. Outline a plan of where you would like to go. Where will you go and why?\n\nTopic 3: E kimi ana koe i tētahi mahi. Tuhia tō kōtaha e whakamārama ana ki ngā kaiwhakawhiwhi mahi, ko koe te kaimahi e tika ana mō te tūranga. Include: he paku mihi me tō pepeha; ō pukenga whaitake; ō āhuatanga ngākau pai; ngā mahi ngahau, me ngā mahi hākinakina.\nYou are looking for a part time job. Write a short profile about yourself to give to possible employers that explains why you would be a good employee.\n\nTopic 4: Tuhia mai tētahi reta ki te Tāhuhu o te Mātauranga e pā ana ki ō whakaaro mō te ture hou; \"whakakorengia ngā waea pūkoro\". Whakamāramatia mai ngā mea pai, ngā mea hē o te ture hou.\nWrite a letter to the Ministry of Education explaining how you feel about the new \"phone away for the day\" rule. Explain the benefits and downsides of the rule.\n\nTopic 5: Kua mahi tō tino hoa i ētahi mahi hē ki te kura. Tuhia mai he karere muna ki a ia hei matapaki i ō āwangawanga me te tuku tohutohu.\nYour friend has been making bad choices at school recently. Write them a private message to discuss your concerns and to give your advice.\n\nTopic 6: Kua whiwhi tō rōpū Kapa Haka he tūnga kia haere ki te whakataetae ā-motu o tēnei tau. Whakamāramatia tō mahi/tō haerenga ki te whakataetae. He aha hoki ngā hua o tēnei haerenga māu?\nYour school Kapa Haka Group gained a spot to attend this year's national competition. Write about your group's journey to the nationals. What benefits did you gain from this experience?",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["tuhituhi-writing-l2", "reo-expression-l2"],
+      "answerType": "working",
+      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 250 words in te reo Māori only. Use the planning space to brainstorm your answer.\n\nAchieved (Paetae 3-4): Writes in te reo Māori on one of the topics. Writing is understandable and communication of ideas is mostly achieved. Basic evidence from up to Level 7 of the curriculum; evidence may be minimal. Contains errors; there may be a few words in English for unknown translations, but these are infrequent. Simplistic ideas with few details or opinions.\n\nMerit (Kaiaka 5-6): Writes in te reo Māori on one of the topics and adheres to the specific instructions. Writing is understandable with effective communication of ideas. Uses complex evidence from up to Level 7 of the curriculum. Contains few errors. Response shows depth and provides detail and opinions regularly.\n\nExcellence (Kairangi 7-8): Comprehensive response in te reo Māori that shows a thorough understanding of the instructions. Communication of ideas is extensive. Uses sophisticated evidence from Level 7 of the curriculum. Contains minimal errors. Well-crafted response that is convincing; reasons and opinions are effectively placed and validate the candidate's ideas.\n\nSample evidence (Topic 2 — Tāku hoa mai Hapani): E pīrangi ana tētahi o ōku hoa ki te ako i te reo rangatira o tēnei whenua. He whakaaro mīharo rawa tērā ki ahau nei, nō te mea he ātaahua rawa tō tātou reo. Ahakoa he Pākehā tōku hoa, e ngākau nui ana ia ki te ao Māori. Ki ahau nei, he maha ngā mea hei mahi ki te ako i te reo, pērā i te rapu i tētahi karaehe reo Māori, i te parakitihi i te reo Māori, me te mea nui: te kōrero i te reo Māori..."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

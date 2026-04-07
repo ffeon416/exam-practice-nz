@@ -1,0 +1,167 @@
+{
+  "id": "l1-aghort-sustainability-2025",
+  "title": "Level 1 AgHort Sustainability — 2025",
+  "level": 1,
+  "standard": "91931",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "91931-25-q1a",
+      "number": "1(a)",
+      "text": "\"Many of our rivers, lakes, and groundwaters have been degraded by primary production activities.\" — Ministry for the Environment: Our freshwater 2020\n\nName a primary production system.\n\nComplete the table below, describing:\n- two ways your named production system has had a **negative** impact on waterways\n- how each impact has reduced the overall water quality.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Name a production system (e.g.",
+      "markingGuide": "Achieved: Identifies two ways a production system has a negative impact on waterways. e.g. Using chemical sprays, high stock numbers increase nutrient levels (nitrogen/phosphorus) via run-off leading to algae blooms (eutrophication) which decrease oxygen; clearing land for pastoral farming causes erosion, sediment enters waterways reducing clarity; high sediment loads can cover gravel and cobbles, affecting fish habitat."
+    },
+    {
+      "id": "91931-25-q1b",
+      "number": "1(b)",
+      "text": "The photos below show a range of management practices that have been used by farmers to improve New Zealand water quality:\n- Planting poplar poles\n- Biological control of pests and diseases\n- Fencing waterways\n- Planting pine trees\n\nChoose one management practice from the photos above that could be used on your chosen primary production system.\n\nExplain how this practice is carried out, and how it has a positive impact on water quality.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "imageUrl": "/images/exams/91931-2025-q1b.png",
+      "expectedAnswer": "Choose one practice (e.g.",
+      "markingGuide": "Merit: Describes how a management practice is carried out AND explains how it has a positive impact on water quality. Planting poplar poles: trees planted on steepest slopes, roots hold soil together, decrease erosion through waterways, improve water clarity and decrease phosphorus. Fencing waterways: stops stock entering stream, limits nutrients/effluent/soil entering water, allows plants to grow as barrier to filter sediment. Biological control: releases natural predators (e.g. cinnabar moth for ragwort), reduces chemical spray use near waterways. Planting pine trees: provides shade lowering temperature and oxygen levels, stabilises soil."
+    },
+    {
+      "id": "91931-25-q1c",
+      "number": "1(c)",
+      "text": "Name an alternative management practice that could be used on your primary production system to improve water quality.\n\nJustify which management practice is more effective at ensuring the long-term sustainability of your named primary production system.\n\nIn your answer consider:\n- how the alternative management practice is carried out\n- how both management practices improve water quality.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Name an alternative practice and justify",
+      "markingGuide": "Achieved: Describes how a management practice impacts water quality. Merit: Explains how management practices positively AND negatively impact water quality. Excellence: Justifies the use of a management practice to improve water quality by identifying strengths and weaknesses.\n\nRiparian planting strengths: reduces erosion, maintains water clarity, provides shade lowering temperature and increasing oxygen. Fencing waterways strengths: stops stock entering stream, limits direct nutrient/effluent access, allows plants to grow as barrier. Fencing weaknesses: plants that grow are not specific for filtering, no shade, nutrients/pathogens/soil can still enter waterways. N0 = No response; no relevant evidence."
+    },
+    {
+      "id": "91931-25-q2a",
+      "number": "2(a)",
+      "text": "Inorganic fertilisers, such as potash or superphosphate, are used to increase plant growth.\n\nDescribe the negative impact that inorganic fertiliser can have on:\n\n**Air:**\n\n**Water:**\n\n**Biodiversity:**",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "imageUrl": "/images/exams/91931-2025-q2.png",
+      "expectedAnswer": "Air: Nitrogen-based fertilisers like urea can release nitrous oxide, a greenhouse gas.",
+      "markingGuide": "Achieved: Describes a negative impact of inorganic fertiliser on air, water, OR biodiversity. Air: nitrogen-based fertilisers like urea release nitrous oxide (greenhouse gas). Water: nitrogen and phosphorus from fertilisers enter waterways encouraging algae growth (eutrophication); algae removes oxygen making waterways less habitable. Biodiversity: excess nutrients reduce habitat quality for native species."
+    },
+    {
+      "id": "91931-25-q2b",
+      "number": "2(b)",
+      "text": "Soil tests are often carried out before fertiliser is applied.\n\nHow do soil tests allow growers to reduce the potential negative environmental impacts of fertiliser use?",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Soil tests identify the soil pH and what nutrients are currently in the soil",
+      "markingGuide": "Merit: Describes how soil tests allow growers to reduce negative environmental impacts. Soil tests identify soil pH and current nutrient levels. Growers can then apply only the fertiliser needed in correct amounts, reducing excess run-off of nutrients into waterways and reducing greenhouse gas emissions from over-application."
+    },
+    {
+      "id": "91931-25-q2c",
+      "number": "2(c)",
+      "text": "Name an environmentally sustainable alternative to inorganic fertiliser application.\n\nJustify why your chosen method is more environmentally sustainable by comparing it to fertiliser application.\n\nIn your answer consider:\n- strengths and weaknesses of both methods\n- impact on the air, water, or soil quality\n- long-term sustainability.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Name an alternative (e.g.",
+      "markingGuide": "Achieved: Shows minimal understanding of sustainability when using fertiliser. Merit: Describes how fertiliser has a negative impact OR how soil testing or an alternative to fertiliser can have a positive impact on sustainability. Excellence: Fully justifies the use of a management practice by explaining in detail how it improves sustainability, with reference to long-term environmental sustainability.\n\nAlternatives include: effluent, compost, crop rotation, blood and bone. Effluent advantages: applied at lower concentrations, reduces excess nutrient run-off, organic matter feeds microorganisms improving soil. Effluent disadvantages: high nitrogen from cattle urine risks nitrate leaching; E. coli pathogen risk if applied incorrectly. Compost advantages: slow-release nutrients, improves soil structure. Fertiliser advantages: precise nutrient control, fast-acting. Fertiliser disadvantages: greenhouse gas emissions, waterway contamination risk."
+    },
+    {
+      "id": "91931-25-q3a",
+      "number": "3(a)",
+      "text": "Cultivation is used to prepare the soil before planting a crop.\n\nHow can cultivation have a negative impact on soil?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Cultivation can reduce soil structure by breaking up soil aggregates, making finer soils more...",
+      "markingGuide": "Achieved: Describes a way cultivation can have a negative impact on soil. Reduces soil structure - finer soils are more likely to be blown away by wind or washed off by water (erosion). Over-cultivation compacts soils, reducing ability to drain and hold air. Exposes organic matter to decomposition. Disrupts soil organisms and earthworm habitat."
+    },
+    {
+      "id": "91931-25-q3b",
+      "number": "3(b)",
+      "text": "Explain how cultivating in a sustainable way has a positive impact on soil.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Sustainable cultivation allows soil to continue to be able to drain freely and support plant growth",
+      "markingGuide": "Merit: Describes how cultivating sustainably has a positive impact on soil, explaining methods that reduce negative impacts. Using lighter machinery/wider tyres reduces compaction; maintaining soil structure helps drainage; direct drilling into existing crop protects soil from erosion; reducing cultivation frequency allows organic matter to build up; more air in soil supports microorganism activity and nutrient cycling."
+    },
+    {
+      "id": "91931-25-q3c",
+      "number": "3(c)",
+      "text": "Direct drilling (sowing new crops into an existing crop or pasture) can improve soil sustainability.\n\nName one other management practice used to reduce the negative impacts of cultivation.\n\nComparing your chosen management practice with direct drilling, which method is more effective at ensuring soils remain sustainable?\n\nIn your answer consider:\n- how each method reduces the negative impacts of cultivation on soil\n- short- and long-term sustainability of soils.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Name a practice (e.g.",
+      "markingGuide": "Achieved: Describes how cultivation OR an alternative method reduces negative impacts. Merit: Explains how both methods reduce negative impacts of cultivation. Excellence: Justifies the use of one method by comparing both methods in detail with reference to short- and long-term soil sustainability.\n\nDirect drilling strengths: soil not exposed to erosion, maintains structure, protects organisms, less fuel/machinery use. Direct drilling weaknesses: may not be suitable for all soil types. Crop rotation strengths: different nutrient demands reduce depletion, legumes fix nitrogen, reduces pest/disease cycles. Crop rotation weaknesses: still requires cultivation to plant new crops, meaning negative impacts are not completely removed. N0 = No response; no relevant evidence."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

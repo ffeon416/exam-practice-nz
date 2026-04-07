@@ -1,0 +1,28 @@
+{
+  "id": "l3-english-visual-2023",
+  "title": "Level 3 English — Visual/Oral Text(s) 2023",
+  "level": 3,
+  "standard": "91473",
+  "year": 2023,
+  "subject": "english",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "eng73-23-q1",
+      "number": "1",
+      "text": "Write an essay on at least ONE visual or oral text that you have studied, in response to ONE of the statements below. Discuss the extent to which you agree with your chosen statement. Respond critically to the statement by making a close analysis of the text(s).\n\nSTATEMENTS (Choose ONE):\n1. Great texts skilfully combine sound and vision to deliver important truths.\n2. Villains are convincing because they reveal both dark and light sides.\n3. The treatment of time in unusual ways offers us unexpected insights into our world.\n4. A skilful director/creator uses challenging ideas to change the audience's mind.\n5. Complex relationships between characters convey the director/creator's purpose.\n6. Important ideas are revealed through the details of settings.\n7. Successful texts have one key moment that unsettles the audience.\n8. The way characters are challenged by their settings encourages us to examine our own world.\n\nYou should aim to write a concise essay of no more than 5-6 pages in length. The quality of your writing is more important than the length of your essay.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "visual-text-l3", "critical-response"],
+      "answerType": "working",
+      "markingGuide": "ACHIEVEMENT (3-4 marks): Present a structured response following essay conventions (some clumsiness in style/organisation allowed). Develop a relevant critical argument that provides an evaluative response to the chosen statement, showing engagement with the text(s). Make and evaluate a range of relevant points showing understanding of the aspect(s) specified in the statement. Include specific and relevant details from the text(s) to support the argument. For visual/oral texts, reference specific techniques such as camera angles, lighting, sound design, mise-en-scene, dialogue, or performance.\n\nMERIT (5-6 marks): Present a structured response following essay conventions. Develop a convincing critical argument showing familiarity and engagement with the text(s). Make and evaluate relevant points showing convincing understanding of the aspect(s) specified. Begin to weave specific details from the text(s) into the response to effectively support the argument. Potentially link the argument to matters beyond the text(s). Demonstrate understanding of how visual/oral techniques create meaning.\n\nEXCELLENCE (7-8 marks): Present a cohesive and articulate response following essay conventions, showing some originality of expression. Develop a sophisticated and insightful or original critical argument showing familiarity with and appreciation of the text(s). Make and evaluate relevant points showing perceptive understanding of the aspect(s) specified. Weave specific and judiciously chosen relevant details from the text(s) into the response to effectively support and expand the argument. Link the argument to other aspects of the text or other contexts such as human experience, society, and the wider world."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

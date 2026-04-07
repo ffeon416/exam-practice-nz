@@ -1,0 +1,449 @@
+{
+  "id": "caa-numeracy-2025",
+  "title": "CAA Numeracy — 2025",
+  "level": 0,
+  "standard": "32406",
+  "year": 2025,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "totalMarks": 30,
+  "questions": [
+    {
+      "id": "caa25-q1a",
+      "number": "1(a)",
+      "text": "Mum will be on crutches for three weeks. She says, \"Three weeks is about 30,000 minutes.\"\n\nIs she right? Use time calculations to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "time-calculations"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Yes — 3 weeks = 21 days = 504 hours = about 30,000 minutes",
+      "markingGuide": "Student must show calculation: 3 weeks x 7 = 21 days, 21 x 24 = 504 hours, 504 x 60 = 30,240 minutes. Then state that 30,240 is about 30,000 so she is right. Accept rounding explanations."
+    },
+    {
+      "id": "caa25-q1b",
+      "number": "1(b)",
+      "text": "Mum's crutches need to be set so that her arm is bent at the correct angle.\n\n[See diagram: a protractor showing the correct angle for the crutch.]\n\nHow many degrees is the correct angle?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "estimation"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "145",
+      "markingGuide": "Student reads the angle from the protractor diagram. Accept 143–147 degrees.",
+      "image": "/images/exams/32406-2025-q1b.png"
+    },
+    {
+      "id": "caa25-q1c",
+      "number": "1(c)",
+      "text": "A friend takes Mum's dog for a walk. The dashed line on the map shows the path they take. The X marks about 400 metres along the path from the start of the walk.\n\n[See diagram: a map with a walking path and scale options.]\n\nTick the letter that shows the correct scale for this map.\n\nA, B, C, D, or E",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "estimation",
+        "unit-conversion"
+      ],
+      "answerType": "multi-choice",
+      "options": ["A", "B", "C", "D", "E"],
+      "expectedAnswer": "C",
+      "markingGuide": "Student must identify the correct map scale by using the X mark at 400 m to estimate which scale bar matches. The correct answer is C.",
+      "image": "/images/exams/32406-2025-q1c.png"
+    },
+    {
+      "id": "caa25-q1d",
+      "number": "1(d)",
+      "text": "Mum needs to have a garden box filled with dirt to grow vegetables.\n\n[See diagram: a garden box with dimensions shown.]\n\nHow many cubic metres (m³) of dirt are needed?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "spatial-reasoning",
+        "multiplication"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "0.6",
+      "markingGuide": "Student reads the dimensions from the diagram and calculates the volume. Dimensions are approximately 2 m x 1 m x 0.3 m = 0.6 m³. Accept reasonable answers based on diagram dimensions.",
+      "image": "/images/exams/32406-2025-q1d.png"
+    },
+    {
+      "id": "caa25-q1e",
+      "number": "1(e)",
+      "text": "Dad puts 7 kilograms of clothes into the washing machine. After washing, the wet clothes weigh 1.8 times as much as the dry clothes did.\n\nHow much do the wet clothes weigh, in kilograms?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "multiplication"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "12.6",
+      "markingGuide": "7 x 1.8 = 12.6 kg. Award mark for correct answer."
+    },
+    {
+      "id": "caa25-q1f",
+      "number": "1(f)",
+      "text": "Mum notices that the 240-litre rubbish bin is ⅔ full.\n\nHow much space, in litres, is left in the bin?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "fractions"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "80",
+      "markingGuide": "If the bin is 2/3 full, then 1/3 is empty. 240 ÷ 3 = 80 litres left. Award mark for correct answer."
+    },
+    {
+      "id": "caa25-q2a",
+      "number": "2(a)",
+      "text": "Jackets come in different sizes.\n\n[See table: Jacket sizes with Chest (cm), Waist (cm), and Sleeve (cm) measurements for X-Small through X-Large.]\n\nJack's arm (sleeve length) measures 91 cm, and his chest measures 110 cm.\n\nJack thinks that a size 'Large' will be the best jacket size to buy. Do you agree? Use measurements from the table to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "tables",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "No — chest fits Large but sleeve fits X-Large, so he needs X-Large",
+      "markingGuide": "Student must compare Jack's measurements against the table. Chest 110 fits Large (106–111) and X-Large (112–122). Sleeve 91 fits X-Large (91–93) only, not Large (89–90). Therefore X-Large is better. Accept answers that correctly use data from the table to justify why Large is not the best fit.",
+      "image": "/images/exams/32406-2025-q2a.png"
+    },
+    {
+      "id": "caa25-q2b",
+      "number": "2(b)",
+      "text": "The price of this jacket is usually $189. On sale, you get 25% off.\n\nWhat is the sale price of the jacket?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "percentages"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "141.75",
+      "markingGuide": "25% of $189 = $47.25. Sale price = $189 – $47.25 = $141.75. Accept $141.75."
+    },
+    {
+      "id": "caa25-q2c",
+      "number": "2(c)",
+      "text": "Sometimes, jackets have a temperature-range guide.\n\n[See diagram: a jacket temperature-range guide showing different jacket weights and their temperature ranges.]\n\nTick the temperature range that a medium-weight jacket is made for.\n\n(i) 10 °C to 20 °C\n(ii) −1 °C to 10 °C\n(iii) −6 °C to −1 °C\n(iv) −20 °C to −6 °C\n(v) −30 °C to −20 °C",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation"
+      ],
+      "answerType": "multi-choice",
+      "options": ["(i) 10 °C to 20 °C", "(ii) −1 °C to 10 °C", "(iii) −6 °C to −1 °C", "(iv) −20 °C to −6 °C", "(v) −30 °C to −20 °C"],
+      "expectedAnswer": "(ii) −1 °C to 10 °C",
+      "markingGuide": "Student reads the temperature-range guide to find the range for a medium-weight jacket. The correct answer is (ii) −1 °C to 10 °C.",
+      "image": "/images/exams/32406-2025-q2c.png"
+    },
+    {
+      "id": "caa25-q2d",
+      "number": "2(d)",
+      "text": "A jacket keeps you warmer if it has a higher fill quality (FQ). Here are the FQs, weights, and prices of three jackets.\n\n[See diagram: three jacket tags showing FQ, weight, and price for each jacket.]\n\nIs it true to say \"Jackets with high FQ cost more, but weigh less, than low-FQ jackets\"? Use numbers from any two jacket tags to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "data-interpretation",
+        "tables"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Yes — higher FQ jacket costs more and weighs less",
+      "markingGuide": "Student must compare data from two jacket tags and use specific numbers (FQ, weight, and/or price) to support or refute the claim. Accept any correct comparison with supporting numbers.",
+      "image": "/images/exams/32406-2025-q2d.png"
+    },
+    {
+      "id": "caa25-q2e",
+      "number": "2(e)",
+      "text": "While testing a jacket, the inside temperature of the jacket was measured at 15.1 °C. The outside temperature was measured at −2.8 °C.\n\nWhat is the difference between 15.1 °C and −2.8 °C?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "estimation"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "17.9",
+      "markingGuide": "15.1 – (−2.8) = 15.1 + 2.8 = 17.9 °C. Award mark for 17.9."
+    },
+    {
+      "id": "caa25-q2f",
+      "number": "2(f)",
+      "text": "The graph below shows how many jackets are sold at a shop during 2023 and 2024.\n\n[See graph: a line graph showing number of jackets sold each month from Jan 2023 to Dec 2024.]\n\nNote: June, July, and August are the coldest months. December, January, and February are the hottest months.\n\n\"More jackets are sold when the weather is cold than when it is hot.\"\n\nDo you agree? Use information from the graph to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Yes — sales peak in cold months (Jun-Aug) and drop in summer",
+      "markingGuide": "Student must refer to specific data from the graph to support their answer. They should identify that cold months (Jun–Aug) show higher sales and hot months (Dec–Feb) show lower sales, using approximate numbers from the graph.",
+      "image": "/images/exams/32406-2025-q2f.png"
+    },
+    {
+      "id": "caa25-q3a",
+      "number": "3(a)",
+      "text": "You want to shop on a Saturday any time after 12 p.m. You like a supermarket with lots of people in it.\n\n[See diagram: popular times bar charts for Supersave and Pricemart showing customer traffic by time of day on Saturday.]\n\nWhich supermarket should you choose, Supersave or Pricemart, and what time should you go? Use information from the graphs to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The supermarket with the highest bars after 12 p.m. on Saturday",
+      "markingGuide": "Student must name a supermarket and a time after 12 p.m., and use the bar chart data to justify their choice by referring to the height of the bars (popularity) in the afternoon period.",
+      "image": "/images/exams/32406-2025-q3a.png"
+    },
+    {
+      "id": "caa25-q3b",
+      "number": "3(b)",
+      "text": "The price of bananas is $3.29 per kilogram.\n\nHow much will it cost for a bunch of bananas that weighs 685 grams? Round your answer to the nearest cent.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "multiplication",
+        "unit-conversion"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "2.25",
+      "markingGuide": "685 g = 0.685 kg. 0.685 x $3.29 = $2.25365, rounded to $2.25. Award mark for $2.25."
+    },
+    {
+      "id": "caa25-q3c",
+      "number": "3(c)",
+      "text": "A line of five supermarket trolleys is 192 centimetres long. A line of three supermarket trolleys is 144 centimetres long. Notice how each trolley fits inside the one in front.\n\n[See diagram: images showing nested trolleys.]\n\nWhen one extra trolley is added to either line, how much does the total length of the line increase by? Write your answer in centimetres.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "patterns"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "24",
+      "markingGuide": "The difference between 5 trolleys (192 cm) and 3 trolleys (144 cm) is 48 cm for 2 extra trolleys. So each extra trolley adds 48 ÷ 2 = 24 cm. Award mark for 24 cm.",
+      "image": "/images/exams/32406-2025-q3c.png"
+    },
+    {
+      "id": "caa25-q3d",
+      "number": "3(d)",
+      "text": "A 1-kilogram block of cheese costs $13.79, a 500-gram block of the same cheese costs $8.19, and a 250-gram block of the same cheese costs $6.19.\n\n[See image: three blocks of Mainland Edam cheese with price tags.]\n\nWhich block of cheese is the cheapest per 100 grams? Use the weights and prices to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "rates",
+        "division"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The 1 kg block — $1.38 per 100 g vs $1.64 and $1.70",
+      "markingGuide": "Student must calculate the price per 100 g for at least two blocks and identify the 1 kg block as cheapest. 1 kg = $1.38/100 g, 500 g = $1.64/100 g, 250 g = $2.48/100 g.",
+      "image": "/images/exams/32406-2025-q3d.png"
+    },
+    {
+      "id": "caa25-q3e",
+      "number": "3(e)",
+      "text": "The image below shows a Cadbury Favourites packet.\n\n[See diagram: a Favourites box and three possible nets (flat patterns).]\n\nTick the net (flat pattern) that would fold to make the Favourites packet.\n\n(i), (ii), or (iii)",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "spatial-reasoning"
+      ],
+      "answerType": "multi-choice",
+      "options": ["(i)", "(ii)", "(iii)"],
+      "expectedAnswer": "(i)",
+      "markingGuide": "Student must identify which net folds into the shape of the Favourites box. The correct answer is (i).",
+      "image": "/images/exams/32406-2025-q3e.png"
+    },
+    {
+      "id": "caa25-q3f",
+      "number": "3(f)",
+      "text": "The container shown below holds 900 grams of baby formula. You can make one feed for a baby from two scoops of formula mixed with water. Two scoops of formula weigh 16 grams in total.\n\nHow many feeds can be made from the 900 gram container?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "division"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "56",
+      "markingGuide": "Each feed uses 16 grams. 900 ÷ 16 = 56.25. Since you can't make a partial feed, the answer is 56 feeds. Award mark for 56.",
+      "image": "/images/exams/32406-2025-q3f.png"
+    },
+    {
+      "id": "caa25-q4a",
+      "number": "4(a)",
+      "text": "The beat in music is made up of notes of different lengths.\n\nCrotchet = 1 beat, Quaver = 1/2 beat, Semiquaver = 1/4 beat.\n\n[See diagram: reference showing note values, and four sets of notes (i)–(iv).]\n\nTick the set of notes that adds together to make a total of four beats.\n\n(i), (ii), (iii), or (iv)",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "fractions"
+      ],
+      "answerType": "multi-choice",
+      "options": ["(i)", "(ii)", "(iii)", "(iv)"],
+      "expectedAnswer": "(iii)",
+      "markingGuide": "Student must count the beat values of each note in each set and find the one that totals exactly 4 beats. The correct answer is (iii).",
+      "image": "/images/exams/32406-2025-q4a.png"
+    },
+    {
+      "id": "caa25-q4b",
+      "number": "4(b)",
+      "text": "This is a famous album cover. The cover has a lot of mirror symmetry.\n\n[See diagram: album cover image.]\n\nLook carefully at the cover. From the list below, tick the TWO parts of the picture that have mirror symmetry.\n\n(i) Eyes\n(ii) Trees\n(iii) Sky\n(iv) Building\n(v) Noses",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "symmetry"
+      ],
+      "answerType": "multi-choice",
+      "options": ["(i) Eyes", "(ii) Trees", "(iii) Sky", "(iv) Building", "(v) Noses"],
+      "expectedAnswer": "(iii) Sky and (iv) Building",
+      "markingGuide": "Student must identify the TWO parts with mirror symmetry. The correct answers are Sky and Building. Both must be selected for the mark.",
+      "image": "/images/exams/32406-2025-q4b.png"
+    },
+    {
+      "id": "caa25-q4c",
+      "number": "4(c)",
+      "text": "On average, people listen to 988 hours of music per year. There are 52 weeks in one year.\n\nHow many hours per week, on average, do people listen to music?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "division",
+        "rates"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "19",
+      "markingGuide": "988 ÷ 52 = 19 hours per week. Award mark for 19."
+    },
+    {
+      "id": "caa25-q4d",
+      "number": "4(d)",
+      "text": "The table below shows the different types of songs on a playlist. There are 200 songs altogether.\n\n| Type | Count |\n|------|-------|\n| Pop | 50 |\n| Rock | 46 |\n| Rap | 34 |\n| Other | 70 |\n\nIf one song is picked at random, what is the probability that it will be a pop song? Write your answer as a percentage.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "probability",
+        "percentages"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "25",
+      "markingGuide": "50 out of 200 = 50/200 = 0.25 = 25%. Award mark for 25%.",
+      "image": "/images/exams/32406-2025-q4d.png"
+    },
+    {
+      "id": "caa25-q4e",
+      "number": "4(e)",
+      "text": "The table below shows how much an artist gets paid each time someone streams their song. There are seven different streaming platforms.\n\n[See table: streaming platform payment rates.]\n\n\"Amazon Music gives artists the best deal.\"\n\nDo you agree? Use numbers from the table to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "data-interpretation",
+        "tables"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "No — Amazon Music does not pay the most per stream",
+      "markingGuide": "Student must use numbers from the table to support or refute the statement. They need to compare Amazon Music's rate with at least one other platform and make a clear conclusion.",
+      "image": "/images/exams/32406-2025-q4e.png"
+    },
+    {
+      "id": "caa25-q4f",
+      "number": "4(f)",
+      "text": "This graph compares the music sold in stores with the music sold by streaming platforms.\n\n[See diagram: two horizontal stacked bar charts showing percentage of music sold by sales method and type in 2024 — one for in-store sales and one for streams. Categories: Rap/Hip-hop, Pop, Rock, Country, Other.]\n\nIn-store sales: Rap/Hip-hop 20.0%, Pop 23.0%, Rock 33.0%, Country 14.0%, Other 10.0%\nStreams: Rap/Hip-hop 54.0%, Pop 19.0%, Rock 13.0%, Country 9.5%, Other 4.5%\n\nFrom the list below, tick the TWO statements that are true.\n\n(i) Over 1/2 of streams are rap / hip-hop.\n(ii) More than 1/5 of streams are pop.\n(iii) 1/4 of all music is bought in-store.\n(iv) About 1/3 of in-store sales are rock.\n(v) Less than 10% of in-store sales are country.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "fractions",
+        "percentages"
+      ],
+      "answerType": "multi-choice",
+      "options": ["(i) Over 1/2 of streams are rap / hip-hop", "(ii) More than 1/5 of streams are pop", "(iii) 1/4 of all music is bought in-store", "(iv) About 1/3 of in-store sales are rock", "(v) Less than 10% of in-store sales are country"],
+      "expectedAnswer": "(i) and (iv)",
+      "markingGuide": "Check each statement: (i) Rap/Hip-hop streams = 54%, which is over 50% (1/2) — TRUE. (ii) Pop streams = 19%, and 1/5 = 20%, so 19% is NOT more than 1/5 — FALSE. (iii) Cannot determine from graph alone — FALSE. (iv) Rock in-store = 33%, and 1/3 ≈ 33.3%, so about 1/3 — TRUE. (v) Country in-store = 14%, which is NOT less than 10% — FALSE. Both (i) and (iv) must be selected.",
+      "image": "/images/exams/32406-2025-q4f.png"
+    },
+    {
+      "id": "caa25-q5a",
+      "number": "5(a)",
+      "text": "A mother seal is 1.26 metres long. Her newborn pup is 0.45 metres long.\n\nHow many times longer is the mother seal than her pup?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "division"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "2.8",
+      "markingGuide": "1.26 ÷ 0.45 = 2.8. Award mark for 2.8."
+    },
+    {
+      "id": "caa25-q5b",
+      "number": "5(b)",
+      "text": "Seals must eat between 4% and 6% of their body weight in food each day. This seal weighs 160 kilograms.\n\nWhat is the minimum amount of food this seal must eat each day?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "percentages"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "6.4",
+      "markingGuide": "Minimum is 4% of 160 kg. 4% x 160 = 0.04 x 160 = 6.4 kg. Award mark for 6.4."
+    },
+    {
+      "id": "caa25-q5c",
+      "number": "5(c)",
+      "text": "Places where seals can be found are shown as letters on the map below.\n\n[See diagram: a map of part of New Zealand showing locations A–F with latitude and longitude grid lines.]\n\nTick where seals can be found at 42.4° S and 173.7° E.\n\nA, B, C, D, E, or F",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "spatial-reasoning"
+      ],
+      "answerType": "multi-choice",
+      "options": ["A", "B", "C", "D", "E", "F"],
+      "expectedAnswer": "D",
+      "markingGuide": "Student must read the map coordinates to find the location at 42.4° S and 173.7° E. The correct answer is D.",
+      "image": "/images/exams/32406-2025-q5c.png"
+    },
+    {
+      "id": "caa25-q5d",
+      "number": "5(d)",
+      "text": "Seals are excellent divers. This number line shows the depth dived by a New Zealand fur seal. The scale runs from 0 metres (sea level) to 500 metres depth, with the depth of dive marked by a dotted arrow.\n\n[See diagram: a vertical number line showing sea level at 0 metres and 500 metres at the bottom, with the seal's dive depth marked.]\n\nEstimate the depth the fur seal dived to.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "estimation",
+        "graph-reading"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "350",
+      "markingGuide": "Student estimates from the number line diagram. The dive depth appears to be about 3/4 of the way between 0 and 500, which is approximately 350 metres. Accept 325–375 metres.",
+      "image": "/images/exams/32406-2025-q5d.png"
+    },
+    {
+      "id": "caa25-q5e",
+      "number": "5(e)",
+      "text": "This graph shows what kind of food seals eat at different times of the year. The different coloured bars show different halves of the year.\n\n[See graph: grouped bar chart titled \"Diet of adult fur seals\" showing percentage by weight of Squid, Octopus, Anchovy, Eel, Mackerel, and Hoki eaten in Autumn/Winter vs Spring/Summer.]\n\n\"In spring and summer, seals eat mostly squid, octopus, and anchovy.\"\n\nDo you agree? Use percentages from the graph to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation",
+        "percentages"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "No — squid + octopus + anchovy is only about 31%, not most of the diet",
+      "markingGuide": "Student must read spring/summer percentages from the graph and add them to determine if squid + octopus + anchovy make up most of the diet. They should conclude that these three foods are NOT the majority and cite specific percentages.",
+      "image": "/images/exams/32406-2025-q5e.png"
+    },
+    {
+      "id": "caa25-q5f",
+      "number": "5(f)",
+      "text": "The dots on the map show where seals have been located around a place called Ohau Point. Ohau Point is shown by the yellow star. The white dot shows the furthest distance a seal swam to.\n\n[See diagram: a map showing Ohau Point with a scale bar, and dots marking seal locations.]\n\nUse the scale on the map to estimate the distance from Ohau Point to the white dot.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "estimation",
+        "graph-reading"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "30",
+      "markingGuide": "Student must use the map scale to estimate the distance from Ohau Point (yellow star) to the white dot. Accept 25–35 km depending on how the student reads the scale.",
+      "image": "/images/exams/32406-2025-q5f.png"
+    }
+  ]
+}

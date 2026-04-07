@@ -1,0 +1,285 @@
+{
+  "id": "l2-chemistry-bonding-2025",
+  "title": "Level 2 Chemistry: Properties of Selected Organic Compounds -- 2025",
+  "level": 2,
+  "standard": "91165",
+  "year": 2025,
+  "subject": "chemistry",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l2cb25-q1a",
+      "number": "1(a)",
+      "text": "Six organic compounds are given in the table below.\n\nComplete the table by drawing the structure or giving the IUPAC (systematic) name.\n\n| Compound | Structure | Name |\n|---|---|---|\n| A | (blank) | ethanamine |\n| B | Br-C-H with Br on top and bottom (CHBr₂) | (blank) |\n| C | (blank) | 3,3-dimethylbutanoic acid |\n| D | H-C-C-C-C=C-C-H with H,H,Br,H,H,H and H,H,H, ,H shown | (blank) |\n| E | (blank) | 1-pentyne |\n| F | H-C-C-C-H with H,CH₃,H and H,OH,H | (blank) |",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "naming",
+        "structures"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A: structure of ethanamine (CH₃CH₂NH₂).",
+      "markingGuide": "Achievement: THREE of six correct. Merit: SIX of six correct."
+    },
+    {
+      "id": "l2cb25-q1b",
+      "number": "1(b)",
+      "text": "Explain how acidified dichromate solution, Cr₂O₇²⁻/H⁺, can be used to distinguish between compounds G and H (below):\n\n| Compound G | Compound H |\n|---|---|\n| Cl | OH |\n| CH₃-CH₂-CH-CH₃ | CH₃-CH₂-CH-CH₃ |\n| CH₃ | CH₃ |\n\nIn your answer:\n- identify the type of reaction occurring\n- include conditions required for the reaction to occur\n- describe relevant observations\n- draw the product formed.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "identification-tests",
+        "oxidation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Acidified dichromate will react with the alcohol group in Compound H, but will not react with...",
+      "markingGuide": "Achievement: Identifies type of reaction OR colour change. Merit: Full explanation with reaction type, conditions, observations, and reference to Compound H. Excellence: Full explanation including observation, and reference to BOTH compounds.",
+      "image": "/images/exams/91165-2025-q1b.png"
+    },
+    {
+      "id": "l2cb25-q1ci",
+      "number": "1(c)(i)",
+      "text": "Haloalkanes are useful starting materials used in the synthesis of many more complex molecules, including many pharmaceutical products.\n\nBelow are some constitutional (structural) isomers of chloropentane, C₅H₁₁Cl. Use these to answer parts (i) to (iii).\n\n[Table shows four compounds:\nCompound G: Cl on CH₃-CH₂-CH-CH₃ with CH₃ branch (secondary)\nCompound I: CH₃ on CH₃-CH₂-C-Cl with CH₃ (tertiary)\nCompound J: CH₃ branch on CH₃-CH₂-CH-CH₂-Cl (primary)\nCompound K: Cl on CH₃-CH-CH-CH₃ with CH₃ branch (secondary)]\n\nClassify each of the haloalkanes as either primary, secondary, or tertiary:\n\nCompound G:\nCompound I:\nCompound J:\nCompound K:",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "classification",
+        "haloalkanes"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Compound G: Secondary. Compound I: Tertiary. Compound J: Primary. Compound K: Secondary.",
+      "markingGuide": "Achievement: THREE of four correct. Merit: Both structures correct with correct labels.",
+      "image": "/images/exams/91165-2025-q1c.png"
+    },
+    {
+      "id": "l2cb25-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Compound K forms two different products when reacted with alcoholic potassium hydroxide, KOH(alc), and heat.\n\nCH₃-CH-CH-CH₃ with Cl and CH₃ branches  --KOH(alc)/heat-->\n\nDraw both products of the reaction, and circle the correct label (MAJOR / MINOR).",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "elimination",
+        "zaitsevs-rule"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Major product: 2-methylbut-2-ene (more substituted alkene, Zaitsev's rule).",
+      "markingGuide": "Achievement: Identifies the haloalkane is formed OR correct structures without labels. Merit: Both structures with correct major/minor labels.",
+      "image": "/images/exams/91165-2025-q1cii.png"
+    },
+    {
+      "id": "l2cb25-q1ciii",
+      "number": "1(c)(iii)",
+      "text": "Elaborate on the reaction of Compound K with alcoholic potassium hydroxide, KOH(alc), and heat.\n\nIn your answer:\n- explain why two different products are formed\n- justify your choice of major and minor products.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "elimination",
+        "zaitsevs-rule"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Compound K is an unsymmetrical haloalkane, meaning two products can be formed depending upon",
+      "markingGuide": "Achievement: Explains why the haloalkane forms two products. Merit: Explains how major/minor products can be identified. Excellence: Justifies why Compound K forms major and minor products, with correct identification of Compound K."
+    },
+    {
+      "id": "l2cb25-q2ai",
+      "number": "2(a)(i)-(iii)",
+      "text": "An incomplete reaction scheme is shown below.\n\n[Diagram shows: Compound A (3-methylhexan-2-bromide) goes via KOH(alc) heat / Reaction type W to Compound C.\nCompound C goes via H₂SO₄ conc. / Reaction type X to Compound D and Compound E (3-methylhex-2-ene).\nCompound A also goes via NH₃(alc) heat / Reaction type Z to Compound B.\nCompound E goes via Reagent 4 / Reaction type Y to Compound F and Compound G.\nCompound F structure: 3-methylhexan-2-ol. Compound G: 3-methylhexan-1-chloride with a second Cl.]\n\n(i) Draw the structural formulae of Compounds B, C, and D in the labelled boxes.\n(ii) Complete the Reaction types W, X, Y, and Z in the labelled boxes.\n(iii) Complete Reagent 4 in the labelled box.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "reactions",
+        "structures"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Compound B: 3-methylhexan-2-amine (NH₂ replacing Br).",
+      "markingGuide": "Achievement: FOUR of eight correct. Merit: SIX of eight correct. Excellence: EIGHT of eight correct.",
+      "image": "/images/exams/91165-2025-q2a.png"
+    },
+    {
+      "id": "l2cb25-q2bi",
+      "number": "2(b)(i)",
+      "text": "Compound E can be redrawn, as below, to enable it to be viewed as a monomer suitable to undergo addition polymerisation.\n\n[Diagram shows Compound E redrawn as: H and H on top, C=C, C₂H₅ and H on bottom]\n\nDraw three repeating units of the polymer that would be produced using the monomer Compound E in the box below.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "polymers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Three repeating units with C-C backbone (single bonds), with C₂H₅ substituent on alternating...",
+      "markingGuide": "Achievement: Correctly drawn polymer.",
+      "image": "/images/exams/91165-2025-q2b.png"
+    },
+    {
+      "id": "l2cb25-q2bii",
+      "number": "2(b)(ii)",
+      "text": "Explain the process of addition polymerisation.\n\nIn your answer:\n- identify the structure and bonding feature of Compound E that makes it suitable to undergo addition polymerisation\n- explain how an addition polymerisation reaction occurs\n- compare the relative reactivity of the monomer and the polymer.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "polymers",
+        "reactivity"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "C=C, carbon to carbon double bond",
+      "markingGuide": "Achievement: Double bond is broken OR identifies polymer is saturated (C-C) or monomer is unsaturated (C=C). Merit: Links saturated/unsaturated nature of polymer/monomer to materials reactivity AND explains addition polymerisation. Excellence: Explains the difference of monomer and polymer in terms of structure, reactivity."
+    },
+    {
+      "id": "l2cb25-q2biii",
+      "number": "2(b)(iii)",
+      "text": "Polytetrafluoroethylene (Teflon) is a polymer known for use in breathable, waterproof textile fabrics. Alternatives are being developed that aim to provide similar advantageous properties to Teflon with less environmental impact.\n\nThe structure of Teflon is shown below.\n[Structure shows repeating unit with F atoms replacing all H atoms on the carbon backbone: -CF₂-CF₂-]\n\nIn the box below, draw the monomer that Teflon is made from.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "polymers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "F₂C=CF₂ (tetrafluoroethene monomer, with C=C double bond and 4 F atoms).",
+      "markingGuide": "Achievement: Correctly drawn monomer.",
+      "image": "/images/exams/91165-2025-q2biii.png"
+    },
+    {
+      "id": "l2cb25-q2biv",
+      "number": "2(b)(iv)",
+      "text": "Teflon is also used as a non-stick coating on cooking pots and frying pans.\n\nIdentify the physical and chemical properties of Teflon that make it suitable for this use.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "polymers",
+        "properties"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Teflon does not melt at high temperatures (high melting point)",
+      "markingGuide": "Achievement: States Teflon has a high melting point OR states that Teflon is not (chemically) reactive to use. Merit: Links Teflon does not melt at high temperatures to use OR links Teflon is not (chemically) reactive to use. Excellence: Links Teflon does not melt at high temperatures to use AND links Teflon is not chemically reactive to use."
+    },
+    {
+      "id": "l2cb25-q2c",
+      "number": "2(c)",
+      "text": "Draw three straight-chain (non-branched) isomers of C₅H₁₁Cl.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "isomers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "1-chloropentane (CH₃CH₂CH₂CH₂CH₂Cl), 2-chloropentane (CH₃CH₂CH₂CHClCH₃), 3-chloropentane...",
+      "markingGuide": "Achievement: THREE correct."
+    },
+    {
+      "id": "l2cb25-q3ai",
+      "number": "3(a)(i)",
+      "text": "Pohutukawa bark can be brewed into a tea and used in a range of rongoa (traditional medicines), as it contains organic acids, such as ellagic and gallic acids, which have antioxidant, antiseptic, and anti-nausea properties.\n\nWhile extracting the pohutukawa bark, the following compounds can be isolated:\n\n[Diagram shows gallic acid (with a carboxylic acid group circled), 1-heptanamine (NH₂-CH₂-(CH₂)₅-CH₃), and 1-propanamine (NH₂-CH₂-CH₂-CH₃)]\n\nName the functional group circled above.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "functional-groups"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Carboxylic acid.",
+      "markingGuide": "Achievement: Correct group.",
+      "image": "/images/exams/91165-2025-q3a.png"
+    },
+    {
+      "id": "l2cb25-q3aii",
+      "number": "3(a)(ii)",
+      "text": "Explain the procedure you could use to distinguish between 1-heptanamine and 1-propanamine solutions based solely on their physical properties.\n\nPhysical properties are limited to differences in melting point, boiling point, and water solubility.\n\nIn your answer:\n- describe the test method\n- compare the observation for each compound\n- explain the test result for each compound.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "physical-properties",
+        "intermolecular-forces"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "1-heptanamine and 1-propanamine both contain a polar amine group,",
+      "markingGuide": "Achievement: Gives a basic method (water/heating). Merit: Explains that chain length will determine which is soluble in water OR explains that chain length determines lower/higher boiling point. Excellence: Fully explains either method, including associated observation, for correct identification and explains relevant carbon chain length effect."
+    },
+    {
+      "id": "l2cb25-q3aiii",
+      "number": "3(a)(iii)",
+      "text": "Describe how red and blue litmus paper can be used to distinguish between gallic acid and 1-heptanamine solutions.\n\nInclude observations in your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "acid-base"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Gallic acid contains a carboxylic acid group",
+      "markingGuide": "Achievement: Correct observations."
+    },
+    {
+      "id": "l2cb25-q3aiv",
+      "number": "3(a)(iv)",
+      "text": "Devise an alternative method (without using litmus) to identify the functional group circled in gallic acid.\n\nIn your answer:\n- state the reagent needed and the general products formed\n- describe the observation, and link to the products formed.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "identification-tests"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "L2 acid reaction: the acid reacts with a metal carbonate in an acid-base reaction, forming a...",
+      "markingGuide": "Achievement: A correct method is described. Merit: A correct method is explained with observations."
+    },
+    {
+      "id": "l2cb25-q3bi",
+      "number": "3(b)(i)",
+      "text": "Pohutukawa flowers contain many terpene compounds (volatile organic compounds) that contribute to their fragrance. An example of a terpene, nerol, is shown below.\n\nTwo functional groups (A and B) have been circled and shown to the right, where the label 'R' has been used in place of the complex remainder of the molecule. Note that R, R₁ and R₂ groups are all different.\n\n[Diagram shows nerol molecule with groups A (alkene C=C) and B (alcohol -OH) circled. Group A is drawn as H₃C-C=C-R₁ with R on one side and H on the other. Group B is drawn as H₃C-C=C-H with R₂ on one side and R₁ on the other.]\n\nIdentify which of A and B will exist as geometric isomers.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "geometric-isomers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Group B.",
+      "markingGuide": "Achievement: Identifies B.",
+      "image": "/images/exams/91165-2025-q3b.png"
+    },
+    {
+      "id": "l2cb25-q3bii",
+      "number": "3(b)(ii)",
+      "text": "Justify your choice in (b)(i) by explaining the requirements for geometric isomerism.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "geometric-isomers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "B forms cis/trans isomers, as it has both requirements for geometric isomerism",
+      "markingGuide": "Achievement: Identifies C=C double bond. Merit: Explains why the double bond is required for geometric isomerism AND explains why both C atoms on the double bond must have two different atoms/groups. Excellence: Justifies why B forms geometric isomers, while A does not."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

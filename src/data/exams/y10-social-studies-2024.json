@@ -1,0 +1,155 @@
+{
+  "id": "y10-social-studies-2024",
+  "title": "Year 10 Social Studies — Practice 2",
+  "level": 0,
+  "standard": "Y10-SOC",
+  "year": 2024,
+  "subject": "social-studies",
+  "timeMinutes": 45,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "y10ss2-q1",
+      "number": "1",
+      "text": "In 1893, New Zealand became the first self-governing country in the world to grant women the right to vote. Which of the following people was a key leader in the New Zealand women's suffrage movement?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["nz-history"],
+      "answerType": "multi-choice",
+      "options": ["Helen Clark", "Kate Sheppard", "Whina Cooper", "Jacinda Ardern"],
+      "expectedAnswer": "Kate Sheppard",
+      "markingGuide": "The correct answer is Kate Sheppard. She led the women's suffrage movement in New Zealand and organised a series of petitions to Parliament. The 1893 petition had nearly 32,000 signatures — about a quarter of all adult European women in NZ at the time. Her image appears on the New Zealand $10 note. Helen Clark and Jacinda Ardern were Prime Ministers but came much later. Whina Cooper was a prominent Māori leader known for the 1975 Land March."
+    },
+    {
+      "id": "y10ss2-q2",
+      "number": "2",
+      "text": "The New Zealand Wars (also known as the Land Wars) of the 1840s–1870s were conflicts primarily between:",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["nz-history"],
+      "answerType": "multi-choice",
+      "options": [
+        "New Zealand and Australia",
+        "The British Crown and colonial settlers against Māori iwi",
+        "North Island Māori against South Island Māori",
+        "New Zealand and France"
+      ],
+      "expectedAnswer": "The British Crown and colonial settlers against Māori iwi",
+      "markingGuide": "The correct answer is the British Crown and colonial settlers against Māori iwi. The New Zealand Wars (1845–1872) were a series of armed conflicts fought over issues including land ownership, sovereignty, and the enforcement of British authority. Key conflicts included the Northern War (Hōne Heke), the Waikato War, and the wars in Taranaki. These wars had devastating consequences for Māori, including large-scale land confiscations (raupatu) under the New Zealand Settlements Act 1863."
+    },
+    {
+      "id": "y10ss2-q3",
+      "number": "3",
+      "text": "Explain ONE significant impact of the New Zealand Wars (Land Wars) on Māori communities. Use a specific historical example in your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["nz-history"],
+      "answerType": "text",
+      "markingGuide": "1 mark for identifying a significant impact. 1 mark for providing a specific historical example.\n\nPossible impacts and examples:\n• Land confiscation (raupatu) — After the Waikato War, the Crown confiscated approximately 1.2 million acres of Waikato land under the New Zealand Settlements Act 1863. This devastated Waikato-Tainui economically and socially. (Settlement reached in 1995.)\n• Loss of life and population decline — Many Māori warriors and civilians were killed. The siege of Ōrākau in 1864 resulted in significant Māori casualties. Population decline continued into the early 20th century.\n• Displacement — Iwi were pushed off their traditional lands. Example: Taranaki Māori were displaced from fertile coastal lands which were then given to settlers.\n• Loss of economic base — Without land, Māori lost their primary means of livelihood (farming, fishing, forestry). Many Waikato Māori became landless labourers.\n• Social and cultural disruption — Communities were broken up, traditional social structures were undermined, and access to wāhi tapu (sacred sites) was lost.\n• Political impact — The wars led to the establishment of the Māori King movement (Kīngitanga) as a way to unite Māori and resist land sales. The Kīngitanga continues today.\n• Long-term grievances — The impacts of the wars and confiscations are still being addressed through the Treaty settlement process today."
+    },
+    {
+      "id": "y10ss2-q4",
+      "number": "4",
+      "text": "The New Zealand Bill of Rights Act 1990 protects the rights and freedoms of people in New Zealand. Which of the following is a right protected by this Act?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["rights-responsibilities"],
+      "answerType": "multi-choice",
+      "options": [
+        "The right to free unlimited internet access",
+        "The right to freedom of expression",
+        "The right to own a car",
+        "The right to a free university education"
+      ],
+      "expectedAnswer": "The right to freedom of expression",
+      "markingGuide": "The correct answer is the right to freedom of expression. The New Zealand Bill of Rights Act 1990 (NZBORA) affirms rights including: freedom of expression (section 14), freedom of religion (section 13), freedom of peaceful assembly (section 16), freedom of association (section 17), freedom from discrimination (section 19), the right to vote (section 12), and rights in criminal proceedings (e.g. the right to a fair trial). It does not guarantee rights to internet access, car ownership, or free university education."
+    },
+    {
+      "id": "y10ss2-q5",
+      "number": "5",
+      "text": "New Zealand is often described as a multicultural society. Which of the following statements about New Zealand's cultural diversity is MOST accurate?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["cultural-diversity-nz"],
+      "answerType": "multi-choice",
+      "options": [
+        "New Zealand's population is almost entirely of European descent",
+        "New Zealand has significant Māori, Pacific, Asian, and European populations, among others",
+        "Most immigrants to New Zealand come from Australia",
+        "New Zealand does not accept immigrants from other countries"
+      ],
+      "expectedAnswer": "New Zealand has significant Māori, Pacific, Asian, and European populations, among others",
+      "markingGuide": "The correct answer reflects NZ's diverse population. According to recent census data, NZ's ethnic makeup includes NZ European/Pākehā (approximately 70%), Māori (approximately 17%), Asian (approximately 16%), and Pacific Peoples (approximately 8%), with many people identifying with multiple ethnicities. NZ has significant immigration from countries including China, India, the Philippines, South Africa, and the United Kingdom. Auckland is one of the most ethnically diverse cities in the world."
+    },
+    {
+      "id": "y10ss2-q6",
+      "number": "6",
+      "text": "Explain TWO ways that Pasifika cultures contribute to New Zealand society. Give specific examples for each.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["cultural-diversity-nz"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each well-explained contribution with a specific example.\n\nPossible contributions:\n• Arts and performance — Pasifika arts are celebrated across NZ. Example: Pasifika Festival in Auckland is the largest Pacific Island cultural festival in the world, attracting over 60,000 visitors. Pacific dance, music (e.g. reggae influences), and visual arts enrich NZ culture.\n• Sports — Pacific peoples have made enormous contributions to NZ sport. Example: Many All Blacks and Silver Ferns players are of Pacific descent. Pacific athletes excel in rugby league, boxing, and other sports.\n• Language and identity — Pacific languages are spoken widely in NZ. Example: Samoan is the third most spoken language in NZ. Gagana Samoa, Cook Islands Māori, and Tongan language weeks are celebrated nationally.\n• Community and family values — The concept of 'aiga (family) and communal living contributes to strong community bonds. Example: Pacific churches and community groups provide support networks for families.\n• Economy and workforce — Pacific peoples contribute significantly to NZ's workforce, particularly in essential industries. Example: Pacific peoples are strongly represented in healthcare, education, construction, and the primary sector.\n• Food and cuisine — Pacific foods and cooking styles are part of NZ's food culture. Example: Umu/hāngi cooking, tropical foods, and Pacific-inspired restaurants.\n• Education — Pacific education initiatives strengthen outcomes. Example: Polyfest (the ASB Polyfest) showcases Pacific performing arts from secondary schools across Auckland."
+    },
+    {
+      "id": "y10ss2-q7",
+      "number": "7",
+      "text": "Which of the following is a responsibility that comes with being a New Zealand citizen?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["rights-responsibilities"],
+      "answerType": "multi-choice",
+      "options": [
+        "Serving in the military",
+        "Obeying the law",
+        "Attending church every week",
+        "Speaking English at all times"
+      ],
+      "expectedAnswer": "Obeying the law",
+      "markingGuide": "The correct answer is obeying the law. All people in New Zealand (citizens and residents) have a responsibility to obey the laws of the country. New Zealand does not have compulsory military service (it was abolished after World War II). There is no requirement to attend any religious services (NZ has freedom of religion). There is no requirement to speak English — NZ has three official languages: English, Te Reo Māori, and New Zealand Sign Language."
+    },
+    {
+      "id": "y10ss2-q8",
+      "number": "8",
+      "text": "Climate change is having significant effects on Pacific Island nations. Explain ONE way that climate change is affecting Pacific Island communities and ONE way this is relevant to New Zealand.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["global-issues"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining an impact on Pacific Island communities. 1 mark for explaining relevance to NZ.\n\nImpacts on Pacific Islands:\n• Rising sea levels threaten low-lying island nations such as Tuvalu, Kiribati, and the Marshall Islands. Some communities are already experiencing coastal flooding and saltwater intrusion into freshwater supplies and agricultural land.\n• More frequent and severe cyclones and storms cause destruction. Example: Cyclone Winston devastated Fiji in 2016; Cyclone Gabrielle affected NZ and the Pacific in 2023.\n• Loss of coral reefs due to ocean warming and acidification threatens fisheries that Pacific communities depend on for food and income.\n• Food security is at risk as changing weather patterns affect crop growth (e.g. taro, breadfruit).\n• Cultural loss — communities may be forced to relocate, losing connection to ancestral lands and cultural practices.\n\nRelevance to New Zealand:\n• NZ has close cultural and family ties to Pacific nations — many NZ citizens have Pacific heritage and whānau in affected islands.\n• NZ provides significant development aid to Pacific nations, including climate adaptation funding.\n• Climate migration — Pacific Islanders may need to relocate to NZ. The Pacific Access Category visa allows a quota of Pacific Island citizens to migrate to NZ annually.\n• NZ's own Pacific territories (Tokelau, Cook Islands, Niue) are directly affected by rising sea levels.\n• NZ has responsibilities as a Pacific nation and member of the Pacific Islands Forum to support regional climate action.\n• NZ itself faces climate change impacts (coastal erosion, more extreme weather events like Cyclone Gabrielle in 2023)."
+    },
+    {
+      "id": "y10ss2-q9",
+      "number": "9",
+      "text": "New Zealand is a member of the United Nations (UN). What is the primary purpose of the United Nations?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["global-issues"],
+      "answerType": "multi-choice",
+      "options": [
+        "To control the economies of all countries in the world",
+        "To maintain international peace and security, and promote cooperation among nations",
+        "To ensure that English is spoken in every country",
+        "To create a single world government"
+      ],
+      "expectedAnswer": "To maintain international peace and security, and promote cooperation among nations",
+      "markingGuide": "The correct answer is to maintain international peace and security, and promote cooperation among nations. The UN was established in 1945 after World War II. Its purposes include maintaining peace, developing friendly relations among nations, promoting human rights, and serving as a centre for coordinating international action. NZ was a founding member of the UN in 1945 and has served on the UN Security Council. NZ contributes to UN peacekeeping operations and supports the UN's Sustainable Development Goals."
+    },
+    {
+      "id": "y10ss2-q10",
+      "number": "10",
+      "text": "New Zealand's population has become increasingly diverse through immigration over the past 150 years.\n\nDiscuss the benefits and challenges of cultural diversity in New Zealand. In your answer:\n• Explain at least TWO benefits of cultural diversity\n• Explain at least ONE challenge\n• Consider different perspectives (e.g. new immigrants, tangata whenua / Māori, long-established communities)\n• Use specific New Zealand examples.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["cultural-diversity-nz", "nz-history"],
+      "answerType": "working",
+      "markingGuide": "4 marks total. Award marks across the following criteria:\n\n1 mark — Benefits of cultural diversity (at least two):\n• Economic benefits — Immigrants bring skills, investment, and entrepreneurship. Example: NZ's tech sector has benefited from skilled migrants; ethnic food businesses and restaurants contribute to local economies.\n• Cultural enrichment — Diverse cultures bring new foods, festivals, art, music, and traditions. Example: Diwali Festival of Lights in Auckland and Wellington; Chinese New Year celebrations; the growth of diverse cuisine available in NZ cities.\n• Innovation and different perspectives — Diverse workplaces and communities generate more ideas and creative solutions. Research shows diverse teams perform better.\n• International connections — Immigrants maintain links to their home countries, which can benefit NZ trade and diplomacy. Example: NZ's growing trade relationships with Asian countries are supported by diaspora communities.\n• Population growth — Immigration helps address NZ's ageing population and skill shortages, particularly in healthcare, construction, and IT.\n\n1 mark — Challenges of cultural diversity (at least one):\n• Integration difficulties — New immigrants may face language barriers, difficulty finding employment that matches their qualifications, and social isolation.\n• Discrimination and racism — Some migrants and ethnic minorities experience discrimination. Example: Reports of increased racism towards Asian New Zealanders during COVID-19.\n• Pressure on services — Rapid population growth through immigration can put pressure on housing, healthcare, education, and infrastructure, particularly in Auckland.\n• Cultural tensions — Different values and practices can sometimes lead to misunderstanding or conflict between communities.\n• Impact on Māori as tangata whenua — Some Māori express concern that increasing diversity can marginalise indigenous rights and culture, and that the Crown's Treaty obligations to Māori must be maintained alongside multicultural policies.\n\n1 mark — Considering different perspectives:\n• New immigrants may want better support for integration, recognition of overseas qualifications, and protection from discrimination.\n• Tangata whenua / Māori perspective: immigration must not undermine the unique status of Māori as the indigenous people of NZ and Treaty partner. Māori have expressed concerns about being 'just another minority' in an increasingly diverse NZ.\n• Long-established communities (including Pākehā NZ Europeans) may have varying views — some welcome diversity while others feel cultural change is happening too quickly.\n• Second-generation New Zealanders may navigate between their parents' culture and NZ culture.\n\n1 mark — Use of specific NZ examples and quality of analysis:\n• Historical context — NZ's immigration history includes the gold rush era (Chinese miners in Otago, 1860s), the poll tax on Chinese immigrants (1881–1944, for which the NZ government apologised in 2002), post-WWII immigration from the Pacific and Netherlands, and more recent immigration from Asia, Africa, and the Middle East.\n• Specific policies — NZ's points-based immigration system, the Recognised Seasonal Employer (RSE) scheme for Pacific workers, refugee quota.\n• Shows understanding that diversity is complex — not simply 'good' or 'bad' — and requires ongoing effort to ensure fairness and inclusion for all.\n\nExcellence-level answers will present a balanced discussion with multiple specific NZ examples and demonstrate critical thinking about the complexity of the issue."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

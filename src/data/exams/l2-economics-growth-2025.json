@@ -1,0 +1,252 @@
+{
+  "id": "l2-economics-growth-2025",
+  "title": "L2 Economics: Analyse Economic Growth (91224) — 2025",
+  "level": 2,
+  "standard": "91224",
+  "year": 2025,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
+  "questions": [
+    {
+      "id": "91224-2025-q1ai",
+      "number": "1(a)(i)",
+      "text": "Use Model One to answer the following questions.\n\nIdentify money Flow A on the model.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "circular flow model"
+      ],
+      "answerType": "text",
+      "imageUrl": "/images/exams/91224-2025-q1-model.png",
+      "expectedAnswer": "Flow A is Savings — money flowing from Households to the Financial sector.",
+      "markingGuide": "Correctly identifies Flow A as savings."
+    },
+    {
+      "id": "91224-2025-q1aii",
+      "number": "1(a)(ii)",
+      "text": "Explain one reason why money Flow A might decrease in value.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular flow model",
+        "savings"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "If interest rates decrease, households have less incentive to save",
+      "markingGuide": "Explains a valid reason for decreased savings — e.g., lower interest rates, higher cost of living."
+    },
+    {
+      "id": "91224-2025-q1aiii",
+      "number": "1(a)(iii)",
+      "text": "Identify one injection into the circular flow model.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "circular flow model",
+        "injections"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Any one of: Investment, Government spending/subsidies, Export receipts.",
+      "markingGuide": "Correctly identifies one injection."
+    },
+    {
+      "id": "91224-2025-q1aiv",
+      "number": "1(a)(iv)",
+      "text": "Explain one reason why this injection might increase in value.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular flow model",
+        "injections"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "If investment is chosen: lower interest rates make borrowing cheaper, encouraging businesses to...",
+      "markingGuide": "Explains a valid reason for the chosen injection to increase."
+    },
+    {
+      "id": "91224-2025-q1b",
+      "number": "1(b)",
+      "text": "Explain why economic growth would increase if the Northland trial is successful. Refer to at least two of the flows from Model One in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular flow model",
+        "economic growth"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A successful Northland trial increases production (income flow from Producers to Households...",
+      "markingGuide": "Refers to at least two flows and explains how they lead to economic growth."
+    },
+    {
+      "id": "91224-2025-q1c",
+      "number": "1(c)",
+      "text": "Discuss the impact of a successful trial on the government's operating balance (revenue - expenditure).",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "government budget",
+        "revenue",
+        "expenditure"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Revenue increases: more employment means more income tax, more spending means more GST, more...",
+      "markingGuide": "Discusses both revenue increases and expenditure changes, assessing the net impact on the operating balance."
+    },
+    {
+      "id": "91224-2025-q2a",
+      "number": "2(a)",
+      "text": "Use the formula for aggregate demand to explain why the purchase of the battery powered aircraft will decrease short-term aggregate demand.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate demand",
+        "AD formula"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "AD = C + I + G + (X - M).",
+      "markingGuide": "States the AD formula and explains how increased imports decrease AD."
+    },
+    {
+      "id": "91224-2025-q2b",
+      "number": "2(b)",
+      "text": "Graph One shows the longer term increase in aggregate demand that results from the increase in consumption spending due to operating the new aircraft.\n\nOn Graph One, show the long-term impact of operating the new aircraft on the aggregate supply curve and economic growth.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "AS/AD model",
+        "economic growth",
+        "aggregate supply"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91224-2025-q2b-graph.png",
+      "expectedAnswer": "AS shifts right (AS to AS1)",
+      "markingGuide": "AS shifted right, correctly labelled. Economic growth shown as increased Real GDP.",
+      "image": "/images/exams/91224-2025-q2b-graph.png"
+    },
+    {
+      "id": "91224-2025-q2ci",
+      "number": "2(c)(i)",
+      "text": "Referring to Graph One, explain how operating the new aircraft changes aggregate supply.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate supply",
+        "technology",
+        "productive capacity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The battery-powered aircraft reduces operating costs (no fuel costs) and increases efficiency",
+      "markingGuide": "Explains why AS increases — lower costs, increased efficiency, greater productive capacity."
+    },
+    {
+      "id": "91224-2025-q2cii",
+      "number": "2(c)(ii)",
+      "text": "Referring to Graph One, explain how operating the new aircraft changes economic growth.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "economic growth",
+        "AS/AD model"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Both AD and AS shift right. Real GDP increases from Y to Y1 (or beyond). Economic growth occurs",
+      "markingGuide": "Explains economic growth as increase in Real GDP with reference to both AD and AS shifts on Graph One."
+    },
+    {
+      "id": "91224-2025-q2d",
+      "number": "2(d)",
+      "text": "Compare and contrast the impact of the government making it compulsory to use SAF for domestic flights on economic growth and on the environment.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "sustainability",
+        "economic growth",
+        "environment",
+        "regulation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Environment benefits: SAF (Sustainable Aviation Fuel) reduces carbon emissions, improving air...",
+      "markingGuide": "Compares and contrasts economic growth impacts (short-term cost vs long-term benefit) with environmental impacts (positive)."
+    },
+    {
+      "id": "91224-2025-q3ai",
+      "number": "3(a)(i)",
+      "text": "Gross domestic product (GDP) is the total value of goods and services produced in New Zealand in a year.\n\nSome households buy fruit and vegetables from shops, while others grow their own from seeds they have bought.\n\nHow will GDP be affected in the short-term and long-term if more people choose to buy seeds to grow their own fruit and vegetables?\n\nShort-term:",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "GDP",
+        "non-market activity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Short-term: GDP may increase slightly as people buy seeds, soil, and gardening equipment from...",
+      "markingGuide": "Identifies that short-term GDP increases due to seed/equipment purchases."
+    },
+    {
+      "id": "91224-2025-q3aii",
+      "number": "3(a)(ii)",
+      "text": "Long-term:",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "GDP",
+        "non-market activity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Long-term: GDP may decrease as people buy less fruit and vegetables from shops.",
+      "markingGuide": "Explains that long-term GDP decreases as non-market production replaces market purchases."
+    },
+    {
+      "id": "91224-2025-q3b",
+      "number": "3(b)",
+      "text": "Net social welfare is a broad measure of economic growth that uses a combination of economic indicators and quality of life indicators.\n\nExplain one situation when GDP could increase but net social welfare decreases.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "GDP",
+        "net social welfare",
+        "quality of life"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "GDP could increase from factory production that causes pollution.",
+      "markingGuide": "Identifies a valid scenario — e.g., pollution, overwork, inequality — where GDP rises but welfare falls."
+    },
+    {
+      "id": "91224-2025-q3c",
+      "number": "3(c)",
+      "text": "Graph Two and Graph Three show two situations in which economic growth has decreased.\n\nGraph Two: A decrease from A to B (movement along the PPF to a point with fewer consumer goods and fewer capital goods).\nGraph Three: A decrease from C to D (movement inside the PPF).\n\nCompare and contrast the causes and effects of the decreases in economic growth shown in Graph Two and Graph Three.\n\nIn your answer, explain:\n- what could cause the changes shown on the graphs\n- which change would be worse for long-term economic growth in New Zealand.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": [
+        "PPF",
+        "economic growth",
+        "recession",
+        "resource allocation"
+      ],
+      "answerType": "text",
+      "imageUrl": "/images/exams/91224-2025-q3c-ppf.png",
+      "expectedAnswer": "Graph Two (A to B): Movement along the PPF",
+      "markingGuide": "Compares causes (reallocation vs underutilisation) and effects (still efficient vs inefficient). Assesses which is worse for long-term growth with reasoning.",
+      "image": "/images/exams/91224-2025-q3c-ppf.png"
+    }
+  ]
+}

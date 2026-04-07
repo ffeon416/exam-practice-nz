@@ -1,0 +1,273 @@
+{
+  "id": "l3-chemistry-thermo-2025",
+  "title": "Level 3 Chemistry — Thermochemistry 2025",
+  "level": 3,
+  "standard": "91390",
+  "year": 2025,
+  "subject": "chemistry",
+  "timeMinutes": 50,
+  "questions": [
+    {
+      "id": "l3ct25-q1a",
+      "number": "1(a)",
+      "text": "Sulfur forms a range of different fluoride-containing ions and molecules.\n\nComplete the table below, showing the Lewis structure and name of shape for SF₃⁻ and SBrF₅.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "lewis-structures",
+        "molecular-shape"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "SF₃⁻: Lewis structure shows S central atom with 3 bonding pairs to F and 1 lone pair.",
+      "markingGuide": "Achievement: Two correct entries. One mark per correct Lewis structure and one mark per correct shape name.",
+      "image": "/images/exams/91390-2025-q1a.png"
+    },
+    {
+      "id": "l3ct25-q1bi",
+      "number": "1(b)(i)",
+      "text": "The Lewis structure and shape for sulfur tetrafluoride, SF₄, are shown below.\n\n[Diagram shows SF₄ with seesaw shape]\n\nIdentify and explain the polarity of SF₄.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "thermochemistry",
+        "polarity",
+        "molecular-shape"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "SF₄ is polar.",
+      "markingGuide": "Achievement: Identifies SF₄ as polar and recognises the influence of electronegativity. Merit: Explains the polarity of SF₄ in terms of bond polarity and the asymmetric arrangement of dipoles.",
+      "image": "/images/exams/91390-2025-q1b.png"
+    },
+    {
+      "id": "l3ct25-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Justify why the F–S–F bond angles in SF₄ are different to the F–S–F bond angles in SBrF₅.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "thermochemistry",
+        "bond-angles",
+        "molecular-shape"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "SF₄ has five areas of electron density around S (4 bonding pairs + 1 lone pair) based on...",
+      "markingGuide": "Achievement: States SF₄ has F–S–F bond angles of 90° and 120°. Merit: Identifies different electron geometries lead to different bond angles. Excellence: Justifies the difference linking to electron pair arrangement and lone pair repulsion in each geometry."
+    },
+    {
+      "id": "l3ct25-q1c",
+      "number": "1(c)",
+      "text": "Finely powdered sulfur, S(s), readily reacts with fluorine gas, F₂(g), in an exothermic reaction to produce sulfur hexafluoride, SF₆(g). The equation for the reaction is:\n\nS(s) + 3F₂(g) → SF₆(g)\n\nJustify, in terms of the entropy changes of the system and surroundings, why the reaction is spontaneous.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "thermochemistry",
+        "entropy",
+        "spontaneity"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "System entropy decreases: 3 highly randomised gas molecules and one solid produce only one gas...",
+      "markingGuide": "Achievement: Recognises entropy increases when there is an increase in disorder / dispersal of matter. Merit: Explains entropy change for the system OR surroundings. Excellence: Justifies the spontaneous nature of the reaction in terms of entropy changes in the system and surroundings."
+    },
+    {
+      "id": "l3ct25-q2ai",
+      "number": "2(a)(i)",
+      "text": "Complete the table below, showing the electron configuration (use s, p, d notations) for:\n\nCl\nCu\nFe³⁺",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "electron-configuration"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Cl: 1s²2s²2p⁶3s²3p⁵.",
+      "markingGuide": "Achievement: Two correct electron configurations.",
+      "image": "/images/exams/91390-2025-q2ai.png"
+    },
+    {
+      "id": "l3ct25-q2aii",
+      "number": "2(a)(ii)",
+      "text": "Iron, Fe, can form two different ions, Fe²⁺ and Fe³⁺. Their ionic radii are given below:\n\nFe²⁺: 92 pm\nFe³⁺: 79 pm\n\nExplain why the radius of the Fe²⁺ ion is larger than the radius of the Fe³⁺ ion.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "thermochemistry",
+        "ionic-radius",
+        "atomic-structure"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Both ions have the same nuclear charge (26 protons), but Fe²⁺ has more electrons (24) than Fe³⁺...",
+      "markingGuide": "Achievement: Identifies same nuclear charge but different numbers of electrons. Merit: Explains that Fe²⁺ has more electrons with the same number of protons, so there is a greater electron-electron repulsion or less effective nuclear charge per electron, leading to a larger radius."
+    },
+    {
+      "id": "l3ct25-q2bi",
+      "number": "2(b)(i)",
+      "text": "Identify all the types of attractive forces between particles of the following substances in their liquid state.\n\nHydrogen bromide, HBr(l) — ΔvapH° = 17.3 kJ mol⁻¹\nHydrogen fluoride, HF(l) — ΔvapH° = 25.2 kJ mol⁻¹\nBromine, Br₂(l) — ΔvapH° = 29.6 kJ mol⁻¹",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "intermolecular-forces"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "HBr: Permanent dipole–dipole (PD–PD) attractions, temporary dipole (TD–TD / London dispersion)...",
+      "markingGuide": "Achievement: Correctly identifies attractive forces for at least two substances.",
+      "image": "/images/exams/91390-2025-q2b.png"
+    },
+    {
+      "id": "l3ct25-q2bii",
+      "number": "2(b)(ii)",
+      "text": "Explain why the ΔvapH° of HF is higher than that of HBr.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "thermochemistry",
+        "intermolecular-forces",
+        "enthalpy-vaporisation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "HF has hydrogen bonding (due to large electronegativity difference between H and F),",
+      "markingGuide": "Achievement: Recognises hydrogen bonding is stronger. Merit: Explains differences in molarity/electronegativity leading to differences in strength of attractive forces."
+    },
+    {
+      "id": "l3ct25-q2biii",
+      "number": "2(b)(iii)",
+      "text": "Justify why Br₂ has the highest ΔvapH° of the three substances.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "thermochemistry",
+        "intermolecular-forces",
+        "enthalpy-vaporisation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Despite Br₂ having only temporary dipole forces (no permanent dipoles or hydrogen bonding), it...",
+      "markingGuide": "Achievement: Recognises that a larger electron cloud / larger molar mass gives stronger temporary dipole forces. Merit: Explains that Br₂'s large size produces strong temporary dipole forces despite lacking hydrogen bonding. Excellence: Fully justifies by comparing all three substances' attractive force strengths."
+    },
+    {
+      "id": "l3ct25-q3ai",
+      "number": "3(a)(i)",
+      "text": "Nitric acid, HNO₃, is manufactured from ammonia, NH₃. The equation for one of the reactions in the process is:\n\n4NH₃(g) + 5O₂(g) → 4NO(g) + 6H₂O(l)   ΔᵣH° ≈ −1172 kJ mol⁻¹\n\nWrite the balanced equation to represent the standard enthalpy of formation of ammonia in the table below.\n\n[Table shows: NH₃(g) — equation blank — ΔfH° blank; NO(g) — ½N₂(g) + ½O₂(g) → NO(g) — +90.3; H₂O(l) — H₂(g) + ½O₂(g) → H₂O(l) — −286]",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "enthalpy-formation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "½N₂(g) + 1½H₂(g) → NH₃(g) (or ½N₂(g) + ³⁄₂H₂(g) → NH₃(g))",
+      "markingGuide": "Achievement: Correct enthalpy of formation equation for NH₃.",
+      "image": "/images/exams/91390-2025-q3a.png"
+    },
+    {
+      "id": "l3ct25-q3aii",
+      "number": "3(a)(ii)",
+      "text": "Calculate the standard enthalpy of formation for ammonia, ΔfH°(NH₃(g)), using the data given in part (i).",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "hess-law",
+        "enthalpy-formation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Using ΔᵣH° = Σ ΔfH°(products) − Σ ΔfH°(reactants): −1172 = [4(90.3) + 6(−286)] − [4(ΔfH° NH₃) + 0].",
+      "markingGuide": "Achievement: Correct process with one error. Merit: Correct process. Excellence: Correct answer, including unit and 2–4 significant figures."
+    },
+    {
+      "id": "l3ct25-q3ci",
+      "number": "3(c)(i)",
+      "text": "Dinitrogen tetroxide, N₂O₄, was reacted with methylhydrazine, CH₃NHNH₂. The equation for the reaction is:\n\n4CH₃NHNH₂(l) + 5N₂O₄(l) → 4CO₂(g) + 12H₂O(g) + 9N₂(g)\n\nCalculate the standard enthalpy change of this reaction, using the following data.\n\nC(s) + 3H₂(g) + N₂(g) → CH₃NHNH₂(l)   ΔfH° = +54.1 kJ mol⁻¹\nC(s) + O₂(g) → CO₂(g)   ΔfH° = −394 kJ mol⁻¹\nN₂(g) + 2O₂(g) → N₂O₄(l)   ΔfH° = −20.0 kJ mol⁻¹\nH₂(g) + ½O₂(g) → H₂O(l)   ΔfH° = −286 kJ mol⁻¹\nH₂O(l) → H₂O(g)   ΔvapH° = +40.7 kJ mol⁻¹",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "hess-law",
+        "enthalpy"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "ΔᵣH° = Σ ΔfH°(products) − Σ ΔfH°(reactants).",
+      "markingGuide": "Achievement: Correctly manipulates one equation/enthalpy change. Merit: Correct process with one error. Excellence: Correct answer with correct unit, sign, and significant figures (2–4)."
+    },
+    {
+      "id": "l3ct25-q3cii",
+      "number": "3(c)(ii)",
+      "text": "Explain the effect on the standard enthalpy change calculated in part (c)(i) if the water was produced as a liquid.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "thermochemistry",
+        "enthalpy",
+        "state-changes"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The enthalpy change would be more exothermic / more negative",
+      "markingGuide": "Achievement: Recognises energy is released when gas changes to liquid. Merit: Explains that energy is released as intermolecular forces form between water molecules when changing state from gas to liquid."
+    },
+    {
+      "id": "l3ct25-q3bi",
+      "number": "3(b)(i)",
+      "text": "Justify, using your knowledge of periodic trends, why magnesium, Mg, has a greater first ionisation energy than strontium, Sr.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "thermochemistry",
+        "ionisation-energy",
+        "periodic-trends"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Mg has a greater first ionisation energy than Sr",
+      "markingGuide": "Achievement: Recognises distance/shielding has an effect. Merit: Explains the trend in terms of distance, shielding, and effective nuclear charge. Excellence: Explains the trends in atomic radii across a period linking distance, repulsion, shielding, and nuclear charge."
+    },
+    {
+      "id": "l3ct25-q3bii",
+      "number": "3(b)(ii)",
+      "text": "The atomic radii of five elements from Period 3 are shown in the table below.\n\nNa: 0.191 nm, Mg: 0.160 nm, Al: 0.130 nm, Si: 0.118 nm, P: 0.110 nm\n\nExplain the trend in atomic radius shown in the table.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "thermochemistry",
+        "atomic-radius",
+        "periodic-trends"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Atomic radius decreases across Period 3 from Na to P.",
+      "markingGuide": "Achievement: Recognises that nuclear charge affects atomic radius. Merit: Explains the trend linking nuclear charge and same energy level. Excellence: Explains the trend in atomic radii across a period, including distance, repulsion/shielding, and nuclear charge/attraction.",
+      "image": "/images/exams/91390-2025-q3bii.png"
+    },
+    {
+      "id": "l3ct25-q3c",
+      "number": "3(c)",
+      "text": "When solid calcium chloride, CaCl₂(s), dissolves in water, the temperature increases from 20.4 °C to 23.2 °C.\n\nCaCl₂(s) → Ca²⁺(aq) + 2Cl⁻(aq)   ΔH = −81.3 kJ mol⁻¹\n\nCalculate the mass of CaCl₂(s) that must dissolve to cause this temperature increase.\nAssume the specific heat capacity of the calcium chloride solution is 4.18 J g⁻¹ °C⁻¹.\nAssume the mass of the calcium chloride solution is 68.0 g.\nM(CaCl₂) = 111 g mol⁻¹",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "thermochemistry",
+        "enthalpy",
+        "calorimetry"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "q = m × c × ΔT = 68.0 × 4.18 × (23.2 − 20.4) = 68.0 × 4.18 × 2.8 = 795.9 J = 0.7959 kJ.",
+      "markingGuide": "Achievement: Calculates heat energy released when CaCl₂ dissolves. Merit: Correct process to determine mass with minor error. Excellence: Calculates mass of CaCl₂, including unit and 2–4 significant figures."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

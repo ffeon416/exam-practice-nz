@@ -1,0 +1,76 @@
+{
+  "id": "l3-geography-research-2024",
+  "title": "Level 3 Geography — Geographic Research 2024",
+  "level": 3,
+  "standard": "91429",
+  "year": 2024,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91429-2024-q1a",
+      "number": "1(a)",
+      "text": "Read the resource booklet about wildfires in Canada. Integrate geographic concepts and supporting evidence from any of the resources into your answers.\n\nUsing evidence from the resources, describe the pattern (spatial or temporal) of Canadian wildfires.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "patterns",
+        "spatial",
+        "temporal",
+        "wildfires"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describes spatial pattern (e.g.",
+      "markingGuide": "Achievement: Partially describes the spatial or temporal pattern of Canadian wildfires. Describes a pattern with limited evidence. Merit: Describes the spatial or temporal pattern in detail with supporting evidence from resources. Describes two different patterns or one in detail with specific data. Excellence: Description is detailed with comprehensive evidence integrated throughout."
+    },
+    {
+      "id": "91429-2024-q1b",
+      "number": "1(b)",
+      "text": "What are two different perspectives related to the wildfires, and why do people hold these perspectives?\n\nPerspective 1:\n\nPerspective 2:",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "perspectives",
+        "wildfires"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Two different perspectives on Canadian wildfires, e.g.",
+      "markingGuide": "Achievement: Describes two different perspectives (e.g. a group/individual) related to wildfires. Outlines consequences of wildfires with some reference to the environment. Merit: Describes two different perspectives related to wildfires in Canada for people and the environment with supporting evidence. Excellence: Explains in detail two perspectives with comprehensive evidence, analysing why people hold these views."
+    },
+    {
+      "id": "91429-2024-q1c",
+      "number": "1(c)",
+      "text": "Wildfires are an environmental disaster with significant environmental, economic, and social costs. Evaluate the consequences of wildfires for people and the environment.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "evaluation",
+        "consequences",
+        "wildfires",
+        "sustainability"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluates environmental consequences (habitat destruction, air quality, carbon release),...",
+      "markingGuide": "Achievement: Includes some evidence from resources that demonstrates use of geographic skills and conventions. Responses may lack specific concepts or geographic terminology. Merit: Includes evidence from resources that includes detailed geographic skills and conventions. Response shows some geographic concepts and geographic skills and conventions. Excellence: Includes detailed evidence from resources. Comprehensively evaluates the consequences for people and the environment with insight, using geographic terminology. Evidence is fully integrated."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

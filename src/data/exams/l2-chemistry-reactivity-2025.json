@@ -1,0 +1,312 @@
+{
+  "id": "l2-chemistry-reactivity-2025",
+  "title": "Level 2 Chemistry: Bonding, Structure, Properties and Energy Changes -- 2025",
+  "level": 2,
+  "standard": "91164",
+  "year": 2025,
+  "subject": "chemistry",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l2cr25-q1a",
+      "number": "1(a)",
+      "text": "Sodium chloride, NaCl, is used as an antiseptic and antimicrobial agent. In analytical chemistry, it is often reacted with silver nitrate, AgNO₃, as shown below.\n\nNaCl(aq) + AgNO₃(aq) → AgCl(s) + NaNO₃(aq)\n\nWhen silver nitrate, AgNO₃, is added to 73.0 g of sodium chloride, NaCl, 81.8 kJ of energy is released.\n\nCalculate the ΔᵣH for the above reaction.\n\nM(NaCl) = 58.4 g mol⁻¹",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy-changes",
+        "enthalpy",
+        "calculations"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "n(NaCl) = 73.0 / 58.4 = 1.25 mol\nΔᵣH = −81.8 / 1.25 = −65.4 kJ mol⁻¹",
+      "markingGuide": "Achieved: One step correct, e.g. correctly calculates moles of NaCl. Merit: Correct answer with correct unit (kJ mol⁻¹) and negative sign."
+    },
+    {
+      "id": "l2cr25-q1bi",
+      "number": "1(b)(i)",
+      "text": "Identify which substance below matches the information provided in the table by placing it into the correct row.\n\nZinc (Zn)    Ammonia (NH₃)    Diamond (C)    Sodium chloride (NaCl)\n\n| Solid type | Melting point (°C) | Substance selected |\n|---|---|---|\n| 3D Covalent Network | 3550 | |\n| Ionic | 801 | |\n| Metallic | 420 | |\n| Molecular | −78 | |",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "bonding",
+        "structure",
+        "properties"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "3D Covalent Network (3550): Diamond (C)\nIonic (801): Sodium chloride (NaCl)\nMetallic (420): Zinc (Zn)\nMolecular (−78): Ammonia (NH₃)",
+      "markingGuide": "Achieved: THREE of four correct."
+    },
+    {
+      "id": "l2cr25-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Relate the bonding and structure in ionic and molecular solids to their relative melting points.\n\nIn your answer:\n- describe the bonding and structure in ionic and molecular solids\n- explain what the melting point of a solid indicates about the strength of forces between its particles\n- link the strength of forces between the particles to their relative melting points.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "bonding",
+        "structure",
+        "properties",
+        "melting-point"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The higher the melting point of a substance, the stronger the forces of attraction between the substance's particles. The melting point indicates how much energy is required to overcome the forces of attraction between its particles.\n\nIonic solids are made of positive and negative ions arranged in an alternating 3D lattice structure held together with strong directional ionic bonds between the cations and anions. These strong bonds require a large amount of energy to be overcome, therefore ionic solids have relatively higher melting points than molecular solids.\n\nMolecular solids are made of molecules held together with weak intermolecular forces of attraction that require only small amounts of energy to be overcome. Therefore, molecular solids have relatively lower melting points than ionic solids.",
+      "markingGuide": "Achieved: Recognises the relationship between melting point and the forces between a substance's particles, OR identifies that forces between particles must be broken for a solid to melt, OR describes structure of either substance. Merit: Describes structures and bonding of ONE solid type and links it to the energy/heat required for melting. Excellence: Links structure and bonding in each type of solid to the difference in energy required for melting."
+    },
+    {
+      "id": "l2cr25-q1c",
+      "number": "1(c)",
+      "text": "Diamond, C, and gold, Au, are both used frequently in jewellery making, but their properties are very different.\n\nDiamond is very hard and can only be scratched by a substance equally as hard as itself. Gold, however, is malleable and ductile, and is used to craft intricate shapes and patterns.\n\nExplain how the structure and bonding of each substance results in these properties.\n\nDiamond, C, hardness:\n\nGold, Au, malleable and ductile:",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "bonding",
+        "structure",
+        "properties",
+        "covalent-network",
+        "metallic-bonding"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Diamond is very hard due to the four covalent bonds that connect each of the carbon atoms that are very strong and directional. It is a covalent network. This means a large amount of force is required to overcome these bonds, making diamond a very hard substance.\n\nGold is a metallic solid held together by non-directional strong metallic bonds between cations/atoms/nuclei and delocalised electrons. It is arranged in layers that, under force, can slide over one another due to the non-directional bonding. This enables gold to be drawn out/stretched and moulded into shape without breaking.",
+      "markingGuide": "Achieved: Recognises that type (in gold) or strength (in diamond) of bonding influences different properties of the substances. Merit: Links the bonding and structure of ONE solid to properties. Excellence: Explains how the bonding in both solids results in their comparative properties."
+    },
+    {
+      "id": "l2cr25-q1d",
+      "number": "1(d)",
+      "text": "The development of the Haber-Bosch process, shown in the reaction below, is historically significant.\n\nN₂(g) + 3H₂(g) → 2NH₃(g)    ΔᵣH = −93.0 kJ mol⁻¹\n\nCalculate the average bond energy of the N≡N bond in N₂, using the average bond energies listed in the table below for this reaction between nitrogen, N₂, and hydrogen, H₂, that produces ammonia, NH₃.\n\n| Bond | Bond energy (kJ mol⁻¹) |\n|---|---|\n| H–H | 436 |\n| N–H | 391 |",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "energy-changes",
+        "bond-energy",
+        "calculations"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Bonds broken: 1 × N≡N = x, 3 × H–H = 3 × 436 = 1308\nTotal: 1308 + x kJ mol⁻¹\n\nBonds formed: 6 × N–H = 6 × 391 = 2346 kJ mol⁻¹\n\nΔᵣH = Σ(bonds broken) − Σ(bonds formed)\n−93.0 = (1308 + x) − 2346\n2253 = 1308 + x\nx = 945 kJ mol⁻¹",
+      "markingGuide": "Achieved: Correctly calculates total bonds broken or bonds formed. Merit: Correct process with minor error. Excellence: Correct answer with units (945 kJ mol⁻¹)."
+    },
+    {
+      "id": "l2cr25-q2ai",
+      "number": "2(a)(i)",
+      "text": "Identify whether each of the statements apply to endothermic (Endo) or exothermic (Exo) reactions by circling the correct term only.\n\n- The products have more energy than the reactants.    Endo / Exo\n- Energy is released to the surroundings.    Endo / Exo\n- The change in enthalpy (ΔH) for the reaction is positive.    Endo / Exo",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy-changes",
+        "enthalpy"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Endo, Exo, Endo",
+      "markingGuide": "Achieved: TWO of three correct."
+    },
+    {
+      "id": "l2cr25-q2aii",
+      "number": "2(a)(ii)",
+      "text": "State whether the following process is endothermic or exothermic, and give a reason for your choice.\n\nH₂O(g) → H₂O(ℓ)",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy-changes",
+        "enthalpy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Exothermic. Changing state from gas to liquid, the particles have less energy. Energy has been released to the surroundings as a result of bond making, and so the process is exothermic.",
+      "markingGuide": "Achieved: Exothermic and correct reason, OR (a)(iii) correct, OR (a)(iv) correct. Merit: (a)(ii) including reason."
+    },
+    {
+      "id": "l2cr25-q2aiii",
+      "number": "2(a)(iii)",
+      "text": "Ammonium nitrate, NH₄NO₃, is used in first aid to treat injuries. The energy change in the reaction is shown in the diagram below.\n\n[An energy diagram shows reactant NH₄NO₃(s) at a lower energy level and products NH₄⁺(aq) + NO₃⁻(aq) at a higher energy level.]\n\nIs the reaction in the graph above absorbing energy from the surroundings or releasing energy to the surroundings?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy-changes",
+        "enthalpy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Absorbing energy from the surroundings.",
+      "markingGuide": "Achieved: Correct answer (absorbing energy from the surroundings)."
+    },
+    {
+      "id": "l2cr25-q2aiv",
+      "number": "2(a)(iv)",
+      "text": "Circle the correct option for identification of the enthalpy change of this reaction (ΔᵣH):\n\nΔᵣH < 0, negative          ΔᵣH > 0, positive",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy-changes",
+        "enthalpy"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "ΔᵣH < 0, negative",
+        "ΔᵣH > 0, positive"
+      ],
+      "expectedAnswer": "ΔᵣH > 0, positive",
+      "markingGuide": "Achieved: Correct option selected (positive)."
+    },
+    {
+      "id": "l2cr25-q2bi",
+      "number": "2(b)(i)",
+      "text": "All three of the compounds given in the table below contain polar bonds, but only two of them are polar molecules.\n\n| Methanol | Tetrachloromethane | Water |\n|---|---|---|\n| H–C(H)(H)–OH | Cl–C(Cl)(Cl)–Cl | H–O–H |\n\nDefine what makes a chemical bond polar, and give an example from one of the above compounds.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "bonding",
+        "polarity",
+        "electronegativity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A polar bond is a covalent bond with a dipole, as a result of the atoms in the bond having a big enough difference in electronegativity (the ability to attract bonding electrons). Any relevant example e.g. O^δ−−H^δ+.",
+      "markingGuide": "Achieved: Basic definition and example, OR selects tetrachloromethane in (ii)."
+    },
+    {
+      "id": "l2cr25-q2bii",
+      "number": "2(b)(ii)",
+      "text": "Circle the compound in the table above that is the non-polar molecule.\n\nMethanol    Tetrachloromethane    Water",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "bonding",
+        "polarity"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "Methanol",
+        "Tetrachloromethane",
+        "Water"
+      ],
+      "expectedAnswer": "Tetrachloromethane",
+      "markingGuide": "Achieved: Correctly selects tetrachloromethane."
+    },
+    {
+      "id": "l2cr25-q2biii",
+      "number": "2(b)(iii)",
+      "text": "Use your understanding of structure and bonding to justify your choice of the molecule you circled above.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "bonding",
+        "polarity",
+        "molecular-shape"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Both polar and non-polar molecules can contain polar bonds. If polar bonds are both equal in size of polarity and symmetrically arranged around the central atom, then the dipoles cancel and the molecule is non-polar. For example, tetrachloromethane has four polar C–Cl bonds, but they are all equally polar and they are arranged symmetrically around the carbon atom; therefore the four dipoles cancel out and the overall molecule is non-polar.",
+      "markingGuide": "Achieved: Identifies that symmetry of molecule is responsible for polarity, OR identifies that size of dipole influences polarity of the molecule. Merit: Links symmetry of molecules to dipole cancellation using CCl₄ and C–Cl polar bonds. Excellence: All parts correct (i, ii, iii) including full explanation addressing both size of dipoles and symmetry for tetrachloromethane."
+    },
+    {
+      "id": "l2cr25-q2c",
+      "number": "2(c)",
+      "text": "Predict the solubility of the following combinations of solutes and solvents by adding a tick (✓) to the correct column for each combination.\n\n| Solute and solvent combination | Soluble? | Insoluble? |\n|---|---|---|\n| Tetrachloromethane, CCl₄, in water, H₂O | | |\n| Magnesium bromide, MgBr₂, in hexane, C₆H₁₄ | | |\n| Bromine, Br₂, in hexane, C₆H₁₄ | | |",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "bonding",
+        "solubility",
+        "polarity"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CCl₄ in H₂O: Insoluble\nMgBr₂ in C₆H₁₄: Insoluble\nBr₂ in C₆H₁₄: Soluble",
+      "markingGuide": "Achieved: Two correct. Merit: Three correct."
+    },
+    {
+      "id": "l2cr25-q2d",
+      "number": "2(d)",
+      "text": "What makes sodium chloride, NaCl, soluble in water, but iodine, I₂, insoluble in water.\n\nIn your answer:\n- refer to the structure and bonding of each substance\n- explain how the substance interacts with water molecules\n- include a diagram showing the dissolving of NaCl in water.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "bonding",
+        "solubility",
+        "polarity",
+        "ionic-bonding"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The attraction between solute and solvent needs to be enough to overcome the attractions between water molecules themselves. Sodium chloride is an ionic compound; in water the partially negative O atoms of the water are attracted to the positive Na⁺ ions, and the partially positive hydrogen atoms in water is attracted to the negative chloride ions (Cl⁻). This attraction between solute and solvent is enough to overcome those within water and between the ions, and therefore sodium chloride is soluble.\n\nHowever, as iodine is a non-polar molecular solid, there are no charges or partial charges for the water molecules to be attracted towards. Therefore, there is no force of attraction to overcome the existing attractions between water molecules, hence iodine is insoluble in water.\n\n[Diagram should show NaCl lattice separating with water molecules oriented around each ion — O towards Na⁺, H towards Cl⁻.]",
+      "markingGuide": "Achieved: Identifies attractions (or lack of) are required between water and the solute for a substance to be soluble/insoluble, OR good diagram. Merit: Links relative strength of attractive forces between solute and solvent particles to solubility for ONE compound. Excellence: Justifies the solubility of both compounds with reference to polarity, relative strength of attractive forces and need to overcome existing forces, AND includes diagram of NaCl dissolving in H₂O."
+    },
+    {
+      "id": "l2cr25-q3a",
+      "number": "3(a)",
+      "text": "Different forms (allotropes) of carbon have different electrical conductivities. Diamond does not conduct electricity, but graphite is a very good electrical conductor.\n\nCompare and contrast the structure and bonding of these two carbon compounds.\n\nIn your answer:\n- explain the structure and bonding of diamond and graphite\n- define electrical conductivity in solids\n- justify the difference in electrical conductivity between diamond and graphite.\n\nYou may include a diagram to support your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "bonding",
+        "structure",
+        "conductivity",
+        "covalent-network"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Diamond is a 3D covalent network solid made of carbon atoms covalently bonded to four other carbon atoms in a tetrahedral arrangement.\n\nGraphite is a 2D covalent network solid made of carbon atoms covalently bonded to three other carbon atoms in hexagonal rings. There is a delocalised valence electron from each carbon atom that is free to move. These hexagonal rings form layers with weak intermolecular forces between them.\n\nTo conduct electrically, a substance must contain free-moving charged particles. The delocalised electrons in graphite can move freely throughout the structure and carry a negative charge, therefore graphite can conduct.\n\nDiamond does not have any free-moving delocalised electrons as all carbons are bonded to four other carbons. Therefore, diamond does not conduct while graphite does.",
+      "markingGuide": "Achieved: Describes the structure of diamond covalent network with a tetrahedral arrangement/each C bonded to 4 others, OR describes the structure of graphite covalent network solid in layers/each C bonded to 3 others, OR defines conductivity. Merit: Explains bonding and structure of both carbon allotropes (diamond A+ 3D, each carbon is bonded to 4 other carbon atoms; graphite A+, bonded to 3 others with delocalised electrons), AND links conductivity A+ to presence of delocalised valence electrons for graphite to carry a current or lack of mobile charged particles/delocalised electrons for diamond so no current can flow. Excellence: Comprehensively explains the structure and bonding of both solids and relates this to the conductivity of both diamond and graphite. Relevant aspects of drawn structures can contribute to answer."
+    },
+    {
+      "id": "l2cr25-q3bi",
+      "number": "3(b)(i)",
+      "text": "Combustion is a chemical reaction in which a substance combines with oxygen and produces heat.\n\nWhen ethanol, C₂H₅OH, is combusted with oxygen, O₂, carbon dioxide, CO₂, and water, H₂O, are produced.\n\nC₂H₅OH(ℓ) + 3O₂(g) → 2CO₂(g) + 3H₂O(ℓ)    ΔᵣH = −1370 kJ mol⁻¹\n\nCalculate the mass of ethanol, C₂H₅OH, that must react to release 17 500 kJ of energy.\n\nM(C₂H₅OH) = 46.7 g mol⁻¹",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy-changes",
+        "enthalpy",
+        "calculations"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "n(C₂H₅OH) = 17500 / 1370 = 12.8 mol\nm = 12.8 × 46.7 = 597 g",
+      "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit, OR (b)(ii) correct with unit. Excellence: Both calculations (i) and (ii) correct."
+    },
+    {
+      "id": "l2cr25-q3bii",
+      "number": "3(b)(ii)",
+      "text": "Calculate the energy change when 187 g of zinc oxide, ZnO, is produced in the reaction below between zinc, Zn, and oxygen, O₂.\n\n2Zn(s) + O₂(g) → 2ZnO(s)    ΔᵣH = −696 kJ mol⁻¹\n\nM(ZnO) = 81.4 g mol⁻¹",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy-changes",
+        "enthalpy",
+        "calculations"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "n(ZnO) = 187 / 81.4 = 2.297 mol\nEnergy = 2.297 × (−696 / 2) = −799 kJ",
+      "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit. Excellence: Both calculations (b)(i) and (b)(ii) correct."
+    },
+    {
+      "id": "l2cr25-q3c",
+      "number": "3(c)",
+      "text": "Draw the Lewis structure (electron dot diagram) for each of the following molecules, and give their shapes.\n\n| Molecule | CO₂ | Cl₂O | BF₃ |\n|---|---|---|---|\n| Lewis structure | | | |\n| Name of shape | | | |",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "bonding",
+        "lewis-structures",
+        "molecular-shape"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CO₂: O=C=O (linear)\nCl₂O: Cl–O–Cl with two lone pairs on O (bent)\nBF₃: F–B–F with F below, trigonal planar arrangement (trigonal planar)",
+      "markingGuide": "Achieved: TWO correct Lewis structures with shapes."
+    },
+    {
+      "id": "l2cr25-q3d",
+      "number": "3(d)",
+      "text": "The table gives information relating to the shape of each molecular substance.\n\n| | Methane | Ammonia |\n|---|---|---|\n| Shape diagram | tetrahedral CH₄ | trigonal pyramidal NH₃ |\n| Bond angle | 109.5° | 109.5° |\n| Molecular shape | Tetrahedral | Trigonal pyramid |\n\nCompare the two shapes and explain the factors that contribute to:\n- arrangement around the central atom\n- molecular shape.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "bonding",
+        "molecular-shape",
+        "electron-repulsion"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "In methane, there are four regions of electron density around the central C atom. These are repelled at maximum separation to give minimum repulsion with bond angles of 109.5° and an arrangement that is tetrahedral. As all regions are bonded, the shape is also tetrahedral.\n\nWhereas, in ammonia, there are four regions of electron density surrounding the N atom. As each of these regions has a negative charge, they repel as far apart as possible into maximum separation; this is what determines the arrangement and the associated bond angle. For ammonia, this is tetrahedral with angles of 109.5°. As only three of the four regions are bonded, the final shape is trigonal pyramid. The presence of the lone pair (unbonded electrons) around the central N atom means the arrangement and the final shape are different.",
+      "markingGuide": "Achieved: Identifies the correct number of bonding and non-bonding regions/lone pairs for ammonia or methane, OR recognises electron density regions are arranged in positions of maximum separation/minimum repulsion. Merit: Links the number of areas of electron density around the central atom AND that number of lone pairs to the molecular shape for ONE compound. Excellence: Fully explains each molecular substance, including that number of areas of electron density AND number of lone pairs determine molecular shape."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 13 },
+    "merit": { "min": 14, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

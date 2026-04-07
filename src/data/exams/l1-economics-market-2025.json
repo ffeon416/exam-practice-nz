@@ -1,0 +1,160 @@
+{
+  "id": "l1-economics-market-2025",
+  "title": "Level 1 Economics — Market Concepts Practice",
+  "level": 1,
+  "standard": "91924E",
+  "year": 2025,
+  "subject": "economics",
+  "timeMinutes": 50,
+  "totalMarks": 22,
+  "questions": [
+    {
+      "id": "ecmk-q1",
+      "number": "1",
+      "text": "What is a market?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["market-concepts-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "A physical shop where goods are sold",
+        "Any situation where buyers and sellers interact to exchange goods or services",
+        "A government department that sets prices",
+        "A place where only food is traded"
+      ],
+      "expectedAnswer": "Any situation where buyers and sellers interact to exchange goods or services",
+      "markingGuide": "The correct answer is 'Any situation where buyers and sellers interact to exchange goods or services'. A market is not limited to a physical location — it includes online markets, labour markets, and any arrangement where exchange occurs."
+    },
+    {
+      "id": "ecmk-q2",
+      "number": "2",
+      "text": "According to the law of demand, what happens to the quantity demanded of a good when its price increases, all else being equal?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["supply-demand-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Quantity demanded increases",
+        "Quantity demanded decreases",
+        "Quantity demanded stays the same",
+        "Quantity demanded doubles"
+      ],
+      "expectedAnswer": "Quantity demanded decreases",
+      "markingGuide": "The correct answer is 'Quantity demanded decreases'. The law of demand states there is an inverse relationship between price and quantity demanded — as price rises, consumers buy less, ceteris paribus (all other things being equal)."
+    },
+    {
+      "id": "ecmk-q3",
+      "number": "3",
+      "text": "Which of the following factors would cause the supply curve to shift to the right (increase in supply)?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["supply-demand-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "An increase in the cost of raw materials",
+        "New technology that reduces production costs",
+        "A new government tax on producers",
+        "A decrease in the number of suppliers in the market"
+      ],
+      "expectedAnswer": "New technology that reduces production costs",
+      "markingGuide": "The correct answer is 'New technology that reduces production costs'. When production costs fall (e.g. through better technology), producers can supply more at every price level, shifting the supply curve to the right. The other options would all decrease supply (shift left)."
+    },
+    {
+      "id": "ecmk-q4",
+      "number": "4",
+      "text": "Explain, using a New Zealand example, how scarcity forces consumers to make choices.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["scarcity-choice"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining scarcity: resources (land, labour, capital) are limited while wants are unlimited, so not everything can be produced or consumed. 1 mark for a relevant NZ example, e.g. 'A family in Wellington has a limited weekly budget of $250 for groceries. They cannot buy everything they want, so they must choose between buying organic produce or cheaper conventional items.' Other valid examples: choosing between spending on a ski trip to Ruapehu or saving for a new phone; NZ government choosing between funding healthcare or education with limited tax revenue."
+    },
+    {
+      "id": "ecmk-q5",
+      "number": "5",
+      "text": "What is opportunity cost?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["scarcity-choice"],
+      "answerType": "multi-choice",
+      "options": [
+        "The total cost of producing a good",
+        "The price a consumer pays at the shop",
+        "The next best alternative given up when a choice is made",
+        "The cost of borrowing money from a bank"
+      ],
+      "expectedAnswer": "The next best alternative given up when a choice is made",
+      "markingGuide": "The correct answer is 'The next best alternative given up when a choice is made'. Opportunity cost is a fundamental economic concept — because resources are scarce, choosing one option means sacrificing the next best alternative. It is not simply a monetary cost."
+    },
+    {
+      "id": "ecmk-q6",
+      "number": "6",
+      "text": "A dairy farmer in the Waikato region can either continue producing milk or convert their land to growing avocados. They decide to grow avocados.\n\nExplain the opportunity cost of choosing to grow avocados.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["scarcity-choice"],
+      "answerType": "text",
+      "markingGuide": "1 mark for identifying the opportunity cost: the income and benefits from milk production that the farmer gives up by switching to avocados. 1 mark for explaining this in context: e.g. 'The opportunity cost is the revenue from milk sales, the established relationships with Fonterra, and the steady income stream the farmer would have earned. The farmer must weigh the potential future profits from avocados against this lost milk income.' Accept references to the time it takes for avocado trees to mature (3-5 years with no fruit income)."
+    },
+    {
+      "id": "ecmk-q7",
+      "number": "7",
+      "text": "In a competitive market, what happens when there is a surplus (excess supply)?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["supply-demand-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Producers raise their prices to make more profit",
+        "The government steps in and buys the extra goods",
+        "Producers lower their prices to sell the excess stock, moving toward equilibrium",
+        "Consumers start buying more at the same price"
+      ],
+      "expectedAnswer": "Producers lower their prices to sell the excess stock, moving toward equilibrium",
+      "markingGuide": "The correct answer is 'Producers lower their prices to sell the excess stock, moving toward equilibrium'. When quantity supplied exceeds quantity demanded (surplus), producers have unsold stock. They reduce prices to attract buyers. As prices fall, quantity demanded increases and quantity supplied decreases until equilibrium is reached."
+    },
+    {
+      "id": "ecmk-q8",
+      "number": "8",
+      "text": "The New Zealand government increased the minimum wage to $23.15 per hour in April 2024.\n\nExplain how a minimum wage increase could affect both workers and employers.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["market-concepts-l1", "government-role-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for effect on workers: higher income for those who keep their jobs, increased spending power, improved standard of living. May also note some workers could lose hours or jobs if employers cut back. 1 mark for effect on employers: higher labour costs, may need to increase prices (e.g. a cafe in Tauranga raising coffee prices), reduce staff hours, hire fewer workers, or absorb the cost through lower profits. Merit-level answers will discuss both positive and negative effects rather than just one side."
+    },
+    {
+      "id": "ecmk-q9",
+      "number": "9",
+      "text": "What is the role of the government in a mixed economy like New Zealand's?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["government-role-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "The government owns and controls all businesses",
+        "The government has no involvement in the economy at all",
+        "The government provides public goods, regulates markets, and redistributes income while private businesses also operate",
+        "The government only collects taxes but does not spend money"
+      ],
+      "expectedAnswer": "The government provides public goods, regulates markets, and redistributes income while private businesses also operate",
+      "markingGuide": "The correct answer is 'The government provides public goods, regulates markets, and redistributes income while private businesses also operate'. New Zealand has a mixed economy where both the private sector and government play roles. The government provides services like healthcare and education, regulates businesses (e.g. Commerce Commission), and redistributes income through taxes and benefits."
+    },
+    {
+      "id": "ecmk-q10",
+      "number": "10",
+      "text": "The New Zealand government has proposed a tax on sugary drinks to reduce obesity.\n\nUsing economic concepts (demand, price, consumer choice, market intervention), explain how this tax would work and discuss ONE advantage and ONE disadvantage of this policy.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["supply-demand-l1", "government-role-l1", "scarcity-choice"],
+      "answerType": "working",
+      "markingGuide": "4 marks total.\n\n1 mark — How the tax works: The tax increases the cost of producing/selling sugary drinks, which raises the price consumers pay. According to the law of demand, a higher price leads to a decrease in quantity demanded. Consumers may switch to cheaper alternatives like water or sugar-free drinks.\n\n1 mark — Consumer choice impact: Consumers now face a higher opportunity cost when choosing sugary drinks. The price signal encourages them to make healthier choices, reallocating their limited budget toward other goods.\n\n1 mark — ONE advantage: e.g. Reduced consumption of sugary drinks leads to improved public health, lower rates of obesity and diabetes, reduced long-term healthcare costs for the government (taxpayer savings). Or: tax revenue can fund health programmes or subsidise healthy food.\n\n1 mark — ONE disadvantage: e.g. The tax is regressive — it affects low-income families more because they spend a higher proportion of their income on food and drink. Or: producers and retailers may lose revenue and jobs. Or: consumers may switch to other unhealthy alternatives not covered by the tax. Or: it limits consumer freedom of choice (government intervention in personal decisions).\n\nExcellence-level responses will use economic terminology accurately, link concepts together, and evaluate the policy rather than just describe it."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 13 },
+    "merit": { "min": 14, "max": 18 },
+    "excellence": { "min": 19, "max": 22 }
+  }
+}

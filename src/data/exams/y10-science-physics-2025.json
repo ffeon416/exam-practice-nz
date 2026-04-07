@@ -1,0 +1,129 @@
+{
+  "id": "y10-science-physics-2025",
+  "title": "Year 10 Science — Physics Practice",
+  "level": 0,
+  "standard": "Y10-SCI-PHYS",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 40,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "y10phys-q1",
+      "number": "1",
+      "text": "A car travels 150 kilometres in 2 hours. What is its average speed?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["forces-motion-y10"],
+      "answerType": "multi-choice",
+      "options": ["300 km/h", "75 km/h", "148 km/h", "152 km/h"],
+      "expectedAnswer": "75 km/h",
+      "markingGuide": "The correct answer is 75 km/h. Speed = distance ÷ time = 150 ÷ 2 = 75 km/h. Exam tip: Always remember the formula triangle — speed = distance/time, distance = speed × time, time = distance/speed."
+    },
+    {
+      "id": "y10phys-q2",
+      "number": "2",
+      "text": "According to Newton's First Law of Motion, what happens to a stationary object if no unbalanced force acts on it?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["forces-motion-y10"],
+      "answerType": "multi-choice",
+      "options": ["It begins to move slowly", "It stays stationary", "It accelerates in a random direction", "It gradually slows down"],
+      "expectedAnswer": "It stays stationary",
+      "markingGuide": "The correct answer is 'It stays stationary'. Newton's First Law (the law of inertia) states that an object at rest stays at rest, and an object in motion stays in motion at constant speed in a straight line, unless acted upon by an unbalanced (net) force. If no unbalanced force acts, there is no change in motion."
+    },
+    {
+      "id": "y10phys-q3",
+      "number": "3",
+      "text": "Which of the following is an example of kinetic energy being converted to gravitational potential energy?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["energy-y10"],
+      "answerType": "multi-choice",
+      "options": ["A ball rolling along a flat surface", "A ball being thrown upwards", "A ball falling from a shelf", "A ball sitting on the ground"],
+      "expectedAnswer": "A ball being thrown upwards",
+      "markingGuide": "The correct answer is 'A ball being thrown upwards'. As the ball moves upward, it slows down — its kinetic energy (energy of movement) is being converted into gravitational potential energy (energy stored due to height). A falling ball converts potential to kinetic. A ball on flat ground has constant kinetic energy (ignoring friction). A stationary ball has no kinetic energy."
+    },
+    {
+      "id": "y10phys-q4",
+      "number": "4",
+      "text": "Which of the following correctly describes the energy transformation in a hydroelectric power station like the Manapōuri Power Station in Fiordland?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["energy-y10"],
+      "answerType": "multi-choice",
+      "options": ["Chemical energy → electrical energy → heat energy", "Gravitational potential energy → kinetic energy → electrical energy", "Nuclear energy → heat energy → electrical energy", "Electrical energy → kinetic energy → sound energy"],
+      "expectedAnswer": "Gravitational potential energy → kinetic energy → electrical energy",
+      "markingGuide": "The correct answer is 'Gravitational potential energy → kinetic energy → electrical energy'. Water stored at height behind a dam has gravitational potential energy. As it flows downhill through pipes (penstocks), this converts to kinetic energy. The moving water spins turbines connected to generators, which convert the kinetic energy into electrical energy. Exam tip: New Zealand generates about 80% of its electricity from renewable sources, with hydroelectric being the largest contributor."
+    },
+    {
+      "id": "y10phys-q5",
+      "number": "5",
+      "text": "In a simple electrical circuit, a battery provides a voltage of 12 V and the current flowing through a resistor is 3 A. What is the resistance of the resistor?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["electricity-y10"],
+      "answerType": "number",
+      "expectedAnswer": "4",
+      "markingGuide": "The answer is 4 ohms (Ω). Using Ohm's Law: V = I × R, so R = V ÷ I = 12 ÷ 3 = 4 Ω. Exam tip: Remember Ohm's Law — Voltage = Current × Resistance. You can rearrange this to find any of the three values: R = V/I, I = V/R."
+    },
+    {
+      "id": "y10phys-q6",
+      "number": "6",
+      "text": "Explain the difference between a series circuit and a parallel circuit. Include what happens to the current and voltage in each type, and give a real-life example of where each type might be used.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["electricity-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark: Series circuit — components are connected one after another in a single loop. The current is the same at all points in the circuit. The voltage is shared (split) between the components. If one component fails, the whole circuit breaks. 1 mark: Parallel circuit — components are connected on separate branches. The voltage across each branch is the same. The current is split between the branches (and adds up to the total current from the battery). If one component fails, the others still work. 1 mark: Real-life examples — series: old-style Christmas lights (one blows, all go out), a torch with batteries in a line; parallel: household wiring (each appliance gets the same mains voltage and can be switched on/off independently), modern Christmas lights (one bulb fails, the rest stay lit). Exam tip: Most real-world circuits are parallel — your house wiring is parallel so that turning off the kitchen light doesn't turn off the TV!"
+    },
+    {
+      "id": "y10phys-q7",
+      "number": "7",
+      "text": "Sound waves and light waves are both types of waves, but they have important differences. State ONE similarity and ONE difference between sound waves and light waves.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["waves-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark for a correct similarity: Both transfer energy from one place to another without transferring matter; both can be reflected; both have frequency, wavelength, and amplitude; both can be absorbed. 1 mark for a correct difference: Sound waves are longitudinal (particles vibrate parallel to the direction of wave travel) while light waves are transverse (particles vibrate perpendicular to the direction of travel). OR: Sound waves need a medium to travel through (cannot travel through a vacuum) while light waves can travel through a vacuum. OR: Light travels much faster than sound (300,000,000 m/s vs about 340 m/s in air). Exam tip: A classic way to remember — you see lightning before you hear thunder because light travels much faster than sound."
+    },
+    {
+      "id": "y10phys-q8",
+      "number": "8",
+      "text": "A cyclist is riding along a flat road at a constant speed of 8 m/s. They then accelerate uniformly for 5 seconds until they reach a speed of 13 m/s.\n\n(a) Calculate the cyclist's acceleration.\n(b) The total mass of the cyclist and bike is 80 kg. Calculate the net force required to produce this acceleration.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["forces-motion-y10"],
+      "answerType": "working",
+      "expectedAnswer": "1",
+      "markingGuide": "1 mark (a): Acceleration = change in speed ÷ time = (13 - 8) ÷ 5 = 5 ÷ 5 = 1 m/s². Must show working or clearly state the formula. 1 mark (b): Using Newton's Second Law, F = m × a = 80 × 1 = 80 N. Must show working. 1 mark: Correct units throughout (m/s² for acceleration, N for force) and clear logical presentation of working. Exam tip: Always write the formula first, then substitute the values, then calculate. This way you get marks for method even if your arithmetic is wrong."
+    },
+    {
+      "id": "y10phys-q9",
+      "number": "9",
+      "text": "New Zealand experiences frequent earthquakes because it sits on the boundary between the Pacific and Australian tectonic plates. Earthquakes produce seismic waves that travel through the Earth.\n\nThere are two main types of seismic waves that travel through the Earth's interior: P-waves (primary) and S-waves (secondary).\n\nExplain TWO differences between P-waves and S-waves. Include in your answer why the difference in their behaviour helps scientists understand the structure of the Earth's interior.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["waves-y10"],
+      "answerType": "working",
+      "markingGuide": "1 mark: P-waves are longitudinal (compressions and rarefactions — particles vibrate in the same direction as the wave travels) while S-waves are transverse (particles vibrate perpendicular to the direction of wave travel). 1 mark: P-waves travel faster than S-waves and arrive at seismograph stations first (hence 'primary' and 'secondary'). P-waves can travel through solids and liquids, but S-waves can only travel through solids. 1 mark: Scientists discovered that S-waves cannot pass through the Earth's outer core — this tells us the outer core must be liquid (since S-waves only travel through solids). P-waves change speed and direction when passing between different layers, which reveals the density and composition of the Earth's interior. This is how we know the Earth has a solid inner core, liquid outer core, mantle, and crust. Exam tip: The fact that S-waves are blocked by the liquid outer core was one of the key pieces of evidence for our understanding of Earth's internal structure — a great example of how wave physics connects to geology."
+    },
+    {
+      "id": "y10phys-q10",
+      "number": "10",
+      "text": "New Zealand aims to reach 100% renewable electricity generation. Currently, the main sources are hydroelectric, geothermal, and wind power.\n\nA wind turbine converts kinetic energy of the wind into electrical energy. A particular wind turbine generates 2,000,000 joules (2 MJ) of electrical energy in 100 seconds.\n\n(a) Calculate the power output of this wind turbine in watts.\n(b) Explain ONE advantage and ONE disadvantage of using wind power compared to fossil fuel power stations for generating New Zealand's electricity.\n(c) Describe ONE way that the law of conservation of energy applies to this wind turbine — that is, explain why not all of the wind's kinetic energy is converted to electrical energy.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["energy-y10", "electricity-y10"],
+      "answerType": "working",
+      "expectedAnswer": "20000",
+      "markingGuide": "1 mark (a): Power = energy ÷ time = 2,000,000 ÷ 100 = 20,000 W (or 20 kW). Must show working or state the formula. 1 mark (b advantage): Wind is a renewable energy source that will not run out; it produces no greenhouse gas emissions during operation; NZ has abundant wind resources especially in places like the Manawatū Gorge and Cook Strait; it reduces dependence on imported fossil fuels. 1 mark (b disadvantage): Wind is intermittent — it does not blow all the time, so electricity generation is variable and unreliable; turbines can be visually intrusive on the landscape; they can affect bird populations; the initial cost of building wind farms is high; energy storage is needed for calm periods. 1 mark (c): The law of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another. In a wind turbine, not all kinetic energy becomes electrical energy — some is converted to heat energy through friction in the gears and bearings, some becomes sound energy (turbines are noisy), and some kinetic energy remains in the wind after it passes the turbine blades. The total energy is conserved, but it is spread across multiple forms. Exam tip: No energy conversion is 100% efficient. There are always 'waste' energy outputs, usually as heat and sound. This is a key concept for understanding why efficiency matters in power generation."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

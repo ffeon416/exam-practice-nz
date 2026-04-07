@@ -1,0 +1,116 @@
+{
+  "id": "l1-stats-2024",
+  "title": "Level 1 Mathematical & Statistical Interpretation — 2024",
+  "level": 1,
+  "standard": "91946",
+  "year": 2024,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l1s24-q1a",
+      "number": "1(a)",
+      "text": "[Diagram: Resource 1A — A graph showing the average monthly mobile data consumption per user in New Zealand from 2012 to 2021, with a forecast extending to 2028. Key data points: 2012 ≈ 0.3 GB, 2015 ≈ 1.2 GB, 2018 ≈ 2.5 GB, 2021 = 4.21 GB, 2023 = 6.5 GB, 2028 forecast = 12.2 GB. The trend is non-linear/exponential, showing accelerating growth.]\n\nThe graph shows that the forecast for NZ average monthly mobile data consumption will increase from 6.5 GB (2023) to 12.2 GB (2028). Evaluate whether this forecast is valid. Support your evaluation with calculations and evidence from the graph.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "time-series",
+        "data-interpretation",
+        "numerical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Forecast rate 1.14 GB/year is consistent with recent growth (1.15 GB/year 2021-2023), so...",
+      "markingGuide": "Valid evaluation should include: Forecast average growth = (12.2 - 6.5) ÷ 5 = 1.14 GB/year. Compare with historical rates — recent growth (~1.15 GB/year from 2021-2023) supports the forecast. However, percentage growth rates have been declining (74% in 2017 down to 28% in 2021), which suggests growth may be slowing. COVID-19 may have affected 2020-2021 data (more people working from home on WiFi). The non-linear/exponential trend suggests continued growth but rate of increase is uncertain. Achieved = describes increasing trend to support forecast. Merit = justifies with numerical evidence (growth rates, percentage changes) OR raises valid concerns about reliability."
+    },
+    {
+      "id": "l1s24-q1b",
+      "number": "1(b)",
+      "text": "[Diagram: Resource 1A — NZ mobile data consumption graph (as above). Resource 1B — Two tables showing mobile phone plans:\n\n2degrees Carryover Plans: $35/month (3 GB), $45/month (6 GB), $60/month (unlimited). Data carries over to next month. Can share data between users on the same account.\n\none.nz Endless Plans: $40/month (4 GB), $55/month (8 GB), $65/month (unlimited, includes 250 mins and 50 TXT to 20 international destinations). No cap on data — speed reduced after allowance used. Cannot share data. one.nz rewards programme included.]\n\nIdentify advantages and disadvantages of each type of plan (2degrees Carryover vs one.nz Endless). Consider pricing, data allowances, and additional features.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "numerical-reasoning",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "2degrees: cheaper, data carries over, can share.",
+      "markingGuide": "2degrees Carryover advantages: More plan options (3 tiers). Data carries over to next month (no waste). Can share data between family members on same account. Cheapest entry point ($35 vs $40). 2degrees Carryover disadvantages: No international calling/texting included. No rewards programme. one.nz Endless advantages: No hard data cap — speed reduced but still works after allowance. $65 plan includes 250 mins + 50 TXT to 20 international destinations. one.nz rewards programme included. one.nz Endless disadvantages: Cannot share data between users. Unused data does not carry over. Fewer plan options. Achieved = one advantage from Carryover AND one from Endless. Merit = two advantages/disadvantages from each with clear reasoning. Excellence = comprehensive comparison of all options with evidence from Resources 1A and 1B."
+    },
+    {
+      "id": "l1s24-q1c",
+      "number": "1(c)",
+      "text": "[Diagram: Resources 1A and 1B as described above.]\n\nLosefa is moving from Samoa to NZ with his wife and two sons. In Samoa, he had a 'Red Plus' plan with 17 GB of data and some international minutes and texts. Recommend either a 2degrees or one.nz plan for Losefa and his family. Provide clear reasoning about pricing, data usage, and family needs. State any assumptions you make.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "numerical-reasoning",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "one.nz $65 plan — unlimited data, international calls to Samoa. 4 x $65 = $260/month",
+      "markingGuide": "Consider: Losefa previously had 17 GB data — needs high data plan. Moving from Samoa — international calling important for staying in touch. Family of 4 (wife + 2 sons). one.nz $65/month: unlimited data (no cap concern), includes international calls (critical for Losefa). For family: 4 × $65 = $260/month. BUT can't share data. 2degrees $60/month: unlimited data, can share between family. 4 × $60 = $240/month ($20 cheaper). But NO international calls — would need separate arrangement. Assumptions: Samoa is one of one.nz's 20 international destinations. Sons are old enough for own phones. All four need separate plans. Budget can accommodate $240-$260/month. Achieved = recommendation with reasoning on pricing and data. Merit = reasoning on pricing, data, AND family needs. Excellence = comprehensive recommendation with pricing, data, family needs, AND at least two clearly stated assumptions/limitations."
+    },
+    {
+      "id": "l1s24-q2a",
+      "number": "2(a)",
+      "text": "[Diagram: Resource 3 — A scatter plot showing the relationship between mobile costs ($ per month, x-axis) and average monthly mobile data usage (GB per month, y-axis) across different countries. The plot shows a moderate negative trend — countries with lower mobile costs tend to have higher data usage. Some low-cost countries show a wide range of data usage (2-25 GB). Points are scattered, with no tight linear pattern.]\n\nA claim is made that 'lower prices drive high data consumption.' Using Resource 3, evaluate this claim. Describe the relationship shown and discuss whether the data supports the claim.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Moderate negative trend — lower cost doesn't guarantee high usage due to wide spread in data",
+      "markingGuide": "The scatter plot shows a moderate/moderately strong negative non-linear trend — countries with lower costs tend to use more data. This partially supports the claim. However, low-cost countries show a wide vertical spread (2-25 GB range), meaning low cost doesn't guarantee high usage. Other factors must also influence consumption. The claim oversimplifies the relationship — correlation doesn't prove causation. Achieved = uses the negative trend to validate the claim. Merit = describes strength and direction of trend in context to validate, OR describes trend but rejects claim due to vertical spread of data."
+    },
+    {
+      "id": "l1s24-q2b",
+      "number": "2(b)",
+      "text": "[Diagram: Resource showing OECD country mobile data usage statistics for 2022. Key data: OECD average = 10.4 GB. Latvia is the highest at 42 GB. The lowest country uses approximately 4.3 GB. The top 5 countries have a gap of 18 GB between them. The mean is skewed by the top 5 countries.]\n\nCompare features of the OECD mobile data usage data. Discuss at least TWO features.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Large range (37.7 GB), mean (10.4 GB) skewed by top 5 countries, right-skewed distribution",
+      "markingGuide": "Features to compare: Range is very large (42 - 4.3 = 37.7 GB). The top 5 countries have an 18 GB gap between them, suggesting outliers. The mean (10.4 GB) is likely skewed by these top countries — not representative of a 'typical' country. Distribution appears right-skewed (most countries are below the mean). Latvia (42 GB) is an extreme outlier — roughly 4× the OECD average. Achieved = one feature compared. Merit = two or more features compared with evidence."
+    },
+    {
+      "id": "l1s24-q2c",
+      "number": "2(c)",
+      "text": "[Diagram: Resource 4 — Comparison data for NZ and Finland:\n\nPopulation: NZ ~5.1M, Finland ~5.5M (similar)\nMobile phone subscriptions: NZ 6.56M (1.4 per person), Finland 9.89M (1.8 per person)\nMobile internet speed 2021: NZ 46.77 Mbps (17.2% increase from 2020), Finland 67.01 Mbps (52.8% increase from 2020)\nFixed broadband speed: NZ 94.67 Mbps, Finland ~90 Mbps\nGap between mobile and fixed: NZ ~48 Mbps gap, Finland ~23 Mbps gap\nPrepaid vs postpaid: NZ 53.8% prepaid, Finland 6.9% prepaid]\n\nFinland uses significantly more mobile data per person than New Zealand. Using Resource 4, identify and explain factors that could account for this difference. Support your answer with numerical evidence.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "data-interpretation",
+        "numerical-reasoning",
+        "statistical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "More phones per person (1.8 vs 1.4), faster mobile speeds, fewer prepaid users (6.9% vs 53.8%)",
+      "markingGuide": "Three key factors: (1) Phone ownership: Finland has 1.8 phones per person vs NZ 1.4. More devices = more mobile data consumption. Finland has 9.89M subscriptions vs NZ 6.56M despite similar populations. (2) Internet speeds: Finland's mobile speed increased 52.8% (2020-2021) vs NZ's 17.2%. Finland's gap between mobile and fixed broadband is only ~23 Mbps, while NZ's gap is ~48 Mbps. NZ users prefer WiFi because their fixed broadband is much faster than mobile. (3) Prepaid vs postpaid: Only 6.9% of Finnish users are prepaid vs 53.8% in NZ. Postpaid users typically have larger data allowances and no incentive to conserve. Achieved = one factor identified. Merit = one factor with numerical evidence and clear explanation, OR two factors without evidence. Excellence = two or more factors with relevant numerical evidence and clear explanation."
+    }
+  ],
+  "totalMarks": 22,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 22
+    }
+  }
+}

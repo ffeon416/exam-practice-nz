@@ -1,65 +1,95 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { loadProgress } from "@/lib/storage";
+import { gradeLabel } from "@/lib/scoring";
+import type { StudentProgress } from "@/lib/types";
+
+export default function HomePage() {
+  const [progress, setProgress] = useState<StudentProgress | null>(null);
+
+  useEffect(() => {
+    setProgress(loadProgress());
+  }, []);
+
+  const hasHistory = progress && progress.totalExamsTaken > 0;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="max-w-lg mx-auto px-5 py-20">
+      {/* Hero */}
+      <div className="text-center mb-14">
+        <h1 className="text-[28px] font-semibold text-white mb-2.5 tracking-tight leading-tight">
+          Ace your NCEA exams.
+        </h1>
+        <p className="text-zinc-500 text-[15px] leading-relaxed mb-8">
+          89 real past papers. 938 questions with answers.<br />
+          Maths, Science, Economics, Accounting, Geography.
+        </p>
+        <div className="flex gap-2.5 justify-center">
+          <Link
+            href="/subjects"
+            className="bg-indigo-500 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[13px]"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Start practising
+          </Link>
+          <Link
+            href="/practice"
+            className="text-zinc-400 font-medium px-5 py-2.5 rounded-lg border border-zinc-800 hover:border-zinc-600 hover:text-zinc-200 transition-colors text-[13px]"
           >
-            Documentation
-          </a>
+            Fix weak spots
+          </Link>
         </div>
-      </main>
+      </div>
+
+      {/* Quick stats for returning users */}
+      {hasHistory && (
+        <div className="grid grid-cols-3 gap-px bg-zinc-800/50 rounded-lg overflow-hidden mb-14">
+          <div className="bg-[#141419] p-4 text-center">
+            <div className="text-lg font-semibold text-white">{progress.totalExamsTaken}</div>
+            <div className="text-[11px] text-zinc-600 mt-0.5">exams done</div>
+          </div>
+          <div className="bg-[#141419] p-4 text-center">
+            <div className="text-lg font-semibold text-white">{progress.streakDays}</div>
+            <div className="text-[11px] text-zinc-600 mt-0.5">day streak</div>
+          </div>
+          <div className="bg-[#141419] p-4 text-center">
+            <div className="text-lg font-semibold text-white">
+              {progress.examAttempts.length > 0
+                ? gradeLabel(progress.examAttempts[progress.examAttempts.length - 1].overallGrade)
+                : "—"}
+            </div>
+            <div className="text-[11px] text-zinc-600 mt-0.5">last grade</div>
+          </div>
+        </div>
+      )}
+
+      {/* How it works */}
+      <div className="space-y-3 mb-14">
+        {[
+          { n: "1", text: "Pick your year level, subject, and paper" },
+          { n: "2", text: "Answer the questions — practice or timed mock" },
+          { n: "3", text: "See what you got right, what you got wrong, and the correct answers" },
+          { n: "4", text: "Learn the concepts you struggled with, then try again" },
+        ].map((item) => (
+          <div key={item.n} className="flex gap-3 items-start">
+            <span className="text-indigo-400/80 text-[12px] font-mono mt-0.5 w-3 shrink-0">{item.n}</span>
+            <span className="text-zinc-400 text-[13px] leading-relaxed">{item.text}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <div className="text-center">
+        <div className="flex flex-wrap gap-1.5 justify-center mb-6">
+          {["Year 10–13", "Maths", "Science", "Economics", "Accounting", "Geography"].map((s) => (
+            <span key={s} className="text-[11px] px-2.5 py-1 rounded-full bg-indigo-500/[0.08] text-indigo-300/60 border border-indigo-500/[0.1]">
+              {s}
+            </span>
+          ))}
+        </div>
+        <p className="text-[11px] text-zinc-700">Free. No sign up.</p>
+      </div>
     </div>
   );
 }

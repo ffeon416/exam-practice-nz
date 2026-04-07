@@ -1,0 +1,98 @@
+{
+  "id": "l2-english-written-2023",
+  "title": "Level 2 English -- Written Texts 2023",
+  "level": 2,
+  "standard": "91098",
+  "year": 2023,
+  "subject": "english",
+  "timeMinutes": 50,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "eng98-23-q1",
+      "number": "1",
+      "text": "Analyse how the setting required one or more characters to adapt or change.\n\n\"Setting\" may refer to physical places as well as social and historical contexts.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology appropriately. Address the question by exploring how setting forces characters to adapt or change, showing awareness that effects and meanings have been deliberately crafted. Include specific details from the text(s). Merit (5-6): Convincingly address the question, presenting a reasoned discussion showing clear understanding. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details to support the main idea(s). Excellence (7-8): Develop an insightful or original argument about how setting drives character change, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng98-23-q2",
+      "number": "2",
+      "text": "Analyse how one or more characters were used as a warning to readers.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how characters serve as a warning, showing awareness that effects and meanings have been deliberately crafted. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how characters function as warnings. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how characters function as cautionary figures, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng98-23-q3",
+      "number": "3",
+      "text": "Analyse how ideas were used to sway readers' emotions.\n\n\"Ideas\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how ideas sway readers' emotions, showing awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how ideas create emotional responses. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the emotional manipulation of the reader through ideas, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng98-23-q4",
+      "number": "4",
+      "text": "Analyse how your appreciation of the text was enhanced by the clever use of language features.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how language features enhance appreciation, showing awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how specific language features deepen engagement with the text. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how language features create layers of meaning and appreciation, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng98-23-q5",
+      "number": "5",
+      "text": "Analyse how structure was important for the development of one or more ideas.\n\n\"Structure\" may refer to the order, organisation, or conventions of a text, and \"ideas\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how textual structure develops ideas. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how structural choices develop ideas effectively. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between structure and idea development, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng98-23-q6",
+      "number": "6",
+      "text": "Analyse how conflict led to the climax of the text.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how conflict builds to the climax, showing awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how conflict escalates and resolves at the climax. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between conflict and climax, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng98-23-q7",
+      "number": "7",
+      "text": "Analyse how the ideas in the text make it a classic.\n\n\"Ideas\" may refer to character, theme, or setting, and \"classic\" means that the text has value and will stand the test of time.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how ideas give the text enduring value, showing awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of what makes the text timeless. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the text's enduring significance through its ideas, making judgments about how effects and meanings relate to the purpose of the text(s) and wider contexts."
+    },
+    {
+      "id": "eng98-23-q8",
+      "number": "8",
+      "text": "Analyse how a relationship helped you understand more about other people's beliefs.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["written-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how a relationship reveals beliefs, showing awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how a relationship illuminates different beliefs. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how relationships in the text provide understanding of others' beliefs, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "l2-stats-probability-2024",
+  "title": "Level 2 Statistics — Probability Methods 2024",
+  "level": 2,
+  "standard": "91267",
+  "year": 2024,
+  "subject": "statistics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "st267-24-q1a",
+      "number": "1a",
+      "text": "A survey found that 60% of Year 12 students at a school play a sport, and 45% are involved in cultural activities. 25% of students do both.\n\n(i) Draw a two-way table to display this information.\n(ii) Find the probability that a randomly selected Year 12 student plays a sport but is NOT involved in cultural activities.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["two-way-tables", "probability-calculations"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Correctly sets up two-way table with Sport/No Sport vs Cultural/No Cultural. P(Sport only) = 0.60 - 0.25 = 0.35. Table values: Both = 0.25, Sport only = 0.35, Cultural only = 0.20, Neither = 0.20. Merit: All values correct with clear working shown."
+    },
+    {
+      "id": "st267-24-q1b",
+      "number": "1b",
+      "text": "Using the information from Question 1a, determine whether playing a sport and being involved in cultural activities are independent events. You must justify your answer with appropriate calculations.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["independence", "probability-calculations"],
+      "answerType": "working",
+      "markingGuide": "Merit: For independence, P(Sport AND Cultural) should equal P(Sport) x P(Cultural). P(Sport) x P(Cultural) = 0.60 x 0.45 = 0.27. P(Sport AND Cultural) = 0.25. Since 0.25 ≠ 0.27, the events are NOT independent. Excellence: Clear logical reasoning with correct calculations, concluding that participation in sport and cultural activities are not independent — students who play sport are slightly less likely to also do cultural activities than would be expected if they were independent."
+    },
+    {
+      "id": "st267-24-q2a",
+      "number": "2a",
+      "text": "A medical test for a rare disease has the following characteristics:\n• The disease affects 2% of the population.\n• If a person has the disease, the test gives a positive result 95% of the time.\n• If a person does not have the disease, the test gives a positive result 3% of the time (false positive).\n\nDraw a probability tree diagram to represent this situation. Use a population of 10,000 people to help with your calculations.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["probability-trees", "probability-calculations"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Correct tree with branches: Disease (0.02) / No Disease (0.98), then Test+ / Test- for each. Using 10,000: Disease = 200, No Disease = 9800. Disease & Test+ = 190, Disease & Test- = 10, No Disease & Test+ = 294, No Disease & Test- = 9506."
+    },
+    {
+      "id": "st267-24-q2b",
+      "number": "2b",
+      "text": "Using your tree diagram from Question 2a, calculate:\n(i) The probability that a randomly selected person tests positive.\n(ii) The probability that a person actually has the disease, given that they tested positive.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["conditional-probability", "probability-trees"],
+      "answerType": "working",
+      "markingGuide": "Achievement: P(Test+) = (190 + 294)/10000 = 484/10000 = 0.0484. Merit: P(Disease | Test+) = 190/484 = 0.3926 (approximately 39.3%). Working must show conditional probability calculation clearly. Common error: confusing P(Test+ | Disease) with P(Disease | Test+)."
+    },
+    {
+      "id": "st267-24-q2c",
+      "number": "2c",
+      "text": "Discuss what the answer to Question 2b(ii) means for a person who receives a positive test result. Explain why the result might be surprising and what implications this has for medical testing.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["conditional-probability", "risk-interpretation"],
+      "answerType": "text",
+      "markingGuide": "Excellence: Despite the test being 95% accurate, a positive result only means about a 39% chance of actually having the disease. This is surprising because most people assume a 95% accurate test means a 95% chance of having the disease if you test positive. The low base rate (2%) means that the number of false positives from the large healthy population overwhelms the true positives. Implications: a single positive test should not be used for definitive diagnosis — confirmatory testing is needed. This demonstrates the base rate fallacy and why screening programmes must be carefully evaluated."
+    },
+    {
+      "id": "st267-24-q3a",
+      "number": "3a",
+      "text": "A study investigated whether taking vitamin C supplements reduces the risk of catching a cold during winter. The results are shown below:\n\n| | Caught a cold | Did not catch a cold | Total |\n|---|---|---|---|\n| Took vitamin C | 45 | 155 | 200 |\n| Did not take vitamin C | 72 | 128 | 200 |\n\nCalculate the risk of catching a cold for each group.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["relative-risk", "two-way-tables"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Risk for vitamin C group = 45/200 = 0.225 (22.5%). Risk for no vitamin C group = 72/200 = 0.36 (36%)."
+    },
+    {
+      "id": "st267-24-q3b",
+      "number": "3b",
+      "text": "Calculate the relative risk of catching a cold for those who took vitamin C compared to those who did not. Interpret this value in context.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["relative-risk", "risk-interpretation"],
+      "answerType": "working",
+      "markingGuide": "Merit: Relative risk = 0.225/0.36 = 0.625. Interpretation: People who took vitamin C were 0.625 times as likely to catch a cold as those who did not, meaning they had about 37.5% less risk. Or equivalently, taking vitamin C reduced the risk of catching a cold by approximately 37.5%. Must include both the calculation and a correct contextual interpretation."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

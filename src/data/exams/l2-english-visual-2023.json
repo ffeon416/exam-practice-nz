@@ -1,0 +1,98 @@
+{
+  "id": "l2-english-visual-2023",
+  "title": "Level 2 English -- Visual/Oral Texts 2023",
+  "level": 2,
+  "standard": "91099",
+  "year": 2023,
+  "subject": "english",
+  "timeMinutes": 50,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "eng99-23-q1",
+      "number": "1",
+      "text": "Analyse how the structure of the text fulfilled or ruined your expectations.\n\n\"Structure\" may refer to the order, organisation, or conventions of a text.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the text's structure fulfilled or subverted expectations (e.g. genre conventions, narrative arc, plot twists). Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how structural choices create or undermine expectations. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between structure and audience expectations, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q2",
+      "number": "2",
+      "text": "Analyse how an action scene turned out to be more than \"just a bit of excitement\" for the audience.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how an action scene serves a purpose beyond mere excitement (e.g. reveals character, advances theme, develops ideas). Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how action scenes serve deeper purposes. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the deeper significance of the action scene, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q3",
+      "number": "3",
+      "text": "Analyse how visual aspects were used to enhance your understanding of one or more characters.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how visual aspects (cinematography, costume, colour, lighting, mise-en-scene) enhance character understanding. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how visual techniques build character. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how visual aspects create nuanced character understanding, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q4",
+      "number": "4",
+      "text": "Analyse how a plot twist revealed an important idea.\n\n\"Idea\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a plot twist reveals an important idea. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the plot twist serves to reveal ideas. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the plot twist illuminates important ideas, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q5",
+      "number": "5",
+      "text": "Analyse how one or more characters were used to encourage you to care deeply about something.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how characters are used to make the audience care about something. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how character portrayal creates emotional investment. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how characters generate empathy and engagement, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q6",
+      "number": "6",
+      "text": "Analyse how the setting was the key to unlocking your appreciation of the text.\n\n\"Setting\" may refer to physical places as well as social and historical contexts.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how setting is central to appreciating the text. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how setting enriches the text. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how setting is essential to the text's meaning and impact, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q7",
+      "number": "7",
+      "text": "Analyse how your enjoyment of the text was enriched through the use of language features.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how visual/oral language features (e.g. cinematography, sound, dialogue, editing, lighting) enrich enjoyment. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how language features create enjoyment and engagement. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how language features create a rich, enjoyable experience, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-23-q8",
+      "number": "8",
+      "text": "Analyse how a challenging relationship was used to explore an idea.\n\n\"Idea\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a challenging relationship explores an idea. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the relationship serves to explore the idea. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the challenging relationship illuminates the idea, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

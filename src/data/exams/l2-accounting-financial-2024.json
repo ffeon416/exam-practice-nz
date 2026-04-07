@@ -1,0 +1,152 @@
+{
+  "id": "l2-accounting-financial-2024",
+  "title": "Level 2 Accounting Financial Statements — 2024",
+  "level": 2,
+  "standard": "91174",
+  "year": 2024,
+  "subject": "accounting",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l2af24-q1a",
+      "number": "1(a)",
+      "text": "In November 2023, Get Active Gym purchased new gym equipment costing $18,000 excluding GST. The delivery and installation costs for the gym equipment totalled $1,000 excluding GST. The insurance on the equipment is $500 excluding GST per annum.\n\nHow will the new gym equipment be reported in the Statement of Financial Position for Get Active Gym as at 31 March 2024? Use the concept of capital expenditure to justify the classification and dollar amount used when reporting the new gym equipment.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "Statement of Financial Position",
+        "capital expenditure",
+        "asset classification"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Reported as non-current asset (PPE) at $19,000 ($18,000 + $1,000).",
+      "markingGuide": "A: Reports as non-current asset. M: Explains capital expenditure concept — costs to acquire and install. E: Justifies exclusion of insurance as ongoing operating cost, not capital."
+    },
+    {
+      "id": "l2af24-q1b",
+      "number": "1(b)",
+      "text": "Get Active Gym received the following invoice (Invoice 934) from Exercise Supplies Ltd.\n\n[See Invoice 934 image]\n\nWhy does the reporting of Invoice 934 increase Get Active Gym's liabilities? Justify your answer by explaining how:\n- accounts payable meets all the characteristics of a liability\n- accounts payable meets the recognition criteria of probable outflow of economic benefits.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "liabilities",
+        "recognition criteria",
+        "accounts payable"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2024/invoice-934.png"
+      ],
+      "expectedAnswer": "Liability characteristics: present obligation from past event (receiving service), settlement...",
+      "markingGuide": "A: Identifies accounts payable as liability. M: Explains characteristics — present obligation, past event, probable outflow, reliable measurement. E: Links to recognition criteria and business context.",
+      "image": "/images/exams/91174-2024-q1b-invoice.png"
+    },
+    {
+      "id": "l2af24-q2a",
+      "number": "2(a)",
+      "text": "Get Active Gym has two membership fee payment options:\n- join and commit to one year, paying one month in advance — $70 each month\n- pay $756 up front for 12 months, taking advantage of a 10% discount.\n\nRegardless of how members choose to join and pay their membership, Georgie's accountant reports all membership fees as one revenue in the Income Statement: membership fees received.\n\nIn accordance with materiality, justify whether or not the reporting of the membership fees received as one total in the Income Statement for Get Active Gym negatively impacts Georgie's decision-making.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "materiality",
+        "revenue recognition",
+        "decision-making"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Reporting as one total is appropriate under materiality.",
+      "markingGuide": "A: Defines materiality. M: Applies to scenario — one total is acceptable. E: Discusses how breakdown could/could not influence pricing decisions."
+    },
+    {
+      "id": "l2af24-q2b",
+      "number": "2(b)",
+      "text": "GET ACTIVE GYM MEMBERSHIP SPECIAL OFFER — AUGUST ONLY\n12 months @ $60 a month | 18 months @ $55 a month | 24 months @ $50 a month\nAll memberships paid monthly, one month in advance. Prices exclude GST.\n\nExplain how the advertisement above illustrates the concept of going concern for Get Active Gym.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "going concern",
+        "business continuity"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2024/membership-special-offer.png"
+      ],
+      "expectedAnswer": "Going concern assumes entity will continue operating into foreseeable future.",
+      "markingGuide": "A: Defines going concern. M: Links to ad — long-term memberships indicate continued operation. E: Discusses implications of 24-month commitment for business continuity and financial reporting.",
+      "image": "/images/exams/91174-2024-q2b-offer.png"
+    },
+    {
+      "id": "l2af24-q2c",
+      "number": "2(c)",
+      "text": "To promote the business, Georgie arranged for ten backpacks to be made with the gym's logo and contact details printed on them. Each backpack cost $50. In December, Georgie donated six of the backpacks to the local fun run for prizes, gave three to her children for Christmas, and kept one for herself.\n\nDiscuss how gifting these backpacks will be reported in the Income Statement and Statement of Financial Position for Get Active Gym for the year ended 31 March 2024.\nIn your answer explain:\n- the accounting entity concept\n- the characteristics of an expense.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "accounting entity concept",
+        "expenses",
+        "drawings"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Entity concept: business is separate from owner.",
+      "markingGuide": "A: Identifies some as expense, some as drawings. M: Applies entity concept to separate business/personal use. E: Fully explains expense characteristics and correct treatment of all 10 backpacks."
+    },
+    {
+      "id": "l2af24-q3a",
+      "number": "3(a)",
+      "text": "Get Active Gym — Income Statement (extract) for the years ending 31 March:\n\n| | 2023 $ | 2024 $ |\n|---|---|---|\n| Revenue | 360,000 | 380,000 |\n| Total expenses | (295,000) | (302,000) |\n| Profit for the year | 65,000 | 78,000 |\n\nDiscuss the usefulness of the information reported in the Income Statement extract above for decision-making by Georgie.\nIn your answer include:\n- the concept of reporting period\n- the qualitative characteristic of comparability\n- how this information could influence the decision to increase membership fees in 2025 or to keep them at current prices.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "reporting period",
+        "comparability",
+        "decision-making",
+        "income statement"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2024/income-statement-extract.png"
+      ],
+      "expectedAnswer": "Reporting period: both years cover 12 months to 31 March, making comparison valid.",
+      "markingGuide": "A: Identifies reporting period and comparability. M: Applies to data — compares years meaningfully. E: Discusses decision implications with specific figures and reasoning.",
+      "image": "/images/exams/91174-2024-q3a-income.png"
+    },
+    {
+      "id": "l2af24-q3b",
+      "number": "3(b)",
+      "text": "Members from a local sports club come into Get Active Gym once a week for strength training. They are invoiced at the end of each month according to the number of sessions. An allowance for doubtful debts is provided at 1% of accounts receivable.\n\nNotes to the Financial Statements (extract)\nNote 1. Accounts receivable:\n| Accounts receivable | 4,900 | |\n| Less: Allowance for doubtful debts | (49) | 4,851 |\n\nJustify how Note 1 above aids Georgie in decision-making for Get Active Gym. In your answer explain:\n- the qualitative characteristic of faithful representation\n- the predictive value criteria of the qualitative characteristic of relevance\n- one limitation of this information.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "faithful representation",
+        "relevance",
+        "predictive value",
+        "notes to financial statements"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2024/note1-accounts-receivable.png"
+      ],
+      "expectedAnswer": "Faithful representation: Note shows true amount expected to be collected ($4,851), complete and...",
+      "markingGuide": "A: Identifies faithful representation. M: Explains predictive value with context. E: Discusses limitation of estimation and impact on decision-making.",
+      "image": "/images/exams/91174-2024-q3b-note.png"
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

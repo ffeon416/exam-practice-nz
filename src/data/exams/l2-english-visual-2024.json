@@ -1,0 +1,98 @@
+{
+  "id": "l2-english-visual-2024",
+  "title": "Level 2 English -- Visual/Oral Texts 2024",
+  "level": 2,
+  "standard": "91099",
+  "year": 2024,
+  "subject": "english",
+  "timeMinutes": 50,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "eng99-24-q1",
+      "number": "1",
+      "text": "Analyse how time was manipulated for a particular purpose.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology appropriately. Address the question by exploring how time is manipulated (e.g. flashbacks, slow motion, montage, non-linear narrative) for a particular purpose. Show awareness that effects and meanings have been deliberately crafted. Include specific and relevant details from the text(s). Merit (5-6): Convincingly address the question, presenting a reasoned discussion showing clear understanding of how manipulation of time serves the director's/creator's purpose. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how time manipulation creates meaning and serves the text's purpose, making judgments about how effects and meanings relate to wider contexts."
+    },
+    {
+      "id": "eng99-24-q2",
+      "number": "2",
+      "text": "Analyse how language features helped you better understand the setting.\n\n\"Setting\" may refer to physical places as well as social and historical contexts.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how visual/oral language features (e.g. cinematography, lighting, dialogue, sound, mise-en-scene) help understand setting. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how multiple language features build the setting. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how language features create a rich, layered setting, making judgments about how effects and meanings relate to the text's purpose."
+    },
+    {
+      "id": "eng99-24-q3",
+      "number": "3",
+      "text": "Analyse how rebellion was used to make a point.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address the question about how rebellion is used to make a point, showing awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how acts of rebellion serve the director's/creator's purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how rebellion functions thematically, making judgments about how effects and meanings relate to the purpose of the text(s) and wider contexts."
+    },
+    {
+      "id": "eng99-24-q4",
+      "number": "4",
+      "text": "Analyse how language features helped you appreciate the director's or creator's purpose.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how visual/oral language features reveal the director's or creator's purpose. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how language features serve the director's/creator's purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how language features embody and communicate the director's/creator's purpose, making judgments about how effects and meanings relate to wider contexts."
+    },
+    {
+      "id": "eng99-24-q5",
+      "number": "5",
+      "text": "Analyse how the true nature of one or more characters was revealed to you through their actions.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how characters' actions reveal their true nature. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how actions function as character revelation. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how actions reveal character, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-24-q6",
+      "number": "6",
+      "text": "Analyse how the structure of the text led you to understand an important theme.\n\n\"Structure\" may refer to the order, organisation, or conventions of a text.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the structure (e.g. narrative arc, scene sequencing, editing, parallel storylines) helps understand an important theme. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how structural choices develop theme. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between structure and theme, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-24-q7",
+      "number": "7",
+      "text": "Analyse how the presentation of one or more characters affected how you felt about them.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how character presentation (through visual/oral techniques) shaped your feelings about them. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how character presentation techniques manipulate audience response. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how character presentation shapes audience response, making judgments about how effects and meanings relate to the purpose of the text(s)."
+    },
+    {
+      "id": "eng99-24-q8",
+      "number": "8",
+      "text": "Analyse how ideas were developed through the use of symbolism.\n\n\"Ideas\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["visual-text", "language-features", "close-reading"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how symbolism develops ideas in the visual/oral text. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how visual/oral symbols develop ideas. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how symbolism enriches ideas, making judgments about how effects and meanings relate to the purpose of the text(s) and wider contexts."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

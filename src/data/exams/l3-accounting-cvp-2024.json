@@ -1,0 +1,90 @@
+{
+  "id": "l3-accounting-cvp-2024",
+  "title": "Level 3 Accounting Cost-Volume-Profit — 2024",
+  "level": 3,
+  "standard": "91406",
+  "year": 2024,
+  "subject": "accounting",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3ac24-q1a",
+      "number": "1(a)",
+      "text": "Break-even point calculation using contribution margin approach.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "break-even analysis",
+        "contribution margin",
+        "fixed costs"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Break-even units = Fixed Costs / Contribution per unit",
+      "markingGuide": "Correct identification of relevant costs and application of formula."
+    },
+    {
+      "id": "l3ac24-q1b",
+      "number": "1(b)",
+      "text": "Profit calculation at different production volumes.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "CVP analysis",
+        "profit calculation",
+        "cost behavior"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Profit = (Contribution per unit × Units) - Fixed Costs",
+      "markingGuide": "Correct treatment of variable and fixed costs in profit calculation."
+    },
+    {
+      "id": "l3ac24-q2a",
+      "number": "2(a)",
+      "text": "Sensitivity analysis for pricing decisions using CVP.",
+      "marks": 7,
+      "gradeLevel": "merit",
+      "topics": [
+        "sensitivity analysis",
+        "pricing",
+        "profit margin"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Calculate impact of price changes on break-even and profit.",
+      "markingGuide": "Show calculations and explain how changes affect break-even position."
+    },
+    {
+      "id": "l3ac24-q2b",
+      "number": "2(b)",
+      "text": "Strategic recommendations based on CVP analysis findings.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "CVP analysis",
+        "decision-making",
+        "business strategy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Recommendations supported by CVP calculations and margin of safety analysis.",
+      "markingGuide": "Link CVP findings to strategic business decisions with justified reasoning."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

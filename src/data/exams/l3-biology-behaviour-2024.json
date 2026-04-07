@@ -1,0 +1,86 @@
+{
+  "id": "l3-biology-behaviour-2024",
+  "title": "Level 3 Biology: Behaviour (91603) — 2024",
+  "level": 3,
+  "standard": "91603",
+  "year": 2024,
+  "subject": "biology",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3bb24-q1",
+      "number": "Question 1",
+      "text": "QUESTION ONE: Relationships in the forest\n\nKauri snails / pūpū-rangi (Paryphanta spp.) belong to the group of northern giant land snails, which evolved in New Zealand before the introduction of the nocturnal predator species: possums and hedgehogs. The snails live in areas of fertile soil, rich with earthworms, and may live to 20 years or more. The snails are most active at night. They usually spend the day under leaf litter or vegetation.\n\nFaecal analysis shows their diet is mainly earthworms and some small snails, with the small snails’ shells being a source of dietary calcium.\n\nSnail mating occurs mostly between April and July, and appears to be triggered by climatic conditions, such as rainfall. The kauri snail lays about six eggs, three times a year. The eggs are protected by a hole dug by the snails or under leaf litter at the base of a tree.\n\nLike the kauri snails, hedgehogs (Erinaceus europaeus) are also active at night; however, in cold areas they can hibernate for a few months per year if the ground temperature is below 11 degrees Celsius. Their diet includes kauri snails.\n\nNocturnal brushtail possums (Trichosurus vulpecula) also eat kauri snails and, from a position in trees, they can spot the large invertebrate as it slowly moves along.\n\nEvaluate reasons for the coexistence and survival of these species in Northland.\n\nIn your answer, include discussion of:\n• the relationships between the kauri snail and the possum, AND between the possum and hedgehog\n• an advantage and a disadvantage of being active at night for the kauri snail\n• how each of the behaviours of these animals support survival, such as frequency of egg laying three times a year for the kauri snail, hibernation for the hedgehog, and nocturnal behaviour for the possum.",
+      "marks": 8,
+      "gradeLevel": "multi",
+      "topics": [
+        "interspecific-relationships",
+        "nocturnal-behaviour",
+        "survival-strategies"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/l3-biology-behaviour-2024/q1-species-photos.png"
+      ],
+      "expectedAnswer": "Describe predation (possum–snail) and interspecific competition (possum–hedgehog); advantage and...",
+      "markingGuide": "Achievement: Describe relationship between possum and snail (predation); possum and hedgehog (interspecific competition); advantage of snail being nocturnal; disadvantage of snail being nocturnal; hibernation; advantage of laying eggs more than once; nocturnal behaviour defined; advantage to possum of being nocturnal. Merit: Explain that being active at night gives the kauri snail greater food availability or avoids desiccation linked to greater chances of survival; kauri snail is vulnerable to nocturnal mammalian predators which may lead to decreased reproductive success; hibernation increases organism’s chances of surviving hostile conditions by living off stored reserves; how laying multiple times per year increases chances of reproductive success; nocturnal possum can synchronise its activity with the activity of its prey. Excellence: Discuss predation provides food for possum increasing survival and reproductive success; interspecific competition between possum and hedgehog for a limited resource decreases during hibernation increasing reproductive success; kauri snail being nocturnal gives greater food availability AND reduced desiccation increasing survival and reproductive success; laying three times a year when conditions are suitable increases viable offspring; hibernation conserves energy when food is scarce increasing survival; nocturnal behaviour of possum reduces interspecific competition for food with possum activity synchronised with prey activity increasing reproductive success. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=TWO at E, E8=THREE+ at E."
+    },
+    {
+      "id": "l3bb24-q2",
+      "number": "Question 2",
+      "text": "QUESTION TWO: Bumblebees and kōwhai\n\nThe kōwhai (Sophora spp.) is a New Zealand native tree. The brightly coloured flowers bloom in late winter or early spring. Auxins are essential at each stage in the life cycle, including root development, growth, and flowering. Once the plant flowers, pollination occurs via animals such as the bumblebee (Bombus terrestris).\n\nIn New Zealand, the bumblebee forages for food during daylight hours, but is more active in the cooler times of the day. Bumblebees also live in the Arctic. During the Arctic summer, there is constant 24-hour daylight. An experiment was conducted in the Arctic to observe the foraging behaviour of a bumblebee colony under constant light conditions. Results for two bumblebees are shown in Figure 1 (a double-plotted actogram showing foraging times of two individual worker bees from a colony under constant light conditions).\n\nDiscuss how the control of life processes through biological clocks results in kōwhai success.\n\nIn your answer, include discussion of:\n• whether the kōwhai is a long-day plant or a short-day plant, including evidence\n• the mechanism for the geotropic response of the kōwhai shoots\n• the type of movement response of the bumblebee to the kōwhai nectar\n• whether the New Zealand bumblebee and the kōwhai have biological clocks that are entrained to environmental factors.",
+      "marks": 8,
+      "gradeLevel": "multi",
+      "topics": [
+        "biological-clocks",
+        "photoperiodism",
+        "plant-responses",
+        "tropisms"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/l3-biology-behaviour-2024/q2-bumblebee-actogram.png"
+      ],
+      "expectedAnswer": "Describe short-day plant with evidence, phytochrome system, positive chemotaxis/trophotaxis,...",
+      "markingGuide": "Achievement: Describe a short-day plant; evidence for SDP (short days and long nights induce flowering); positive chemotaxis or positive trophotaxis; negative geotropism or gravitropism; action of auxin; a named rhythm with definition (e.g. circadian or circannual); the idea of endogenous rhythm maintained in constant conditions; biological clocks; entrainment; the named zeitgeber. Merit: Explain SDP with evidence related to critical day/night length; how Pr and Pfr work (accept annotated diagram); critical day/night length – uninterrupted darkness is critical for Pfr to revert to Pr; how flowering is caused in long-day and short-day plants; how plant growers can produce flowers from short-day plants during NZ summers (either method); how entrainment relates to rhythm; evidence from the actogram for a named rhythm for the bumblebee; biological clocks of both bumblebee and kōwhai mean flowering coincides with when bumblebee pollinators are active, ensuring pollination and reproductive success. Excellence: Discuss being able to flower at a specific time of year is important for kōwhai success; their biological rhythm is circa-annual and controlled by a biological clock entrained to synchronise with seasonal changes (zeitgeber is photoperiod/night length); flowering needs to coincide with bumblebee activity ensuring cross-pollination and increasing genetic diversity; bumblebees rely on biological clock that is endogenously controlled (evidenced by continued rhythm in constant Arctic light) to optimise foraging and pollination behaviours; being active during cooler periods suggests zeitgeber is increasing light intensity but also entrained by temperature; life processes controlled by biological clocks ensure reproduction occurs at optimal time. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=TWO at E, E8=THREE+ at E."
+    },
+    {
+      "id": "l3bb24-q3",
+      "number": "Question 3",
+      "text": "QUESTION THREE: Cooperative breeding\n\nAustralian chestnut-crowned babblers (Pomatostomus ruficeps) are known for their social behaviour. They live in groups of up to approximately 25 individuals and participate in activities such as dust bathing, preening, and feeding. Together, they look for food, including insects, spiders, small amphibians, crustaceans, and reptiles, as well as fruit and seeds from plants.\n\nAt night, they crowd together in one large, central nest and, when alarmed, they may huddle together under dense foliage or fly up into the under-canopy of trees and shrubs, chattering noisily.\n\nBreeding usually occurs between July and November with a single, large clutch of eggs (i.e. many eggs) from all the breeding pairs.\n\nThe entire group helps to build the one nest, feed the incubating females, and defend the breeding territory. Reproduction without support is rarely attempted. Researchers confirm there are often about 4 breeding males but up to 12 non-breeding, helper-males. Kin selection appears to be important, as females will not support the care and development of young with which they have no genetic relationship.\n\nExamine how social behaviour can lead to successful reproduction.\n\nIn your answer, include discussion of:\n• the terms territory and kin selection, including definitions\n• an advantage of a group being involved in finding food together and of preening each other\n• why the larger number of helper-males supports the population, and why the non-related females do not support the care and development of the young.",
+      "marks": 8,
+      "gradeLevel": "multi",
+      "topics": [
+        "social-behaviour",
+        "kin-selection",
+        "territory",
+        "cooperative-breeding"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/l3-biology-behaviour-2024/q3-babbler-photos.png"
+      ],
+      "expectedAnswer": "Define territory and kin selection; describe advantages of social behaviours; explain how these...",
+      "markingGuide": "Achievement: Define territory; define kin selection; advantage of territory to babblers; males help raise chicks as they share alleles; an advantage of social behaviour e.g. improved food gathering; a second advantage e.g. preening to remove skin parasites; non-related females do not assist reproduction as they do not share alleles with the chicks. Merit: Explain defended territory means increased access to resources leading to increased chances of survival and reproduction; kin selection means individuals with common alleles engage in altruistic behaviour to increase chances of alleles being passed on; an example of how social behaviour increases survival e.g. cooperative food gathering; another example e.g. preening removes skin parasites reducing chances of disease; helper-males make genetic contribution to next generation by ensuring survival of their alleles in chicks despite not fathering them; non-related females do not assist as they do not share alleles so self-sacrifice is not worthwhile. Excellence: Discuss how cooperative behaviour leads to reproductive success of babbler and chicks – defended territory means young raised with less stress and more resources increasing chances of reaching reproductive age; living in a group gives greater access to potential mates reducing energy needed for reproduction; cooperative food gathering conserves energy increasing survival and reproductive success; social preening increases bonds and removes parasites increasing survival. Discuss role of kin selection – only genetic relatives (helper males) assist in altruistic behaviour such as chick rearing increasing chick survival and contributing to next generation by ensuring survival of their own alleles despite not fathering the chicks; AND discusses non-related females not assisting as they do not share alleles. Kin selection ensures greater reproductive success due to greater focus on parental care resulting in greater survival of chicks and continuation of shared genes. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=TWO at E, E8=THREE+ at E."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

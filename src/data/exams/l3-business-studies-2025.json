@@ -1,0 +1,58 @@
+{
+  "id": "l3-business-studies-2025",
+  "title": "Level 3 Business Studies — Global Business Context 2025",
+  "level": 3,
+  "standard": "91381",
+  "year": 2025,
+  "subject": "business-studies",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "bs381-25-qa",
+      "number": "a",
+      "text": "Background: Hardibox is a New Zealand-registered business that has been creating everyday plastic storage solutions for over thirty years. They export to 86 countries, with strongest sales growth in Europe. In 2022, Hardibox expanded to Belgium but sales have been lower than expected. They are now considering withdrawing from Belgium.\n\n(a)(i) Explain one possible reason for sales of Hardibox's products being lower than expected in Belgium.\n\n(a)(ii) Explain the effect the lower than expected sales in Belgium may have on Hardibox's profit.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["global-business", "market-analysis", "profit-impact"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one possible reason for lower sales (State the reason, then expand by giving reasons why). E.g. Belgian households can no longer afford to purchase them due to food price increases of 27% from October 2021 to 2024, leaving less income for items such as storage solutions. For profit: The lower-than-expected sales may have a negative impact on Hardibox's profit. Budgets were prepared prior to launch and costs such as freight and marketing were planned on the assumption that expected sales would cover these. With costs being as expected but sales revenue lower, profits will be lower than originally budgeted. Merit: Fully explain with further expansion of how the situation could impact potential business or stakeholder goals, relating to effects, advantages, disadvantages, and/or consequences. Excellence: Justify by using relevant evidence to justify the significance of the decision or the likelihood of success, including reference to alternative courses of action or new information."
+    },
+    {
+      "id": "bs381-25-qb",
+      "number": "b",
+      "text": "Another problem Hardibox are experiencing in Europe is that stock is not always being replaced as quickly as it needs to be. Consumers are often unable to purchase the plastic storage boxes they want, as there are none available on the shelves.\n\n(b)(i) Explain one possible reason for Hardibox's products not being replaced as quickly as necessary.\n\n(b)(ii) Explain the effect that the unavailability of products may have on Hardibox's market share.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["global-business", "supply-chain", "market-share"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one possible cause, e.g. congestion at the ports. Hardibox relies on Auckland and Hamburg ports. When there is congestion, with too many ships wanting to dock, there will be delays in products arriving in Berlin to then distribute to European stores. For market share: The unavailability of products is likely to decrease Hardibox's market share. When consumers find them out of stock, they will purchase from a competing firm. If unavailability becomes regular, reputation will be damaged and consumers may move away permanently, further reducing sales and market share. Merit: Fully explain with further expansion about effects on potential business goals or stakeholder outcomes. Excellence: Justify by evaluating and integrating detailed evidence to support explanations."
+    },
+    {
+      "id": "bs381-25-qc",
+      "number": "c",
+      "text": "Hardibox are considering moving their distribution warehouse from Berlin, Germany to Rotterdam in the Netherlands. If they move, they will no longer ship to Hamburg but will instead ship to Rotterdam.\n\n(c)(i) Explain one advantage to Hardibox of moving their distribution warehouse to Rotterdam.\n\n(c)(ii) Explain one disadvantage to Hardibox of moving their distribution warehouse to Rotterdam.\n\n(c)(iii) Would you recommend that Hardibox move their distribution warehouse to Rotterdam? Justify your recommendation, including any new information.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": ["global-business", "distribution", "business-decisions"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one advantage (e.g. quicker/cheaper to transport to well-established Western European markets as Rotterdam is 600 km closer to London and Paris) and one disadvantage (e.g. higher lease cost as Rotterdam is the world's largest seaport outside East Asia, meaning greater demand for warehouse space and higher costs - approximately $28,800 per year increase). Merit: Fully explain with further expansion about effects, advantages, disadvantages, consequences. Excellence: For the recommendation, justify by using relevant evidence. E.g. Hardibox should move because the improved efficiency of stock movement within Western Europe would improve sales and reduce transport costs. The port of Rotterdam is just 3 km from the warehouse compared to Berlin being 300 km from the Hamburg port, significantly reducing time and cost. The increased lease costs would be outweighed by the benefits. Note: A recommendation for keeping Berlin is acceptable if suitably justified."
+    },
+    {
+      "id": "bs381-25-qd",
+      "number": "d",
+      "text": "Hardibox are considering purchasing a new injection moulding machine to replace their current one. They have two options: Machine A (electric, $52,000, produces 140 lunchboxes per hour, 0.75 kW/h, staff training cost $15,000) and Machine B (hydraulic, $39,000, produces 95 lunchboxes per hour, 2.25 kW/h, staff training cost $6,000).\n\n(d)(i) Explain one benefit to Hardibox of purchasing Machine A.\n\n(d)(ii) Explain one benefit to Hardibox of purchasing Machine B.\n\n(d)(iii) Which of the two injection moulding machine options would you recommend for Hardibox? Justify your recommendation, including any new information.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": ["global-business", "sustainability", "business-decisions"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one benefit of Machine A (e.g. electric, much more energy efficient at 0.75 kW vs 2.25 kW, supporting environmental sustainability goals) and one benefit of Machine B (e.g. lower purchase price of $39,000 vs $52,000, reducing capital cost, with further savings on staff training of $9,000). Merit: Fully explain with further expansion of how the benefits impact potential business or stakeholder goals. Excellence: For the recommendation, justify using relevant evidence. E.g. Hardibox should purchase Machine A because the increase in sales from environmentally sustainable methods would likely surpass the combined cost savings of $22,000 from Machine B. Machine A also has a much higher production rate (140 vs 95 per hour), improving efficiency and stock availability. Note: A recommendation for Machine B is acceptable if suitably justified."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

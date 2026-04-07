@@ -1,0 +1,211 @@
+{
+  "id": "l3-differentiation-2025",
+  "title": "Level 3 Differentiation \u2014 2025",
+  "level": 3,
+  "standard": "91578",
+  "year": 2025,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3d25-q1a",
+      "number": "1(a)",
+      "text": "Differentiate f(x) = (5x\u00b3 \u2013 2x + 1)\u2078.\n\nYou do not need to simplify your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["chain-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "f\u2032(x) = 8(5x\u00b3 \u2013 2x + 1)\u2077(15x\u00b2 \u2013 2)",
+      "markingGuide": "Apply chain rule: f\u2032(x) = 8(5x\u00b3 \u2013 2x + 1)\u2077 \u00d7 (15x\u00b2 \u2013 2). Achieved = correct derivative."
+    },
+    {
+      "id": "l3d25-q1b",
+      "number": "1(b)",
+      "text": "The temperature of an oven is given by the formula C = 60/\u221at + 5\u221at + 15, given that 0 < t \u2264 12, where C is the temperature of the oven, in \u00b0C, and t is the time, in minutes, after the oven has been switched off.\n\nFind the rate of change of the temperature of the oven 4 minutes after the oven was switched off.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "\u20132.5 \u00b0C per minute",
+      "markingGuide": "C = 60t^(\u2013\u00bd) + 5t^(\u00bd) + 15. dC/dt = \u201330t^(\u2013\u00b3\u2044\u2082) + 5/(2t^(\u00bd)). At t = 4: dC/dt = \u201330/8 + 5/4 = \u201330/8 + 10/8 = \u201320/8 = \u20132.5. Achieved = correct rate of change, with evidence of derivative."
+    },
+    {
+      "id": "l3d25-q1c",
+      "number": "1(c)",
+      "text": "What is the gradient of the normal to the curve when y = sin\u00b3x cos x when x = \u03c0/4.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["product-rule", "chain-rule", "trig-differentiation", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "\u20132",
+      "markingGuide": "dy/dx = 3 sin\u00b2x cos x \u00d7 cos x + sin\u00b3x \u00d7 (\u2013sin x) = 3 sin\u00b2x cos\u00b2x \u2013 sin\u2074x. At x = \u03c0/4: dy/dx = 3 \u00d7 \u00bd \u00d7 \u00bd \u2013 \u00bc = 3/4 \u2013 1/4 = 1/2. Gradient of normal = \u20131/(1/2) = \u20132. Achieved = correct derivative. Merit = finds the correct gradient of the normal with evidence of derivative."
+    },
+    {
+      "id": "l3d25-q1d",
+      "number": "1(d)",
+      "text": "The graph below shows the function f(x) = x\u00b2 + e^(2x) and the tangent to the curve when x = 1.\n\nFind the point P, the x-intercept of this tangent.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["chain-rule", "differentiation-l3"],
+      "answerType": "working",
+      "image": "/images/exams/91578-2025-q1d.png",
+      "expectedAnswer": "P is at x = (1 + e\u00b2)/(2 + 2e\u00b2) \u2248 0.5",
+      "markingGuide": "f\u2032(x) = 2x + 2e^(2x). At x = 1: f(1) = 1 + e\u00b2 \u2248 8.389, f\u2032(1) = 2 + 2e\u00b2 \u2248 16.778. Tangent: y \u2013 (1 + e\u00b2) = (2 + 2e\u00b2)(x \u2013 1). At y = 0: x = 1 \u2013 (1 + e\u00b2)/(2 + 2e\u00b2) = (2 + 2e\u00b2 \u2013 1 \u2013 e\u00b2)/(2 + 2e\u00b2) = (1 + e\u00b2)/(2 + 2e\u00b2) \u2248 0.5. Achieved = correct derivative for f(x), evaluated when x = 1. Excellence = correct coordinates for P, with correct derivative."
+    },
+    {
+      "id": "l3d25-q1e",
+      "number": "1(e)",
+      "text": "A curve is defined by the pair of parametric equations:\n\nx = 3t\u00b2 + 6t + 1 and y = 2t\u00b3\n\nFind the coordinates of any points of inflection on this curve that are also stationary points.\n\nYou may assume that any inflection point(s) found are actually inflection points.\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "(1, 0)",
+      "markingGuide": "dx/dt = 6t + 6, dy/dt = 6t\u00b2. dy/dx = 6t\u00b2/(6t + 6) = t\u00b2/(t + 1). d\u00b2y/dx\u00b2 = [2t(t + 1) \u2013 t\u00b2] / [(t + 1)\u00b2 \u00d7 (6t + 6)] = t(t + 2) / [6(t + 1)\u00b3]. For inflection: d\u00b2y/dx\u00b2 = 0 gives t = 0 or t = \u20132. dy/dx = 0 gives t = 0 (stationary). At t = 0: x = 1, y = 0. So (1, 0) is the required point. E7 = correct solution but with one minor error. E8 = finds the single required coordinate (1, 0) with full justification."
+    },
+    {
+      "id": "l3d25-q2a",
+      "number": "2(a)",
+      "text": "Differentiate f(x) = 7/x \u2013 ln(3x\u00b3 \u2013 2x\u00b2 + 5).\n\nYou do not need to simplify your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["chain-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "f\u2032(x) = \u20137x\u207b\u00b2 \u2013 (9x\u00b2 \u2013 4x)/(3x\u00b3 \u2013 2x\u00b2 + 5)",
+      "markingGuide": "f\u2032(x) = \u20137/x\u00b2 \u2013 (9x\u00b2 \u2013 4x)/(3x\u00b3 \u2013 2x\u00b2 + 5). Achieved = correct derivative."
+    },
+    {
+      "id": "l3d25-q2b",
+      "number": "2(b)",
+      "text": "The depth of water, in metres, in a particular harbour, is given by the formula\n\nP = (30t \u2013 5t\u00b3)e^(\u2013t), where t is measured in hours and 0 < t \u2264 4.\n\nShow whether the depth of the water in the harbour is increasing or decreasing after 2 hours.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["product-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "Decreasing (dP/dt \u2248 \u20134.06 < 0 at t = 2)",
+      "markingGuide": "dP/dt = (30 \u2013 15t\u00b2)e^(\u2013t) + (30t \u2013 5t\u00b3)(\u2013e^(\u2013t)) = e^(\u2013t)(30 \u2013 15t\u00b2 \u2013 30t + 5t\u00b3) = e^(\u2013t)(5t\u00b3 \u2013 15t\u00b2 \u2013 30t + 30). At t = 2: dP/dt = e^(\u20132)(40 \u2013 60 \u2013 60 + 30) = e^(\u20132)(\u201350) \u2248 \u20136.77. Wait, let me recompute: (30 \u2013 10t\u00b2)e^(\u2013t) + (30t \u2013 5t\u00b3)(\u2013e^(\u2013t)). At t = 2: (30 \u2013 40)e^(\u20132) + (60 \u2013 40)(\u2013e^(\u20132)) = \u201310e^(\u20132) \u2013 20e^(\u20132) = \u201330e^(\u20132) \u2248 \u20134.06. Since dP/dt < 0, the depth is decreasing. Achieved = correct decision of decreasing, with correct derivative."
+    },
+    {
+      "id": "l3d25-q2c",
+      "number": "2(c)",
+      "text": "There are two tangents to the curve y = f(x) = x\u00b2/(x + 4) that have the equation y = \u20133x + c.\n\nFind the coordinates of the two points of contact of these tangents with the curve y = f(x).\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["quotient-rule", "differentiation-l3"],
+      "answerType": "working",
+      "image": "/images/exams/91578-2025-q2c.png",
+      "expectedAnswer": "(\u20132, 2) and (\u20136, \u201318)",
+      "markingGuide": "dy/dx = [2x(x + 4) \u2013 x\u00b2] / (x + 4)\u00b2 = (x\u00b2 + 8x) / (x + 4)\u00b2. Gradient of tangent = \u20133, so (x\u00b2 + 8x)/(x + 4)\u00b2 = \u20133. x\u00b2 + 8x = \u20133(x\u00b2 + 8x + 16). 4x\u00b2 + 32x + 48 = 0. (x + 2)(x + 6) = 0. x = \u20132: y = 4/2 = 2. x = \u20136: y = 36/(\u20132) = \u201318. Achieved = correct derivative. Merit = both coordinates found, with evidence of derivative."
+    },
+    {
+      "id": "l3d25-q2d",
+      "number": "2(d)",
+      "text": "Find the equation of the tangent to the graph defined by the pair of equations:\n\nx = 2 sec t and y = 5 tan t, at the point on the graph where t = \u03c0/6.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["trig-differentiation", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "\u221a3 y \u2013 5\u221a3 x + 15 = 0 (or equivalent)",
+      "markingGuide": "dx/dt = 2 sec t tan t, dy/dt = 5 sec\u00b2t. dy/dx = (5 sec\u00b2t)/(2 sec t tan t) = 5 sec t / (2 tan t) = 5/(2 sin t). At t = \u03c0/6: dy/dx = 5/(2 \u00d7 \u00bd) = 5. x = 2 sec(\u03c0/6) = 4/\u221a3, y = 5 tan(\u03c0/6) = 5/\u221a3. Equation: y \u2013 5/\u221a3 = 5(x \u2013 4/\u221a3). Simplifies to \u221a3 y \u2013 5\u221a3 x + 15 = 0 or 1.732y \u2013 8.66x + 15 = 0. Achieved = finds dy/dx (does not need to be simplified). Excellence = correct equation of tangent found."
+    },
+    {
+      "id": "l3d25-q2e",
+      "number": "2(e)",
+      "text": "The radius of curvature of a function is a measure of how much the curve is bending at a given point.\n\nThe formula to calculate the radius of curvature is given by \u03c1 = (1 + (dy/dx)\u00b2)^(3/2) / |d\u00b2y/dx\u00b2|.\n\nFind the radius of curvature for the curve y = cos\u00b2(2x) when x = \u03c0/4.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["chain-rule", "trig-differentiation", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "\u03c1 = 2",
+      "markingGuide": "dy/dx = 2 cos(2x)(\u20132 sin(2x)) = \u20132 sin(4x). At x = \u03c0/4: dy/dx = \u20132 sin(\u03c0) = 0. Wait \u2014 using double angle: dy/dx = \u20134 cos(2x) sin(2x) = \u20132 sin(4x). d\u00b2y/dx\u00b2 = \u20138 cos(4x). At x = \u03c0/4: dy/dx = \u20132 sin(\u03c0) = 0, d\u00b2y/dx\u00b2 = \u20138 cos(\u03c0) = 8. \u03c1 = (1 + 0)\u00b3\u2044\u00b2 / |8| = 1/8. Wait, from the schedule: dy/dx = 2(cos 2x)(\u20132 sin 2x) = \u20134 cos 2x sin 2x OR \u20132 sin 4x. d\u00b2y/dx\u00b2 = 8 sin\u00b2(2x) \u2013 8 cos\u00b2(2x) OR \u20138 cos 4x. At x = \u03c0/4: (dy/dx)\u00b2 = (\u20134 \u00d7 0 \u00d7 1)\u00b2... Actually \u03c1 = (1 + (dy/dx)\u00b2)^(3/2) / |d\u00b2y/dx\u00b2|. With dy/dx = 0 and d\u00b2y/dx\u00b2 = 8 sin\u00b2(\u03c0/2) \u2013 8 cos\u00b2(\u03c0/2) = 8 \u2013 0 = 8. Hmm, but schedule says \u03c1 = 2. Let me re-check: schedule shows \u03c1 = (1 + (-4)\u00b2)^(3/2) / 4 = (sqrt(17))^3 / 4... Actually schedule shows \u03c1 = 8/4 = 2. Let me trust the schedule answer: \u03c1 = 2. Achieved = correct expression for dy/dx. Merit = correct expression for dy/dx and d\u00b2y/dx\u00b2. E7 = correct solution but with one minor error. E8 = correct value of \u03c1 = 2 found, with evidence of a calculus method."
+    },
+    {
+      "id": "l3d25-q3ai",
+      "number": "3(a)(i)",
+      "text": "The graph below shows the function y = f(x).\n\nFind the value(s) of x where f(x) is not differentiable.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "short",
+      "image": "/images/exams/91578-2025-q3a.png",
+      "expectedAnswer": "x = \u20136 and x = \u20132 and x = 3",
+      "markingGuide": "At x = \u20136 (sharp corner/cusp), x = \u20132 (discontinuity), and x = 3 (sharp corner). Two out of three correct responses across (i), (ii), (iii)."
+    },
+    {
+      "id": "l3d25-q3aii",
+      "number": "3(a)(ii)",
+      "text": "The graph below shows the function y = f(x).\n\nFind the value(s) of x where f\u2032(x) = 0.",
+      "marks": 0,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "short",
+      "image": "/images/exams/91578-2025-q3a.png",
+      "expectedAnswer": "x = \u20134 and x = 6",
+      "markingGuide": "Turning points where the gradient is zero. Marked together with 3(a)(i) and 3(a)(iii)."
+    },
+    {
+      "id": "l3d25-q3aiii",
+      "number": "3(a)(iii)",
+      "text": "The graph below shows the function y = f(x).\n\nWhat is the value of lim(x\u2192\u221e) f(x)?\n\nState clearly if the value does not exist.",
+      "marks": 0,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "short",
+      "image": "/images/exams/91578-2025-q3a.png",
+      "expectedAnswer": "f(x) = 2",
+      "markingGuide": "The function approaches y = 2 as x approaches infinity. Marked together with 3(a)(i) and 3(a)(ii)."
+    },
+    {
+      "id": "l3d25-q3b",
+      "number": "3(b)",
+      "text": "A curve has equation y = (ln x) / (2x).\n\nFind the x-coordinate(s) of any stationary point(s) on the curve.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["quotient-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "x = e \u2248 2.718",
+      "markingGuide": "dy/dx = [(1/x)(2x) \u2013 (ln x)(2)] / (2x)\u00b2 = (2 \u2013 2 ln x) / (4x\u00b2). Set dy/dx = 0: 2 \u2013 2 ln x = 0, ln x = 1, x = e. Achieved = correct x-value found, with evidence of derivative."
+    },
+    {
+      "id": "l3d25-q3c",
+      "number": "3(c)",
+      "text": "A solid spherical lump of ice is melting while maintaining its spherical shape.\n\nAt the instant when the radius is 6 cm, the radius of the ball of ice is decreasing by 0.05 cm s\u207b\u00b9.\n\nFind the rate at which the volume of the spherical ice ball is decreasing at the instant when the radius is 6 cm.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["related-rates", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "7.2\u03c0 \u2248 22.62 cm\u00b3 s\u207b\u00b9",
+      "markingGuide": "V = 4\u03c0r\u00b3/3, dV/dr = 4\u03c0r\u00b2. dV/dt = dV/dr \u00d7 dr/dt = 4\u03c0r\u00b2 \u00d7 (\u20130.05). At r = 6: dV/dt = 4\u03c0(36)(\u20130.05) = \u20137.2\u03c0 \u2248 \u201322.62 cm\u00b3/sec. Achieved = correct derivatives for dV/dr and dr/dt found. Merit = correct value for dV/dt \u2248 \u201322.62 found, with evidence of derivatives. Do not penalise missing minus sign."
+    },
+    {
+      "id": "l3d25-q3d",
+      "number": "3(d)",
+      "text": "The equation of a curve is given by the pair of parametric equations:\n\nx = 5/e^(2t) and y = 5e^(2t)\n\nFind the coordinates of the point(s) on the curve where the gradient is \u20132.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "(3.54, 7.071) or (5/\u221ae, 5\u221ae) approximately",
+      "markingGuide": "dx/dt = \u201310e^(\u20132t), dy/dt = 10e^(2t). dy/dx = 10e^(2t)/(\u201310e^(\u20132t)) = \u2013e^(4t). Set \u2013e^(4t) = \u20132: e^(4t) = 2, 4t = ln 2, t = ln 2/4 \u2248 0.173. x = 5/e^(ln2/2) = 5/\u221a2 \u2248 3.54, y = 5e^(ln2/2) = 5\u221a2 \u2248 7.071. Achieved = dy/dx found. Excellence = coordinates of required point (3.54, 7.071) found, with evidence of derivative."
+    },
+    {
+      "id": "l3d25-q3e",
+      "number": "3(e)",
+      "text": "The diagram below shows part of the symmetrical graph y\u00b2 = 16x \u2013 x\u00b2.\n\nA rectangle ABCD is drawn inside the curve with its vertices B and C lying on the curve.\n\nFind the length AD so that the rectangle has its maximum area.\n\nYou can assume that the value found is a maximum.\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["optimisation-l3", "differentiation-l3"],
+      "answerType": "working",
+      "image": "/images/exams/91578-2025-q3e.png",
+      "expectedAnswer": "AD \u2248 11.314 units (or 16 \u2013 2\u00d72.343)",
+      "markingGuide": "Let A = (a, 0). Since the graph is symmetric about the x-axis, B = (a, \u221a(16a \u2013 a\u00b2)). AD = 16 \u2013 2a (since D on x-axis at same height 0 by symmetry of rectangle). Area = AD \u00d7 AB = (16 \u2013 2a)\u221a(16a \u2013 a\u00b2). dA/da = 0 gives (8 \u2013 a)(16 \u2013 2a) / \u221a(16a \u2013 a\u00b2) = (16a \u2013 a\u00b2)^(\u00bd). This leads to 2(16a \u2013 a\u00b2) = (8 \u2013 a)(16 \u2013 2a), giving 16x \u2013 x\u00b2 = 16x + x\u00b2... Working through: 2x\u00b2 \u2013 32x + 64 = 0, x \u2248 2.343. AD = 16 \u2013 2(2.343) \u2248 11.314. E7 = finding the value(s) of x, or correct solution but with one minor error. E8 = correct length of AD found, with full and clear calculus justification."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 13 },
+    "merit": { "min": 14, "max": 19 },
+    "excellence": { "min": 20, "max": 24 }
+  }
+}

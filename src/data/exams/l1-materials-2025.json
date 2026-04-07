@@ -1,0 +1,263 @@
+{
+  "id": "l1-materials-2025",
+  "title": "Level 1 Materials — 2025",
+  "level": 1,
+  "standard": "92023",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l1m25-q1a",
+      "number": "1(a)",
+      "text": "Low-density polyethylene (LDPE) is a type of polymer that can be used to make the body of a kayak.\n\nDefine the term polymer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A polymer is a large/long chain molecule made from many small units/repeating units/monomers.",
+      "markingGuide": "Achievement: Defines polymer."
+    },
+    {
+      "id": "l1m25-q1b",
+      "number": "1(b)",
+      "text": "[Diagram: Figure 1 shows carbon (C) and hydrogen (H) bonds forming long chains and branches in LDPE. Figure 2 shows the skeleton structure of LDPE (top, with branches) compared with the related high-density polyethylene (HDPE) (bottom, more linear).]\n\nLDPE is widely used due to its versatility, moisture resistance, and low melting point. It is characterised by its low density and flexibility. A kayak needs to be buoyant and insoluble in water.\n\nExplain how the structure and bonding of LDPE results in a low-density polymer that is suitable for use in kayaks.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "LDPE is made of long, branched chains of covalently bonded carbon atoms with weak intermolecular...",
+      "markingGuide": "Achievement: Describes the weak intermolecular bonds between molecules/chains OR describes covalent bonds between C atoms/monomers OR identifies that branched chains have low density OR that the kayak won't dissolve. Merit: Explains the structure and bonding of polyethylene related to density OR solubility. Excellence: Explains the structure of polyethylene related to density AND use in a kayak."
+    },
+    {
+      "id": "l1m25-q1ci",
+      "number": "1(c)(i)",
+      "text": "[Diagram: Figure 3 shows three layers of carbon fibre sheets, with a close-up of the atomic structure of the planes of carbon atoms that make up these layers.]\n\nA kayaker is looking for a new kayak made out of stronger and harder carbon fibre sheets.\n\nSelect the type of material a carbon fibre sheet is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "bonding"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
+      "expectedAnswer": "covalent network",
+      "markingGuide": "Achievement: Identifies the type of substance."
+    },
+    {
+      "id": "l1m25-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Explain why the structure and bonding within a carbon fibre sheet results in a kayak that is hard and strong.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Graphite/carbon fibre is a 2D network where each carbon atom is covalently bonded to three...",
+      "markingGuide": "Achievement: Identifies that a 2D network structure/one C atom is joined to three other C atoms within the layer OR identifies that a 2D network is strong OR identifies that a large force/energy is needed to break the bond. Merit: Explains the structure and bonding AND explains that strong covalent bonds require large force/energy to break. Excellence: Identifies the type of substance, explains the structure and bonding, linking to the strength of covalent bonding AND identifies the force needed to break the bond so that the kayak can withstand weight."
+    },
+    {
+      "id": "l1m25-q2ai",
+      "number": "2(a)(i)",
+      "text": "The shaft of a kayak paddle is made of aluminium, Al.\n\nSelect the type of material aluminium, Al, is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "bonding"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
+      "expectedAnswer": "metallic solid",
+      "markingGuide": "Achievement: Identifies the type of substance."
+    },
+    {
+      "id": "l1m25-q2aii",
+      "number": "2(a)(ii)",
+      "text": "How does the structure and bonding of aluminium, Al, allow it to be malleable, forming the long, hollow tube of the shaft of the paddle?",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Aluminium is a 3D network of metal atoms/cations surrounded by delocalised electrons",
+      "markingGuide": "Achievement: Describes the metallic bond (electrostatic attraction) OR structure (delocalised electrons). Merit: Explains the structure and bonding AND explains how atoms slide over each other when force is applied without breaking the attraction, allowing malleability. Excellence: Explains the structure and bonding, linking to malleability AND links to use in paddle shaft."
+    },
+    {
+      "id": "l1m25-q2bi",
+      "number": "2(b)(i)",
+      "text": "[Diagram: Figure 4 shows the alloying process of aluminium and magnesium.]\n\nDefine the term alloy.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "An alloy is a mixture of metal(s) and other element(s) (M+M or M+NM).",
+      "markingGuide": "Achievement: Defines alloy."
+    },
+    {
+      "id": "l1m25-q2bii",
+      "number": "2(b)(ii)",
+      "text": "Explain how adding magnesium, Mg, to aluminium, Al, to make an alloy, changes the malleability of the material.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The alloy is less malleable",
+      "markingGuide": "Achievement: Identifies that aluminium is less malleable/aluminium is more malleable (than the alloy). Merit: Defines alloy and identifies that the alloy is less malleable as atoms/cations are different sizes so are less able to slide over each other (or more force is needed to slide). OR Defines alloy and identifies that aluminium is more malleable as atoms/cations are the same size so can easily slide over each other (or less force is needed to slide). Excellence: Links to use in paddle shaft."
+    },
+    {
+      "id": "l1m25-q2c",
+      "number": "2(c)",
+      "text": "[Diagram: Table 1 shows density and hardness of substances: Pure aluminium 2.7 g/cm³ Low hardness; Aluminium and magnesium alloy 2.60-2.7 g/cm³ Medium hardness; Steel (iron and carbon alloy) 7.75 g/cm³ High hardness.]\n\nThe shaft of a kayak paddle is formed of a long, hollow tube. It needs to: float if it is dropped into the water; be hard enough to pull the blades through the water; be light enough for a kayaker to lift and use.\n\nUsing the information in Table 1 and your knowledge of structure and bonding of materials, discuss why an aluminium and magnesium alloy would be preferred over both pure aluminium and steel (iron and carbon alloy) as the material used for kayak paddles.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The alloy has medium hardness (harder than pure Al but lighter than steel) and low density...",
+      "markingGuide": "Achievement: Explains density OR hardness of the alloy in terms of structure. (Hardness: size of atom; density: number of particles in a volume.) Merit: Identifies that the alloy has medium hardness and lowest density. Excellence: Justifies behaviour of the aluminium alloy when used as a paddle in comparison to pure aluminium and steel.",
+      "image": "/images/exams/92023-2025-q2c.png"
+    },
+    {
+      "id": "l1m25-q3ai",
+      "number": "3(a)(i)",
+      "text": "Sea water is made up of water, H₂O, and salt, NaCl. Figure 5 shows the structure and bonding of water, H₂O (left), and salt, NaCl (right).\n\nSelect the type of material water, H₂O, is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "bonding"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
+      "expectedAnswer": "molecular substance",
+      "markingGuide": "Achievement: Identifies the type of substance."
+    },
+    {
+      "id": "l1m25-q3aii",
+      "number": "3(a)(ii)",
+      "text": "Select the type of material salt, NaCl, is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "bonding"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
+      "expectedAnswer": "ionic material",
+      "markingGuide": "Achievement: Identifies the type of substance."
+    },
+    {
+      "id": "l1m25-q3b",
+      "number": "3(b)",
+      "text": "White solid salt, NaCl, is visibly left behind on the surface of the sea kayak. The salt is brittle, and it crumbles easily when touched.\n\nExplain how the arrangement of particles in salt, NaCl, and the attractive forces between these particles leads to this brittleness.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "NaCl has a 3D lattice of alternating Na⁺ and Cl⁻ ions with strong ionic bonds.",
+      "markingGuide": "Achievement: Describes the structure and describes the bonding in solid. Merit: Explains that when force is applied, like ions line up, repel, and shatter."
+    },
+    {
+      "id": "l1m25-q3c",
+      "number": "3(c)",
+      "text": "Explain how the properties and attractive forces of water, H₂O, and salt, NaCl, allow for water to visibly remove the salt from the surface of the sea kayak.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "NaCl is soluble in water",
+      "markingGuide": "Achievement: Identifies that NaCl is soluble/dissolvable AND describes attractive forces of Na⁺ and Cl⁻ ions in the solid/lattice. Merit: Explains the strength of the attractive forces of Na⁺ and Cl⁻ ions AND H₂O to ions in the solid/lattice. Excellence: Compares the strength of the attractive forces of Na⁺ and Cl⁻ ions, H₂O to ions in the solid AND links to salt dissolved/no longer visible."
+    },
+    {
+      "id": "l1m25-q3d",
+      "number": "3(d)",
+      "text": "[Diagram: Table 2 shows density and arrangement of particles of materials. Sea water: 1.02-1.03 g/cm³, mixture containing both sodium chloride and water. Fresh water: ~1 g/cm³, pure substance (water molecules). Plastic bottle: 0.94-0.965 g/cm³, pure substance (long chain molecules). Air: 0.0012 g/cm³, mixture (gaseous molecules and atoms).]\n\nA plastic bottle floats on the sea water. The plastic bottle contains both air and fresh water.\n\nUsing the information in Table 2 and your own knowledge of properties of materials, explain why the plastic bottle containing both air and fresh water floats on sea water.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Sea water is denser (1.02-1.03 g/cm³) than the plastic bottle (0.94-0.965 g/cm³), fresh water...",
+      "markingGuide": "Achievement: Identifies that sea water is more dense than the plastic bottle OR identifies that the plastic bottle is less dense than sea water. Merit: Explains the attractive forces and particles of TWO of the substances: water molecules, plastic polymer, air/or sea water. Excellence: Compares the relative strength of the attractive forces of all FOUR particles AND makes links as to why the bottle floats in sea water.",
+      "image": "/images/exams/92023-2025-q3d.png"
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

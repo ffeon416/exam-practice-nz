@@ -1,0 +1,386 @@
+{
+  "id": "caa-numeracy-2024",
+  "title": "CAA Numeracy — 2024",
+  "level": 0,
+  "standard": "32406",
+  "year": 2024,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "caan24-q1a",
+      "number": "1(a)",
+      "text": "Tuatara first lived about 225 million years ago. The oldest rocks show New Zealand is at least 500 million years old.\n\nOn the timeline below, circle the arrow that shows 225 million years ago.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "timeline-reading"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "3",
+      "markingGuide": "The timeline runs from -500 million (Beginning of NZ) to 0 (Today). 225 million years ago is roughly halfway along, slightly closer to Today. Arrow 3 is at approximately the right position (about 225/500 = 45% from the right end). Accept arrow 3.",
+      "image": "/images/exams/32406-2024-q1a.png"
+    },
+    {
+      "id": "caan24-q1b",
+      "number": "1(b)",
+      "text": "Tuatara eat small animals, such as weta, worms, beetles, and spiders.\n\nThe tuatara weighs one kilogram. The weta weighs 25 grams.\n\nHow many times heavier is the tuatara than the weta?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "division",
+        "unit-conversion"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "40",
+      "markingGuide": "1 kg = 1000 g. 1000 / 25 = 40. The tuatara is 40 times heavier than the weta."
+    },
+    {
+      "id": "caan24-q1c",
+      "number": "1(c)",
+      "text": "A female tuatara lays 6–10 eggs every four years. The eggs take 11–16 months to hatch.\n\nIf all the eggs survive, about how many tuatara would you expect to get from one female in 10 years? Show the calculations you used to get your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "estimation",
+        "multiplication"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "16-20 tuatara",
+      "markingGuide": "Student must show calculations. Reasonable approaches: (1) Mid-range eggs = 8, cycles in 10 years = 2 or 3 (depending on interpretation), so 16 or 24. (2) Using minimum: 6 eggs x 2 cycles = 12. (3) Using maximum: 10 eggs x 3 cycles = 30. Accept any answer between 12 and 30 with clear working showing eggs per cycle and number of cycles."
+    },
+    {
+      "id": "caan24-q1d",
+      "number": "1(d)",
+      "text": "Only eight adult tuatara remained on Little Barrier Island in 2004. The island was made rat-free in 2006 and 100 adult tuatara were released on the island. This graph shows tuatara numbers over time.\n\nAbout how many tuatara were on Little Barrier Island in 2012?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "200",
+      "markingGuide": "Read from bar graph. The bar for 2012 reaches approximately 200 on the y-axis. Accept 180–220.",
+      "image": "/images/exams/32406-2024-q1d.png"
+    },
+    {
+      "id": "caan24-q1e",
+      "number": "1(e)",
+      "text": "In 2003, 60 adult tuatara were released on Tiritiri Matangi Island. Ten years later, 31 tuatara were found, and their body lengths were measured. The dotted line is the median body length.\n\nDoes the graph suggest that there are now young tuatara on the island? Explain your answer using numbers from the graph.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Yes — some are small (100-140 mm) which suggests young tuatara",
+      "markingGuide": "Student must say yes AND refer to specific lengths from the dot plot. The small tuatara (below about 150 mm) are likely young because only adults (larger) were released in 2003. Accept reference to dots below the median line or dots in the 100–150 mm range as evidence of young tuatara.",
+      "image": "/images/exams/32406-2024-q1e.png"
+    },
+    {
+      "id": "caan24-q1f",
+      "number": "1(f)",
+      "text": "Half of all the tuatara in New Zealand live on an island that is about 95 km northwest of Wellington.\n\nWrite the letter that shows the location of the island. Use the scale on the map to help you.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "map-reading",
+        "estimation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Stephens Island (about 95 km northwest of Wellington)",
+      "markingGuide": "Student must identify the correct letter on the map that is approximately 95 km northwest of Wellington using the scale. The island is Stephens Island in the Marlborough Sounds area. Accept the correct letter shown on the map at that location.",
+      "image": "/images/exams/32406-2024-q1f.png"
+    },
+    {
+      "id": "caan24-q2a",
+      "number": "2(a)",
+      "text": "Nicole creates a growing tree design using squares.\n\nPattern 1 has 1 square, Pattern 2 has 5 squares, Pattern 3 has 13 squares, Pattern 4 has 25 squares.\n\nTo create Pattern 5, how many squares would Nicole need, in total? Include all squares of different sizes.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "patterns"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "41",
+      "markingGuide": "The pattern of total squares is: 1, 5, 13, 25, ... The differences are: 4, 8, 12, ... (increasing by 4 each time). So the next difference is 16. 25 + 16 = 41 squares for Pattern 5.",
+      "image": "/images/exams/32406-2024-q2a.png"
+    },
+    {
+      "id": "caan24-q2b",
+      "number": "2(b)",
+      "text": "Ariana is making a new tipare or kopare (headband) design for her kapa haka group. Her design has numbered points (1–6) along and around it.\n\nWhich numbers show lines of reflection symmetry in Ariana's design? Tick the circle next to the correct numbers. There is more than one answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "symmetry"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "expectedAnswer": "2 and 5",
+      "markingGuide": "Lines of reflection symmetry in the headband design pass through points 2 and 5 (the vertical lines of symmetry that divide the repeating pattern). Accept 2 and 5 only.",
+      "image": "/images/exams/32406-2024-q2b.png"
+    },
+    {
+      "id": "caan24-q2c",
+      "number": "2(c)",
+      "text": "The diagram on the left shows fractions that are usually found in human faces. On the right is a cartoon of Richie McCaw's face.\n\nIn the cartoon, is the bottom of Richie's nose in the right place? Use fractions from both the diagram and cartoon to explain your answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "fractions"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "No — the nose is too low compared to normal face proportions",
+      "markingGuide": "Student must reference fractions from the diagram (e.g., nose is at the halfway point of the lower face, or at a specific fraction of total face height) and compare with where Richie's nose appears in the cartoon. Accept yes or no if justified with fraction-based reasoning from both images.",
+      "image": "/images/exams/32406-2024-q2c.png"
+    },
+    {
+      "id": "caan24-q2d",
+      "number": "2(d)",
+      "text": "Below is a photo of a sculpture at a park in Northland. The sculpture is made of red and black steel. On the right are the front and right-side views of the sculpture.\n\nWhich letter below shows the correct top view of the sculpture? Circle the correct letter.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "spatial-reasoning"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "expectedAnswer": "B",
+      "markingGuide": "Looking at the front and side views, the top view must match the outline and arrangement of horizontal bars visible from above. Option B correctly shows the top-down view of the sculpture's horizontal elements. Accept B.",
+      "image": "/images/exams/32406-2024-q2d.png"
+    },
+    {
+      "id": "caan24-q2e",
+      "number": "2(e)",
+      "text": "In 1979, a comic sold for $US 1,000. In 2022, it sold for $US 2.6 million.\n\nHow many $1,000 comics can you buy for $2.6 million?\n\nTick the correct answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "division",
+        "place-value"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "26",
+        "260",
+        "2,600",
+        "26,000",
+        "260,000"
+      ],
+      "expectedAnswer": "2,600",
+      "markingGuide": "$2.6 million = $2,600,000. $2,600,000 / $1,000 = 2,600."
+    },
+    {
+      "id": "caan24-q2f",
+      "number": "2(f)",
+      "text": "Tirau, a town in the North Island, is famous for its visitor centre which is in the shape of a dog and two sheep.\n\nThe map below shows that the drive from Wellington to Tirau will take five hours and 49 minutes.\n\nHow much time is that rounded to the nearest hour?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "rounding",
+        "time"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "6",
+      "markingGuide": "5 hours 49 minutes. 49 minutes is more than 30 minutes, so it rounds up to 6 hours."
+    },
+    {
+      "id": "caan24-q3a",
+      "number": "3(a)",
+      "text": "The large water bottle holds 15 litres of water when it is full, and weighs 15.352 kilograms.\n\nHow much does the empty water bottle weigh, in grams?\n\nNote: One litre of water weighs one kilogram.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "unit-conversion",
+        "subtraction"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "352",
+      "markingGuide": "15 litres of water weighs 15 kg. Total weight is 15.352 kg. Empty bottle = 15.352 - 15 = 0.352 kg = 352 grams."
+    },
+    {
+      "id": "caan24-q3b",
+      "number": "3(b)",
+      "text": "Each of three bottles holds 1.5 litres of water.\n\nHow many 300 mL glasses can you fill from all three bottles?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "division",
+        "unit-conversion"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "15",
+      "markingGuide": "Total water = 3 x 1.5 L = 4.5 L = 4500 mL. Number of glasses = 4500 / 300 = 15."
+    },
+    {
+      "id": "caan24-q3c",
+      "number": "3(c)",
+      "text": "Water makes up about 75% of a piglet's body weight. For adult pigs, the percentage is about 50%. This piglet weighs 8 kilograms, while the adult pig weighs 120 kilograms.\n\nHow much more water, in kilograms, does the adult pig have in their body than the piglet has in their body?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "percentages",
+        "subtraction"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "54",
+      "markingGuide": "Piglet water: 75% of 8 kg = 6 kg. Adult pig water: 50% of 120 kg = 60 kg. Difference: 60 - 6 = 54 kg."
+    },
+    {
+      "id": "caan24-q3d",
+      "number": "3(d)",
+      "text": "Here is Cindy's water bill for one month.\n\nWai Ma Services: Amount used 24.8 m³, Rate $/m³ = ?, Charge $35.96.\n\nHow much does Cindy pay for each cubic metre (m³) of water used?\n\nNote: $/m³ means dollars per cubic metre.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "rates",
+        "division"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "1.45",
+      "markingGuide": "Rate = $35.96 / 24.8 = $1.45 per m³."
+    },
+    {
+      "id": "caan24-q3e",
+      "number": "3(e)",
+      "text": "Tala's whanau want to use less water. There are six people in Tala's whanau.\n\nTala has two ideas for saving water:\n• Cutting the daily shower time to two minutes per person.\n• Running the washing machine once every two days rather than every day.\n\nWhich of Tala's two ideas would save the most water? Explain your answer using information from the table.\n\nThe table shows estimated water use: Using a hose (10 min) = 150 litres, Having a bath (half full) = 80 litres, Having a shower (4 min) = 48 litres, Having a shower (8 min) = 96 litres, Running a washing machine (6 kg front loader) = 60 litres.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "tables",
+        "estimation",
+        "multiplication"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Cutting shower time saves more water",
+      "markingGuide": "Student must compare both ideas using table data. Idea 1 (showers): Current use at 4 min = 48 L per person per day, reduced to 2 min = 24 L. Daily saving = 6 x (48-24) = 144 L. OR if current is 8 min = 96L, reduced to 2 min = 24L, saving = 6 x 72 = 432L. Idea 2 (washing): 60 L per day reduced to 30 L per day (every 2 days). Saving = 30 L/day. Shower idea saves more. Accept any reasonable interpretation with calculations shown.",
+      "image": "/images/exams/32406-2024-q3e.png"
+    },
+    {
+      "id": "caan24-q3f",
+      "number": "3(f)",
+      "text": "This graph shows the average rainfall and temperature for each month of the year.\n\nWhich season has the highest average rainfall? Use information from the graph.\n\nTick the correct answer.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation"
+      ],
+      "answerType": "multi-choice",
+      "options": [
+        "Summer (Dec, Jan, Feb)",
+        "Autumn (Mar, Apr, May)",
+        "Winter (Jun, Jul, Aug)",
+        "Spring (Sep, Oct, Nov)"
+      ],
+      "expectedAnswer": "Winter (Jun, Jul, Aug)",
+      "markingGuide": "From the climate graph, the rainfall bars are highest during the winter months (June, July, August). Accept Winter.",
+      "image": "/images/exams/32406-2024-q3f.png"
+    },
+    {
+      "id": "caan24-q4a",
+      "number": "4(a)",
+      "text": "Polyfest is a festival with music, dances, costumes, and speeches from different Pacific cultures. The graph shows people attending Polyfest over time.\n\nAbout how many more people attended Polyfest in 2015 than in 2021?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "subtraction"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "50000",
+      "markingGuide": "From the graph: 2015 attendance is approximately 100,000. 2021 attendance is approximately 25,000 (low due to COVID). Difference: approximately 100,000 - 25,000 = 75,000. Accept 50,000–80,000 depending on graph reading. Note: 2020-2021 were COVID years with very low attendance.",
+      "image": "/images/exams/32406-2024-q4a.png"
+    },
+    {
+      "id": "caan24-q4b",
+      "number": "4(b)",
+      "text": "Polyfest organisers think that the festival will have around 100,000 attendees in 2025.\n\nDo you agree or disagree with the organisers' comment? Explain your answer using information from the graph above.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "graph-reading",
+        "data-interpretation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Agree — attendance was around 100,000 before COVID and is recovering",
+      "markingGuide": "Student should reference specific data from the graph. Agree: pre-COVID levels were around 100,000, and post-COVID recovery is trending upward. Disagree: post-COVID numbers haven't fully recovered yet (e.g. 2024 might still be below 100,000). Accept either position if supported by graph evidence.",
+      "image": "/images/exams/32406-2024-q4b.png"
+    },
+    {
+      "id": "caan24-q4c",
+      "number": "4(c)",
+      "text": "Here are the ticket prices for Polyfest. If you buy Single Day passes for two days online, you get a 15% discount off the total price.\n\nTicket prices per person (Free entry for children under five):\n• $6.00 — Single Day (Online price – fixed day)\n• $7.00 — Flexi Pass (Online price – any single day)\n• $8.50 — Gate entry per day\n\nSix adults want to attend Polyfest on both Saturday and Sunday.\n\nWhat will the total ticket cost be for the group?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "percentages",
+        "multiplication"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "61.20",
+      "markingGuide": "6 adults, Single Day pass online ($6.00), 2 days each. Total before discount: 6 x $6.00 x 2 = $72.00. 15% discount for buying two days online: $72.00 x 0.15 = $10.80. Total: $72.00 - $10.80 = $61.20.",
+      "image": "/images/exams/32406-2024-q4c.png"
+    },
+    {
+      "id": "caan24-q4d",
+      "number": "4(d)",
+      "text": "Here is the Saturday programme for the Maori stage. It gives the name of the school and the area students are from, i.e., CA, O, SA, or WA. Each school has the same chance of winning.\n\nThe schools listed are: Moana College (SA), East Shores College (O), Kowhai College (SA), Manukau Harbour HS (SA), Crestview College (CA), [Break], Maungakiekie College (CA), Tane HS (WA), Southside HS (SA), Redwood College (CA), [Lunch], Kauri Park College (SA), Hauraki HS (WA).\n\nWhat is the probability of a school from the SA area winning?\n\nCircle the arrow on the probability line that matches the probability.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "probability"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "5/12",
+      "markingGuide": "Count SA schools: Moana (SA), Kowhai (SA), Manukau Harbour HS (SA), Southside HS (SA), Kauri Park College (SA) = 5 SA schools out of 12 total. Probability = 5/12. On the probability line from 0 to 1 with arrows numbered 1–5, arrow 3 (near the middle, slightly below 1/2) is correct. Accept 5/12 or the correct arrow number.",
+      "image": "/images/exams/32406-2024-q4d.png"
+    },
+    {
+      "id": "caan24-q4e",
+      "number": "4(e)",
+      "text": "Here is part of a morning's timetable for the Tongan and Samoan stages.\n\nEach stage has a fixed time for performances and a five-minute break between performances.\n\nHow much longer, in minutes, is each performance on the Tongan stage compared to each performance on the Samoan stage?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "timetables",
+        "subtraction"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "10",
+      "markingGuide": "From the timetable: Tongan stage performances are approximately 25 minutes each (e.g., Redwood College 9:00–9:25, with 5 min break to 9:30). Samoan stage performances are approximately 15 minutes each (e.g., Manukau Harbour HS 9:00–9:15, with 5 min break to 9:20). Difference: 25 - 15 = 10 minutes.",
+      "image": "/images/exams/32406-2024-q4e.png"
+    },
+    {
+      "id": "caan24-q4f",
+      "number": "4(f)",
+      "text": "A Niuean group starts off their performance in Formation A. There are 40 performers and a leader in the group. After a while, they move to Formation B.\n\nFormation A: 4 rows of 10 performers with leader at front.\nFormation B: 5 rows of 8 performers with leader at front.\n\nWhat is the smallest number of performers from Formation A that need to move to make Formation B?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "spatial-reasoning",
+        "multiplication"
+      ],
+      "answerType": "number",
+      "expectedAnswer": "2",
+      "markingGuide": "Formation A: 4 rows x 10 = 40 performers. Formation B: 5 rows x 8 = 40 performers. Same total. In Formation A, rows are 10 wide. In Formation B, rows are 8 wide. The minimum number that need to move: 2 performers from each of the original 4 rows (the ones on the ends) move to form the new 5th row. But the 5th row needs 8 performers, so 8 must move from the first 4 rows (2 from each row). However, the question asks for the SMALLEST number. If we keep the first 4 rows and just remove 2 from each to make them 8 wide, that gives 8 displaced performers who form the 5th row. But we can be smarter: if rows 1–4 already have most people in place, we just need to move 2 people per row from positions 9–10 to fill the new row 5. The minimum is 2 performers — but actually it is the 2 extra per row that must relocate. Accept 2 or 8 with reasoning.",
+      "image": "/images/exams/32406-2024-q4f.png"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "l1-aghort-soils-2024",
+  "title": "Level 1 AgHort Soils — 2024",
+  "level": 1,
+  "standard": "91930",
+  "year": 2024,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "91930-24-q1ai",
+      "number": "1(a)(i)",
+      "text": "Choose a primary production system.\n\nName and describe a soil type that would require management to remove excess water during periods of high rainfall.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify and describe a soil type (e.g.",
+      "markingGuide": "Achieved: Identifies and describes the types of soil that would require management to remove excess water. Soil types with small pore spaces would require management to remove excess water, e.g. dense clay soils, soils with poor structure / damaged structure. Soils dominated by clay or silt-sized particles are unable to drain excess water as easily as soils with larger pore spaces. This is due to how closely packed the soil particles are, meaning that water percolates at a much slower rate."
+    },
+    {
+      "id": "91930-24-q1aii",
+      "number": "1(a)(ii)",
+      "text": "What impact can excess water have on soil properties and plant growth?",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain that excess water reduces oxygen in soil pore spaces, limiting root respiration and...",
+      "markingGuide": "Merit: Explains an impact that excess water has on properties of soil and plant growth. In saturated soils, oxygen levels are decreased due to water in the pore spaces displacing oxygen that then escapes from the soil. Poorly aerated soil results in limiting the amount of oxygen available to plant roots, which is required for root respiration and energy for plant growth. Saturated soil is slower to heat up, which slows down the reaction rates of the plant-growing processes, reducing growth. Soil bacteria and other soil organisms also need oxygen to respirate. Their activity slows down in wet soils, impacting the rate at which organic matter is broken down and nutrients are released back into the soil for plant uptake."
+    },
+    {
+      "id": "91930-24-q1b",
+      "number": "1(b)",
+      "text": "Evaluate a soil management practice that is used to remove excess water from a soil in your chosen primary production system.\n\nIn your answer, you should consider how the management practice:\n- modifies conditions for plant growth and productivity\n- improves soil conditions\n- cares for the soil.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate a drainage method (e.g.",
+      "markingGuide": "Achieved: Describes how removing water can modify the growing environment for plant growth and demonstrates care for the soil / plant growth. Merit: Explains how removing water can impact the growing environment for plant growth and demonstrates care for the soil. Excellence: Evaluates the use of the management practice by discussing how removing water can enhance plant growth and productivity.\n\nDrainage is a management practice used to artificially remove excess water from soil. Methods include: permanent tile/ceramic drains or perforated pipes (e.g. Novaflow) laid into subsoil at 300-1000mm depth; temporary mole drains (cylindrical torpedo/bullet-shaped blade dragged through subsurface creating channels); mounds and raised garden beds with elevated planting areas. A farmer or grower could remove water through mole drains, open drains, punched drains, mounting, etc.\n\nDrainage removes excess water to prevent plants becoming stressed and unable to grow. Excess water can create anaerobic conditions preventing respiration in roots, acidification of soil, and promote fungal diseases. Wet soils warm up slowly. Soil ideally contains 25-30% water to ensure pore space is at field capacity with sufficient air for respiration. Drainage prevents saturation during high rainfall. Oxygen is needed in soil by living organisms, which is not available when soils are saturated. Knowing when a soil requires water is showing care for the soil (manaakitanga), as this means the soil will return higher production in terms of the yield."
+    },
+    {
+      "id": "91930-24-q2a",
+      "number": "2(a)",
+      "text": "Choose the same or a different primary production system to answer this question.\n\nHow are nutrient levels tested in soil in your chosen primary production system?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describe how soil testing is done: collecting soil samples to be sent to a laboratory, where...",
+      "markingGuide": "Achieved: Describes how nutrient levels are tested. Soil testing is done through collecting soil samples to be taken away to be tested in a laboratory. These results will outline the levels of macro- and micro-nutrients that a soil has. Along with nutrient levels, soil testing will also tell a farmer or grower the soil pH, organic matter content, and soil texture. Soil testing demonstrates manaakitanga to soil and ensures that the correct type and amount of nutrients will be added to the soil."
+    },
+    {
+      "id": "91930-24-q2b",
+      "number": "2(b)",
+      "text": "Evaluate a soil management practice for your chosen primary production system that can increase the level of nutrients in the soil. This practice must be different from the one discussed in Question One.\n\nIn your answer, you should consider how the management practice:\n- alters the properties of soil\n- cares for the soil\n- helps optimise plant growth.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate a nutrient management practice (e.g.",
+      "markingGuide": "Achieved: Describes a management practice that can increase nutrient levels. Merit: Explains a management practice that can increase nutrient levels and its impact on soil properties for successful plant growth. Excellence: Evaluates a management practice that can increase nutrient levels and how it optimises plant growth and care for the soil.\n\nPossible management practices include fertiliser application, mulching, and adding compost or organic matter. Fertiliser application is artificially adding nutrients back to soil once soil nutrients have been used by plants for growth or lost through the soil by leaching. Synthetic fertilisers contain a known quantity of the nutrient that is being added back to the soil. Soil testing would inform a farmer or grower's decision on what nutrient types and amounts need to be added to the soil. Fertiliser application would increase the nutrient status of the soil to allow plants to take up the required nutrient. Nutrients require soils to be at the desired pH level (usually 6.5) and moisture to be present to be taken up by plants. The timing of the management practice is important to ensure that plants can take up nutrients and that the nutrients are not wasted. Ensuring that the correct amount of nutrients being applied to the soil will ensure that some nutrients, such as nitrogen, are not leached, which can be detrimental to the environment, e.g. water quality. Replacing / replenishing the correct type and amount of nutrients shows care (manaakitanga) to the soil and environment."
+    },
+    {
+      "id": "91930-24-q3a",
+      "number": "3(a)",
+      "text": "Choose the same or a different primary production system to answer this question.\n\nWhat benefits do living organisms have on soil properties and plant growth in your chosen primary production system?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describe benefits of soil organisms: break down organic matter to release nutrients, improve...",
+      "markingGuide": "Achieved: Describes the benefits that living organisms have on soil. Merit: Explains the benefits that living organisms have on soil.\n\nLiving organisms, such as earthworms and bacteria, are beneficial to soil as they breakdown organic matter in soil to improve soil structure. Living organisms improve soil structure through tunnelling and mixing organic matter / humus into the soil, resulting in a more aerated soil for plants to carry out root respiration, which provides energy for growth. Living organisms also increase the nutrient status of soil through releasing nutrients back into the soil for plants to take up. When humus is broken down, it releases nutrients into the soil, which can be dissolved by soil water and taken up into plants through their roots and used for growth."
+    },
+    {
+      "id": "91930-24-q3b",
+      "number": "3(b)",
+      "text": "Evaluate how a soil management practice for your chosen primary production system can modify soil conditions to promote living organisms. This practice must be different from ones discussed in questions One and Two.\n\nIn your answer, you should consider how the management practice:\n- improves the overall health of the soil\n- helps optimise plant production.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate a management practice (e.g.",
+      "markingGuide": "Achieved: Describes a soil management practice that modifies soil properties. Merit: Explains how soil properties are modified by a management practice. Excellence: Evaluates a management practice that can attract living organisms into a soil and how it optimises plant growth and overall health to care for the soil.\n\nAdding compost or organic matter are examples of management practices that modify soil conditions to attract living organisms. The environmental condition of a soil is key to attracting living things. This includes soil pH, moisture levels, oxygen levels, temperature, and organic matter. Adding compost or organic matter to soil provides a food / energy source for living organisms, such as earthworms, bacteria, and fungi, which attracts them to this environment. Organic matter is dark in colour and absorbs heat energy to warm the soil, which speeds up the rate at which microbial activity occurs, resulting in more nutrients being released into the soil and available to plants. Well-aerated soils will encourage the growth of bacteria, fungi, and other soil organisms. This increases the rate of humus formation.\n\nSoil condition must be looked after through careful management to ensure that living things are attracted into the soil. This will ensure the overall health of the soil and its long-term sustainability and productivity. This demonstrates manaakitanga."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

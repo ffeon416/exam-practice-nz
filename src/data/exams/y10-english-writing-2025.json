@@ -1,0 +1,84 @@
+{
+  "id": "y10-english-writing-2025",
+  "title": "Year 10 English — Writing Skills Practice",
+  "level": 0,
+  "standard": "Y10-ENG-WRITE",
+  "year": 2025,
+  "subject": "english",
+  "timeMinutes": 45,
+  "totalMarks": 12,
+  "questions": [
+    {
+      "id": "y10w1-q1",
+      "number": "1",
+      "text": "Which sentence uses a semicolon correctly?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "multi-choice",
+      "options": ["I love swimming; and running.", "The rain stopped; we went outside.", "She was tired; because she ran.", "He ate breakfast; eggs and toast."],
+      "expectedAnswer": "The rain stopped; we went outside.",
+      "markingGuide": "The correct answer is 'The rain stopped; we went outside.' A semicolon joins two independent clauses that are closely related. The other options either have a conjunction after the semicolon, a dependent clause, or use a semicolon where a colon is needed."
+    },
+    {
+      "id": "y10w1-q2",
+      "number": "2",
+      "text": "Which of these is the BEST example of 'show don't tell' writing?\n\nThe character is angry.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "multi-choice",
+      "options": ["She was very angry about what happened.", "She felt angry and upset inside.", "Her jaw clenched and she slammed the door hard enough to rattle the windows.", "She told everyone she was angry."],
+      "expectedAnswer": "Her jaw clenched and she slammed the door hard enough to rattle the windows.",
+      "markingGuide": "The correct answer is 'Her jaw clenched and she slammed the door hard enough to rattle the windows.' This shows the anger through physical actions and their effects rather than simply stating the emotion."
+    },
+    {
+      "id": "y10w1-q3",
+      "number": "3",
+      "text": "Rewrite this sentence to make it more descriptive and engaging. Use at least TWO language features:\n\n'The dog ran across the field.'",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each language feature used effectively (up to 2). Examples of good rewrites: 'The golden retriever bounded across the sun-drenched field like a streak of liquid sunshine' (simile + imagery). 'Ears flapping wildly, the scruffy terrier zigzagged through the tall grass, nose twitching at invisible trails' (onomatopoeia + imagery + personification). Must genuinely improve the original with identifiable features."
+    },
+    {
+      "id": "y10w1-q4",
+      "number": "4",
+      "text": "Read these two sentences:\n\n(A) 'The sunset was beautiful.'\n(B) 'Ribbons of coral and gold bled across the horizon as the sun melted into the sea.'\n\nSentence B is more effective because it:",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "multi-choice",
+      "options": ["Uses more adjectives", "Uses imagery and metaphor to create a vivid picture", "Is longer and more detailed", "Uses more difficult vocabulary"],
+      "expectedAnswer": "Uses imagery and metaphor to create a vivid picture",
+      "markingGuide": "The correct answer is 'Uses imagery and metaphor to create a vivid picture'. While B is longer, the key reason it is more effective is the use of metaphor ('ribbons of coral', 'bled across', 'melted into') and visual imagery that helps the reader picture the scene."
+    },
+    {
+      "id": "y10w1-q5",
+      "number": "5",
+      "text": "Write an opening paragraph (4-6 sentences) for a narrative set at a school sports day. Your writing should:\n• establish a clear mood or atmosphere\n• use at least TWO language features (e.g. simile, metaphor, personification)\n• include sensory details (what can be seen, heard, felt, smelled).",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10", "prose-y10"],
+      "answerType": "working",
+      "markingGuide": "1 mark: Clear mood established (excitement, nervousness, chaos, competition). 1 mark: Two identifiable language features used effectively. 1 mark: Sensory details that bring the scene to life (sounds of crowd, smell of cut grass, feel of sun, sight of track/competitors). Excellence responses will weave all three together naturally rather than listing them."
+    },
+    {
+      "id": "y10w1-q6",
+      "number": "6",
+      "text": "Write a short persuasive paragraph (5-8 sentences) arguing that schools should have a later start time (e.g. 10am instead of 9am). Use at least THREE persuasive techniques from this list:\n• Statistics or facts\n• Rhetorical question\n• Emotive language\n• Expert opinion\n• Repetition\n• Direct address ('you')",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10", "non-fiction-y10"],
+      "answerType": "working",
+      "markingGuide": "1 mark: Clear persuasive position stated. 1 mark: At least 2 persuasive techniques used and identifiable. 1 mark: Third technique used effectively. 1 mark: Overall quality — logical argument structure, techniques feel natural not forced, convincing to the reader. Good responses might reference teen sleep science, use rhetorical questions to challenge the status quo, address the reader directly to create connection."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 3 },
+    "achieved": { "min": 4, "max": 7 },
+    "merit": { "min": 8, "max": 10 },
+    "excellence": { "min": 11, "max": 12 }
+  }
+}

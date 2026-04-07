@@ -1,0 +1,147 @@
+{
+  "id": "l2-accounting-financial-2025",
+  "title": "Level 2 Accounting Financial Statements — 2025",
+  "level": 2,
+  "standard": "91174",
+  "year": 2025,
+  "subject": "accounting",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l2af25-q1a",
+      "number": "1(a)",
+      "text": "Kool Kicks is a retail store owned by Carl that specialises in sports shoes. Every year, each of Kool Kicks' employees are given two pairs of shoes to wear at work. This has a total cost of $2,000. The shoes are classified as staff expenses.\n\nJustify why the shoes given to employees are reported as an expense in the Income Statement for Kool Kicks. In your answer, explain:\n- the three characteristics of the expense definition\n- the recognition criteria of faithful representation for an expense.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "expense definition",
+        "recognition criteria",
+        "faithful representation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Expense characteristics: (1) decrease in economic benefits (cash outflow), (2) during reporting...",
+      "markingGuide": "A: Identifies expense characteristics. M: Explains all three characteristics with context. E: Links to faithful representation recognition criteria."
+    },
+    {
+      "id": "l2af25-q1b",
+      "number": "1(b)",
+      "text": "Statement of Accounting Policies (extract): Inventory is reported at the lower of cost or net realisable value.\n\nA burst water pipe in the storeroom damaged some sports shoes. In accordance with the above policy, some sports shoes need to be revalued from $20,000 to $6,000. The total historical cost of the inventory is $54,000.\n\nJustify how Kool Kicks should report its inventory in the Statement of Financial Position so it meets the policy above. In your answer, explain:\n- the qualitative characteristic of relevance\n- one limitation of the inventory revaluation.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "inventory valuation",
+        "lower of cost or NRV",
+        "relevance"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2025/accounting-policy-inventory.png"
+      ],
+      "expectedAnswer": "Inventory reported at $40,000 ($54,000 - $20,000 + $6,000).",
+      "markingGuide": "A: Calculates correct inventory value. M: Explains relevance and applies lower of cost/NRV. E: Discusses limitation of estimation.",
+      "image": "/images/exams/91174-2025-q1b-policy.png"
+    },
+    {
+      "id": "l2af25-q2a",
+      "number": "2(a)",
+      "text": "In January, Kool Kicks updated its treadmills, and Carl signed a new 10-year lease on the shop. The new treadmills were purchased for $11,000 cash.\n\nExplain how the updated treadmills and new lease illustrate the concept of going concern for Kool Kicks.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "going concern",
+        "business continuity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Going concern assumes entity will continue operating into foreseeable future.",
+      "markingGuide": "A: Defines going concern. M: Links treadmills and lease to continued operation. E: Explains implications for financial reporting and long-term commitment."
+    },
+    {
+      "id": "l2af25-q2b",
+      "number": "2(b)",
+      "text": "Justify, using the characteristics/definition of an asset, how the treadmills will be reported in the Statement of Financial Position for Kool Kicks.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "asset definition",
+        "asset classification",
+        "Statement of Financial Position"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Treadmills reported as non-current asset (PPE) at $11,000.",
+      "markingGuide": "A: Identifies as non-current asset. M: Explains asset characteristics with context. E: Links all three characteristics and justifies amount."
+    },
+    {
+      "id": "l2af25-q2c",
+      "number": "2(c)",
+      "text": "The treadmills are depreciated based on units of use, applying a rate of depreciation of $12 per hour. Kool Kicks depreciates its shop fittings at 8% p.a. straight line.\n\nJustify how Kool Kicks depreciates its assets. In your answer, explain:\n- the definition of depreciation\n- why the units of use method is the most appropriate method for the treadmills rather than the straight line method, which is used for the shop fittings.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "depreciation",
+        "units of use",
+        "straight line"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Depreciation: systematic allocation of depreciable amount over useful life.",
+      "markingGuide": "A: Defines depreciation. M: Explains units of use method. E: Justifies why each method is appropriate for each asset, comparing the two."
+    },
+    {
+      "id": "l2af25-q3a",
+      "number": "3(a)",
+      "text": "Kool Kicks: LIMITED EDITION SPORTS SHOES — Taking pre-orders now: 20% deposit.\n\nBy 31 March 2025, Kool Kicks had received deposits totalling $2,400 for pre-ordered limited edition shoes. These shoes will be delivered and the balance paid in May 2025.\n\nIn accordance with the accrual basis concept, justify the treatment and reporting of the deposits received for shoes that will be delivered in May 2025. In your answer, explain the:\n- impact on the reporting of sales revenue in the Income Statement for the year ended 31 March 2025\n- treatment and classification of the deposits received for the limited edition shoes in the Statement of Financial Position as at 31 March 2025.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "accrual basis",
+        "revenue recognition",
+        "income in advance",
+        "liabilities"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2025/limited-edition-ad.png"
+      ],
+      "expectedAnswer": "Accrual basis: transactions recorded when earned, not when cash received.",
+      "markingGuide": "A: Identifies deposits not as revenue. M: Explains accrual basis and correct SFP treatment. E: Fully justifies classification as current liability with obligation to deliver.",
+      "image": "/images/exams/91174-2025-q3a-ad.png"
+    },
+    {
+      "id": "l2af25-q3b",
+      "number": "3(b)",
+      "text": "Carl has received a monthly revenue summary for the quarter ended 31 August 2025.\n\nKool Kicks: Monthly Revenue Summary\n| | June $ | July $ | August $ |\n|---|---|---|---|\n| General sales | 60,000 | 62,000 | 68,000 |\n| Limited edition sales | 13,500 | 10,000 | 7,000 |\n| Total shoe sales | 73,500 | 72,000 | 75,000 |\n\nDiscuss how reporting Kool Kicks' shoe sales revenue as general sales and limited edition sales in the monthly summary above helps Carl's decision making. In your answer, explain:\n- the qualitative characteristics of materiality\n- how separating the two types of sales revenue helps Carl's understanding and decision making about selling limited edition shoes.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materiality",
+        "decision-making",
+        "revenue analysis"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-financial-2025/monthly-revenue-summary.png"
+      ],
+      "expectedAnswer": "Materiality: information is material if omitting/misstating it could influence decisions.",
+      "markingGuide": "A: Defines materiality. M: Identifies declining limited edition trend. E: Discusses how separation aids decision-making about future stock purchases and business strategy.",
+      "image": "/images/exams/91174-2025-q3b-revenue.png"
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

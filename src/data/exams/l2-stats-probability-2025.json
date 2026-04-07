@@ -1,0 +1,88 @@
+{
+  "id": "l2-stats-probability-2025",
+  "title": "Level 2 Statistics — Probability Methods 2025",
+  "level": 2,
+  "standard": "91267",
+  "year": 2025,
+  "subject": "statistics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "st267-25-q1a",
+      "number": "1a",
+      "text": "At a school of 800 students, the following information is known:\n• 320 students study Music\n• 480 students play a team sport\n• 160 students both study Music and play a team sport\n\n(i) Complete a two-way table to display this information.\n(ii) Find the probability that a randomly selected student studies Music or plays a team sport (or both).",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["two-way-tables", "probability-calculations"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Two-way table: Music & Sport = 160, Music only = 160, Sport only = 320, Neither = 160. P(Music or Sport) = (320 + 480 - 160)/800 = 640/800 = 0.80. Using addition rule: P(M ∪ S) = P(M) + P(S) - P(M ∩ S) = 0.40 + 0.60 - 0.20 = 0.80."
+    },
+    {
+      "id": "st267-25-q1b",
+      "number": "1b",
+      "text": "Using the information from Question 1a:\n(i) Find the probability that a student plays a team sport, given that they study Music.\n(ii) Determine whether studying Music and playing a team sport are independent events. Justify your answer.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["conditional-probability", "independence"],
+      "answerType": "working",
+      "markingGuide": "Merit: (i) P(Sport | Music) = 160/320 = 0.50. (ii) For independence: P(Sport) = 0.60, P(Sport | Music) = 0.50. Since P(Sport | Music) ≠ P(Sport), the events are NOT independent. Students who study Music are less likely to play a team sport than students in general. Alternatively: P(M) × P(S) = 0.40 × 0.60 = 0.24, but P(M ∩ S) = 0.20 ≠ 0.24."
+    },
+    {
+      "id": "st267-25-q2a",
+      "number": "2a",
+      "text": "Hana is planning her after-school activities for the week. On any given day:\n• The probability it rains is 0.3.\n• If it rains, the probability she goes to the library is 0.7, and otherwise she goes home.\n• If it does not rain, the probability she goes to the park is 0.5, to a friend's house is 0.3, and otherwise she goes home.\n\nDraw a fully labelled probability tree diagram showing all possible outcomes for one day.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["probability-trees", "probability-calculations"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Tree with first branch: Rain (0.3) / No Rain (0.7). Rain branch: Library (0.7), Home (0.3). No Rain branch: Park (0.5), Friend (0.3), Home (0.2). All branches correctly labelled with probabilities."
+    },
+    {
+      "id": "st267-25-q2b",
+      "number": "2b",
+      "text": "Using the tree diagram from Question 2a, calculate:\n(i) The probability that Hana goes home on any given day.\n(ii) The probability that it was raining, given that Hana went home.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["probability-trees", "conditional-probability"],
+      "answerType": "working",
+      "markingGuide": "Achievement: P(Home) = P(Rain and Home) + P(No Rain and Home) = 0.3 × 0.3 + 0.7 × 0.2 = 0.09 + 0.14 = 0.23. Merit: P(Rain | Home) = P(Rain and Home)/P(Home) = 0.09/0.23 = 9/23 ≈ 0.391. Clear working showing conditional probability formula applied correctly."
+    },
+    {
+      "id": "st267-25-q3a",
+      "number": "3a",
+      "text": "A study compared two methods of revision for an upcoming test. The results are shown below:\n\n| | Passed the test | Failed the test | Total |\n|---|---|---|---|\n| Used flashcards | 84 | 36 | 120 |\n| Used practice tests | 108 | 12 | 120 |\n\nCalculate the risk of failing the test for each revision method.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["relative-risk", "two-way-tables"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Risk of failing (flashcards) = 36/120 = 0.30 (30%). Risk of failing (practice tests) = 12/120 = 0.10 (10%)."
+    },
+    {
+      "id": "st267-25-q3b",
+      "number": "3b",
+      "text": "Calculate the relative risk of failing the test for students who used flashcards compared to those who used practice tests. Interpret the relative risk in context.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["relative-risk", "risk-interpretation"],
+      "answerType": "working",
+      "markingGuide": "Merit: Relative risk = 0.30/0.10 = 3.0. Students who used flashcards were 3 times as likely to fail the test compared to students who used practice tests. This suggests that practice tests are a more effective revision method than flashcards for passing this test."
+    },
+    {
+      "id": "st267-25-q3c",
+      "number": "3c",
+      "text": "A student claims: 'This study proves that practice tests cause students to pass.' Discuss the validity of this claim. In your answer, consider the study design and any factors that might affect the conclusion.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["risk-interpretation", "independence"],
+      "answerType": "text",
+      "markingGuide": "Excellence: The claim is not valid because: (1) This is an observational study, not a randomised experiment — students chose their own revision method, so we cannot establish causation. (2) Confounding variables could explain the results, e.g. students who chose practice tests may already be more motivated or higher-achieving. (3) We do not know if the groups were comparable in ability, study time, or other factors. (4) The study only shows an association, not causation. To establish causation, a randomised controlled trial would be needed where students are randomly assigned to each method. Must discuss at least two of these points with clear reasoning linked to the context."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

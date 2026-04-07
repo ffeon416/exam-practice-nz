@@ -1,0 +1,87 @@
+{
+  "id": "l3-biology-evolution-2024",
+  "title": "Level 3 Biology: Evolution (91605) — 2024",
+  "level": 3,
+  "standard": "91605",
+  "year": 2024,
+  "subject": "biology",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3be24-q1",
+      "number": "Question 1",
+      "text": "QUESTION ONE: Kōura\n\nKōura (freshwater crayfish) have inhabited New Zealand for millions of years. Their exoskeletons are dark and blend into the environment (e.g. between logs and in mud), giving them good camouflage to protect them from predators. They often live in small populations, where mating among relatives leads to inbreeding. At night, they search for food, finding fish, plants, and snails.\n\nKōura are a species valued by Māori as kai. In the past, they were also traded for other food items. Māori used to move some kōura between areas, and this was found to help with the success of each of the populations.\n\nWhen looking at mitochondrial DNA (mtDNA), scientists found three major groups, indicated on a map. The West Coast group (green) is more closely related to the southern group (yellow) than the northern group (purple). The groups were thought to diverge around the time of mountain building that formed the Southern Alps and before the formation of the Cook Strait.\n\nAlthough there are two named species (Paranephrops planifrons and P. zealandicus), there are three distinct groups shown by genetic evidence. This suggests that the morphology used to classify the two species could be misleading.\n\nIn 2016, scientists at the University of Canterbury measured the genetic diversity of kōura populations. Results showed low genetic diversity within kōura populations but high genetic diversity between populations. This means populations were highly inbred but had strong genetic differences between the populations.\n\nDiscuss factors affecting the evolution of kōura. In your answer, include discussion of:\n• the terms founder population and gene flow\n• how the formation of the Southern Alps may have helped lead to divergent evolution by allopatric speciation\n• why moving kōura between areas prevents speciation.",
+      "marks": 8,
+      "gradeLevel": "multi",
+      "topics": [
+        "allopatric-speciation",
+        "gene-flow",
+        "founder-populations",
+        "divergent-evolution"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/l3-biology-evolution-2024/q1-koura-map.png"
+      ],
+      "expectedAnswer": "Describe founder population, gene flow, allopatric speciation, divergent evolution, habitat...",
+      "markingGuide": "Achievement: Describe founder population (a small subset of a population breaks away from the main population and colonises a new area) or implied; gene flow (the movement of alleles between populations); allopatric speciation (when populations of the same species become geographically isolated); divergent evolution (species sharing a common ancestry become more distinct due to differential selection pressures); habitat change due to formation of the Southern Alps; why the Southern Alps would be a barrier (crayfish have low dispersal capacity and can’t move far); that local populations are vulnerable if their environment rapidly changes e.g. agriculture/water pollution; movement by Māori would have maintained gene flow and prevented speciation between populations. Merit: Explain that the founder population will not have the full range of alleles as the main population which may lead to differences between them increasing over time; that processes like tectonic events (e.g. mountain building) would have geographically separated population hence two species/three groups (this occurred before the arrival of humans); that high genetic diversity between populations suggests that once separated populations tend to remain separated i.e. a strong pressure towards speciation; how allopatric speciation works i.e. that barriers and different environmental pressures are different selective agents for different phenotypes; traditional Māori practices may have maintained gene flow between populations keeping integrity of gene pool reducing inbreeding and lessening the likelihood of speciation. Excellence: Discuss the divergent evolution and allopatric speciation of the kōura and the accumulation of random-mutations coding for different phenotypes, using examples from the stimulus material and demonstrating understanding of the concepts of gene flow and the founder group and the influence this has on species; the predicament/future of the kōura now that Māori no longer translocate – the mtDNA data better demonstrates how many species there are rather than being based simply on morphological differences. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=BOTH at E."
+    },
+    {
+      "id": "l3be24-q2",
+      "number": "Question 2",
+      "text": "QUESTION TWO: Patterns of evolution in wallabies\n\nIn their native Australia, tammar (Notamacropus eugenii) and parma (N. parma) wallabies are allopatric and have very different habitat use, social structure, and mating times.\n\nIn New Zealand, they occur sympatrically on Kawau Island because of introductions in the late 19th century. Both species show differences, as seen in Australia. N. parma is more solitary and is frequently found in bush areas, while N. eugenii tend to be found in open grass areas. Genetic data shows no evidence of hybridisation despite living together in a new environment.\n\nRefer to Figure 1 (Phylogeny showing adaptive radiation of wallabies in Australia).\n\nDiscuss factors of the evolution of wallabies in Australia and New Zealand.\n\nIn your answer, include discussion of:\n• the terms sympatric and species, including definitions\n• the rate of evolution shown in Figure 1, identifying if it is either gradualism or punctuated equilibrium\n• why adaptive radiation is seen in wallabies in Australia, but not in New Zealand\n• TWO reproductive isolating mechanisms (RIMs) that may keep the wallabies from hybridising despite being sympatric on Kawau Island.",
+      "marks": 8,
+      "gradeLevel": "multi",
+      "topics": [
+        "sympatric-speciation",
+        "adaptive-radiation",
+        "reproductive-isolation",
+        "punctuated-equilibrium"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/l3-biology-evolution-2024/q2-wallaby-phylogeny.png"
+      ],
+      "expectedAnswer": "Define species and sympatric; describe gradualism, punctuated equilibrium, adaptive radiation,...",
+      "markingGuide": "Achievement: Describe species (individuals that can breed and produce fertile offspring); sympatric (living in the one geographical area but in a different ecological niche or similar); gradualism (slow evolutionary change due to similar selection pressures); punctuated equilibrium (rapid evolutionary change in short bursts followed by periods of no change); states punctuated equilibrium as most likely; adaptive radiation (multiple species evolving from a single ancestor species in a relatively short period of time); TWO named RIMS. Merit: Explain how the graph shows punctuated equilibrium as long periods of stasis followed by rapid speciation events as niches become available, and uses data from the graph (2–4 mya); that adaptive radiation/speciation takes time to occur and refers to the length of time wallabies have existed in Australia and/or New Zealand; that Australia has a wide range of niches for the wallaby to expand into compared to the limited range of niches on Kawau Island/in Aotearoa New Zealand; how a RIM acts to prevent successful hybridisation between the two wallaby species on Kawau Island; how a second RIM acts to prevent successful hybridisation. Excellence: Provides detailed discussion of species terminology and adaptive radiation of wallabies in Australia as compared to Aotearoa New Zealand and the RIMs that may be preventing hybridisation; demonstrating comprehensive understanding of rates of evolution by comparing punctuated equilibrium with gradualism using data from the graph (2–4 mya) and linking to the wallabies; the potential influence of hybrids that may result as the populations accumulate mutations. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=BOTH at E."
+    },
+    {
+      "id": "l3be24-q3",
+      "number": "Question 3",
+      "text": "QUESTION THREE: A case of convergent evolution\n\nFlight has evolved numerous times in different animal groups, and those different groups have evolved different mechanisms for flight. For example, the honeybee wing is not made of bone, but it does serve the same function as the bird wing. The pattern of muscle attachments is different in the honeybee and the bird, and the way in which the wing is used to achieve lift is also different. However, due to the demanding nature of flight, there are distinct similarities between bee and bird wings.\n\nDiscuss how convergent evolution is linked to selection pressures.\n\nIn your answer, include discussion of:\n• selection pressures, including descriptions with examples\n• how genetic data is used to show convergent evolution\n• how the process of natural selection has resulted in analogous structures.",
+      "marks": 8,
+      "gradeLevel": "multi",
+      "topics": [
+        "convergent-evolution",
+        "natural-selection",
+        "analogous-structures",
+        "selection-pressures"
+      ],
+      "answerType": "text",
+      "images": [
+        "/images/exams/l3-biology-evolution-2024/q3-wings-convergent.png"
+      ],
+      "expectedAnswer": "Describe selection pressures, convergent evolution, natural selection, analogous features, and...",
+      "markingGuide": "Achievement: Describe selection pressure (environmental factors that influence the likely success of an individual); a selection pressure for this context e.g. food source or similar linked to flight; convergent evolution (two unrelated species develop similar traits because they live in similar environments); natural selection (individuals with most favourable phenotypes/adaptations/traits to the environment will survive and reproduce and will pass these favourable alleles on to their offspring); distantly related species will have more differences in their DNA/genetic makeup. ONE of: analogous features (features of different species that are similar in function but not in structure); bird and bee wings as analogous structures. Merit: Explain how selection pressures give an example of influence-convergent evolution; the natural selection process linking to context; that DNA/genetic differences can be used to show convergent evolution with similar structures being formed by the action of different genes; that analogous structures are features of different species that are similar in function but not necessarily in structure and which do not derive from a common ancestral feature e.g. bird wing and insect wing. Excellence: Discuss evolution due to natural selection as leading to convergent evolution in the case given; how genetics is used to show structures are analogous – links this to mutation and selection pressures of the phenotype coded for in the context given. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=BOTH at E."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "id": "l2-accounting-decisions-2025",
+  "title": "Level 2 Accounting Prepare Financial Information — 2025",
+  "level": 2,
+  "standard": "91176",
+  "year": 2025,
+  "subject": "accounting",
+  "timeMinutes": 90,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l2ad25-q1a-i",
+      "number": "1(a)(i)",
+      "text": "Question ONE relates to Mere's Design & Marketing. Refer to Resource A.\n\nComplete the following general journal entries. Narrations have been provided.\n\nRecord office salary owing: $570.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "accrued expenses",
+        "salary owing"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Office salary 570 / Cr Accrued expenses 570.",
+      "markingGuide": "S: Correct stems. V: Correct amounts."
+    },
+    {
+      "id": "l2ad25-q1a-ii",
+      "number": "1(a)(ii)",
+      "text": "Record bad debts to be written off: $529 including GST.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "bad debts",
+        "GST"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Bad debts 460 / Dr GST (payable) 69 / Cr Accounts receivable 529.",
+      "markingGuide": "S: Correct stems. V: Correct amounts. C: Correct Dr/Cr."
+    },
+    {
+      "id": "l2ad25-q1b",
+      "number": "1(b)",
+      "text": "Complete the insurance (design and marketing) general ledger account showing all the entries at 31 March 2025, including a closing entry if relevant.\n\nOpening: 31/03/25 Balance 5,730 Dr.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general ledger",
+        "insurance",
+        "prepayments"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr: Balance 5,730.",
+      "markingGuide": "S: Correct stems. V: Correct amounts. T: Correct two-step calc. C: Correct Dr/Cr."
+    },
+    {
+      "id": "l2ad25-q1c",
+      "number": "1(c)",
+      "text": "Complete the fully classified Income Statement for Mere's Design & Marketing for the year ended 31 March 2025. You have been provided with the total for administrative expenses ($26,084) and do not need to complete this section.",
+      "marks": 10,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Income Statement",
+        "revenue",
+        "expenses",
+        "classification"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-decisions-2025/income-statement-template.png"
+      ],
+      "expectedAnswer": "Revenue: Design fees received $256,620.",
+      "markingGuide": "V: Correct figures. S: Correct account names. C: Correct classification. T: Two-step calcs. P: Fit for purpose layout."
+    },
+    {
+      "id": "l2ad25-q2a-i",
+      "number": "2(a)(i)",
+      "text": "Question TWO relates to Mere's Design & Marketing. Refer to Resource A.\n\nRecord the invoices issued on 31 March 2025 not yet recorded for design fees received: $2,484 including GST.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "accrued revenue",
+        "GST"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Accounts receivable 2,484 / Cr Design fees received 2,160 / Cr GST (payable) 324.",
+      "markingGuide": "S: Correct stems. V: Correct amounts. C: Correct Dr/Cr."
+    },
+    {
+      "id": "l2ad25-q2a-ii",
+      "number": "2(a)(ii)",
+      "text": "Record the closing entry for the depreciation on computers.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "depreciation",
+        "closing entry"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Income summary 10,200 / Cr Depreciation on computers 10,200.",
+      "markingGuide": "S: Correct stems. V/T: Correct amount."
+    },
+    {
+      "id": "l2ad25-q2b",
+      "number": "2(b)",
+      "text": "Complete the accrued expenses general ledger account showing all the entries at 31 March 2025, including a closing entry if relevant.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general ledger",
+        "accrued expenses"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Cr: Designers' wages 980, Office salary 570, Interest on loan 160. Balance 1,710 Cr.",
+      "markingGuide": "S: Correct stems/entries. V: Correct amounts."
+    },
+    {
+      "id": "l2ad25-q2c",
+      "number": "2(c)",
+      "text": "Complete the following notes of the Statement of Financial Position for Mere's Design & Marketing as at 31 March 2025.\n\n1. Accounts receivable\n2. Property, plant, and equipment (extract) — Design equipment opening $15,160, Computers closing $23,800.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "notes to financial statements",
+        "accounts receivable",
+        "PPE note"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-decisions-2025/ppe-note-template.png"
+      ],
+      "expectedAnswer": "Note 1: AR $5,805 less allowance for doubtful debts ($232) = $5,573.",
+      "markingGuide": "T: Correct calculations. S: Correct stems. V: Correct amounts. P: Fit for purpose."
+    },
+    {
+      "id": "l2ad25-q2d",
+      "number": "2(d)",
+      "text": "Complete the Assets section of the Statement of Financial Position for Mere's Design & Marketing as at 31 March 2025.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Statement of Financial Position",
+        "assets",
+        "current vs non-current"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Current assets: Accounts receivable (Note 1) $5,573, Bank $5,200, Prepayments $2,100 = $12,873.",
+      "markingGuide": "S: Correct stems. V: Correct figures. C: Correct classification. P: Fit for purpose with notes referenced."
+    },
+    {
+      "id": "l2ad25-q3a-i",
+      "number": "3(a)(i)",
+      "text": "Question THREE relates to Mere's Design & Marketing. Refer to Resource A.\n\nRecord the invoice received for printing expenses (marketing): $391 including GST.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "printing expenses",
+        "GST"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Printing expenses (marketing) 340 / Dr GST (payable) 51 / Cr Accounts payable 391.",
+      "markingGuide": "S: Correct stems. V: Correct amounts. C: Correct Dr/Cr."
+    },
+    {
+      "id": "l2ad25-q3a-ii",
+      "number": "3(a)(ii)",
+      "text": "Record the closing entry for drawings.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "drawings",
+        "closing entry"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Capital 72,000 / Cr Drawings 72,000.",
+      "markingGuide": "S: Correct stems. V: Correct amount."
+    },
+    {
+      "id": "l2ad25-q3b",
+      "number": "3(b)",
+      "text": "Complete the income in advance general ledger account showing all entries at 31 March 2025, including a closing entry if relevant.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general ledger",
+        "income in advance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Cr: Design fees (received) 1,540. Balance 1,540 Cr.",
+      "markingGuide": "S: Correct stems. V: Correct amount."
+    },
+    {
+      "id": "l2ad25-q3c",
+      "number": "3(c)",
+      "text": "Refer to Resource B. Calculate the cash received from accounts receivable for the month ended 30 September 2025.\nShow and label your working, which will be marked.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "cash flows",
+        "accounts receivable",
+        "working"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Opening AR $5,820 + invoices issued $16,200 - discounts allowed ($900) - bad debts ($184) -...",
+      "markingGuide": "C: Correct calculation with labelled working. T: Correct final amount. S: Correct labels."
+    },
+    {
+      "id": "l2ad25-q3d",
+      "number": "3(d)",
+      "text": "Complete the Statement of Cash Flows for Mere's Design & Marketing for the month ended 30 September 2025. Some entries have been done for you.\n\nCash receipts provided: Accounts receivable, Cash design fees received.\nCash payments provided: Electricity $400, Accounting expenses $500, General marketing expenses $3,760, General office expenses $230.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Statement of Cash Flows",
+        "cash receipts",
+        "cash payments"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-decisions-2025/cash-flows-template.png"
+      ],
+      "expectedAnswer": "Cash receipts: AR $16,736, Cash design fees $2,140, Capital (Owner/Mere investment) $10,000,...",
+      "markingGuide": "V: Correct figures. S: Correct stems. C: Correct classification. P: Fit for purpose with correct totals."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 14
+    },
+    "merit": {
+      "min": 15,
+      "max": 20
+    },
+    "excellence": {
+      "min": 21,
+      "max": 24
+    }
+  }
+}

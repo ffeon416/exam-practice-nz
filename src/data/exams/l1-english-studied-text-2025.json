@@ -1,0 +1,58 @@
+{
+  "id": "l1-english-studied-text-2025",
+  "title": "Level 1 English — Studied Text 2025",
+  "level": 1,
+  "standard": "91925",
+  "year": 2025,
+  "subject": "english",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "eng25-25-q1",
+      "number": "1",
+      "text": "Using examples and details from ONE or more text(s) you have studied, as well as your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. This may include, but is not limited to, aspects such as character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 1: Explain how an idea in the text helped you connect with your world.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["studied-text", "ideas-themes", "personal-response"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Demonstrate understanding of specific aspects of studied text — describe aspects of a text, describe how aspects of the text create engagement with, or viewpoints on, a text prompted by the question, include relevant details from the text to support points made. Merit (5-6): Demonstrate convincing understanding — explain how the aspects work together to create engagement with, or viewpoints on, a text prompted by the question, include relevant details. Excellence (7-8): Demonstrate perceptive understanding — discuss how the aspects of a text have been used to create engagement with, or viewpoints on, a text to establish meaning prompted by the question, including awareness of the creator's purpose or wider contexts outside of the text (such as human experience, society, and the wider world), include relevant details."
+    },
+    {
+      "id": "eng25-25-q2",
+      "number": "2",
+      "text": "Using examples and details from ONE or more text(s) you have studied, as well as your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. This may include, but is not limited to, aspects such as character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 2: Explain how a character created an emotional response in you.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["studied-text", "character-analysis", "personal-response"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Demonstrate understanding of specific aspects of studied text — describe aspects of a text, describe how aspects of the text create engagement with, or viewpoints on, a text prompted by the question, include relevant details from the text to support points made. Merit (5-6): Demonstrate convincing understanding — explain how the aspects work together to create engagement with, or viewpoints on, a text prompted by the question, include relevant details. Excellence (7-8): Demonstrate perceptive understanding — discuss how the aspects of a text have been used to create engagement with, or viewpoints on, a text to establish meaning prompted by the question, including awareness of the creator's purpose or wider contexts outside of the text (such as human experience, society, and the wider world), include relevant details."
+    },
+    {
+      "id": "eng25-25-q3",
+      "number": "3",
+      "text": "Using examples and details from ONE or more text(s) you have studied, as well as your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. This may include, but is not limited to, aspects such as character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 3: Explain how you were challenged by a conflict in the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["studied-text", "conflict-tension", "personal-response"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Demonstrate understanding of specific aspects of studied text — describe aspects of a text, describe how aspects of the text create engagement with, or viewpoints on, a text prompted by the question, include relevant details from the text to support points made. Merit (5-6): Demonstrate convincing understanding — explain how the aspects work together to create engagement with, or viewpoints on, a text prompted by the question, include relevant details. Excellence (7-8): Demonstrate perceptive understanding — discuss how the aspects of a text have been used to create engagement with, or viewpoints on, a text to establish meaning prompted by the question, including awareness of the creator's purpose or wider contexts outside of the text (such as human experience, society, and the wider world), include relevant details."
+    },
+    {
+      "id": "eng25-25-q4",
+      "number": "4",
+      "text": "Using examples and details from ONE or more text(s) you have studied, as well as your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. This may include, but is not limited to, aspects such as character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 4: Explain how language and/or stylistic features helped you understand an idea in the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["studied-text", "language-techniques", "ideas-themes"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Demonstrate understanding of specific aspects of studied text — describe aspects of a text, describe how aspects of the text create engagement with, or viewpoints on, a text prompted by the question, include relevant details from the text to support points made. Merit (5-6): Demonstrate convincing understanding — explain how the aspects work together to create engagement with, or viewpoints on, a text prompted by the question, include relevant details. Excellence (7-8): Demonstrate perceptive understanding — discuss how the aspects of a text have been used to create engagement with, or viewpoints on, a text to establish meaning prompted by the question, including awareness of the creator's purpose or wider contexts outside of the text (such as human experience, society, and the wider world), include relevant details."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "l3-economics-failure-2025",
+  "title": "Level 3 Economics Market Failure — 2025",
+  "level": 3,
+  "standard": "91400",
+  "year": 2025,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3ef25-q1a",
+      "number": "1(a)",
+      "text": "Identify and explain types of market failures in economies.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "market failure types",
+        "efficiency",
+        "resource allocation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Types: externalities, public goods, monopoly power, information asymmetry.",
+      "markingGuide": "Identify and explain main categories of market failures."
+    },
+    {
+      "id": "l3ef25-q1b",
+      "number": "1(b)",
+      "text": "Analyse negative externalities and market outcomes.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "negative externalities",
+        "overproduction",
+        "social welfare"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Negative externalities lead to overproduction relative to social optimum.",
+      "markingGuide": "Show how externalities cause market failure with analysis."
+    },
+    {
+      "id": "l3ef25-q2a",
+      "number": "2(a)",
+      "text": "Evaluate government policies to address market failures.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "policy evaluation",
+        "government intervention",
+        "effectiveness"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate policies: taxes, regulation, subsidies for effectiveness and trade-offs.",
+      "markingGuide": "Critical evaluation of policy options and their consequences."
+    },
+    {
+      "id": "l3ef25-q2b",
+      "number": "2(b)",
+      "text": "Comprehensive market failure and policy analysis.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "failure analysis",
+        "policy strategy",
+        "economic outcomes"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Integrate failure types, causes, and optimal policy responses.",
+      "markingGuide": "Sophisticated synthesis of failure analysis and policy design."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

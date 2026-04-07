@@ -1,0 +1,159 @@
+{
+  "id": "l1-genetics-2025",
+  "title": "Level 1 Genetics — 2025",
+  "level": 1,
+  "standard": "92022",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l1g25-q1a",
+      "number": "1(a)",
+      "text": "[Diagram: Figure 1 shows the location of the CFTR gene on a pair of chromosomes.]\n\nThe cystic fibrosis transmembrane conductance regulator (CFTR) gene in humans is responsible for mucus production in the human body. The normal allele (F) is dominant over the mutant allele (f). Individuals who are homozygous recessive will develop cystic fibrosis.\n\nExplain the relationship between chromosomes, genes, alleles, and DNA. Include examples in your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "genetic-variation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Chromosomes are made of DNA.",
+      "markingGuide": "Achievement: Accurately defines OR describes chromosome, genes, alleles, and DNA. Merit: Explains the relationship between chromosomes, genes, alleles, and DNA using clear examples (examples do not have to be within the CFTR gene context).",
+      "image": "/images/exams/92022-2025-q1a.png"
+    },
+    {
+      "id": "l1g25-q1bi",
+      "number": "1(b)(i)",
+      "text": "Define the term mutation.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "genetic-variation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A mutation is a permanent base change in the sequence of a DNA strand."
+    },
+    {
+      "id": "l1g25-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Discuss how genetic variation has occurred in the CFTR gene.\n\nIn your answer, include:\n- the difference between phenotype and genotype\n- the difference between heritable and non-heritable variation.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "genetic-variation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The F to f mutation occurred in a gametic cell so it could be passed on.",
+      "markingGuide": "Achievement: Accurately defines mutation, phenotype, genotype, genetic variation, heritable or non-heritable variation. Merit: Explains difference between phenotype and genotype using clear examples AND explains difference between heritable and non-heritable variation AND explains difference between somatic and gametic mutations. Excellence: Comprehensively discusses how genetic variation has occurred by linking key terms/ideas together (chromosomes, genes, alleles, DNA, phenotype, and genotype) within the context AND comprehensively discusses genetic variation referencing the mutation of F to f allele occurring in the gametic cell."
+    },
+    {
+      "id": "l1g25-q2ai",
+      "number": "2(a)(i)",
+      "text": "[Diagram: Figure 2 shows a pedigree chart tracking the inheritance of cystic fibrosis in a family. Individuals 5, 6, 10, 11 are affected (shaded). Individuals 1, 2, 3, 4, 7, 8, 9, 12 are unaffected.]\n\nCystic fibrosis is caused by a recessive allele (f). The normal allele (F) is dominant over the mutant allele (f).\n\nWhat are the possible genotypes of an individual who does not have cystic fibrosis?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "FF (homozygous dominant) or Ff (heterozygous)",
+      "markingGuide": "Achievement: Identifies both genotypes correctly.",
+      "image": "/images/exams/92022-2025-q2a.png"
+    },
+    {
+      "id": "l1g25-q2aii",
+      "number": "2(a)(ii)",
+      "text": "Fill in the genotype(s) of the numbered individuals from the pedigree chart (Figure 2):\n\n- Individual 4\n- Individual 5\n- Individual 7",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Individual 4: FF or Ff (heterozygous); Individual 5: ff (homozygous recessive); Individual 7: Ff...",
+      "markingGuide": "Achievement: Two of three individuals correct."
+    },
+    {
+      "id": "l1g25-q2b",
+      "number": "2(b)",
+      "text": "How are scientists able to confirm the genotype of individual 7 from the pedigree chart?\nSupport your answer using evidence from both the parents of individual 7 and the children of individuals 7 and 8.\n\nUse Punnett squares to support your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Individual 7 must be Ff. Parents 1 and 2 must both be Ff",
+      "markingGuide": "Achievement: Identifies the genotypes of 1 and 2 (heterozygous) AND identifies the genotypes of 7 and 8 (heterozygous). Merit: Explains why 1 and 2 must be Ff by referring to offspring (e.g. since 1 and 2 must each have at least a recessive f allele to pass on) AND explains why 7 and 8 must be Ff by referring to their offspring (11 and 12). Excellence: Comprehensively discusses the genotype of 7, using evidence from the parents (1 and 2), their offspring (5 and 6), and the offspring of 7 and 8 (11 and 12)."
+    },
+    {
+      "id": "l1g25-q2c",
+      "number": "2(c)",
+      "text": "Discuss the purpose of identifying the genetic relationship for the genotype(s) of individual 4 from the pedigree chart.\n\nIn your answer, consider:\n- the possible genotype(s) of individual 4 by referring to individual 10\n- the purpose for tracking the cystic fibrosis allele in this family in relation to individual 4.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "4 and 10 are either FF or Ff.",
+      "markingGuide": "Achievement: Identifies that 10 can be ff or FF AND identifies that 3 and 4 must be Ff if they have a child with cystic fibrosis AND describes the purpose for genetic tracking. Merit: Explains why 4's genotype cannot be confirmed by referring to their offspring (9 and 10) AND explains a purpose for tracking cystic fibrosis in this family (3 and 4). Excellence: Discusses the purpose of identifying the genetic relationship for the genotype of 4, including reference to 4's parents, their offspring, potential future offspring."
+    },
+    {
+      "id": "l1g25-q3a",
+      "number": "3(a)",
+      "text": "The normal cystic fibrosis transmembrane conductance regulator (CFTR) allele (F) is dominant over the mutant allele (f). Homozygous recessive individuals will develop cystic fibrosis. Homozygous dominant and heterozygous individuals will not be affected.\n\nExplain how meiosis, sexual reproduction, and non-random mating can contribute to the continuation of the recessive allele (f) in the population.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "genetic-variation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Meiosis produces gametes with different allele combinations.",
+      "markingGuide": "Achievement: Accurately defines or describes meiosis, sexual reproduction, non-random mating, and/or describes fertilisation. Also identifies that crossing over or independent assortment occurs during meiosis. Merit: Explains meiosis (includes a description of effects of crossing over or independent assortment) AND explains how sexual reproduction may cause carriers to pass on the recessive f allele to their offspring AND explains how non-random mating (in small populations) can lead to a higher chance of the allele being passed on in the population. Excellence: Comprehensively explains how meiosis, sexual reproduction, and non-random mating in a small population can lead to a higher chance of the f allele being passed on."
+    },
+    {
+      "id": "l1g25-q3b",
+      "number": "3(b)",
+      "text": "Discuss how the CFTR mutant allele (f) remains in the population.\n\nIn your answer, consider:\n- if the occurrence of the recessive allele (f) will increase, decrease, or stay the same over time\n- why an increase in the frequency of recessive alleles (f) in a population does not always lead to an increase in the frequency of the cystic fibrosis phenotype.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "genetic-variation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The f allele may increase due to heterozygous carriers who are unaffected",
+      "markingGuide": "Achievement: Accurately defines population AND states that the f allele will increase due to heterozygotes/carriers AND identifies the f allele as being neither advantageous nor disadvantageous in heterozygotes. Merit: Explains a logical scenario for the f allele to increase, decrease, or stay the same AND explains a reason for the f allele to increase in the population while having no increase in cystic fibrosis phenotype. Excellence: Comprehensively discusses AND clearly justifies why an increase in the f allele in a population does not necessarily lead to an increase in phenotype frequency."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

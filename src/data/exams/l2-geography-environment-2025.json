@@ -1,0 +1,45 @@
+{
+  "id": "l2-geography-environment-2025",
+  "title": "Level 2 Geography — Large Natural Environment 2025",
+  "level": 2,
+  "standard": "91240",
+  "year": 2025,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91240-2025-q1",
+      "number": "1",
+      "text": "Name the large natural environment you have studied this year. The environment can be in New Zealand or overseas, and can be at a national, regional, or continental scale.\n\nName ONE characteristic of your chosen large natural environment. Natural characteristics (elements) include landforms (relief), climate, soils, and vegetation.\n\nExplain how the elements or processes of the environment interact to create this characteristic.\n\nYou may include diagrams and maps in your answer.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "natural-environment",
+        "interaction",
+        "processes"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Name a characteristic (e.g.",
+      "markingGuide": "Achievement: Describes how a characteristic results from interaction of elements/processes with some evidence. Merit: Explains in detail how the characteristic results from interaction with detailed evidence. Excellence: Fully explains the interactions using geographic terminology and concepts, showing insight, with comprehensive case study evidence integrated throughout."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

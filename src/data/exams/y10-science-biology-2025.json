@@ -1,0 +1,128 @@
+{
+  "id": "y10-science-biology-2025",
+  "title": "Year 10 Science — Biology Practice",
+  "level": 0,
+  "standard": "Y10-SCI-BIO",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 40,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "y10bio-q1",
+      "number": "1",
+      "text": "Which of the following structures is found in a plant cell but NOT in an animal cell?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["cells-biology"],
+      "answerType": "multi-choice",
+      "options": ["Cell membrane", "Nucleus", "Cell wall", "Mitochondria"],
+      "expectedAnswer": "Cell wall",
+      "markingGuide": "The correct answer is Cell wall. Plant cells have a rigid cell wall made of cellulose that provides structural support. Animal cells only have a cell membrane. Both plant and animal cells contain a nucleus, cell membrane, and mitochondria. Exam tip: Remember the three structures unique to plant cells — cell wall, chloroplasts, and large central vacuole."
+    },
+    {
+      "id": "y10bio-q2",
+      "number": "2",
+      "text": "What is the function of chloroplasts in a plant cell?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["cells-biology"],
+      "answerType": "multi-choice",
+      "options": ["To store water and nutrients", "To carry out photosynthesis", "To control what enters and leaves the cell", "To provide energy through cellular respiration"],
+      "expectedAnswer": "To carry out photosynthesis",
+      "markingGuide": "The correct answer is 'To carry out photosynthesis'. Chloroplasts contain the green pigment chlorophyll, which absorbs light energy and converts carbon dioxide and water into glucose and oxygen. The large vacuole stores water, the cell membrane controls entry/exit, and mitochondria carry out cellular respiration."
+    },
+    {
+      "id": "y10bio-q3",
+      "number": "3",
+      "text": "In humans, DNA is found inside the nucleus of cells. Chromosomes are made of tightly coiled DNA. How many chromosomes does a normal human body cell contain?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["genetics-y10"],
+      "answerType": "multi-choice",
+      "options": ["23", "46", "44", "92"],
+      "expectedAnswer": "46",
+      "markingGuide": "The correct answer is 46. Human body cells contain 46 chromosomes arranged in 23 pairs. Sex cells (sperm and egg) contain only 23 chromosomes — half the normal number — so that when they combine at fertilisation, the resulting cell has 46. Exam tip: 23 pairs = 46 total. Don't confuse the number of pairs with the total number."
+    },
+    {
+      "id": "y10bio-q4",
+      "number": "4",
+      "text": "Which of the following is an example of an inherited trait?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["genetics-y10"],
+      "answerType": "multi-choice",
+      "options": ["A scar on your knee from a bike accident", "Natural eye colour", "Being able to speak Te Reo Māori", "A suntan from spending time at the beach"],
+      "expectedAnswer": "Natural eye colour",
+      "markingGuide": "The correct answer is 'Natural eye colour'. Inherited traits are determined by genes passed from parents to offspring through DNA. Eye colour is controlled by genes. A scar, language ability, and a suntan are all acquired characteristics — they result from environmental factors or learning, not from genes."
+    },
+    {
+      "id": "y10bio-q5",
+      "number": "5",
+      "text": "In a food chain: phytoplankton → krill → blue cod → bottlenose dolphin\n\nWhat would most likely happen to the blue cod population if a disease killed most of the krill?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["ecosystems-y10"],
+      "answerType": "multi-choice",
+      "options": ["The blue cod population would increase because there is less competition", "The blue cod population would decrease because their food source is reduced", "The blue cod population would stay the same", "The blue cod population would increase because dolphins would have less to eat"],
+      "expectedAnswer": "The blue cod population would decrease because their food source is reduced",
+      "markingGuide": "The correct answer is 'The blue cod population would decrease because their food source is reduced'. Krill are the primary food source for blue cod in this food chain. If krill numbers drop drastically, blue cod would have less food, leading to starvation and population decline. This would also affect the dolphins further up the chain. This demonstrates how changes at one trophic level cascade through an ecosystem."
+    },
+    {
+      "id": "y10bio-q6",
+      "number": "6",
+      "text": "The human digestive system breaks food down so nutrients can be absorbed into the blood. Describe the role of TWO of the following organs in digestion: stomach, small intestine, large intestine.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["human-body-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each organ correctly described (max 2). Stomach: produces hydrochloric acid and enzymes (e.g. pepsin) to break down proteins; churns food into a semi-liquid called chyme. Small intestine: where most chemical digestion and nutrient absorption occurs; enzymes from the pancreas and bile from the liver help break down fats, proteins, and carbohydrates; nutrients are absorbed through the intestinal wall (villi) into the blood. Large intestine: absorbs water and minerals from remaining undigested food; compacts waste into faeces. Exam tip: The small intestine is the main site of absorption — remember the villi increase the surface area for this."
+    },
+    {
+      "id": "y10bio-q7",
+      "number": "7",
+      "text": "Explain how the human circulatory system and respiratory system work together to supply oxygen to body cells.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["human-body-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining the respiratory system's role: air is breathed into the lungs where oxygen passes (diffuses) from the alveoli into the blood in the surrounding capillaries. 1 mark for explaining the circulatory system's role: the heart pumps oxygenated blood through arteries to body cells, where oxygen is delivered and carbon dioxide is picked up; deoxygenated blood returns to the heart via veins and is pumped back to the lungs. Key concept: gas exchange occurs by diffusion — oxygen moves from high concentration (alveoli) to low concentration (blood/cells)."
+    },
+    {
+      "id": "y10bio-q8",
+      "number": "8",
+      "text": "A food web in a New Zealand forest includes the following organisms:\n- Leaves and seeds (producers)\n- Wētā and kererū (primary consumers)\n- Morepork/ruru (secondary consumer)\n- Stoats (introduced predator that eats wētā, kererū, and morepork eggs)\n\nExplain why the introduction of stoats has been so damaging to this food web. In your answer, discuss the impact on at least TWO native species.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": ["ecosystems-y10", "nz-ecology"],
+      "answerType": "working",
+      "markingGuide": "1 mark: Explains that stoats are an additional predator competing at multiple trophic levels — they prey on both primary consumers (wētā, kererū) and secondary consumers (morepork eggs), disrupting the natural food web balance. 1 mark: Discusses impact on specific native species — e.g. kererū populations decline because they evolved without mammalian predators and lack defensive behaviours; wētā are ground-dwelling and vulnerable to stoats hunting at night. 1 mark: Links to broader ecosystem effects — e.g. if kererū decline, seed dispersal is affected because kererū are one of the few birds large enough to swallow and spread the seeds of native trees like taraire and karaka; decline in morepork affects control of invertebrate populations. Exam tip: NZ native species are particularly vulnerable to introduced predators because they evolved in isolation without mammals (except bats). This is why Predator Free 2050 is so important."
+    },
+    {
+      "id": "y10bio-q9",
+      "number": "9",
+      "text": "The Predator Free 2050 initiative aims to remove all introduced mammalian predators (rats, stoats, and possums) from New Zealand by 2050.\n\nExplain why this programme is important for New Zealand's native biodiversity. In your answer, include:\n• at least ONE specific example of a native species that would benefit\n• how removing predators would help that species\n• ONE challenge scientists might face in achieving this goal.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["nz-ecology"],
+      "answerType": "working",
+      "markingGuide": "1 mark: Names a specific native species and explains why it is threatened — e.g. kiwi (only 2–5% of kiwi chicks survive to adulthood in areas with stoats; kiwi are flightless and nest on the ground making them vulnerable); or Hauraki Gulf seabirds; or native frogs (pepeketua); or lizards like tuatara. 1 mark: Explains how removing predators would help — e.g. without stoats, kiwi chick survival rates increase dramatically (as seen in predator-free sanctuaries like Zealandia where populations have rebounded); native bird populations could recover to naturally sustainable levels; forest ecosystems would recover as seed-dispersing birds return. 1 mark: Identifies a realistic challenge — e.g. the scale of New Zealand's terrain makes complete eradication extremely difficult; reinvasion from surrounding areas; some predators breed rapidly; developing species-specific toxins that don't harm native species; cost and long-term funding; public concerns about toxin use (e.g. 1080). 1 mark: Quality of explanation — links ideas together logically, shows understanding of ecological relationships, uses scientific vocabulary appropriately (e.g. biodiversity, ecosystem, predator-prey, endemic, conservation)."
+    },
+    {
+      "id": "y10bio-q10",
+      "number": "10",
+      "text": "A scientist studying the Hauraki Gulf marine ecosystem notices that overfishing of snapper has led to an increase in kina (sea urchin) populations. The kina have grazed large areas of kelp forest, creating 'kina barrens' — bare rock with very little other marine life.\n\nUsing your knowledge of food webs and ecosystems, explain how the removal of one species (snapper) has led to such a large change in the ecosystem. Suggest what might happen if snapper populations were allowed to recover.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["ecosystems-y10", "nz-ecology"],
+      "answerType": "working",
+      "markingGuide": "1 mark: Explains the trophic cascade — snapper are a key predator of kina; when snapper are overfished, there are fewer predators to control kina numbers, so the kina population increases rapidly (population explosion). 1 mark: Explains the ecosystem impact — with more kina, kelp forests are overgrazed; kelp forests are a critical habitat providing food and shelter for many marine species (fish, invertebrates, seabirds rely on kelp ecosystems); the loss of kelp creates 'barrens' that support far fewer species, dramatically reducing biodiversity. 1 mark: Predicts recovery — if snapper numbers recover, they would eat more kina, reducing kina populations; this would allow kelp to regrow; as kelp forests recover, other species that depend on them would also return, gradually restoring the ecosystem. 1 mark: Quality of scientific reasoning — uses terms like trophic cascade, keystone species, biodiversity, population dynamics; recognises that ecosystems are interconnected and that changes at one level affect the whole system; may note that recovery takes time and the ecosystem may not return to its original state. Exam tip: This is a real example — the Hauraki Gulf marine ecosystem in Auckland has experienced exactly this problem. It shows why understanding food webs matters for conservation and fisheries management."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

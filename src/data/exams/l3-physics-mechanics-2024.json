@@ -1,0 +1,212 @@
+{
+  "id": "l3-physics-mechanics-2024",
+  "title": "Level 3 Physics — Mechanics (91524) — 2024",
+  "level": 3,
+  "standard": "91524",
+  "year": 2024,
+  "subject": "physics",
+  "timeMinutes": 0,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "91524-24-q1a",
+      "number": "1(a)",
+      "text": "QUESTION ONE: CIRCULAR AND ROTATIONAL MOTION\n\nA solid steel ball bearing with a radius of 7.00 mm and a mass of 11.2 g is released from different heights on a steel track. It rolls down and then travels over a series of bumps. Each bump and dip has a radius of 35.0 mm.\n\nIn one trial, the ball bearing reaches the bottom of the first dip with a velocity of 0.850 m s⁻¹.\n\nCalculate the angular velocity of the ball bearing when it is at the bottom of the first dip (Point X).",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "circular-motion",
+        "angular-velocity"
+      ],
+      "answerType": "working",
+      "image": "/images/exams/91524-2024-q1-track.png",
+      "expectedAnswer": "ω = 121 rad s⁻¹",
+      "markingGuide": "Achievement: Correct answer. Working: v = rω, 0.850 = 0.007ω, ω = 121.429 ≈ 121 rad s⁻¹."
+    },
+    {
+      "id": "91524-24-q1b",
+      "number": "1(b)",
+      "text": "Show that the maximum speed is 0.586 m s⁻¹ in order for the ball bearing to remain in contact with the track while going over the bump, at Point Y.\n\nThe bump has a radius of 35.0 mm.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular-motion",
+        "centripetal-force",
+        "gravity"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "v = 0.586 m s⁻¹",
+      "markingGuide": "Achievement: F_N = 0 at maximum speed, F_c provided by F_g. Merit: Correct answer. Working: At max speed, F_N = 0, so mg = mv²/r. g = v²/r. 9.81(0.0350) = v². v = √0.34335 = 0.586 m s⁻¹."
+    },
+    {
+      "id": "91524-24-q1c",
+      "number": "1(c)",
+      "text": "Compare the forces acting at the top (Point Y) and bottom (Point X) of each bump, and hence explain how the net force varies in these positions.\n\nLabelled force diagrams will be useful in supporting your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "circular-motion",
+        "centripetal-force",
+        "forces",
+        "free-body-diagram"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91524-2024-q1c-forces.png",
+      "expectedAnswer": "At Point X (bottom): F_g down, F_N up.",
+      "markingGuide": "Achievement: ONE of: F_net provides F_c; F_g at X greater than F_c at Y; F_g down, F_N up at X and Y; F_c constant; F_c = F_N − F_g (at X); F_c = F_g − F_N (at Y). Correct free-body force diagram for one position. Merit: One point explained including link to and direction of F_net. Relative sizes and directions of F_g and F_N described at BOTH positions. An accurate free-body force diagram may be used as part of evidence. Excellence: Full answer. An accurate free-body force diagram may be used as part of the evidence."
+    },
+    {
+      "id": "91524-24-q1d",
+      "number": "1(d)",
+      "text": "By considering energy changes, calculate the maximum height, h, above the top of the first bump (Point Y) that the ball bearing can be initially released from if it is to remain in contact with the track as it travels over the bumps.\n\nThe ball bearing is a solid sphere, and has rotational inertia given by I = (2/5)mr².",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "rotational-motion",
+        "energy-conservation",
+        "rotational-inertia"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "h = 0.0245 m (24.5 mm)",
+      "markingGuide": "Achievement: Attempts to solve using conservation of energy. E_gp = E_k(lin) + E_k(rot). ONE correct energy calculation. Merit: One error in correct process, e.g. correct method (a) but attempts simplification. OR two correct energy calculations of E_gp, E_k(lin), E_k(rot) (must have attempted all three). OR h = 7.00 × 10⁻³ m. Excellence: Correct answer. Working: Method (a): mgh = ½mv² + ½Iω². mgh = ½mv² + ½(2/5)mr²(v/r)². gh = v²/2 + v²/5 = 7v²/10. h = 7v²/(10g) = 7(0.58596)²/(10 × 9.81) = 0.0245 m. Method (b): I = 219.52 × 10⁻⁹. v = rω, ω = 83.71. E_k(rot) = ½Iω² = 7.69 × 10⁻⁴ J. E_k(lin) = ½mv² = 1.92 × 10⁻³ J. mgh = E_k. h = 0.0245 m."
+    },
+    {
+      "id": "91524-24-q2a",
+      "number": "2(a)",
+      "text": "QUESTION TWO: ROTATIONAL MOTION\n\nA golf ball of mass 0.0460 kg is placed into a light cup that is attached to a flywheel, diameter 0.220 m, and begins to accelerate downwards at a constant rate of 1.83 m s⁻².\n\nShow that the angular acceleration of the flywheel is 16.6 rad s⁻².",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "rotational-motion",
+        "angular-acceleration"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "α = 16.6 rad s⁻²",
+      "markingGuide": "Achievement: Correct answer and substitution. Working: a = rα. 1.83 = 0.11α. α = 16.6363 ≈ 16.6 rad s⁻²."
+    },
+    {
+      "id": "91524-24-q2b",
+      "number": "2(b)",
+      "text": "If the ball and cup start from rest and fall through a distance of 0.750 m, calculate the final angular velocity of the flywheel.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "rotational-motion",
+        "angular-velocity",
+        "kinematics"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "ω_f = 15.1 rad s⁻¹",
+      "markingGuide": "Achievement: Correct angular displacement OR v_f = 1.6568 m s⁻¹ OR correct ω for incorrect θ. Merit: Correct answer. Working: d = rθ. 0.75 = 0.11θ. θ = 6.8182 rad. ω_f² = ω_i² + 2αθ = 0 + 2(16.6363)(6.8182) = 226.86. ω_f = 15.1 rad s⁻¹."
+    },
+    {
+      "id": "91524-24-q2c",
+      "number": "2(c)",
+      "text": "Calculate the rotational inertia of the flywheel.\n\nBegin your answer by calculating the force that is causing the flywheel to accelerate.\n\nA free-body force diagram may assist you in calculating the tension in the string.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "rotational-motion",
+        "rotational-inertia",
+        "torque",
+        "forces"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "I = 0.00243 kg m²",
+      "markingGuide": "Achievement: Tension force identified (may be in diagram). Uses τ = Fd OR uses τ = Iα. Merit: One error, e.g. uses mg rather than tension to calculate I = 2.9838 × 10⁻³ N m. Excellence: Correct answer. Working: τ = Fd. τ = (mg − ma)d = (0.046)(9.81 − 1.83)(0.11) = 0.0403788. τ = Iα. 0.0403788 = I(16.6363). I = 0.00243 kg m²."
+    },
+    {
+      "id": "91524-24-q2d",
+      "number": "2(d)",
+      "text": "Explain what will happen to the final velocity of the ball and cup if the flywheel is replaced with a solid disc of the same radius and mass as that of the flywheel.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "rotational-motion",
+        "rotational-inertia",
+        "moment-of-inertia"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "I decreases (disc has mass closer to axis of rotation).",
+      "markingGuide": "Achievement: I decreases. v increases. Merit: Links distribution of mass closer to axis of rotation to decreasing I using I ∝ mr². OR links lower I to greater angular acceleration using τ = Iα. Excellence: Correct answer. Accept valid energy justification. Ignore mention of constant torque (note: τ is not constant as tension will decrease as a increases)."
+    },
+    {
+      "id": "91524-24-q3a",
+      "number": "3(a)",
+      "text": "QUESTION THREE: SIMPLE HARMONIC MOTION\n\nA ball bearing is released on a watch glass, and rolls back and forth with simple harmonic motion. The watch glass is a shallow, semi-circular glass bowl with a radius of curvature, R.\n\nState the two conditions necessary for the ball bearing to be considered to be moving with simple harmonic motion.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "simple-harmonic-motion",
+        "conditions"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91524-2024-q3-watchglass.png",
+      "expectedAnswer": "The restoring force/acceleration is proportional to the displacement from the equilibrium...",
+      "markingGuide": "Achievement: Both points stated correctly."
+    },
+    {
+      "id": "91524-24-q3b",
+      "number": "3(b)",
+      "text": "The ball bearing is released 0.0400 m from the right of the equilibrium position, and oscillates with a time period of 0.882 s.\n\nUsing reference circles or otherwise, calculate the displacement of the ball bearing after 1.20 seconds.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "simple-harmonic-motion",
+        "displacement",
+        "angular-frequency"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = −0.0257 m (or 0.0257 m to the left)",
+      "markingGuide": "Achievement: Correct value for angular frequency. Merit: Minor mistake. Excellence: Correct answer. Working: ω = 2π/T = 2π/0.882 = 7.12398. x = A cos(ωt) = 0.0400 cos(7.12398 × 1.20) = 0.0400 cos(8.5488) = 0.0400 × (−0.64279) = −0.02571 m ≈ −0.0257 m."
+    },
+    {
+      "id": "91524-24-q3c",
+      "number": "3(c)",
+      "text": "Eventually, the ball bearing comes to rest.\n\nUsing the axes provided, draw a labelled graph of the displacement vs time for five complete oscillations.\n\nInclude values for displacement and time.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "simple-harmonic-motion",
+        "damping",
+        "displacement-time-graph"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Graph showing exponential decay envelope on a sinusoidal displacement-time curve, starting at...",
+      "markingGuide": "Achievement: Use of exponential decay. τ starts at max A. τ constant."
+    },
+    {
+      "id": "91524-24-q3d",
+      "number": "3(d)",
+      "text": "Name this phenomenon, and explain in detail why the ball bearing eventually comes to rest.\n\nSupport your answer with any relevant formulae.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "simple-harmonic-motion",
+        "damping",
+        "energy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Damping.",
+      "markingGuide": "Achievement: One of: loss of energy due to friction, amplitude decreases, damping. Merit: Damping AND (kinetic) energy is lost from the system as heat due to friction. OR links less E_total/E_k to less E_gp so smaller amplitude. Excellence: Full answer."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

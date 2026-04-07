@@ -1,0 +1,235 @@
+{
+  "id": "l1-reasoning-2024",
+  "title": "Level 1 Mathematical Reasoning — 2024",
+  "level": 1,
+  "standard": "91947",
+  "year": 2024,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l1r24-q1a",
+      "number": "1(a)",
+      "text": "[Diagram: A rectangle with width labelled (2x + 3) cm and length labelled (3x – 5) cm. Not to scale.]\n\nThe perimeter of this rectangle is 56 cm. Form an equation and solve it to find the value of x.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "linear-equations",
+        "measurement"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 6",
+      "markingGuide": "2(2x + 3) + 2(3x – 5) = 56. Expanding: 4x + 6 + 6x – 10 = 56. Simplifying: 10x – 4 = 56. 10x = 60. x = 6. Achieved: Correct answer x = 6 with algebraic working shown.",
+      "image": "/images/exams/91947-2024-q1a.png"
+    },
+    {
+      "id": "l1r24-q1b",
+      "number": "1(b)",
+      "text": "In triangle ABC, length AB = y cm. Side AC is k cm longer than AB (k > 2). Side BC is 4 cm shorter than AC. The perimeter is five times the length of AB. Find the perimeter of triangle ABC, giving your answer in terms of k.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "algebraic-expressions",
+        "linear-equations"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "5k – 10",
+      "markingGuide": "AB = y, AC = y + k, BC = (y + k) – 4 = y + k – 4. Perimeter = y + (y + k) + (y + k – 4) = 3y + 2k – 4. Given perimeter = 5y: 3y + 2k – 4 = 5y. 2k – 4 = 2y. y = k – 2. Perimeter = 5y = 5(k – 2) = 5k – 10. Achieved: Setting up an equation involving y and k, OR a consistent expression for the perimeter. Merit: Correct answer 5k – 10 with clear working."
+    },
+    {
+      "id": "l1r24-q1c",
+      "number": "1(c)",
+      "text": "[Diagram: A vertical line PT with P at the bottom and T at the top (PT = 8 m). Points B and D extend horizontally from P in perpendicular directions, forming a rectangle PBCD on the ground plane. PB = DC = 12 m, PD = BC = 10 m. Point C is at the far corner of the rectangle (diagonally opposite P). Not to scale.]\n\nCalculate the length of the line joining C to T. Show your working.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "pythagoras",
+        "measurement"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "√308 = 17.55 m (2 d.p.)",
+      "markingGuide": "PBCD is a rectangle with PB = DC = 12 and PD = BC = 10. Setting up coordinates: P at origin, B at (12, 0, 0), D at (0, 10, 0), C at (12, 10, 0), T at (0, 0, 8). TC = √(12² + 10² + 8²) = √(144 + 100 + 64) = √308 = 17.55 m. Intermediate results: PC = √(12² + 10²) = √244 = 15.62 m. TB = √(8² + 12²) = √208 = 14.42 m. Achieved: Finding an intermediate length such as PC = √244 = 15.62 m or TB = √208 = 14.42 m, or correct answer without full working. Merit: Correct answer TC = √308 = 17.55 m with clear working showing use of Pythagoras' theorem.",
+      "image": "/images/exams/91947-2024-q1c.png"
+    },
+    {
+      "id": "l1r24-q1d",
+      "number": "1(d)",
+      "text": "[Diagram: Left — a rectangular box containing 6 spheres arranged 2 wide × 3 long × 1 high. Right — a cylindrical tube containing the same 6 spheres stacked in a single line of 6. The spheres fit tightly in both containers.]\n\nSix identical spheres each have a volume of 150 cm³. Show clear working to decide which container, rectangular or cylindrical, has the greater empty space by calculating the percentage of empty space inside each container.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "measurement"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Rectangular box: 47.64% empty. Cylindrical tube: 33.33% empty. Rectangular box has more empty space.",
+      "markingGuide": "Finding radius: 150 = (4/3)πr³. r³ = 150 × 3/(4π) = 35.81. r = 3.296 cm. Total sphere volume = 6 × 150 = 900 cm³. Rectangular box (2 × 3 arrangement): width = 4r = 13.184 cm, length = 6r = 19.777 cm, height = 2r = 6.592 cm. Box volume = 13.184 × 19.777 × 6.592 = 1718.87 cm³. Empty space = 1718.87 – 900 = 818.87 cm³. Percentage empty = 818.87/1718.87 × 100 = 47.64%. Cylindrical tube (single line of 6 spheres): radius = r = 3.296 cm, height = 12r = 39.553 cm. Cylinder volume = π × 3.296² × 39.553 = 1350 cm³. Empty space = 1350 – 900 = 450 cm³. Percentage empty = 450/1350 × 100 = 33.33%. The cylinder has less empty space. Achieved: Correctly calculating the radius of a sphere, OR consistent volume calculation for one container. Merit: Correctly calculating the empty space (or percentage) for one container. Excellence: Correctly calculating the percentage of empty space for both containers and making the correct comparison/decision.",
+      "image": "/images/exams/91947-2024-q1d.png"
+    },
+    {
+      "id": "l1r24-q2a",
+      "number": "2(a)",
+      "text": "[Diagram: A rhombus ABCD (4 equal sides). Diagonal BD is drawn, measuring 10 cm. Point P is where the diagonals cross. Angle BAD = x is marked at vertex A. Not to scale.]\n\nA rhombus has four equal-length sides. The length of diagonal BD is 10 cm and the perimeter is 60 cm. Find the size, x, of angle BAD. Show your working clearly.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "pythagoras",
+        "trigonometry",
+        "geometry-angles"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 141.06° (2 d.p.)",
+      "markingGuide": "Side of rhombus = 60/4 = 15 cm. Half diagonal = 10/2 = 5 cm. Diagonals of a rhombus bisect each other at right angles. In right triangle with hypotenuse 15 and adjacent side 5: cos(half of angle BAD) = 5/15 = 1/3. Half angle = cos⁻¹(1/3) = 70.53°. Angle BAD = 2 × 70.53° = 141.06°. Achieved: Recognition that diagonals bisect at right angles, or correctly finding the half-diagonal, or finding the side length. Merit: Correct angle x = 141.06° with clear trigonometric working.",
+      "image": "/images/exams/91947-2024-q2a.png"
+    },
+    {
+      "id": "l1r24-q2b",
+      "number": "2(b)",
+      "text": "[Diagram: A rectangle with vertices A (top-left), B (top-right), D (bottom-left), E (bottom-right). A diagonal stripe (shaded grey) runs from F on the left side to B at the top-right, and from E at the bottom-right to C on the top side. Lines FB and EC are parallel. Angle CED = angle ABF = 33°. FE = 2 m along the bottom. ED = 28 m along the bottom. Not to scale.]\n\nFind the area of the stripe BCEF.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "trigonometry",
+        "measurement"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Area of stripe BCEF (parallelogram)",
+      "markingGuide": "Using trigonometry in triangle CED: CD = ED × tan 33° = 28 × tan 33° = 18.18 m. The stripe BCEF is a parallelogram. Achieved: Finding length CD using trigonometry, OR finding CE using trigonometry, OR a consistent answer with one error. Merit: Correct area of the stripe BCEF with clear working.",
+      "image": "/images/exams/91947-2024-q2b.png"
+    },
+    {
+      "id": "l1r24-q2ci",
+      "number": "2(c)(i)",
+      "text": "[Diagram: A 3D prism. Rectangular base ABCD with AB = 4k and BC = 8k. The cross-section ABFE is a symmetrical trapezium: AB = 4k at the bottom, EF = 2k at the top, with AE = BF (equal sloping sides). Angle ABF = 60°. P is the foot of the perpendicular from F down to AB. Not to scale.]\n\nShow that the length PF = 1.7321k metres. Show your working clearly.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "trigonometry",
+        "measurement"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "PF = 1.7321k",
+      "markingGuide": "P is the foot of perpendicular from F to AB. BP = (AB – EF)/2 = (4k – 2k)/2 = k. Method 1: In right triangle BPF, tan 60° = PF/BP. PF = k × tan 60° = k × 1.7321 = 1.7321k. Method 2: Since angle ABF = 60°, angle PBF = 60° (or derived). BF can be found: cos 60° = BP/BF, so BF = k/cos 60° = 2k. Then PF = √(BF² – BP²) = √(4k² – k²) = √(3k²) = k√3 = 1.7321k. Achieved: Correct derivation of PF = 1.7321k with clear working.",
+      "image": "/images/exams/91947-2024-q2ci.png"
+    },
+    {
+      "id": "l1r24-q2cii",
+      "number": "2(c)(ii)",
+      "text": "Given that the volume of the prism ABCDEFGH is 649.519 m³, find the value of k.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "measurement",
+        "algebraic-expressions"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "k = 2.5",
+      "markingGuide": "Area of trapezium ABFE = ½(AB + EF) × PF = ½(4k + 2k) × 1.7321k = ½ × 6k × 1.7321k = 3k × 1.7321k = 5.1963k². Volume = area × length = 5.1963k² × 8k = 41.569k³. Setting equal to given volume: 41.569k³ = 649.519. k³ = 649.519/41.569 = 15.625. k = ³√15.625 = 2.5. Achieved: Correct expression for area of trapezium ABFE, OR sensible working towards finding k. Merit: A consistent value for k derived from an incorrect area (with follow-through from an error). Excellence: Correct value k = 2.5 with clear algebraic working throughout.",
+      "image": "/images/exams/91947-2024-q2ci.png"
+    },
+    {
+      "id": "l1r24-q3a",
+      "number": "3(a)",
+      "text": "Find the coordinates of the y-axis intercept for the exponential graph y = 5^(3x + 2) + 4.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "exponential-graphs",
+        "exponents-indices"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(0, 29)",
+      "markingGuide": "At the y-intercept, x = 0. y = 5^(3(0) + 2) + 4 = 5^2 + 4 = 25 + 4 = 29. The y-intercept is at (0, 29). Achieved: Correct answer (0, 29)."
+    },
+    {
+      "id": "l1r24-q3bi",
+      "number": "3(b)(i)",
+      "text": "A sequence: x = 1 → y = 24, x = 2 → y = 35, x = 3 → y = 48, x = 4 → y = 63, x = 5 → y = 80. Find an equation for y for any x-value. Justify with mathematical working.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "sequences-patterns",
+        "quadratic-graphs"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = x² + 8x + 15",
+      "markingGuide": "First differences: 35 – 24 = 11, 48 – 35 = 13, 63 – 48 = 15, 80 – 63 = 17. Second differences: 13 – 11 = 2, 15 – 13 = 2, 17 – 15 = 2 (constant). Since second difference = 2, coefficient of x² is 2/2 = 1. Subtracting x² from y-values: 24 – 1 = 23, 35 – 4 = 31, 48 – 9 = 39, 63 – 16 = 47, 80 – 25 = 55. These have constant difference 8, but linear part: 23, 31, 39, 47, 55 → difference of 8, so linear part is 8x + 15... Check: y = x² + 10x + 13. When x = 1: 1 + 10 + 13 = 24 ✓. When x = 2: 4 + 20 + 13 = 37... Actually rechecking: x=1: 1+10+13=24 ✓, x=2: 4+20+13=37 ✗. Let me recheck. Differences from sequence: 11,13,15,17. Second diff = 2. a=1. y–x²: 23,31,39,47,55. Diff=8. b=8, c=23–8=15. y=x²+8x+15. Check x=1: 1+8+15=24 ✓, x=2: 4+16+15=35 ✓, x=3: 9+24+15=48 ✓. Accept y = x² + 10x + 13 OR y = n² + 10n + 13 if verified by candidate, but correct equation is y = x² + 8x + 15. Achieved: Correct equation (with or without working). Merit: Correct equation y = x² + 8x + 15 with justification showing method of differences or substitution to verify.",
+      "image": "/images/exams/91947-2024-q3bi.png"
+    },
+    {
+      "id": "l1r24-q3bii",
+      "number": "3(b)(ii)",
+      "text": "If the graph of y is drawn for all x, identify at least THREE features of the graph, using your answer from (b)(i).",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "quadratic-graphs",
+        "graph-features"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y-intercept (0, 15), x-intercepts (-3, 0) and (-5, 0), vertex (-4, -1), axis of symmetry x = -4",
+      "markingGuide": "y = x² + 8x + 15 = (x + 3)(x + 5) = (x + 4)² – 1. Possible features: y-intercept at (0, 15); x-intercepts at (–3, 0) and (–5, 0); vertex/minimum at (–4, –1); axis/line of symmetry x = –4; parabola opens upward (positive coefficient of x²); range y ≥ –1; domain is all real numbers. Achieved: One correct non-trivial feature of the graph. Merit: Three correct non-trivial features. Excellence: Three or more features with mathematical justification/working shown. Note: If candidate used y = x² + 10x + 13 from (b)(i), accept consistent features: y-intercept (0, 13), x-intercepts at x = –5 ± √12 ≈ –8.46 and –1.54, vertex at (–5, –12), axis of symmetry x = –5."
+    },
+    {
+      "id": "l1r24-q3ci",
+      "number": "3(c)(i)",
+      "text": "[Diagram: A coordinate plane showing line F passing through points A(5, 4) and B(9, –2). The line slopes downward from left to right.]\n\nThe points A(5, 4) and B(9, –2) lie on line F. Find an equation of line F.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "linear-graphs"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = –1.5x + 11.5 (or equivalent)",
+      "markingGuide": "Gradient m = (–2 – 4)/(9 – 5) = –6/4 = –3/2 = –1.5. Using point-gradient form: y – 4 = –1.5(x – 5). y = –1.5x + 7.5 + 4. y = –1.5x + 11.5. Accept equivalent forms: y = –3x/2 + 23/2, 2y + 3x = 23, 3x + 2y – 23 = 0. Achieved: Correct equation of line F in any form.",
+      "image": "/images/exams/91947-2024-q3ci.png"
+    },
+    {
+      "id": "l1r24-q3cii",
+      "number": "3(c)(ii)",
+      "text": "[Diagram: Same coordinate plane as 3(c)(i), showing line F through A(5, 4) and B(9, –2). Line G with equation x – 2y – 9 = 0 also needs to be considered.]\n\nA second line, G, has equation x – 2y – 9 = 0. Find the coordinates of the point where the lines F and G intersect each other. Use either an algebraic method OR a graphical method.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "simultaneous-equations",
+        "linear-graphs"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(8, –0.5)",
+      "markingGuide": "Line F: y = –1.5x + 11.5. Line G: x – 2y – 9 = 0, i.e., x = 2y + 9. Substituting into line F: y = –1.5(2y + 9) + 11.5. y = –3y – 13.5 + 11.5. 4y = –2. y = –0.5. x = 2(–0.5) + 9 = 8. Intersection point: (8, –0.5). OR: Substituting y = –1.5x + 11.5 into x – 2y – 9 = 0: x – 2(–1.5x + 11.5) – 9 = 0. x + 3x – 23 – 9 = 0. 4x = 32. x = 8. y = –1.5(8) + 11.5 = –0.5. Achieved: Correctly eliminating one variable, OR correct answer without working, OR accurate graph showing both lines drawn. Merit: Correct intersection point (8, –0.5) with algebraic or clear graphical evidence.",
+      "image": "/images/exams/91947-2024-q3ci.png"
+    },
+    {
+      "id": "l1r24-q3d",
+      "number": "3(d)",
+      "text": "Given that 3^(2x + 3) × 9^x = 3^(4 – 3y), find an expression for y in terms of x.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "exponents-indices",
+        "algebraic-expressions"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = (1 – 4x)/3",
+      "markingGuide": "Rewrite 9^x as (3²)^x = 3^(2x). So: 3^(2x + 3) × 3^(2x) = 3^(4 – 3y). Using index law (same base, multiplication → add exponents): 3^(2x + 3 + 2x) = 3^(4 – 3y). 3^(4x + 3) = 3^(4 – 3y). Since bases are equal, exponents are equal: 4x + 3 = 4 – 3y. 3y = 4 – 4x – 3. 3y = 1 – 4x. y = (1 – 4x)/3. Achieved: Correctly rewriting as 3^(2x + 3) × 3^(2x), showing understanding that 9 = 3². Merit: Reaching the equation 4x + 3 = 4 – 3y by equating exponents. Excellence: Correct expression y = (1 – 4x)/3 with clear working throughout."
+    }
+  ],
+  "totalMarks": 42,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 11
+    },
+    "achieved": {
+      "min": 12,
+      "max": 23
+    },
+    "merit": {
+      "min": 24,
+      "max": 36
+    },
+    "excellence": {
+      "min": 37,
+      "max": 42
+    }
+  }
+}

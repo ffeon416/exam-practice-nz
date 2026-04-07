@@ -1,0 +1,48 @@
+{
+  "id": "l1-english-unfamiliar-2023",
+  "title": "Level 1 English — Unfamiliar Texts 2023 (Pilot)",
+  "level": 1,
+  "standard": "91927",
+  "year": 2023,
+  "subject": "english",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "eng27-23-q1",
+      "number": "1",
+      "text": "Refer to Text A, \"Matariki\".\n\nHow do the writer's language choices help us to understand their experience of Matariki? You might consider how they have used:\n• references to time\n• ideas about the activities during the celebration\n• ideas about whanau and belonging.\n\nSupport your explanation with quotes and examples of language features from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "unfamiliar-texts", "non-fiction"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Identify/describe aspects of the text relevant to the question, explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to create meaning. Excellence: Explain how aspects have been deliberately used to create meanings and effects relating to the writer's purpose and wider contexts. Ideas might include: varied syntax, sentences, and structure (e.g. repetition of 'Matariki' at beginning of first three paragraphs) conveys building excitement and anticipation of celebration stages; winter predawn cold and darkness is a special start to a new day (personification and listing); contrast of past with present ('Polynesian lore' minds and 'internet age' minds); traditions/beliefs connect people throughout time, belonging/togetherness rekindled every year by a tradition where people gather."
+    },
+    {
+      "id": "eng27-23-q2",
+      "number": "2",
+      "text": "Refer to Text B, \"the road and the rain\".\n\nHow does the writer help us to understand the experience of the journey? You might consider how they have used:\n• mood or atmosphere\n• ideas about life as a journey\n• observations of the environment\n• ideas about past and present.\n\nSupport your explanation with quotes and examples of language features from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "unfamiliar-texts", "poetry"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Identify/describe aspects of the text relevant to the question, explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to create meaning. Excellence: Explain how aspects have been deliberately used to create meanings and effects relating to the writer's purpose and wider contexts. Ideas might include: the road as a metaphor or symbol for life as a journey, leading to the past (ancestors' graveyard and home) and into the future; weather reflects the writer's gloomy or sombre mood; the bird as a metaphor or symbol for hope, or the struggle of the individual; the train as a metaphor or symbol for life, suggesting that moving forward can be slow/hard work when carrying the burden of the past."
+    },
+    {
+      "id": "eng27-23-q3",
+      "number": "3",
+      "text": "Refer to Text C, \"The Beach\".\n\nHow does the writer help us to understand people's experiences of the beach? You might consider how they have used:\n• ideas about what people do at the beach\n• ideas about what people feel about the outdoors.\n\nSupport your explanation with quotes and examples of language features from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "unfamiliar-texts", "prose"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Identify/describe aspects of the text relevant to the question, explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to create meaning. Excellence: Explain how aspects have been deliberately used to create meanings and effects relating to the writer's purpose and wider contexts. Ideas might include: how we behave at the boundaries of our comfort zone, seeking to recreate a home-like environment (metaphor of 'open house') in the outdoors; the fun/excitement/liberation of feeling like we are exploring and conquering the land (rhetorical question: 'what do we do?'); how nature is something beyond our control (sentence variation), which motivates our curiosity."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

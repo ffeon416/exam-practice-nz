@@ -1,0 +1,121 @@
+{
+  "id": "l1-history-perspectives-2025",
+  "title": "Level 1 History — Historical Perspectives Practice",
+  "level": 1,
+  "standard": "91933",
+  "year": 2025,
+  "subject": "history",
+  "timeMinutes": 50,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "l1hp-q1",
+      "number": "1",
+      "text": "In what year did New Zealand women gain the right to vote in parliamentary elections?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["nz-womens-suffrage-l1", "key-events-l1"],
+      "answerType": "multi-choice",
+      "options": ["1879", "1893", "1902", "1918"],
+      "expectedAnswer": "1893",
+      "markingGuide": "The correct answer is 1893. New Zealand became the first self-governing country in the world where women won the right to vote. The Electoral Act 1893 was signed into law by Governor Lord Glasgow on 19 September 1893, largely due to the campaigning efforts of Kate Sheppard and the Women's Christian Temperance Union."
+    },
+    {
+      "id": "l1hp-q2",
+      "number": "2",
+      "text": "The Treaty of Waitangi, signed in 1840, was an agreement between which two groups?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["treaty-of-waitangi-l1", "key-events-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Māori chiefs and French settlers",
+        "Māori chiefs and representatives of the British Crown",
+        "The New Zealand Government and Australian officials",
+        "North Island Māori and South Island Māori"
+      ],
+      "expectedAnswer": "Māori chiefs and representatives of the British Crown",
+      "markingGuide": "The correct answer is 'Māori chiefs and representatives of the British Crown'. Te Tiriti o Waitangi was signed on 6 February 1840, initially at Waitangi in the Bay of Islands. Captain William Hobson represented Queen Victoria and the British Crown. Over 500 Māori rangatira (chiefs) eventually signed the Treaty at various locations around the country."
+    },
+    {
+      "id": "l1hp-q3",
+      "number": "3",
+      "text": "Explain ONE reason why the New Zealand Land Wars occurred in the 1860s.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["nz-land-wars-l1", "causes-consequences-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for identifying a valid reason. 1 mark for explaining it with supporting detail. Possible reasons include: Land sales — European settlers wanted more land for farming and settlement, and the Crown used questionable methods to purchase Māori land, sometimes buying from individuals who did not have the authority to sell on behalf of the wider iwi. The Kīngitanga movement — Māori in the Waikato established a Māori King (Pōtatau Te Wherowhero, 1858) to unite tribes and resist further land sales, which the colonial government saw as a challenge to British sovereignty. Treaty breaches — many Māori believed the Crown was not honouring the guarantees in Te Tiriti, particularly Article Two which guaranteed Māori tino rangatiratanga (sovereignty/chieftainship) over their lands. Confiscation — the government used military force and then confiscated (raupatu) millions of acres of Māori land under the New Zealand Settlements Act 1863 as punishment for 'rebellion'."
+    },
+    {
+      "id": "l1hp-q4",
+      "number": "4",
+      "text": "What is a primary source in history?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["historical-sources-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "A textbook written about a past event",
+        "A documentary film made in 2020 about World War I",
+        "An original document, object, or record created at the time of the event",
+        "A Wikipedia article about a historical topic"
+      ],
+      "expectedAnswer": "An original document, object, or record created at the time of the event",
+      "markingGuide": "The correct answer is 'An original document, object, or record created at the time of the event'. Primary sources are first-hand accounts or original materials from the time period being studied — examples include diaries, letters, photographs, official documents, artefacts, and oral histories recorded at the time. Secondary sources (textbooks, documentaries, Wikipedia) are created later by people interpreting or analysing primary sources."
+    },
+    {
+      "id": "l1hp-q5",
+      "number": "5",
+      "text": "Give an example of a primary source and a secondary source that could be used to study the 1981 Springbok Tour of New Zealand. Explain why each source is useful for a historian.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["historical-sources-l1", "springbok-tour-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for identifying appropriate examples. Primary source examples: a photograph of protesters at a match (e.g. the Hamilton game that was cancelled after protesters invaded the pitch); a police officer's report from the Molesworth Street protest in Wellington; a letter written by a protester or tour supporter at the time; a newspaper article from 1981 reporting on a specific match or protest; footage from TV news broadcasts of the tour. Secondary source examples: the book 'Tour' by Geoff Chapple; the 2017 documentary 'Merata: How Mum Decolonised the Screen'; a School Journal article about the tour written in 2011.\n\n1 mark for explaining usefulness. Primary sources are useful because they show what people actually thought, felt, and experienced at the time — they provide direct evidence of events and attitudes. However, they may be biased (e.g. a police report may downplay police violence). Secondary sources are useful because they can provide a broader overview, draw on many primary sources, and offer analysis with the benefit of hindsight — they help us understand the wider significance of the tour. However, they may be influenced by the author's own perspective."
+    },
+    {
+      "id": "l1hp-q6",
+      "number": "6",
+      "text": "What is meant by 'historical perspective'?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["historical-perspectives-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "The ability to predict future events based on past patterns",
+        "Understanding that people in the past had different viewpoints, beliefs, and values shaped by their time and circumstances",
+        "The idea that all historical accounts are equally accurate",
+        "A method of dating historical artefacts"
+      ],
+      "expectedAnswer": "Understanding that people in the past had different viewpoints, beliefs, and values shaped by their time and circumstances",
+      "markingGuide": "The correct answer is 'Understanding that people in the past had different viewpoints, beliefs, and values shaped by their time and circumstances'. Historical perspective (sometimes called historical empathy) involves understanding WHY people in the past thought and acted as they did, based on the knowledge, beliefs, and social context of their time — without imposing our modern values on them. Different groups involved in the same event often had very different perspectives."
+    },
+    {
+      "id": "l1hp-q7",
+      "number": "7",
+      "text": "Different groups had different views about the 1981 Springbok Tour of New Zealand.\n\nDescribe the perspective of ONE group that supported the tour and ONE group that opposed it.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": ["springbok-tour-l1", "historical-perspectives-l1"],
+      "answerType": "text",
+      "markingGuide": "3 marks for supporters' perspective: Groups that supported the tour included many rugby fans, the New Zealand Rugby Football Union (NZRFU), and some conservative New Zealanders. Their perspective: rugby was New Zealand's national sport and keeping politics out of sport was important; New Zealand had a long rugby tradition with South Africa (dating back to 1921); cancelling the tour would deny New Zealanders the right to play sport with whoever they chose; some believed sporting contact could help change apartheid from within ('bridge-building' argument); Prime Minister Rob Muldoon supported the tour going ahead, arguing the government should not interfere with private sporting bodies. Award marks for: identifying the group (1), explaining their reasoning (1), and providing specific supporting detail (1).\n\n3 marks for opponents' perspective: Groups that opposed the tour included HART (Halt All Racist Tours), CARE (Citizens' Association for Racial Equality), many Māori, Pacific Island communities, church groups, and young New Zealanders. Their perspective: South Africa's apartheid system was a brutal form of racial segregation and discrimination — Black South Africans could not vote, were forced to live in separate areas, and had limited rights; playing sport with South Africa gave legitimacy to the apartheid regime; the 1976 Montreal Olympics boycott (which NZ was part of because of All Black tours to South Africa) showed that sporting contact had international consequences; Māori players had previously been excluded from All Black teams touring South Africa (the 'no Māoris' policy). Award marks for: identifying the group (1), explaining their reasoning (1), and providing specific supporting detail (1)."
+    },
+    {
+      "id": "l1hp-q8",
+      "number": "8",
+      "text": "The Tohunga Suppression Act of 1907 banned traditional Māori healing practices.\n\nExplain why this Act was passed (consider both Māori and Pākehā perspectives) and discuss the impact it had on Māori communities. How does this event help us understand the relationship between the Crown and Māori in the early 1900s?",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["crown-maori-relations-l1", "historical-perspectives-l1", "causes-consequences-l1"],
+      "answerType": "working",
+      "markingGuide": "Achieved (1–2 marks): Identifies that the Act banned Māori healing and that this had a negative impact on Māori. Basic description.\n\nMerit (3–4 marks): Explains perspectives from both sides. Pākehā perspective: Many Pākehā politicians and doctors believed tohunga (Māori healers/spiritual leaders) were 'quacks' who prevented Māori from accessing Western medicine; Māori populations had been devastated by European diseases (the Māori population dropped to around 42,000 by 1896); officials genuinely believed Western medicine would save Māori lives. Some Māori leaders, including Māui Pōmare (the first Māori health officer) and Te Rangi Hīroa (Peter Buck), supported the Act because they had seen people die from treatable diseases after relying solely on traditional healing. Māori perspective (opposition): Many Māori saw the Act as an attack on their culture and spiritual practices — tohunga were not just healers but also keepers of cultural knowledge, genealogy (whakapapa), and spiritual wellbeing; the Act undermined Māori autonomy and self-determination guaranteed under Te Tiriti.\n\nExcellence (5–6 marks): Discusses the broader significance. The Act reflected the assimilationist policies of the early 1900s — the Crown believed Māori should adopt European ways of living. It was part of a pattern of legislation that suppressed Māori cultural practices (alongside the Native Schools Act which punished children for speaking te reo Māori). The impact on Māori was profound: traditional healing knowledge was driven underground and partially lost; the role of tohunga in Māori communities was diminished; Māori spiritual and cultural identity was weakened. The Act was not repealed until 1962. This event shows that the Crown-Māori relationship in the early 1900s was characterised by paternalism — the Crown believed it knew what was best for Māori and used legislation to impose European values, even when this meant suppressing fundamental aspects of Māori culture. Evaluates whether the Act achieved its aims (it may have improved some health outcomes but at a significant cultural cost)."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 11 },
+    "merit": { "min": 12, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

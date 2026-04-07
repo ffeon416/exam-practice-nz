@@ -1,0 +1,48 @@
+{
+  "id": "l1-english-unfamiliar-2024",
+  "title": "Level 1 English — Unfamiliar Texts 2024",
+  "level": 1,
+  "standard": "91927",
+  "year": 2024,
+  "subject": "english",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "eng27-24-q1",
+      "number": "1",
+      "text": "Refer to Text A, \"School cross country\".\n\nHow does the writer help us understand the boy's experience of the race? You might consider how they have used:\n• mood or atmosphere to show feeling\n• ideas about motivation for success\n• ideas about identity.\n\nSupport your explanation with quotations and examples of language features from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "unfamiliar-texts", "prose"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Identify/describe aspects of the text relevant to the question, explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to create meaning. Excellence: Explain how aspects have been deliberately used to create meanings and effects relating to the writer's purpose and wider contexts. Ideas might include: mood/atmosphere is dark/tense at the beginning, tension builds, mood changes at the end with joy/relief of success (repetition, description, turning point/climax); success could be doing your best, wanting to please, making others proud, winning against the odds, showing resilience and determination (allusion, short sentence, listing, dialogue); linking past to present through whakapapa, whanau relationships and support, expectations, younger generations' success giving hope to the future (repetition, symbols, allusion, metaphor)."
+    },
+    {
+      "id": "eng27-24-q2",
+      "number": "2",
+      "text": "Refer to Text B, \"Thinking realistically\".\n\nHow does the writer help us understand how interruptions affect their work day? You might consider how they have used:\n• mood or atmosphere\n• ideas about achieving goals\n• the impact of other people.\n\nSupport your explanation with quotations and examples of language features from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "unfamiliar-texts", "non-fiction"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Identify/describe aspects of the text relevant to the question, explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to create meaning. Excellence: Explain how aspects have been deliberately used to create meanings and effects relating to the writer's purpose and wider contexts. Ideas might include: start of a new day feels full of excitement, promise, hope, action contrasted with the day ending in defeat, disappointment, frustration, resignation (imperative, verbs, idiom, personification); interruptions/distractions are a reality, routine can be good and bad, need to be flexible with expectations and management of time (metaphor, short sentence, hyperbole, humour); how interruptions waste time, stop us achieving goals, affect the creative process, add stress but need to balance with the reality of needing breaks and social contact (long sentence, verb)."
+    },
+    {
+      "id": "eng27-24-q3",
+      "number": "3",
+      "text": "Refer to Text C, \"Our team is a waka\".\n\nHow does the writer help us understand the experience of belonging to a team? You might consider how they have used:\n• tone and purpose\n• ideas about cultural identity\n• ideas about leadership.\n\nSupport your explanation with quotations and examples of language features from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["language-features", "unfamiliar-texts", "non-fiction"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Identify/describe aspects of the text relevant to the question, explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to create meaning. Excellence: Explain how aspects have been deliberately used to create meanings and effects relating to the writer's purpose and wider contexts. Ideas might include: passionate, positive, confident, proud tone persuades, informs, entertains the audience so they can relate or feel included (pronoun, anecdote, short sentences); different cultures have common ideas/values that unite individuals into a team/family which is the strongest bond due to trust, acceptance, love, respect (symbol, metaphor, te reo Maori, colloquial language); leadership is inclusive, the coach inspires the team to unite and work together to become more powerful than an individual could ever be (short sentences, metaphor, repetition)."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

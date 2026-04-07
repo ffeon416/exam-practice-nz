@@ -1,0 +1,268 @@
+{
+  "id": "l2-physics-mechanics-2024",
+  "title": "Level 2 Physics — Mechanics (2024)",
+  "level": 2,
+  "standard": "91171",
+  "year": 2024,
+  "subject": "physics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
+  "questions": [
+    {
+      "id": "m24-q1a",
+      "number": "1(a)",
+      "text": "Jono and Tony are in the kitchen. Their dog is sitting on the floor next to them when the neighbour's dog comes in and playfully chases it around the table.\n\nThe dog runs in a circle on the floor around the table.\n\nAdd a labelled arrow to the diagram below to show the force acting on the dog as it runs in a circle at a constant speed.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "circular-motion",
+        "centripetal-force"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Arrow labelled Fc or Friction, or F pointing into the centre of the circle.",
+      "markingGuide": "Achieved: Correct answer.",
+      "image": "/images/exams/91171-2024-q1a.png"
+    },
+    {
+      "id": "m24-q1bi",
+      "number": "1(b)(i)",
+      "text": "The mass of the dog is 10 kg.\nThe dog is moving at 0.87 m s⁻¹.\nThe centripetal force is 15 N.\n\nCalculate the radius of the dog's path.",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular-motion",
+        "centripetal-force"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "r = 0.50 m",
+      "markingGuide": "Fc = mv²/r → 15 = 10 × 0.87² / r → r = 0.50 m. Achieved: 0.50 m OR explanation correct. Merit: Calculation and explanation correct."
+    },
+    {
+      "id": "m24-q1bii",
+      "number": "1(b)(ii)",
+      "text": "On the other side of the table, the dog hits a slippery patch of the floor and slides off at a tangent.\n\nUse physics principles to explain the dog's velocity immediately after it starts moving off at a tangent.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "circular-motion",
+        "velocity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The dog will move in a straight line at a constant speed, as there is no force acting on it.",
+      "markingGuide": "Achieved: Velocity remains unchanged. OR Fc is lost."
+    },
+    {
+      "id": "m24-q1c",
+      "number": "1(c)",
+      "text": "The dog slides along the floor towards Jono. Jono reaches down and cushions the dog as it slides into him by putting out his arms and then gradually bringing them in towards him. The dog takes 2.0 seconds to come to rest, unharmed.\n\nUse physics principles to explain why Jono put out his arms to cushion the dog rather then let the dog stop quickly in 0.10 seconds.\n\nStart by calculating the force experienced by the dog in the cushioned collision (2.0 s).",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "momentum",
+        "impulse",
+        "force"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "F = 4.4 N. Force would be less with longer time, so less harm to the dog.",
+      "markingGuide": "p = mv = 0.87 × 10 = 8.7 kg m s⁻¹. Because the dog comes to a stop: Δp = 8.7 kg m s⁻¹. Δp = F × t → 8.7 = F × 2.0 → F = 4.4 N. By increasing the time to stop, the force on the dog is lowered. If time = 0.1 s, force = 87 N. Achieved: p = 8.7 kg m s⁻¹. OR force would be less. Merit: F = 4.4 N AND force would be less. Excellence: F = 4.4 N AND full explanation."
+    },
+    {
+      "id": "m24-q1d",
+      "number": "1(d)",
+      "text": "Jono releases his 10 kg dog and it runs directly towards the neighbour's dog at 1.1 m s⁻¹. The neighbour's dog, mass 12 kg, runs directly towards Jono's dog. They collide, stick together, and slide across the floor at 0.30 m s⁻¹.\n\nCalculate the speed that the neighbour's dog was moving at before the collision.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "momentum",
+        "conservation-of-momentum",
+        "collisions"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "v = 1.5 m s⁻¹",
+      "markingGuide": "Jono's dog initial p: mv = 1.1 × 10 = 11 kg m s⁻¹. Neighbour's dog initial p: mv = 12v kg m s⁻¹. Total momentum after collision: mv = 22 × 0.3 = 6.6 kg m s⁻¹. Total p before = total after: 11 + 12v = 6.6 → 12v = 6.6 − 11 = −4.4 → v = −0.37... Wait, let me recalculate. Actually: 11 − 12v = 6.6. 12v = 11 − 6.6 = 4.4. Actually the direction matters. With consistent signs: p₁ = 10 × 1.1 = 11. p₂ = 12 × (−v). p_after = 22 × 0.30 = 6.6 (in direction of Jono's dog). 11 − 12v = 6.6. 12v = 4.4. Hmm. Let me re-read the answer schedule. From schedule: 11 + 12v = 6.6 → 12v = 6.6 − 11 = −4.4... No. The schedule says: p = 11 + 12v. Total momentum after: p = 22 × 0.3 = 6.6. 11 + 12v = 6.6. So 12v = −4.4, not valid. Actually the schedule shows: total p before = total after → 11 + 12v = 6.6 → 12v = 6.6 − 11 = −4.4. Hmm, actually the dogs move toward each other so: if we take Jono's dog direction as positive, neighbour's dog has negative velocity. Let me recheck from schedule image: it says v = 1.5 m s⁻¹. Actually: if Jono's dog 10 kg at 1.1 m/s and neighbour's 12 kg at v in opposite direction, after collision 22 kg at 0.30 m/s in... let me re-examine. The after-collision direction could be towards neighbour's dog direction. So: −10(1.1) + 12v = 22(0.3). −11 + 12v = 6.6. 12v = 17.6. v = 1.47 ≈ 1.5 m s⁻¹. Yes that's it. The combined pair moves at 0.30 m/s in the neighbour dog's original direction. Achieved: Any momentum calculated relevant to solving the problem. Merit: 11 kg m s⁻¹ AND 6.6 kg m s⁻¹ AND recognition that momentum is conserved. Excellence: Correct answer.",
+      "image": "/images/exams/91171-2024-q1d.png"
+    },
+    {
+      "id": "m24-q2a",
+      "number": "2(a)",
+      "text": "Tony decides to make a cake. Tony and Jono measure 0.11 kg of flour using a kitchen balance.\n\nThere are three springs in the balance. Each gets compressed 0.01 m when the flour is added.\n\nAdd labelled arrows to the diagram above right (with the flour) to show the two forces acting on the flour.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "forces",
+        "equilibrium",
+        "springs"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Arrows labelled correctly and same size: weight/gravity downward, spring force/support force upward.",
+      "markingGuide": "Achieved: Arrows labelled correctly and same size.",
+      "image": "/images/exams/91171-2024-q2.png"
+    },
+    {
+      "id": "m24-q2b",
+      "number": "2(b)",
+      "text": "Calculate the spring constant for one spring.\n\n(Mass of flour = 0.11 kg, compression = 0.01 m, 3 springs in system)",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "springs",
+        "hookes-law"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "k = 36 N m⁻¹ (for one spring)",
+      "markingGuide": "F = mg = 0.11 × 9.8 = 1.078 N. For the system: F = kx → 1.078 = k × 0.01 → k = 107.8 N m⁻¹. For one spring: k = 107.8/3 = 35.93 ≈ 36 N m⁻¹. Achieved: Correct spring constant for three springs (whole system). Merit: Correct spring constant for one spring."
+    },
+    {
+      "id": "m24-q2c",
+      "number": "2(c)",
+      "text": "When Jono brings the groceries to the front door, he has a choice of climbing the stairs or using the ramp. He has found that it takes less time to go up the ramp than the stairs.\n\nCompare both routes by considering:\n- work done\n- force required\n- power.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "work",
+        "force",
+        "power",
+        "energy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Work/energy gained is the same (same height).",
+      "markingGuide": "The vertical height gained is the same in both cases, so the energy gained / work done is the same. The ramp is longer than the stairs, so the force required by Jono will be less going up the ramp. Because it takes less time to go up the ramp, Jono has more power going up the ramp. Achieved: ONE of: work/energy gained is same, more force up stairs, more power up ramp. Merit: TWO linked statements. Excellence: Complete comparison.",
+      "image": "/images/exams/91171-2024-q2c.png"
+    },
+    {
+      "id": "m24-q2di",
+      "number": "2(d)(i)",
+      "text": "Tony is using a spice rack hanging by wires above the work bench. The ginger spice has a mass of 0.030 kg, the salt 0.50 kg, and the uniform rack has a mass of 0.37 kg and is 0.40 m long.\n\nThe ginger spice is placed 0.15 m and the salt is placed 0.050 m from the left-hand wire.\n\nThe maximum tension force each wire can provide is 5.0 N.\n\nState the conditions required for the spice rack to be in equilibrium.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "equilibrium",
+        "torque"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The clockwise torques equal the anti-clockwise torques",
+      "markingGuide": "Achieved: Conditions stated. OR any one torque calculated correctly.",
+      "image": "/images/exams/91171-2024-q2d.png"
+    },
+    {
+      "id": "m24-q2dii",
+      "number": "2(d)(ii)",
+      "text": "By performing suitable calculations, decide if the wires can hold the spice rack with the ginger and bag of salt.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "torque",
+        "moments"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Wire A force = 2.51 N, Wire B force = 6.28 N",
+      "markingGuide": "Torques about point B: Anti-clockwise torque: Fw ginger = 9.8 × 0.03 = 0.294 N, τ = 0.294 × 0.25 = 0.0735 N m. Fw base = 9.8 × 0.370 = 3.63 N, τ = 3.63 × 0.2 = 0.725 N m. Fw salt = 9.8 × 0.5 = 4.9 N, τ = 4.9 × 0.35 = 1.72 N m. Total anti-clockwise = 0.725 + 0.0735 + 1.72 = 2.51 N m. Clockwise torque = 0.4 × TA. Clockwise = anti-clockwise: 0.4 × TA = 2.51 and TB = 6.28 N. The required force in wire A is within limits, but the force in wire B exceeds 5.0 N, so the spice rack will fall. Achieved: Conditions stated and one tension force calculated correctly. Merit: Conditions stated and one tension force calculated correctly. Excellence: Full answer including a conclusion."
+    },
+    {
+      "id": "m24-q3a",
+      "number": "3(a)",
+      "text": "Tony is going to add apples to the cake. His friend Jono rolls an apple along the table. The apple leaves his hand at 0.56 m s⁻¹, and stops in front of Tony. It takes 4.0 seconds to roll along the table top.\n\nCalculate the acceleration of the apple.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "motion",
+        "acceleration",
+        "kinematics"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "a = −0.14 m s⁻²",
+      "markingGuide": "vf = vi + at → 0 = 0.56 + a × 4 → a = −0.14 m s⁻². Achieved: Correct answer, accept ±0.14 m s⁻²."
+    },
+    {
+      "id": "m24-q3b",
+      "number": "3(b)",
+      "text": "Tony now throws the apple to Jono. The angle of the throw is 40° and the initial velocity is 5 m s⁻¹.\n\nCalculate the vertical and horizontal components of the initial velocity.",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "projectile-motion",
+        "vectors"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "vₓ = 3.8 m s⁻¹, v_y = 3.2 m s⁻¹",
+      "markingGuide": "vₓ = 5 × cos 40° = 3.8 m s⁻¹. v_y = 5 × sin 40° = 3.2 m s⁻¹. Achieved: Calculated either value. But not identified as v_horiz or v_vert. Merit: Both values correctly calculated and identified.",
+      "image": "/images/exams/91171-2024-q3.png"
+    },
+    {
+      "id": "m24-q3ci",
+      "number": "3(c)(i)",
+      "text": "Explain the motion of the apple shown below.\n\nIdentify the type of motion.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "projectile-motion"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Projectile motion or parabolic.",
+      "markingGuide": "Achieved: Correctly identified type of motion (i). OR three equal vertical force arrows labelled at A, B, and C (ii). OR three velocity vectors correct (ii). OR constant horizontal velocity throughout (iii). OR vertical velocity has constant acceleration downwards due to gravity (iii).",
+      "image": "/images/exams/91171-2024-q3c.png"
+    },
+    {
+      "id": "m24-q3cii",
+      "number": "3(c)(ii)",
+      "text": "For the points A, B, and C on the appropriate diagram above, add labelled arrows of appropriate length to show:\n- the force(s), if any, acting on the apple\n- the direction of the velocity of the apple.",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "projectile-motion",
+        "forces",
+        "velocity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "At A, B, and C: Weight force (Fw) downward, same size at all three points.",
+      "markingGuide": "Achieved: Correctly identified type of motion (i). OR three equal force arrows (ii). OR three velocity vectors correct (ii). Merit: TWO of: correctly identified type of motion (i), point (ii) (all arrows correct), point (iii) complete answer. Excellence: Complete explanation of projectile motion, including diagram."
+    },
+    {
+      "id": "m24-q3ciii",
+      "number": "3(c)(iii)",
+      "text": "Describe how the vertical velocity and horizontal velocity of the apple change throughout its flight.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "projectile-motion",
+        "velocity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Horizontal velocity remains constant.",
+      "markingGuide": "Achieved: Constant horizontal velocity throughout. OR vertical velocity has constant acceleration downwards due to gravity."
+    },
+    {
+      "id": "m24-q3d",
+      "number": "3(d)",
+      "text": "The ceiling is 1.5 m above the table surface.\n\nBy calculating the maximum height reached by the apple, as well as the horizontal distance covered, determine whether the apple will reach Tony, 2.0 m away.\n\n(Initial velocity = 5 m s⁻¹ at 40°, vₓ = 3.8 m s⁻¹, v_y = 3.2 m s⁻¹)",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "projectile-motion",
+        "kinematics"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Max height = 0.52 m (below 1.5 m ceiling). Horizontal distance = 2.5 m",
+      "markingGuide": "vₓ = 3.8 m s⁻¹, v_y = 3.2 m s⁻¹. Time to maximum: vf = vi + at → 0 = 3.2 − 9.8t → t = 0.33 s. Max height: d = vi × t + ½at² = 3.2 × 0.33 − ½ × 9.8 × 0.33² = 0.52 m. OR v² = u² + 2as → 0 = 3.2² − 2 × 9.8 × d → d = 0.52 m. Total time = 2 × 0.33 = 0.66 s. Horizontal distance = 0.66 × 3.8 = 2.5 m. So the apple will make the distance without hitting the ceiling. Achieved: Time = 0.33 or 0.66 s found. OR vertical height calculated. Merit: Range calculated. Excellence: Both maximum height and range found, and answer justified. (Accept a justification that infers the apple may be too high for Tony to catch.)"
+    }
+  ]
+}

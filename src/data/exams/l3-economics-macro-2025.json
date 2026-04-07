@@ -1,0 +1,90 @@
+{
+  "id": "l3-economics-macro-2025",
+  "title": "Level 3 Economics Macroeconomics — 2025",
+  "level": 3,
+  "standard": "91403",
+  "year": 2025,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3em25-q1a",
+      "number": "1(a)",
+      "text": "Explain components and determinants of aggregate demand.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate demand",
+        "spending components",
+        "consumption"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Aggregate demand: total spending on goods and services in economy.",
+      "markingGuide": "Identify components and explain what determines each."
+    },
+    {
+      "id": "l3em25-q1b",
+      "number": "1(b)",
+      "text": "Analyse shifts in aggregate supply and price impacts.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate supply shifts",
+        "production costs",
+        "inflation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Supply shifts from technology, input costs, productivity changes.",
+      "markingGuide": "Explain mechanisms by which supply changes affect economy."
+    },
+    {
+      "id": "l3em25-q2a",
+      "number": "2(a)",
+      "text": "Analyse macroeconomic equilibrium and unemployment-inflation trade-off.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "macro equilibrium",
+        "Phillips curve",
+        "policy trade-offs"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Show equilibrium and analyse trade-offs in policy objectives.",
+      "markingGuide": "Evaluate competing macroeconomic objectives and constraints."
+    },
+    {
+      "id": "l3em25-q2b",
+      "number": "2(b)",
+      "text": "Comprehensive macroeconomic analysis with policy implications.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "macro framework",
+        "policy design",
+        "economic performance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Integrate macro analysis with policy design to achieve objectives.",
+      "markingGuide": "Sophisticated assessment of policy options and outcomes."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

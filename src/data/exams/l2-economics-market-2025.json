@@ -1,0 +1,244 @@
+{
+  "id": "l2-economics-market-2025",
+  "title": "L2 Economics: Analyse Inflation (91222) — 2025",
+  "level": 2,
+  "standard": "91222",
+  "year": 2025,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
+  "questions": [
+    {
+      "id": "91222-2025-q1a",
+      "number": "1(a)",
+      "text": "In 2024, there were large-scale job losses and redundancies in New Zealand. These job losses had a flow-on effect on businesses such as cafes and restaurants in city centres.\n\nOn Graph One below, show the impact of job losses in New Zealand on aggregate demand. Fully label all changes.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate demand",
+        "AS/AD model",
+        "unemployment"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91222-2025-q1a-graph.png",
+      "expectedAnswer": "AD shifts left (AD to AD1) due to decreased consumer spending from job losses.",
+      "markingGuide": "Graph One correct — AD decreased to AD1, fully labelled.",
+      "image": "/images/exams/91222-2025-q1a-graph.png"
+    },
+    {
+      "id": "91222-2025-q1b",
+      "number": "1(b)",
+      "text": "Explain the impact of job losses in New Zealand on the price level. Refer to Graph One in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate demand",
+        "price level",
+        "unemployment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Job losses reduce the number of employed people, decreasing consumer spending (a component of AD).",
+      "markingGuide": "Explains decrease in AD due to decreased consumer spending, with reference to Graph One showing lower price level."
+    },
+    {
+      "id": "91222-2025-q1c",
+      "number": "1(c)",
+      "text": "Decreasing petrol prices, including the removal of the 10c per litre Auckland Regional Fuel Tax, have benefitted businesses across the country.\n\nOn Graph Two below, show the impact of decreasing petrol prices in New Zealand on aggregate supply. Fully label all changes.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate supply",
+        "AS/AD model",
+        "costs of production"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91222-2025-q1c-graph.png",
+      "expectedAnswer": "AS shifts right (AS to AS1) due to decreased costs of production.",
+      "markingGuide": "Graph Two correct — AS increased to AS1, fully labelled.",
+      "image": "/images/exams/91222-2025-q1c-graph.png"
+    },
+    {
+      "id": "91222-2025-q1d",
+      "number": "1(d)",
+      "text": "Explain the impact of decreasing petrol prices in New Zealand on the price level. Refer to Graph Two in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate supply",
+        "costs of production",
+        "price level"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Decreasing petrol prices reduce costs of production for businesses that use petrol/delivery in...",
+      "markingGuide": "Explains the increase in AS due to decreasing costs of production, with reference to Graph Two."
+    },
+    {
+      "id": "91222-2025-q1e",
+      "number": "1(e)",
+      "text": "Explain whether job losses or decreasing petrol prices will have a bigger effect on the price level in New Zealand. Refer to Graphs One and Two in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "aggregate demand",
+        "aggregate supply",
+        "price level",
+        "inflation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Decreasing petrol prices will have a bigger effect. Job losses are temporary",
+      "markingGuide": "Fully explains why job losses/consumer spending impact may be comparatively smaller than petrol price/costs of production impact, integrating changes on both graphs."
+    },
+    {
+      "id": "91222-2025-q2a",
+      "number": "2(a)",
+      "text": "The following figures show New Zealand's inflation rate from 2022 to 2024: 2022: 7.2%, 2023: 4.7%, 2024: 2.2%.\n\nUse the figures above to explain the difference between disinflation and deflation.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "disinflation",
+        "deflation",
+        "inflation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Deflation is a decrease in the price level (negative inflation rate).",
+      "markingGuide": "Defines deflation and disinflation correctly, using the provided data to distinguish between them."
+    },
+    {
+      "id": "91222-2025-q2b",
+      "number": "2(b)",
+      "text": "Explain one reason why the change in inflation rate from 2022 to 2024 is positive for the New Zealand economy.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "disinflation",
+        "economic benefits"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Lower inflation allows consumers and businesses to make better decisions about spending, saving,...",
+      "markingGuide": "Identifies a reason why lower inflation is good — e.g., consumer/business confidence, purchasing power, investment."
+    },
+    {
+      "id": "91222-2025-q2c",
+      "number": "2(c)",
+      "text": "In response to the slowing of inflation rates and slowing economic activity, the Reserve Bank of New Zealand has been decreasing the Official Cash Rate, resulting in decreasing interest rates.\n\nExplain why decreasing interest rates may increase the velocity of circulation in New Zealand.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "interest rates",
+        "velocity of circulation",
+        "monetary policy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Lower interest rates make borrowing cheaper and saving less rewarding.",
+      "markingGuide": "Links lower interest rates with increased borrowing/spending, leading to higher velocity of circulation."
+    },
+    {
+      "id": "91222-2025-q2d",
+      "number": "2(d)",
+      "text": "Using the quantity theory of money, explain how an increasing velocity of circulation will impact inflation in New Zealand.\n\nIn your answer:\n- state the quantity theory of money\n- explain how inflation will be impacted if the velocity of circulation increases but other variables remain constant\n- explain how inflation will be impacted if the velocity of circulation increases and the level of real GDP increases.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": [
+        "quantity theory of money",
+        "velocity of circulation",
+        "inflation",
+        "real GDP"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "MV = PQ. If V increases and M and Q constant, P must increase proportionally",
+      "markingGuide": "States MV=PQ. Explains V increase alone raises P. Then explains when both V and Q increase, the effect on P depends on relative magnitudes.",
+      "image": "/images/exams/91222-2025-q2d-info.png"
+    },
+    {
+      "id": "91222-2025-q3a",
+      "number": "3(a)",
+      "text": "What does CPI stand for?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "CPI",
+        "consumer price index"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Consumer Price Index.",
+      "markingGuide": "Correctly identifies CPI."
+    },
+    {
+      "id": "91222-2025-q3b",
+      "number": "3(b)",
+      "text": "Explain how the CPI is used to calculate the rate of inflation in New Zealand.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "CPI",
+        "inflation measurement"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The CPI measures changes in the price of a weighted basket of goods and services over time",
+      "markingGuide": "Explains weighted basket, compared over time, percentage change."
+    },
+    {
+      "id": "91222-2025-q3c",
+      "number": "3(c)",
+      "text": "Explain why the rate of inflation, as calculated by the CPI, does not affect all households equally.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "CPI",
+        "inflation impact",
+        "households"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The CPI basket reflects average spending patterns.",
+      "markingGuide": "Identifies that households spend differently — CPI basket does not reflect individual spending patterns."
+    },
+    {
+      "id": "91222-2025-q3d",
+      "number": "3(d)",
+      "text": "Explain one reason why government revenue might increase during a time of high inflation.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "inflation",
+        "government revenue",
+        "taxation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Higher inflation increases nominal prices, raising GST revenue.",
+      "markingGuide": "Identifies that inflation increases GST revenue or income tax through fiscal drag."
+    },
+    {
+      "id": "91222-2025-q3e",
+      "number": "3(e)",
+      "text": "Compare and contrast the impact of high inflation on low-income and on high-income households.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "inflation",
+        "income distribution",
+        "inequality"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Low-income households spend a larger proportion on essentials (food, housing).",
+      "markingGuide": "Compares and contrasts effects on both groups with specific examples."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "l2-biology-life-2024",
+  "title": "Level 2 Biology — Life Processes at the Cellular Level (2024)",
+  "level": 2,
+  "standard": "91156",
+  "year": 2024,
+  "subject": "biology",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "bl24-q1a",
+      "number": "1(a)",
+      "text": "Write the word equation or the chemical equation for aerobic respiration.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "cellular-respiration",
+        "aerobic-respiration"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Glucose + oxygen -> carbon dioxide + water + energy / ATP.",
+      "markingGuide": "Achieved: Correct word equation (glucose + oxygen -> carbon dioxide + water + energy / ATP) or correct non-balanced/balanced symbol equation, or a mixture of symbol and word equation. Accept adenosine triphosphate (ATP)."
+    },
+    {
+      "id": "bl24-q1b",
+      "number": "1(b)",
+      "text": "Phoneutria is a genus of spiders mainly found in South America, commonly referred to as Brazilian wandering spiders.\n\nThe sensitive hairs on their bodies help detect vibrations of passing prey, and they can feed on insects, lizards, and frogs. During the day, they will hide for many hours under logs, rocks, or inside termite mounds and banana plants.\n\nThese spiders are known for their remarkable speed and agility, and are considered to be one of the fastest spiders in the world. When capturing prey or escaping from predators, they can move at speeds of up to 50 cm per second.\n\nDiscuss the processes of anaerobic and aerobic respiration, linking them to the activities of the Brazilian wandering spider.\n\nIn your answer, include discussion of:\n- the processes of anaerobic respiration and aerobic respiration in the Brazilian wandering spider, including where in the cell each form of respiration takes place\n- why the Brazilian wandering spider can only carry out anaerobic respiration for short periods of time when attacking or escaping\n- the advantages and disadvantages associated with the Brazilian wandering spider using both anaerobic and aerobic respiration.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "cellular-respiration",
+        "aerobic-respiration",
+        "anaerobic-respiration"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Anaerobic respiration occurs in the cytoplasm and produces ATP quickly but inefficiently (2 ATP...",
+      "markingGuide": "Achieved (A3-A4): Describes aerobic respiration (text or word/non-balanced symbol equation) AND anaerobic respiration (text or word/non-balanced symbol equation); where aerobic respiration (cytoplasm AND mitochondria) takes place; an advantage of anaerobic respiration; both types of respiration are useful because they work with each other; a disadvantage of anaerobic respiration; a disadvantage of aerobic respiration. Merit (M5-M6): Explains anaerobic respiration making links to the role of O₂ being absent and the location in cells; an advantage of anaerobic respiration (e.g. get energy fast without need for oxygen; explosive energy for attacking or escaping at high speed for short duration); a disadvantage (e.g. short-term, low ATP per glucose, lactic acid builds up); an advantage of aerobic respiration (e.g. more energy, can sustain energy for a long period of time); a disadvantage (e.g. requires oxygen getting to all the cells, which takes time); why there is a need for both systems/forms of respiration. Excellence (E7-E8): Discusses where and when anaerobic and aerobic respiration occurs, making links to when the spider is moving quickly/attacking/escaping vs resting/prolonged movement; the advantages and disadvantages of aerobic and anaerobic respiration to the spider."
+    },
+    {
+      "id": "bl24-q2a",
+      "number": "2(a)",
+      "text": "Label the key parts of the chloroplast in the diagram below.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "photosynthesis",
+        "cell-organelles"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91156-2024-q2a.png",
+      "expectedAnswer": "1. Outer membrane, 2. Stroma, 3. Thylakoid / Granum (stack of thylakoids).",
+      "markingGuide": "Achieved: Three out of five labels correct. Labels include: outer membrane, stroma, thylakoid/granum, inner membrane, and lamella/thylakoid membrane."
+    },
+    {
+      "id": "bl24-q2b",
+      "number": "2(b)",
+      "text": "Leaves of some plants that grow in the shade are known as 'shade leaves'. These leaves can be up to five times more efficient in capturing and using the same amount of sunlight as plants whose leaves grow in direct sunlight, which are known as 'sun leaves'.\n\nShade leaves lose water more quickly than sun leaves when all environmental conditions are the same. Shade leaves are generally larger in area but thinner than sun leaves. Shade leaves also tend to have larger chloroplasts, as well as more chloroplasts within each cell, compared to leaves that grow in full sunlight.\n\nWith reference to the information above, evaluate how leaf structure, and the size and number of chloroplasts within plant cells, can be influenced by the availability of light.\n\nIn your answer, include discussion of:\n- the process of photosynthesis, describing its key stages\n- the correlation between the size and number of chloroplasts in shade leaves and sun leaves, and how this size and number difference is linked to photosynthesis\n- why shade leaves would lose water more quickly than sun leaves under the same environmental conditions.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "photosynthesis",
+        "cell-organelles",
+        "plant-biology"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Photosynthesis occurs in two stages: the light-dependent phase in the thylakoid membranes...",
+      "markingGuide": "Achieved (A3-A4): The process of photosynthesis (correct word equation / provides unbalanced symbol equation); part of the light-dependent reaction (e.g. uses light energy absorbed by chlorophyll); part of the light-independent reaction (e.g. reacts carbon dioxide); the light-dependent phase as occurring in the thylakoid/grana; the light-independent phase as occurring in the stroma; the difference in light intensity between shade leaves and sun leaves; that more (larger)/less (smaller) chloroplasts will mean more/less photosynthesis (no explanation given); stomata function/location/density. Merit (M5-M6): Explains the light-dependent phase and where it occurs (e.g. light energy is absorbed by chlorophyll and splits the water molecule into oxygen and hydrogen, and produces NADH and ATP); occurs in grana/thylakoid membrane; the light-independent phase and where it occurs (e.g. stored energy from the light-dependent phase is used to fix carbon from carbon dioxide, which combines with the H₊ to produce glucose); occurs in the stroma; why sun leaves will have fewer and smaller chloroplasts; why shade leaves will have more and larger chloroplasts; how/why water loss occurs in sun leaves/shade leaves. Excellence (E7-E8): Discusses the key phases of photosynthesis and why the availability of light is important; sun leaves vs shade leaves with respect to their chloroplast number and size, linking to photosynthesis; the difference in water loss rates for sun leaves and shade leaves, making comparisons and contrasts."
+    },
+    {
+      "id": "bl24-q3",
+      "number": "3",
+      "text": "In both plants and animals, cells undergo a cycle of growth, followed by division.\n\nEvaluate the impact of changes in the surface area to volume ratio on the diffusion process, and why changes in this ratio may trigger cell division.\n\nIn your answer, include discussion of:\n- the process of diffusion and its role in cellular activities\n- how and why the surface area to volume ratio undergoes changes during the growth of a cell\n- how the surface area to volume ratio influences the movement of substances into and out of the cell\n- the relationship between the surface area to volume ratio, diffusion, and the initiation of cell division, giving examples of when cell division rates are high in both plants and animals.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "cell-division",
+        "diffusion",
+        "surface-area-volume-ratio"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91156-2024-q3.png",
+      "expectedAnswer": "Diffusion is the passive movement of molecules from high to low concentration.",
+      "markingGuide": "Achieved (A3-A4): Describes the process of diffusion as the movement of particles from a region of higher concentration to a region of lower concentration down the concentration gradient; diffusion as a passive process requiring no energy; that diffusion occurs across a (semi-)permeable membrane and is involved in the movement of important molecules into/out of cells; a way that SA:Vol ratio changes (cell growth/division); that smaller cells/cells with higher SA:Vol ratio have more effective diffusion OR that larger cells/cells that have lower SA:Vol ratio have less effective diffusion; an example of high cell division rate in an animal/plant. Merit (M5-M6): Explains the purpose of diffusion; changes to the SA:Vol ratio as a cell grows; why SA:Vol ratio affects the movement of materials into/out of a cell; why cells must divide once they reach a certain size; an example of cell type/system (e.g. tracheal system in insects) linked to cell division rates/diffusion. Excellence (E7-E8): Discusses the proper functioning of cells, showing linked ideas, for example: increased SA:Vol ratios affect diffusion; effective transport of materials into/out of cells; smaller SA:Vol ratios are not effective at transporting key materials (carbon dioxide for photosynthesis/oxygen for respiration); appropriate examples of high cell division rates, including animal/plant examples to support their discussion."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

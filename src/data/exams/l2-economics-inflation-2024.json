@@ -1,0 +1,245 @@
+{
+  "id": "l2-economics-inflation-2024",
+  "title": "L2 Economics: Analyse International Trade (91223) — 2024",
+  "level": 2,
+  "standard": "91223",
+  "year": 2024,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
+  "questions": [
+    {
+      "id": "91223-2024-q1a",
+      "number": "1(a)",
+      "text": "On Graph One below, show the impact of the lower world price of lamb on exports. Label the new level of exports as X1.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "price taker model",
+        "exports",
+        "world price"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91223-2024-q1a-graph.png",
+      "expectedAnswer": "Draw a new lower world price line (Pw1) below Pw.",
+      "markingGuide": "New Pw1 shown below Pw. X1 labelled correctly showing decreased exports.",
+      "image": "/images/exams/91223-2024-q1a-graph.png"
+    },
+    {
+      "id": "91223-2024-q1b",
+      "number": "1(b)",
+      "text": "Referring to Graph One, explain how the lower world price of lamb affects the quantity of exports from New Zealand.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "price taker model",
+        "exports",
+        "world price"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "At the lower world price (Pw1), NZ producers supply less lamb (movement along SNZ)",
+      "markingGuide": "Explains that lower Pw reduces quantity supplied and increases quantity demanded, reducing exports."
+    },
+    {
+      "id": "91223-2024-q1c",
+      "number": "1(c)",
+      "text": "Referring to Graph One, explain how the lower world price of lamb affects the amount of export receipts.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "export receipts",
+        "world price",
+        "price taker model"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Export receipts = price x quantity of exports.",
+      "markingGuide": "Explains that both price and quantity of exports decrease, reducing total export receipts."
+    },
+    {
+      "id": "91223-2024-q1d",
+      "number": "1(d)",
+      "text": "Compare and contrast the impact of the lower world price on New Zealand producers and New Zealand consumers of lamb. Refer to Graph One in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "price taker model",
+        "producers",
+        "consumers",
+        "world price"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ consumers benefit",
+      "markingGuide": "Compares and contrasts impacts on both groups with reference to Graph One — consumers gain, producers lose."
+    },
+    {
+      "id": "91223-2024-q2a",
+      "number": "2(a)",
+      "text": "Explain one possible reason why New Zealand's two-way trade with India is much less than with China.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "two-way trade",
+        "trading partners"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ has a Free Trade Agreement with China but not India, making trade with China cheaper...",
+      "markingGuide": "Identifies a valid reason — e.g., FTA with China, tariff barriers, size of economies, distance, historical trade relationships."
+    },
+    {
+      "id": "91223-2024-q2b",
+      "number": "2(b)",
+      "text": "On Graph Two, label the:\n- trade price (Pt)\n- amounts of exports and imports in each country (X and M).",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "two-country model",
+        "trade price",
+        "exports",
+        "imports"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91223-2024-q2-graph.png",
+      "expectedAnswer": "Trade price (Pt) drawn between PNZ and PIND on both graphs",
+      "markingGuide": "Pt correctly placed between domestic prices. X and M correctly labelled in respective countries."
+    },
+    {
+      "id": "91223-2024-q2ci",
+      "number": "2(c)(i)",
+      "text": "Referring to Graph Two, explain the impact of exporting wood products on revenue gained by New Zealand wood producers.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "two-country model",
+        "export revenue",
+        "producers"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ wood producers gain revenue",
+      "markingGuide": "Explains that higher trade price increases producer revenue with reference to Graph Two."
+    },
+    {
+      "id": "91223-2024-q2cii",
+      "number": "2(c)(ii)",
+      "text": "Referring to Graph Two, explain the impact of exporting wood products on the current account balance.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "current account",
+        "exports",
+        "balance of trade"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Exporting wood products earns export receipts for NZ,",
+      "markingGuide": "Explains that exports generate receipts that improve the current account balance."
+    },
+    {
+      "id": "91223-2024-q2d",
+      "number": "2(d)",
+      "text": "Explain how the export of wood products to India may impact resource allocation between the New Zealand wood industry and other agricultural export industries.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "resource allocation",
+        "opportunity cost",
+        "trade"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increased demand for wood exports to India means more resources (land, labour, capital) are...",
+      "markingGuide": "Explains reallocation of resources towards wood and away from other industries, with reference to opportunity cost."
+    },
+    {
+      "id": "91223-2024-q3a",
+      "number": "3(a)",
+      "text": "Identify one country that New Zealand has a free trade agreement with.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "free trade agreements"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Any valid country, e.g., Australia, China, Singapore, South Korea, ASEAN members, UK, EU.",
+      "markingGuide": "Names a valid FTA partner country."
+    },
+    {
+      "id": "91223-2024-q3b",
+      "number": "3(b)",
+      "text": "Explain how a tariff on New Zealand dairy exports protects India's dairy producers.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "tariffs",
+        "trade protection",
+        "dairy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A tariff increases the price of NZ dairy imports in India, making them more expensive relative...",
+      "markingGuide": "Explains that the tariff raises the import price, protecting domestic Indian producers from cheaper NZ competition."
+    },
+    {
+      "id": "91223-2024-q3c",
+      "number": "3(c)",
+      "text": "One option is for New Zealand to pursue an 'Early Harvest' deal with India. This means that the two countries can agree on some areas of trade, and leave the more difficult issues, such as dairy products, for later. If this deal occurs, it could lead to a significant increase in exports for New Zealand.\n\nOn Graph Three below, show the impact on the exchange rate of a large increase in exports to India.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "exchange rate",
+        "exports",
+        "demand and supply of currency"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91223-2024-q3c-graph.png",
+      "expectedAnswer": "Demand for NZD (DNZ) shifts right as India needs to buy NZD to pay for increased NZ exports",
+      "markingGuide": "DNZ shifts right, exchange rate increases (appreciates). New equilibrium correctly labelled.",
+      "image": "/images/exams/91223-2024-q3c-graph.png"
+    },
+    {
+      "id": "91223-2024-q3d",
+      "number": "3(d)",
+      "text": "Explain the impact on the exchange rate of a large increase in New Zealand's exports to India. Refer to Graph Three in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "exchange rate",
+        "appreciation",
+        "exports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increased NZ exports to India means Indians need to buy more NZD to pay for these exports.",
+      "markingGuide": "Explains increased demand for NZD due to exports, leading to appreciation, with reference to Graph Three."
+    },
+    {
+      "id": "91223-2024-q3e",
+      "number": "3(e)",
+      "text": "The change in exchange rate will impact businesses that interact with the Indian market.\n\nBusiness A imports specialty Indian foods to sell in New Zealand.\nBusiness B offers guided package tours of India to New Zealand tourists. The package includes accommodation, food, and tourist activities.\n\nCompare and contrast the impact of the exchange rate change you identified on Graph Three on Business A and Business B.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "exchange rate",
+        "importers",
+        "tourism",
+        "appreciation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZD appreciation means each NZD buys more rupees. Business A (importer) benefits",
+      "markingGuide": "Compares and contrasts impact on both businesses — both benefit from NZD appreciation but in different ways (goods vs services)."
+    }
+  ]
+}

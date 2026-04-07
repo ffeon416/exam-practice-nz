@@ -1,0 +1,276 @@
+{
+  "id": "l3-chemistry-equilibrium-2024",
+  "title": "Level 3 Chemistry — Equilibrium 2024",
+  "level": 3,
+  "standard": "91392",
+  "year": 2024,
+  "subject": "chemistry",
+  "timeMinutes": 50,
+  "questions": [
+    {
+      "id": "l3ce24-q1ai",
+      "number": "1(a)(i)",
+      "text": "Write the equation for the equilibrium occurring in a saturated solution of silver sulfate, Ag₂SO₄.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "equilibrium",
+        "solubility",
+        "Ksp"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Ag₂SO₄(s) ⇌ 2Ag⁺(aq) + SO₄²⁻(aq)",
+      "markingGuide": "Achievement: Correct equilibrium equation."
+    },
+    {
+      "id": "l3ce24-q1aii",
+      "number": "1(a)(ii)",
+      "text": "Write the expression for Kₛ(Ag₂SO₄).",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "equilibrium",
+        "solubility",
+        "Ksp"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Kₛ = [Ag⁺]²[SO₄²⁻]",
+      "markingGuide": "Achievement: Correct Kₛ expression."
+    },
+    {
+      "id": "l3ce24-q1aiii",
+      "number": "1(a)(iii)",
+      "text": "Calculate the solubility of Ag₂SO₄ in water at 25 °C, and give [Ag⁺] and [SO₄²⁻].\n\nKₛ(Ag₂SO₄) = 1.20 × 10⁻⁵",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "equilibrium",
+        "solubility",
+        "Ksp-calculation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Let solubility be s.",
+      "markingGuide": "Achievement: Correct process for determining solubility. Merit: Correct solubility, and [Ag⁺] and [SO₄²⁻], including unit and significant figures (2–4)."
+    },
+    {
+      "id": "l3ce24-q1bi",
+      "number": "1(b)(i)",
+      "text": "Below is a list of solutions of the same concentration available for a student to add to a saturated solution of Ag₂SO₄:\n\nHNO₃(aq), Na₂SO₄(aq), NH₃(aq), KNO₃(aq)\n\nSelect and justify, including any relevant equations, an appropriate solution the student could add to increase the solubility of Ag₂SO₄.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "solubility",
+        "common-ion-effect"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Add NH₃.",
+      "markingGuide": "Achievement: Recognises Ag⁺ can form a complex ion with NH₃. Merit: Explains that the formation of a complex ion removes Ag⁺ from equilibrium / causes decrease in [Ag⁺]. Excellence: Uses equilibrium principles to justify the choice, including equation for complex ion formation."
+    },
+    {
+      "id": "l3ce24-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Select and justify, including any relevant equations, an appropriate solution the student could add to decrease the solubility of Ag₂SO₄.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "equilibrium",
+        "solubility",
+        "common-ion-effect"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Add Na₂SO₄.",
+      "markingGuide": "Achievement: Recognises SO₄²⁻ is a common ion / [SO₄²⁻] increases. Merit: Explains that increase in [SO₄²⁻] favours the reverse reaction."
+    },
+    {
+      "id": "l3ce24-q1c",
+      "number": "1(c)",
+      "text": "Predict, by calculation, whether a precipitate of silver sulfate, Ag₂SO₄, will form when 20.0 mL of 0.0188 mol L⁻¹ silver nitrate, AgNO₃, is added to 30.0 mL of 0.0146 mol L⁻¹ aluminium sulfate, Al₂(SO₄)₃.\n\nKₛ(Ag₂SO₄) = 1.20 × 10⁻⁵",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "solubility",
+        "ion-product"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "[Ag⁺] = (20/50) × 0.0188 = 7.52 × 10⁻³ mol L⁻¹.",
+      "markingGuide": "Achievement: EITHER correct [Ag⁺] OR [SO₄²⁻]. Correct comparison of IP with Kₛ. Merit: Correct process to calculate IP and compare with Kₛ but does not multiply [SO₄²⁻] by 3. Excellence: Correct calculation (accept 2–4 significant figures), and comparison with Kₛ to show that Ag₂SO₄ will not form a precipitate."
+    },
+    {
+      "id": "l3ce24-q2ai",
+      "number": "2(a)(i)",
+      "text": "List all the species present in a solution of sodium ethanoate, CH₃COONa, in order of decreasing concentration. Do not include water.\n\nNa⁺ > ___ > ___ = ___ > OH⁻ > ___",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "equilibrium",
+        "acid-base",
+        "hydrolysis"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Na⁺ > CH₃COO⁻ > CH₃COOH = OH⁻ > H₃O⁺.",
+      "markingGuide": "Achievement: ALL three correct.",
+      "image": "/images/exams/91392-2024-q2a.png"
+    },
+    {
+      "id": "l3ce24-q2aii",
+      "number": "2(a)(ii)",
+      "text": "Sodium ethanoate can be mixed with ethanoic acid, CH₃COOH, to form a buffer solution.\n\nExplain how this buffer solution would react upon the addition of a small volume of hydrobromic acid, HBr, including a balanced equation(s) to support your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "equilibrium",
+        "buffer",
+        "acid-base"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "When a small volume of HBr is added, the basic component of the buffer, CH₃COO⁻, will react with...",
+      "markingGuide": "Achievement: Identifies the acid / H₃O⁺ ions are removed / neutralised by the buffer. Merit: Explains that the CH₃COO⁻ neutralises / reacts with the H₃O⁺/HBr."
+    },
+    {
+      "id": "l3ce24-q2aiii",
+      "number": "2(a)(iii)",
+      "text": "Calculate the mass of sodium ethanoate that must be added to 250 mL of 0.354 mol L⁻¹ CH₃COOH to give a buffer solution with a pH of 4.11.\nAssume there is no change in volume when the solid is added.\n\nKₐ(CH₃COOH) = 1.74 × 10⁻⁵   pKₐ(CH₃COOH) = 4.76   M(CH₃COONa) = 82.0 g mol⁻¹",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "buffer",
+        "Henderson-Hasselbalch"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺.",
+      "markingGuide": "Achievement: Correctly substitutes into Kₐ expression / other suitable equation. Merit: Correct process to determine mass with minor error. Excellence: Explains how the CH₃COO⁻ neutralises / reacts with the H₃O⁺, with supporting equation, AND correctly calculates mass including correct unit and significant figures (accept 2–4)."
+    },
+    {
+      "id": "l3ce24-q2b",
+      "number": "2(b)",
+      "text": "Three colourless 0.110 mol L⁻¹ solutions of CH₃NH₂, CH₃COOH, and NH₄Cl have lost their labels. The solutions are randomly labelled A, B, and C. The electrical conductivity of each solution, and the colour of the solution when the acid-base indicator bromothymol blue (pKₐ = 7.2) was added, are shown in the table below.\n\nSolution A: Poor conductivity, Yellow with bromothymol blue\nSolution B: Poor conductivity, Blue with bromothymol blue\nSolution C: Good conductivity, Yellow with bromothymol blue\n\nIdentify the three solutions.\nJustify your identification in terms of the degree of dissociation and the relative concentration of ions in each solution, including relevant equations.\nNo calculations are necessary.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "acid-base",
+        "conductivity",
+        "indicators"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Solution A is CH₃COOH: A weak acid that only partially dissociates, so low [CH₃COO⁻] and [H₃O⁺]...",
+      "markingGuide": "Achievement: Recognises that ions are required for a solution to conduct electricity. Recognises that CH₃COOH and NH₄Cl are both acidic (yellow). Merit: Links electrical conductivity to degree of dissociation and [ions] for TWO solutions. Links colour change for TWO solutions to [H₃O⁺] or [OH⁻]. Excellence: Justifies the correct identification of ALL THREE solutions with reference to degree of dissociation, relative [ions], comparison of [H₃O⁺] and [OH⁻], and relevant equations.",
+      "image": "/images/exams/91392-2024-q2b.png"
+    },
+    {
+      "id": "l3ce24-q3ai",
+      "number": "3(a)(i)",
+      "text": "A titration was carried out by adding 0.169 mol L⁻¹ sodium hydroxide, NaOH, to 25.0 mL of 0.135 mol L⁻¹ hydrofluoric acid, HF.\n\nThe equation for the reaction is:\nHF + NaOH → NaF + H₂O\n\nKₐ(HF) = 6.76 × 10⁻⁴   pKₐ(HF) = 3.17\n\nShow, by calculation, that the initial pH of the HF solution is 2.02.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "equilibrium",
+        "acid-base",
+        "pH-calculation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "HF + H₂O ⇌ F⁻ + H₃O⁺.",
+      "markingGuide": "Achievement: Correctly substitutes into Kₐ expression. Merit: Correctly calculates pH.",
+      "image": "/images/exams/91392-2024-q3.png"
+    },
+    {
+      "id": "l3ce24-q3aii",
+      "number": "3(a)(ii)",
+      "text": "Sketch the missing portion of the titration curve between 0 and 17.5 mL to complete the curve provided above.\nConsider the initial pH, the pH after 10.0 mL of NaOH has been added, and the shape of the curve.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "equilibrium",
+        "titration",
+        "titration-curve"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The curve starts at pH 2.02 (calculated above)",
+      "markingGuide": "Achievement: At least ONE pH point plotted correctly. Merit: BOTH points plotted correctly with correctly drawn shape of curve."
+    },
+    {
+      "id": "l3ce24-q3bi",
+      "number": "3(b)(i)",
+      "text": "After a certain volume of NaOH has been added, the HF and NaF are present in a 1:9 ratio in the solution.\n\nCalculate the pH of this solution, and evaluate its buffering ability.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "buffer",
+        "pH-calculation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "HF + H₂O ⇌ F⁻ + H₃O⁺.",
+      "markingGuide": "Achievement: Correct process to calculate pH. Recognises solution is more effective at neutralising strong acid / pH falls in the buffer range. Merit: Correct pH and explanation of buffer's effectiveness. Excellence: Correct pH and evaluates the effectiveness of the buffer AND justifies ONE reason why the pH rapidly increases from 18–22 mL."
+    },
+    {
+      "id": "l3ce24-q3bii",
+      "number": "3(b)(ii)",
+      "text": "Justify why the pH increases rapidly between 18.0 mL and 22.0 mL.\nNo calculations are necessary.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "titration",
+        "equivalence-point"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Between 18 and 20 mL, the buffer solution is no longer effective",
+      "markingGuide": "Achievement: Recognises the solution is no longer a buffer from 18–20 mL. OR recognises the NaOH is not neutralised after 20 mL. Merit: Explains why the pH increases from 18–20 mL because the buffer solution no longer functions effectively. OR explains that after 20 mL, since all the HF is neutralised, the NaOH is in excess."
+    },
+    {
+      "id": "l3ce24-q3ci",
+      "number": "3(c)(i)",
+      "text": "Calculate the pH at the equivalence point.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "equilibrium",
+        "titration",
+        "equivalence-point",
+        "pH-calculation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "At the equivalence point, all HF has been converted to NaF. F⁻ + H₂O ⇌ HF + OH⁻",
+      "markingGuide": "Achievement: Correct process to calculate pH of a basic solution. Merit: Calculates pH but does not appropriately dilute the solution. Excellence: Correctly calculates pH at the equivalence point."
+    },
+    {
+      "id": "l3ce24-q3cii",
+      "number": "3(c)(ii)",
+      "text": "In a second titration, 25.0 mL of 0.135 mol L⁻¹ ethanoic acid, CH₃COOH, is titrated with the 0.169 mol L⁻¹ NaOH solution.\n\nKₐ(CH₃COOH) = 1.74 × 10⁻⁵   pKₐ(CH₃COOH) = 4.76\n\nPredict how the pH at the equivalence point will compare to the titration with HF by circling one answer below.\n\n    Lower pH        Same pH        Higher pH\n\nExplain your choice.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "equilibrium",
+        "titration",
+        "equivalence-point",
+        "Ka"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Higher pH.",
+      "markingGuide": "Achievement: Recognises CH₃COOH is a weaker acid than HF. Merit: Links pH at equivalence point to magnitude of Kₐ and degree of dissociation of the ethanoate ion / [OH⁻]. Excellence: Correctly calculates pH at the equivalence point AND explains why the equivalence point will be higher if HF is replaced with CH₃COOH, with reference to magnitude of Kₐ, degree of dissociation, and [H₃O⁺]."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

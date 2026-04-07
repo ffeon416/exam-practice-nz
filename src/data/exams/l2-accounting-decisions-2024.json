@@ -1,0 +1,262 @@
+{
+  "id": "l2-accounting-decisions-2024",
+  "title": "Level 2 Accounting Prepare Financial Information — 2024",
+  "level": 2,
+  "standard": "91176",
+  "year": 2024,
+  "subject": "accounting",
+  "timeMinutes": 90,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l2ad24-q1a-i",
+      "number": "1(a)(i)",
+      "text": "Question ONE relates to Gigi's Games Galore. Refer to Resource Booklet A.\n\nComplete the following general journal entries. Narrations have been provided.\n\nRecord the office wages owing: $1,500.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "accrued expenses",
+        "wages owing"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Office wages 1,500 / Cr Accrued expenses 1,500.",
+      "markingGuide": "S: Correct stem (account names). V: Correct $ amount for both entries."
+    },
+    {
+      "id": "l2ad24-q1a-ii",
+      "number": "1(a)(ii)",
+      "text": "Record the invoices issued for sales not yet recorded $1,610 including GST. The inventory cost price $640 excluding GST has been done for you.\n\n(Cost of goods sold entry already provided: Dr COGS 640 / Cr Inventory 640)",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "credit sales",
+        "GST"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Accounts receivable 1,610 / Cr Sales 1,400 / Cr GST payable 210.",
+      "markingGuide": "S: Correct account names. V: Correct amounts ($1,400 sales excl GST, $210 GST, $1,610 total). C: Correct Dr/Cr columns."
+    },
+    {
+      "id": "l2ad24-q1b",
+      "number": "1(b)",
+      "text": "Complete the prepayments general ledger account, showing all entries at 31 March 2024 including a closing entry if relevant.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general ledger",
+        "prepayments"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Opening balance Dr, adjustment entries (advertising 340, rates 600), closing balance carried down.",
+      "markingGuide": "S: Correct stems. V: Correct $ amounts. C: Correct Dr/Cr sides. T: Closing entry with correct balance."
+    },
+    {
+      "id": "l2ad24-q1c",
+      "number": "1(c)",
+      "text": "Complete the Income Statement for Gigi's Games Galore for the year ended 31 March 2024. You have been provided with the total for administrative expenses and do not need to complete this section.",
+      "marks": 10,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Income Statement",
+        "revenue",
+        "expenses",
+        "gross profit"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-decisions-2024/income-statement-template.png"
+      ],
+      "expectedAnswer": "Revenue: Sales $482,300 less sales returns ($17,000) = Net sales $465,300.",
+      "markingGuide": "V: Correct figures. S: Correct account names/stems. C: Correct classification of items. T: Correct two-step calculations (e.g., COGS). P: Correct layout, subtotals, and fit for purpose."
+    },
+    {
+      "id": "l2ad24-q2a-i",
+      "number": "2(a)(i)",
+      "text": "Question TWO relates to Gigi's Games Galore. Refer to Resource A.\n\nComplete the general journal entries.\n\nRecord the invoice received for repairs and maintenance: $414 including GST.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "repairs and maintenance",
+        "GST"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Repairs and maintenance 360 / Dr GST payable 54 / Cr Accounts payable 414.",
+      "markingGuide": "S: Correct stems. V: Correct amounts. C: Correct Dr/Cr."
+    },
+    {
+      "id": "l2ad24-q2a-ii",
+      "number": "2(a)(ii)",
+      "text": "Record the closing entry for doubtful debts.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "doubtful debts",
+        "closing entry"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Income summary 34 / Cr Doubtful debts 34.",
+      "markingGuide": "S: Correct stems. V: Correct amount ($34). T: Correct treatment as closing entry."
+    },
+    {
+      "id": "l2ad24-q2b",
+      "number": "2(b)",
+      "text": "Complete the inventory general ledger account, showing all entries at 31 March 2024 including a closing entry if relevant.\n\nOpening balance: 31/3/24 Balance 18,320 Dr.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "general ledger",
+        "inventory"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr: Balance 18,320.",
+      "markingGuide": "S: Correct stems. V: Correct amounts. T: Two-step calculation of final balance. C: Correct Dr/Cr."
+    },
+    {
+      "id": "l2ad24-q2c",
+      "number": "2(c)",
+      "text": "Complete the Note 2: Property, plant, and equipment (extract) of the Statement of Financial Position for Gigi's Games Galore as at 31 March 2024.\n\nOffice equipment: Opening carrying amount $5,020.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "PPE note",
+        "Statement of Financial Position",
+        "depreciation",
+        "disposals"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-decisions-2024/ppe-note-template.png"
+      ],
+      "expectedAnswer": "Opening $5,020 + Additions $2,600 - Disposals ($1,080) - Depreciation ($591) = Closing carrying...",
+      "markingGuide": "V: Correct figures. S: Correct stems. T: Correct calculation. P: Correct treatment and fit for purpose."
+    },
+    {
+      "id": "l2ad24-q2d",
+      "number": "2(d)",
+      "text": "Complete the Liabilities section of the Statement of Financial Position for Gigi's Games Galore as at 31 March 2024.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Statement of Financial Position",
+        "liabilities",
+        "current vs non-current"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l2-accounting-decisions-2024/liabilities-template.png"
+      ],
+      "expectedAnswer": "Current liabilities: Accounts payable $7,994, GST payable $6,146, Accrued expenses $3,748,...",
+      "markingGuide": "V: Correct figures. S: Correct account names. C: Correct current/non-current classification. T: Correct totals. P: Fit for purpose layout."
+    },
+    {
+      "id": "l2ad24-q2e",
+      "number": "2(e)",
+      "text": "Complete the Equity section of the Statement of Financial Position for Gigi's Games Galore as at 31 March 2024.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Statement of Financial Position",
+        "equity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Opening capital $222,340 + Profit for year $123,464 = $345,804 - Drawings $82,500 = Closing...",
+      "markingGuide": "V: Correct figures. S: Correct stems. P: Fit for purpose with correct equity calculation process."
+    },
+    {
+      "id": "l2ad24-q3a",
+      "number": "3(a)",
+      "text": "Question THREE relates to Funtime First Learners. Refer to Resource Booklet B.\n\nComplete the general journal entry to record the dividends received that are owed from EduRight Ltd: $800. The narration has been provided for you.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general journal",
+        "accrued income",
+        "dividends"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr Accrued income 800 / Cr Dividends received 800.",
+      "markingGuide": "S: Correct stems. V: Correct amount."
+    },
+    {
+      "id": "l2ad24-q3b",
+      "number": "3(b)",
+      "text": "Complete the accounts receivable general ledger account to record the entries at 31 March 2024. The particulars have been provided for you.\n\nOpening: 01/04/23 Balance. Entries: 31/03/24 Fees received and GST, Bad debts and GST, Bank.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "general ledger",
+        "accounts receivable",
+        "bad debts"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Dr: Balance 13,390.",
+      "markingGuide": "V: Correct amounts. S: Correct Dr/Cr sides. T: Correct balance calculation."
+    },
+    {
+      "id": "l2ad24-q3c",
+      "number": "3(c)",
+      "text": "Calculate how much cash was received by Funtime First Learners for the sale of the old playground equipment that would be reported in the cash receipts section of the Statement of Cash Flows.\nShow and label your working, which will be marked.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "cash flows",
+        "disposal of assets",
+        "working"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Carrying amount $380 + gain on disposal $250 = Cash from sale of playground equipment $630.",
+      "markingGuide": "C: Correct calculation. V: Correct final amount $630."
+    },
+    {
+      "id": "l2ad24-q3d",
+      "number": "3(d)",
+      "text": "Calculate the cash paid to accounts payable for the year ended 31 March 2024.\nShow and label your working, which will be marked.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "cash flows",
+        "accounts payable",
+        "working"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Opening AP $1,800 + Invoices received $19,700 - Discount received ($1,600) + Freight $670 -...",
+      "markingGuide": "V: Correct amounts. T: Correct working with labels. C: Correct final amount."
+    },
+    {
+      "id": "l2ad24-q3e",
+      "number": "3(e)",
+      "text": "Prepare the cash payments section of the Statement of Cash Flows for Funtime First Learners for the year ended 31 March 2024.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "Statement of Cash Flows",
+        "cash payments"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Cash payments: Accounts payable $19,770, Drawings $52,000, Kindergarten expenses $43,500, Admin...",
+      "markingGuide": "V: Correct figures. S: Correct stems. C: Correct classification. P: Fit for purpose layout with subtotals."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 14
+    },
+    "merit": {
+      "min": 15,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
+  }
+}

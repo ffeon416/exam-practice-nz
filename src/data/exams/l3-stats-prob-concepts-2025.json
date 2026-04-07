@@ -1,0 +1,68 @@
+{
+  "id": "l3-stats-prob-concepts-2025",
+  "title": "Level 3 Statistics — Probability Concepts 2025",
+  "level": 3,
+  "standard": "91585",
+  "year": 2025,
+  "subject": "statistics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "st585-25-q1a",
+      "number": "1a",
+      "text": "A factory produces light bulbs. It is known that 8% of bulbs are defective. A quality control inspector randomly selects 10 bulbs from the production line.\n\n(i) State the conditions for using a binomial distribution to model this situation.\n(ii) Calculate the probability that exactly 1 of the 10 bulbs is defective.\n(iii) Calculate the probability that at most 2 of the 10 bulbs are defective.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": ["binomial-distribution", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) Fixed n = 10 trials, two outcomes (defective/not), constant p = 0.08, independent trials (assuming large production run). (ii) P(X = 1) = C(10,1) × 0.08¹ × 0.92⁹ = 10 × 0.08 × 0.4722 = 0.3778. (iii) P(X ≤ 2) = P(0) + P(1) + P(2). P(0) = 0.92¹⁰ = 0.4344. P(1) = 0.3778. P(2) = C(10,2) × 0.08² × 0.92⁸ = 45 × 0.0064 × 0.5132 = 0.1478. P(X ≤ 2) = 0.4344 + 0.3778 + 0.1478 = 0.9599."
+    },
+    {
+      "id": "st585-25-q1b",
+      "number": "1b",
+      "text": "The factory produces 5,000 bulbs per day.\n\n(i) What is the expected number of defective bulbs per day?\n(ii) Using a normal approximation to the binomial, find the probability that more than 420 bulbs are defective on a given day.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["binomial-distribution", "normal-distribution"],
+      "answerType": "working",
+      "markingGuide": "Achievement: E(X) = np = 5000 × 0.08 = 400. Merit: σ = √(np(1-p)) = √(5000 × 0.08 × 0.92) = √(368) = 19.18. z = (420 - 400)/19.18 = 20/19.18 = 1.043. P(X > 420) = P(Z > 1.043) = 1 - 0.8515 = 0.1485. Accept approximately 0.15 or 15%."
+    },
+    {
+      "id": "st585-25-q2a",
+      "number": "2a",
+      "text": "The number of customers arriving at a cafe follows a Poisson distribution with a mean of 12 per hour.\n\n(i) Find the probability that exactly 10 customers arrive in a given hour.\n(ii) Find the probability that no customers arrive in a 10-minute period.\n(iii) The cafe has seating for 15 customers at a time. If customers stay for exactly one hour on average, find the probability that all seats are occupied at any given time.",
+      "marks": 5,
+      "gradeLevel": "merit",
+      "topics": ["poisson-distribution", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) P(X = 10) = e⁻¹² × 12¹⁰/10! = 0.1048 (from tables or calculator). (ii) In 10 min, λ = 2. P(X = 0) = e⁻² = 0.1353. Merit: (iii) P(X ≥ 15) = 1 - P(X ≤ 14) where X ~ Poisson(12). Using tables: P(X ≤ 14) ≈ 0.7720, so P(X ≥ 15) ≈ 0.2280. About 23% of the time all seats would be occupied or demand exceeds capacity."
+    },
+    {
+      "id": "st585-25-q2b",
+      "number": "2b",
+      "text": "The cafe owner wants to add extra seating so that there are enough seats at least 95% of the time. Using a normal approximation to the Poisson distribution, calculate the minimum number of seats needed.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["normal-distribution", "poisson-distribution"],
+      "answerType": "working",
+      "markingGuide": "Excellence: X ~ Poisson(12) ≈ N(12, √12²). μ = 12, σ = √12 = 3.464. Need P(X ≤ k) ≥ 0.95. z = 1.645 for 95th percentile. k = 12 + 1.645 × 3.464 = 12 + 5.70 = 17.70. Round up to 18 seats. Must show clear working with the normal approximation."
+    },
+    {
+      "id": "st585-25-q3",
+      "number": "3",
+      "text": "Three friends, Aroha, Ben, and Chloe, each independently attempt to solve a puzzle. The probability that Aroha solves it is 0.7, Ben is 0.5, and Chloe is 0.6.\n\n(i) Find the probability that all three solve the puzzle.\n(ii) Find the probability that exactly one of them solves the puzzle.\n(iii) Find the probability that at least two of them solve the puzzle.\n(iv) Given that exactly two of them solved the puzzle, find the probability that Aroha was one of the two who solved it.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["conditional-probability-l3", "probability-concepts-l3"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) P(all) = 0.7 × 0.5 × 0.6 = 0.21. Merit: (ii) P(exactly 1) = P(A only) + P(B only) + P(C only) = 0.7×0.5×0.4 + 0.3×0.5×0.6 + 0.3×0.5×0.6 = 0.14 + 0.09 + 0.09 = 0.32. Wait — P(C only) = 0.3×0.5×0.6 = 0.09. P(exactly 1) = 0.14 + 0.09 + 0.09 = 0.32. (iii) P(exactly 2) = P(AB not C) + P(AC not B) + P(BC not A) = 0.7×0.5×0.4 + 0.7×0.5×0.6 + 0.3×0.5×0.6 = 0.14 + 0.21 + 0.09 = 0.44. Wait — recalculate: P(AB not C) = 0.7×0.5×0.4 = 0.14, P(AC not B) = 0.7×0.5×0.6 = 0.21, P(BC not A) = 0.3×0.5×0.6 = 0.09. P(exactly 2) = 0.44. P(at least 2) = P(exactly 2) + P(all 3) = 0.44 + 0.21 = 0.65. Excellence: (iv) P(Aroha in the pair | exactly 2) = P(AB not C + AC not B)/P(exactly 2) = (0.14 + 0.21)/0.44 = 0.35/0.44 = 35/44 ≈ 0.795."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

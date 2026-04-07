@@ -1,0 +1,60 @@
+{
+  "id": "l2-geography-environment-2024",
+  "title": "Level 2 Geography — Large Natural Environment 2024",
+  "level": 2,
+  "standard": "91240",
+  "year": 2024,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91240-2024-q1a",
+      "number": "1(a)",
+      "text": "Name the large natural environment you have studied this year. The environment can be in New Zealand or overseas and can be at a national, regional, or continental scale.\n\nExplain how your chosen large natural environment is formed and changes over time.\n\nYou may include diagrams and maps in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "natural-environment",
+        "formation",
+        "change"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain the natural processes that form the environment (e.g.",
+      "markingGuide": "Achievement: Explains aspects of the large natural environment's formation and change with some evidence. Merit: Explains in detail the formation and changes over time with detailed case study evidence. Excellence: Fully explains formation and changes over time using geographic terminology and concepts, showing insight, with comprehensive case study evidence."
+    },
+    {
+      "id": "91240-2024-q1b",
+      "number": "1(b)",
+      "text": "Explain how one person or group's perception of your chosen large natural environment has changed over time.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "natural-environment",
+        "perspectives",
+        "change"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain how a person or group's perception changes over time, e.g.",
+      "markingGuide": "Achievement: Describes how a person or group's perception changes over time with some evidence. Merit: Explains in detail how perception changes over time with detailed case study evidence. Excellence: Explains in detail how perception changes over time, showing insight, integrating comprehensive evidence and using geographic terminology and concepts appropriately."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

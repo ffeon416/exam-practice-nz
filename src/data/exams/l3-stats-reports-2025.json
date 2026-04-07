@@ -1,0 +1,68 @@
+{
+  "id": "l3-stats-reports-2025",
+  "title": "Level 3 Statistics — Evaluate Statistical Reports 2025",
+  "level": 3,
+  "standard": "91584",
+  "year": 2025,
+  "subject": "statistics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "st584-25-q1a",
+      "number": "1a",
+      "text": "A report from a health organisation states: 'A survey of 800 randomly selected New Zealand teenagers found that 35% had experienced anxiety in the past year, with a margin of error of 3.3%.'\n\n(i) Calculate the 95% confidence interval for the proportion of all NZ teenagers who experienced anxiety.\n(ii) Verify the margin of error using the formula 1/√n.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["margin-of-error", "confidence-intervals"],
+      "answerType": "working",
+      "markingGuide": "Achievement: (i) 95% CI = 35% ± 3.3% = (31.7%, 38.3%). (ii) 1/√800 = 1/28.28 = 0.0354 = 3.5%. This is close to the reported 3.3%, which is reasonable as the 1/√n formula gives an approximation. The exact margin of error uses 1.96 × √(p(1-p)/n) = 1.96 × √(0.35 × 0.65/800) = 1.96 × 0.01687 = 0.033 = 3.3%."
+    },
+    {
+      "id": "st584-25-q1b",
+      "number": "1b",
+      "text": "The report continues: 'Compared to a 2019 survey using the same methodology, which found 28% of teenagers experienced anxiety (margin of error 4.0%, n = 600), there has been a significant increase in teenage anxiety.'\n\nEvaluate whether the claim of a significant increase is supported by the data. Show your reasoning.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["evaluating-claims", "confidence-intervals", "statistical-significance"],
+      "answerType": "working",
+      "markingGuide": "Merit: 2019 CI = (24%, 32%). 2025 CI = (31.7%, 38.3%). The intervals barely overlap (32% and 31.7%), which provides borderline evidence. When CIs barely overlap, there may still be a statistically significant difference. The observed difference is 35% - 28% = 7 percentage points. A more rigorous approach would compare the difference against the combined margin of error. Excellence: Discusses that barely overlapping CIs are not the same as a formal hypothesis test, notes that the same methodology was used (good for comparison), but that changes in how teenagers interpret/report anxiety over 6 years could affect results. The claim has some support but 'significant' should be used carefully."
+    },
+    {
+      "id": "st584-25-q2a",
+      "number": "2a",
+      "text": "A study investigated the relationship between screen time and academic performance. Researchers collected data from 2,000 university students using an online questionnaire. They found that students who reported more than 4 hours of recreational screen time per day had significantly lower GPAs than those who reported less than 2 hours.\n\nThe researchers concluded: 'Excessive screen time damages academic performance.'\n\nIdentify and explain THREE limitations of this study that affect the validity of the conclusion.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": ["study-design", "confounding-variables", "sampling-bias"],
+      "answerType": "text",
+      "markingGuide": "Merit (any 2 well-explained): (1) Observational study — cannot establish causation, only association. Students with lower GPAs might turn to screens due to disengagement, not the other way around (reverse causation). (2) Self-reported data — students may inaccurately recall or underreport screen time (recall bias/social desirability bias). (3) Online questionnaire — may have non-response bias; those who spend more time online may be more likely to respond. (4) Confounding variables — socioeconomic status, course difficulty, part-time work, mental health could all affect both screen time and GPA. (5) 'Recreational' screen time is subjective — some activities (e.g., educational videos) blur the line. Excellence: At least 3 limitations, each clearly explained with how it specifically undermines the causal claim."
+    },
+    {
+      "id": "st584-25-q2b",
+      "number": "2b",
+      "text": "Describe how the researchers could redesign this study to better support a causal claim about screen time and academic performance.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["study-design", "confounding-variables"],
+      "answerType": "text",
+      "markingGuide": "Excellence: A randomised controlled experiment where participants are randomly assigned to different screen time limits. Use objective measures (screen time tracking apps) rather than self-report. Control for confounding variables by ensuring groups are similar in age, course load, prior academic performance. Use a longitudinal design over at least one semester. Include a control group with no screen time restrictions. Measure academic performance using standardised assessments, not just GPA. Consider ethical implications — limiting screen time may not be feasible or ethical. A well-designed observational study with statistical controls for confounders would be more practical."
+    },
+    {
+      "id": "st584-25-q3",
+      "number": "3",
+      "text": "A local council report states: 'Our survey of 400 residents found that 72% support the proposed new cycleway, with a margin of error of 5%. This strong mandate means the council should proceed with the project.'\n\nA community group opposes the cycleway and argues that the survey is misleading because:\n• It was conducted online only\n• The survey link was shared on the council's Facebook page\n• Respondents were not randomly selected\n\nWrite a comprehensive evaluation of the survey and the council's claim. In your answer, discuss:\n• the sampling method and its limitations\n• the margin of error and whether it is valid\n• whether the claim of a 'strong mandate' is justified\n• what improvements could be made.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["sampling-methods", "sampling-bias", "margin-of-error", "evaluating-claims"],
+      "answerType": "text",
+      "markingGuide": "Achievement: Identifies that the sample is not random. Merit: Explains that the margin of error formula (1/√n) assumes a random sample, which this is not, so the reported margin of error is meaningless. Self-selected online respondents from Facebook are not representative of all residents. Excellence: Comprehensive evaluation covering: (1) Sampling bias — online-only excludes those without internet; Facebook audience is younger and likely already engaged with council; self-selection means only those with strong opinions respond (likely supporters who follow the council page). (2) The margin of error is technically invalid because it assumes random sampling — the real uncertainty is much larger than 5%. (3) 'Strong mandate' is not justified because the sample is not representative — 72% of a biased sample does not reflect the views of all residents. Non-coverage bias (older residents, those without internet) and voluntary response bias are both present. (4) Improvements: use a random sample of residents (e.g., from the electoral roll), include multiple methods (phone, mail, in-person), ensure demographic representation, use stratified sampling to capture different age groups and areas."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

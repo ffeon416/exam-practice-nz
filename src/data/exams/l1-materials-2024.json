@@ -1,0 +1,166 @@
+{
+  "id": "l1-materials-2024",
+  "title": "Level 1 Materials — 2024",
+  "level": 1,
+  "standard": "92023",
+  "year": 2024,
+  "subject": "science",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l1m24-q1a",
+      "number": "1(a)",
+      "text": "[Diagram: Table 1 shows the physical properties of graphite (carbon), C. Properties include: Melting point 3650°C (Very high), Solubility in water (Insoluble), Electrical conductivity 3×10⁵ σ (S/m) at 20°C (Good), Malleability 4.80 GPa (Brittle), Hardness 1 to 2 Moh (Soft).]\n\nA pencil containing graphite (carbon), C, has been used to draw an electrical circuit, which is an outline of a car. A 9V battery and light-emitting diode (LED) are also part of the circuit.\n\nDescribe TWO physical properties of graphite (carbon) and link these two physical properties to their use in drawing and creating an operating electrical circuit.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "physical-properties"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Graphite is soft (1-2 Moh hardness) so it transfers onto paper when rubbed.",
+      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and the physical properties of graphite, and how these link to its use to draw the circuit or allow the circuit to operate.",
+      "image": "/images/exams/92023-2024-q1a.png"
+    },
+    {
+      "id": "l1m24-q1b",
+      "number": "1(b)",
+      "text": "Explain these TWO physical properties with reference to the structure and bonding of graphite (carbon).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Graphite is a 2D covalent network of carbon layers with weak forces between layers",
+      "markingGuide": "Merit: Explains how the structure, relative strength of attractive forces between the atoms, and how the physical properties of graphite make it suitable for use in drawing or operating the circuit. Some aspects of the explanation are incomplete."
+    },
+    {
+      "id": "l1m24-q1c",
+      "number": "1(c)",
+      "text": "Evaluate how graphite (carbon) will behave when used to draw and create an operating electrical circuit by linking the TWO physical properties to the structure and bonding.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Graphite has weak attractive forces between layers allowing them to slide and transfer onto...",
+      "markingGuide": "Excellence: Evaluates the structure, relative strength of attractive forces between the atoms, and how the physical properties of graphite enable the drawing of the circuit and the electrical conduction within the circuit."
+    },
+    {
+      "id": "l1m24-q2a",
+      "number": "2(a)",
+      "text": "[Diagram: Table 2 shows physical properties of carbon dioxide and air. CO₂ density at 20°C: 1.98 kg/m³, Air density: 1.20. CO₂ electrical conductivity: Insulator. Air electrical conductivity: Insulator. An image of a carbon dioxide fire extinguisher is shown.]\n\nCarbon dioxide fire extinguishers can be used safely to put out electrical fires. These extinguishers are filled with non-flammable carbon dioxide, CO₂ gas.\n\nDescribe TWO physical properties of carbon dioxide and link these two physical properties to the safe use of carbon dioxide to prevent oxygen in the air from fuelling a fire.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "chemical-properties"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CO₂ is denser than air (1.98 vs 1.20 kg/m³) so it sinks and smothers the fire.",
+      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and a physical property of carbon dioxide, and how this links to its use to safely put out an electrical fire.",
+      "image": "/images/exams/92023-2024-q2a.png"
+    },
+    {
+      "id": "l1m24-q2b",
+      "number": "2(b)",
+      "text": "Explain these TWO physical properties, with reference to the structure and bonding of carbon dioxide.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CO₂ is a molecular substance with discrete molecules held by strong covalent bonds but with weak...",
+      "markingGuide": "Merit: Explains why carbon dioxide is used for a fire extinguisher/electrical fire, with reference to its structure, relative strength of attractive forces, and a physical property."
+    },
+    {
+      "id": "l1m24-q2c",
+      "number": "2(c)",
+      "text": "Evaluate how carbon dioxide will behave when used as a fire extinguisher by linking the TWO physical properties to the structure and bonding.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CO₂ consists of discrete molecules with weak intermolecular forces, allowing free movement as a...",
+      "markingGuide": "Excellence: Evaluates the use of carbon dioxide to put out an electrical fire with reference to its structure, relative strength of attractive forces, and physical property."
+    },
+    {
+      "id": "l1m24-q3a",
+      "number": "3(a)",
+      "text": "[Diagram: Images show harakeke leaves (green) and white muka fibres, and a kupenga (fishing net) made by knotting muka fibres together. Table 3 shows Young's modulus and solubility of various materials: Muka 8.6 GPa Insoluble, Hemp 11.8 GPa Insoluble, Wool 2.3 GPa Insoluble, Glass 70-100 GPa Insoluble. *A high value of Young's modulus means that a material is brittle.]\n\nHarakeke (New Zealand flax) has long upright leaves. When the green flesh is removed, a long white fibre (polymer) called muka is revealed. Muka fibre is a natural polymer material.\n\nDescribe TWO physical properties of muka and link these two physical properties to their use in making a working kupenga.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "materials",
+        "physical-properties"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Muka is malleable/flexible (Young's modulus 8.6 GPa, not brittle) so it can be spun and knotted.",
+      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and the physical properties of muka fibre and how it links to its usage/suitability as a kupenga.",
+      "image": "/images/exams/92023-2024-q3a.png"
+    },
+    {
+      "id": "l1m24-q3b",
+      "number": "3(b)",
+      "text": "Explain these TWO physical properties, with reference to the structure and bonding of muka.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Muka is a polymer made of long chains with strong covalent bonds within chains and weaker...",
+      "markingGuide": "Merit: Explains the structure, relative strength of attractive forces, and the physical properties of muka. Links to its use/suitability as a kupenga. Some aspects of the explanation are incomplete."
+    },
+    {
+      "id": "l1m24-q3c",
+      "number": "3(c)",
+      "text": "Evaluate how muka will behave when used as a kupenga by linking the TWO physical properties to the structure and bonding.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Muka's polymer chains have weak intermolecular forces between them, allowing flexibility for...",
+      "markingGuide": "Excellence: Evaluates the physical properties of muka, linking to the structure of the polymer, muka, the relative strength of attractive forces between the polymer particles, and hence its use and suitability as a kupenga."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

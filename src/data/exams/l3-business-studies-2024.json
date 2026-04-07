@@ -1,0 +1,58 @@
+{
+  "id": "l3-business-studies-2024",
+  "title": "Level 3 Business Studies — Global Business Context 2024",
+  "level": 3,
+  "standard": "91381",
+  "year": 2024,
+  "subject": "business-studies",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "bs381-24-qa",
+      "number": "a",
+      "text": "Background: Manaia Tala is a New Zealand based clothing and jewellery company. Established in Auckland in the early 2000s, Manaia Tala exports to over 20 countries. Environmental sustainability is at the forefront of their decisions, shown through designs highlighting native flora and fauna, and natural fibre fabrics. They take social responsibility seriously, implementing ethical practices such as living wage, safe labour practices, and supporting the removal of child labour.\n\nManaia Tala has grown to a size where they need to outsource some manufacturing to an overseas firm in India. They are considering Ramand Mill and Bahl Textiles.\n\n(a)(i) Using Resources A and B, explain one benefit to Manaia Tala of using Ramand Mill to manufacture their clothing.\n\n(a)(ii) Using Resources A and B, explain one benefit to Manaia Tala of using Bahl Textiles to manufacture their clothing.\n\n(a)(iii) Which of the two manufacturers would you recommend for Manaia Tala? Justify your recommendation, including any new information.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": ["global-business", "manufacturing", "sustainability", "business-decisions"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one benefit of Ramand Mill (e.g. lower environmental impact - 'Very good' environmental impact rating compared to Bahl Textiles' 'Good', helping achieve environmental sustainability goals) and one benefit of Bahl Textiles (e.g. higher social compliance score of 9.4 vs 7.4, with higher standards of labour practice and lower workplace accident rates, supporting social responsibility goals). Merit: Fully explain with further expansion about how these benefits impact Manaia Tala's business goals. Excellence: For the recommendation, justify using relevant evidence. E.g. Manaia Tala should use Ramand Mill because environmental sustainability is at the forefront of all decisions, making it the greater priority. Ramand Mill also has a lower minimum order quantity of 200 vs 500, important for ensuring exclusivity as Manaia Tala usually limits to 500 items per product. Note: A recommendation for Bahl Textiles is acceptable if suitably justified."
+    },
+    {
+      "id": "bs381-24-qb",
+      "number": "b",
+      "text": "The quality of the clothing manufactured by the Indian firm has not met Manaia Tala's expectations. Manaia Tala is now considering introducing a quality assurance system.\n\n(b)(i) Explain one possible cause for the quality expectations of Manaia Tala not being met.\n\n(b)(ii) Explain the effect the introduction of a quality assurance system will likely have on the economic sustainability of Manaia Tala.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["global-business", "quality-management", "sustainability"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one possible cause (e.g. miscommunication and misunderstanding between the Indian manufacturer and Manaia Tala regarding quality standards; perceptions of quality can vary between countries). For the quality assurance effect: It will have a positive effect on economic sustainability. Each step of production is checked to ensure quality standards are met, meaning consistently high-quality clothing is produced, establishing a strong brand reputation, building a loyal customer base, attracting new customers, and increasing sales. Merit: Fully explain with further expansion about effects on business or stakeholder goals. Excellence: Justify by integrating detailed evidence to support explanations."
+    },
+    {
+      "id": "bs381-24-qc",
+      "number": "c",
+      "text": "Manaia Tala has been experiencing delays in receiving finished garments shipped from India. There is discussion about whether a free trade agreement between New Zealand and India could improve the situation.\n\n(c)(i) Explain one possible cause for the delay in receiving of orders by Manaia Tala.\n\n(c)(ii) Explain how the New Zealand government securing a free trade agreement with India could benefit Manaia Tala.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["global-business", "trade-agreements", "supply-chain"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one possible cause for delays (e.g. the long time to ship from India to New Zealand with no direct flights currently available, meaning goods take closer to eight days by air rather than two, or up to 63 days by sea freight). For free trade agreement: It would improve delivery time by seeking to improve the movement of goods and services, potentially through improved and more frequent travel services including direct flights, reducing shipping times and improving Manaia Tala's reputation. Merit: Fully explain with further expansion about effects on business goals. Excellence: Justify by integrating detailed evidence and business knowledge."
+    },
+    {
+      "id": "bs381-24-qd",
+      "number": "d",
+      "text": "Manaia Tala is considering purchasing new design software. They are choosing between Garment Creator Suite ($700/month, 11% average rate of return, no online support) and Stitch Sculpt ($595/month, 9% average rate of return, online support included). The initial purchase cost for Garment Creator Suite is $12,000 and Stitch Sculpt is $9,500.\n\n(d)(i) Explain one positive effect choosing Garment Creator Suite would have on Manaia Tala.\n\n(d)(ii) Explain one positive effect choosing Stitch Sculpt would have on Manaia Tala.\n\n(d)(iii) Which of the two design software options would you recommend for Manaia Tala? Justify your recommendation, including any new information.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": ["global-business", "technology", "business-decisions"],
+      "answerType": "working",
+      "markingGuide": "Achievement: Explain one benefit of Garment Creator Suite (e.g. higher average rate of return of 11%, providing an 11% average increase in profit on the $12,000 investment, helping ensure economic sustainability). Explain one benefit of Stitch Sculpt (e.g. lower monthly cost of $595 vs $700, providing $1,260 savings per year, leading to higher profits). Merit: Fully explain with further expansion about effects on business goals and stakeholder outcomes. Excellence: For the recommendation, justify using evidence. E.g. Manaia Tala should invest in Stitch Sculpt because the initial cost savings of $2,500 and ongoing savings of $1,260 per year are significant and outweigh the 2% higher rate of return from Garment Creator Suite. Stitch Sculpt also provides online support, ensuring production can continue quickly if issues arise, unlike Garment Creator Suite which has no support. Note: A recommendation for Garment Creator Suite is acceptable if suitably justified."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

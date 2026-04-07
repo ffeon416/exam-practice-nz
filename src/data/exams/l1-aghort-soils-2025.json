@@ -1,0 +1,158 @@
+{
+  "id": "l1-aghort-soils-2025",
+  "title": "Level 1 AgHort Soils — 2025",
+  "level": 1,
+  "standard": "91930",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "91930-25-q1a",
+      "number": "1(a)",
+      "text": "Name a primary production system of your choice.\n\nHow is fertiliser applied in your named primary production system?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "soil-management",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describe how fertiliser is applied, e.g.",
+      "markingGuide": "Achieved: Describes how fertiliser is applied. Fertiliser can be applied by selecting the type of fertiliser and spreading it evenly over the soil. On a flat / rolling pastoral farm, a tractor may tow a spreader, which spreads granules of fertiliser."
+    },
+    {
+      "id": "91930-25-q1b",
+      "number": "1(b)",
+      "text": "Explain how fertiliser impacts soil properties.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain that fertilisers change the chemical properties of the soil by adding more nutrients;...",
+      "markingGuide": "Merit: Explains how fertiliser impacts soil properties. Fertilisers change the chemical properties of the soil by adding more nutrients. They increase the specific nutrients that make up the fertilisers - for example urea will increase the nitrogen content of the soil but no other nutrients. They increase the nutrients in proportion to the application rate (kg/ha). Fertilisers may generally decrease pH of the soil. Indirectly, fertilisers may change other properties, e.g. if fertilisers increase plant growth, we may see increased organic matter in the soil over time. Inappropriate fertiliser use may be toxic to life in soil, decreasing those biological properties associated with soil life."
+    },
+    {
+      "id": "91930-25-q1c",
+      "number": "1(c)",
+      "text": "Justify why soil tests should be carried out before applying fertiliser.\n\nIn your answer consider:\n- chemical and biological soil properties\n- how applying fertiliser after a soil test can improve plant growth.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "soil-properties",
+        "soil-management",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Justify by explaining that soil tests provide information about nutrient status and pH in...",
+      "markingGuide": "Achieved: Describes why soil tests should be carried out. Merit: Explains why soil tests should be carried out, and relates this to use of fertiliser. Excellence: Justifies why soil tests should be carried out before applying fertiliser, by giving detailed reasons.\n\nSoil tests provide information about the nutrient status and pH in different areas of the property. Fertilisers can then be chosen to match the chemical properties of the soil, e.g. if sulphur is low in soil, ensure adequate sulphur is in fertiliser. Soil pH should be between 5.7 and 6.3. When soils are outside this range, plants struggle to take up nutrients, so adding fertiliser will not hugely impact growth. If too much fertiliser is used, it can cause damage / toxicity to life in soil, reducing the number of organisms in soil. Plants need adequate levels of nutrients and appropriate pH for optimum growth because they require nutrients for their life processes. Without soil tests, we cannot know which nutrients are required and may provide too many, causing toxicity, or too little, causing deficiencies, and poor plant growth. Multiple soil tests should be carried out at one time to identify variation in soil properties across a property (depending on the chosen production system). The cost of soil tests is generally far less than the plant growth benefits of having applied fertiliser correctly."
+    },
+    {
+      "id": "91930-25-q2a",
+      "number": "2(a)",
+      "text": "A vegetable grower has sandy soil and is using compost to improve their soil.\n\nDescribe how compost is made.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "soil-management"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describe the composting process: a variety of plant material including 'greens' (leafy) and...",
+      "markingGuide": "Achieved: Describes how compost is made. A variety of plant material including 'greens' (leafy) and 'browns' (more fibrous / woody) are collected into a container that allows air flow. The compost is kept moist, so there is air and water. It is mixed regularly and monitored for temperature and pH. Lime can be used if the compost becomes too acidic. Once the compost is well decomposed and has become dark humus, it can be added to the soil."
+    },
+    {
+      "id": "91930-25-q2b",
+      "number": "2(b)",
+      "text": "How can adding compost increase nutrient levels in the soil?",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain that compost contains organic matter where nutrients are available for plants to absorb;...",
+      "markingGuide": "Achieved: Describes how compost increases nutrient levels in the soil. Merit: Explains how compost increases nutrient levels in soil, with reference to biological properties.\n\nCompost contains organic matter in a state where nutrients are available for plants to absorb. The amount of each nutrient may vary between different compost mixtures. Sandy soil can leach nutrients faster than other types of soil, so using compost to supply more nutrients can be beneficial."
+    },
+    {
+      "id": "91930-25-q2c",
+      "number": "2(c)",
+      "text": "The grower is considering replacing compost with a combination of fertiliser and irrigation.\n\nEvaluate the application of compost, compared to irrigation and fertiliser application.\n\nIn your answer consider:\n- the long-term effects on the soil\n- vegetable growth.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate compost vs irrigation/fertiliser by comparing: compost improves soil structure, water...",
+      "markingGuide": "Achieved: Describes how compost differs from fertiliser and irrigation. Merit: Explains how management practices improve soil properties. Excellence: Evaluates the use of compost by comparing it to irrigation and fertiliser application, including long-term effects on soil and production.\n\nSandy soils drain water rapidly and leach nutrients out of soil rapidly. Irrigation replaces soil moisture that is drained away from sandy soil rapidly. Water is required for many plant processes, including dissolving nutrients for micro- and macro-organisms in soil. It is required to dissolve nutrients so plants can absorb them. Irrigation requires expensive equipment, pumps, a water supply, and labour. It must be used regularly, depending on soil moisture and rainfall. Long-term, irrigation can decrease the risk of soil reaching wilting point, speed up nutrient leaching (resulting in poor soil fertility), and increase nutrients entering waterways.\n\nCompost replaces nutrients leached from sandy soil. Nutrients are required for many plant processes, e.g. nitrogen is especially important in growing leaves like lettuces. Compost can be expensive to make or purchase, and application requires special equipment, depending on the size of the farm. Compost is generally used less often than irrigation, so less testing and labour is required. Long-term, compost can reduce soil pH, maintain optimum soil nutrient levels, and increase nutrient leaching into waterways.\n\nA production system without irrigation risks large scale plant death if the sandy soil reaches permanent wilting point. A production system without compost risks slow growth as it becomes low in nutrients. The grower does have other options to replace nutrients, like fertiliser."
+    },
+    {
+      "id": "91930-25-q3a",
+      "number": "3(a)",
+      "text": "Name a primary production system.\n\nFor your primary production system, choose a management practice from the list below that may help to improve drainage of the soil.\n- Installing a drainage system\n- Cultivation\n- Application of lime\n- Application of effluent\n- Using a multi-species sward\n\nWith reference to your chosen primary production system, describe how this management practice is carried out.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "soil-management",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describe how the chosen management practice is performed, e.g.",
+      "markingGuide": "Achieved: Describes how one listed management practice is performed. Example - installing a drainage system: Mole drainage is carried out by pulling a bullet-shaped mole plough behind a tractor in lines, which point towards a low point in the paddock. Mole drainage may need to be repeated every few years."
+    },
+    {
+      "id": "91930-25-q3b",
+      "number": "3(b)",
+      "text": "How does this management practice improve one physical and one biological property of the soil?\n\nPhysical property:\n\nBiological property:",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain how the management practice impacts one physical AND one biological property.",
+      "markingGuide": "Achieved: Describes how a management practice impacts physical OR biological properties. Merit: Explains how a management practice impacts physical AND biological properties.\n\nExample - installing a drainage system:\nPhysical property: Drainage can increase the aeration of soil because there is less water in the soil pores, which can then be replaced by air.\nBiological property: Drainage can increase decomposition in the soil because having a better balance of air and water is needed for microorganisms and macroorganisms."
+    },
+    {
+      "id": "91930-25-q3c",
+      "number": "3(c)",
+      "text": "Choose a second management practice from the list on page 8.\n\nFor your chosen primary production system, which of your two management practices is more effective in improving soil structure and drainage?\n\nJustify why the grower should use this management practice with reference to plant growth.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describe the second practice, explain how it impacts soil properties, then justify",
+      "markingGuide": "Achieved: Describes a second management practice and its impact on soil properties. Merit: Explains how a management practice has a greater impact on soil properties. Excellence: Justifies why a named management practice is more effective, with reference to optimised production.\n\nExample - application of lime:\nLime has the effect of flocculation on clay particles. This is where clay particles clump together more, leading to more peds and more larger pores between peds. These macropores allow water to drain better and allow more plant growth, which can lead to even better soil structure. Unfortunately, the flocculation by lime is useful only for clay particles and is a less effective tool for draining water compared to using mole drainage."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

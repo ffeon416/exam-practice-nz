@@ -1,0 +1,137 @@
+{
+  "id": "l1-geography-skills-2025",
+  "title": "Level 1 Geography — Geographic Skills Practice",
+  "level": 1,
+  "standard": "91932B",
+  "year": 2025,
+  "subject": "geography",
+  "timeMinutes": 50,
+  "totalMarks": 22,
+  "questions": [
+    {
+      "id": "l1gs-q1",
+      "number": "1",
+      "text": "On a topographic map, what do contour lines that are very close together indicate?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["map-skills-l1", "contour-lines-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Flat, low-lying land",
+        "A steep slope",
+        "A river valley",
+        "An area of dense bush"
+      ],
+      "expectedAnswer": "A steep slope",
+      "markingGuide": "The correct answer is 'A steep slope'. Contour lines join points of equal height above sea level. When contour lines are close together, the land rises steeply over a short horizontal distance. When they are far apart, the slope is gentle."
+    },
+    {
+      "id": "l1gs-q2",
+      "number": "2",
+      "text": "A map has a scale of 1:50,000. Two towns are 8 cm apart on the map. What is the actual distance between the two towns in kilometres?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["map-skills-l1", "scale-calculations-l1"],
+      "answerType": "number",
+      "expectedAnswer": "4",
+      "markingGuide": "The correct answer is 4 km. Working: 8 cm × 50,000 = 400,000 cm = 4,000 m = 4 km. At 1:50,000 scale, 1 cm on the map represents 50,000 cm (500 m or 0.5 km) in real life."
+    },
+    {
+      "id": "l1gs-q3",
+      "number": "3",
+      "text": "What compass bearing would you follow to travel from a point directly south to a point that is to the north-east?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["compass-directions-l1"],
+      "answerType": "multi-choice",
+      "options": ["045°", "090°", "135°", "315°"],
+      "expectedAnswer": "045°",
+      "markingGuide": "The correct answer is 045°. North-east is at a bearing of 045° (measured clockwise from north). North = 000°/360°, East = 090°, South = 180°, West = 270°, NE = 045°, SE = 135°, SW = 225°, NW = 315°."
+    },
+    {
+      "id": "l1gs-q4",
+      "number": "4",
+      "text": "A six-figure grid reference is used to identify a specific location on a topographic map. The grid reference 374821 refers to a location.\n\nWhich number refers to the easting (horizontal position)?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["map-skills-l1", "grid-references-l1"],
+      "answerType": "number",
+      "expectedAnswer": "374",
+      "markingGuide": "The correct answer is 374. In a six-figure grid reference, the first three digits are the easting (how far east) and the last three digits are the northing (how far north). Remember: 'along the corridor and up the stairs' — eastings come first (read along the bottom of the map), then northings (read up the side)."
+    },
+    {
+      "id": "l1gs-q5",
+      "number": "5",
+      "text": "Study the following data about rainfall in four New Zealand cities:\n\n| City | Average Annual Rainfall (mm) |\n|------|-----------------------------|\n| Auckland | 1,240 |\n| Wellington | 1,249 |\n| Christchurch | 618 |\n| Hokitika | 2,879 |\n\nDescribe the spatial pattern shown in this data. Suggest ONE reason for the differences.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["data-interpretation-l1", "spatial-patterns-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for describing the pattern: Hokitika (West Coast) receives by far the most rainfall, Christchurch (east of the Southern Alps) receives the least, and the two North Island cities receive moderate amounts. The pattern shows a west-east difference in the South Island. 1 mark for explaining a reason: The Southern Alps create a rain shadow effect — moist westerly winds from the Tasman Sea are forced to rise over the mountains, cooling and releasing heavy rainfall on the western side (Hokitika). By the time the air descends on the eastern side (Canterbury Plains/Christchurch), it is much drier. This is called orographic rainfall."
+    },
+    {
+      "id": "l1gs-q6",
+      "number": "6",
+      "text": "When interpreting a photograph of a landscape, which of the following would help you identify that the area has experienced glaciation?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["photo-interpretation-l1", "landscape-processes-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "V-shaped valleys and waterfalls",
+        "U-shaped valleys, cirques, and moraines",
+        "Sand dunes and flat beaches",
+        "Meandering rivers and oxbow lakes"
+      ],
+      "expectedAnswer": "U-shaped valleys, cirques, and moraines",
+      "markingGuide": "The correct answer is 'U-shaped valleys, cirques, and moraines'. Glaciers carve distinctive U-shaped valleys (e.g. Milford Sound/Piopiotahi, the Hollyford Valley), cirques (bowl-shaped hollows where glaciers form, e.g. the cirque at the head of the Hooker Valley), and leave moraines (ridges of deposited rock debris). V-shaped valleys are formed by rivers, not glaciers."
+    },
+    {
+      "id": "l1gs-q7",
+      "number": "7",
+      "text": "A cross-section is drawn from Point A (sea level, 0 m) to Point B (a hill summit, 450 m) across a distance of 3 km. The contour lines on the map show that the land rises steeply for the first 1 km, then gently for the remaining 2 km.\n\nDescribe what the cross-section would look like. Include specific details about the slope.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["map-skills-l1", "contour-lines-l1", "cross-sections-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark: Describes the overall shape — the cross-section line starts at 0 m on the left (Point A at sea level), rises to 450 m at Point B on the right. 1 mark: Describes the change in gradient — the first 1 km section would show a steep line rising sharply (the land gains most of its height quickly, so the line is steep). The remaining 2 km section would show a gentler, more gradual slope as the land rises more slowly to the summit. The cross-section would look like a concave slope — steep near the coast, flattening out towards the top. Students may sketch this or describe it in words."
+    },
+    {
+      "id": "l1gs-q8",
+      "number": "8",
+      "text": "A bar graph shows the population of five Waikato towns:\n- Hamilton: 178,500\n- Cambridge: 21,300\n- Te Awamutu: 12,800\n- Matamata: 8,200\n- Morrinsville: 7,900\n\nDescribe the spatial pattern of population distribution shown. Suggest ONE geographic reason why Hamilton has a much larger population than the other towns.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["data-interpretation-l1", "spatial-patterns-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for describing the pattern: Hamilton dominates the region with a population roughly 8–22 times larger than the other towns. The smaller towns have relatively similar populations (7,900–21,300). There is a clear primate city pattern with Hamilton as the regional centre. 1 mark for a geographic reason: Hamilton's larger population is due to its role as a major service centre and transport hub — it sits at the junction of major highways (SH1, SH3) and rail lines, it has a university (Waikato), hospital, and is located on the fertile Waikato Plains with access to the Waikato River. Its central location in the Waikato region means it serves as the economic and administrative centre, attracting businesses and residents."
+    },
+    {
+      "id": "l1gs-q9",
+      "number": "9",
+      "text": "On a 1:50,000 topographic map, the contour interval is 20 metres. A student counts 12 contour lines between a river valley floor and a hilltop.\n\nWhat is the height difference between the valley floor and the hilltop?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["contour-lines-l1", "scale-calculations-l1"],
+      "answerType": "number",
+      "expectedAnswer": "240",
+      "markingGuide": "The correct answer is 240 metres. Working: 12 contour lines × 20 m contour interval = 240 m height difference. Each contour line represents a 20 m change in elevation on this map."
+    },
+    {
+      "id": "l1gs-q10",
+      "number": "10",
+      "text": "Study this information about Queenstown and Gore, two towns in the Otago/Southland region:\n\n| Feature | Queenstown | Gore |\n|---------|-----------|------|\n| Population (2023) | 47,400 | 12,600 |\n| Tourism spend (annual) | $2.4 billion | $45 million |\n| Median house price | $1,450,000 | $385,000 |\n| Distance from nearest airport | 8 km (international) | 65 km (Invercargill) |\n| Main industries | Tourism, hospitality | Agriculture, meat processing |\n\nCompare the geographic characteristics of these two towns. Use the data to explain why they have developed differently. Consider physical and human geographic factors in your answer.",
+      "marks": 10,
+      "gradeLevel": "excellence",
+      "topics": ["data-interpretation-l1", "spatial-patterns-l1", "geographic-concepts-l1"],
+      "answerType": "working",
+      "markingGuide": "Achieved (1–2 marks): Makes basic comparisons — Queenstown is bigger and richer, Gore is smaller. Uses some data.\n\nMerit (3–4 marks): Explains geographic reasons for differences. Physical factors: Queenstown's location on Lake Wakatipu surrounded by the Remarkables mountain range creates a dramatic landscape that attracts tourists; it has a ski-friendly climate. Gore sits on the flat Southland Plains — good for farming but lacking dramatic scenery for tourism. Human factors: Queenstown has an international airport bringing visitors directly; its tourism industry generates $2.4 billion compared to Gore's $45 million, driving up house prices ($1.45 million vs $385,000) and population. Gore's economy is based on primary industry (agriculture, meat processing at Alliance Group). Uses data to support points.\n\nExcellence (5–6 marks): Provides an integrated, evaluative response. Discusses how physical geography has shaped economic development — Queenstown's mountain/lake environment created a comparative advantage for tourism, while Gore's fertile plains favoured agriculture. Discusses consequences — tourism wealth creates high house prices that can push out local workers (a housing affordability issue); Gore's lower house prices reflect a different economic base but offer more affordable living. May discuss sustainability issues — Queenstown faces pressure from overtourism (strain on infrastructure, environmental impacts), while Gore faces challenges of rural decline and youth migration to cities. Shows understanding of how geographic factors create different development pathways and that both patterns have advantages and disadvantages."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 13 },
+    "merit": { "min": 14, "max": 18 },
+    "excellence": { "min": 19, "max": 22 }
+  }
+}

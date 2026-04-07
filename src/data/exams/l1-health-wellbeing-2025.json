@@ -1,0 +1,153 @@
+{
+  "id": "l1-health-wellbeing-2025",
+  "title": "Level 1 Health — Well-being Practice",
+  "level": 1,
+  "standard": "91934H",
+  "year": 2025,
+  "subject": "health",
+  "timeMinutes": 45,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "l1hw-q1",
+      "number": "1",
+      "text": "In Mason Durie's Te Whare Tapa Whā model of hauora, which dimension relates to spiritual well-being — a sense of meaning, purpose, and connection to the land and ancestors?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["hauora-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Taha tinana",
+        "Taha hinengaro",
+        "Taha whānau",
+        "Taha wairua"
+      ],
+      "expectedAnswer": "Taha wairua",
+      "markingGuide": "The correct answer is Taha wairua. This dimension encompasses spiritual well-being, including a sense of meaning, purpose, identity, and connection to whakapapa (genealogy), whenua (land), and tūpuna (ancestors). It is not about organised religion specifically, but about feeling connected to something greater than oneself. In a Māori context, taha wairua is often considered the most essential dimension — without it, the individual is considered to lack the will for well-being."
+    },
+    {
+      "id": "l1hw-q2",
+      "number": "2",
+      "text": "What is a 'determinant of health'?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["determinants-health"],
+      "answerType": "multi-choice",
+      "options": [
+        "A type of medication prescribed by a doctor",
+        "A factor that influences health outcomes, such as income, education, or housing",
+        "A disease that is inherited genetically",
+        "A fitness test used to measure physical health"
+      ],
+      "expectedAnswer": "A factor that influences health outcomes, such as income, education, or housing",
+      "markingGuide": "The correct answer is 'A factor that influences health outcomes, such as income, education, or housing'. Determinants of health are the broad range of personal, social, economic, and environmental factors that influence the health status of individuals and communities. Examples include income and social status, education, employment conditions, access to health services, housing, cultural identity, and the physical environment. Understanding determinants helps explain why health inequities exist in Aotearoa New Zealand."
+    },
+    {
+      "id": "l1hw-q3",
+      "number": "3",
+      "text": "Explain how socioeconomic factors can affect a teenager's health in New Zealand. Give a specific example.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["determinants-health", "wellbeing-nz"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining the link between socioeconomic factors and health (e.g. families with lower incomes may not be able to afford healthy food, warm dry housing, or visits to the doctor; teenagers in lower-income households may experience more stress, which affects mental and physical health; living in damp, cold housing can lead to respiratory illnesses such as asthma or rheumatic fever, which disproportionately affects Māori and Pacific communities in NZ). 1 mark for a specific, relevant NZ example (e.g. 'A teenager whose family cannot afford to heat their home properly may develop respiratory problems like asthma, causing them to miss school and fall behind academically, which further impacts their well-being' or 'A young person in a low-income area may not have access to sports clubs or healthy food options, affecting their physical health and self-esteem'). Exam tip: Always connect your example back to well-being or hauora dimensions."
+    },
+    {
+      "id": "l1hw-q4",
+      "number": "4",
+      "text": "What is the legal age to purchase alcohol in New Zealand?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["drugs-alcohol-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "16",
+        "18",
+        "20",
+        "21"
+      ],
+      "expectedAnswer": "18",
+      "markingGuide": "The correct answer is 18. Under the Sale and Supply of Alcohol Act 2012, the minimum purchase age for alcohol in New Zealand is 18 years. It is an offence for any person to sell or supply alcohol to a person under 18 in licensed premises. Note: There is no minimum legal drinking age in NZ — the law covers purchase and supply, not consumption. A parent or legal guardian may supply alcohol to their child in a responsible manner. Exam tip: Be clear on the distinction between purchase age (18) and there being no specific legal drinking age."
+    },
+    {
+      "id": "l1hw-q5",
+      "number": "5",
+      "text": "Describe the short-term and long-term effects of vaping on a young person's health.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["drugs-alcohol-l1", "wellbeing-nz"],
+      "answerType": "text",
+      "markingGuide": "1 mark for short-term effects (e.g. nicotine addiction can develop rapidly in young people whose brains are still developing; irritation to the throat and lungs; coughing, nausea, and dizziness; increased heart rate and blood pressure; difficulty concentrating in class due to cravings; financial cost of purchasing vapes). 1 mark for long-term effects (e.g. nicotine addiction affects brain development in teenagers, particularly the areas responsible for attention, learning, and impulse control; potential lung damage from chemicals in vape liquid — some cases of serious lung injury have been reported; unknown long-term effects as vaping is relatively new; gateway to smoking traditional cigarettes; impact on mental health including increased anxiety and irritability when unable to vape). Exam tip: Link effects to specific hauora dimensions for a stronger answer — e.g. taha tinana (lung damage), taha hinengaro (addiction, anxiety), taha whānau (conflict with family over vaping), taha wairua (loss of control over choices)."
+    },
+    {
+      "id": "l1hw-q6",
+      "number": "6",
+      "text": "What does 'informed consent' mean in the context of a relationship?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["relationships-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Agreeing to something without knowing all the details",
+        "Being pressured into saying yes by a partner",
+        "Freely and voluntarily agreeing to something with full understanding of what is involved",
+        "Giving consent once, which applies to all future situations"
+      ],
+      "expectedAnswer": "Freely and voluntarily agreeing to something with full understanding of what is involved",
+      "markingGuide": "The correct answer is 'Freely and voluntarily agreeing to something with full understanding of what is involved'. Informed consent means a person has been given all relevant information, understands what they are agreeing to, and gives their agreement freely without pressure, coercion, or manipulation. Consent must be ongoing — it can be withdrawn at any time. A person cannot give informed consent if they are intoxicated, unconscious, or being threatened. In NZ law, the age of consent is 16 years."
+    },
+    {
+      "id": "l1hw-q7",
+      "number": "7",
+      "text": "Explain TWO strategies a school could use to support students' mental health and well-being.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["mental-health-l1", "wellbeing-nz"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each well-explained strategy (2 required). Possible strategies include: Providing access to a school counsellor or guidance team where students can talk confidentially about their concerns; Running well-being programmes or workshops (e.g. mindfulness sessions, stress management during exam time, programmes like SPARX — an NZ-developed online tool for managing depression); Creating peer support or buddy systems where trained senior students support younger students; Having a clear anti-bullying policy that is actively enforced, including procedures for reporting cyberbullying; Promoting physical activity through sports teams, lunchtime activities, or active breaks; Establishing quiet or safe spaces where students can go if they feel overwhelmed; Connecting with external organisations such as the Mental Health Foundation, Youthline (0800 376 633), or 1737 (free text or call service); Ensuring teachers are trained to recognise signs of mental distress and know how to refer students for support. Each strategy must be clearly described, not just named. Exam tip: Stronger answers connect strategies to hauora dimensions."
+    },
+    {
+      "id": "l1hw-q8",
+      "number": "8",
+      "text": "What is the purpose of the Health and Safety at Work Act 2015 in New Zealand?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["health-safety-law"],
+      "answerType": "multi-choice",
+      "options": [
+        "To set the legal drinking age in New Zealand",
+        "To ensure workers and others are given the highest level of protection from workplace health and safety risks",
+        "To regulate the sale of medicines and drugs",
+        "To provide free healthcare to all New Zealanders"
+      ],
+      "expectedAnswer": "To ensure workers and others are given the highest level of protection from workplace health and safety risks",
+      "markingGuide": "The correct answer is 'To ensure workers and others are given the highest level of protection from workplace health and safety risks'. The Health and Safety at Work Act 2015 (HSWA) is New Zealand's key workplace health and safety legislation. It places a primary duty of care on PCBUs (persons conducting a business or undertaking) to ensure, so far as is reasonably practicable, the health and safety of workers and others affected by their work. This includes providing safe work environments, equipment, and training. WorkSafe New Zealand is the primary regulator."
+    },
+    {
+      "id": "l1hw-q9",
+      "number": "9",
+      "text": "Discuss how social media can affect the well-being of New Zealand teenagers. Consider BOTH positive and negative effects.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["mental-health-l1", "wellbeing-nz"],
+      "answerType": "text",
+      "markingGuide": "1 mark for discussing positive effects (e.g. social media allows teenagers to stay connected with friends and whānau, particularly in rural areas of NZ; it can provide access to mental health resources and support communities; platforms like Instagram and TikTok can be used for creative expression and building identity; young people can find communities of shared interest and feel a sense of belonging (taha whānau); it can be a tool for cultural connection, e.g. sharing te reo Māori content or connecting with iwi). 1 mark for discussing negative effects (e.g. cyberbullying is a significant issue for NZ teenagers and can cause anxiety, depression, and social withdrawal; constant comparison to curated images can damage self-esteem and body image (taha hinengaro); excessive screen time can disrupt sleep patterns and reduce physical activity (taha tinana); social media can expose young people to harmful content including misinformation; fear of missing out (FOMO) can increase anxiety; loss of face-to-face social skills). Exam tip: A balanced answer that considers both sides with specific NZ examples will score well. Link to hauora dimensions for depth."
+    },
+    {
+      "id": "l1hw-q10",
+      "number": "10",
+      "text": "A Year 11 student is experiencing cyberbullying and it is affecting their attendance at school. Using the hauora model (Te Whare Tapa Whā), explain how this situation could impact ALL FOUR dimensions of their well-being, and recommend TWO actions that could help improve their situation.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": ["hauora-l1", "mental-health-l1", "wellbeing-nz"],
+      "answerType": "working",
+      "markingGuide": "Up to 2 marks for explaining the impact on all four dimensions with depth and detail:\n\nTaha tinana (physical) — The stress of cyberbullying may cause physical symptoms such as headaches, stomach aches, loss of appetite, or difficulty sleeping. Avoiding school means missing out on physical activities and sport. Chronic stress can weaken the immune system.\n\nTaha hinengaro (mental/emotional) — The student may experience anxiety, depression, fear, anger, or feelings of helplessness. Their self-esteem and confidence are likely to decline. They may struggle to concentrate on schoolwork, leading to academic difficulties. The constant nature of online bullying (24/7 access) means there is no escape, increasing psychological distress.\n\nTaha whānau (social/family) — The student may withdraw from friends and whānau, becoming isolated. Missing school disrupts social connections and friendships. Family relationships may be strained if the student does not share what is happening, or if parents feel helpless. The student may lose trust in others.\n\nTaha wairua (spiritual) — The student may lose their sense of self-worth, identity, and purpose. They may question their value and place in the world. Feelings of hopelessness about the future may develop. Their connection to school community and sense of belonging is undermined.\n\nMust address all 4 dimensions with specific, relevant detail for 2 marks. 3 dimensions for 1 mark.\n\n1 mark for recommending TWO practical, specific actions (e.g. talk to a trusted adult such as a parent, teacher, dean, or school counsellor; report the bullying to Netsafe (0508 638 723) who provide free advice for NZ cyberbullying situations; block and report the bully on the platform; keep evidence (screenshots) of the bullying; contact 1737 — NZ's free mental health helpline for support; the school could implement a restorative justice process; whānau hui to discuss support strategies). Actions must be clearly explained, not just listed."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 11 },
+    "merit": { "min": 12, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

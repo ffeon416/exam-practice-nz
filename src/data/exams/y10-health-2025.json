@@ -1,0 +1,160 @@
+{
+  "id": "y10-health-2025",
+  "title": "Year 10 Health — Practice 1",
+  "level": 0,
+  "standard": "Y10-HEALTH",
+  "year": 2025,
+  "subject": "health",
+  "timeMinutes": 40,
+  "totalMarks": 18,
+  "questions": [
+    {
+      "id": "y10h1-q1",
+      "number": "1",
+      "text": "The hauora model (Mason Durie's Te Whare Tapa Whā) describes well-being as having four dimensions. What are the four dimensions of hauora?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["hauora"],
+      "answerType": "multi-choice",
+      "options": [
+        "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual)",
+        "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha mahi (work), Taha wairua (spiritual)",
+        "Taha tinana (physical), Taha kai (nutritional), Taha whānau (social/family), Taha wairua (spiritual)",
+        "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha whenua (environmental)"
+      ],
+      "expectedAnswer": "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual)",
+      "markingGuide": "The correct answer is Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual). These are the four walls of Te Whare Tapa Whā, Mason Durie's model of health and well-being used throughout the NZ Health curriculum."
+    },
+    {
+      "id": "y10h1-q2",
+      "number": "2",
+      "text": "Which dimension of hauora is about feeling connected to family and community?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["hauora"],
+      "answerType": "multi-choice",
+      "options": [
+        "Taha tinana",
+        "Taha hinengaro",
+        "Taha whānau",
+        "Taha wairua"
+      ],
+      "expectedAnswer": "Taha whānau",
+      "markingGuide": "The correct answer is Taha whānau. This dimension relates to belonging, family relationships, and feeling connected to others in your community. It recognises that our well-being is linked to our relationships with whānau and wider social groups."
+    },
+    {
+      "id": "y10h1-q3",
+      "number": "3",
+      "text": "Explain how TWO dimensions of hauora are connected. Use an example from a teenager's life.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["hauora"],
+      "answerType": "text",
+      "markingGuide": "1 mark for identifying two dimensions and explaining a valid connection. 1 mark for a relevant, specific example from a teenager's life. For example: Taha tinana and Taha hinengaro are connected — when a teenager exercises regularly (physical), they may feel less stressed and more confident (mental/emotional). Or: Taha whānau and Taha wairua — when a teenager feels supported by their family (social), they may feel a stronger sense of purpose and identity (spiritual)."
+    },
+    {
+      "id": "y10h1-q4",
+      "number": "4",
+      "text": "Which nutrient provides the most energy per gram?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["nutrition-health"],
+      "answerType": "multi-choice",
+      "options": [
+        "Carbohydrates",
+        "Protein",
+        "Fat",
+        "Vitamins"
+      ],
+      "expectedAnswer": "Fat",
+      "markingGuide": "The correct answer is Fat. Fat provides approximately 37 kJ (9 calories) per gram, compared to carbohydrates and protein which each provide about 17 kJ (4 calories) per gram. Vitamins do not provide energy."
+    },
+    {
+      "id": "y10h1-q5",
+      "number": "5",
+      "text": "What is the legal drinking age in New Zealand?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["drugs-alcohol"],
+      "answerType": "multi-choice",
+      "options": [
+        "16",
+        "18",
+        "20",
+        "21"
+      ],
+      "expectedAnswer": "18",
+      "markingGuide": "The correct answer is 18. In New Zealand, the minimum purchase age for alcohol is 18 years. It is illegal for anyone under 18 to buy alcohol in NZ. Note: there is no minimum legal drinking age in NZ, but the purchase age is 18."
+    },
+    {
+      "id": "y10h1-q6",
+      "number": "6",
+      "text": "Describe TWO strategies a teenager could use to resist peer pressure to drink alcohol.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["drugs-alcohol"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each valid strategy (2 required). Possible strategies include: saying 'no thanks' assertively and offering an alternative reason (e.g. 'I'm driving' or 'I have training tomorrow'); removing themselves from the situation by leaving the party or calling a parent; having a non-alcoholic drink in hand so they are not offered alcohol; choosing friends who respect their decision not to drink; planning ahead with a trusted friend to support each other; using humour to deflect pressure. Each strategy must be clearly described, not just named."
+    },
+    {
+      "id": "y10h1-q7",
+      "number": "7",
+      "text": "What does it mean to be resilient in terms of mental health?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["mental-health-y10"],
+      "answerType": "multi-choice",
+      "options": [
+        "Never feeling sad or anxious",
+        "Being able to cope with challenges and bounce back from difficulties",
+        "Always being happy and positive",
+        "Avoiding all stressful situations"
+      ],
+      "expectedAnswer": "Being able to cope with challenges and bounce back from difficulties",
+      "markingGuide": "The correct answer is 'Being able to cope with challenges and bounce back from difficulties'. Resilience does not mean avoiding negative emotions or always being happy. It is the ability to adapt and recover when things go wrong, and to keep going through tough times."
+    },
+    {
+      "id": "y10h1-q8",
+      "number": "8",
+      "text": "Explain why physical activity is important for mental well-being. Give a specific example.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["mental-health-y10", "hauora"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining the link between physical activity and mental well-being (e.g. exercise releases endorphins which improve mood; physical activity reduces stress hormones like cortisol; being active can improve sleep which supports mental health; exercise provides a distraction from worries). 1 mark for a specific, relevant example (e.g. 'A teenager who goes for a run after a stressful day at school may feel calmer and more able to focus on homework' or 'Playing in a sports team helps a young person feel a sense of belonging, which supports taha whānau and taha hinengaro')."
+    },
+    {
+      "id": "y10h1-q9",
+      "number": "9",
+      "text": "Which of the following best describes consent in a relationship?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["relationships-health"],
+      "answerType": "multi-choice",
+      "options": [
+        "Saying yes once means you have agreed for all future situations",
+        "Consent is only needed the first time",
+        "Freely given, informed, and can be withdrawn at any time",
+        "If someone does not say no, they have given consent"
+      ],
+      "expectedAnswer": "Freely given, informed, and can be withdrawn at any time",
+      "markingGuide": "The correct answer is 'Freely given, informed, and can be withdrawn at any time'. Consent must be active, ongoing, and freely given without pressure or coercion. It can be withdrawn at any point. Silence or not saying no does not equal consent. Consent given once does not apply to future situations."
+    },
+    {
+      "id": "y10h1-q10",
+      "number": "10",
+      "text": "A friend tells you they are being cyberbullied. Using the hauora model (Te Whare Tapa Whā), explain how cyberbullying could affect all four dimensions of their well-being, and suggest ONE action they could take.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": ["hauora", "mental-health-y10"],
+      "answerType": "working",
+      "markingGuide": "Up to 2 marks for explaining effects on all four dimensions: Taha tinana (physical) — stress may cause headaches, poor sleep, loss of appetite, or feeling physically unwell; Taha hinengaro (mental/emotional) — may feel anxious, depressed, scared, angry, or lose confidence and self-esteem; Taha whānau (social/family) — may withdraw from friends and family, feel isolated, or not want to go to school; Taha wairua (spiritual) — may lose sense of self-worth, purpose, or identity, and feel hopeless about the future. Must address at least 3 dimensions clearly for 1 mark, all 4 for 2 marks. 1 mark for suggesting a practical action (e.g. talk to a trusted adult such as a parent, teacher, or school counsellor; block the person online; report the bullying to the platform; contact Netsafe or a helpline like 1737)."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 10 },
+    "merit": { "min": 11, "max": 14 },
+    "excellence": { "min": 15, "max": 18 }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "id": "l1-earth-space-2025",
+  "title": "Level 1 Earth and Space Science — 2025",
+  "level": 1,
+  "standard": "92046",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "92046-25-q1a",
+      "number": "1(a)",
+      "text": "Label the seasons that occur in the **Southern Hemisphere** in the diagram below.",
+      "image": "/images/exams/92046-2025-q1a.png",
+      "imageAlt": "Diagram showing Earth at four positions in its orbit around the Sun, with the Earth's tilted axis shown at each position",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "earth-space",
+        "seasons"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Top: Winter (June solstice",
+      "markingGuide": "Achievement: Correctly label all four seasons in the Southern Hemisphere at the appropriate orbital positions. Summer when the Southern Hemisphere is tilted toward the Sun (December), winter when tilted away (June), and spring/autumn at the equinoxes."
+    },
+    {
+      "id": "92046-25-q1b",
+      "number": "1(b)",
+      "text": "Below is a graph of average monthly temperatures for Wellington last year.\n\nExplain the differences in average monthly temperatures for Wellington for 2024.\n\nInclude in your answer:\n- why the Earth experiences seasons (include length of orbit and axial tilt)\n- a comparison of the differences in the amount of solar radiation throughout the year\n- why the temperature changes throughout the year.",
+      "image": "/images/exams/92046-2025-q1b.png",
+      "imageAlt": "Bar graph showing average monthly temperatures for Wellington, with higher temperatures in January/February (summer) and lower temperatures in June/July (winter)",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "earth-space",
+        "seasons"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The Earth is on a tilt of 23.5 degrees,",
+      "markingGuide": "Achievement: States the tilt and orbit of the Earth, and explains the relationship between seasons. Merit: Explains why the Southern Hemisphere experiences the differences in temperature through comparing solar radiation. Excellence: Discusses why the temperature changes throughout the year by linking tilt, orbit, solar radiation intensity and seasonal temperature changes comprehensively."
+    },
+    {
+      "id": "92046-25-q1c",
+      "number": "1(c)",
+      "text": "Wellington experiences changes in daylength throughout the year. In the summer, the days are longer; in the winter, the days are shorter.\n\n| | **Summer day** | **Winter day** |\n|---|---|---|\n| **Time of sunrise** | 6:01 a.m. | 7:45 a.m. |\n| **Time of sunset** | 8:55 p.m. | 5:05 p.m. |\n\nUsing the data above, discuss why this happens.\n\nInclude in your answer:\n- why the Earth experiences day and night\n- how the height of the Sun changes throughout the year\n- why the daylength changes throughout the year.\n\n*Use a diagram to support your answer.*",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The Earth spins once on its axis every 24 hours, creating day and night.",
+      "markingGuide": "Achievement: Describes why we have day and night (Earth's rotation), and describes the height of the Sun for the seasons. Merit: Explains the differences in daylength between summer and winter by linking tilt and Sun height. Excellence: Discusses why daylength changes throughout the year, comprehensively linking Earth's rotation, axial tilt, Sun height, and the resulting differences in sunrise/sunset times with supporting diagram."
+    },
+    {
+      "id": "92046-25-q2a",
+      "number": "2(a)",
+      "text": "The Moon changes its appearance over time, going from new moon to new moon about once every month.\n\nThe diagram below shows Earth as viewed towards the South Pole, with possible positions of the Moon when it is in its various phases.\n\nNOTE: distances and sizes are not to scale.\n\nUse the diagram to describe OR draw how the Moon will appear for the positions shown.\n\n| **Position** | **Description of the moon phase** | **OR** | **Drawing of the moon phase** |\n|---|---|---|---|\n| A | | | |\n| B | | | |\n| C | | | |\n| D | | | |\n| E | | | |",
+      "image": "/images/exams/92046-2025-q2a.png",
+      "imageAlt": "Diagram showing Earth viewed from the South Pole with sunlight coming from the left. Five Moon positions labeled A through E are shown around Earth: A is between Earth and Sun, B is upper-left, C is above Earth, D is to the right of Earth, and E is below Earth.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "earth-space",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A: New Moon",
+      "markingGuide": "Achievement: 4 out of 5 Moon phases correctly named/drawn. The phases correspond to the Moon's position relative to Earth and Sun, viewed from the South Pole."
+    },
+    {
+      "id": "92046-25-q2b",
+      "number": "2(b)",
+      "text": "Explain why viewers on Earth observe different phases of the Moon over time.\n\nInclude in your answer:\n- why we see the Moon\n- why the Moon appears to have different shapes over time, as seen from Earth\n- how the Moon appears in the Southern Hemisphere as compared to the Northern Hemisphere.\n\n*You may use a diagram to support your answer.*",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "earth-space",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The Moon is illuminated when sunlight is reflected off its surface.",
+      "markingGuide": "Achievement: Describes the position of Moon and Sun for new and full moon, states that the Moon is lit by the Sun, describes changes in the Moon's appearance. Merit: Explains the position of Earth, Moon, and the Sun during the phases of the Moon, explains the Moon phases using relative position. Explains any changes in appearance using a detailed description of the phases. Excellence: Uses the Moon's position and observers' location to discuss how the Moon phases appear from different locations on Earth. Uses relative timing of the Moon's position relative to the Earth to discuss the occurrence of the phases."
+    },
+    {
+      "id": "92046-25-q2c",
+      "number": "2(c)",
+      "text": "The Moon's orbit is elliptical, taking about 27.5 days to go from one perigee to the next. When a full moon occurs at the same time that the Moon appears to be its largest size, it is called a super full moon. In 2025, this occurs on only 6 November and 5 December.\n\nExplain why a super full moon is not observed every month.\n\nInclude in your answer:\n- what causes a full moon, and how often it occurs\n- an explanation of why the Moon's apparent size changes over time\n- an explanation of why a super full moon may occur only 1–3 times a year.\n\n*You may use a diagram to support your answer.*",
+      "image": "/images/exams/92046-2025-q2c.png",
+      "imageAlt": "Diagram showing the Moon's elliptical orbit around Earth, with Perigee (closest point) on the left and Apogee (farthest point) on the right, and a directional arrow showing the orbit direction.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "earth-space",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A full moon occurs when Earth is positioned exactly between the Moon and Sun, and this occurs...",
+      "markingGuide": "Achievement: Describes changes in the Moon's orbit and describes length of the Moon's orbit. Merit: Explains the Moon's apparent size by using its relative distance from Earth. Excellence: Uses the movement of the Earth AND of the Moon to discuss the occurrence of the Moon phases / super full moons over days / months / calendar year."
+    },
+    {
+      "id": "92046-25-q3a",
+      "number": "3(a)",
+      "text": "Use the diagram above to label A, B, and C as being winter solstice, equinox, and summer solstice.\n\n| | |\n|---|---|\n| A | |\n| B | |\n| C | |",
+      "image": "/images/exams/92046-2025-q3a.png",
+      "imageAlt": "Diagram showing the apparent path of the Sun throughout a year as seen from the Southern Hemisphere. Three arc paths are shown with the Sun at positions A (highest arc), B (middle arc), and C (lowest arc), all crossing a vertical meridian line.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A: Summer solstice (highest path",
+      "markingGuide": "Achievement: Table completed correctly with all three labels matching the correct arc positions."
+    },
+    {
+      "id": "92046-25-q3b",
+      "number": "3(b)",
+      "text": "During a winter solstice, **Auckland (latitude 37 degrees S)** experiences a longer day than **Invercargill (46 degrees S)**, while the opposite is true for the summer solstice. During an equinox they experience similar daylengths.\n\nUsing the above diagram, discuss why Auckland and Invercargill experience differences in daylength throughout the year.\n\nInclude in your answer:\n- definitions of winter solstice, equinox, summer solstice\n- why the location of sunrise and sunset appear to change throughout the year\n- why Auckland and Invercargill experience different daylengths during the solstices but similar during an equinox.\n\n*You may use a diagram to support your answer.*",
+      "image": "/images/exams/92046-2025-q3b.png",
+      "imageAlt": "Diagram showing the Sun rising at different times of the year in the Southern Hemisphere, with three different sun paths across the sky",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "An equinox is when New Zealand experiences similar daylengths (equal day and night",
+      "markingGuide": "Achievement: Defines equinox OR solstice, describes the angle of the Sun rising and setting throughout the year. Merit: Explains the changing daylengths by linking location of sunrise and sunset with Sun throughout the year, explains differences between Auckland and Invercargill. Excellence: Discusses why the daylength changes throughout the year at the two locations based on latitude, tilt, and Sun's apparent path comprehensively."
+    },
+    {
+      "id": "92046-25-q3c",
+      "number": "3(c)",
+      "text": "The Equator and Dunedin are at different locations on the Earth, and this means that these locations experience differences in the angle of the Sun throughout the year. The Equator has a latitude of 0 degrees and Dunedin 46 degrees S.\n\nBelow is a table of the sun angles at noon at the spring equinox.\n\n| **Location** | **Sun angle** |\n|---|---|\n| Equator | 90 degrees |\n| Dunedin | 43 degrees |\n\nDiscuss why these two locations experience differences in the angle of the Sun during the spring equinox.\n\nInclude in your answer:\n- compare the angle of the Sun at noon between the two locations\n- explain why these differences in angles occur\n- discuss the differences in shadow lengths and directions between the two locations.",
+      "image": "/images/exams/92046-2025-q3c.png",
+      "imageAlt": "Two diagrams showing the changing angle of the Sun at the Equator (Sun directly overhead at 90 degrees) and at Dunedin (Sun at a lower angle), with compass directions S, W, N, E marked and a stick figure observer in each",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "At the spring equinox, the Sun is directly above the Equator.",
+      "markingGuide": "Achievement: Describes the angle of the Sun at noon between the two locations. Merit: Explains why the differences in angles occur, linking latitude and curvature of Earth. Excellence: Discusses shadow differences in both length and direction between the two locations, comprehensively linking sun angle, latitude and shadow effects."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

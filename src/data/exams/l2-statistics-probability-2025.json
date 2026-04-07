@@ -1,0 +1,84 @@
+{
+  "id": "l2-statistics-probability-2025",
+  "title": "Level 2 Statistics — Probability Methods 2025",
+  "level": 2,
+  "standard": "91267",
+  "year": 2025,
+  "subject": "statistics",
+  "timeMinutes": 60,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "stat267-25-q1a",
+      "number": "1(a)",
+      "text": "At a local cafe, 60% of customers order coffee and 40% order tea. Of those who order coffee, 30% also order food. Of those who order tea, 50% also order food.\n\nDraw a tree diagram showing all possible outcomes and their probabilities. Use the tree diagram to calculate the probability that a randomly selected customer orders food.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["probability-trees", "probability-calculations"],
+      "answerType": "working",
+      "expectedAnswer": "P(food) = P(coffee and food) + P(tea and food) = 0.6 × 0.3 + 0.4 × 0.5 = 0.18 + 0.20 = 0.38",
+      "markingGuide": "Achieved: Draws tree diagram with correct branches (coffee 0.6/tea 0.4, then food/no food for each). Calculates P(food) = 0.38. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram."
+    },
+    {
+      "id": "stat267-25-q1b",
+      "number": "1(b)",
+      "text": "Given that a customer ordered food, what is the probability that they ordered coffee? Show your working clearly.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["conditional-probability", "probability-trees"],
+      "answerType": "working",
+      "expectedAnswer": "P(coffee|food) = P(coffee and food) / P(food) = 0.18 / 0.38 = 9/19 ≈ 0.474",
+      "markingGuide": "Achieved: Identifies the need for conditional probability. Merit: Correctly applies P(coffee|food) = P(coffee and food)/P(food) = 0.18/0.38 = 0.474 (or 9/19). Excellence: Shows clear reasoning with formula stated, all values identified from the tree."
+    },
+    {
+      "id": "stat267-25-q2a",
+      "number": "2(a)",
+      "text": "A spinner game at a school fair costs $2 to play. The spinner has the following outcomes:\n• 50% chance of winning nothing ($0)\n• 30% chance of winning $1\n• 15% chance of winning $5\n• 5% chance of winning $20\n\nCalculate the expected value of the net gain (winnings minus cost) for a single play of this game.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["expected-value", "probability-calculations"],
+      "answerType": "working",
+      "expectedAnswer": "Expected winnings = 0.50 × $0 + 0.30 × $1 + 0.15 × $5 + 0.05 × $20 = $0 + $0.30 + $0.75 + $1.00 = $2.05. Expected net gain = $2.05 - $2.00 = $0.05",
+      "markingGuide": "Achieved: Sets up the expected value calculation correctly with at least 3 of 4 terms. Merit: Correctly calculates expected winnings = $2.05 and net gain = $0.05. Excellence: Correctly calculates and interprets — on average a player gains 5 cents per game, so the game is approximately fair but very slightly favours the player."
+    },
+    {
+      "id": "stat267-25-q2b",
+      "number": "2(b)",
+      "text": "The school wants to make a profit of at least $50 from this game. They expect 200 people to play.\n\nBy how much should they increase the cost per play so that their expected profit is at least $50? Show your working.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["expected-value", "probability-calculations"],
+      "answerType": "working",
+      "expectedAnswer": "Currently expected profit per play = -$0.05 (school loses 5c per player). For 200 plays, need profit ≥ $50, so profit per play ≥ $50/200 = $0.25. Current loss per play = $0.05. Need to increase cost by $0.05 + $0.25 = $0.30. New cost = $2.30.",
+      "markingGuide": "Achieved: Recognises that the school currently loses money per game and attempts to find the required increase. Merit: Correctly calculates that the cost needs to increase by $0.30 (to $2.30) so expected profit per play = $0.25, giving $50 over 200 plays. Excellence: Full solution with clear working and verification."
+    },
+    {
+      "id": "stat267-25-q3a",
+      "number": "3(a)",
+      "text": "A two-way table shows survey results from 150 adults about exercise frequency and sleep quality.\n\n|                    | Good sleep | Poor sleep | Total |\n|--------------------|-----------|-----------|-------|\n| Regular exercise   | 54        | 18        | 72    |\n| Irregular exercise | 30        | 48        | 78    |\n| Total              | 84        | 66        | 150   |\n\nCalculate the probability that a randomly selected person has good sleep, given that they exercise regularly.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["conditional-probability", "two-way-tables"],
+      "answerType": "working",
+      "expectedAnswer": "P(good sleep | regular exercise) = 54/72 = 0.75",
+      "markingGuide": "Achieved: Correctly identifies the conditional probability and calculates 54/72 = 0.75 (or 3/4)."
+    },
+    {
+      "id": "stat267-25-q3b",
+      "number": "3(b)",
+      "text": "A fitness company claims: 'Regular exercise causes better sleep — our data proves it since 75% of regular exercisers have good sleep compared to only 38% of irregular exercisers.'\n\nEvaluate this claim. In your answer, discuss:\n• the validity of the comparison\n• whether the data supports a causal claim\n• what other factors might explain the difference.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": ["risk-interpretation", "statistical-reasoning"],
+      "answerType": "text",
+      "expectedAnswer": "The comparison is valid — there is a clear difference (75% vs 38.5%). However, the claim of causation is not justified from this observational survey data. Correlation does not imply causation. Confounding variables could explain the difference: people who exercise regularly may also have healthier diets, less stress, better routines, or different ages/occupations. A randomised controlled experiment would be needed to establish causation.",
+      "markingGuide": "Achieved: Notes there is a difference in proportions between the two groups. Merit: Correctly identifies that this is observational data so causation cannot be concluded, and suggests at least one confounding variable. Excellence: Thoroughly discusses the limitation of observational studies, provides multiple plausible confounding variables in context, and explains what type of study design would be needed to establish causation."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 11 },
+    "merit": { "min": 12, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

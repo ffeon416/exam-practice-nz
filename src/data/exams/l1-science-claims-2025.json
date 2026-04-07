@@ -1,0 +1,144 @@
+{
+  "id": "l1-science-claims-2025",
+  "title": "Level 1 Science Claims — 2025",
+  "level": 1,
+  "standard": "91923",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "l1sc25-p1ab",
+      "number": "Part 1(a)–(b)",
+      "text": "Choose ONE context from the Resource Booklet:\n• Context One: Personality tests (Resource A: Scientific American magazine article, Resource B: Myers-Briggs website)\n• Context Two: The future of plastics (Resource A: Good News Network article, Resource B: BioPak website)\n\nUse Resource A from your chosen context to respond to the following:\n\n(a) Who published this information?\n\n(b) Why was this information published?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-claims",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify who published the information and why",
+      "markingGuide": "Achieved: Describe the source and its intended purpose. Context One: (a) Researchers for ClearerThinking.org wrote and published in Scientific American. (b) They published this to tell people about the accuracy of personality tests in predicting life outcomes and to promote their website and research. Context Two: (a) A summary of an article written by Andy Corbley and published on the Good News Network website. (b) The purpose was to inform people about a new type of biodegradable plastic."
+    },
+    {
+      "id": "l1sc25-p1c",
+      "number": "Part 1(c)",
+      "text": "(c) What is a science-related claim in this resource?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-claims",
+        "data-interpretation-science"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify a science-related claim from the resource",
+      "markingGuide": "Achieved: Describe a science-related claim in the information. Context One examples: Most people cannot be divided into two distinct categories for each trait. Personality tests would be better at predicting life outcomes if they allowed more than two traits. Context Two examples: Researchers have made a new type of biodegradable plastic that has bacterial spores in it. Researchers have made a more durable plastic that will be almost fully broken down within five months when in the right conditions."
+    },
+    {
+      "id": "l1sc25-p1d",
+      "number": "Part 1(d)",
+      "text": "(d) What are the science language or conventions used in support of this claim?",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "science-claims",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify and explain how science language and conventions are used to support the claim",
+      "markingGuide": "Merit: Show understanding and describe the science-related claims, explaining how science language or conventions support them. Context One: Science language — normally distributed, classified. Science conventions — large sample size of 559 participants; graph has no units but has clear labels and evenly spaced numbers (0.38 intervals); self-published, may not be peer-reviewed. The graph makes it look more scientific and legitimate. The names and qualifications of the researchers are not all given. A large sample size makes the claims more believable as the experiment was repeated many times. Context Two: Science language — bacterial spores, biodegradable, thermoplastic polyurethane, germinate, polymer, microbially active, sterile, nutrients, Bacillus subtilis, vegetative. Science conventions — from a recent article (Feb 2024), sourced from peer-reviewed journal Nature Communications; researchers are from University of California San Diego. The article is up to date (published 2024), strengthening the claim. The research was peer-reviewed. The researchers will have qualifications in this area."
+    },
+    {
+      "id": "l1sc25-p1e",
+      "number": "Part 1(e)",
+      "text": "(e) How well do the science language or conventions used in the information support the claim that you identified in part (c)? Use evidence to support your response.",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-claims",
+        "evidence-analysis",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate how well the science language/conventions support the claim, discussing strengths and...",
+      "markingGuide": "Excellence: Evaluate the use of science language or conventions used to support the science-related claims. Context One: The researchers are people who self-publish, meaning we don't know if they have had their work checked by others in a peer review. This is important as it allows other people to make sure what they are writing is correct. These researchers may have tried personality tests in the past and not liked the results, so they may have a bias. If we don't have evidence that their research has been checked, we can't be sure how accurate it is. However, as it has also been published in Scientific American, a popular open-access science magazine, these researchers will want to maintain a good reputation, so it most likely is accurate. Context Two: The article talks about the plastic being more durable. However, it has not been explained how they have tested this. There is no information on how they carried out the tests, how many repeats they did, how they controlled the variables like size, number of spores, etc. For a science investigation to be valid, all these things need to be considered when designing the experiment. As these researchers work at a university, they will have qualifications that make them experts in their fields, but without being told all this information, we cannot be 100% sure that they did their experiments properly."
+    },
+    {
+      "id": "l1sc25-p2ab",
+      "number": "Part 2(a)–(b)",
+      "text": "Use Resource B from your chosen context to respond to the following:\n\n(a) Who published this information?\n\n(b) Why was this information published?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-claims",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify who published the information and why",
+      "markingGuide": "Achieved: Describe the source and intended purpose. Context One: (a) Myers-Briggs published this on their website. (b) They published this to tell people about their personality test. Context Two: (a) A company called BioPak published this on their website. (b) The purpose was to educate people about biodegradable plastic."
+    },
+    {
+      "id": "l1sc25-p2c",
+      "number": "Part 2(c)",
+      "text": "(c) What is a science-related claim in this resource?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-claims",
+        "data-interpretation-science"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify a science-related claim from the resource",
+      "markingGuide": "Achieved: Describe a science-related claim. Context One examples: The Myers-Briggs personality test can be used as a tool for individual development and self-awareness. It is rare for personality preferences to change. Context Two examples: Compostable packaging is better than biodegradable products. Biodegradable products are still conventional plastic but have some additives that make them break down in the right conditions."
+    },
+    {
+      "id": "l1sc25-p2d",
+      "number": "Part 2(d)",
+      "text": "(d) What are the science language or conventions used in support of this claim?",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "science-claims",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify and explain how science language and conventions support the claim",
+      "markingGuide": "Merit: Show understanding and describe the science-related claims, explaining how science language or conventions support them. Context One: Science language — reliability, traits, test-retest correlations. Science conventions — Myers-Briggs also sells their test on their website, so there may be a conflict of interest; the graph does not tell us what the other names stand for (e.g. Big Five etc.); the test has been reviewed thousands of times; they quote themselves rather than including research from other sources. As the website also sells the tests, there is a conflict of interest — they want to sell their product so may ignore bad things about it. They said there were 31,000 records for MBTI but have not said what these records were for. Context Two: Science language — biodegradable, plastic, fossil fuels, additive, biobased, biomass, cellulose, oxo-degradable plastics, UV irradiation, oxygen, manganese, polymer. Science conventions — no date to tell how recent this is; this company also sells products so there may be a conflict of interest; they do not list sources. There are a lot of science words making it sound like the author knows what they are talking about. They are selling a product that is in competition with the product they say is bad."
+    },
+    {
+      "id": "l1sc25-p2e",
+      "number": "Part 2(e)",
+      "text": "(e) How well do the science language or conventions used in the information support the claim that you identified in part (c)? Use evidence to support your response.",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-claims",
+        "evidence-analysis",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluate how well the science language/conventions support the claim, discussing strengths and...",
+      "markingGuide": "Excellence: Evaluate the use of science language or conventions used to support science-related claims. Context One: This is a popular personality test and lots of people have taken it. However, because they are selling it, they are earning money from it. Therefore, it is in their best interests to make the test sound good, because if they said anything bad, people may not want to buy it and they would earn less. But on the other hand, they might want to sound reliable and honest as people may start to give bad reviews if the tests do not work properly, and they would also lose potential earnings. Context Two: There are a lot of science-sounding words in this article (e.g. oxo-degradable plastics, biobased, biodegradable). For some of these words, they have explained what they mean, making it clearer for the reader so they fully understand what they read and won't be confused. This makes them and the claim more trustworthy. These science words also seem to be used correctly, which shows that the authors are knowledgeable about this topic. This further strengthens the claim."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

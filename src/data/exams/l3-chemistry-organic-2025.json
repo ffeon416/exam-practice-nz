@@ -1,0 +1,322 @@
+{
+  "id": "l3-chemistry-organic-2025",
+  "title": "Level 3 Chemistry — Organic Chemistry 2025",
+  "level": 3,
+  "standard": "91391",
+  "year": 2025,
+  "subject": "chemistry",
+  "timeMinutes": 50,
+  "questions": [
+    {
+      "id": "l3co25-q1ai",
+      "number": "1(a)(i)",
+      "text": "There are two enantiomers (optical isomers) of glucose, called D-glucose and L-glucose.\n\nLabel all the asymmetric carbon atoms with an asterisk (*) in the structural formula of D-glucose shown below.\n\nH–C(=O)\nH–C–OH\nHO–C–H\nH–C–OH\nH–C–OH\nCH₂OH",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "stereoisomerism",
+        "chirality"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "There are FOUR asymmetric carbon atoms in D-glucose: C-2, C-3, C-4, and C-5.",
+      "markingGuide": "Achievement: ALL FOUR asymmetric carbon atoms identified. OR recognises the enantiomers rotate plane-polarised light.",
+      "image": "/images/exams/91391-2025-q1a.png"
+    },
+    {
+      "id": "l3co25-q1aii",
+      "number": "1(a)(ii)",
+      "text": "Explain how D-glucose and L-glucose could be distinguished.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "stereoisomerism",
+        "optical-activity"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The enantiomers can be distinguished",
+      "markingGuide": "Achievement: Recognises the enantiomers rotate plane-polarised light. Merit: Explains the enantiomers rotate plane-polarised light in opposite directions."
+    },
+    {
+      "id": "l3co25-q1aiii",
+      "number": "1(a)(iii)",
+      "text": "When D-glucose is heated with Tollens' reagent, a silver mirror forms.\n\nExplain this observation with reference to the functional group involved and the type of reaction occurring.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "chemical-tests",
+        "oxidation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "D-glucose contains an aldehyde group (–CHO).",
+      "markingGuide": "Achievement: Identifies the presence of the aldehyde group OR classifies the reaction as oxidation. Merit: Explains that the aldehyde group undergoes oxidation to form a carboxylic acid as the silver ions are reduced."
+    },
+    {
+      "id": "l3co25-q1b",
+      "number": "1(b)",
+      "text": "Devise a reaction scheme to convert propanal into N-propylpropanamide.\n\nCH₃–CH₂–C(=O)–N(H)–CH₂–CH₂–CH₃   (N-propylpropanamide)\n\nAssume that you are provided only with the following reagents:\nSOCl₂, Cr₂O₇²⁻/H⁺, NaBH₄, conc NH₃ (reagents can be used more than once).",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "reaction-scheme"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Path 1 (from propanal): Cr₂O₇²⁻/H⁺ → propanoic acid (CH₃CH₂COOH).",
+      "markingGuide": "Achievement: At least TWO steps correct. Merit: At least FOUR steps correct. Excellence: ALL correct."
+    },
+    {
+      "id": "l3co25-q1ci",
+      "number": "1(c)(i)",
+      "text": "A student wanted to make some butanal, CH₃CH₂CH₂CHO, in the school laboratory. The student heated some butan-1-ol and excess acidified potassium permanganate, KMnO₄/H⁺, under reflux for 20 minutes. The student then distilled the reaction mixture to collect the butanal fraction. However, no fraction was collected at 73–76 °C.\n\nDescribe the colour change that would be observed as the reaction is heated, and link this observation to the type of reaction occurring.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "oxidation",
+        "chemical-tests"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The colour change would be purple to colourless (or brown)",
+      "markingGuide": "Achievement: Correct colour change and reaction type (oxidation).",
+      "image": "/images/exams/91391-2025-q1c.png"
+    },
+    {
+      "id": "l3co25-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Explain why no fraction was collected at 73–76 °C.\n\nRefer to the boiling points: Butan-1-ol 118 °C, Butanal 74.8 °C, Butanoic acid 163 °C.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "oxidation",
+        "practical-techniques"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Since the butan-1-ol was oxidised using heat under reflux with excess oxidising agent, it was...",
+      "markingGuide": "Achievement: Recognises the butan-1-ol would have oxidised to butanoic acid. Merit: Explains why no fraction is collected at 73–76 °C, stating that the butanoic acid's BP is much higher."
+    },
+    {
+      "id": "l3co25-q1ciii",
+      "number": "1(c)(iii)",
+      "text": "Outline why the student should have used distillation instead of heat under reflux to produce butanal.\n\nYou should include an explanation of the process of distillation, and compare the position of the condenser between distillation and heat under reflux.\n\nRefer to the diagrams provided (Fig. 1: distillation apparatus, Fig. 2: reflux apparatus).",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "practical-techniques",
+        "distillation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "If butan-1-ol had been oxidised using distillation, the butanal initially produced would...",
+      "markingGuide": "Achievement: Recognises distillation removes the butanal from the reaction mixture. Merit: Explains how distillation purifies/separates the butanal OR describes the position of the condenser. Excellence: Outlines why butan-1-ol must be oxidised using distillation, including reference to the process and the position of the condenser.",
+      "image": "/images/exams/91391-2025-q1ciii.png"
+    },
+    {
+      "id": "l3co25-q2ai",
+      "number": "2(a)(i)",
+      "text": "Complete the table below by either naming or drawing the structural formula.\n\nCompound A: CH₃–CH₂–CH₂–CH₂–C(=O)–CH₃ → IUPAC name?\nCompound B: → structural formula for propyl ethanoate\nCompound C: → structural formula for 2-methylpentanamide\nCompound D: CH₃–CH(Br)–CH₂–C(=O)–H → IUPAC name?",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "nomenclature",
+        "structural-formulae"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A: hexan-2-one.",
+      "markingGuide": "Achievement: THREE correct. Merit: Table correct (all four).",
+      "image": "/images/exams/91391-2025-q2a.png"
+    },
+    {
+      "id": "l3co25-q2aii",
+      "number": "2(a)(ii)",
+      "text": "Draw the enantiomers (optical isomers) of Compound D in the box below.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "stereoisomerism",
+        "enantiomers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Two 3D structural drawings of 3-bromobutanal showing the four different groups (CH₃, CH₂CHO, H,...",
+      "markingGuide": "Achievement: Shows tetrahedral arrangement of groups around asymmetric carbon atom. Merit: Enantiomers correctly drawn."
+    },
+    {
+      "id": "l3co25-q2bi",
+      "number": "2(b)(i)",
+      "text": "Three bottles, each containing a different colourless liquid, have not been labelled. The laboratory technician confirms they are:\n• ethanol  • ethanoyl chloride  • ethanal\n\nA student devised the following procedure to positively identify each of the three colourless liquids:\n\nStep 1: Add water to all three colourless liquids.\nStep 2: Add Fehling's solution to the remaining two colourless liquids, and heat.\nStep 3: Add acidified potassium dichromate, K₂Cr₂O₇/H⁺, to the remaining colourless liquid, and heat.\n\nComplete the table below for each step, only including observations for reactions that occur.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "chemical-tests",
+        "identification"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Step 1: Ethanoyl chloride",
+      "markingGuide": "Achievement: ONE row or column correct. Merit: TWO rows correct.",
+      "image": "/images/exams/91391-2025-q2b.png"
+    },
+    {
+      "id": "l3co25-q2bii",
+      "number": "2(b)(ii)",
+      "text": "Justify why the three steps should be followed in the order given to positively identify each of the three colourless liquids.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "chemical-tests",
+        "experimental-design"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Water must be added first to eliminate the ethanoyl chloride (which reacts violently with water...",
+      "markingGuide": "Achievement: ONE bullet point correct. Merit: THREE bullet points correct. Excellence: FIVE bullet points correct."
+    },
+    {
+      "id": "l3co25-q2c",
+      "number": "2(c)",
+      "text": "Compound A has the molecular formula C₄H₈O₂ and exists as enantiomers (optical isomers). When dilute sulfuric acid, H₂SO₄, is added, two organic compounds are formed: Compound B and Compound C. Compound B is present in the higher proportion.\n\nCompound B is reacted with excess thionyl chloride, SOCl₂, followed by concentrated ammonia, NH₃, to form Compound D. Compound D turns damp red litmus paper blue.\n\nCompound C is heated with excess acidified potassium permanganate, KMnO₄/H⁺, to form Compound E. Compound E forms bubbles when sodium carbonate, Na₂CO₃, solution is added.\n\nDraw the structural formulae for Compounds A, B, C, D, and E in the table on the next page.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "reaction-scheme",
+        "functional-groups"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A: CH₂=CH–CH(OH)–CH₃ (but-3-en-2-ol)",
+      "markingGuide": "Achievement: Identifies ONE correct functional group for A, D, and E AND TWO correct structural formulae. Merit: THREE correct structural formulae. Excellence: All correct."
+    },
+    {
+      "id": "l3co25-q3ai",
+      "number": "3(a)(i)",
+      "text": "Using the following two amino acids, draw the structural formulae for the two possible dipeptides that could be formed.\n\nAmino acid 1: H₂N–CH(CH₂SH)–COOH (cysteine)\nAmino acid 2: H₂N–CH(H)–COOH (glycine)",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "peptides",
+        "condensation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Dipeptide 1: H₂N–CH(CH₂SH)–CO–NH–CH₂–COOH (Cys-Gly).",
+      "markingGuide": "Achievement: Draws an amide (peptide) linkage and identifies the condensation reaction. Merit: Correctly draws THREE repeating units including the correct formula for both dipeptides.",
+      "image": "/images/exams/91391-2025-q3a.png"
+    },
+    {
+      "id": "l3co25-q3aii",
+      "number": "3(a)(ii)",
+      "text": "Identify and explain the type of reaction occurring to form the two dipeptides.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "condensation",
+        "peptides"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "This is a condensation reaction",
+      "markingGuide": "Achievement: Circles ester linkage and identifies reaction as condensation. Merit: Explains the process of condensation — amide bond formed with loss of water."
+    },
+    {
+      "id": "l3co25-q3aiii",
+      "number": "3(a)(iii)",
+      "text": "Dacron is a polymer used in the furniture industry. Two repeating units of Dacron are shown below.\n\n[Structure shows: –C(=O)–⟨benzene⟩–C(=O)–O–CH₂–CH₂–O–C(=O)–⟨benzene⟩–C(=O)–O–CH₂–CH₂–O–]\n\nNote: ⟨benzene⟩ is a benzene ring, and does not change when Dacron is heated in part (iv).\n\nCircle ONE ester linkage in the above diagram of Dacron.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "organic-chemistry",
+        "polymers",
+        "ester-linkage"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Circle one of the –C(=O)–O– groups (ester linkages) in the Dacron structure.",
+      "markingGuide": "Achievement: THREE correct ballot points (ester linkage circled correctly).",
+      "image": "/images/exams/91391-2025-q3aiii.png"
+    },
+    {
+      "id": "l3co25-q3aiv",
+      "number": "3(a)(iv)",
+      "text": "Identify and explain the type of reaction that would occur when Dacron is heated under reflux with sodium hydroxide, NaOH, solution.\n\nDraw the structural formulae of the organic products in the box below to support your answer.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "hydrolysis",
+        "polymers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Basic hydrolysis occurs",
+      "markingGuide": "Achievement: Breaks one ester linkage and identifies reaction as hydrolysis. Merit: TWO correct organic products. Excellence: TWO correct products with correct explanation of basic hydrolysis."
+    },
+    {
+      "id": "l3co25-q3bi",
+      "number": "3(b)(i)",
+      "text": "Consider compounds W, X, and Y, shown below:\n\nCompound W: CH₃–CH₂–CH=CH–C(=O)–H\nCompound X: CH₃=CH–CH₂–CH₂–C(=O)(OH)\nCompound Y: CH₃–C(=O)–CH=CH–C(=O)(OH)\n\nIdentify the ONE compound that has ALL the following properties:\n• exists as cis-trans (geometric) isomers\n• reacts with thionyl chloride, SOCl₂, to produce steamy fumes\n• can be reduced by sodium borohydride, NaBH₄.\n\nCompound (W, X, or Y): ___\n\nExplain your choice, including why the other two compounds were eliminated.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "isomerism",
+        "functional-groups"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Compound Y.",
+      "markingGuide": "Achievement: Recognises at least one property for two compounds. Merit: Chooses Compound Y with support from at least two properties. Excellence: Any TWO of: explains why Y is correct with support from all three properties, and explains why at least one other compound is eliminated.",
+      "image": "/images/exams/91391-2025-q3b.png"
+    },
+    {
+      "id": "l3co25-q3bii",
+      "number": "3(b)(ii)",
+      "text": "Draw the structural formula for the constitutional (structural) isomer of C₄H₇O₃Cl (Compound S) that has the following properties:\n• contains a secondary alcohol group\n• contains a carboxylic acid group.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "organic-chemistry",
+        "isomerism",
+        "functional-groups"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CH₃–CH(OH)–CH(Cl)–COOH or CH₃–CH(OH)–CH₂–C(=O)(Cl)",
+      "markingGuide": "Achievement: Draws a carboxylic acid group OR draws an alcohol group. Merit: Draws a structure with a secondary alcohol group and a carboxylic acid group. Excellence: Draws the correct structural formula of Compound S."
+    },
+    {
+      "id": "l3co25-q3biii",
+      "number": "3(b)(iii)",
+      "text": "Draw the structural formula for the constitutional (structural) isomer of C₄H₇Br (Compound T) that has the following properties:\n• has a branched chain\n• contains a C=C double bond\n• has an asymmetric carbon atom.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "organic-chemistry",
+        "isomerism",
+        "functional-groups"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "CH₂=C(CH₃)–CH(Br)– ... or CH₃–CH(Br)–CH=CH₂ with a branch",
+      "markingGuide": "Achievement: Draws a branched chain OR a C=C bond. Merit: Draws a structure with a branched chain, a C=C bond, and an asymmetric carbon atom. Excellence: Draws the correct structural formula of Compound T."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "l2-biology-life-2025",
+  "title": "Level 2 Biology — Life Processes at the Cellular Level (2025)",
+  "level": 2,
+  "standard": "91156",
+  "year": 2025,
+  "subject": "biology",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "bl25-q1",
+      "number": "1",
+      "text": "Photosynthesis is a vital process for both terrestrial (land-based) plants and aquatic (water-based) plants. The rate of photosynthesis varies throughout the day. Carbon dioxide (CO₂) is a critical component for photosynthesis for plants in all environments, and is often found to be a limiting factor in aquatic environments such as rivers and streams.\n\nDiscuss the process and importance of photosynthesis to plants, and how environmental factors can influence this reaction in both terrestrial and aquatic environments.\n\nIn your answer, include discussion of:\n- the process of photosynthesis, including details of the main stages and the role of chlorophyll\n- why the rate of photosynthesis changes from sunrise to sunset, and how factors such as light intensity and temperature influence this variation\n- why the limited availability of CO₂ in aquatic environments leads to lower rates of photosynthesis, compared to terrestrial plants found in similar locations.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "photosynthesis",
+        "limiting-factors",
+        "plant-biology"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Photosynthesis: 6CO₂ + 6H₂O -> C₆H₁₂O₆ + 6O₂.",
+      "markingGuide": "Achieved (A3-A4): Describes the process of photosynthesis (accept non-balanced symbol equation / mixture of symbol and word equation); the light-dependent phase as occurring in the thylakoid/grana; the light-independent phase as occurring in the stroma; the difference/increase in light intensity during daylight hours; the difference/increase in temperature during daylight hours; why CO₂ is needed for photosynthesis; diffusion (of CO₂) in water; what is meant by a limiting factor; the role of chlorophyll. Merit (M5-M6): Explains the light-dependent phase and where it occurs (e.g. light energy absorbed by chlorophyll, splits water molecule into oxygen and hydrogen, produces NADH and ATP); the light-independent phase and where it occurs (e.g. stored energy from the light-dependent phase is used to fix carbon from carbon dioxide); changes in rate of photosynthesis due to light intensity; changes in rate due to temperature; why CO₂ is a limiting factor in aquatic plants but not in terrestrial plants. Excellence (E7-E8): Provides detailed discussion of the key phases of photosynthesis, locations, and linked to the context; changes in rate of photosynthesis due to a combination of factors; why limited CO₂ will result in a lower rate of photosynthesis."
+    },
+    {
+      "id": "bl25-q2a",
+      "number": "2(a)",
+      "text": "Mitochondria allow cells to meet their energy needs. Label the following structures in the mitochondrion diagram below: outer membrane, inner membrane, matrix, and crista.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "cellular-respiration",
+        "cell-organelles"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91156-2025-q2a.png",
+      "expectedAnswer": "1. Outer membrane, 2. Matrix, 3. Inner membrane, 4. Crista.",
+      "markingGuide": "Achieved: At least three structures labelled correctly."
+    },
+    {
+      "id": "bl25-q2b",
+      "number": "2(b)",
+      "text": "The cheetah (Acinonyx jubatus) is the fastest land animal, capable of reaching speeds of up to 112 km/h, in short bursts, to catch prey.\n\nDiscuss where and when anaerobic and aerobic respiration occur in the cheetah.\n\nIn your answer, include discussion of:\n- anaerobic respiration and aerobic respiration in the cheetah's cells, and identify where each type of respiration occurs in an animal cell\n- why the cheetah can carry out anaerobic respiration for only short periods of time\n- the advantages and disadvantages of the cheetah carrying out both anaerobic and aerobic respiration.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "cellular-respiration",
+        "aerobic-respiration",
+        "anaerobic-respiration"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Anaerobic respiration occurs in the cytoplasm, producing small amounts of ATP quickly with...",
+      "markingGuide": "Achieved (A3-A4): Describes the process of aerobic respiration (accept non-balanced symbol equation / mixture of symbol and word equation); the process of anaerobic respiration; anaerobic occurring in the cytoplasm; aerobic occurring in the mitochondria; anaerobic being used during intense bursts of activity; aerobic being used when oxygen is available and for longer periods of activity; an advantage of aerobic OR anaerobic (e.g. anaerobic respiration produces ATP quickly); a disadvantage of aerobic OR anaerobic (e.g. anaerobic respiration produces toxic lactic acid). Merit (M5-M6): Explains aerobic respiration and its advantage(s) and disadvantage(s); anaerobic respiration and its advantage(s) and disadvantage(s); an advantage of each type of respiration OR a disadvantage of each type of respiration (if neither of the first two explanations made); the process of anaerobic respiration/glycolysis including its location; the process of aerobic respiration including its location; functions of the various parts of the mitochondria (e.g. the Krebs cycle occurs on the matrix). Excellence (E7-E8): Provides detailed discussion of anaerobic respiration and how the advantages and disadvantages directly relate to the cheetah; aerobic respiration and how the advantages and disadvantages directly relate to the cheetah; why the cheetah needs BOTH systems to function effectively in its lifestyle."
+    },
+    {
+      "id": "bl25-q3",
+      "number": "3",
+      "text": "Temperature fluctuations can impact the activity of enzymes, thereby influencing the rate of all cellular activities in an organism.\n\nDiscuss the importance of enzymes in cellular processes, and how temperature affects enzyme activity.\n\nIn your answer, include discussion of:\n- the structure of enzymes\n- the role of enzymes in biological processes\n- the mechanism by which enzymes function\n- why high and low temperatures have different effects on enzyme activity.\n\nYou may include diagrams in the space below to support your answer (optional).",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "enzymes",
+        "proteins",
+        "cell-biology"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Enzymes are proteins made of long chains of amino acids that fold into a specific...",
+      "markingGuide": "Achieved (A3-A4): Describes the structure of enzymes (e.g. simple description of the active site); function of enzymes as biological catalysts (e.g. catalysts can speed up biological reactions/processes within an organism); lower activation energy; catalyse biochemical reactions; tolerance limits of enzymes (accept a graph); enzymes denaturing at high temperature; optimal temperature described; reduced reaction rate at low temperature; the lock and key model OR the induced-fit model. Merit (M5-M6): Explains how the structure of enzymes enables them to work; the lock and key model (active site of enzyme matches substrate shape model) implication of change in substrate (accept diagram) OR induced fit (the active site is flexible/enzyme active site changes slightly when combined with the substrate/implication of change in substrate) (accept diagram or explanation); why high or low temperature affects the rate of activity of enzymes (e.g. less enzyme activity at lower temperatures/damage to active site/denaturing at higher temperatures; optimum temperature is most activity); the formation of the enzyme-substrate complex; the role of enzymes in a biological process. Excellence (E7-E8): Provides detailed discussion of the function of enzymes related to their structure and why temperature affects them; the effects of high and low temperature on the rate of activity of enzymes (e.g. less collisions at lower temperatures because particles are moving more slowly with less energy; optimum temperature at which enzyme works fastest/rate of reaction is highest; damage to active site/denaturing at higher temperatures; why reaction cannot occur at high temperatures, e.g. substrate cannot bind to active site); the impact of enzyme activity on the rate of cellular activity in an organism."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

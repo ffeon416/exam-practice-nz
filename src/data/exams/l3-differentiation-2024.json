@@ -1,0 +1,209 @@
+{
+  "id": "l3-differentiation-2024",
+  "title": "Level 3 Differentiation \u2014 2024",
+  "level": 3,
+  "standard": "91578",
+  "year": 2024,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3d24-q1a",
+      "number": "1(a)",
+      "text": "Differentiate f(x) = \u221a(4 \u2013 9x\u2074).\n\nYou do not need to simplify your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["chain-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "f\u2032(x) = \u201318x\u00b3(4 \u2013 9x\u2074)^(\u2013\u00bd)",
+      "markingGuide": "Apply chain rule: f\u2032(x) = \u00bd(4 \u2013 9x\u2074)^(\u2013\u00bd) \u00d7 (\u201336x\u00b3) = \u201318x\u00b3(4 \u2013 9x\u2074)^(\u2013\u00bd). Or equivalent form. Achieved = correct derivative."
+    },
+    {
+      "id": "l3d24-q1b",
+      "number": "1(b)",
+      "text": "A curve is defined by the equation y = (x\u00b2 + 3x + 2) sin x.\n\nFind the gradient of the tangent to this curve when x = 0.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["product-rule", "trig-differentiation", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "2",
+      "markingGuide": "Product rule: dy/dx = (2x + 3) sin x + (x\u00b2 + 3x + 2) cos x. Substitute x = 0: dy/dx = 3 \u00d7 0 + 2 \u00d7 1 = 2. Achieved = correct gradient of tangent with correct derivative. Merit = finds the correct inequality for required values of x for a decreasing function, with evidence of derivative."
+    },
+    {
+      "id": "l3d24-q1c",
+      "number": "1(c)",
+      "text": "For the function below, find the range of values of x for which the function is decreasing.\n\ny = 3(2x \u2013 7)\u00b2 + 60 ln x + 12, x > 0\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["chain-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "1 < x < 2.5",
+      "markingGuide": "dy/dx = 6(2x \u2013 7) \u00d7 2 + 60/x = 12(2x \u2013 7) + 60/x. Decreasing when dy/dx < 0. Multiply through by x (positive): 12x(2x \u2013 7) + 60 < 0 gives 24x\u00b2 \u2013 84x + 60 < 0, so 2x\u00b2 \u2013 7x + 5 < 0, factorises as (2x \u2013 5)(x \u2013 1) < 0, giving 1 < x < 2.5. Achieved = evidence of reaching stage (1), can set = 0 and find the correct critical values for (a). Merit = finds the correct inequality for required values of x for a decreasing function, with evidence of derivative."
+    },
+    {
+      "id": "l3d24-q1d",
+      "number": "1(d)",
+      "text": "Find the x-value(s) of any stationary points on the graph of the function below, and determine their nature.\n\ny = (2x \u2013 1)e^(\u20132x)\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["product-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "x = 1 is a maximum",
+      "markingGuide": "dy/dx = 2e^(\u20132x) + (2x \u2013 1)(\u20132)e^(\u20132x) = e^(\u20132x)(2 \u2013 4x + 2) = e^(\u20132x)(4 \u2013 4x). Set dy/dx = 0: e^(\u20132x)(4 \u2013 4x) = 0. Since e^(\u20132x) \u2260 0, 4 \u2013 4x = 0 so x = 1. d\u00b2y/dx\u00b2 = e^(\u20132x)(8x \u2013 12). At x = 1: d\u00b2y/dx\u00b2 = e^(\u20132)(\u20134) \u2248 \u20130.541 < 0, so maximum. Achieved = correct expression for dy/dx. Merit = finds x = 1 and justifies this is a maximum using a calculus method, and with evidence of derivative."
+    },
+    {
+      "id": "l3d24-q1e",
+      "number": "1(e)",
+      "text": "A curve is defined by the equation y = (2x\u00b2 \u2013 1 \u2013 2x ln x) / x, where x > 0.\n\nThe curve has a point of inflection at the point P.\n\nFind the equation of the tangent to the curve at the point P.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["quotient-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "y = x",
+      "markingGuide": "Simplify: y = 2x \u2013 x\u207b\u00b9 \u2013 2 ln x. dy/dx = 2 + x\u207b\u00b2 \u2013 2/x. d\u00b2y/dx\u00b2 = \u20132x\u207b\u00b3 + 2x\u207b\u00b2. For inflection, d\u00b2y/dx\u00b2 = 0: \u20132/x\u00b3 + 2/x\u00b2 = 0, so 2x\u00b3 = 2x\u00b2, giving x = 1 (ignoring x = 0). At x = 1: y = 1, dy/dx = 1. Tangent: y \u2013 1 = 1(x \u2013 1), so y = x. Achieved = correct expression for dy/dx. Merit = finds x = 1 with correct d\u00b2y/dx\u00b2 and dy/dx. E7/T1 = consistent equation of tangent from incorrect P, or correct solution but with one minor error. E8/T2 = correct equation of tangent found."
+    },
+    {
+      "id": "l3d24-q2a",
+      "number": "2(a)",
+      "text": "A function is defined parametrically by the pair of equations:\n\nx = 3t\u00b2 + 1 and y = cos t.\n\nFind an expression for dy/dx.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "dy/dx = \u2013sin t / (6t)",
+      "markingGuide": "dx/dt = 6t, dy/dt = \u2013sin t. dy/dx = (dy/dt) / (dx/dt) = \u2013sin t / (6t). Achieved = correct expression for dy/dx. dy/dx can be expressed in terms of x, y."
+    },
+    {
+      "id": "l3d24-q2b",
+      "number": "2(b)",
+      "text": "An object is travelling in a straight line. Its displacement, in metres, is given by the formula\n\ns(t) = ln(3t\u00b2 + 5t + 2), where t > 0 and t is time, in seconds.\n\nFind the velocity of this object when t = 1 second.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": ["chain-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "1.1 m s\u207b\u00b9",
+      "markingGuide": "ds/dt = v = (6t + 5) / (3t\u00b2 + 5t + 2). At t = 1: v = 11/10 = 1.1 m s\u207b\u00b9. Achieved = correct derivative AND correct value for velocity of v = 11/10 = 1.1. Units not required."
+    },
+    {
+      "id": "l3d24-q2c",
+      "number": "2(c)",
+      "text": "Show that y = sin(x\u00b2) \u2013 cos(x) is a solution to the equation\n\nd\u00b2y/dx\u00b2 + 4x\u00b2y = 2cos(x\u00b2) + (1 \u2013 4x\u00b2)cos x.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": ["chain-rule", "trig-differentiation", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "LHS = d\u00b2y/dx\u00b2 + 4x\u00b2y = RHS (shown)",
+      "markingGuide": "dy/dx = 2x cos(x\u00b2) + sin x. d\u00b2y/dx\u00b2 = 2cos(x\u00b2) \u2013 4x\u00b2 sin(x\u00b2) + cos x. Then d\u00b2y/dx\u00b2 + 4x\u00b2y = 2cos(x\u00b2) \u2013 4x\u00b2 sin(x\u00b2) + cos x + 4x\u00b2(sin(x\u00b2) \u2013 cos x) = 2cos(x\u00b2) + cos x \u2013 4x\u00b2 cos x = 2cos(x\u00b2) + (1 \u2013 4x\u00b2)cos x = RHS. Achieved = correct expression for dy/dx. Excellence = correct justification that it is a solution, with evidence of both dy/dx and d\u00b2y/dx\u00b2."
+    },
+    {
+      "id": "l3d24-q2d",
+      "number": "2(d)",
+      "text": "Consider the function f(x) = (ln x) / x, x > 0.\n\nFind the coordinates of the point of inflection on the graph of the function.\n\nYou can assume that your point found is actually a point of inflection.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["quotient-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "(e^(3/2), 0.3347) or approximately (4.4817, 0.3347)",
+      "markingGuide": "f\u2032(x) = (1 \u2013 ln x) / x\u00b2. f\u2033(x) = (\u20133 + 2 ln x) / x\u00b3. For inflection: f\u2033(x) = 0 gives \u20133 + 2 ln x = 0, so ln x = 3/2, x = e^(3/2) \u2248 4.4817. y = 1.5 \u00d7 e^(\u20131.5) \u2248 0.3347. Achieved = correct expression for f\u2032(x). Merit = correct expression for f\u2033(x). Excellence = correct coordinates of point of inflection, with evidence of both dy/dx and d\u00b2y/dx\u00b2."
+    },
+    {
+      "id": "l3d24-q2e",
+      "number": "2(e)",
+      "text": "The graph of the function y = xe^(3x) / (2x + k), where k is a non-zero constant, has a single turning point at Q.\n\nFind the x-coordinate of the point Q.\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["quotient-rule", "product-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "x = \u2013\u2153",
+      "markingGuide": "dy/dx = [e^(3x)(6x\u00b2 + 3kx + k)] / (2x + k)\u00b2. Setting dy/dx = 0: e^(3x)(6x\u00b2 + 3kx + k) = 0. Since e^(3x) \u2260 0, solve 6x\u00b2 + 3kx + k = 0. For a single turning point, discriminant = 0: (3k)\u00b2 \u2013 4(6)(k) = 0, so 9k\u00b2 \u2013 24k = 0, giving 3k(3k \u2013 8) = 0. Since k \u2260 0, k = 8/3. Substituting: 6x\u00b2 + 8x + 8/3 = 0, so 18x\u00b2 + 24x + 8 = 0, giving 9x\u00b2 + 12x + 4 = 0, (3x + 2)\u00b2 = 0, x = \u2013\u2154. Achieved = correct dy/dx. Merit = finds the correct value of k, with evidence of calculus methods. E7/T1 = correct solution but with one minor error. E8/T2 = calculates x-coordinate of Q, with clear and full calculus justification."
+    },
+    {
+      "id": "l3d24-q3a",
+      "number": "3(a)",
+      "text": "Differentiate y = \u221ax \u00b7 sec(6x).\n\nYou do not need to simplify your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["product-rule", "trig-differentiation", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "dy/dx = \u00bd x^(\u2013\u00bd) sec(6x) + 6x^(\u00bd) sec(6x) tan(6x)",
+      "markingGuide": "Product rule with chain rule on sec(6x): dy/dx = \u00bd x^(\u2013\u00bd) sec(6x) + \u221ax \u00b7 6 sec(6x) tan(6x). Or equivalent. Achieved = correct derivative."
+    },
+    {
+      "id": "l3d24-q3bi",
+      "number": "3(b)(i)",
+      "text": "The graph below shows the function y = f(x).\n\nFor the function above, find the value(s) of x where f(x) is continuous but not differentiable.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "short",
+      "image": "/images/exams/91578-2024-q3b.png",
+      "expectedAnswer": "x = 5",
+      "markingGuide": "At x = 5 there is a cusp/sharp corner where the function is continuous but not differentiable. Two out of three correct responses across (i), (ii), (iii)."
+    },
+    {
+      "id": "l3d24-q3bii",
+      "number": "3(b)(ii)",
+      "text": "The graph below shows the function y = f(x).\n\nFor the function above, find the value(s) of x where f\u2032(x) = 0.",
+      "marks": 0,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "short",
+      "image": "/images/exams/91578-2024-q3b.png",
+      "expectedAnswer": "x = 1 and 3 < x < 5",
+      "markingGuide": "Turning points where the gradient is zero. Marked together with 3(b)(i) and 3(b)(iii)."
+    },
+    {
+      "id": "l3d24-q3biii",
+      "number": "3(b)(iii)",
+      "text": "The graph below shows the function y = f(x).\n\nWhat is the value of lim(x\u2192\u221e) f(x)?\n\nState clearly if the value does not exist.",
+      "marks": 0,
+      "gradeLevel": "achieved",
+      "topics": ["differentiation-l3"],
+      "answerType": "short",
+      "image": "/images/exams/91578-2024-q3b.png",
+      "expectedAnswer": "The limit does not exist",
+      "markingGuide": "The function oscillates or diverges as x \u2192 \u221e, so the limit does not exist. Marked together with 3(b)(i) and 3(b)(ii)."
+    },
+    {
+      "id": "l3d24-q3c",
+      "number": "3(c)",
+      "text": "Find the x-value(s) of any stationary point(s) on the graph of the function f(x) = (x\u00b2 \u2013 5x + 4) / (x\u00b2 + 5x + 4).\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.\nYou do not need to determine the nature of any stationary point(s) found.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": ["quotient-rule", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "x = 2 or x = \u20132",
+      "markingGuide": "f\u2032(x) = [(2x \u2013 5)(x\u00b2 + 5x + 4) \u2013 (x\u00b2 \u2013 5x + 4)(2x + 5)] / (x\u00b2 + 5x + 4)\u00b2. Numerator simplifies to 10x\u00b2 \u2013 40 = 10(x\u00b2 \u2013 4). Set f\u2032(x) = 0: x\u00b2 \u2013 4 = 0, so x = 2 or x = \u20132. Achieved = correct expression for f\u2032(x). Merit = x-values of both stationary points found, with evidence of a calculus method."
+    },
+    {
+      "id": "l3d24-q3d",
+      "number": "3(d)",
+      "text": "Jamie is doing some baking and pouring the flour to form a conical pile.\n\nThe height of the pile is always the same as the diameter of the base of the cone.\n\nIf the flour is being added at a constant rate of 3 cm\u00b3 per second, at what rate is the height increasing when the pile is 4 cm in height?\n\nYou must use calculus and show any derivatives that you need to find when solving this problem.\n\nNote that volume of a cone = \u2153\u03c0r\u00b2h.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": ["related-rates", "differentiation-l3"],
+      "answerType": "working",
+      "expectedAnswer": "3/(4\u03c0) \u2248 0.2387 cm s\u207b\u00b9",
+      "markingGuide": "Since h = 2r, r = h/2. V = \u2153\u03c0(h/2)\u00b2h = \u03c0h\u00b3/12. dV/dh = \u03c0h\u00b2/4. Using dh/dt = (dh/dV)(dV/dt) = (4/(\u03c0h\u00b2)) \u00d7 3. At h = 4: dh/dt = 12/(16\u03c0) = 3/(4\u03c0) \u2248 0.2387 cm s\u207b\u00b9. Achieved = correct expression for dV/dr or dV/dh. Merit = correct value for dh/dt with evidence of a calculus method."
+    },
+    {
+      "id": "l3d24-q3e",
+      "number": "3(e)",
+      "text": "The diagram below shows part of the graph of the function f(x) = e^(\u2013x\u00b2), where x \u2265 0.\n\nThe point P lies on the curve and the point Q lies on the x-axis so that OP = PQ, where O is the origin.\n\nProve that the largest possible area of the triangle OPQ is 1/\u221a(2e).\n\nYou do not need to show that the area you have found is a maximum.\nYou must use calculus and show any derivatives that you need to find when solving this problem.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": ["optimisation-l3", "differentiation-l3"],
+      "answerType": "working",
+      "image": "/images/exams/91578-2024-q3e.png",
+      "expectedAnswer": "1/\u221a(2e)",
+      "markingGuide": "Let P have coordinates (x, y) where y = e^(\u2013x\u00b2). Area of triangle OPQ = \u00bdx \u00d7 e^(\u2013x\u00b2) (since base = 2x on x-axis). dA/dx = \u00bd e^(\u2013x\u00b2)(1 \u2013 2x\u00b2). Set dA/dx = 0: e^(\u2013x\u00b2)(1 \u2013 2x\u00b2) = 0. Since e^(\u2013x\u00b2) \u2260 0, 1 \u2013 2x\u00b2 = 0 so x = 1/\u221a2. Ignore x = \u20131/\u221a2 as x > 0. Area = \u00bd \u00d7 (1/\u221a2) \u00d7 e^(\u2013\u00bd) = 1/(2\u221a2) \u00d7 1/\u221ae = 1/\u221a(2e). E7/T1 = correct proof but with one minor error. E8/T2 = correct proof of exact area value with evidence of a calculus method."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

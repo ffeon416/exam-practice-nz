@@ -1,0 +1,91 @@
+{
+  "id": "l3-economics-macro-2024",
+  "title": "Level 3 Economics Macroeconomics — 2024",
+  "level": 3,
+  "standard": "91403",
+  "year": 2024,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3em24-q1a",
+      "number": "1(a)",
+      "text": "Explain aggregate demand and its components.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate demand",
+        "consumption",
+        "investment",
+        "exports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Aggregate demand: C + I + G + (X - M)",
+      "markingGuide": "Identify and explain components of aggregate demand."
+    },
+    {
+      "id": "l3em24-q1b",
+      "number": "1(b)",
+      "text": "Analyse factors affecting aggregate supply in economy.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate supply",
+        "production capacity",
+        "cost factors"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Factors: labour, capital, technology, input prices affecting supply.",
+      "markingGuide": "Explain short-run and long-run aggregate supply determinants."
+    },
+    {
+      "id": "l3em24-q2a",
+      "number": "2(a)",
+      "text": "Analyse macroeconomic equilibrium and policy effectiveness.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "AD/AS equilibrium",
+        "monetary policy",
+        "fiscal policy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Show how demand and supply determine output, price level, employment.",
+      "markingGuide": "Evaluate policy effectiveness in reaching macroeconomic objectives."
+    },
+    {
+      "id": "l3em24-q2b",
+      "number": "2(b)",
+      "text": "Comprehensive macroeconomic analysis and policy evaluation.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "macro analysis",
+        "policy coordination",
+        "economic outcomes"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Integrate AD/AS analysis with policy evaluation and economic objectives.",
+      "markingGuide": "Sophisticated analysis of macro equilibrium and policy trade-offs."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

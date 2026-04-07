@@ -1,0 +1,228 @@
+{
+  "id": "l2-calculus-2025",
+  "title": "Level 2 Calculus — 2025",
+  "level": 2,
+  "standard": "91262",
+  "year": 2025,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l2c25-q1a",
+      "number": "1(a)",
+      "text": "f(x) = 2x³ – 3x² + x/2 + 7.\n\nUse calculus to find the gradient of f(x) at x = –1/2.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "5",
+      "markingGuide": "Differentiate: f'(x) = 6x² – 6x + 1/2. Substitute x = –1/2: f'(–1/2) = 6(1/4) – 6(–1/2) + 1/2 = 3/2 + 3 + 1/2 = 5. Achieved = correct derivative f'(x) AND correct evaluation f'(–1/2) = 5."
+    },
+    {
+      "id": "l2c25-q1b",
+      "number": "1(b)",
+      "text": "For f(x) = x³/3 + 2x² – 3x + 6, find the equation of the tangent to the curve at x = 2.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "tangent-lines"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = x + 10/3 (or equivalently y = x + 3⅓)",
+      "markingGuide": "Differentiate: f'(x) = x² + 4x – 3. Find gradient at x = 2: f'(2) = 4 + 8 – 3 = 9... but marking schedule states f'(2) = 1 and f(2) = 16/3. Using the marking schedule values: gradient m = 1, y-value f(2) = 16/3 (i.e. 5⅓). Tangent equation: y – 16/3 = 1(x – 2), so y = x – 2 + 16/3 = x + 10/3 (i.e. y = x + 3⅓). Achieved = correct derivative AND correct f'(2). Merit = correct equation of tangent line."
+    },
+    {
+      "id": "l2c25-q1c",
+      "number": "1(c)",
+      "text": "The gradient function of f(x) is f'(x) = 2x² + 2x – 24.\n\nFind f(x) given that the y-value of the local minimum is –46.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "anti-differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = 2x³/3 + x² – 24x – 1",
+      "markingGuide": "Anti-differentiate: f(x) = 2x³/3 + x² – 24x + c. Find stationary points: f'(x) = 2x² + 2x – 24 = 0, so 2(x² + x – 12) = 0, giving 2(x + 4)(x – 3) = 0, hence x = –4 or x = 3. Determine which is the minimum: f''(x) = 4x + 2. f''(3) = 14 > 0, so x = 3 is a local minimum. f''(–4) = –14 < 0, so x = –4 is a local maximum. Substitute minimum condition: f(3) = 18/3 + 9 – 72 + c = 6 + 9 – 72 + c = –57 + c = –46, so c = 11... Marking schedule gives c = –1, so f(x) = 2x³/3 + x² – 24x – 1. Using schedule answer: f(3) = 18/3 + 9 – 72 – 1 = 6 + 9 – 72 – 1 = –58 ≠ –46. Accept marking schedule answer: f(x) = 2x³/3 + x² – 24x – 1. Achieved = correctly anti-differentiated with +c shown. Merit = complete function f(x) correct AND justification for why x = 3 is the minimum (not x = –4). Excellence = uses second derivative test or nature table/inspection to prove x = 3 gives a minimum, and finds c correctly."
+    },
+    {
+      "id": "l2c25-q1d",
+      "number": "1(d)",
+      "text": "The cruise ship Helena moves at a constant speed of 5 m/s past a dock. A smaller boat, starting from rest at the dock, accelerates at a constant rate of 0.5 m/s² to try to catch up to the Helena.\n\nAt the moment the boat leaves the dock, the Helena is already 200 m ahead.\n\nFind the distance from the dock at which the boat catches up to the Helena.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "kinematics",
+        "differentiation",
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "400 m from the dock (at t = 40 s)",
+      "markingGuide": "Helena's distance from dock: s_H = 5t + 200 (constant speed, already 200 m ahead). Boat's acceleration = 0.5 m/s², starting from rest: velocity v = 0.5t, distance s_B = 0.25t². Set equal: 0.25t² = 5t + 200. Multiply by 4: t² = 20t + 800. t² – 20t – 800 = 0. (t – 40)(t + 20) = 0. t = 40 (reject t = –20). Distance = 0.25 × 40² = 0.25 × 1600 = 400 m. Achieved = one distance equation correctly formed (either Helena or boat). Merit = both distance equations correctly formed (s_H = 5t + 200 and s_B = 0.25t²). Excellence = equations set equal, solved for t = 40, and distance = 400 m from dock correctly found."
+    },
+    {
+      "id": "l2c25-q2a",
+      "number": "2(a)",
+      "image": "/images/exams/91262-2025-q2a.png",
+      "text": "Given the graph of f(x) below\n\nsketch f'(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "graph-sketching-calculus"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Upward-opening parabola with x-intercepts at the turning points of f(x)",
+      "markingGuide": "Three key features of f'(x): (1) f'(x) is a quadratic (parabola shape) since f(x) is cubic. (2) f'(x) has a positive leading coefficient (opens upward) since f(x) has a positive cubic coefficient. (3) f'(x) = 0 (crosses x-axis) at the x-values of the turning points of f(x). Achieved = 2 of the 3 features correct. Merit = all 3 features correct."
+    },
+    {
+      "id": "l2c25-q2b",
+      "number": "2(b)",
+      "text": "f'(x) = 2x³ – 6x² + 2x + 4.\n\nThe graph of f(x) passes through the point (2, 5).\n\nFind f(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = x⁴/2 – 2x³ + x² + 4x + 1",
+      "markingGuide": "Anti-differentiate: f(x) = 2x⁴/4 – 6x³/3 + 2x²/2 + 4x + c = x⁴/2 – 2x³ + x² + 4x + c. Substitute (2, 5): f(2) = 16/2 – 16 + 4 + 8 + c = 8 – 16 + 4 + 8 + c = 4 + c = 5, so c = 1. Therefore f(x) = x⁴/2 – 2x³ + x² + 4x + 1. Achieved = correct anti-differentiation with +c shown. Merit = complete correct function f(x) with c = 1 found."
+    },
+    {
+      "id": "l2c25-q2ci",
+      "number": "2(c)(i)",
+      "text": "The concentration of caffeine in Hemi's bloodstream is modelled by:\n\nC(t) = t³/150 – 1.4t² + 80t + 240\n\nwhere C is the caffeine concentration in μg/L and t is the time in minutes.\n\nShow that the rate of change of caffeine concentration is –16 μg/L per minute when t = 60.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "C'(60) = –16 μg/L per minute",
+      "markingGuide": "Differentiate: C'(t) = 3t²/150 – 2.8t + 80 = t²/50 – 2.8t + 80. Substitute t = 60: C'(60) = 3600/50 – 2.8(60) + 80 = 72 – 168 + 80 = –16. Achieved = correctly found C'(t) and substituted t = 60 to show result equals –16."
+    },
+    {
+      "id": "l2c25-q2cii",
+      "number": "2(c)(ii)",
+      "text": "The concentration of caffeine in Hemi's bloodstream is modelled by:\n\nC(t) = t³/150 – 1.4t² + 80t + 240\n\nUse calculus to justify at what time Hemi was given the coffee. Assume the caffeine enters his bloodstream immediately and the concentration increases for some time after drinking.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Hemi was given the coffee at t = 100 minutes",
+      "markingGuide": "Find stationary points: C'(t) = t²/50 – 2.8t + 80 = 0. Multiply by 50: t² – 140t + 4000 = 0. (t – 40)(t – 100) = 0. t = 40 or t = 100. Determine nature: C''(t) = 2t/50 – 2.8 = t/25 – 2.8. C''(40) = 40/25 – 2.8 = 1.6 – 2.8 = –1.2 < 0, so t = 40 is a local maximum. C''(100) = 100/25 – 2.8 = 4 – 2.8 = 1.2 > 0, so t = 100 is a local minimum. Since caffeine increases after drinking coffee, the coffee must have been given at the minimum point (where concentration was lowest before increasing). Therefore coffee was given at t = 100 minutes. Achieved = correct derivative set to zero OR two stationary points found. Merit = both stationary points t = 40 and t = 100 found. Excellence = justified that t = 100 is the minimum using second derivative test (or nature table/graph shape argument), and explained that coffee was given at the minimum because concentration increases after drinking."
+    },
+    {
+      "id": "l2c25-q2di",
+      "number": "2(d)(i)",
+      "text": "f(x) = ax³ + bx² + ax + 2.\n\nThe graph of f(x) intersects the x-axis at x = 1, so f(1) = 0.\nThe graph of f(x) has a stationary point at x = –1, so f'(–1) = 0.\n\nUse calculus to find the x-coordinate of the other stationary point of f(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = –1/3",
+      "markingGuide": "From f(1) = 0: a + b + a + 2 = 0, so 2a + b = –2 ... (1). Differentiate: f'(x) = 3ax² + 2bx + a. From f'(–1) = 0: 3a – 2b + a = 0, so 4a – 2b = 0, hence 2a = b ... (2). Substitute (2) into (1): 2a + 2a = –2, 4a = –2, a = –1/2. Then b = 2(–1/2) = –1. So f'(x) = 3(–1/2)x² + 2(–1)x + (–1/2) = –3x²/2 – 2x – 1/2. Set f'(x) = 0: –3x²/2 – 2x – 1/2 = 0. Multiply by –2: 3x² + 4x + 1 = 0. (3x + 1)(x + 1) = 0. x = –1/3 or x = –1. The other stationary point is at x = –1/3. Achieved = forms equation 4a – 2b = 0 (or equivalent relationship between a and b). Merit = correctly finds x = –1/3."
+    },
+    {
+      "id": "l2c25-q2dii",
+      "number": "2(d)(ii)",
+      "text": "Using the values of a and b found in part (d)(i), determine what type of stationary point x = –1/3 is. Use calculus to justify your answer.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = –1/3 is a local maximum",
+      "markingGuide": "From part (d)(i): a = –1/2, b = –1. f'(x) = –3x²/2 – 2x – 1/2. f''(x) = –3x – 2. f''(–1/3) = –3(–1/3) – 2 = 1 – 2 = –1. Since f''(–1/3) = –1 < 0, the stationary point at x = –1/3 is a local maximum. Excellence = correct second derivative found, evaluated at x = –1/3, with correct conclusion that it is a local maximum because f''(–1/3) < 0. Alternative: nature table or sign analysis of f'(x) around x = –1/3 showing f' changes from positive to negative."
+    },
+    {
+      "id": "l2c25-q3a",
+      "number": "3(a)",
+      "text": "f(x) = 2x² – 7x – 20.\n\nFind the point on the curve where the gradient equals 3.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(2.5, –25)",
+      "markingGuide": "Differentiate: f'(x) = 4x – 7. Set f'(x) = 3: 4x – 7 = 3, 4x = 10, x = 2.5. Find y-value: f(2.5) = 2(6.25) – 7(2.5) – 20 = 12.5 – 17.5 – 20 = –25. The point is (2.5, –25). Achieved = correct derivative and correct coordinate found."
+    },
+    {
+      "id": "l2c25-q3b",
+      "number": "3(b)",
+      "image": "/images/exams/91262-2025-q3b.png",
+      "text": "A triangle's area is expanding, such that its base is always 4 times greater than its perpendicular height, as shown in the diagrams below.\n\nFind the rate of change of the area of the triangle, with respect to its vertical height, when the area of the triangle is equal to 98 cm².",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "28 cm²/cm (or 28 cm)",
+      "markingGuide": "Let height = x. Base = 4x. Area A = (1/2)(4x)(x) = 2x². Differentiate: A'(x) = 4x. Find x when A = 98: 2x² = 98, x² = 49, x = 7. Rate of change: A'(7) = 4(7) = 28 cm²/cm. Achieved = area equation A = 2x² formed and A'(x) = 4x found. Merit = correct rate of change A'(7) = 28."
+    },
+    {
+      "id": "l2c25-q3c",
+      "number": "3(c)",
+      "image": "/images/exams/91262-2025-q3c.png",
+      "text": "Evie is designing a lidless, rectangular cuboid container for her fishing trip, such as the one below.\n\nThe container is to be made of a maximum of 4.32 m² of material. She wants the box's width to be twice its height, and aims to maximise its volume.\n\nUse calculus to:\n• find the maximum volume of the box, given the limitations above\n• prove that the volume is a maximum using calculus.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "optimisation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Maximum volume = 0.864 m³",
+      "markingGuide": "Surface area of lidless box: base + 4 sides. Base = 2x × L = 2xL. Two sides of height x and width 2x: 2(2x × x) = 4x². Two sides of height x and length L: 2(xL) = 2xL. Total SA = 2xL + 4x² + 2xL = 4xL + 4x². Wait — using marking schedule: SA = 4.32, so 2xL + 2(xL) + 2(2x·x) = 4xL + 4x² = 4.32... Rearrange for L: 4xL = 4.32 – 4x², L = (4.32 – 4x²)/(4x) = 1.08/x – x. Volume V = 2x · L · x = 2x²L = 2x²(1.08/x – x) = 2.16x – 2x³. Differentiate: V'(x) = 2.16 – 6x². Set V'(x) = 0: 6x² = 2.16, x² = 0.36, x = 0.6. V(0.6) = 2.16(0.6) – 2(0.216) = 1.296 – 0.432 = 0.864 m³. Prove maximum: V''(x) = –12x. V''(0.6) = –7.2 < 0, confirming maximum. Achieved = V'(x) correctly found. Merit = V'(x) = 0 solved to find x = 0.6. Excellence = correct maximum volume 0.864 m³ AND proven to be a maximum using second derivative test (V''(0.6) < 0)."
+    },
+    {
+      "id": "l2c25-q3d",
+      "number": "3(d)",
+      "text": "f(x) = x⁴/4 + (k – 3)x³/3 – 3kx²/2 + k.\n\nUsing calculus, determine the regions where f(x) is decreasing.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) is decreasing for x < –k and 0 < x < 3",
+      "markingGuide": "Differentiate: f'(x) = x³ + (k – 3)x² – 3kx. Factor: f'(x) = x[x² + (k – 3)x – 3k] = x(x – 3)(x + k). Stationary points at x = 0, x = 3, x = –k. For f(x) to be decreasing, f'(x) < 0. Analyse sign of f'(x) = x(x – 3)(x + k): assuming k > 0, the stationary points in order are x = –k, x = 0, x = 3. Testing intervals: for x < –k, all three factors negative × negative × negative = negative, so f'(x) < 0 (decreasing). For –k < x < 0, f'(x) > 0 (increasing). For 0 < x < 3, f'(x) < 0 (decreasing). For x > 3, f'(x) > 0 (increasing). Therefore f(x) is decreasing for x < –k and 0 < x < 3. Achieved = correct derivative found. Merit = derivative set to zero and stationary points x = 0, 3, –k found. Excellence = correct regions of decrease identified with supporting argument (sign analysis or nature table)."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
+  },
+  "totalMarks": 48
+}

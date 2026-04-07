@@ -1,0 +1,227 @@
+{
+  "id": "l1-energy-physics-2025",
+  "title": "Level 1 Physics, Earth and Space Science — Energy (2025)",
+  "level": 1,
+  "standard": "92047",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "ep25-q1a",
+      "number": "1(a)",
+      "text": "A paint pot is attached to a very light rope. A painter uses a 250 Watt electric motor to lift a 40 kilogram paint pot up the side of a 20 metre building from the ground. It takes 35 seconds to lift the pot from the ground to the top of the building.\n\nDescribe the energy changes as the motor lifts the paint pot up the side of the building.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy",
+        "energy-transfer",
+        "potential-energy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Electrical energy is transformed into (Gravitational) Potential energy and Kinetic energy, with...",
+      "markingGuide": "Achieved: Correct answer identifying that electrical energy is transformed into gravitational potential energy, kinetic energy, and thermal/heat energy.",
+      "image": "/images/exams/92047-2025-q1.png"
+    },
+    {
+      "id": "ep25-q1b",
+      "number": "1(b)",
+      "text": "Compare the amount of energy provided by the motor with the gain in gravitational potential energy of the paint pot when it is at the top of the building.\n\nIn your answer, you should:\n- consider the amount of electrical energy provided by the motor\n- consider the amount of gravitational potential energy gained by the paint pot from the ground to a height of 20 m\n- explain why there is a difference between these two numbers.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy",
+        "potential-energy",
+        "power",
+        "energy-transfer"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "E = Pt = 250 x 35 = 8750 J. Ep = mgh = 40 x 10 x 20 = 8000 J",
+      "markingGuide": "Achieved: Selected the correct equation for either calculation and put in some numbers. Mentions due to energy loss. Merit: Both calculations with correct equation and working (units NOT required). Consistent marking if g = 9.8 used: Ep = 7840 J. Explained the energy loss as heat or sound. Excellence: Both calculations with correct equation and working. Units required. Explained where the loss of energy comes from (heat or sound).",
+      "image": "/images/exams/92047-2025-q1.png"
+    },
+    {
+      "id": "ep25-q1c",
+      "number": "1(c)",
+      "text": "The paint pot is at the top of the building and the rope breaks.\n\nDiscuss the energy transfer of the paint pot from the top of the building to when it is halfway down.\n\nYou may use diagrams or words (or both) for your answer.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy",
+        "potential-energy",
+        "kinetic-energy",
+        "energy-transfer"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Gravitational potential energy is converted to kinetic energy and thermal energy.",
+      "markingGuide": "Achieved: Transfer from Ep to Ek + Ep (or a diagram showing this). Merit: Transfer from Ep to Ek + Ep + Ethermal. This can be shown using words or a diagram. Excellence: (not separately graded for this part)"
+    },
+    {
+      "id": "ep25-q1d",
+      "number": "1(d)",
+      "text": "The paint pot falls from 20 m.\n\nDiscuss the speed of the paint pot just before it hits the ground.\n\nIn your answer, you will need to:\n- calculate the maximum speed at which the paint pot hits the ground\n- include any assumptions you have made in this calculation\n- explain why the paint pot will not reach this speed.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "kinetic-energy",
+        "potential-energy",
+        "energy-transfer"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Ep = mgh = 40 x 10 x 20 = 8000 J.",
+      "markingGuide": "Achieved: Selected correct formula for kinetic energy and added some values. Assumed that all Ep is transformed into Ek. Mentioned that energy is lost due to friction. OR the speed of the pot will be less. Merit: Started to calculate the velocity for it to take the square root (v = 400 m/s is incorrect). Explains that the speed of the paint pot will be less due to air resistance / thermal energy / heat / friction. Excellence: Correct calculation for the velocity with correct unit. Correct assumption (assuming all Ep >= Ek OR no energy loss). Energy is lost to thermal due to particles of air hitting the surface of the paint pot. Therefore the paint pot will not hit the ground as fast as the calculated speed.",
+      "image": "/images/exams/92047-2025-q1d.png"
+    },
+    {
+      "id": "ep25-q2a",
+      "number": "2(a)",
+      "text": "Loa is in the lounge and feeling cold. She connects a convection heater to the power supply and switches it on. Loa places the heater in the room and notices the temperature of the air begin to rise.\n\nCompare the concepts of temperature and heat energy.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Temperature is the average kinetic energy of the particles, whereas thermal / heat energy is the...",
+      "markingGuide": "Achieved: Either definition correct. Merit: Has explained a difference between temperature and thermal/heat energy.",
+      "image": "/images/exams/92047-2025-q2a.png"
+    },
+    {
+      "id": "ep25-q2b",
+      "number": "2(b)",
+      "text": "Loa notices the maximum power rating for the heater is 2000 W.\n\nThe voltage supply in her house is 240 V.\n\nShe sets the dial to 50% maximum.\n\nCalculate the current in the heater circuit.\n\nInclude the correct units.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy",
+        "power"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "P = VI. I = P/V = 1000/240 = 4.17 A",
+      "markingGuide": "P = VI, so I = P/V. At 50% maximum, P = 1000 W. I = 1000/240 = 4.17 A (accept 4.16 A, 4.2 A, 4.15 A). Achieved: Shows correct equation with some numbers. Merit: Correct answer with working and units (sig figs not important).",
+      "image": "/images/exams/92047-2025-q2b.png"
+    },
+    {
+      "id": "ep25-q2c",
+      "number": "2(c)",
+      "text": "Loa turns the dial on the heater, which increases the current in the heater.\n\nDiscuss how an increase in current in the circuit affects the amount of thermal energy released by the heater.\n\nUse relevant formulae to support your answer; calculations are not required.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "energy",
+        "power",
+        "energy-transfer"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increase in current causes increase in power (P = VI).",
+      "markingGuide": "Achieved: Increase in current increases electrical energy. OR increase in power causes increase in electrical energy. Electrical energy is transformed into heat energy. Merit: Increase in current causes increase in power due to P = VI. Increase in power causes increase in energy due to ΔE = Pt. Excellence: Increase in current causes increase in power due to P = VI. Where I increases, V stays constant so P increases. AND Increase in power causes increase in energy due to ΔE = Pt. Where P increases, time stays constant so ΔE increases."
+    },
+    {
+      "id": "ep25-q2d",
+      "number": "2(d)",
+      "text": "In the space below, draw a labelled diagram showing how the air particles move as a result of the heater heating the air.\n\nDiscuss particle movement in various parts of your diagram, and how this results in the pattern you have drawn in your diagram.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "energy-transfer",
+        "energy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Diagram shows convection currents: hot air rises near heater (particles move faster, spread...",
+      "markingGuide": "Achieved: Arrows drawn and labelled (warm OR cold air). States convection current. States that warm air rises OR cold air sinks. States warm air is less dense OR cold air is more dense. Merit: Labelled arrows are drawn AND full description of particles getting further apart, so are less dense and rise. OR labelled arrows are drawn AND when it cools, it becomes closer together, more dense, and sink. Labelled arrows AND particles getting faster so are less dense and rise. When it cools, they slow down, become closer together, more dense, and sink. Excellence: Labelled arrows are drawn AND full description of particles getting faster and further apart, so are less dense and rise. AND when it cools, the particles move slower become closer together, more dense, and sink.",
+      "image": "/images/exams/92047-2025-q2d.png"
+    },
+    {
+      "id": "ep25-q3a",
+      "number": "3(a)",
+      "text": "Cecelia uses the equipment shown to measure the specific heat capacity (c) of water.\n\nShe puts 0.5 kg of water in a beaker on a hotplate to heat the water. The voltage of the hotplate is 24 V, and the current provided to the hotplate is 5.0 A.\n\nDefine the term specific heat capacity.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The energy required to heat one kilogram of a substance by one degree centigrade without...",
+      "markingGuide": "Achieved: Correct definition.",
+      "image": "/images/exams/92047-2025-q3setup.png"
+    },
+    {
+      "id": "ep25-q3b",
+      "number": "3(b)",
+      "text": "Show that the electrical energy used by the hotplate over 10 minutes (600 seconds) is 72 000 J.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "energy",
+        "power"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "P = VI = 24 x 5.0 = 120 W. E = Pt = 120 x 600 = 72 000 J. OR E = VIt = 24 x 5.0 x 600 = 72 000 J.",
+      "markingGuide": "NOTE: This is a show question. Achieved: One correct equation and adds some numbers. Merit: Correct answer (units not required). Students may do this in one line: E = VIt = 24 x 5.0 x 600 = 72 000 J."
+    },
+    {
+      "id": "ep25-q3ci",
+      "number": "3(c)(i)",
+      "text": "Cecelia graphs the increase in water temperature over time, and obtains the following result.\n\nCalculate Cecelia's value for the specific heat capacity gained from her results over 10 minutes.\n\nIn your answer, you should:\n- consider the electrical energy is 72 000 J\n- use the graph to find the change in temperature over 10 minutes\n- then calculate Cecelia's value for the specific heat capacity of water.\n\nInclude the correct unit in your final answer.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "From graph, ΔT = 40°C.",
+      "markingGuide": "Achieved: Selects correct equation. Has ΔT as 40°C. Merit: Calculates a value for c with a minor error (incorrect ΔT / mass) OR correct answer but incorrect unit. Link to experiment: some energy is not transferred to the water, but is transferred into the glass, lost to the atmosphere/not transferred to beaker. OR this could be due to the thermometer being at a hot spot (due to convection currents). This means an incorrect reading. Excellence: Correct calculation with correct unit.",
+      "image": "/images/exams/92047-2025-q3graph.png"
+    },
+    {
+      "id": "ep25-q3cii",
+      "number": "3(c)(ii)",
+      "text": "Cecelia then compares her value with the one in the textbook.\n\nDiscuss why her value and the textbook value are different.",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Cecelia's value will be different",
+      "markingGuide": "Achieved: Statement that mentions why the value is different, e.g. the hot plate heats up the glass or thermometer. OR the water has increased temperature too much. OR a piece of equipment is faulty. Merit: Statement AND link to heat transfer. Some energy is not transferred to the water, but is transferred into the glass/lost to the atmosphere/not transferred to beaker. OR due to the thermometer being at a hot spot (due to convection currents)."
+    },
+    {
+      "id": "ep25-q3d",
+      "number": "3(d)",
+      "text": "Cecelia's value for the specific heat capacity of water is different from the value given in a textbook.\n\nDiscuss how she could improve this experiment to get a more accurate result.\n\nIn your answer, you will need to:\n- draw a labelled diagram showing an experimental setup with ONE suggested improvement\n- explain why this change would give you a more accurate answer\n- discuss the idea of heat transfer linked to this improvement.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Suggested improvements include: enclose experiment in non-conductive material (insulation), put...",
+      "markingGuide": "Achieved: Describes / draws a relevant improvement. Links improvement to a method of heat transfer. Merit: Describes / draws a method to improve the accuracy of this experiment AND explains how this method helps with heat loss. This method is linked to heat transfer (ie conduction, convection or radiation). Excellence: Describes / draws a method to improve the accuracy of this experiment. Explains how this method helps with heat loss. AND then links this method to heat transfer (i.e. conduction, convection or radiation) at a particle/wave level."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "id": "l3-accounting-analysis-2024",
+  "title": "Level 3 Accounting Concepts — 2024",
+  "level": 3,
+  "standard": "91404",
+  "year": 2024,
+  "subject": "accounting",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3aa24-q1a",
+      "number": "1(a)",
+      "text": "This assessment is based on Tourism Holdings Limited's Annual Report for the year ended 30 June 2023. THL is an Aotearoa New Zealand tourism company that manufactures, rents, and sells recreational vehicles (RVs) including motorhomes, campervans, and caravans.\n\nThe following is an extract from the Our People and Responsibility section of the annual report.\n\nTHRIVE — Supporting our crew, creating a healthy culture, and building capability.\nGoals: Employee health, Living wage, Fair employment terms, Employee discrimination, Employee concerns.\n\nWith reference to the goals identified, explain why this information would be of interest to a potential employee of Tourism Holdings Limited.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "annual report",
+        "stakeholders",
+        "employee interests"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l3-accounting-analysis-2024/thrive-goals.png"
+      ],
+      "expectedAnswer": "Potential employee interested because: living wage assurance means fair pay, employee health...",
+      "markingGuide": "A: Identifies goals relevant to employees. M: Explains why these goals matter to potential employees with context. E: Provides assurance about workplace culture and connects to decision-making.",
+      "image": "/images/exams/91404-2024-q1a.png"
+    },
+    {
+      "id": "l3aa24-q1b",
+      "number": "1(b)",
+      "text": "Explain why a potential employee would be interested in the consolidated statement of cash flows in the financial statements section of the annual report.\nIn your answer, include:\n- the purpose of the consolidated statement of cash flows\n- specific information in the consolidated statement of cash flows that would be of interest to a potential employee.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "statement of cash flows",
+        "stakeholder decisions",
+        "consolidated statements"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Purpose: shows cash inflows/outflows for operating, investing, financing activities.",
+      "markingGuide": "A: States purpose of cash flow statement. M: Links specific items to employee interests. E: Discusses how cash flows indicate financial stability and job security."
+    },
+    {
+      "id": "l3aa24-q1c",
+      "number": "1(c)",
+      "text": "The independent auditors' report includes the following statement:\n\n\"In our opinion, the accompanying consolidated financial statements of Tourism Holdings Limited (the Company), including its subsidiaries (the Group), present fairly, in all material respects, the financial position of the Group as at 30 June 2023, its financial performance and its cash flows for the year ended in accordance with New Zealand Equivalents to International Financial Reporting Standards (NZ IFRS) and International Financial Reporting Standards (IFRS).\"\n\nExplain why a potential shareholder would be interested in this statement from the auditors.\nIn your answer, include:\n- reference to the qualitative characteristics of faithful representation and comparability\n- how this statement enables a shareholder to make decisions based on the financial statements with confidence.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "auditors report",
+        "faithful representation",
+        "comparability",
+        "NZ IFRS"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l3-accounting-analysis-2024/auditors-report.png"
+      ],
+      "expectedAnswer": "Faithful representation: auditor confirms statements present fairly, meaning information is...",
+      "markingGuide": "A: Identifies faithful representation and comparability. M: Explains how audit opinion provides assurance. E: Justifies how this enables confident decision-making using NZ IFRS compliance.",
+      "image": "/images/exams/91404-2024-q1c.png"
+    },
+    {
+      "id": "l3aa24-q2a",
+      "number": "2(a)",
+      "text": "Tourism Holdings Limited paid audit fees of $1,125,000 to PwC New Zealand.\nExplain why audit fees are reported as revenue expenditure in the financial statements of Tourism Holdings Limited.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "revenue expenditure",
+        "audit fees",
+        "expenses"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Revenue expenditure: costs that benefit only the current accounting period and do not create a...",
+      "markingGuide": "A: Defines revenue expenditure. M: Applies to audit fees — recurring, current period benefit only. E: Contrasts with capital expenditure."
+    },
+    {
+      "id": "l3aa24-q2b",
+      "number": "2(b)",
+      "text": "Justify how and why the income tax expense of $17m is treated differently to the current tax payable of $13m as reported in the financial statements of Tourism Holdings Limited.\nIn your answer include reference to the relevant financial statements and recognition criteria applied to reporting these financial elements.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "income tax",
+        "tax payable",
+        "recognition criteria",
+        "financial elements"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Income tax expense ($17m) in income statement",
+      "markingGuide": "A: Identifies different financial statements. M: Explains different recognition criteria. E: Justifies the treatment with reference to financial elements and deferred tax concept."
+    },
+    {
+      "id": "l3aa24-q3",
+      "number": "3",
+      "text": "Use the information contained in the following property, plant, and equipment note extract for Tourism Holdings Limited to answer this question.\n\nPPE includes: motorhomes (rental fleet, held for sale reclassified to inventory), motor vehicles, land and buildings (land not depreciated), other plant and equipment, capital work in progress. Historical cost basis used. Subsequent costs included only when future economic benefits probable.\n\nJustify why items of property, plant, and equipment are reported as assets in the statement of financial position for Tourism Holdings Limited.\nIn your answer, explain:\n- why motorhomes held for sale are classified as inventory in current assets, while rental motorhomes are classified as property, plant, and equipment\n- how historical cost is applied to the measurement of property, plant, and equipment\n- how the work in progress of the motorhome fleet meets the definition of an asset and why it is an example of capital expenditure associated with property, plant, and equipment.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "PPE",
+        "asset classification",
+        "historical cost",
+        "capital expenditure",
+        "inventory vs PPE"
+      ],
+      "answerType": "text",
+      "diagrams": [
+        "/images/exams/l3-accounting-analysis-2024/ppe-note-extract.png"
+      ],
+      "expectedAnswer": "Motorhomes held for sale: current assets (inventory)",
+      "markingGuide": "A: Identifies PPE vs inventory distinction. M: Explains historical cost application. E: Justifies work in progress as asset and capital expenditure with full definition.",
+      "image": "/images/exams/91404-2024-q3.png"
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

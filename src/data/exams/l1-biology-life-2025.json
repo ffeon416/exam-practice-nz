@@ -1,0 +1,160 @@
+{
+  "id": "l1-biology-life-2025",
+  "title": "Level 1 Biology — Life Processes Practice",
+  "level": 1,
+  "standard": "91928B",
+  "year": 2025,
+  "subject": "biology",
+  "timeMinutes": 45,
+  "totalMarks": 20,
+  "questions": [
+    {
+      "id": "l1bl-q1",
+      "number": "1",
+      "text": "What is the main function of mitochondria in a cell?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["cells-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "To carry out photosynthesis",
+        "To store genetic information",
+        "To produce energy through cellular respiration",
+        "To control what enters and leaves the cell"
+      ],
+      "expectedAnswer": "To produce energy through cellular respiration",
+      "markingGuide": "The correct answer is 'To produce energy through cellular respiration'. Mitochondria are often called the 'powerhouses of the cell' because they convert glucose and oxygen into usable energy (ATP) through the process of cellular respiration. Both plant and animal cells contain mitochondria. Photosynthesis occurs in chloroplasts, DNA is stored in the nucleus, and the cell membrane controls entry and exit of substances. Exam tip: Do not confuse mitochondria (energy production) with chloroplasts (photosynthesis). Plants have both; animals only have mitochondria."
+    },
+    {
+      "id": "l1bl-q2",
+      "number": "2",
+      "text": "Which molecule carries the genetic information that is passed from parents to offspring?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["genetics-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Protein",
+        "DNA",
+        "Glucose",
+        "Starch"
+      ],
+      "expectedAnswer": "DNA",
+      "markingGuide": "The correct answer is DNA (deoxyribonucleic acid). DNA is a long molecule found in the nucleus of cells that contains the instructions (genetic code) for building and maintaining an organism. DNA is organised into chromosomes, and sections of DNA that code for specific proteins are called genes. Humans inherit 23 chromosomes from each parent, giving 46 in total. Proteins are made from the instructions in DNA but do not carry genetic information themselves. Glucose and starch are carbohydrates used for energy."
+    },
+    {
+      "id": "l1bl-q3",
+      "number": "3",
+      "text": "Describe TWO differences between plant cells and animal cells.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["cells-l1"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each correctly described difference (2 required). Key differences include:\n\n- Cell wall: Plant cells have a rigid cell wall made of cellulose outside the cell membrane, which provides structural support and shape. Animal cells have only a cell membrane.\n\n- Chloroplasts: Plant cells contain chloroplasts, which contain chlorophyll for photosynthesis (converting light energy into glucose). Animal cells do not have chloroplasts.\n\n- Vacuole: Plant cells have a large permanent central vacuole filled with cell sap, which helps maintain the cell's shape (turgor pressure). Animal cells may have small temporary vacuoles but not a large permanent one.\n\n- Shape: Plant cells tend to have a regular, rectangular shape due to the rigid cell wall. Animal cells are usually irregular or rounded in shape.\n\n- Energy storage: Plant cells store energy as starch. Animal cells store energy as glycogen.\n\nExam tip: You must describe the difference, not just name the structure. For example, saying 'cell wall' alone is insufficient — you need to say 'Plant cells have a cell wall; animal cells do not'."
+    },
+    {
+      "id": "l1bl-q4",
+      "number": "4",
+      "text": "What is photosynthesis?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["cells-l1", "ecology-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "The process by which cells break down glucose to release energy",
+        "The process by which plants convert light energy, carbon dioxide, and water into glucose and oxygen",
+        "The movement of water from an area of high concentration to low concentration through a membrane",
+        "The process by which organisms adapt to their environment over time"
+      ],
+      "expectedAnswer": "The process by which plants convert light energy, carbon dioxide, and water into glucose and oxygen",
+      "markingGuide": "The correct answer is 'The process by which plants convert light energy, carbon dioxide, and water into glucose and oxygen'. The word equation for photosynthesis is: carbon dioxide + water → glucose + oxygen (using light energy). This process occurs in the chloroplasts of plant cells. The first option describes cellular respiration, the third describes osmosis, and the fourth describes evolution/natural selection. Exam tip: Photosynthesis and respiration are essentially reverse processes — photosynthesis stores energy in glucose, while respiration releases it."
+    },
+    {
+      "id": "l1bl-q5",
+      "number": "5",
+      "text": "In a food chain: grass → rabbit → hawk\n\nWhat is the rabbit classified as?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["ecology-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "Producer",
+        "Primary consumer",
+        "Secondary consumer",
+        "Decomposer"
+      ],
+      "expectedAnswer": "Primary consumer",
+      "markingGuide": "The correct answer is Primary consumer. In a food chain, producers (plants like grass) make their own food through photosynthesis. Primary consumers (herbivores) eat the producers — the rabbit eats the grass, making it a primary consumer. Secondary consumers (carnivores or omnivores) eat primary consumers — the hawk eats the rabbit. Decomposers break down dead organisms. Exam tip: 'Primary' means first — primary consumers are the first level of consumers in a food chain."
+    },
+    {
+      "id": "l1bl-q6",
+      "number": "6",
+      "text": "Explain how the introduction of possums has affected native New Zealand forests.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["ecology-l1", "nz-biodiversity"],
+      "answerType": "text",
+      "markingGuide": "1 mark for explaining the direct impact of possums: Possums (Trichosurus vulpecula) were introduced to NZ from Australia in 1837 for the fur trade. They are voracious herbivores that consume huge quantities of native vegetation — an estimated 21,000 tonnes of leaves, fruit, and flowers every night across NZ. They target preferred species such as rātā, kāmahi, tōtara, and kohekohe, stripping canopy trees of their foliage, which can kill the trees.\n\n1 mark for explaining broader ecosystem effects: The destruction of native trees reduces habitat and food sources for native birds and insects. Possums also eat bird eggs and chicks, particularly threatening species like kererū, kōkako, and kiwi. The loss of canopy trees changes the forest structure, allowing invasive plant species to establish. This creates a cascade of effects through the ecosystem — fewer native trees means fewer seeds and fruit for native birds, which further reduces seed dispersal and forest regeneration. Possums also compete with native species for food resources.\n\nExam tip: NZ native forests evolved without browsing mammals, so native trees have no defences against possum browsing — this is why the impact is so severe compared to Australian forests where possums are native."
+    },
+    {
+      "id": "l1bl-q7",
+      "number": "7",
+      "text": "What is natural selection?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["evolution-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "The process by which humans choose which animals to breed",
+        "The process by which organisms with favourable traits are more likely to survive and reproduce",
+        "The random mutation of genes in a population",
+        "The movement of organisms from one area to another"
+      ],
+      "expectedAnswer": "The process by which organisms with favourable traits are more likely to survive and reproduce",
+      "markingGuide": "The correct answer is 'The process by which organisms with favourable traits are more likely to survive and reproduce'. Natural selection is the mechanism of evolution described by Charles Darwin. In any population, individuals show variation in their traits. Those with traits better suited to their environment are more likely to survive, reproduce, and pass those traits on to their offspring. Over many generations, this leads to changes in the population. The first option describes artificial selection (selective breeding). Random mutation is a source of variation but is not natural selection itself. Migration describes movement, not selection."
+    },
+    {
+      "id": "l1bl-q8",
+      "number": "8",
+      "text": "The kiwi bird has evolved to be flightless. Suggest TWO reasons why this adaptation was beneficial in New Zealand's original environment (before human arrival).",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": ["evolution-l1", "nz-biodiversity"],
+      "answerType": "text",
+      "markingGuide": "1 mark for each valid reason (2 required). Possible reasons include:\n\n- No mammalian predators: Before humans arrived, NZ had no land mammals (except two species of bat). Without predators to escape from by flying, there was no survival advantage to maintaining flight. Kiwi could forage safely on the ground.\n\n- Energy conservation: Flight requires enormous energy — large flight muscles and hollow bones. By becoming flightless, kiwi could redirect that energy into other functions such as growing larger, producing larger eggs, or surviving on less food. This is an advantage in an environment where food sources are on the ground.\n\n- Ground-level food sources: NZ forests had abundant invertebrates (worms, insects, larvae) in the leaf litter and soil. Flightless kiwi could specialise in ground-level foraging, using their long beak and keen sense of smell to find food. Not needing to fly allowed them to develop features better suited to this niche.\n\n- Reduced competition: By occupying a ground-dwelling niche similar to small mammals in other countries, kiwi filled an ecological role with little competition in NZ's unique environment.\n\nExam tip: Adaptations are features that improve an organism's survival in its specific environment. Always link the adaptation to the environmental conditions that made it advantageous."
+    },
+    {
+      "id": "l1bl-q9",
+      "number": "9",
+      "text": "What is the role of white blood cells in the human body?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["cells-l1"],
+      "answerType": "multi-choice",
+      "options": [
+        "To carry oxygen around the body",
+        "To fight infection and protect the body against disease",
+        "To carry nutrients to cells",
+        "To help blood clot at wound sites"
+      ],
+      "expectedAnswer": "To fight infection and protect the body against disease",
+      "markingGuide": "The correct answer is 'To fight infection and protect the body against disease'. White blood cells (leukocytes) are part of the immune system. They identify and destroy pathogens (bacteria, viruses, and other foreign substances) that enter the body. Some white blood cells engulf and digest pathogens (phagocytes), while others produce antibodies to neutralise specific pathogens (lymphocytes). Red blood cells carry oxygen (using haemoglobin), plasma carries nutrients, and platelets help with blood clotting."
+    },
+    {
+      "id": "l1bl-q10",
+      "number": "10",
+      "text": "A farmer in Canterbury notices that some of their sheep are resistant to a particular disease while others are not. Using your understanding of genetics and natural selection, explain how disease resistance could become more common in the flock over several generations.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": ["genetics-l1", "evolution-l1"],
+      "answerType": "working",
+      "markingGuide": "1 mark for explaining genetic variation: Within the flock, individual sheep have different genetic makeup (genotypes). Some sheep carry genes that provide resistance to the disease, while others do not. This variation exists because of differences in alleles (versions of genes) inherited from their parents. Sexual reproduction ensures that offspring have a unique combination of genes from both parents.\n\n1 mark for explaining the process of natural selection: When the disease occurs, sheep without resistance are more likely to become ill and may die or produce fewer lambs. Resistant sheep are more likely to survive, remain healthy, and reproduce successfully. Because the resistant sheep survive in greater numbers, they produce more offspring. These offspring are likely to inherit the resistance genes from their parents.\n\n1 mark for explaining change over generations: Over several generations, this process repeats — each generation, resistant sheep have a survival and reproductive advantage. The proportion of sheep carrying resistance genes increases in the population with each generation, while the proportion without resistance decreases. Eventually, disease resistance becomes a common trait in the flock. This is natural selection in action — the environment (the disease) is 'selecting' for individuals with favourable traits (resistance genes).\n\nNote: The farmer could also use artificial selection by deliberately breeding only resistant sheep, which would speed up the process. Full marks require a clear, logical explanation that links genetic variation → differential survival → inheritance → population change over time.\n\nExam tip: When explaining natural selection, always include these key elements: variation exists, there is a selection pressure (the disease), individuals with favourable traits survive and reproduce more, and the trait becomes more common over generations."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 5 },
+    "achieved": { "min": 6, "max": 11 },
+    "merit": { "min": 12, "max": 16 },
+    "excellence": { "min": 17, "max": 20 }
+  }
+}

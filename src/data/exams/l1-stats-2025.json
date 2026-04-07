@@ -1,0 +1,238 @@
+{
+  "id": "l1-stats-2025",
+  "title": "Level 1 Mathematical & Statistical Interpretation — 2025",
+  "level": 1,
+  "standard": "91946",
+  "year": 2025,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l1s25-q1a",
+      "number": "1(a)",
+      "text": "[Diagram: Resource 1A — Box-and-whisker plots comparing the cost of Adidas and Nike sports shoes. Summary statistics table:\n\nAdidas: Min $63, LQ $94, Median $131, Mean $158.39, UQ $171, Max $702, n = 99\nNike: Min $90, LQ $183, Median $234, Mean $255.90, UQ $298, Max $900, n = 126]\n\nUsing Resource 1A, what percentage of Nike sports shoes cost more than $500?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "data-interpretation",
+        "numerical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "4.76%",
+      "markingGuide": "From the box plot, 6 out of 126 Nike shoes cost more than $500. 6 ÷ 126 = 0.0476 = 4.76%. Award Achieved for correct percentage with working shown.",
+      "image": "/images/exams/91946-2025-res1a.png"
+    },
+    {
+      "id": "l1s25-q1b",
+      "number": "1(b)",
+      "text": "[Diagram: Resource 1A — Box-and-whisker plots comparing the cost of Adidas and Nike sports shoes. Summary statistics table:\n\nAdidas: Min $63, LQ $94, Median $131, Mean $158.39, UQ $171, Max $702, n = 99\nNike: Min $90, LQ $183, Median $234, Mean $255.90, UQ $298, Max $900, n = 126]\n\nCompare the distributions of the cost of Adidas and Nike sports shoes shown in Resource 1A. Discuss similarities and differences considering centre, shift, shape, and spread. Provide numerical evidence. Describe at least TWO different features in context. What conclusion can you make about which brand is more expensive? Use evidence from the graph.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Nike is more expensive — median $234 vs Adidas $131",
+      "markingGuide": "Centre: Nike median ($234) is much higher than Adidas ($131), or means $255.90 vs $158.39 — Nike typically costs more. Shift: Nike's middle 50% box is shifted entirely to the right of Adidas (Adidas UQ $171 < Nike LQ $183), meaning no overlap in the IQR. Spread: Nike has a larger range ($810 vs $639) and larger IQR ($115 vs $77), meaning Nike prices are more variable. Shape: Both distributions are right-skewed (mean > median for both). Conclusion: No overlap of IQR strongly supports the claim that Nike shoes tend to be more expensive. Achieved = one feature compared with evidence. Merit = two features compared with evidence in context. Excellence = comprehensive comparison covering centre, shift, spread, and/or shape with numerical evidence and a justified conclusion.",
+      "image": "/images/exams/91946-2025-res1a.png"
+    },
+    {
+      "id": "l1s25-q1c",
+      "number": "1(c)",
+      "text": "[Diagram: Resource 1A — Box-and-whisker plots comparing the cost of Adidas and Nike sports shoes from an NZ women's shoe website.]\n\nGive at least one justified reason why Resource 1A may not be reliable for comparing the cost of Adidas and Nike sports shoes.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Data from only one website, may not represent all retailers",
+      "markingGuide": "Valid reasons include: Data from only one website (not representative of all retailers). Unknown whether prices are sale prices or RRP. Website is specific to NZ women's shoes only — doesn't represent men's shoes or other countries. Sample sizes differ (99 vs 126). Award Achieved for one well-justified reason.",
+      "image": "/images/exams/91946-2025-res1a.png"
+    },
+    {
+      "id": "l1s25-q1d",
+      "number": "1(d)",
+      "text": "[Diagram: Resource 1B — A time series graph showing quarterly NZ spending on clothing and footwear from 2010 to 2024. The y-axis shows spending in millions of dollars (ranging from about $600M to $1400M). The graph shows a generally increasing trend with regular seasonal peaks in Q4 (Christmas).]\n\nWhat trends, repeating patterns, and unusual features do you notice in the spending shown in Resource 1B? Support with evidence from the graph. Give at least two reasons.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "time-series",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Increasing trend ($790M to $1100M), seasonal peaks in Q4 (Christmas)",
+      "markingGuide": "Trend: Long-term trend is steadily increasing — spending was approximately $790M in 2010 and approximately $1100M in 2024. Repeating pattern: Regular seasonal peaks in Q4 each year (Christmas shopping), with troughs typically in Q1. Unusual features: Large spike in 2017 Q2 (over $1400M); dip in 2021 (COVID-19 lockdowns); peak-to-trough difference has been increasing over time. Achieved = one feature identified with evidence. Merit = two or more features identified with numerical evidence in context.",
+      "image": "/images/exams/91946-2025-res1b.png"
+    },
+    {
+      "id": "l1s25-q1e",
+      "number": "1(e)",
+      "text": "[Diagram: Resource 1B — A time series graph showing quarterly NZ spending on clothing and footwear from 2010 to 2024.]\n\nUsing Resource 1B, make a prediction about future spending on clothing and footwear in NZ. Explain your prediction and discuss how confident you are in it.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "time-series",
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Spending will continue to rise following long-term upward trend",
+      "markingGuide": "Prediction should follow the long-term upward trend — spending is likely to continue increasing. Seasonal pattern should continue (Q4 peaks). Confidence: Reasonably confident for near-term (1-2 years) as trend is well-established over 14 years. Less confident for long-term due to potential economic recessions, changes in consumer behaviour, online shopping trends, inflation effects. Achieved = prediction with basic reasoning. Merit = prediction with justified confidence discussion using evidence from the graph.",
+      "image": "/images/exams/91946-2025-res1b.png"
+    },
+    {
+      "id": "l1s25-q2a",
+      "number": "2(a)",
+      "text": "[Diagram: Resource 2A — A scatter plot showing price ($) vs shoe size for 117 pairs of shoes. There is a line of best fit drawn through the data. The data shows a generally positive trend — larger shoes tend to cost more. There appear to be two clusters: sizes 1-6 (children's) and sizes 7-10 (adult).]\n\nDescribe and interpret TWO different features of the relationship shown in Resource 2A.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Positive linear trend — bigger shoes cost more. Two clusters: children's (1-6) and adult (7-10)",
+      "markingGuide": "Features include: Positive relationship (larger sizes cost more). Moderate/weak linear strength (data is quite spread around the trend line). Two apparent groups or clusters (sizes 1-6 and 7-10, possibly children's vs adults'). Unusual point at size 6 near $150. Large variation in price for any given size. Award Achieved for correctly identifying and interpreting two features.",
+      "image": "/images/exams/91946-2025-res2a.png"
+    },
+    {
+      "id": "l1s25-q2b",
+      "number": "2(b)",
+      "text": "[Diagram: Resource 2A — A scatter plot with line of best fit showing price ($) vs shoe size for 117 pairs.]\n\nAdina needs size 6 sports shoes. Using the graph in Resource 2A, what price should she expect to pay? How confident can you be in using this graph to predict shoe price? Support with statistical reasoning.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "About $65 from trend line. Low confidence — wide scatter at size 6",
+      "markingGuide": "Reading from the line of best fit gives approximately $65 for size 6 (accept $64-$66). Confidence discussion: Should be hesitant — actual data points for size 6 mostly lie below the line of best fit. Large variation in prices at each shoe size reduces prediction accuracy. The unusual high point (~$150) for size 6 may be distorting the trend. Achieved = reasonable price reading from graph. Merit = price reading AND justified confidence discussion with statistical reasoning.",
+      "image": "/images/exams/91946-2025-res2a.png"
+    },
+    {
+      "id": "l1s25-q2c",
+      "number": "2(c)",
+      "text": "[Diagram: Resource 2B — Table of three companies' prices and offers for football shoes:\n\nFootball Direct: $68 (excl. GST), shipping $9.99, offers: 1/3 off shipping if purchase $70-$100 incl GST, no shipping if over $150 incl GST.\nFooty Fields: $90 (incl. GST), shipping $5.99, offers: 'Pay no GST' offer, 5% discount on one pair, 10% discount on two pairs.\nKick Off: $70 (excl. GST), shipping $4.00, offers: collect from factory = no shipping, buy one get second at half price.\n\nAll special offers apply only to sizes 1–7. GST rate is 15%.]\n\nRicky wants to buy new size 7 football shoes and will choose from the three companies. He wonders whether to buy one or two pairs. Which company should he choose? Make recommendations with reasons using Resource 2B and including personal world views.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "numerical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "One pair: Footy Fields $80.34. Two pairs: Kick Off $124.95",
+      "markingGuide": "ONE PAIR: Football Direct: $68 × 1.15 = $78.20 (incl GST). Shipping: $78.20 is in $70-$100 range, so 1/3 off $9.99 = $6.66. Total = $84.86. Footy Fields: $90 × 0.95 = $85.50 ('pay no GST' means ÷ 1.15) = $74.35 + $5.99 = $80.34. Kick Off: $70 × 1.15 = $80.50 + $4 = $84.50 (or $80.50 if collecting). TWO PAIRS: Football Direct: $78.20 × 2 = $156.40 (free shipping over $150). Footy Fields: $90 × 2 = $180 × 0.90 = $162 ÷ 1.15 = $140.87 + $5.99 = $146.86. Kick Off: $70 + $35 = $105 × 1.15 = $120.75 + $4 = $124.75. Best: one pair = Footy Fields ($80.34). Two pairs = Kick Off ($124.75). Achieved = correct calculation for one company. Merit = correct calculations for multiple companies with comparison. Excellence = comprehensive comparison of all three companies for both one and two pairs, with justified recommendation.",
+      "image": "/images/exams/91946-2025-res2b.png"
+    },
+    {
+      "id": "l1s25-q2d",
+      "number": "2(d)",
+      "text": "[Diagram: Resources 2A and 2B as described above.]\n\nRicky is currently wearing size 7 but growing quickly; his mother thinks he'll need larger shoes next season. Using both Resource 2A and 2B, recommend the best option for Ricky when buying shoes for next season.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "numerical-reasoning",
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Buy larger size as shoes cost more in bigger sizes. Consider Kick Off for value on two pairs",
+      "markingGuide": "Key points: Resource 2A shows price increases with size, so next season's shoes will cost more. Resource 2B special offers apply only to sizes 1-7, so if Ricky moves to size 8+, no discounts available. Possible recommendations: Buy two pairs now at size 7 while offers apply (one for now, one for later). Or accept paying more next season. Kick Off likely best without offers due to cheapest shipping ($4 vs $5.99 vs $9.99). Achieved = one relevant point from either resource. Merit = points from both resources combined with a justified recommendation.",
+      "image": "/images/exams/91946-2025-res2b.png"
+    },
+    {
+      "id": "l1s25-q3a",
+      "number": "3(a)",
+      "text": "[Diagram: Resource 3 — Survey results from Running Shoes Guru website (2571 respondents). Key stats: 53% run in the morning, 38% consider comfort most important, 47% spend $80–$120, 26% consider personal experience, 7% consider brand.]\n\nThe survey was completed by 2571 people. Approximately how many would be expected to run in the morning?",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "numerical-reasoning",
+        "data-interpretation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "1363 (or 1362)",
+      "markingGuide": "2571 × 0.53 = 1362.63, so approximately 1363 runners (accept 1362). Award Achieved for correct calculation with working shown.",
+      "image": "/images/exams/91946-2025-res3a.png"
+    },
+    {
+      "id": "l1s25-q3b",
+      "number": "3(b)",
+      "text": "[Diagram: Resource 3 — Overall running shoe preference: Asics 22%, Nike 20%, Adidas 19%, New Balance 17%, No favourite 14%, Other 8%.]\n\nAccording to the survey, which brand of running shoe is the most preferred? Discuss how confident you would be in concluding that this brand is the most popular. Justify your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "statistical-reasoning",
+        "data-interpretation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Asics 22%, but Nike (20%) and Adidas (19%) very close — not confident it's truly most popular",
+      "markingGuide": "Asics is the most preferred at 22%. However, Nike (20%) and Adidas (19%) are very close. The range across the top three brands is only 3 percentage points. While the sample size is good (2571), the small differences mean we cannot be very confident that Asics is definitively the most popular — a different sample could easily produce different rankings. The survey is also from one website (Running Shoes Guru) which may attract a particular type of runner. Achieved = identifies Asics as most preferred. Merit = identifies Asics AND discusses confidence with justification (e.g., close percentages, sample considerations).",
+      "image": "/images/exams/91946-2025-res3a.png"
+    },
+    {
+      "id": "l1s25-q3c",
+      "number": "3(c)",
+      "text": "[Diagram: Resource 3 — Running shoe preference broken down by age group:\nUnder 20: Nike most popular\n21–30: Nike most popular\n31–40: Nike and Asics both at 24%\n41–50: Nike and Asics both popular\n51–60: Asics most popular\nOver 60: Asics most popular]\n\nDiscuss two similarities or differences in running shoe preference by age. Use this to suggest what brand Quinn (age 31) might buy.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Nike and Asics most popular across all ages. Younger prefer Nike, older prefer Asics",
+      "markingGuide": "Similarities: Nike and Asics dominate across all age groups. Differences: Nike is preferred by younger runners (Under 20, 21-30), Asics is preferred by older runners (51-60, Over 60). In the 31-40 bracket, Nike and Asics are both at 24%, both 5% higher than Adidas. Quinn (age 31) is in the 31-40 bracket — could go with either Nike or Asics. Being at the boundary of the age bracket, Quinn might still identify with younger preferences (Nike). Achieved = one comparison. Merit = two comparisons AND a justified recommendation for Quinn.",
+      "image": "/images/exams/91946-2025-res3a.png"
+    },
+    {
+      "id": "l1s25-q3d",
+      "number": "3(d)",
+      "text": "[Diagram: Resource 3 — Running shoe preferences by age group and by weekly km run. Running shoe preference by distance: Less than 15 km, 15–40 km, 41–65 km, More than 65 km. Also: 47% of runners spend $80–$120 on running shoes.]\n\nAxel is 45 years old, runs approximately 50 km per week. He needs new running shoes. Using any of Resources 1–3, recommend which brand he should buy and estimate the cost. Include evidence from at least two sections of Resource 3.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "data-interpretation",
+        "statistical-reasoning",
+        "numerical-reasoning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Asics — most popular for 41-50 age group and 41-65 km runners. Budget $80-$120",
+      "markingGuide": "Axel is in the 41-50 age bracket where Nike and Asics are both popular. He runs ~50 km/week, placing him in the 41-65 km bracket where Asics is slightly ahead at 24%. 47% of runners spend $80-$120 on shoes, so this is the most likely price range. From Resource 1A, Nike shoes average ~$234 (median) which is well above this range, while the scatter plot (Resource 2A) suggests lower prices for standard sizes. Recommendation: Asics, estimated cost $80-$120. Achieved = recommendation with one piece of evidence. Merit = recommendation with evidence from two sources. Excellence = comprehensive recommendation using multiple sections of Resource 3 AND other resources, with cost estimate and clear justification.",
+      "image": "/images/exams/91946-2025-res3b.png"
+    },
+    {
+      "id": "l1s25-q3e",
+      "number": "3(e)",
+      "text": "How confident would you be using information from this survey to make recommendations about running shoes?",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "statistical-reasoning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Moderately confident — large sample (2571) but online-only survey, may not represent all runners",
+      "markingGuide": "Strengths: Large sample size (2571 respondents). Detailed breakdowns by age group and weekly distance. Weaknesses: Only from one website (Running Shoes Guru) — may not represent all runners or the general population. Don't know how respondents are distributed across age/distance groups — some groups may be underrepresented. Self-selected sample (voluntary response bias). People could complete survey multiple times. Only captures online runners who visit this site. Achieved = one strength or weakness identified. Merit = both strengths and weaknesses discussed with justification.",
+      "image": "/images/exams/91946-2025-res3b.png"
+    }
+  ],
+  "totalMarks": 41,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 11
+    },
+    "achieved": {
+      "min": 12,
+      "max": 21
+    },
+    "merit": {
+      "min": 22,
+      "max": 31
+    },
+    "excellence": {
+      "min": 32,
+      "max": 41
+    }
+  }
+}

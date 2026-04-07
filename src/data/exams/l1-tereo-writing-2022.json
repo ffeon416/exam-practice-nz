@@ -1,0 +1,28 @@
+{
+  "id": "l1-tereo-writing-2022",
+  "title": "Level 1 Te Reo Māori — Tuhituhi (Writing) 2022",
+  "level": 1,
+  "standard": "91088",
+  "year": 2022,
+  "subject": "te-reo",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "trm88-22-q1",
+      "number": "1",
+      "text": "Produce a piece of writing in te reo Māori (at least 150 words) on ONE of the following topics. Kuputaka/glossed vocabulary is provided to help but does not have to be included in your writing.\n\nTopic 1: Whakatairitea ētahi runaruna e rua. Whakamāramatia mai ko tēhea te mea pai ake.\nCompare and contrast two hobbies. Explain which is better.\nKuputaka: parakitihi = to practise/rehearse; pārekareka = to be fun; uaua = difficult; utu = cost; whakaohooho = to inspire\n\nTopic 2: Matapakina mai tētahi raru i tō kura. He aha ētahi rautaki hei whakaea i tēnei raru?\nDiscuss a problem at your school. What are some solutions you can think of?\nKuputaka: kākahu = uniforms; kaupapa ako = subjects; nui = size; tawhito = old; tōkau = to be plain; whakaweti = bullying\n\nTopic 3: Tuhia mai tētahi kōrero mō tētahi hui whakahirahira mō tō whānau. He aha te take koia nei te tino hui ki a koutou?\nWrite about an event that was significant for your whānau. Why was this event so important to you?\nKuputaka: aroha = love; koha = gift; mārena = wedding; whakaohooho = to inspire; whakapōtaetanga = graduation\n\nTopic 4: Whakatairitea tō tino kai ki tētahi atu kai kāore e pai ki a koe. He aha ngā rerekētanga me ngā ōritenga?\nCompare and contrast your favourite food with another food you don't like. What are the differences and similarities?\nKuputaka: kai whakauru = ingredients; kīnaki = sauce; reka = tastiness; rīhi = dishes; roa = length (of time); utu = cost\n\nTopic 5: Ko wai te tangata rongonui e whiriwhiria e koe kia noho kōrua ki te kai tahi, ā, he aha te take i whiriwhiria e koe ko ia?\nWhich celebrity would you choose to have dinner with, and why did you choose them?\nKuputaka: angitū = success; kaiora = awesome, impressive; pūkenga = skilled in, skill(s); whakaohooho = to inspire; whakaute = to respect",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["tuhituhi-writing-l1", "reo-expression-l1"],
+      "answerType": "working",
+      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 150 words in te reo Māori only.\n\nAchieved (Paetae 3-4): Writes in te reo Māori on one of the topics. Writing is understandable and communication of ideas is mostly achieved. Shows sufficient basic evidence from Curriculum Levels 5 and 6. Contains errors but a few words in English for unknown translations are acceptable if infrequent. Simplistic ideas with few details or opinions.\n\nMerit (Kaiaka 5-6): Writes in te reo Māori on one of the topics and adheres to the specific instructions. Writing is understandable with effective communication of ideas. Shows a range of complex evidence from Curriculum Levels 5 and 6. Contains few errors. Shows depth and regularly provides details and opinions.\n\nExcellence (Kairangi 7-8): Comprehensive response in te reo Māori that shows a thorough understanding of the instructions. Communication of ideas is extensive. Shows a wide range of sophisticated evidence from Curriculum Levels 5 and 6. Contains minimal errors. Well-crafted response that is convincing; reasons and opinions are effectively placed and validate the candidate's ideas."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}

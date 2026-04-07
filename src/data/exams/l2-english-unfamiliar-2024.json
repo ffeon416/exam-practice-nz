@@ -1,0 +1,48 @@
+{
+  "id": "l2-english-unfamiliar-2024",
+  "title": "Level 2 English -- Unfamiliar Texts 2024",
+  "level": 2,
+  "standard": "91100",
+  "year": 2024,
+  "subject": "english",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "eng100-24-q1",
+      "number": "1",
+      "text": "QUESTION ONE: Prose\n\nRefer to Text A, \"Eugene\", on page 2 of the resource booklet.\n\nAnalyse how the writer uses language to show the relationship between Eugene and his mother.\n\nSupport your answer with evidence from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["unfamiliar-texts", "language-features", "close-reading", "prose"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific and relevant details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned and clear discussion of one or more ideas using analysis-related terminology. Show awareness that meaning has been deliberately crafted for a particular purpose. Weave a range of specific details from the text to support the main idea(s). Excellence (7-8): Develop an insightful or original argument or interpretation of the text. Make judgments about how effects and meanings relate to the purpose of the text. Weave a range of specific and relevant details to support the argument or interpretation. Ideas might include: Eugene is lively, sometimes exasperatingly so (sprawling, burning, whooped, hollered, clattered); the calmness of the mother is contrasted with the unpredictability of the child, she reacts with affection and sympathy; the originality of language (e.g. 'roister-doister', 'ratbag') depicts Eugene as a unique child and emphasises how young he is."
+    },
+    {
+      "id": "eng100-24-q2",
+      "number": "2",
+      "text": "QUESTION TWO: Poetry\n\nRefer to Text B, \"Timepiece\", on page 3 of the resource booklet.\n\nAnalyse how the poet expresses their attitude towards the time spent doing chores.\n\nSupport your answer with evidence from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["unfamiliar-texts", "language-features", "close-reading", "poetry"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Ideas might include: how time can seem to stand still when doing chores; how there can be a sense of satisfaction or reward in completing chores; how you can find freedom once the chores have been finished."
+    },
+    {
+      "id": "eng100-24-q3",
+      "number": "3",
+      "text": "QUESTION THREE: Non-fiction\n\nRefer to Text C, \"Milk skin\", on page 4 of the resource booklet.\n\nAnalyse how the writer conveys the experience of dealing with milk skin.\n\nSupport your answer with evidence from the text.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["unfamiliar-texts", "language-features", "close-reading", "non-fiction"],
+      "answerType": "working",
+      "markingGuide": "Achievement (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Ideas might include: how milk skin is often gross; how milk skin can remind you of other gross things like sunburn skin-flakes; how milk skin is a binary love-hate experience; how responses to milk skin can be visceral and intense."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

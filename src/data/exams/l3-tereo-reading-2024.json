@@ -1,0 +1,48 @@
+{
+  "id": "l3-tereo-reading-2024",
+  "title": "Level 3 Te Reo Māori — Pānui (Reading) 2024",
+  "level": 3,
+  "standard": "91652",
+  "year": 2024,
+  "subject": "te-reo",
+  "timeMinutes": 90,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "trm652-24-q1",
+      "number": "1",
+      "text": "Read the text 'Kia maharatia te rima o Noema' (Remember the 5th of November) about Guy Fawkes Day, then answer this question.\n\nThe text 'Te rangi o Guy Fawkes' describes the history of Guy Fawkes Day — how in 1605 a Catholic group including Guy Fawkes tried to assassinate the Protestant King James in the House of Lords (the Gunpowder Plot). The plot failed, Fawkes was arrested and imprisoned. The people of London celebrated by lighting fires. Over the following months, the 5th of November became an official day to celebrate the foiling of the plot, and people throughout the world now celebrate with fireworks.\n\nKuputaka: Aranga = Easter; Kakai Paura Pū = Gunpowder Plot; Kamupene = company; Karaitiana = Christian; Katorika = Catholic; Kūare(-tanga) = ignorant; Mauāhara = hate; Mauhere(-tia) = arrest/imprison; Pahū ahi = fireworks; Porotehana = Protestant; Rānana = London; Rorotu = popular; Taupori = population\n\nĀta whakamāramahia te hītori o te Rā o Guy Fawkes me te take e whakanuia ana ki ngā wāhi huhua o te ao.\nExplain in detail the history behind Guy Fawkes Day and how it has become a day that is celebrated in many different places in the world.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["panui-reading-l3", "hitori-history-l3", "comprehension-l3"],
+      "answerType": "working",
+      "markingGuide": "Achieved (Paetae 3-4): Presents a basic interpretation of the text. May include errors in detail or interpretation. Identifies the main theme — Guy Fawkes Day celebrates the failure of the Gunpowder Plot.\n\nMerit (Kaiaka 5-6): Explains some main ideas emerging from the text but they are lacking in finer detail. Ideas form evidence based only on the text. Includes limited personal opinions. Key points should include: This day of commemoration comes from England; in 1605 a Catholic group tried to assassinate King James; they were arrested; people celebrated by lighting fires.\n\nExcellence (Kairangi 7-8): Explains the main ideas emerging from the text and includes finer details. Strongly evidence-based from the text. Clearly and confidently includes personal opinions. Convincing justifications using clear examples. Key points: This day comes from England; in 1605 a Catholic group tried to assassinate Protestant King James and others in the House of Lords; the name was the Gunpowder Plot; they didn't achieve their goal; Guy Fawkes was imprisoned whilst looking after the explosives; the people of London celebrated by lighting fires throughout London; in following months the 5th of November became an official day; from that time people throughout the world have celebrated by letting off fireworks."
+    },
+    {
+      "id": "trm652-24-q2",
+      "number": "2",
+      "text": "Read the text 'Ko Parihaka' about the history of Parihaka, a settlement in Taranaki that became a centre of peaceful resistance against Government land confiscation, then answer this question.\n\nKuputaka: Hōia = soldier; Mauhere(-tia) = arrest/imprison; Maungārongo = peace; Pākinikini = suffer; Parau = plough; Pātū = wall; Porotēhi = protest; Raupatu(-hia) = confiscate; Titi rūri = survey peg; Tūkino(-tia) = abuse; Turaki(-na) = destroy; Whakaeke(-a) = to attack; Whare herehere = prison; Whakawā(-kia) = to judge\n\nHe aha a Parihaka i motuhake ai i taua wā? Whakamahia ngā kōrero i roto i te tuhinga hei tautoko i tō whakautu.\nWhy was Parihaka so unique for the time? Use detail from the text to support your answer.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["panui-reading-l3", "hitori-history-l3", "tikanga-maori-l3"],
+      "answerType": "working",
+      "markingGuide": "Achieved (Paetae 3-4): Presents a basic interpretation — Parihaka was about peaceful protest against the government.\n\nMerit (Kaiaka 5-6): Explains some main ideas: people protested peacefully against Government confiscation of the land; they did this long before Gandhi and Martin Luther King; the people of Parihaka were good at working together.\n\nExcellence (Kairangi 7-8): Provides a comprehensive explanation with finer details: The people of Parihaka protested peacefully against Government confiscation of land, doing this long before Gandhi and Martin Luther King. When Parihaka was at its peak, many battles were occurring throughout Aotearoa where people died and suffered. The people of Parihaka were good at working together for the benefit of the people. They were extremely efficient at growing vegetables — this is the work of Rongo-mā-Tāne, the god of peace, of the kūmara and of agriculture. Gardening is a peaceful activity (reciting karakia, preparing the land, planting seeds, weeding and harvesting). The people didn't fight with weapons of Tūmatauenga (taiaha, patu, gun etc.) — they instead sent the men to plough the land, to remove survey pegs, and to re-erect fences destroyed by soldiers. Te Whiti and Tohu felt there was no benefit in engaging in war for their people."
+    },
+    {
+      "id": "trm652-24-q3",
+      "number": "3",
+      "text": "Pātai Tuatoru / Question Three:\nNā runga i tāu i pānui ai, ko tēhea o ngā kaupapa nei te mea whakahirahira rawa hei whakanui mā tātou i te rima o Noema? Whakamahia ngā kōrero i roto i te tuhinga hei tautoko i ō whakaaro.\n\nBased on what you have read, which of the two kaupapa should be commemorated on the 5th of November? Use information from the text to support your argument.",
+      "marks": 8,
+      "gradeLevel": "achieved",
+      "topics": ["panui-reading-l3", "whakaaro-opinion-l3", "hitori-history-l3"],
+      "answerType": "working",
+      "markingGuide": "Achieved (Paetae 3-4): Has given a short yet correct answer as to which of the two kaupapa (Guy Fawkes Day or Parihaka) should be commemorated on the 5th of November. Has used basic information from the text to support their argument.\n\nMerit (Kaiaka 5-6): Has given a moderately detailed correct answer as to which of the two kaupapa should be commemorated on the 5th of November. Has used information from the text to support their argument. Explains the message/main theme with some development.\n\nExcellence (Kairangi 7-8): Has given a detailed correct answer as to which of the two kaupapa should be commemorated on the 5th of November. Has used comprehensive information from the text to support their argument. Integrates/synthesises the main ideas of the author or text. Justifies thoughts about the main theme/message with clear examples. Clearly articulated response with convincing justifications. May argue for Parihaka as it represents peaceful resistance and Māori values of maungārongo (peace), or for Guy Fawkes as a globally recognised tradition, or argue that both should be remembered for different reasons."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
+  }
+}

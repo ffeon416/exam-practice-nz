@@ -1,0 +1,126 @@
+{
+  "id": "l2-biology-genetics-2025",
+  "title": "Level 2 Biology — Genetic Variation and Change (2025)",
+  "level": 2,
+  "standard": "91157",
+  "year": 2025,
+  "subject": "biology",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "bg25-q1a",
+      "number": "1(a)",
+      "text": "Corn snakes (Pantherophis guttatus) are considered helpful to humans and are found in different parts of the eastern United States. This species lives in a wide variety of habitats including wooded areas, rocky hillsides, barns, and abandoned buildings.\n\nThey have a complete dominance inheritance pattern for body colour and scale pattern. The orange body-colour allele (G) is dominant to the white body-colour allele (g). The allele for striped scale pattern (B) is dominant to the allele for blotched scale pattern (b). The genes for body colour and scale pattern are not genetically linked.\n\nConservationists crossed a corn snake homozygous for the orange body-colour allele and the striped pattern allele, with a corn snake homozygous for white body colour and blotched scale pattern.\n\nState the genotype of the gametes produced by each parent, and state the genotype of the F1 generation.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "dominance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Parent 1 gametes: GB. Parent 2 gametes: gb. Genotype of F1: GgBb.",
+      "markingGuide": "Achieved: Identifies gametes OR F1 genotype correctly."
+    },
+    {
+      "id": "bg25-q1b",
+      "number": "1(b)",
+      "text": "Use the Punnett square below to show the gametes of the F1 generation, and all of the possible genotypes of the F2 generation.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "punnett-square"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "F1 gametes: GB, Gb, gB, gb.",
+      "markingGuide": "Achieved: Punnett square completed with correct gametes for F2."
+    },
+    {
+      "id": "bg25-q1c",
+      "number": "1(c)",
+      "text": "Describe the predicted phenotype (F2) ratio produced by the cross.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "genetics",
+        "inheritance",
+        "phenotype-ratio"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "9:3:3:1 — 9 orange striped : 3 orange blotched : 3 white striped : 1 white blotched.",
+      "markingGuide": "Achieved: Phenotype ratio (with correct appearance): 9 orange striped : 3 orange blotched : 3 white striped : 1 white blotched."
+    },
+    {
+      "id": "bg25-q1d",
+      "number": "1(d)",
+      "text": "The garter snake (Thamnophis sirtalis) is another species of snake and has often been bred in captivity. When snakes are crossed that are heterozygous for a striped pattern and rough scale texture, striped (E) is dominant over unstriped (e), and smooth texture (R) is dominant over rough texture (r).\n\nWith this cross, the observed ratio is frequently found to be:\n7 striped smooth : 1 striped rough : 1 unstriped smooth : 7 unstriped rough\n\nDiscuss how genes located on the same chromosome can show both linked and unlinked characteristics, using the information provided for BOTH species of snake.\n\nIn your answer, include discussion of:\n- how the processes of crossing over and segregation can influence the inheritance patterns of both linked and unlinked genes\n- the effect of gene location on the observed phenotype ratios\n- why the dihybrid heterozygous crosses for these identified traits are so different in these two species of snake.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "linked-genes",
+        "crossing-over",
+        "segregation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Linked genes are located close together on the same chromosome and tend to be inherited together.",
+      "markingGuide": "Achieved (A3-A4): Describes linked genes; unlinked genes; crossing over (accept annotated diagram); segregation. Merit (M5-M6): Explains how the process of crossing over influences the inheritance patterns of both linked and unlinked genes on the same chromosome; how the process of segregation influences inheritance patterns of both linked and unlinked genes; why the species of snake have different ratios. Excellence (E7-E8): Provides detailed discussion of the inheritance patterns of linked and unlinked genes with reference to the snake ratios in the source material; the processes of crossing over and segregation, confidently linked to the observed ratios in each species."
+    },
+    {
+      "id": "bg25-q2",
+      "number": "2",
+      "text": "The New Zealand giraffe weevil / pepeke nguturoa (Lasiorhynchus barbicornis) is an insect endemic to New Zealand. The most notable phenotypic variation in this species is observed in males, particularly in the length of their snout, known as a rostrum, and overall larger body size. These phenotypes are influenced by genetic and environmental factors and are subject to strong sexual selection (mate selection) where females are choosing the males based on their phenotypes.\n\nThe table below shows the common distribution of these phenotypes:\n\n| | North Island | South Island | Smaller offshore islands (limited food and habitat resources, smaller populations) |\n|---|---|---|---|\n| Long-rostrum males | Dense native forests (e.g. Waipoua Forest, Tongariro National Park). | Dense native forests (e.g. Fiordland National Park, Westland Tai Poutini National Park). | Phenotype distribution is far more random and shows less relationship to the dominant type of vegetation. |\n| Short-rostrum males | More open or smaller patches of native forests. | Drier or more open habitats (e.g. Canterbury Plains). | |\n\nDiscuss what factors may cause allele frequencies in a gene pool to change, using the information provided above.\n\nIn your answer, include discussion of:\n- how the gene pool of the New Zealand giraffe weevil could be affected by their migration between habitats AND by genetic drift\n- how sexual selection (mate selection) and natural selection may have influenced these two distinct phenotypes of long-rostrum and short-rostrum males.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetic-variation",
+        "population-genetics",
+        "natural-selection",
+        "sexual-selection",
+        "genetic-drift"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Allele frequency: how common an allele is in a population.",
+      "markingGuide": "Achieved (A3-A4): Describes allele frequency; gene pool; genetic drift; natural selection; identify any ONE selection pressure (predation, humidity, food supply, sun exposure); population bottleneck; founder effect. Merit (M5-M6): Explains migration; genetic drift (must have idea of allele frequency increasing/fixed OR decreasing/lost) (accept founder or bottleneck effect explained as an example of genetic drift); effect of migration/genetic drift on small islands; natural selection/sexual selection (must have idea of allele frequency increasing/fixed OR decreasing/lost); why long-rostrum males might be more successful in a dense forest environment; why short-rostrum males might be more successful in a drier or open environment. Excellence (E7-E8): Provides detailed discussion of how migration and genetic drift changed allele frequencies in the New Zealand giraffe weevil gene pool; the selection pressures that drive natural selection, in reference to the New Zealand giraffe weevil, and how it led to the different phenotypes seen in New Zealand."
+    },
+    {
+      "id": "bg25-q3",
+      "number": "3",
+      "text": "If a patient needs a blood transfusion during surgery, it is essential to match their blood type correctly. Receiving the wrong blood type can cause serious, potentially life-threatening reactions.\n\nBlood type in humans is controlled by multiple alleles. The alleles Iᴬ and Iᴮ are dominant over Iᴼ. Iᴬ and Iᴮ are examples of alleles that show co-dominance.\n\nBlood types:\n| Phenotype | Genotype |\n|---|---|\n| A | IᴬIᴬ, IᴬIᴼ |\n| B | IᴮIᴮ, IᴮIᴼ |\n| AB | IᴬIᴮ |\n| O | IᴼIᴼ |\n\nThe pedigree chart below shows the blood types/phenotypes of two children and their parents.\n\nParent 1 (male): AB\nParent 2 (female): A\nChild 1 (male): A\nChild 2 (female): AB\n\nDiscuss the inheritance of these blood types, using the information provided above. You may include a Punnett square to support your answer (optional).\n\nIn your answer, include discussion of:\n- what is meant by the term multiple alleles\n- the possible genotypes of Child 1\n- the difference between dominant alleles and co-dominant alleles\n- how to determine the genotype of Child 1 using the blood types of his children, if his partner is a blood type O female\n- why the determination of Child 1's genotype may not be guaranteed as correct if determined using his children's blood types.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "genetics",
+        "multiple-alleles",
+        "co-dominance",
+        "blood-types",
+        "pedigree"
+      ],
+      "answerType": "text",
+      "image": "/images/exams/91157-2025-q3.png",
+      "expectedAnswer": "Multiple alleles: more than two/three or more alleles for one gene/same locus.",
+      "markingGuide": "Achieved (A3-A4): Describes multiple alleles; the possible genotypes of the mother; the possible genotypes of Child 1 OR a monohybrid Punnett square showing possible genotypes of Child 1; complete dominance; co-dominance; possible phenotypes OR genotypes of the offspring of Child 1 with an OO female OR provides a Punnett square. Merit (M5-M6): Explains why Child 1 has TWO possible genotypes (must mention alleles of gametes from BOTH parents); complete dominance with a blood-type allele example; co-dominance with a blood-type allele example; why Child 1 has two possible genotypes based on the genotype of the offspring produced with a blood type O female (must mention alleles of gametes from BOTH parents). Excellence (E7-E8): Provides detailed discussion linking the idea of co-dominance and complete dominance to discuss two possible genotypes for Child 1, based on the parents' genotypes and phenotypes; of the possibility to determine the genotype of Child 1, based on the blood types of his children, if his partner was a blood type O female, and why such a determination cannot be guaranteed to be correct (must use parental gametes and offspring genotypes with ratios/percentages)."
+    }
+  ],
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "y10-english-reading-2025",
+  "title": "Year 10 English — Reading Comprehension Practice 1",
+  "level": 0,
+  "standard": "Y10-ENG-READ",
+  "year": 2025,
+  "subject": "english",
+  "timeMinutes": 45,
+  "totalMarks": 14,
+  "questions": [
+    {
+      "id": "y10r1-q1",
+      "number": "1",
+      "text": "Read the following passage:\n\n'The morning light crept through the curtains like a thief, stealing away the darkness that had comforted her through the night. She lay still, unwilling to face what the day would bring.'\n\nWhat language technique is used in 'crept through the curtains like a thief'?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "multi-choice",
+      "options": ["Metaphor", "Simile", "Personification", "Alliteration"],
+      "expectedAnswer": "Simile",
+      "markingGuide": "The correct answer is Simile. The comparison uses 'like' to compare the morning light to a thief."
+    },
+    {
+      "id": "y10r1-q2",
+      "number": "2",
+      "text": "In the same passage, 'stealing away the darkness' is an example of:",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "multi-choice",
+      "options": ["Simile", "Onomatopoeia", "Personification", "Hyperbole"],
+      "expectedAnswer": "Personification",
+      "markingGuide": "The correct answer is Personification. Light cannot literally 'steal' — this gives the light a human action."
+    },
+    {
+      "id": "y10r1-q3",
+      "number": "3",
+      "text": "What mood does the writer create in this passage? Use evidence from the text to support your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10", "unfamiliar-texts-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark for identifying mood (reluctant, anxious, melancholy, uneasy). 1 mark for supporting evidence (e.g. 'unwilling to face what the day would bring' suggests dread; 'darkness that had comforted her' suggests she preferred night/hiding from reality)."
+    },
+    {
+      "id": "y10r1-q4",
+      "number": "4",
+      "text": "Read this sentence: 'The ancient pohutukawa stood sentinel on the cliff edge, its gnarled branches reaching toward the sea like arthritic fingers.'\n\nThe writer's purpose in this description is most likely to:",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "multi-choice",
+      "options": ["Make the reader feel afraid of the tree", "Create a vivid image of an old, weathered tree in a coastal setting", "Persuade the reader to visit the beach", "Show that the tree is dying"],
+      "expectedAnswer": "Create a vivid image of an old, weathered tree in a coastal setting",
+      "markingGuide": "The correct answer is 'Create a vivid image of an old, weathered tree in a coastal setting'. The description uses personification and simile to paint a picture of an aged tree in its natural environment."
+    },
+    {
+      "id": "y10r1-q5",
+      "number": "5",
+      "text": "Identify TWO language features used in the pohutukawa sentence above and explain the effect of each.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark each for identifying AND explaining effect. Possible features: Personification ('stood sentinel' — makes the tree seem like a guardian/protector of the coastline); Simile ('like arthritic fingers' — creates image of age, weathered beauty, twisted shapes); Personification ('reaching toward the sea' — suggests longing or connection to the ocean)."
+    },
+    {
+      "id": "y10r1-q6",
+      "number": "6",
+      "text": "Read this extract from a persuasive speech:\n\n'Every single day, 80 tonnes of plastic waste enters our oceans. That's the weight of 10 school buses. Every. Single. Day. Are we really going to sit here and do nothing?'\n\nWhich persuasive technique is NOT used in this extract?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10", "non-fiction-y10"],
+      "answerType": "multi-choice",
+      "options": ["Rhetorical question", "Repetition", "Emotive language", "Expert opinion"],
+      "expectedAnswer": "Expert opinion",
+      "markingGuide": "The correct answer is Expert opinion. The extract uses a rhetorical question ('Are we really going to sit here...'), repetition ('Every. Single. Day.'), and emotive language ('do nothing'), but does not cite any expert."
+    },
+    {
+      "id": "y10r1-q7",
+      "number": "7",
+      "text": "Explain how the writer of the persuasive speech above tries to convince the audience to take action. Refer to at least TWO techniques.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10", "non-fiction-y10"],
+      "answerType": "text",
+      "markingGuide": "1 mark each for identifying technique AND explaining its effect. Statistics ('80 tonnes') makes the problem feel real/measurable; Comparison ('weight of 10 school buses') makes abstract number concrete/relatable; Repetition ('Every. Single. Day.') with full stops creates emphasis, makes it feel relentless; Rhetorical question challenges the audience directly, implies they should act; Short sentences create urgency."
+    },
+    {
+      "id": "y10r1-q8",
+      "number": "8",
+      "text": "Read the following poem:\n\n'Homesick\n\nI carry my homeland\nin the creases of my palms,\nin the way my tongue curls\naround vowels\nmy classmates can't pronounce.\n\nI am two places at once —\nhere, where the rain falls sideways\nand the hills are impossibly green,\nand there, where the sun bakes\nthe red earth into memory.'\n\nHow does the poet explore the experience of living between two cultures? In your answer, discuss:\n• language features used\n• ideas about identity\n• the contrast between the two places.\n\nSupport your answer with evidence from the poem.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": ["language-features-y10", "poetry-y10"],
+      "answerType": "working",
+      "markingGuide": "4 marks total. 1 mark: identifies language features (metaphor 'carry my homeland in the creases of my palms' — homeland is part of their physical being; contrast between 'here' and 'there'). 1 mark: discusses identity (tongue/language marks them as different; they exist in two places simultaneously). 1 mark: discusses contrast (rain/sideways/green vs sun/bakes/red earth — different climates represent different lives). 1 mark: quality of analysis — how features work together to convey the feeling of being split between two worlds, cultural displacement, the physical embodiment of memory and belonging."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 4 },
+    "achieved": { "min": 5, "max": 9 },
+    "merit": { "min": 10, "max": 12 },
+    "excellence": { "min": 13, "max": 14 }
+  }
+}

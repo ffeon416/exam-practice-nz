@@ -1,0 +1,130 @@
+{
+  "id": "l1-science-ideas-2025",
+  "title": "Level 1 Science Ideas — 2025",
+  "level": 1,
+  "standard": "91922",
+  "year": 2025,
+  "subject": "science",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "l1si25-p1a",
+      "number": "Part 1(a)–(b)",
+      "text": "Choose ONE science idea from the Resource Booklet:\n• Science Idea One: Designing spacesuits for the lunar and Martian environments\n• Science Idea Two: Reducing methane production by adding seaweed to cattle feed\n\nFor Part One, focus on these two features of science (FOS):\n• the influence of social and cultural factors on science\n• responding to needs and opportunities\n\n(a) How does the influence of social and cultural factors on science contribute to the development of the science idea?\n\n(b) How does responding to needs and opportunities contribute to the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-ideas",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify how each FOS contributed to the science idea with examples from the resource",
+      "markingGuide": "Achieved: Identify each FOS and outline how it contributed. Idea One: (a) In the past, only (white) men have been involved in lunar missions. A more diverse group of people may provide more perspectives and information on the best design for a spacesuit. (b) People cannot survive in space without specialised equipment such as spacesuits. This need has meant that specific equipment was developed so people could live in space. Idea Two: (a) Cattle are important to New Zealand's economy and support rural communities, so we need to find ways to keep cattle but lower their methane emissions. (b) As climate change is a big issue, we need to reduce methane emissions from cattle. This creates opportunities for researchers to explore new ways to solve this problem — they found they could add seaweed to cattle feed."
+    },
+    {
+      "id": "l1si25-p1c",
+      "number": "Part 1(c)",
+      "text": "(c) Why are these features of science important to the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "science-ideas",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain WHY each FOS was significant, giving reasons and examples from the local context",
+      "markingGuide": "Merit: Explain why each FOS was significant. Idea One: (social/cultural) It is important to study a more diverse group of people to see how they function in space, as women or people of other cultures may react differently to living in space, both physically and mentally, providing a greater amount of data to analyse. (needs/opportunities) As people are exploring new places in space, the older spacesuits may not function as well. Therefore, there is a need to update spacesuits to ensure people could survive in different conditions, meaning more research had to go into creating new spacesuits. Idea Two: (social/cultural) A lot of New Zealanders are employed by the dairy or beef industry. If we reduced the number of cattle, some people would lose their jobs. If this social factor was not there, they would not be looking at ways to reduce methane. (needs/opportunities) There is a need to reduce methane emissions to reduce their direct impact on climate change. Researchers investigated different methods and found that feeding cattle the seaweed Asparagopsis was the best at reducing emissions."
+    },
+    {
+      "id": "l1si25-p1d",
+      "number": "Part 1(d)",
+      "text": "(d) How do the two features of science work together to support the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-ideas",
+        "evidence-analysis",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Discuss how the two FOS have interacted, with detailed relationship and examples",
+      "markingGuide": "Excellence: Discuss how the FOS have interacted. Idea One: Having a diverse group of people going to space has created a need to develop spacesuits that fit most people, rather than having to custom-fit every spacesuit. This will eventually make the process of making spacesuits more efficient as they can make many at the same time. This has given the designers an opportunity to think of ways to ensure the suits are suitable for everyone in a variety of situations, helping to create a larger body of information on spacesuit design. Idea Two: As climate change is becoming a bigger issue, there is a need to find a way to reduce New Zealand's methane emissions. The social factor — that cattle are a big part of NZ's economy — means we can't just get rid of all our cattle. This has meant researchers need to find ways to reduce methane emissions from cattle without negatively impacting the economy or people's employment."
+    },
+    {
+      "id": "l1si25-p2a",
+      "number": "Part 2(a)–(b)",
+      "text": "For Part Two, focus on these two features of science:\n• linking new evidence to existing models, theories, and ideas\n• the influence of the development and use of technology on science\n\n(a) How does linking new evidence to existing models, theories, and ideas add to the science idea?\n\n(b) How does the influence of the development and use of technology add to the science idea?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "science-ideas",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identify how each FOS contributed to the science idea",
+      "markingGuide": "Achieved: Identify each FOS and outline how it contributed. Idea One: (a) As previous missions have found evidence that lunar dust is sharp, they have had to change spacesuit design so that the suits don't get damaged and endanger the people wearing them. (b) With new technology being made around audio systems, the space suits can now have an improved communications system, which will allow the astronauts to communicate with others better and help further develop the design of the spacesuit. Idea Two: (a) When researchers investigated adding things to cattle feed, they found that bromoform helped reduce emissions. This allowed them to investigate and build on the knowledge, discovering it was better to use whole seaweed and not just bromoform in the cattle feed. (b) Growing the seaweed inside instead of outside can be done with the use of technology. Researchers use huge aerated vessels to do this."
+    },
+    {
+      "id": "l1si25-p2c",
+      "number": "Part 2(c)",
+      "text": "(c) Why are these two features of science significant to the development of the science idea?",
+      "marks": 1,
+      "gradeLevel": "merit",
+      "topics": [
+        "science-ideas",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explain WHY linking new evidence and the use of technology were each significant",
+      "markingGuide": "Merit: Explain why each FOS was significant. Idea One: New evidence from previous missions around lunar dust being harmful has meant that the old models of spacesuits had to be updated to stop them being damaged and endangering the people wearing them. This has further progressed the idea — if they did not know this about lunar dust, they would not have improved the spacesuits. They have also changed the shape of the helmet. This new technology means they can now see the ground better. Idea Two: New evidence is important to improving ideas. Researchers have found out how much methane a cow produces each year. If this was not known, then researchers would not know how much of an impact they had on climate change and may work in the wrong areas. Technology such as aerated vessels is needed to grow seaweed in a controlled and consistent environment. If technology was not used, the seaweed might not grow very well."
+    },
+    {
+      "id": "l1si25-p2d",
+      "number": "Part 2(d)",
+      "text": "(d) How do these two features of science work together to develop the science idea?",
+      "marks": 1,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-ideas",
+        "scientific-method"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Discuss the interaction between linking new evidence and technology in developing the science idea",
+      "markingGuide": "Excellence: Discuss how the FOS have interacted. Idea One: NASA is now planning on working with new partners. This will mean that each group can provide each other with new evidence and theories about spacesuit design and the best way for humans to function in space. This will allow the groups to combine ideas and apply this to developing new technology to help provide even better spacesuit design. Without these features working together, it would take much longer for the spacesuit design to improve — they would all have to come up with the ideas and associated technology on their own. Idea Two: Technology is important to develop ideas. Without the use of technology, some ideas would not be able to be investigated. Researchers used huge aerated vessels to grow the seaweed effectively. Having a more reliable source of the seaweed means they can do more research on it to see how it can be best used to reduce methane emissions from cattle. These features interact with each other to help researchers carry out their experiments so they can find out more about this science idea."
+    },
+    {
+      "id": "l1si25-p3",
+      "number": "Part 3",
+      "text": "For Part Three, focus on these two features of science:\n• the influence of the development and use of technology on science\n• responding to needs and opportunities\n\nHow do these two features of science support each other in the development of the science idea?",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "science-ideas",
+        "scientific-method",
+        "evidence-analysis"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Discuss how technology and responding to needs/opportunities have supported each other in...",
+      "markingGuide": "Excellence: Discuss the interaction between the two FOS. Idea One: Humans have had an opportunity to travel into space, for which they need a suitable spacesuit, otherwise they would not survive. Without the development of technology to test the spacesuits, create the materials, and make changes to the spacesuits when they have better technology and ideas, designers would not have been able to make the spacesuits. Both features are important — if you don't need one, then you won't make one, and if you don't have the need, then people won't develop the technology to create them. Idea Two: Climate change is impacting New Zealand and the world. There is a need to reduce our greenhouse gas emissions to slow this problem down. This creates opportunities for researchers to investigate new ways to slow the problem. Researchers can use technology to investigate this issue. They have used aerated vessels to help the seaweed grow well and then be used for research. Without the need and opportunities that this problem created, researchers may never have developed knowledge in this area, and the use of technology has allowed them to improve their methods and work in a more efficient way."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

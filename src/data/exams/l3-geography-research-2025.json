@@ -1,0 +1,78 @@
+{
+  "id": "l3-geography-research-2025",
+  "title": "Level 3 Geography — Geographic Research 2025",
+  "level": 3,
+  "standard": "91429",
+  "year": 2025,
+  "subject": "geography",
+  "timeMinutes": 60,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "91429-2025-q1a",
+      "number": "1(a)",
+      "text": "Read the resource booklet about the relocation of Indonesia's capital city. Integrate geographic concepts and supporting evidence from any of the resources into your answers.\n\nDescribe the location and geographic environment of the island of Borneo.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "location",
+        "environment",
+        "Borneo",
+        "Indonesia"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describes Borneo's location (Southeast Asia, equatorial, shared by Indonesia/Malaysia/Brunei)...",
+      "markingGuide": "Achievement: Partially describes the location and/or environment with limited detail. Merit: Describes the location and geographic environment in detail with supporting information such as specific evidence from the resources. Excellence: Describes in detail with comprehensive evidence integrated throughout."
+    },
+    {
+      "id": "91429-2025-q1b",
+      "number": "1(b)",
+      "text": "What are ONE natural and ONE cultural challenge facing Jakarta that have resulted in the need to relocate to a new capital city?\n\nNatural challenge:\n\nCultural challenge:",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "challenges",
+        "Jakarta",
+        "natural",
+        "cultural"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Natural challenge: flooding and land subsidence due to groundwater extraction and rising sea...",
+      "markingGuide": "Achievement: Explains ONE natural OR cultural challenge faced by Jakarta. Merit: Explains in detail ONE natural AND ONE cultural challenge faced by Jakarta with supporting evidence. Excellence: Describes in detail both challenges with comprehensive case study evidence, explaining how they necessitate relocation."
+    },
+    {
+      "id": "91429-2025-q1c",
+      "number": "1(c)",
+      "text": "Evaluate the geographic impacts (environmental, social, economic, and cultural) of the relocation of Indonesia's capital city.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "evaluation",
+        "impacts",
+        "sustainability",
+        "relocation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Evaluates environmental impacts (deforestation on Borneo, habitat loss), social impacts...",
+      "markingGuide": "Achievement: Partially analyses the impacts of the relocation with some evidence from resources. Merit: Analyses in detail the impacts from resources with evidence that includes geographic skills and conventions. Excellence: Comprehensively evaluates the geographic impacts with insight, using geographic concepts and terminology. Includes detailed specific evidence from the resources, fully integrated. Analyses the positive and negative impacts to draw conclusions about sustainability."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
+}

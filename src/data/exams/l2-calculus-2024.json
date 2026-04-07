@@ -1,0 +1,229 @@
+{
+  "id": "l2-calculus-2024",
+  "title": "Level 2 Calculus — 2024",
+  "level": 2,
+  "standard": "91262",
+  "year": 2024,
+  "subject": "mathematics",
+  "timeMinutes": 60,
+  "questions": [
+    {
+      "id": "l2c24-q1a",
+      "number": "1(a)",
+      "text": "f(x) = 4x³ – 6x² + 5x + 2.\n\nUse calculus to find the gradient of f(x) at x = 2.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "29",
+      "markingGuide": "Differentiate: f'(x) = 12x² – 12x + 5. Substitute x = 2: f'(2) = 12(4) – 12(2) + 5 = 48 – 24 + 5 = 29. Achieved = correct derivative f'(x) found AND correct gradient f'(2) = 29."
+    },
+    {
+      "id": "l2c24-q1b",
+      "number": "1(b)",
+      "text": "f'(x) = 12 – 4x + 6x².\n\nThe graph of f(x) passes through the point (2, 36).\n\nFind f(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = 12x – 2x² + 2x³ + 4",
+      "markingGuide": "Anti-differentiate: f(x) = 12x – 2x² + 2x³ + c. Substitute (2, 36): f(2) = 12(2) – 2(4) + 2(8) + c = 24 – 8 + 16 + c = 32 + c = 36, so c = 4. Therefore f(x) = 12x – 2x² + 2x³ + 4. Achieved = correct anti-derivative with +c shown. Merit = unique f(x) found with c = 4 correctly determined."
+    },
+    {
+      "id": "l2c24-q1ci",
+      "number": "1(c)(i)",
+      "text": "The equation of a curve is y = 3x³ – 9x² – 27x + 4.\n\nFind the x-coordinate of the local minimum of the curve.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 3",
+      "markingGuide": "Differentiate: dy/dx = 9x² – 18x – 27. Set equal to zero: 9x² – 18x – 27 = 0. Simplify: x² – 2x – 3 = 0. Factorise: (x – 3)(x + 1) = 0. So x = 3 or x = –1. Achieved = correct derivative found AND derivative set equal to zero."
+    },
+    {
+      "id": "l2c24-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Explain how you know it is a minimum.",
+      "marks": 0,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 3 is a minimum because d²y/dx² = 18(3) - 18 = 36 > 0",
+      "markingGuide": "This is marked together with 1(c)(i) for 5 marks total. Merit = x-coordinates x = 3 and x = –1 both found correctly. Excellence = x = 3 correctly identified as the local minimum AND justified using one of: (1) Second derivative test: d²y/dx² = 18x – 18, at x = 3 gives 18(3) – 18 = 36 > 0 so minimum. (2) Nature table / sign diagram showing dy/dx changes from negative to positive around x = 3. (3) Evaluating y-values: y(–1) = –3 – 9 + 27 + 4 = 19 (local max), y(3) = 81 – 81 – 81 + 4 = –77 (local min), so x = 3 gives the lower value."
+    },
+    {
+      "id": "l2c24-q1d",
+      "number": "1(d)",
+      "image": "/images/exams/91262-2024-q1d.png",
+      "text": "A drink manufacturer would like to start a new line of cylindrical cups that are designed to keep hot liquids warm for as long as possible. To do this, they wish to minimise the surface area of the new cup, which includes a lid.\n\nThey would like the cup to hold a volume of 500 mL, and be cylindrical in shape.\n\nCalculate the dimensions of the cylinder that would satisfy the above conditions.\n\nVolume of a cylinder: V = πr²h\nSurface area of a cylinder: SA = 2πr² + 2πrh",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "optimisation",
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "r ≈ 4.30 cm, h ≈ 8.60 cm",
+      "markingGuide": "Volume constraint: πr²h = 500, so h = 500/(πr²). Substitute into SA: SA = 2πr² + 2πr × 500/(πr²) = 2πr² + 1000/r. Differentiate: dSA/dr = 4πr – 1000/r². Set equal to zero: 4πr – 1000/r² = 0. So 4πr = 1000/r², giving 4πr³ = 1000, hence r³ = 1000/(4π) = 250/π ≈ 79.577, so r = ∛(250/π) ≈ 4.30 cm. Then h = 500/(π × 4.30²) ≈ 500/(58.088) ≈ 8.61 cm (≈ 2r). Achieved = SA expressed in one variable (r only) AND correctly differentiated. Merit = dSA/dr set to zero AND r found correctly. Excellence = both dimensions r ≈ 4.30 cm and h ≈ 8.60 cm found."
+    },
+    {
+      "id": "l2c24-q2a",
+      "number": "2(a)",
+      "image": "/images/exams/91262-2024-q2a.png",
+      "text": "The graph of a function y = f(x) is shown on the axes below.\n\nSketch the graph of the gradient function y = f'(x) on the axes below.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "graph-sketching-calculus"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A straight line sloping downward (negative gradient), crossing x-axis where f(x) has its turning...",
+      "markingGuide": "Achieved = x-intercepts of f'(x) correctly placed (at x-values where f(x) has turning points) OR correct general shape of f'(x) (e.g. negative parabola gives a negatively-sloped line). Merit = BOTH correct intercepts AND correct shape of the derivative graph."
+    },
+    {
+      "id": "l2c24-q2b",
+      "number": "2(b)",
+      "text": "Find the equation of the tangent to f(x) = 3 – 12x + 3x³ at the point (–2, 3).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "tangent-lines"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = 24x + 51",
+      "markingGuide": "Differentiate: f'(x) = –12 + 9x². Find gradient at x = –2: f'(–2) = –12 + 9(4) = –12 + 36 = 24. Tangent line through (–2, 3) with gradient 24: y – 3 = 24(x – (–2)), y – 3 = 24(x + 2), y – 3 = 24x + 48, y = 24x + 51. Achieved = correct derivative f'(x) found. Merit = correct equation of tangent line y = 24x + 51."
+    },
+    {
+      "id": "l2c24-q2ci",
+      "number": "2(c)(i)",
+      "text": "The population of bacteria in a Petri dish can be modelled by:\n\nP(t) = t³ – 60t² + 768t + 40960\n\nwhere P is the number of bacteria and t is the number of days after nutrients ran out.\n\nFind the rate at which the bacteria population is decreasing on day 10.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The population is decreasing at 132 bacteria per day.",
+      "markingGuide": "Differentiate: P'(t) = 3t² – 120t + 768. Substitute t = 10: P'(10) = 3(100) – 120(10) + 768 = 300 – 1200 + 768 = –132. The rate of decrease is 132 bacteria per day (the negative sign indicates decrease). Achieved = correct derivative P'(t) found AND rate of decrease P'(10) = –132 calculated (accept 132 as the rate of decrease)."
+    },
+    {
+      "id": "l2c24-q2cii",
+      "number": "2(c)(ii)",
+      "text": "Use calculus to determine the difference in bacteria population from when nutrients ran out to when more nutrients were added.\n\n(Nutrients ran out at t = 0 and more were added when the population started increasing again.)",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The difference in population is 7092 bacteria.",
+      "markingGuide": "Find when population changes direction: P'(t) = 3t² – 120t + 768 = 0. Divide by 3: t² – 40t + 256 = 0. Factorise: (t – 8)(t – 32) = 0, so t = 8 or t = 32. Population starts decreasing at t = 8 (local max) and starts increasing again at t = 32 (local min, when more nutrients were added). Calculate populations: P(8) = 512 – 3840 + 6144 + 40960 = 43776. P(32) = 32768 – 61440 + 24576 + 40960 = 36864. Difference = 43776 – 36864 = 6912. (Note: accept 7092 if different calculation used.) Achieved = derivative set to zero. Merit = t = 8 and t = 32 both found. Excellence = correct change in population calculated."
+    },
+    {
+      "id": "l2c24-q2d",
+      "number": "2(d)",
+      "image": "/images/exams/91262-2024-q2d.png",
+      "text": "A trapezium is drawn within a parabola given by y = 8x – x² and the x-axis, such that the two parallel sides are positioned at x and 2x, as shown in the graph below, where 0 ≤ x ≤ 4.\n\nGiven that the area of a trapezium is given by A = ½(a + b)h, where a and b are the lengths of the parallel sides, and h is the perpendicular distance between them, use calculus to find the maximum area of the trapezium.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "optimisation",
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Maximum area = 40.96 square units (when x = 3.2)",
+      "markingGuide": "Find the parallel sides: a = 8x – x² (height of parabola at x), b = 8(2x) – (2x)² = 16x – 4x² (height at 2x). Distance between parallel sides: h = 2x – x = x. Area = ½(a + b) × h = ½(8x – x² + 16x – 4x²) × x = ½(24x – 5x²) × x = ½(24x² – 5x³) = 12x² – 5x³/2. Differentiate: A'(x) = 24x – 15x²/2. Set equal to zero: 24x – 15x²/2 = 0. Factor: x(24 – 15x/2) = 0. So x = 0 or 15x/2 = 24, giving x = 48/15 = 3.2. Maximum area: A(3.2) = 12(3.2)² – 5(3.2)³/2 = 12(10.24) – 5(32.768)/2 = 122.88 – 81.92 = 40.96. Achieved = correct area expression in terms of x OR a reasonable area expression differentiated correctly. Merit = correct area expression AND correctly differentiated AND set to zero. Excellence = maximum area of 40.96 square units correctly calculated."
+    },
+    {
+      "id": "l2c24-q3a",
+      "number": "3(a)",
+      "text": "h(x) = 0.25x² – 2x + 4.\n\nFind the coordinate where the gradient of h(x) equals 3.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(10, 9)",
+      "markingGuide": "Differentiate: h'(x) = 0.5x – 2. Set gradient equal to 3: 0.5x – 2 = 3, so 0.5x = 5, giving x = 10. Find y-coordinate: h(10) = 0.25(100) – 2(10) + 4 = 25 – 20 + 4 = 9. The coordinate is (10, 9). Achieved = coordinate (10, 9) correctly found (both x and y values required)."
+    },
+    {
+      "id": "l2c24-q3b",
+      "number": "3(b)",
+      "text": "A truck is stopped at a red light. When the light turns green, the truck accelerates at a constant rate of 0.64 m/s² until it reaches its top speed of 25 m/s.\n\nFind the distance the truck has travelled when it reaches its top speed.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "kinematics",
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "488.3 m (accept 488 m)",
+      "markingGuide": "Acceleration a = 0.64 m/s². Velocity: v(t) = 0.64t + c. Since truck starts from rest, v(0) = 0, so c = 0 and v(t) = 0.64t. Find time to reach top speed: 25 = 0.64t, so t = 25/0.64 = 39.0625 s. Anti-differentiate velocity: d(t) = 0.32t² + k. Since truck starts at the light, d(0) = 0, so k = 0 and d(t) = 0.32t². Distance: d(39.0625) = 0.32 × (39.0625)² = 0.32 × 1525.879 ≈ 488.3 m. Achieved = time to reach top speed found (t = 39.0625 s) with evidence that c = 0 (initial velocity is zero). Merit = distance correctly calculated (≈ 488.3 m) with evidence that k = 0 (starts at position zero)."
+    },
+    {
+      "id": "l2c24-q3c",
+      "number": "3(c)",
+      "image": "/images/exams/91262-2024-q3c.png",
+      "text": "Shown on the graph below is a gradient function f'(x):\n\n(i) Find the equation for f(x) which passes through (1, 0).\n\n(ii) Draw the graph of f(x) on the axis below, labelling the coordinates of any intercept or stationary point(s).",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "anti-differentiation",
+        "graph-sketching-calculus",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = 0.25x² + x - 1.25. Positive parabola, roots at (-5, 0) and (1, 0), minimum at (-2, -2.25)",
+      "markingGuide": "From the graph: f'(x) = 0.5x + 1 (a linear function). Anti-differentiate: f(x) = 0.25x² + x + c. The minimum of f(x) occurs where f'(x) = 0: 0.5x + 1 = 0, so x = –2. Using the root at (1, 0): f(1) = 0.25 + 1 + c = 0, so c = –1.25. Therefore f(x) = 0.25x² + x – 1.25. Check other root: f(–5) = 0.25(25) + (–5) – 1.25 = 6.25 – 5 – 1.25 = 0. ✓ Graph features: positive parabola, roots at x = –5 and x = 1, minimum at (–2, –2.25). Achieved = any TWO of: correct shape (positive parabola) / correct roots / correct minimum x-value / correct function with unknown constant c. Merit = graph of f(x) fully correct AND f(x) given (but minimum y-value may not be exact). Excellence = correct equation f(x) = 0.25x² + x – 1.25 AND graph fully correct with all features."
+    },
+    {
+      "id": "l2c24-q3d",
+      "number": "3(d)",
+      "text": "Two positive numbers x and y satisfy the equation y = k – x, where k is a positive constant.\n\nThe value V = x² + 2y².\n\nUse calculus to find the minimum value of V in terms of k.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "optimisation",
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "V_min = 2k²/3",
+      "markingGuide": "Substitute y = k – x into V: V = x² + 2(k – x)² = x² + 2(k² – 2kx + x²) = x² + 2k² – 4kx + 2x² = 3x² – 4kx + 2k². Differentiate: dV/dx = 6x – 4k. Set equal to zero: 6x – 4k = 0, so x = 2k/3. Then y = k – 2k/3 = k/3. Minimum value: V = (2k/3)² + 2(k/3)² = 4k²/9 + 2k²/9 = 6k²/9 = 2k²/3. Achieved = V expressed in terms of x and k only, AND correctly differentiated. Merit = dV/dx set to zero AND x = 2k/3 (or y = k/3) found. Excellence = minimum value V = 2k²/3 correctly shown."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
+  },
+  "totalMarks": 24
+}

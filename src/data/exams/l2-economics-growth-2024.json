@@ -1,0 +1,245 @@
+{
+  "id": "l2-economics-growth-2024",
+  "title": "L2 Economics: Analyse Economic Growth (91224) — 2024",
+  "level": 2,
+  "standard": "91224",
+  "year": 2024,
+  "subject": "economics",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
+  "questions": [
+    {
+      "id": "91224-2024-q1a",
+      "number": "1(a)",
+      "text": "Explain each shift (aggregate supply and aggregate demand curves) shown in Graph One, and the impact on economic growth, due to the construction and operation of Te Kaha.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "AS/AD model",
+        "economic growth",
+        "infrastructure"
+      ],
+      "answerType": "text",
+      "imageUrl": "/images/exams/91224-2024-q1a-graph.png",
+      "expectedAnswer": "AD shifts right (AD to AD1)",
+      "markingGuide": "Explains both shifts — AD right (investment/consumption) and AS right (productive capacity) — and links to economic growth (increased Real GDP).",
+      "image": "/images/exams/91224-2024-q1a-graph.png"
+    },
+    {
+      "id": "91224-2024-q1b",
+      "number": "1(b)",
+      "text": "Explain one disadvantage of using real GDP to measure economic growth.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "real GDP",
+        "economic growth measurement"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Real GDP does not account for income distribution",
+      "markingGuide": "Identifies a valid limitation of using real GDP as a measure of growth."
+    },
+    {
+      "id": "91224-2024-q1ci",
+      "number": "1(c)(i)",
+      "text": "Compare and contrast the impact of opening Te Pae Christchurch Convention Centre on different regional growth rates in New Zealand.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "regional growth",
+        "infrastructure",
+        "economic growth"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Te Pae benefits Canterbury region through increased tourism spending, job creation, and business...",
+      "markingGuide": "Compares Canterbury growth with other regions, assessing both direct and indirect impacts."
+    },
+    {
+      "id": "91224-2024-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Compare and contrast the impact of opening Te Pae Christchurch Convention Centre on the distribution of income in the Christchurch area.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "income distribution",
+        "economic growth"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "High-income earners (business owners, property owners) benefit most",
+      "markingGuide": "Compares and contrasts impact on different income groups in Christchurch."
+    },
+    {
+      "id": "91224-2024-q2a",
+      "number": "2(a)",
+      "text": "Referring to Model One, identify three flows that will increase due to an increase in astrotourism.\n\nFlow 1:\nFlow 2:\nFlow 3:",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "circular flow model",
+        "tourism",
+        "economic flows"
+      ],
+      "answerType": "text",
+      "imageUrl": "/images/exams/91224-2024-q2a-model.png",
+      "expectedAnswer": "Any three from: Export receipts (Sector 5 to Sector 2), Consumption (Sector 1 to Sector 2),...",
+      "markingGuide": "Three valid flows identified from the circular flow model.",
+      "image": "/images/exams/91224-2024-q2a-model.png"
+    },
+    {
+      "id": "91224-2024-q2b",
+      "number": "2(b)",
+      "text": "Choose one of the flows identified in (a) on page 6, and explain why it will increase.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular flow model",
+        "tourism"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Export receipts increase",
+      "markingGuide": "Explains why the chosen flow increases with reference to astrotourism and the circular flow model."
+    },
+    {
+      "id": "91224-2024-q2c",
+      "number": "2(c)",
+      "text": "Referring to Model One, explain why an overseas tourist visiting Lake Tekapo might increase growth more than a domestic tourist.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "circular flow model",
+        "tourism",
+        "injections"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "An overseas tourist brings new money into the circular flow as an injection (export receipts...",
+      "markingGuide": "Explains that overseas tourists create an injection (export receipts) while domestic tourists only redistribute existing income."
+    },
+    {
+      "id": "91224-2024-q2di",
+      "number": "2(d)(i)",
+      "text": "Compare and contrast the impact of astrotourism on government revenue and expenditure.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "government revenue",
+        "government expenditure",
+        "tourism"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Government revenue increases through taxes",
+      "markingGuide": "Compares revenue (taxes) with expenditure (infrastructure/services) and assesses the net effect."
+    },
+    {
+      "id": "91224-2024-q2dii",
+      "number": "2(d)(ii)",
+      "text": "Compare and contrast the impact of astrotourism on Lake Tekapo residents and businesses involved in the hospitality industry (food and accommodation) in Lake Tekapo.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "tourism impact",
+        "residents",
+        "businesses"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Businesses benefit",
+      "markingGuide": "Compares and contrasts impacts on residents (mixed) vs businesses (positive), with specific examples."
+    },
+    {
+      "id": "91224-2024-q3a",
+      "number": "3(a)",
+      "text": "In February 2023, Cyclone Gabrielle caused extensive damage to roading, water, and farming infrastructure. As climate change is linked to more common adverse weather events, the ability of New Zealand's infrastructure to cope with these weather events has been questioned. When roads, bridges, and other infrastructure are damaged, New Zealand's productive capacity decreases.\n\nExplain why a weather event such as a cyclone leads to lower GDP. Include a definition of GDP in your answer.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "GDP",
+        "natural disasters",
+        "productive capacity"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "GDP is the total value of goods and services produced in a country over a period.",
+      "markingGuide": "Defines GDP and explains how cyclone damage reduces productive capacity and output."
+    },
+    {
+      "id": "91224-2024-q3b",
+      "number": "3(b)",
+      "text": "On Graph Two on page 10, label the opportunity cost of increasing taxes to fund infrastructure spending.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "opportunity cost",
+        "PPF",
+        "government spending"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91224-2024-q3b-ppf.png",
+      "expectedAnswer": "Label the decrease in consumer goods (from point A to point B)",
+      "markingGuide": "Opportunity cost correctly labelled as the reduction in consumer goods when moving from A to B on the PPF.",
+      "image": "/images/exams/91224-2024-q3b-ppf.png"
+    },
+    {
+      "id": "91224-2024-q3c",
+      "number": "3(c)",
+      "text": "Referring to Graph Two, explain why there is an opportunity cost of increasing taxes to fund infrastructure spending.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "opportunity cost",
+        "PPF",
+        "taxation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Resources are scarce.",
+      "markingGuide": "Explains scarcity and trade-off — more infrastructure means fewer consumer goods, with reference to the PPF."
+    },
+    {
+      "id": "91224-2024-q3d",
+      "number": "3(d)",
+      "text": "Graph Three shows a future production possibility frontier (labelled X*) that occurs if the Government does increase taxes to pay for infrastructure spending (point B).\n\nOn Graph Three above, draw a future production possibility frontier (Y*) that occurs if New Zealand operates at point A.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "PPF",
+        "economic growth",
+        "investment"
+      ],
+      "answerType": "graph",
+      "imageUrl": "/images/exams/91224-2024-q3d-ppf.png",
+      "expectedAnswer": "Draw Y* as a PPF that is closer to the origin than X* but still outside the current PPF.",
+      "markingGuide": "Y* drawn between the current PPF and X*, showing less growth than operating at point B.",
+      "image": "/images/exams/91224-2024-q3d-ppf.png"
+    },
+    {
+      "id": "91224-2024-q3e",
+      "number": "3(e)",
+      "text": "Referring to Graph Three, explain why the future production possibility frontier (Y*) you have drawn shows a level of potential capacity different from the future production possibility frontier (X*) created by point B.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "PPF",
+        "economic growth",
+        "infrastructure investment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "At point B, more resources go to infrastructure, increasing future productive capacity more (X*...",
+      "markingGuide": "Explains why different investment levels lead to different future PPF positions — more infrastructure investment at B creates greater future capacity."
+    }
+  ]
+}

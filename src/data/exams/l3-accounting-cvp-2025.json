@@ -1,0 +1,90 @@
+{
+  "id": "l3-accounting-cvp-2025",
+  "title": "Level 3 Accounting Cost-Volume-Profit — 2025",
+  "level": 3,
+  "standard": "91406",
+  "year": 2025,
+  "subject": "accounting",
+  "timeMinutes": 60,
+  "totalMarks": 24,
+  "questions": [
+    {
+      "id": "l3ac25-q1a",
+      "number": "1(a)",
+      "text": "Contribution margin and break-even analysis calculation.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "break-even analysis",
+        "contribution margin",
+        "fixed costs"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Break-even = Fixed Costs / Contribution per unit",
+      "markingGuide": "Correct calculation identifying relevant cost components."
+    },
+    {
+      "id": "l3ac25-q1b",
+      "number": "1(b)",
+      "text": "Profit target calculation using CVP relationship.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "CVP analysis",
+        "profit calculation",
+        "target profit"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Required units = (Fixed Costs + Target Profit) / Contribution per unit",
+      "markingGuide": "Show calculations with proper cost and revenue analysis."
+    },
+    {
+      "id": "l3ac25-q2a",
+      "number": "2(a)",
+      "text": "Margin of safety analysis and production decisions.",
+      "marks": 7,
+      "gradeLevel": "merit",
+      "topics": [
+        "margin of safety",
+        "risk analysis",
+        "production planning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Margin of safety = Expected sales - Break-even sales",
+      "markingGuide": "Calculate and interpret margin of safety in business context."
+    },
+    {
+      "id": "l3ac25-q2b",
+      "number": "2(b)",
+      "text": "Cost control recommendations using CVP insights.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "CVP analysis",
+        "cost control",
+        "strategic planning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Recommendations linking CVP analysis to cost management and pricing strategies.",
+      "markingGuide": "Justify recommendations with quantitative CVP analysis findings."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
+}

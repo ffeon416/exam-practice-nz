@@ -1,0 +1,33 @@
+{
+  "id": "l3-history-causes-2024",
+  "title": "Level 3 History — Causes & Consequences 2024",
+  "level": 3,
+  "standard": "91438",
+  "year": 2024,
+  "subject": "history",
+  "timeMinutes": 90,
+  "totalMarks": 8,
+  "questions": [
+    {
+      "id": "l3hc24-q1",
+      "number": "1",
+      "text": "Write a concise and well argued essay on ONE significant historical event that you have studied, using the question below.\n\nESSAY QUESTION:\nEvaluate TWO consequences of a significant historical event. Which was the most significant consequence of the event, and why?\n\nWrite your chosen historical event in the box below, then plan your essay and begin writing. You should aim to write a concise essay of no more than 5-6 pages. The quality of your writing is more important than the length of your essay.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "causes-and-consequences",
+        "historical-argument",
+        "evidence-use",
+        "essay-writing"
+      ],
+      "answerType": "working",
+      "markingGuide": "This is an essay-based exam marked on a holistic A3-E8 scale.\n\nACHIEVED (A3): Explains TWO valid consequences of a significant historical event and attempts to explain which was the most significant consequence of the event. Uses supporting evidence.\n\nACHIEVED (A4): Explains TWO valid consequences of a significant historical event and explains which was the most significant consequence of the event. Uses relevant, supporting evidence with some accurate detail.\n\nMERIT (M5): Attempts to assess TWO relevant consequences of a significant historical event and attempts to prioritise which was the most significant consequence of the event. Uses some relevant, specific supporting evidence to show some depth of understanding.\n\nMERIT (M6): Assesses TWO relevant consequences of a significant historical event and prioritises which was the most significant consequence of the event. Uses relevant, specific supporting evidence to show depth of understanding.\n\nEXCELLENCE (E7): Evaluates TWO important consequences of a significant historical event and shows a clear understanding of the complexity around which was the most significant consequence of the event and why, with some insight. Uses well chosen, specific supporting evidence to show some comprehensive understanding. Attempts to present a well-considered argument around the consequences. This should be a concise response.\n\nEXCELLENCE (E8): Evaluates TWO important consequences of a significant historical event and shows a clear and perceptive understanding of the complexity around which was the most significant consequence of the event and why, with insight. Uses well chosen, specific supporting evidence to show comprehensive understanding. Presents a well-considered argument around the consequences. This should be a concise response.\n\nN2: Identifies ONE consequence of the event, but the relationship between the consequence and the event is unclear, with limited supporting evidence provided.\nN1: Identifies ONE consequence of the event but with no supporting evidence.\nN0: No response; no relevant evidence.\n\nKEY DIFFERENCES BETWEEN GRADE LEVELS:\n- Achieved: Identifies and explains two consequences with supporting evidence, attempting to say which is most significant.\n- Merit: Assesses and prioritises the two consequences, showing depth through specific evidence.\n- Excellence: Evaluates with insight and perceptive understanding of complexity, presenting a well-considered argument with comprehensive evidence."
+    }
+  ],
+  "cutScores": {
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
+  }
+}
