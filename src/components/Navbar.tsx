@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="bg-[#0a0a0f]/80 backdrop-blur-md border-b border-white/[0.06] sticky top-0 z-50">
       <div className="max-w-4xl mx-auto px-5 h-12 flex items-center justify-between">
         <Link href="/" className="font-semibold text-white text-[13px] tracking-tight">
-          exam<span className="text-indigo-400">practice</span><span className="text-zinc-600">.nz</span>
+          study<span className="text-indigo-400">ace</span>
         </Link>
         <div className="flex gap-0.5">
           {links.map((link) => (

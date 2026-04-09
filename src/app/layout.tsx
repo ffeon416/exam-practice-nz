@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ExamPractice NZ — Master NCEA Exams",
+  title: "Study Ace — Master NCEA Exams",
   description:
     "Practice real NCEA past papers with AI marking. Get instant feedback, identify knowledge gaps, and master exam technique.",
 };

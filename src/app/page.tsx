@@ -20,7 +20,7 @@ export default function HomePage() {
       {/* Hero */}
       <div className="text-center mb-14">
         <h1 className="text-[28px] font-semibold text-white mb-2.5 tracking-tight leading-tight">
-          Ace your NCEA exams.
+          Ace your NCEA exams
         </h1>
         <p className="text-zinc-500 text-[15px] leading-relaxed mb-8">
           89 real past papers. 938 questions with answers.<br />
