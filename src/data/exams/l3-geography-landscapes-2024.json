@@ -14,11 +14,33 @@
       "text": "How do interacting natural processes create spatial OR temporal variations in a New Zealand geographic environment?\n\nIn your response:\n- name a New Zealand geographic environment and the interacting natural processes that shape it\n- construct a supporting annotated map or diagram in the space provided\n- integrate comprehensive supporting case study evidence\n- you may integrate other annotated maps and diagrams to support your answer.",
       "marks": 8,
       "gradeLevel": "excellence",
-      "topics": ["natural-processes", "spatial-variation", "temporal-variation", "case-study"],
+      "topics": [
+        "natural-processes",
+        "spatial-variation",
+        "temporal-variation",
+        "case-study"
+      ],
       "answerType": "text",
       "expectedAnswer": "Names a NZ geographic environment and analyses how interacting natural processes (e.g. tectonic, fluvial, glacial, coastal, climatic) create spatial or temporal variations.",
-      "markingGuide": "Achievement (A3-A4): Analyses how different processes operate and interact to shape a named NZ environment with some supporting case study evidence. Includes some relevant geographic terms, partially analyses how processes interact, describes or refers to spatial OR temporal variations. Merit (M5-M6): Analyses in detail the interacting natural processes with detailed supporting case study evidence. Includes detailed evidence, explores interaction between processes and the environment, explains how variations are spatial OR temporal. Excellence (E7-E8): Provides an insightful analysis of the interacting natural processes with comprehensive supporting case study evidence. Integrates comprehensive evidence, explores interaction to draw conclusions about spatial OR temporal variation, explains why variations are spatial OR temporal with insight."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Analyses how different processes operate and interact to shape a named NZ environment with some supporting case study evidence.\n- Includes some relevant geographic terms, partially analyses how processes interact, describes or refers to spatial OR temporal variations.\n\nFor Merit:\n- Analyses in detail the interacting natural processes with detailed supporting case study evidence.\n- Includes detailed evidence, explores interaction between processes and the environment, explains how variations are spatial OR temporal.\n\nFor Excellence:\n- Provides an insightful analysis of the interacting natural processes with comprehensive supporting case study evidence.\n- Integrates comprehensive evidence, explores interaction to draw conclusions about spatial OR temporal variation, explains why variations are spatial OR temporal with insight."
     }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

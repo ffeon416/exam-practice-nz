@@ -14,15 +14,30 @@
       "text": "Write at least 400 words in te reo Māori on ONE of the following topics. Use the planning space to map out your ideas. A list of words is provided after three of the topics to help with ideas — you do not have to use them.\n\nTopic 1: He ao hurihuri tēnei. He maha ngā āhuatanga hou e pā ana ki te hangarau me te ao ipurangi. Heoi anō, he maha anō ngā āhuatanga o te ao tawhito e ngaro haere ana. Ki tō whakaaro, me pēhea te pupuri i ngā tikanga tuku iho i roto i tēnei ao hou?\nThe world is constantly changing. There are many new things related to technology and the digital world, but many traditions are being lost. How can we preserve our customs and traditions in this modern world?\nKuputaka: Hangarau = technology; Ipurangi = internet; Tikanga tuku iho = inherited customs; Te taha wairua = the spiritual side; Te taha hinengaro = the mental side; Whakapapa = genealogy; Kaitiaki = guardian\n\nTopic 2: He kairīpoata koe mō te reo irirangi Māori. Kua tae koe ki tētahi hui ā-iwi whakahirahira. Ko tāu mahi he tuhi mō taua hui hei whakamōhio atu ki ngā kaiwhakarongo.\nYou are a reporter for a Māori radio station. You have arrived at an important iwi gathering. Write a report about the event to inform your listeners.\nConsider events such as a tangi, a hui-ā-iwi, a Waitangi Day celebration, a pōwhiri for returning whānau, the opening of a new wharenui, etc.\nKuputaka: Hua = outcome; Kare ā-roto = emotions/feelings; Manaaki = hospitality; Whakakotahi = to unite; Whanaungatanga = relationship; Tikanga = customs\n\nTopic 3: Ko te taiao tō tātou whare. Me tiaki tātou i te taiao kia ora ai ngā uri whakaheke. Heoi anō, he uaua te whakatutuki i tēnei i roto i te ao ohaoha o nāianei. Ki tōu whakaaro, me aha tātou hei tiaki i te taiao?\nThe environment is our home. We must protect it for future generations. However, it is difficult to achieve this in today's economic world. What should we do to protect the environment?\nWrite an essay with an introduction, body, and conclusion.\nKuputaka: Heke = decline; Kaitiakitanga = guardianship; Parahanga = pollution; Rautaki = strategy; Taiao = environment; Ture = law; Ohaoha = economy; Whakahou = renew\n\nTopic 4: Ko koe te kaituhi o tētahi pukapuka tamariki. Tuhia tētahi pakiwaitara mō tētahi tamaiti Māori me tōna haerenga whakamīharo. Ko te whāinga kia whakaako i tētahi akoranga nui ki te kaipānui.\nYou are a children's book author. Write a story about a Māori child and their amazing journey. The aim is to teach the reader an important lesson.\nNo helping words are provided for this topic.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["tuhituhi-writing-l3", "reo-expression-l3"],
+      "topics": [
+        "tuhituhi-writing-l3",
+        "reo-expression-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 400 words in te reo Māori only. Use the planning space to brainstorm your answer.\n\nAchieved (Paetae 3-4): Candidate writes in te reo Māori about topics from a local, national, or global perspective. Uses phrases and language features that are relevant to the topic. Expresses ideas and opinions. Produces a piece of writing that is mostly understood despite errors. Attempts to use basic writing conventions. Uses a basic range of relevant vocabulary, grammar, and language features in te reo Māori.\n\nMerit (Kaiaka 5-6): Candidate writes in te reo Māori with substance about topics from a local, national, or global perspective. Develops ideas, opinions, or perspectives in a logical sequence. Connects main ideas with examples, explanations, and conclusions. Produces a piece of writing that is understood despite minor errors. Demonstrates an understanding of writing conventions. Consistently utilises a range of appropriate grammar and language features in te reo Māori. For KA6: writing is clearly understood with good grammar and sentence structure; may have used more features of the language.\n\nExcellence (Kairangi 7-8): Candidate writes in te reo Māori with purpose/clear intent about topics from a local, national, or global perspective. Integrates evidence fluently and purposefully. Carefully constructs their written answer by enhancing, supporting with evidence, and reinforcing their thinking. Produces an in-depth piece of writing that is easily understood. Well-structured and coherent, following a logical sequence of thought. Demonstrates a comprehensive understanding of writing conventions. Consistently utilises a wide range of appropriate grammar and language features in te reo Māori. For KR8: writing has minimal errors and uses higher-level grammar, structures, and other features of the language."
+      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 400 words in te reo Māori only. Use the planning space to brainstorm your answer.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Candidate writes in te reo Māori about topics from a local, national, or global perspective.\n- Uses phrases and language features that are relevant to the topic.\n- Expresses ideas and opinions.\n- Produces a piece of writing that is mostly understood despite errors.\n- Attempts to use basic writing conventions.\n- Uses a basic range of relevant vocabulary, grammar, and language features in te reo Māori.\n\nFor Merit:\n- Candidate writes in te reo Māori with substance about topics from a local, national, or global perspective.\n- Develops ideas, opinions, or perspectives in a logical sequence.\n- Connects main ideas with examples, explanations, and conclusions.\n- Produces a piece of writing that is understood despite minor errors.\n- Demonstrates an understanding of writing conventions.\n- Consistently utilises a range of appropriate grammar and language features in te reo Māori.\n- For KA6: writing is clearly understood with good grammar and sentence structure.\n- may have used more features of the language.\n\nFor Excellence:\n- Candidate writes in te reo Māori with purpose/clear intent about topics from a local, national, or global perspective.\n- Integrates evidence fluently and purposefully.\n- Carefully constructs their written answer by enhancing, supporting with evidence, and reinforcing their thinking.\n- Produces an in-depth piece of writing that is easily understood.\n- Well-structured and coherent, following a logical sequence of thought.\n- Demonstrates a comprehensive understanding of writing conventions.\n- Consistently utilises a wide range of appropriate grammar and language features in te reo Māori.\n- For KR8: writing has minimal errors and uses higher-level grammar, structures, and other features of the language."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

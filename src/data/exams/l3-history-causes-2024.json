@@ -14,15 +14,32 @@
       "text": "Write a concise and well-argued essay on ONE significant historical event that you have studied, using the question below.\n\nESSAY QUESTION:\nAnalyse TWO consequences of a significant historical event. Which consequence had the greatest lasting impact, and why?\n\nWrite your chosen historical event in the box below, then plan your essay and begin writing. You should aim to write a concise essay of no more than 5-6 pages. The quality of your writing is more important than the length of your essay.",
       "marks": 8,
       "gradeLevel": "excellence",
-      "topics": ["causes-and-consequences", "historical-argument", "evidence-use", "essay-writing"],
+      "topics": [
+        "causes-and-consequences",
+        "historical-argument",
+        "evidence-use",
+        "essay-writing"
+      ],
       "answerType": "working",
-      "markingGuide": "This is an essay-based exam marked on a holistic A3-E8 scale.\n\nACHIEVED (A3): Explains TWO valid consequences of a significant historical event and attempts to explain which had the greatest lasting impact. Uses supporting evidence.\n\nACHIEVED (A4): Explains TWO valid consequences of a significant historical event and explains which had the greatest lasting impact. Uses relevant, supporting evidence with some accurate detail.\n\nMERIT (M5): Attempts to assess TWO relevant consequences of a significant historical event and attempts to prioritise which had the greatest lasting impact. Uses some relevant, specific supporting evidence to show some depth of understanding.\n\nMERIT (M6): Assesses TWO relevant consequences of a significant historical event and prioritises which had the greatest lasting impact. Uses relevant, specific supporting evidence to show depth of understanding.\n\nEXCELLENCE (E7): Evaluates TWO important consequences of a significant historical event and shows a clear understanding of the complexity around which had the greatest lasting impact and why, with some insight. Uses well-chosen, specific supporting evidence to show some comprehensive understanding. Attempts to present a well-considered argument. This should be a concise response.\n\nEXCELLENCE (E8): Evaluates TWO important consequences of a significant historical event and shows a clear and perceptive understanding of the complexity around which had the greatest lasting impact and why, with insight. Uses well-chosen, specific supporting evidence to show comprehensive understanding. Presents a well-considered argument. This should be a concise response.\n\nN2: Identifies ONE consequence of the event, but the relationship between the consequence and the event is unclear, with limited supporting evidence provided.\nN1: Identifies ONE consequence of the event but with no supporting evidence.\nN0: No response; no relevant evidence.\n\nKEY DIFFERENCES BETWEEN GRADE LEVELS:\n- Achieved: Identifies and explains two consequences with supporting evidence, attempting to say which had the greatest lasting impact.\n- Merit: Assesses and prioritises the two consequences, showing depth through specific evidence.\n- Excellence: Evaluates with insight and perceptive understanding of complexity, presenting a well-considered argument with comprehensive evidence."
+      "markingGuide": "This is an essay-based exam marked on a holistic A3-E8 scale.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains TWO valid consequences of a significant historical event and attempts to explain which had the greatest lasting impact.\n- Uses supporting evidence.\n\nFor Achievement:\n- Explains TWO valid consequences of a significant historical event and explains which had the greatest lasting impact.\n- Uses relevant, supporting evidence with some accurate detail.\n\nFor Merit:\n- Attempts to assess TWO relevant consequences of a significant historical event and attempts to prioritise which had the greatest lasting impact.\n- Uses some relevant, specific supporting evidence to show some depth of understanding.\n\nFor Merit:\n- Assesses TWO relevant consequences of a significant historical event and prioritises which had the greatest lasting impact.\n- Uses relevant, specific supporting evidence to show depth of understanding.\n\nFor Excellence:\n- Evaluates TWO important consequences of a significant historical event and shows a clear understanding of the complexity around which had the greatest lasting impact and why, with some insight.\n- Uses well-chosen, specific supporting evidence to show some comprehensive understanding.\n- Attempts to present a well-considered argument.\n- This should be a concise response.\n\nFor Excellence:\n- Evaluates TWO important consequences of a significant historical event and shows a clear and perceptive understanding of the complexity around which had the greatest lasting impact and why, with insight.\n- Uses well-chosen, specific supporting evidence to show comprehensive understanding.\n- Presents a well-considered argument.\n- This should be a concise response.\n- N2: Identifies ONE consequence of the event, but the relationship between the consequence and the event is unclear, with limited supporting evidence provided.\n- N1: Identifies ONE consequence of the event but with no supporting evidence.\n- N0: No response.\n- no relevant evidence.\n- KEY DIFFERENCES BETWEEN GRADE LEVELS:\n-.\n\nFor Achievement:\n- Identifies and explains two consequences with supporting evidence, attempting to say which had the greatest lasting impact.\n- -.\n\nFor Merit:\n- Assesses and prioritises the two consequences, showing depth through specific evidence.\n- -.\n\nFor Excellence:\n- Evaluates with insight and perceptive understanding of complexity, presenting a well-considered argument with comprehensive evidence."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

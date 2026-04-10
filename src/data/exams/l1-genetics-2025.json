@@ -13,10 +13,13 @@
       "text": "Huntington's disease is a neurological condition caused by a mutation in the HTT gene. The mutant allele (H) is dominant over the normal allele (h). Individuals who carry at least one copy of the dominant allele will eventually develop Huntington's disease.\n\nExplain the relationship between chromosomes, genes, alleles, and DNA. Include examples in your answer.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["genetics", "genetic-variation"],
+      "topics": [
+        "genetics",
+        "genetic-variation"
+      ],
       "answerType": "working",
       "expectedAnswer": "Chromosomes are made of DNA.",
-      "markingGuide": "Achievement: Accurately defines OR describes chromosome, genes, alleles, and DNA. Merit: Explains the relationship between chromosomes, genes, alleles, and DNA using clear examples (examples do not have to be within the HTT gene context)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Accurately defines OR describes chromosome, genes, alleles, and DNA.\n\nFor Merit:\n- Explains the relationship between chromosomes, genes, alleles, and DNA using clear examples (examples do not have to be within the HTT gene context)."
     },
     {
       "id": "l1g25-q1bi",
@@ -24,10 +27,13 @@
       "text": "Define the term mutation.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["genetics", "genetic-variation"],
+      "topics": [
+        "genetics",
+        "genetic-variation"
+      ],
       "answerType": "working",
       "expectedAnswer": "A mutation is a permanent change in the base sequence of a DNA strand.",
-      "markingGuide": "Achievement: States that a mutation is a change (or permanent change) in the DNA/base sequence. Accept answers referring to a change in the gene or genetic code."
+      "markingGuide": "Achievement: States that a mutation is a change (or permanent change) in the DNA/base sequence.\n\nAccept answers referring to a change in the gene or genetic code.\n\nFinal answer: A mutation is a permanent change in the base sequence of a DNA strand.."
     },
     {
       "id": "l1g25-q1bii",
@@ -35,10 +41,13 @@
       "text": "Discuss how genetic variation has occurred in the HTT gene.\n\nIn your answer, include:\n- the difference between phenotype and genotype\n- the difference between heritable and non-heritable variation.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["genetics", "genetic-variation"],
+      "topics": [
+        "genetics",
+        "genetic-variation"
+      ],
       "answerType": "working",
       "expectedAnswer": "The h to H mutation occurred in a gametic cell so it could be passed on.",
-      "markingGuide": "Achievement: Accurately defines mutation, phenotype, genotype, genetic variation, heritable or non-heritable variation. Merit: Explains difference between phenotype and genotype using clear examples AND explains difference between heritable and non-heritable variation AND explains difference between somatic and gametic mutations. Excellence: Comprehensively discusses how genetic variation has occurred by linking key terms/ideas together (chromosomes, genes, alleles, DNA, phenotype, and genotype) within the context AND comprehensively discusses genetic variation referencing the mutation of h to H allele occurring in a gametic cell."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Accurately defines mutation, phenotype, genotype, genetic variation, heritable or non-heritable variation.\n\nFor Merit:\n- Explains difference between phenotype and genotype using clear examples AND explains difference between heritable and non-heritable variation AND explains difference between somatic and gametic mutations.\n\nFor Excellence:\n- Comprehensively discusses how genetic variation has occurred by linking key terms/ideas together (chromosomes, genes, alleles, DNA, phenotype, and genotype) within the context AND comprehensively discusses genetic variation referencing the mutation of h to H allele occurring in a gametic cell."
     },
     {
       "id": "l1g25-q2ai",
@@ -46,17 +55,36 @@
       "text": "A pedigree chart tracks the inheritance of Huntington's disease in a family. Individuals 3, 7, and 9 are affected (shaded). Individuals 1, 2, 4, 5, 6, 8, 10, 11, 12 are unaffected.\n\nHuntington's disease is caused by a dominant allele (H). The normal allele (h) is recessive.\n\nThe table below summarises the possible genotype-phenotype relationships.\n\nWhat are the possible genotypes of an individual who does not have Huntington's disease?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["genetics", "inheritance"],
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
       "answerType": "working",
       "graph": {
         "type": "table",
         "title": "Huntington's Disease — Genotype and Phenotype",
         "data": {
-          "headers": ["Genotype", "Type", "Phenotype"],
+          "headers": [
+            "Genotype",
+            "Type",
+            "Phenotype"
+          ],
           "rows": [
-            ["HH", "Homozygous dominant", "Affected"],
-            ["Hh", "Heterozygous", "Affected"],
-            ["hh", "Homozygous recessive", "Unaffected"]
+            [
+              "HH",
+              "Homozygous dominant",
+              "Affected"
+            ],
+            [
+              "Hh",
+              "Heterozygous",
+              "Affected"
+            ],
+            [
+              "hh",
+              "Homozygous recessive",
+              "Unaffected"
+            ]
           ]
         }
       },
@@ -69,7 +97,10 @@
       "text": "Fill in the genotype(s) of the following individuals from the pedigree chart:\n\n- Individual 3 (affected)\n- Individual 5 (unaffected)\n- Individual 9 (affected)",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["genetics", "inheritance"],
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
       "answerType": "working",
       "expectedAnswer": "Individual 3: Hh (heterozygous); Individual 5: hh (homozygous recessive); Individual 9: Hh (heterozygous)",
       "markingGuide": "Achievement: Two of three individuals correct."
@@ -80,10 +111,13 @@
       "text": "How can scientists confirm the genotype of Individual 3 from the pedigree chart?\nSupport your answer using evidence from both the parents and the children of Individual 3.\n\nUse Punnett squares to support your answer.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["genetics", "inheritance"],
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
       "answerType": "working",
       "expectedAnswer": "Individual 3 must be Hh. One parent must carry the H allele.",
-      "markingGuide": "Achievement: Identifies that Individual 3 must be Hh AND identifies relevant parental genotypes. Merit: Explains why Individual 3 must be Hh by referring to parents (one must be Hh since the other is hh and Individual 3 has the disease) AND explains using offspring evidence. Excellence: Comprehensively discusses the genotype of Individual 3, using evidence from the parents and the offspring, with Punnett squares."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that Individual 3 must be Hh AND identifies relevant parental genotypes.\n\nFor Merit:\n- Explains why Individual 3 must be Hh by referring to parents (one must be Hh since the other is hh and Individual 3 has the disease) AND explains using offspring evidence.\n\nFor Excellence:\n- Comprehensively discusses the genotype of Individual 3, using evidence from the parents and the offspring, with Punnett squares."
     },
     {
       "id": "l1g25-q2c",
@@ -91,10 +125,13 @@
       "text": "Discuss the purpose of identifying the genetic relationship for the genotypes of unaffected children of Individual 3.\n\nIn your answer, consider:\n- the possible genotype(s) of each unaffected child\n- the purpose for tracking the Huntington's allele in this family.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["genetics", "inheritance"],
+      "topics": [
+        "genetics",
+        "inheritance"
+      ],
       "answerType": "working",
       "expectedAnswer": "Unaffected children are hh.",
-      "markingGuide": "Achievement: Identifies that unaffected children are hh AND describes the purpose for genetic tracking. Merit: Explains why unaffected children must be hh (they need two recessive alleles) AND explains a purpose for tracking Huntington's in this family. Excellence: Discusses the purpose of identifying the genetic relationship, including reference to the parents' genotypes, potential risk for future offspring if an unaffected child is a carrier of a different genetic condition, and genetic counselling implications."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that unaffected children are hh AND describes the purpose for genetic tracking.\n\nFor Merit:\n- Explains why unaffected children must be hh (they need two recessive alleles) AND explains a purpose for tracking Huntington's in this family.\n\nFor Excellence:\n- Discusses the purpose of identifying the genetic relationship, including reference to the parents' genotypes, potential risk for future offspring if an unaffected child is a carrier of a different genetic condition, and genetic counselling implications."
     },
     {
       "id": "l1g25-q3a",
@@ -102,10 +139,14 @@
       "text": "The Huntington's allele (H) is dominant over the normal allele (h). Homozygous dominant (HH) and heterozygous (Hh) individuals both develop the disease, but homozygous dominant individuals tend to develop symptoms earlier.\n\nExplain how meiosis, sexual reproduction, and non-random mating can contribute to the continuation of the dominant allele (H) in the population.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["genetics", "inheritance", "genetic-variation"],
+      "topics": [
+        "genetics",
+        "inheritance",
+        "genetic-variation"
+      ],
       "answerType": "working",
       "expectedAnswer": "Meiosis produces gametes with different allele combinations.",
-      "markingGuide": "Achievement: Accurately defines or describes meiosis, sexual reproduction, non-random mating, and/or describes fertilisation. Also identifies that crossing over or independent assortment occurs during meiosis. Merit: Explains meiosis (includes a description of effects of crossing over or independent assortment) AND explains how sexual reproduction may cause carriers to pass on the dominant H allele to their offspring before symptoms appear AND explains how non-random mating (in small communities) can lead to a higher chance of the allele being passed on. Excellence: Comprehensively explains how meiosis, sexual reproduction, and non-random mating can lead to a higher chance of the H allele being passed on, especially because symptoms appear later in life after reproduction has often already occurred."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Accurately defines or describes meiosis, sexual reproduction, non-random mating, and/or describes fertilisation.\n- Also identifies that crossing over or independent assortment occurs during meiosis.\n\nFor Merit:\n- Explains meiosis (includes a description of effects of crossing over or independent assortment) AND explains how sexual reproduction may cause carriers to pass on the dominant H allele to their offspring before symptoms appear AND explains how non-random mating (in small communities) can lead to a higher chance of the allele being passed on.\n\nFor Excellence:\n- Comprehensively explains how meiosis, sexual reproduction, and non-random mating can lead to a higher chance of the H allele being passed on, especially because symptoms appear later in life after reproduction has often already occurred."
     },
     {
       "id": "l1g25-q3b",
@@ -113,17 +154,33 @@
       "text": "Discuss how the HTT mutant allele (H) remains in the population despite causing a harmful disease.\n\nIn your answer, consider:\n- why the frequency of the dominant allele (H) does not rapidly increase or decrease over generations\n- why a harmful dominant allele can persist in a population when it would seem to be selected against.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["genetics", "inheritance", "genetic-variation"],
+      "topics": [
+        "genetics",
+        "inheritance",
+        "genetic-variation"
+      ],
       "answerType": "working",
       "expectedAnswer": "The H allele persists because Huntington's symptoms typically appear after reproductive age",
-      "markingGuide": "Achievement: Accurately defines population AND states that the H allele persists because it is expressed late in life AND identifies that natural selection cannot easily remove alleles whose effects appear after reproduction. Merit: Explains a logical scenario for why the H allele persists (late onset means carriers reproduce before symptoms appear) AND explains why the frequency stays relatively stable rather than increasing (affected individuals have a 50% chance of passing it on, but the allele is relatively rare). Excellence: Comprehensively discusses AND clearly justifies why a harmful dominant allele can persist in a population — linking late onset, reproductive timing, mutation rate, and the limitations of natural selection on late-acting alleles."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Accurately defines population AND states that the H allele persists because it is expressed late in life AND identifies that natural selection cannot easily remove alleles whose effects appear after reproduction.\n\nFor Merit:\n- Explains a logical scenario for why the H allele persists (late onset means carriers reproduce before symptoms appear) AND explains why the frequency stays relatively stable rather than increasing (affected individuals have a 50% chance of passing it on, but the allele is relatively rare).\n\nFor Excellence:\n- Comprehensively discusses AND clearly justifies why a harmful dominant allele can persist in a population — linking late onset, reproductive timing, mutation rate, and the limitations of natural selection on late-acting alleles."
     }
   ],
   "totalMarks": 24,
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 7 },
-    "achieved": { "min": 8, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

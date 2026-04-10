@@ -20,7 +20,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P(muffin) = P(coffee and muffin) + P(tea and muffin) = 0.60 × 0.35 + 0.40 × 0.20 = 0.21 + 0.08 = 0.29",
-      "markingGuide": "Achieved: Draws tree diagram with correct branches (coffee 0.60/tea 0.40, then muffin/no muffin for each). Calculates P(muffin) = 0.29. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws tree diagram with correct branches (coffee 0.60/tea 0.40, then muffin/no muffin for each).\n- Calculates P(muffin) = 0.29.\n\nFor Merit:\n- All probabilities correctly labelled on tree with clear working.\n\nFor Excellence:\n- Fully communicated solution with tree diagram.",
       "graph": {
         "type": "table",
         "title": "Cafe Orders Probability Data",
@@ -60,7 +60,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P(coffee|muffin) = P(coffee and muffin) / P(muffin) = 0.21 / 0.29 = 0.7241 (or 21/29 ≈ 0.724)",
-      "markingGuide": "Achieved: Identifies the need for conditional probability. Merit: Correctly applies P(coffee|muffin) = P(coffee and muffin)/P(muffin) = 0.21/0.29 = 0.724 (or 21/29). Excellence: Shows clear reasoning with formula stated, all values identified from the tree."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies the need for conditional probability.\n\nFor Merit:\n- Correctly applies P(coffee|muffin) = P(coffee and muffin)/P(muffin) = 0.21/0.29 = 0.724 (or 21/29).\n\nFor Excellence:\n- Shows clear reasoning with formula stated, all values identified from the tree."
     },
     {
       "id": "stat267-25-q2a",
@@ -74,7 +74,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Expected winnings = 0.55 × $0 + 0.25 × $3 + 0.12 × $10 + 0.06 × $25 + 0.02 × $100 = $0 + $0.75 + $1.20 + $1.50 + $2.00 = $5.45. Expected net gain = $5.45 - $5.00 = $0.45",
-      "markingGuide": "Achieved: Sets up the expected value calculation correctly with at least 3 of 5 terms. Merit: Correctly calculates expected winnings = $5.45 and net gain = $0.45. Excellence: Correctly calculates and interprets — on average a player gains 45 cents per ticket, so the prize draw slightly favours the player; the school would need to adjust prize amounts or cost to make it profitable as a fundraiser.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Sets up the expected value calculation correctly with at least 3 of 5 terms.\n\nFor Merit:\n- Correctly calculates expected winnings = $5.45 and net gain = $0.45.\n\nFor Excellence:\n- Correctly calculates and interprets — on average a player gains 45 cents per ticket, so the prize draw slightly favours the player.\n- the school would need to adjust prize amounts or cost to make it profitable as a fundraiser.",
       "graph": {
         "type": "table",
         "title": "Prize Draw Structure",
@@ -120,7 +120,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Currently expected loss per ticket = -$0.45 (school loses 45c per player). For 400 tickets, need profit ≥ $200, so profit per ticket ≥ $200/400 = $0.50. Current loss per ticket = $0.45. Need to increase cost by $0.45 + $0.50 = $0.95. New cost = $5.95, so the school should increase the ticket price by at least $0.95 to $5.95 (or round up to $6).",
-      "markingGuide": "Achieved: Recognises that the school currently loses money per ticket and attempts to find the required increase. Merit: Correctly calculates that the cost needs to increase by $0.95 (to $5.95) so expected profit per ticket = $0.50, giving $200 over 400 tickets. Excellence: Full solution with clear working and verification."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises that the school currently loses money per ticket and attempts to find the required increase.\n\nFor Merit:\n- Correctly calculates that the cost needs to increase by $0.95 (to $5.95) so expected profit per ticket = $0.50, giving $200 over 400 tickets.\n\nFor Excellence:\n- Full solution with clear working and verification."
     },
     {
       "id": "stat267-25-q3a",
@@ -180,7 +180,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The comparison is valid — there is a clear difference (70% vs 26.7%). However, the claim of causation is not justified from this observational survey data. Correlation does not imply causation. Confounding variables could explain the difference: people who exercise regularly may also have healthier overall lifestyles, better sleep habits, less stress, different occupations, or different ages. A randomised controlled experiment would be needed to establish causation. The fitness company also has a financial interest in promoting exercise.",
-      "markingGuide": "Achieved: Notes there is a difference in proportions between the two groups. Merit: Correctly identifies that this is observational data so causation cannot be concluded, and suggests at least one confounding variable. Excellence: Thoroughly discusses the limitation of observational studies, provides multiple plausible confounding variables in context, mentions the company's commercial interest, and explains what type of study design would be needed to establish causation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Notes there is a difference in proportions between the two groups.\n\nFor Merit:\n- Correctly identifies that this is observational data so causation cannot be concluded, and suggests at least one confounding variable.\n\nFor Excellence:\n- Thoroughly discusses the limitation of observational studies, provides multiple plausible confounding variables in context, mentions the company's commercial interest, and explains what type of study design would be needed to establish causation."
     }
   ],
   "cutScores": {

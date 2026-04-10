@@ -14,15 +14,31 @@
       "text": "Write an essay on at least ONE written text that you have studied, in response to ONE of the statements below. Discuss the extent to which you agree with your chosen statement. Respond critically to the statement by making a close analysis of the text(s).\n\nSTATEMENTS (Choose ONE):\n1. Texts that use language in surprising ways force the reader to pay closer attention to what matters.\n2. A text's opening only reveals its full significance once you reach the final page.\n3. When characters' lives collide, the resulting friction teaches us something essential about being human.\n4. A distinctive setting does not merely contain the story — it drives it.\n5. The way a text is organised reveals as much about its meaning as the words themselves.\n6. Characters who defy our expectations are the ones we remember most.\n7. The most affecting texts are those that compel us to rethink something we once took for granted.\n8. Precise and deliberate language is what separates a good text from a great one.\n\nYou should aim to write a concise essay of no more than 5-6 pages in length. The quality of your writing is more important than the length of your essay.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "written-text-l3", "critical-response"],
+      "topics": [
+        "language-features",
+        "written-text-l3",
+        "critical-response"
+      ],
       "answerType": "working",
-      "markingGuide": "ACHIEVED (3-4 marks): Present a structured response following essay conventions (some clumsiness in style or organisation is acceptable). Develop a relevant critical argument that provides an evaluative response to the chosen statement, showing engagement with the text(s). Make and evaluate a range of relevant points showing understanding of the aspect(s) specified in the statement. Include specific and relevant details from the text(s) to support the argument.\n\nMERIT (5-6 marks): Present a structured response following essay conventions. Develop a convincing critical argument showing familiarity and engagement with the text(s). Make and evaluate relevant points showing convincing understanding of the aspect(s) specified. Begin to weave specific details from the text(s) into the response to effectively support the argument. Potentially link the argument to matters beyond the text(s).\n\nEXCELLENCE (7-8 marks): Present a cohesive and articulate response following essay conventions, showing some originality of expression. Develop a sophisticated and insightful or original critical argument showing familiarity with and appreciation of the text(s). Make and evaluate relevant points showing perceptive understanding of the aspect(s) specified. Weave specific and judiciously chosen relevant details from the text(s) into the response to effectively support and expand the argument. Link the argument to other aspects of the text or other contexts such as human experience, society, and the wider world."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Present a structured response following essay conventions (some clumsiness in style or organisation is acceptable).\n- Develop a relevant critical argument that provides an evaluative response to the chosen statement, showing engagement with the text(s).\n- Make and evaluate a range of relevant points showing understanding of the aspect(s) specified in the statement.\n- Include specific and relevant details from the text(s) to support the argument.\n\nFor Merit:\n- Present a structured response following essay conventions.\n- Develop a convincing critical argument showing familiarity and engagement with the text(s).\n- Make and evaluate relevant points showing convincing understanding of the aspect(s) specified.\n- Begin to weave specific details from the text(s) into the response to effectively support the argument.\n- Potentially link the argument to matters beyond the text(s).\n\nFor Excellence:\n- Present a cohesive and articulate response following essay conventions, showing some originality of expression.\n- Develop a sophisticated and insightful or original critical argument showing familiarity with and appreciation of the text(s).\n- Make and evaluate relevant points showing perceptive understanding of the aspect(s) specified.\n- Weave specific and judiciously chosen relevant details from the text(s) into the response to effectively support and expand the argument.\n- Link the argument to other aspects of the text or other contexts such as human experience, society, and the wider world."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

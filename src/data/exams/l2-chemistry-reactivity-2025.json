@@ -20,7 +20,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n(NaF) = 63.0 / 42.0 = 1.500 mol. The equation uses 2 mol NaF per mole of reaction, so n(reaction) = 1.500 / 2 = 0.750 mol. DrH = -72.4 / 0.750 = -96.5 kJ mol-1",
-      "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit and negative sign."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer with unit and negative sign."
     },
     {
       "id": "l2cr25-q1bi",
@@ -75,7 +75,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Ionic solids are made of positive and negative ions in a 3D lattice held together by strong ionic bonds. Molecular solids are made of molecules held together by weak intermolecular forces. Higher melting point = stronger forces.",
-      "markingGuide": "Achieved: Recognises melting point relates to force strength. Merit: Describes structure and bonding of ONE solid type and links to melting. Excellence: Links both solid types to melting point difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises melting point relates to force strength.\n\nFor Merit:\n- Describes structure and bonding of ONE solid type and links to melting.\n\nFor Excellence:\n- Links both solid types to melting point difference."
     },
     {
       "id": "l2cr25-q1c",
@@ -92,7 +92,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Boron nitride (in its cubic form) is a 3D covalent network in which every B atom is covalently bonded to 4 N atoms (and vice versa). The strong, directional covalent bonds throughout the entire structure make it very hard. Copper is a metallic solid with a 3D lattice of Cu cations surrounded by delocalised electrons; the non-directional metallic bonds allow layers of cations to slide past each other when a force is applied, without breaking the electrostatic attraction, making copper malleable and ductile.",
-      "markingGuide": "Achieved: Recognises that bonding type influences properties. Merit: Links bonding and structure of ONE solid to properties. Excellence: Explains both solids."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises that bonding type influences properties.\n\nFor Merit:\n- Links bonding and structure of ONE solid to properties.\n\nFor Excellence:\n- Explains both solids."
     },
     {
       "id": "l2cr25-q1d",
@@ -107,7 +107,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Bonds broken: 1 x N-N triple = x, 3 x H-H = 3 x 436 = 1308. Total: 1308 + x.\nBonds formed: 6 x N-H = 6 x 391 = 2346.\nDrH = broken - formed: -93.0 = (1308 + x) - 2346. x = 2346 - 1308 - 93.0 = 945 kJ mol-1",
-      "markingGuide": "Achieved: Correctly calculates total bonds broken or formed. Merit: Correct process with minor error. Excellence: Correct answer (945 kJ mol-1)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correctly calculates total bonds broken or formed.\n\nFor Merit:\n- Correct process with minor error.\n\nFor Excellence:\n- Correct answer (945 kJ mol-1)."
     },
     {
       "id": "l2cr25-q2ai",
@@ -135,7 +135,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Exothermic. Changing from gas to liquid releases energy as intermolecular bonds form.",
-      "markingGuide": "Achieved: Exothermic with reason. Merit: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Exothermic with reason.\n\nFor Merit:\n- Full explanation."
     },
     {
       "id": "l2cr25-q2aiii",
@@ -216,7 +216,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Carbon tetrachloride has four polar C-Cl bonds arranged symmetrically (tetrahedrally) around the central C atom. Because the four bonds are all equally polar and symmetrically arranged, the individual bond dipoles cancel out exactly, so the molecule has no net dipole moment and is non-polar overall.",
-      "markingGuide": "Achieved: Identifies symmetry. Merit: Links symmetry to dipole cancellation. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies symmetry.\n\nFor Merit:\n- Links symmetry to dipole cancellation.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "l2cr25-q2c",
@@ -247,7 +247,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "KI is ionic — it has a 3D lattice of K+ and I- ions held together by strong ionic bonds. Polar water molecules attract the ions: the partial negative O ends of water attract K+ and the partial positive H ends attract I-. These ion-dipole attractions are strong enough to overcome the ionic lattice, so KI dissolves. I2 is a non-polar molecular solid held together by weak dispersion forces. Water molecules form stronger hydrogen bonds with each other than they can form with I2, so I2 does not dissolve in water and remains insoluble.",
-      "markingGuide": "Achieved: Identifies attractions needed. Merit: Links forces to solubility for ONE compound. Excellence: Explains both with diagram."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies attractions needed.\n\nFor Merit:\n- Links forces to solubility for ONE compound.\n\nFor Excellence:\n- Explains both with diagram."
     },
     {
       "id": "l2cr25-q3a",
@@ -263,7 +263,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Diamond: each C bonded to 4 others in 3D network, no free electrons. Graphite: each C bonded to 3 others in layers with delocalised electrons that can carry charge.",
-      "markingGuide": "Achieved: Describes diamond OR graphite structure. Merit: Explains both and links conductivity to delocalised electrons. Excellence: Comprehensive explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes diamond OR graphite structure.\n\nFor Merit:\n- Explains both and links conductivity to delocalised electrons.\n\nFor Excellence:\n- Comprehensive explanation."
     },
     {
       "id": "l2cr25-q3bi",
@@ -278,7 +278,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n(C2H5OH) = 18 500 / 1371 = 13.49 mol. m = n x M = 13.49 x 46.1 = 622 g (3 s.f.)",
-      "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer with unit."
     },
     {
       "id": "l2cr25-q3bii",
@@ -293,7 +293,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n(CaO) = 168 / 56.1 = 2.995 mol. The equation produces 2 mol CaO per -1270 kJ, so energy per mole of CaO = -1270 / 2 = -635 kJ mol-1. Energy change = 2.995 x (-635) = -1902 kJ (1902 kJ of energy released).",
-      "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer with unit."
     },
     {
       "id": "l2cr25-q3c",
@@ -323,7 +323,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "In germane (GeH4), the central Ge atom has four bonding regions and no lone pairs, so the four Ge-H bonding pairs repel one another equally and arrange themselves tetrahedrally at 109.5 degrees. In arsine (AsH3), the central As atom has four regions of electron density (three As-H bonding pairs plus one lone pair), giving an overall tetrahedral arrangement of electron density but a trigonal pyramidal molecular shape (ignoring the lone pair). The lone pair repels the bonding pairs more strongly than bonding pairs repel each other, compressing the H-As-H bond angles below 109.5 degrees.",
-      "markingGuide": "Achieved: Identifies correct electron regions. Merit: Links electron regions and lone pairs to shape for ONE compound. Excellence: Fully explains both."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies correct electron regions.\n\nFor Merit:\n- Links electron regions and lone pairs to shape for ONE compound.\n\nFor Excellence:\n- Fully explains both."
     }
   ],
   "totalMarks": 24,

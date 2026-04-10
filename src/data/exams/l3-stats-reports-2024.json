@@ -19,7 +19,7 @@
         "confidence-intervals"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: 95% CI = 63% ± 4.5% = (58.5%, 67.5%). Interpretation: We are 95% confident that the true proportion of all NZ adults who support tighter regulations on single-use plastics is between 58.5% and 67.5%. Merit: Also notes that this means if we repeated the survey many times, about 95% of the resulting confidence intervals would contain the true population proportion."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- 95% CI = 63% ± 4.5% = (58.5%, 67.5%).\n- Interpretation: We are 95% confident that the true proportion of all NZ adults who support tighter regulations on single-use plastics is between 58.5% and 67.5%.\n\nFor Merit:\n- Also notes that this means if we repeated the survey many times, about 95% of the resulting confidence intervals would contain the true population proportion."
     },
     {
       "id": "st584-24-q1b",
@@ -32,7 +32,7 @@
         "confidence-intervals"
       ],
       "answerType": "text",
-      "markingGuide": "Merit: The claim that a 'clear majority' supports tighter rules is partially justified. The entire confidence interval (58.5% to 67.5%) is above 50%, so we can be 95% confident that more than half of all NZ adults support the regulations. However, 'proves' is too strong — statistical surveys provide evidence, not proof. The term 'clear majority' is subjective. Excellence: Also discusses that the sample may not represent all New Zealanders (sampling method matters), and that opinion may vary by demographics or region."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- The claim that a 'clear majority' supports tighter rules is partially justified.\n- The entire confidence interval (58.5% to 67.5%) is above 50%, so we can be 95% confident that more than half of all NZ adults support the regulations.\n- However, 'proves' is too strong — statistical surveys provide evidence, not proof.\n- The term 'clear majority' is subjective.\n\nFor Excellence:\n- Also discusses that the sample may not represent all New Zealanders (sampling method matters), and that opinion may vary by demographics or region."
     },
     {
       "id": "st584-24-q2a",
@@ -45,7 +45,7 @@
         "sampling-bias"
       ],
       "answerType": "text",
-      "markingGuide": "Merit: (1) Volunteer bias — participants volunteered, so they may be more motivated or health-conscious than the general working population, meaning results may not generalise. (2) Single workplace — the sample is from one corporate office, which is not representative of all workers with neck strain (different occupations have different types of neck strain). Other valid issues: sample size may be too small; no mention of blinding; self-reported pain is subjective. Excellence: Links each issue clearly to how it affects the validity and generalisability of results."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- (1) Volunteer bias — participants volunteered, so they may be more motivated or health-conscious than the general working population, meaning results may not generalise.\n- (2) Single workplace — the sample is from one corporate office, which is not representative of all workers with neck strain (different occupations have different types of neck strain).\n- Other valid issues: sample size may be too small.\n- no mention of blinding.\n- self-reported pain is subjective.\n\nFor Excellence:\n- Links each issue clearly to how it affects the validity and generalisability of results."
     },
     {
       "id": "st584-24-q2b",
@@ -59,7 +59,7 @@
         "study-design"
       ],
       "answerType": "text",
-      "markingGuide": "Excellence: The causal claim has some support because random assignment was used. However: (1) Confounding variables such as changes in posture, exercise habits, or workstation setup during the 8 weeks were not mentioned. (2) The Hawthorne effect — standing desk group members knew they were in the treatment group and may have also changed other behaviours. (3) Generalisation is limited — the sample was from one office only. (4) 60 participants is relatively small. (5) 'Statistically significant' does not necessarily mean practically significant. Overall the claim is too strong given the limitations."
+      "markingGuide": "Excellence: The causal claim has some support because random assignment was used.\n\nHowever: (1) Confounding variables such as changes in posture, exercise habits, or workstation setup during the 8 weeks were not mentioned.\n\n(2) The Hawthorne effect — standing desk group members knew they were in the treatment group and may have also changed other behaviours.\n\n(3) Generalisation is limited — the sample was from one office only.\n\n(4) 60 participants is relatively small.\n\n(5) 'Statistically significant' does not necessarily mean practically significant.\n\nOverall the claim is too strong given the limitations."
     },
     {
       "id": "st584-24-q3a",
@@ -73,7 +73,7 @@
         "evaluating-claims"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Current CI = 28 ± 2.50 = ($25.50, $30.50). Previous CI = 18 ± 3.50 = ($14.50, $21.50). Merit: Since the two confidence intervals do not overlap (the lowest plausible current value, $25.50, is higher than the highest plausible previous value, $21.50), there is strong evidence of an increase in average weekly streaming spending. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Current CI = 28 ± 2.50 = ($25.50, $30.50).\n- Previous CI = 18 ± 3.50 = ($14.50, $21.50).\n\nFor Merit:\n- Since the two confidence intervals do not overlap (the lowest plausible current value, $25.50, is higher than the highest plausible previous value, $21.50), there is strong evidence of an increase in average weekly streaming spending.\n\nFor Excellence:\n- Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny.",
       "graph": {
         "type": "bar",
         "title": "Average Weekly Streaming Spending — NZ Households",
@@ -105,7 +105,7 @@
         "statistical-reasoning-l3"
       ],
       "answerType": "text",
-      "markingGuide": "Merit: The margin of error depends on the sample size and the variability (standard deviation) of the data. Since both surveys have the same sample size (n = 1000), the difference in margin of error is likely due to different amounts of variability in the data. The current survey may have less spread in streaming spending (smaller standard deviation), leading to a smaller margin of error. For a mean, margin of error ≈ 2 × s/√n. Excellence: Also mentions that confidence level affects margin of error, and discusses that the variability could differ due to changes in how households subscribe to streaming services."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- The margin of error depends on the sample size and the variability (standard deviation) of the data.\n- Since both surveys have the same sample size (n = 1000), the difference in margin of error is likely due to different amounts of variability in the data.\n- The current survey may have less spread in streaming spending (smaller standard deviation), leading to a smaller margin of error.\n- For a mean, margin of error ≈ 2 × s/√n.\n\nFor Excellence:\n- Also mentions that confidence level affects margin of error, and discusses that the variability could differ due to changes in how households subscribe to streaming services."
     }
   ],
   "cutScores": {

@@ -25,7 +25,7 @@
         "Home Tool Markup Language"
       ],
       "expectedAnswer": "Hyper Text Markup Language",
-      "markingGuide": "The correct answer is Hyper Text Markup Language. HTML is the standard markup language used to create and structure content on web pages. It uses tags to define elements like headings, paragraphs, images, and links."
+      "markingGuide": "The correct answer is Hyper Text Markup Language.\n\nHere's why:\nHTML is the standard markup language used to create and structure content on web pages.\nIt uses tags to define elements like headings, paragraphs, images, and links."
     },
     {
       "id": "y10dt-q2",
@@ -44,7 +44,7 @@
         "<pg>"
       ],
       "expectedAnswer": "<p>",
-      "markingGuide": "The correct answer is <p>. The <p> tag defines a paragraph in HTML. It is one of the most commonly used tags. The other options are not valid HTML tags."
+      "markingGuide": "The correct answer is <p>.\n\nHere's why:\nThe <p> tag defines a paragraph in HTML.\nIt is one of the most commonly used tags.\nThe other options are not valid HTML tags."
     },
     {
       "id": "y10dt-q3",
@@ -63,7 +63,7 @@
         "A device that stores data"
       ],
       "expectedAnswer": "A step-by-step set of instructions to solve a problem or complete a task",
-      "markingGuide": "The correct answer is 'A step-by-step set of instructions to solve a problem or complete a task'. An algorithm is a clear, ordered sequence of steps that can be followed to achieve a specific outcome. Algorithms are used in everyday life (e.g. a recipe) as well as in computing."
+      "markingGuide": "The correct answer is A step-by-step set of instructions to solve a problem or complete a task.\n\nHere's why:\nAn algorithm is a clear, ordered sequence of steps that can be followed to achieve a specific outcome.\nAlgorithms are used in everyday life (e.g. a recipe) as well as in computing."
     },
     {
       "id": "y10dt-q4",
@@ -82,7 +82,7 @@
         "15"
       ],
       "expectedAnswer": "10",
-      "markingGuide": "The correct answer is 10. In binary, each digit represents a power of 2 from right to left: 1010 = (1×8) + (0×4) + (1×2) + (0×1) = 8 + 0 + 2 + 0 = 10.",
+      "markingGuide": "The correct answer is 10.\n\nHere's why:\nIn binary, each digit represents a power of 2 from right to left: 1010 = (1×8) + (0×4) + (1×2) + (0×1) = 8 + 0 + 2 + 0 = 10.",
       "graph": {
         "type": "table",
         "title": "Binary Place Values",
@@ -130,7 +130,7 @@
         "digital-basics"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the difference: Hardware is the physical components of a computer that you can touch (tangible), while software is the programs and instructions that tell the hardware what to do (intangible). 1 mark for giving one valid example of each. Hardware examples: keyboard, mouse, monitor, CPU, hard drive, RAM, printer. Software examples: Microsoft Word, Google Chrome, Windows, macOS, Scratch, Python."
+      "markingGuide": "1 mark for explaining the difference: Hardware is the physical components of a computer that you can touch (tangible), while software is the programs and instructions that tell the hardware what to do (intangible).\n\n1 mark for giving one valid example of each.\n\nHardware examples: keyboard, mouse, monitor, CPU, hard drive, RAM, printer.\n\nSoftware examples: Microsoft Word, Google Chrome, Windows, macOS, Scratch, Python."
     },
     {
       "id": "y10dt-q6",
@@ -149,7 +149,7 @@
         "12345678"
       ],
       "expectedAnswer": "Tr0pic@lFish42!",
-      "markingGuide": "The correct answer is 'Tr0pic@lFish42!'. A strong password uses a mix of uppercase and lowercase letters, numbers, and special characters. It should be long (at least 12 characters) and not contain common words or personal information. The other options are weak because they use common words, simple sequences, or lack variety in character types."
+      "markingGuide": "The correct answer is Tr0pic@lFish42!.\n\nHere's why:\nA strong password uses a mix of uppercase and lowercase letters, numbers, and special characters.\nIt should be long (at least 12 characters) and not contain common words or personal information.\nThe other options are weak because they use common words, simple sequences, or lack variety in character types."
     },
     {
       "id": "y10dt-q7",
@@ -161,7 +161,7 @@
         "digital-citizenship"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each valid consideration (2 required). Possible answers: Permanence — once something is posted online, it can be very difficult to remove completely, even if you delete it (others may have screenshotted or shared it); Future impact — potential employers, universities, and scholarships may look at your social media, so inappropriate posts could affect your future opportunities; Privacy — sharing personal information (location, school, full name) can make you vulnerable to identity theft, stalking, or scams; Audience — what you post can be seen by a wider audience than you intend, including strangers; Impact on others — posts about other people (photos, comments) should respect their privacy and consent; Reputation — your online presence contributes to how others perceive you."
+      "markingGuide": "1 mark for each valid consideration (2 required).\n\nPossible answers: Permanence — once something is posted online, it can be very difficult to remove completely, even if you delete it (others may have screenshotted or shared it);.\n\nFuture impact — potential employers, universities, and scholarships may look at your social media, so inappropriate posts could affect your future opportunities;.\n\nPrivacy — sharing personal information (location, school, full name) can make you vulnerable to identity theft, stalking, or scams;.\n\nAudience — what you post can be seen by a wider audience than you intend, including strangers;.\n\nImpact on others — posts about other people (photos, comments) should respect their privacy and consent;.\n\nReputation — your online presence contributes to how others perceive you."
     },
     {
       "id": "y10dt-q8",
@@ -180,7 +180,7 @@
         "#"
       ],
       "expectedAnswer": "=",
-      "markingGuide": "The correct answer is '='. In spreadsheet applications such as Google Sheets or Microsoft Excel, all formulas must begin with an equals sign (=). For example, =A1+B1 adds the values in cells A1 and B1."
+      "markingGuide": "The correct answer is =.\n\nHere's why:\nIn spreadsheet applications such as Google Sheets or Microsoft Excel, all formulas must begin with an equals sign (=).\nFor example, =A1+B1 adds the values in cells A1 and B1."
     },
     {
       "id": "y10dt-q9",
@@ -192,7 +192,7 @@
         "computational-thinking"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for describing debugging: Debugging is the process of finding and fixing errors (bugs) in a computer program that prevent it from working correctly. 1 mark for explaining a valid strategy: Trace through the code line by line to see where it stops working as expected; use print statements to display variable values at different points in the program; read error messages carefully as they often tell you the line number and type of error; test small sections of code separately to isolate the problem; use a rubber duck method — explain the code out loud step by step to identify where the logic breaks down; compare the code against the original plan or algorithm."
+      "markingGuide": "1 mark for describing debugging: Debugging is the process of finding and fixing errors (bugs) in a computer program that prevent it from working correctly.\n\n1 mark for explaining a valid strategy: Trace through the code line by line to see where it stops working as expected;.\n\nuse print statements to display variable values at different points in the program;.\n\nread error messages carefully as they often tell you the line number and type of error;.\n\ntest small sections of code separately to isolate the problem;.\n\nuse a rubber duck method — explain the code out loud step by step to identify where the logic breaks down;.\n\ncompare the code against the original plan or algorithm."
     },
     {
       "id": "y10dt-q10",
@@ -204,7 +204,7 @@
         "web-development"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark for each feature with a clear explanation of its usefulness (3 required). Possible features: A home page with information about the club (location, training times, contact details) — useful because new members can quickly find out how to join and where to go; A fixtures/results page — useful because members and supporters can check upcoming games and see how the team is performing; A contact or sign-up form — useful because people can register interest or ask questions without needing to visit in person; A photo/video gallery — useful because it builds community spirit and can be shared on social media to attract new members; A news or events section — useful because the club can announce upcoming tournaments, fundraisers, or social events; A members-only section — useful for sharing team sheets, training plans, or private club communications. Each feature must be distinct, clearly described, and have a specific reason why it benefits the club."
+      "markingGuide": "1 mark for each feature with a clear explanation of its usefulness (3 required).\n\nPossible features: A home page with information about the club (location, training times, contact details) — useful because new members can quickly find out how to join and where to go;.\n\nA fixtures/results page — useful because members and supporters can check upcoming games and see how the team is performing;.\n\nA contact or sign-up form — useful because people can register interest or ask questions without needing to visit in person;.\n\nA photo/video gallery — useful because it builds community spirit and can be shared on social media to attract new members;.\n\nA news or events section — useful because the club can announce upcoming tournaments, fundraisers, or social events;.\n\nA members-only section — useful for sharing team sheets, training plans, or private club communications.\n\nEach feature must be distinct, clearly described, and have a specific reason why it benefits the club."
     }
   ],
   "cutScores": {

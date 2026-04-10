@@ -19,7 +19,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) Fixed n = 12 trials, two outcomes (defective/not), constant p = 0.05, independent trials. (ii) P(X = 2) = C(12,2) × 0.05² × 0.95¹⁰ = 66 × 0.0025 × 0.5987 = 0.0988. (iii) P(X ≤ 1) = P(0) + P(1). P(0) = 0.95¹² = 0.5404. P(1) = C(12,1) × 0.05 × 0.95¹¹ = 12 × 0.05 × 0.5688 = 0.3413. P(X ≤ 1) = 0.8816."
+      "markingGuide": "Step 1: Achievement: (i) Fixed n = 12 trials, two outcomes (defective/not), constant p = 0.05, independent trials.\n\nStep 2: (ii) P(X = 2) = C(12,2) × 0.05² × 0.95¹⁰ = 66 × 0.0025 × 0.5987 = 0.0988.\n\nStep 3: (iii) P(X ≤ 1) = P(0) + P(1).\n\nStep 4: P(0) = 0.95¹² = 0.5404.\n\nStep 5: P(1) = C(12,1) × 0.05 × 0.95¹¹ = 12 × 0.05 × 0.5688 = 0.3413.\n\nStep 6: P(X ≤ 1) = 0.8816."
     },
     {
       "id": "st585-25-q1b",
@@ -32,7 +32,7 @@
         "normal-distribution"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: E(X) = np = 3000 × 0.05 = 150. Merit: σ = √(np(1-p)) = √(3000 × 0.05 × 0.95) = √(142.5) = 11.94. z = (170 - 150)/11.94 = 1.675. P(X > 170) = P(Z > 1.675) ≈ 0.047. Accept approximately 4.7%."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- E(X) = np = 3000 × 0.05 = 150.\n\nFor Merit:\n- σ = √(np(1-p)) = √(3000 × 0.05 × 0.95) = √(142.5) = 11.94.\n- z = (170 - 150)/11.94 = 1.675.\n- P(X > 170) = P(Z > 1.675) ≈ 0.047.\n- Accept approximately 4.7%."
     },
     {
       "id": "st585-25-q2a",
@@ -45,7 +45,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) P(X = 10) = e⁻¹² × 12¹⁰/10! ≈ 0.1048 (from tables or calculator). (ii) In 5 min, λ = 1. P(X = 0) = e⁻¹ = 0.3679. Merit: (iii) P(X ≥ 18) = 1 - P(X ≤ 17) where X ~ Poisson(12). Using tables: P(X ≤ 17) ≈ 0.9370, so P(X ≥ 18) ≈ 0.0630. About 6.3% of the time all seats would be occupied."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) P(X = 10) = e⁻¹² × 12¹⁰/10! ≈ 0.1048 (from tables or calculator).\n- (ii) In 5 min, λ = 1.\n- P(X = 0) = e⁻¹ = 0.3679.\n\nFor Merit:\n- (iii) P(X ≥ 18) = 1 - P(X ≤ 17) where X ~ Poisson(12).\n- Using tables: P(X ≤ 17) ≈ 0.9370, so P(X ≥ 18) ≈ 0.0630.\n- About 6.3% of the time all seats would be occupied."
     },
     {
       "id": "st585-25-q2b",
@@ -58,7 +58,7 @@
         "poisson-distribution"
       ],
       "answerType": "working",
-      "markingGuide": "Excellence: X ~ Poisson(12) ≈ N(12, √12). μ = 12, σ = √12 = 3.464. Need P(X ≤ k) ≥ 0.98. z = 2.054 for 98th percentile. k = 12 + 2.054 × 3.464 = 12 + 7.11 = 19.11. Round up to 20 seats. Must show clear working with the normal approximation."
+      "markingGuide": "Step 1: Excellence: X ~ Poisson(12) ≈ N(12, √12).\n\nStep 2: μ = 12, σ = √12 = 3.464.\n\nStep 3: Need P(X ≤ k) ≥ 0.98.\n\nStep 4: z = 2.054 for 98th percentile.\n\nStep 5: k = 12 + 2.054 × 3.464 = 12 + 7.11 = 19.11.\n\nStep 6: Round up to 20 seats.\n\nStep 7: Must show clear working with the normal approximation."
     },
     {
       "id": "st585-25-q3",
@@ -71,7 +71,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) P(all) = 0.75 × 0.65 × 0.55 = 0.2681. Merit: (ii) P(exactly 1) = P(A only) + P(T only) + P(H only) = 0.75×0.35×0.45 + 0.25×0.65×0.45 + 0.25×0.35×0.55 = 0.1181 + 0.0731 + 0.0481 = 0.2394. (iii) P(exactly 2) = 0.2194 + 0.1444 + 0.0894 = 0.4531. P(at least 2) = 0.4531 + 0.2681 = 0.7213. Excellence: (iv) P(Aroha in the pair | exactly 2) = (0.2194 + 0.1444)/0.4531 = 0.3637/0.4531 = 0.8028."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) P(all) = 0.75 × 0.65 × 0.55 = 0.2681.\n\nFor Merit:\n- (ii) P(exactly 1) = P(A only) + P(T only) + P(H only) = 0.75×0.35×0.45 + 0.25×0.65×0.45 + 0.25×0.35×0.55 = 0.1181 + 0.0731 + 0.0481 = 0.2394.\n- (iii) P(exactly 2) = 0.2194 + 0.1444 + 0.0894 = 0.4531.\n- P(at least 2) = 0.4531 + 0.2681 = 0.7213.\n\nFor Excellence:\n- (iv) P(Aroha in the pair | exactly 2) = (0.2194 + 0.1444)/0.4531 = 0.3637/0.4531 = 0.8028."
     }
   ],
   "cutScores": {

@@ -20,7 +20,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A: structure of butanamine (CH3CH2CH2NH2).",
-      "markingGuide": "Achievement: THREE of six correct. Merit: SIX of six correct.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- THREE of six correct.\n\nFor Merit:\n- SIX of six correct.",
       "graph": {
         "type": "table",
         "title": "Organic Compounds",
@@ -78,7 +78,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Acidified dichromate will react with the alcohol group in Compound H (oxidation), but will not react with the haloalkane in Compound G. The orange dichromate solution turns green when heated with Compound H. The product is a ketone.",
-      "markingGuide": "Achievement: Identifies type of reaction OR colour change. Merit: Full explanation with reaction type, conditions, observations, and reference to Compound H. Excellence: Full explanation including observation, and reference to BOTH compounds."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies type of reaction OR colour change.\n\nFor Merit:\n- Full explanation with reaction type, conditions, observations, and reference to Compound H.\n\nFor Excellence:\n- Full explanation including observation, and reference to BOTH compounds."
     },
     {
       "id": "l2cb25-q1ci",
@@ -108,7 +108,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Major product: 3-methylpent-2-ene (more substituted alkene, Zaitsev's rule).",
-      "markingGuide": "Achievement: Identifies the haloalkane is formed OR correct structures without labels. Merit: Both structures with correct major/minor labels."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies the haloalkane is formed OR correct structures without labels.\n\nFor Merit:\n- Both structures with correct major/minor labels."
     },
     {
       "id": "l2cb25-q1ciii",
@@ -123,7 +123,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound K is an unsymmetrical haloalkane, meaning two products can be formed depending upon which adjacent hydrogen is eliminated with the halogen.",
-      "markingGuide": "Achievement: Explains why the haloalkane forms two products. Merit: Explains how major/minor products can be identified. Excellence: Justifies why Compound K forms major and minor products, with correct identification."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains why the haloalkane forms two products.\n\nFor Merit:\n- Explains how major/minor products can be identified.\n\nFor Excellence:\n- Justifies why Compound K forms major and minor products, with correct identification."
     },
     {
       "id": "l2cb25-q2ai",
@@ -138,7 +138,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound B: 2-aminohexane (NH2 replacing Br).",
-      "markingGuide": "Achievement: FOUR of eight correct. Merit: SIX of eight correct. Excellence: EIGHT of eight correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- FOUR of eight correct.\n\nFor Merit:\n- SIX of eight correct.\n\nFor Excellence:\n- EIGHT of eight correct."
     },
     {
       "id": "l2cb25-q2bi",
@@ -167,7 +167,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "C=C, carbon to carbon double bond. The double bond breaks open and each monomer unit bonds to the next, forming a long saturated chain. The monomer is more reactive due to the unsaturated C=C bond; the polymer is less reactive due to only having saturated C-C bonds.",
-      "markingGuide": "Achievement: Double bond is broken OR identifies polymer is saturated or monomer is unsaturated. Merit: Links saturated/unsaturated nature of polymer/monomer to materials reactivity AND explains addition polymerisation. Excellence: Explains the difference of monomer and polymer in terms of structure and reactivity."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Double bond is broken OR identifies polymer is saturated or monomer is unsaturated.\n\nFor Merit:\n- Links saturated/unsaturated nature of polymer/monomer to materials reactivity AND explains addition polymerisation.\n\nFor Excellence:\n- Explains the difference of monomer and polymer in terms of structure and reactivity."
     },
     {
       "id": "l2cb25-q2biii",
@@ -196,7 +196,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "PP does not melt at moderate temperatures (relatively high melting point for a polymer) and is not chemically reactive with most laboratory reagents.",
-      "markingGuide": "Achievement: States PP has a high melting point OR states that PP is not chemically reactive. Merit: Links PP does not melt at moderate temperatures to use OR links PP is not chemically reactive to use."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States PP has a high melting point OR states that PP is not chemically reactive.\n\nFor Merit:\n- Links PP does not melt at moderate temperatures to use OR links PP is not chemically reactive to use."
     },
     {
       "id": "l2cb25-q2c",
@@ -239,7 +239,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "1-decanamine and 1-hexanamine both contain a polar amine group. The longer carbon chain in 1-decanamine makes it less soluble in water and gives it a higher boiling point compared to 1-hexanamine.",
-      "markingGuide": "Achievement: Gives a basic method (water/heating). Merit: Explains that chain length will determine which is soluble in water OR explains that chain length determines lower/higher boiling point. Excellence: Fully explains either method, including associated observation, for correct identification and explains relevant carbon chain length effect."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Gives a basic method (water/heating).\n\nFor Merit:\n- Explains that chain length will determine which is soluble in water OR explains that chain length determines lower/higher boiling point.\n\nFor Excellence:\n- Fully explains either method, including associated observation, for correct identification and explains relevant carbon chain length effect."
     },
     {
       "id": "l2cb25-q3aiii",
@@ -267,7 +267,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The acid reacts with a metal carbonate (e.g. sodium carbonate) in an acid-base reaction, forming a salt, water, and carbon dioxide gas (observed as bubbling/effervescence).",
-      "markingGuide": "Achievement: A correct method is described. Merit: A correct method is explained with observations."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- A correct method is described.\n\nFor Merit:\n- A correct method is explained with observations."
     },
     {
       "id": "l2cb25-q3bi",
@@ -295,7 +295,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "B forms cis/trans isomers, as it has both requirements for geometric isomerism: a C=C double bond preventing free rotation, and each carbon of the double bond has two different groups attached.",
-      "markingGuide": "Achievement: Identifies C=C double bond. Merit: Explains why the double bond is required for geometric isomerism AND explains why both C atoms on the double bond must have two different atoms/groups. Excellence: Justifies why B forms geometric isomers, while A does not."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies C=C double bond.\n\nFor Merit:\n- Explains why the double bond is required for geometric isomerism AND explains why both C atoms on the double bond must have two different atoms/groups.\n\nFor Excellence:\n- Justifies why B forms geometric isomers, while A does not."
     }
   ],
   "totalMarks": 24,

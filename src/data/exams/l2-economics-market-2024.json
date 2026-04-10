@@ -169,7 +169,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "In a boom, real output (Q) increases as businesses expand production to meet strong demand. Using MV=PQ: V increases (pushes P up) but Q also increases (pushes P down, since more output absorbs spending). The net effect on P depends on relative magnitudes. If V rises faster than Q, inflation accelerates.",
-      "markingGuide": "Fully explains the competing effects: V increase pushes P up, Q increase pushes P down; integrates business cycle and MV=PQ to assess the net impact."
+      "markingGuide": "Fully explains the competing effects: V increase pushes P up, Q increase pushes P down;.\n\nintegrates business cycle and MV=PQ to assess the net impact."
     },
     {
       "id": "91222-2024-q3a",
@@ -182,7 +182,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Inflation is a sustained increase in the general price level of goods and services over time. The highest rate was in 2022.",
-      "markingGuide": "Correct definition — must include 'sustained' and 'general price level'. Identifies 2022 as the year with highest inflation from the graph.",
+      "markingGuide": "Correct definition — must include 'sustained' and 'general price level'.\n\nIdentifies 2022 as the year with highest inflation from the graph.",
       "graph": {
         "type": "line",
         "title": "NZ Annual Inflation Rate 2018–2024",

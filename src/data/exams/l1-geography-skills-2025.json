@@ -26,7 +26,7 @@
         "An area of dense bush"
       ],
       "expectedAnswer": "A steep slope",
-      "markingGuide": "The correct answer is 'A steep slope'. Contour lines join points of equal height above sea level. When contour lines are close together, the land rises steeply over a short horizontal distance. When they are far apart, the slope is gentle."
+      "markingGuide": "The correct answer is A steep slope.\n\nHere's why:\nContour lines join points of equal height above sea level.\nWhen contour lines are close together, the land rises steeply over a short horizontal distance.\nWhen they are far apart, the slope is gentle."
     },
     {
       "id": "l1gs-q2",
@@ -40,7 +40,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "4",
-      "markingGuide": "The correct answer is 4 km. Working: 8 cm × 50,000 = 400,000 cm = 4,000 m = 4 km. At 1:50,000 scale, 1 cm on the map represents 50,000 cm (500 m or 0.5 km) in real life.",
+      "markingGuide": "The correct answer is 4 km.\n\nHere's why:\nWorking: 8 cm × 50,000 = 400,000 cm = 4,000 m = 4 km.\nAt 1:50,000 scale, 1 cm on the map represents 50,000 cm (500 m or 0.5 km) in real life.",
       "graph": {
         "type": "table",
         "title": "Map Scale Conversion",
@@ -87,7 +87,7 @@
         "315°"
       ],
       "expectedAnswer": "045°",
-      "markingGuide": "The correct answer is 045°. North-east is at a bearing of 045° (measured clockwise from north). North = 000°/360°, East = 090°, South = 180°, West = 270°, NE = 045°, SE = 135°, SW = 225°, NW = 315°."
+      "markingGuide": "The correct answer is 045°.\n\nHere's why:\nNorth-east is at a bearing of 045° (measured clockwise from north).\nNorth = 000°/360°, East = 090°, South = 180°, West = 270°, NE = 045°, SE = 135°, SW = 225°, NW = 315°."
     },
     {
       "id": "l1gs-q4",
@@ -101,7 +101,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "374",
-      "markingGuide": "The correct answer is 374. In a six-figure grid reference, the first three digits are the easting (how far east) and the last three digits are the northing (how far north). Remember: 'along the corridor and up the stairs' — eastings come first (read along the bottom of the map), then northings (read up the side)."
+      "markingGuide": "The correct answer is 374.\n\nHere's why:\nIn a six-figure grid reference, the first three digits are the easting (how far east) and the last three digits are the northing (how far north).\nRemember: 'along the corridor and up the stairs' — eastings come first (read along the bottom of the map), then northings (read up the side)."
     },
     {
       "id": "l1gs-q5",
@@ -114,7 +114,7 @@
         "spatial-patterns-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for describing the pattern: Hokitika (West Coast) receives by far the most rainfall, Christchurch (east of the Southern Alps) receives the least, and the two North Island cities receive moderate amounts. The pattern shows a west-east difference in the South Island. 1 mark for explaining a reason: The Southern Alps create a rain shadow effect — moist westerly winds from the Tasman Sea are forced to rise over the mountains, cooling and releasing heavy rainfall on the western side (Hokitika). By the time the air descends on the eastern side (Canterbury Plains/Christchurch), it is much drier. This is called orographic rainfall.",
+      "markingGuide": "1 mark for describing the pattern: Hokitika (West Coast) receives by far the most rainfall, Christchurch (east of the Southern Alps) receives the least, and the two North Island cities receive moderate amounts.\n\nThe pattern shows a west-east difference in the South Island.\n\n1 mark for explaining a reason: The Southern Alps create a rain shadow effect — moist westerly winds from the Tasman Sea are forced to rise over the mountains, cooling and releasing heavy rainfall on the western side (Hokitika).\n\nBy the time the air descends on the eastern side (Canterbury Plains/Christchurch), it is much drier.\n\nThis is called orographic rainfall.",
       "graph": {
         "type": "bar",
         "title": "Average Annual Rainfall — NZ Cities",
@@ -162,7 +162,7 @@
         "Meandering rivers and oxbow lakes"
       ],
       "expectedAnswer": "U-shaped valleys, cirques, and moraines",
-      "markingGuide": "The correct answer is 'U-shaped valleys, cirques, and moraines'. Glaciers carve distinctive U-shaped valleys (e.g. Milford Sound/Piopiotahi, the Hollyford Valley), cirques (bowl-shaped hollows where glaciers form, e.g. the cirque at the head of the Hooker Valley), and leave moraines (ridges of deposited rock debris). V-shaped valleys are formed by rivers, not glaciers."
+      "markingGuide": "The correct answer is U-shaped valleys, cirques, and moraines.\n\nHere's why:\nGlaciers carve distinctive U-shaped valleys (e.g. Milford Sound/Piopiotahi, the Hollyford Valley), cirques (bowl-shaped hollows where glaciers form, e.g. the cirque at the head of the Hooker Valley), and leave moraines (ridges of deposited rock debris).\nV-shaped valleys are formed by rivers, not glaciers."
     },
     {
       "id": "l1gs-q7",
@@ -176,7 +176,7 @@
         "cross-sections-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark: Describes the overall shape — the cross-section line starts at 0 m on the left (Point A at sea level), rises to 450 m at Point B on the right. 1 mark: Describes the change in gradient — the first 1 km section would show a steep line rising sharply (the land gains most of its height quickly, so the line is steep). The remaining 2 km section would show a gentler, more gradual slope as the land rises more slowly to the summit. The cross-section would look like a concave slope — steep near the coast, flattening out towards the top. Students may sketch this or describe it in words."
+      "markingGuide": "1 mark: Describes the overall shape — the cross-section line starts at 0 m on the left (Point A at sea level), rises to 450 m at Point B on the right.\n\n1 mark: Describes the change in gradient — the first 1 km section would show a steep line rising sharply (the land gains most of its height quickly, so the line is steep).\n\nThe remaining 2 km section would show a gentler, more gradual slope as the land rises more slowly to the summit.\n\nThe cross-section would look like a concave slope — steep near the coast, flattening out towards the top.\n\nStudents may sketch this or describe it in words."
     },
     {
       "id": "l1gs-q8",
@@ -189,7 +189,7 @@
         "spatial-patterns-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for describing the pattern: Hamilton dominates the region with a population roughly 8–22 times larger than the other towns. The smaller towns have relatively similar populations (7,900–21,300). There is a clear primate city pattern with Hamilton as the regional centre. 1 mark for a geographic reason: Hamilton's larger population is due to its role as a major service centre and transport hub — it sits at the junction of major highways (SH1, SH3) and rail lines, it has a university (Waikato), hospital, and is located on the fertile Waikato Plains with access to the Waikato River. Its central location in the Waikato region means it serves as the economic and administrative centre, attracting businesses and residents.",
+      "markingGuide": "1 mark for describing the pattern: Hamilton dominates the region with a population roughly 8–22 times larger than the other towns.\n\nThe smaller towns have relatively similar populations (7,900–21,300).\n\nThere is a clear primate city pattern with Hamilton as the regional centre.\n\n1 mark for a geographic reason: Hamilton's larger population is due to its role as a major service centre and transport hub — it sits at the junction of major highways (SH1, SH3) and rail lines, it has a university (Waikato), hospital, and is located on the fertile Waikato Plains with access to the Waikato River.\n\nIts central location in the Waikato region means it serves as the economic and administrative centre, attracting businesses and residents.",
       "graph": {
         "type": "bar",
         "title": "Population of Waikato Towns",
@@ -236,7 +236,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "240",
-      "markingGuide": "The correct answer is 240 metres. Working: 12 contour lines × 20 m contour interval = 240 m height difference. Each contour line represents a 20 m change in elevation on this map."
+      "markingGuide": "The correct answer is 240 metres.\n\nHere's why:\nWorking: 12 contour lines × 20 m contour interval = 240 m height difference.\nEach contour line represents a 20 m change in elevation on this map."
     },
     {
       "id": "l1gs-q10",
@@ -250,7 +250,7 @@
         "geographic-concepts-l1"
       ],
       "answerType": "working",
-      "markingGuide": "10 marks total.\n\nAchieved (1–4 marks): Makes basic comparisons — Queenstown is bigger and richer, Gore is smaller. Uses some data from the table. 1 mark per valid comparison or correct use of data.\n\nMerit (5–7 marks): Explains geographic reasons for differences. Physical factors: Queenstown's location on Lake Wakatipu surrounded by the Remarkables mountain range creates a dramatic landscape that attracts tourists; it has a ski-friendly climate. Gore sits on the flat Southland Plains — good for farming but lacking dramatic scenery for tourism. Human factors: Queenstown has an international airport bringing visitors directly; its tourism industry generates $2.4 billion compared to Gore's $45 million, driving up house prices ($1.45 million vs $385,000) and population. Gore's economy is based on primary industry (agriculture, meat processing at Alliance Group). Uses data to support points.\n\nExcellence (8–10 marks): Provides an integrated, evaluative response. Discusses how physical geography has shaped economic development — Queenstown's mountain/lake environment created a comparative advantage for tourism, while Gore's fertile plains favoured agriculture. Discusses consequences — tourism wealth creates high house prices that can push out local workers (a housing affordability issue); Gore's lower house prices reflect a different economic base but offer more affordable living. May discuss sustainability issues — Queenstown faces pressure from overtourism (strain on infrastructure, environmental impacts), while Gore faces challenges of rural decline and youth migration to cities. Shows understanding of how geographic factors create different development pathways and that both patterns have advantages and disadvantages.",
+      "markingGuide": "10 marks total.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Makes basic comparisons — Queenstown is bigger and richer, Gore is smaller.\n- Uses some data from the table.\n- 1 mark per valid comparison or correct use of data.\n\nFor Merit:\n- Explains geographic reasons for differences.\n- Physical factors: Queenstown's location on Lake Wakatipu surrounded by the Remarkables mountain range creates a dramatic landscape that attracts tourists.\n- it has a ski-friendly climate.\n- Gore sits on the flat Southland Plains — good for farming but lacking dramatic scenery for tourism.\n- Human factors: Queenstown has an international airport bringing visitors directly.\n- its tourism industry generates $2.4 billion compared to Gore's $45 million, driving up house prices ($1.45 million vs $385,000) and population.\n- Gore's economy is based on primary industry (agriculture, meat processing at Alliance Group).\n- Uses data to support points.\n\nFor Excellence:\n- Provides an integrated, evaluative response.\n- Discusses how physical geography has shaped economic development — Queenstown's mountain/lake environment created a comparative advantage for tourism, while Gore's fertile plains favoured agriculture.\n- Discusses consequences — tourism wealth creates high house prices that can push out local workers (a housing affordability issue).\n- Gore's lower house prices reflect a different economic base but offer more affordable living.\n- May discuss sustainability issues — Queenstown faces pressure from overtourism (strain on infrastructure, environmental impacts), while Gore faces challenges of rural decline and youth migration to cities.\n- Shows understanding of how geographic factors create different development pathways and that both patterns have advantages and disadvantages.",
       "graph": {
         "type": "table",
         "title": "Queenstown vs Gore — Key Statistics",

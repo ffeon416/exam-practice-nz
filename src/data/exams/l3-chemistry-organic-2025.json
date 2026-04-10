@@ -35,7 +35,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The enantiomers can be distinguished using a polarimeter. They rotate plane-polarised light in opposite directions.",
-      "markingGuide": "Achievement: Recognises rotation of plane-polarised light. Merit: Explains opposite directions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises rotation of plane-polarised light.\n\nFor Merit:\n- Explains opposite directions."
     },
     {
       "id": "l3co25-q1aiii",
@@ -50,7 +50,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "D-galactose is an aldose (aldohexose) — its open-chain form contains an aldehyde (-CHO) group on C1. Tollens' reagent oxidises the aldehyde to a carboxylate ion, while Ag+ in Tollens' is reduced to metallic silver, which deposits as a silver mirror on the inside of the test tube. This is a redox reaction and shows that D-galactose is a reducing sugar.",
-      "markingGuide": "Achievement: Identifies oxidation or reducing sugar. Merit: Explains the reaction."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies oxidation or reducing sugar.\n\nFor Merit:\n- Explains the reaction."
     },
     {
       "id": "l3co25-q1b",
@@ -64,7 +64,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Path 1 (to the acyl chloride): hexanal + Cr2O72-/H+ with heat -> hexanoic acid; then hexanoic acid + SOCl2 -> hexanoyl chloride. Path 2 (to the primary amine): hexanal + NaBH4 -> hexan-1-ol; then hexan-1-ol + SOCl2 -> 1-chlorohexane; then 1-chlorohexane + excess concentrated NH3 -> hexan-1-amine. Final step: hexanoyl chloride + hexan-1-amine -> N-hexylhexanamide (amide formation).",
-      "markingGuide": "Achievement: At least TWO steps correct. Merit: At least FOUR steps. Excellence: ALL correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- At least TWO steps correct.\n\nFor Merit:\n- At least FOUR steps.\n\nFor Excellence:\n- ALL correct."
     },
     {
       "id": "l3co25-q1ci",
@@ -114,7 +114,7 @@
         ]
       },
       "expectedAnswer": "The hexan-1-ol was fully oxidised past the aldehyde stage to hexanoic acid because excess oxidising agent and reflux were used. Hexanoic acid has bp 205 degrees C, much higher than 129 degrees C.",
-      "markingGuide": "Achievement: Recognises over-oxidation to carboxylic acid. Merit: Explains why no fraction at 127-131 degrees C (the hexanal was all further oxidised to hexanoic acid which has a much higher boiling point)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises over-oxidation to carboxylic acid.\n\nFor Merit:\n- Explains why no fraction at 127-131 degrees C (the hexanal was all further oxidised to hexanoic acid which has a much higher boiling point)."
     },
     {
       "id": "l3co25-q1ciii",
@@ -129,7 +129,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Distillation removes the hexanal from the reaction mixture as soon as it forms, preventing further oxidation. In distillation the condenser is angled downward to collect distillate, while in reflux it is vertical to return vapours.",
-      "markingGuide": "Achievement: Recognises distillation removes product. Merit: Explains how distillation prevents over-oxidation. Excellence: Full explanation with condenser comparison."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises distillation removes product.\n\nFor Merit:\n- Explains how distillation prevents over-oxidation.\n\nFor Excellence:\n- Full explanation with condenser comparison."
     },
     {
       "id": "l3co25-q2ai",
@@ -144,7 +144,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A (CH3(CH2)4C(=O)CH3): heptan-2-one. B (pentyl ethanoate): CH3-C(=O)-O-CH2-CH2-CH2-CH2-CH3. C (4-methylheptanamide): H2N-C(=O)-CH2-CH2-CH(CH3)-CH2-CH2-CH3. D (CH3CH(Cl)CH2CH2CHO): 4-chloropentanal.",
-      "markingGuide": "Achievement: THREE correct. Merit: ALL four correct.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- THREE correct.\n\nFor Merit:\n- ALL four correct.",
       "graph": {
         "type": "table",
         "title": "Organic Compounds - Names and Structures",
@@ -192,7 +192,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Two 3D structural drawings of 4-chloropentanal showing the four different groups (CH3, Cl, H, -CH2CH2CHO) arranged as non-superimposable mirror images around the asymmetric C4.",
-      "markingGuide": "Achievement: Shows tetrahedral arrangement. Merit: Enantiomers correctly drawn."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Shows tetrahedral arrangement.\n\nFor Merit:\n- Enantiomers correctly drawn."
     },
     {
       "id": "l3co25-q2bi",
@@ -207,7 +207,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Step 1: Butanoyl chloride reacts vigorously with water, producing steamy fumes of HCl (identifies butanoyl chloride). Step 2: Butanal reduces Fehling's solution on heating, giving a brick-red (orange-red) precipitate of Cu2O (identifies butanal). Step 3: Butan-1-ol is oxidised by acidified dichromate on heating, with an orange-to-green colour change (identifies butan-1-ol).",
-      "markingGuide": "Achievement: ONE row correct. Merit: TWO rows correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE row correct.\n\nFor Merit:\n- TWO rows correct."
     },
     {
       "id": "l3co25-q2bii",
@@ -222,7 +222,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Water must be added first because butanoyl chloride reacts violently and would interfere with other tests. Fehling's is used next because it specifically tests for aldehydes. Dichromate last as it is less specific.",
-      "markingGuide": "Achievement: ONE point correct. Merit: THREE points. Excellence: FIVE points."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE point correct.\n\nFor Merit:\n- THREE points.\n\nFor Excellence:\n- FIVE points."
     },
     {
       "id": "l3co25-q2c",
@@ -237,7 +237,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A is an ester with a chiral centre (e.g. methyl 2-hydroxypropanoate or similar C4H8O2 ester). B is the carboxylic acid. C is the alcohol. D is the amide. E is a carboxylic acid from alcohol oxidation.",
-      "markingGuide": "Achievement: ONE correct functional group for A, D, E AND TWO correct structures. Merit: THREE correct. Excellence: ALL correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct functional group for A, D, E AND TWO correct structures.\n\nFor Merit:\n- THREE correct.\n\nFor Excellence:\n- ALL correct."
     },
     {
       "id": "l3co25-q3ai",
@@ -252,7 +252,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Dipeptide 1: Ala-Ser (H2N-CH(CH3)-CO-NH-CH(CH2OH)-COOH). Dipeptide 2: Ser-Ala (H2N-CH(CH2OH)-CO-NH-CH(CH3)-COOH).",
-      "markingGuide": "Achievement: Draws an amide linkage. Merit: Both dipeptides correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws an amide linkage.\n\nFor Merit:\n- Both dipeptides correct."
     },
     {
       "id": "l3co25-q3aii",
@@ -267,7 +267,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "This is a condensation reaction. An amide (peptide) bond is formed between the -NH2 group of one amino acid and the -COOH group of another, with loss of a water molecule.",
-      "markingGuide": "Achievement: Identifies condensation. Merit: Explains with amide bond and loss of water."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies condensation.\n\nFor Merit:\n- Explains with amide bond and loss of water."
     },
     {
       "id": "l3co25-q3aiii",
@@ -297,7 +297,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Acidic hydrolysis occurs. The amide linkages are broken by water in the presence of acid, regenerating the diamine and dicarboxylic acid monomers.",
-      "markingGuide": "Achievement: Identifies hydrolysis. Merit: TWO correct products. Excellence: Full explanation with products."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies hydrolysis.\n\nFor Merit:\n- TWO correct products.\n\nFor Excellence:\n- Full explanation with products."
     },
     {
       "id": "l3co25-q3bi",
@@ -312,7 +312,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound Y. It has a C=C with different groups each side (cis-trans), a -COOH group (reacts with SOCl2), and a C=O ketone group (reduced by NaBH4).",
-      "markingGuide": "Achievement: Recognises at least one property for two compounds. Merit: Chooses Y with two properties. Excellence: Full explanation including elimination of others."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises at least one property for two compounds.\n\nFor Merit:\n- Chooses Y with two properties.\n\nFor Excellence:\n- Full explanation including elimination of others."
     },
     {
       "id": "l3co25-q3bii",
@@ -327,7 +327,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "An example: HOOC-CH2-CH(Br)-CH(OH)-CH3 (3-bromo-2-hydroxypentanoic acid numbered from COOH as C1... or 3-bromo-4-hydroxypentanoic acid depending on numbering). Formula C5H9BrO3. It has a carboxylic acid group at one end (-COOH), a secondary -OH on the carbon bonded to CH3, and a Br on the adjacent carbon.",
-      "markingGuide": "Achievement: Draws one functional group. Merit: Both functional groups correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws one functional group.\n\nFor Merit:\n- Both functional groups correct."
     },
     {
       "id": "l3co25-q3biii",
@@ -342,7 +342,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "3-chloro-2-methylbut-1-ene: CH2=C(CH3)-CH(Cl)-CH3. Formula C5H9Cl. It has a methyl branch on C2 (branched chain), a C=C double bond between C1 and C2, and an asymmetric (chiral) carbon at C3 bonded to four different groups (-CH=C(CH3)-, -CH3, -H, -Cl).",
-      "markingGuide": "Achievement: Draws a branched chain or C=C. Merit: All three features. Excellence: Correct formula."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws a branched chain or C=C.\n\nFor Merit:\n- All three features.\n\nFor Excellence:\n- Correct formula."
     }
   ],
   "totalMarks": 24,

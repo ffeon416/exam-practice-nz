@@ -14,10 +14,15 @@
       "text": "The following questions relate to rapid urbanisation in Lagos, Nigeria. Integrate geographic concepts and supporting evidence into your answers.\n\nDescribe the location and geographic environment of Lagos and the surrounding region.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["location", "environment", "Lagos", "Nigeria"],
+      "topics": [
+        "location",
+        "environment",
+        "Lagos",
+        "Nigeria"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describes Lagos's location (southwestern Nigeria, West Africa, coastal, on lagoon islands and mainland) and its geographic environment (tropical climate, low-lying coastal terrain, lagoon system, mangrove and wetland areas).",
-      "markingGuide": "Achievement: Partially describes the location and/or environment with limited detail. Merit: Describes the location and geographic environment in detail with supporting information. Excellence: Describes in detail with comprehensive evidence integrated throughout."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Partially describes the location and/or environment with limited detail.\n\nFor Merit:\n- Describes the location and geographic environment in detail with supporting information.\n\nFor Excellence:\n- Describes in detail with comprehensive evidence integrated throughout."
     },
     {
       "id": "91429-2025-q1b",
@@ -25,10 +30,15 @@
       "text": "What are ONE natural and ONE cultural challenge facing Lagos that have resulted from rapid urbanisation?\n\nNatural challenge:\n\nCultural challenge:",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["challenges", "Lagos", "natural", "cultural"],
+      "topics": [
+        "challenges",
+        "Lagos",
+        "natural",
+        "cultural"
+      ],
       "answerType": "text",
       "expectedAnswer": "Natural challenge: flooding caused by building on wetlands and inadequate drainage, combined with rising sea levels threatening low-lying areas. Cultural challenge: informal settlements (slums) lacking basic services, overcrowding, and widening inequality between wealthy and poor districts.",
-      "markingGuide": "Achievement: Explains ONE natural OR cultural challenge faced by Lagos. Merit: Explains in detail ONE natural AND ONE cultural challenge with supporting evidence. Excellence: Describes in detail both challenges with comprehensive case study evidence, explaining how they relate to rapid urbanisation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains ONE natural OR cultural challenge faced by Lagos.\n\nFor Merit:\n- Explains in detail ONE natural AND ONE cultural challenge with supporting evidence.\n\nFor Excellence:\n- Describes in detail both challenges with comprehensive case study evidence, explaining how they relate to rapid urbanisation."
     },
     {
       "id": "91429-2025-q1c",
@@ -36,11 +46,33 @@
       "text": "Evaluate the geographic impacts (environmental, social, economic, and cultural) of rapid urbanisation in Lagos.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["evaluation", "impacts", "sustainability", "urbanisation"],
+      "topics": [
+        "evaluation",
+        "impacts",
+        "sustainability",
+        "urbanisation"
+      ],
       "answerType": "text",
       "expectedAnswer": "Evaluates environmental impacts (wetland destruction, pollution, waste management crisis), social impacts (housing shortages, health risks, education access), economic impacts (informal economy growth, employment opportunities, infrastructure strain), and cultural impacts (rural-to-urban migration changing community structures, emergence of new cultural identities).",
-      "markingGuide": "Achievement: Partially analyses the impacts of urbanisation with some evidence. Merit: Analyses in detail the impacts with evidence that includes geographic skills and conventions. Excellence: Comprehensively evaluates the geographic impacts with insight, using geographic concepts and terminology. Includes detailed specific evidence, fully integrated. Analyses the positive and negative impacts to draw conclusions about sustainability."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Partially analyses the impacts of urbanisation with some evidence.\n\nFor Merit:\n- Analyses in detail the impacts with evidence that includes geographic skills and conventions.\n\nFor Excellence:\n- Comprehensively evaluates the geographic impacts with insight, using geographic concepts and terminology.\n- Includes detailed specific evidence, fully integrated.\n- Analyses the positive and negative impacts to draw conclusions about sustainability."
     }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

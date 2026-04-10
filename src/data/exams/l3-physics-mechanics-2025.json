@@ -1,6 +1,6 @@
 {
   "id": "l3-physics-mechanics-2025",
-  "title": "Level 3 Physics \u2014 Mechanics (91524) \u2014 2025",
+  "title": "Level 3 Physics — Mechanics (91524) — 2025",
   "level": 3,
   "standard": "91524",
   "year": 2025,
@@ -53,7 +53,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "p_A = 3.10 x 10.0 = 31.0. p_B = 4.50 x 12.0 = 54.0. p_tot = sqrt(31.0^2 + 54.0^2) = sqrt(961 + 2916) = sqrt(3877) = 62.3 kg m s-1. theta = arctan(54.0/31.0) = 60.2 degrees from A's direction.",
-      "markingGuide": "Achievement: Individual momenta calculated. Merit: Total momentum correct. Excellence: Size and angle correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Individual momenta calculated.\n\nFor Merit:\n- Total momentum correct.\n\nFor Excellence:\n- Size and angle correct."
     },
     {
       "id": "91524-25-q1c",
@@ -68,7 +68,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Fc = Fg: mv^2/r = GMm/r^2. v = sqrt(GM/r) = sqrt(6.67e-11 x 1.90e27 / 6.71e8) = sqrt(1.889e8) = 13740 m/s. T = 2 pi r / v = 2 pi x 6.71e8 / 13740 = 306800 s = 3.07 x 10^5 s (3.55 days).",
-      "markingGuide": "Achievement: Shows Fc = Fg. Merit: Shows v. Excellence: T correct with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Shows Fc = Fg.\n\nFor Merit:\n- Shows v.\n\nFor Excellence:\n- T correct with units."
     },
     {
       "id": "91524-25-q1d",
@@ -83,8 +83,8 @@
         "free-fall"
       ],
       "answerType": "text",
-      "expectedAnswer": "The gravitational force provides exactly the centripetal force needed for the circular orbit. The astronauts and the station are in free fall together \u2014 they accelerate toward Earth at the same rate. There is no contact (normal) force between the astronaut and the station floor, so the astronaut feels weightless. They remain in orbit because their tangential velocity means they continually fall toward Earth but miss it.",
-      "markingGuide": "Achievement: One correct statement. Merit: Two linked. Excellence: Full explanation."
+      "expectedAnswer": "The gravitational force provides exactly the centripetal force needed for the circular orbit. The astronauts and the station are in free fall together — they accelerate toward Earth at the same rate. There is no contact (normal) force between the astronaut and the station floor, so the astronaut feels weightless. They remain in orbit because their tangential velocity means they continually fall toward Earth but miss it.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct statement.\n\nFor Merit:\n- Two linked.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "91524-25-q2a",
@@ -114,7 +114,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "alpha = (0 - 3.77)/16.0 = -0.2356 rad s-2. tau = I alpha = 380 x (-0.2356) = -89.5 N m.",
-      "markingGuide": "Achievement: alpha correct. Merit: tau correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- alpha correct.\n\nFor Merit:\n- tau correct."
     },
     {
       "id": "91524-25-q2c",
@@ -129,7 +129,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "L_Hana = mvr = 48.0 x 5.80 x 1.30 = 361.9. I_Hana = mr^2 = 48.0 x 1.30^2 = 81.12. I_total = 380 + 81.12 = 461.12. L_i = L_f: 361.9 = 461.12 x omega. omega = 0.785 rad s-1.",
-      "markingGuide": "Achievement: L or I of Hana. Merit: Minor error. Excellence: omega = 0.785 rad s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- L or I of Hana.\n\nFor Merit:\n- Minor error.\n\nFor Excellence:\n- omega = 0.785 rad s-1."
     },
     {
       "id": "91524-25-q2d",
@@ -144,7 +144,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Angular momentum is conserved (no external torque). As Wiremu moves inward, I decreases (I proportional to mr^2). Since L = I omega is constant, omega increases. E_k_rot = 1/2 I omega^2 = L^2/(2I). Since I decreases and L is constant, E_k_rot increases. The extra energy comes from the work done by Wiremu as he moves inward against the centripetal tendency.",
-      "markingGuide": "Achievement: I decreases OR omega increases. Merit: Two concepts linked. Excellence: All four concepts linked."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- I decreases OR omega increases.\n\nFor Merit:\n- Two concepts linked.\n\nFor Excellence:\n- All four concepts linked."
     },
     {
       "id": "91524-25-q3a",
@@ -174,7 +174,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "T = 2 pi sqrt(L/g) = 2 pi sqrt(1.30/9.81) = 2 pi x 0.3642 = 2.288 s. omega = 2 pi/T = 2 pi/2.288 = 2.746 = 2.75 rad s-1.",
-      "markingGuide": "Achievement: T correct. Merit: omega correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- T correct.\n\nFor Merit:\n- omega correct."
     },
     {
       "id": "91524-25-q3c",
@@ -193,13 +193,36 @@
         "title": "Displacement–Time Graph for Pendulum (SHM)",
         "xLabel": "Time (s)",
         "yLabel": "Displacement (m)",
-        "xValues": [0, 0.286, 0.572, 0.858, 1.144, 1.430, 1.716, 2.002, 2.288],
+        "xValues": [
+          0,
+          0.286,
+          0.572,
+          0.858,
+          1.144,
+          1.43,
+          1.716,
+          2.002,
+          2.288
+        ],
         "series": [
-          { "name": "Displacement", "values": [0.109, 0.077, 0.0, -0.077, -0.109, -0.077, 0.0, 0.077, 0.109] }
+          {
+            "name": "Displacement",
+            "values": [
+              0.109,
+              0.077,
+              0.0,
+              -0.077,
+              -0.109,
+              -0.077,
+              0.0,
+              0.077,
+              0.109
+            ]
+          }
         ]
       },
       "expectedAnswer": "Next stationary position is at x = -0.109 m. 2.80 cm before = -0.109 + 0.028 = -0.081 m. x = A cos(omega t). -0.081 = 0.109 cos(2.75 t). cos(2.75t) = -0.7431. 2.75t = arccos(-0.7431) = 2.407 rad. t = 2.407/2.75 = 0.876 s.",
-      "markingGuide": "Achievement: Correct displacement. Merit: One error. Excellence: t = 0.876 s."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct displacement.\n\nFor Merit:\n- One error.\n\nFor Excellence:\n- t = 0.876 s."
     },
     {
       "id": "91524-25-q3d",
@@ -215,7 +238,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "This is resonance. When the driving frequency matches the natural frequency of the pendulum, energy is transferred most efficiently into the system. The driving force is in phase with the velocity, adding energy each cycle. Friction removes some energy, but at resonance, energy input exceeds loss, so amplitude builds up to a maximum.",
-      "markingGuide": "Achievement: Resonance or driving force. Merit: Force or energy explanation. Excellence: Both force and energy."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Resonance or driving force.\n\nFor Merit:\n- Force or energy explanation.\n\nFor Excellence:\n- Both force and energy."
     }
   ]
 }

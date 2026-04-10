@@ -35,7 +35,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "AsCl3 is polar. The As-Cl bonds are polar and the trigonal pyramidal shape means the dipoles do not cancel due to asymmetry caused by the lone pair.",
-      "markingGuide": "Achievement: Identifies AsCl3 as polar. Merit: Explains using bond polarity and asymmetric arrangement."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies AsCl3 as polar.\n\nFor Merit:\n- Explains using bond polarity and asymmetric arrangement."
     },
     {
       "id": "l3ct25-q1bii",
@@ -50,7 +50,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "AsCl3 has four areas of electron density (3 bonding + 1 lone pair) based on tetrahedral arrangement, giving bond angles close to 107 degrees. AsCl5 has five areas of electron density (5 bonding pairs) based on trigonal bipyramidal arrangement, with bond angles of 90 and 120 degrees.",
-      "markingGuide": "Achievement: States bond angles. Merit: Identifies different electron geometries. Excellence: Justifies the difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States bond angles.\n\nFor Merit:\n- Identifies different electron geometries.\n\nFor Excellence:\n- Justifies the difference."
     },
     {
       "id": "l3ct25-q1c",
@@ -65,7 +65,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "System entropy decreases: 2.5 gas molecules and one solid produce one gas molecule (fewer particles, less disorder). However, the reaction is exothermic, so heat released to surroundings greatly increases their entropy. The positive dS_surr outweighs the negative dS_sys, making dS_total positive.",
-      "markingGuide": "Achievement: Recognises entropy concept. Merit: Explains system OR surroundings entropy. Excellence: Justifies spontaneity with both."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises entropy concept.\n\nFor Merit:\n- Explains system OR surroundings entropy.\n\nFor Excellence:\n- Justifies spontaneity with both."
     },
     {
       "id": "l3ct25-q2ai",
@@ -99,12 +99,18 @@
         "xLabel": "Ion",
         "yLabel": "Ionic Radius (pm)",
         "data": [
-          { "label": "Fe²⁺", "value": 92 },
-          { "label": "Fe³⁺", "value": 79 }
+          {
+            "label": "Fe²⁺",
+            "value": 92
+          },
+          {
+            "label": "Fe³⁺",
+            "value": 79
+          }
         ]
       },
       "expectedAnswer": "Both Fe2+ and Fe3+ have the same nuclear charge (26 protons). Fe2+ has 24 electrons while Fe3+ has 23 electrons. Fe2+ has one more electron, so there is greater electron-electron repulsion in its outer (3d) subshell; additionally, the effective nuclear charge felt by each electron is smaller in Fe2+ than in Fe3+ because the 26 protons are attracting 24 rather than 23 electrons. This means the electron cloud in Fe2+ is pulled in less tightly, giving Fe2+ a larger ionic radius than Fe3+.",
-      "markingGuide": "Achievement: Identifies same nuclear charge but different electrons. Merit: Explains repulsion difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies same nuclear charge but different electrons.\n\nFor Merit:\n- Explains repulsion difference."
     },
     {
       "id": "l3ct25-q2bi",
@@ -133,7 +139,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "HF can form hydrogen bonds because fluorine is highly electronegative and each H-F molecule has an H atom bonded to F and lone pairs on F available to accept H-bonds from neighbouring molecules. Hydrogen bonding is much stronger than the permanent dipole-dipole and London dispersion forces in HBr. Despite HBr having a larger electron cloud (stronger dispersion forces than HF alone), the additional hydrogen bonding in HF dominates, so more energy is required per mole to vaporise HF than HBr.",
-      "markingGuide": "Achievement: Recognises electron cloud size matters. Merit: Explains difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises electron cloud size matters.\n\nFor Merit:\n- Explains difference."
     },
     {
       "id": "l3ct25-q2biii",
@@ -148,7 +154,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Despite Br2 having only London dispersion forces (no dipole-dipole or hydrogen bonding), it has a far larger electron cloud than HBr or HF because it contains two large bromine atoms (each with 35 electrons). Larger, more polarisable electron clouds produce much stronger instantaneous dipole - induced dipole (London) forces. In Br2, these dispersion forces are stronger than the combined hydrogen bonding and dispersion forces in HF and stronger than the dipole-dipole plus dispersion forces in HBr. More energy is therefore required per mole to vaporise Br2, so it has the highest DvapH of the three.",
-      "markingGuide": "Achievement: Recognises larger size gives stronger LDF. Merit: Explains Br2's large electron cloud. Excellence: Compares all three."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises larger size gives stronger LDF.\n\nFor Merit:\n- Explains Br2's large electron cloud.\n\nFor Excellence:\n- Compares all three."
     },
     {
       "id": "l3ct25-q3ai",
@@ -177,7 +183,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "For 2NO2(g) -> N2O4(g):\nDrH = DfH(N2O4) - 2 x DfH(NO2)\n-57.2 = 9.16 - 2 x DfH(NO2)\n2 x DfH(NO2) = 9.16 + 57.2 = 66.36\nDfH(NO2) = +33.2 kJ mol-1.",
-      "markingGuide": "Achievement: Correct process with one error. Merit: Correct process. Excellence: Correct answer with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct process with one error.\n\nFor Merit:\n- Correct process.\n\nFor Excellence:\n- Correct answer with units."
     },
     {
       "id": "l3ct25-q3ci",
@@ -192,7 +198,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "First find DfH(H2O(g)) = DfH(H2O(l)) + DvapH = -286 + 40.7 = -245.3 kJ mol-1.\n\nDrH = sum DfH(products) - sum DfH(reactants)\nProducts: 2 x DfH(CO2(g)) + 4 x DfH(H2O(g)) + 3 x DfH(N2(g))\n         = 2(-394) + 4(-245.3) + 3(0)\n         = -788 + (-981.2) + 0 = -1769.2 kJ\nReactants: 1 x DfH((CH3)2NNH2(l)) + 2 x DfH(N2O4(l))\n         = 50.6 + 2(-19.5) = 50.6 - 39.0 = 11.6 kJ\nDrH = -1769.2 - 11.6 = -1780.8 kJ mol-1 (approximately -1780 kJ mol-1).",
-      "markingGuide": "Achievement: Correctly manipulates one value. Merit: Correct process with one error. Excellence: Correct answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correctly manipulates one value.\n\nFor Merit:\n- Correct process with one error.\n\nFor Excellence:\n- Correct answer."
     },
     {
       "id": "l3ct25-q3cii",
@@ -207,7 +213,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The enthalpy change would be more exothermic (more negative) because energy is released when water vapour condenses to liquid (intermolecular forces form).",
-      "markingGuide": "Achievement: Recognises energy released when gas -> liquid. Merit: Explains fully."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises energy released when gas -> liquid.\n\nFor Merit:\n- Explains fully."
     },
     {
       "id": "l3ct25-q3bi",
@@ -222,7 +228,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Ca has a greater first ionisation energy than Sr. Ca has fewer occupied electron shells (its outer 4s electrons are in the n=4 shell, while Sr's outer 5s electrons are in the n=5 shell), so Ca's outer electrons are closer to the nucleus and experience less shielding from inner electrons. Ca therefore has a larger effective nuclear charge acting on its outer electrons, so more energy is required to remove the outermost electron from Ca than from Sr.",
-      "markingGuide": "Achievement: Recognises distance/shielding. Merit: Explains with distance, shielding, and effective nuclear charge."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises distance/shielding.\n\nFor Merit:\n- Explains with distance, shielding, and effective nuclear charge."
     },
     {
       "id": "l3ct25-q3bii",
@@ -237,7 +243,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Atomic radius decreases across Period 3 from Na to P. As proton number increases, the nuclear charge increases while electrons are added to the same shell. The increased nuclear attraction pulls electrons closer, decreasing radius. Shielding remains roughly constant across the period.",
-      "markingGuide": "Achievement: Recognises nuclear charge. Merit: Explains with nuclear charge and same energy level. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises nuclear charge.\n\nFor Merit:\n- Explains with nuclear charge and same energy level.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "l3ct25-q3c",
@@ -252,7 +258,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "DT = 24.8 - 20.2 = 4.6 degrees C. q = m x c x DT = 85.0 x 4.18 x 4.6 = 1634 J = 1.634 kJ (heat absorbed by solution, equal to heat released by dissolution). n(LiCl) = q / |DH| = 1.634 / 37.0 = 0.04417 mol. m(LiCl) = n x M = 0.04417 x 42.4 = 1.87 g.",
-      "markingGuide": "Achievement: Calculates heat energy. Merit: Correct process with minor error. Excellence: Correct mass with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Calculates heat energy.\n\nFor Merit:\n- Correct process with minor error.\n\nFor Excellence:\n- Correct mass with units."
     }
   ],
   "totalMarks": 24,

@@ -18,7 +18,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "41",
-      "markingGuide": "f'(x) = 12x² – 6x + 5. f'(2) = 48 – 12 + 5 = 41."
+      "markingGuide": "Step 1: f'(x) = 12x² – 6x + 5.\n\nStep 2: f'(2) = 48 – 12 + 5 = 41."
     },
     {
       "id": "l2c24-q1b",
@@ -31,7 +31,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f(x) = 6x – 2x² + 4x³ + 1",
-      "markingGuide": "f(x) = 6x – 2x² + 4x³ + c. f(1) = 6 – 2 + 4 + c = 8 + c = 9. c = 1. f(x) = 6x – 2x² + 4x³ + 1."
+      "markingGuide": "Step 1: f(x) = 6x – 2x² + 4x³ + c.\n\nStep 2: f(1) = 6 – 2 + 4 + c = 8 + c = 9.\n\nStep 3: c = 1.\n\nStep 4: f(x) = 6x – 2x² + 4x³ + 1."
     },
     {
       "id": "l2c24-q1ci",
@@ -45,17 +45,39 @@
       ],
       "answerType": "working",
       "expectedAnswer": "x = 4",
-      "markingGuide": "dy/dx = 6x² – 18x – 24 = 6(x² – 3x – 4) = 6(x – 4)(x + 1). Set dy/dx = 0: x = 4 or x = –1. d²y/dx² = 12x – 18. At x = 4: 12(4) – 18 = 30 > 0, so x = 4 is a local minimum. (At x = –1: 12(–1) – 18 = –30 < 0, so x = –1 is a local maximum.) Merit = correct identification with justification.",
+      "markingGuide": "Step 1: dy/dx = 6x² – 18x – 24 = 6(x² – 3x – 4) = 6(x – 4)(x + 1).\n\nStep 2: Set dy/dx = 0: x = 4 or x = –1.\n\nStep 3: d²y/dx² = 12x – 18.\n\nStep 4: At x = 4: 12(4) – 18 = 30 > 0, so x = 4 is a local minimum.\n\nStep 5: (At x = –1: 12(–1) – 18 = –30 < 0, so x = –1 is a local maximum.) Merit = correct identification with justification.",
       "graph": {
         "type": "line",
         "title": "Cubic y = 2x³ – 9x² – 24x + 5",
         "xLabel": "x",
         "yLabel": "y",
-        "xValues": [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6],
+        "xValues": [
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
         "series": [
           {
             "name": "y",
-            "values": [-58, 1, 18, 5, -26, -63, -94, -107, -90, -31],
+            "values": [
+              -58,
+              1,
+              18,
+              5,
+              -26,
+              -63,
+              -94,
+              -107,
+              -90,
+              -31
+            ],
             "color": "#6366f1"
           }
         ]
@@ -73,7 +95,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "d²y/dx² = 12x – 18. At x = 4: 48 – 18 = 30 > 0, so minimum.",
-      "markingGuide": "d²y/dx² = 12x – 18. At x=4: 30 > 0 (minimum). At x=–1: –30 < 0 (maximum). Excellence = correct identification and justification."
+      "markingGuide": "Step 1: d²y/dx² = 12x – 18.\n\nStep 2: At x=4: 30 > 0 (minimum).\n\nStep 3: At x=–1: –30 < 0 (maximum).\n\nStep 4: Excellence = correct identification and justification.\n\nFinal answer: d²y/dx² = 12x – 18. At x = 4: 48 – 18 = 30 > 0, so minimum.."
     },
     {
       "id": "l2c24-q1d",
@@ -87,7 +109,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "r ≈ 4.30 cm, h ≈ 8.60 cm",
-      "markingGuide": "h = 500/(πr²). SA = 2πr² + 1000/r. dSA/dr = 4πr – 1000/r² = 0. 4πr³ = 1000. r³ = 250/π ≈ 79.58. r ≈ 4.30 cm. h ≈ 8.60 cm."
+      "markingGuide": "Step 1: h = 500/(πr²).\n\nStep 2: SA = 2πr² + 1000/r.\n\nStep 3: dSA/dr = 4πr – 1000/r² = 0.\n\nStep 4: 4πr³ = 1000.\n\nStep 5: r³ = 250/π ≈ 79.58.\n\nStep 6: r ≈ 4.30 cm.\n\nStep 7: h ≈ 8.60 cm.\n\nFinal answer: r ≈ 4.30 cm, h ≈ 8.60 cm."
     },
     {
       "id": "l2c24-q2a",
@@ -101,7 +123,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A straight line sloping downward, crossing x-axis at x = 3.",
-      "markingGuide": "g(x) is a downward parabola so g'(x) is a negatively-sloped line. g'(x) = 0 at x = 3 (vertex). g'(x) > 0 for x < 3, g'(x) < 0 for x > 3. Achieved = correct shape or intercept. Merit = both correct."
+      "markingGuide": "Step 1: g(x) is a downward parabola so g'(x) is a negatively-sloped line.\n\nStep 2: g'(x) = 0 at x = 3 (vertex).\n\nStep 3: g'(x) > 0 for x < 3, g'(x) < 0 for x > 3.\n\nStep 4: Achieved = correct shape or intercept.\n\nStep 5: Merit = both correct.\n\nFinal answer: A straight line sloping downward, crossing x-axis at x = 3.."
     },
     {
       "id": "l2c24-q2b",
@@ -115,7 +137,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = 3x + 10",
-      "markingGuide": "g'(x) = –6 + 9x². g'(–1) = –6 + 9 = 3. Tangent: y – 7 = 3(x + 1). y = 3x + 3 + 7 = 3x + 10."
+      "markingGuide": "Step 1: g'(x) = –6 + 9x².\n\nStep 2: g'(–1) = –6 + 9 = 3.\n\nStep 3: Tangent: y – 7 = 3(x + 1).\n\nStep 4: y = 3x + 3 + 7 = 3x + 10.\n\nFinal answer: y = 3x + 10."
     },
     {
       "id": "l2c24-q2ci",
@@ -129,7 +151,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Decreasing at 60 people per day",
-      "markingGuide": "N'(t) = 3t² – 108t + 720. N'(10) = 300 – 1080 + 720 = –60. Decreasing at 60 people per day.",
+      "markingGuide": "Step 1: N'(t) = 3t² – 108t + 720.\n\nStep 2: N'(10) = 300 – 1080 + 720 = –60.\n\nStep 3: Decreasing at 60 people per day.",
       "graph": {
         "type": "line",
         "title": "Virus Infection Over Time",
@@ -174,7 +196,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "4096 fewer people (N(0) = 20000, N(32) = 15904, so population drops by 4096 before growing again)",
-      "markingGuide": "N'(t) = 3t² – 120t + 768 = 0. t² – 40t + 256 = 0. (t–8)(t–32) = 0. t = 8 (max), t = 32 (min). N(0) = 20000. N(32) = 32768 – 61440 + 24576 + 20000 = 15904. Change = 20000 – 15904 = 4096 fewer people."
+      "markingGuide": "Step 1: N'(t) = 3t² – 120t + 768 = 0.\n\nStep 2: t² – 40t + 256 = 0.\n\nStep 3: (t–8)(t–32) = 0.\n\nStep 4: t = 8 (max), t = 32 (min).\n\nStep 5: N(0) = 20000.\n\nStep 6: N(32) = 32768 – 61440 + 24576 + 20000 = 15904.\n\nStep 7: Change = 20000 – 15904 = 4096 fewer people.\n\nFinal answer: 4096 fewer people (N(0) = 20000, N(32) = 15904, so population drops by 4096 before growing again)."
     },
     {
       "id": "l2c24-q2d",
@@ -188,17 +210,37 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Maximum area when a = 3.2 (= 16/5), area ≈ 40.96",
-      "markingGuide": "Heights at x = a and x = 2a: y₁ = 8a – a², y₂ = 16a – 4a². Width of trapezium = 2a – a = a. Area A = ½(y₁ + y₂) × a = ½(24a – 5a²) × a = 12a² – (5/2)a³. A'(a) = 24a – (15/2)a² = a(24 – 15a/2) = 0. Reject a = 0. Then 24 = 15a/2, so a = 48/15 = 16/5 = 3.2 (within 0 ≤ a ≤ 4). A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96. Check A''(a) = 24 – 15a; at a = 3.2, A'' = 24 – 48 = –24 < 0, confirming a maximum. Maximum area ≈ 40.96. Excellence = correct maximum with calculus working and verification.",
+      "markingGuide": "Step 1: Heights at x = a and x = 2a: y₁ = 8a – a², y₂ = 16a – 4a².\n\nStep 2: Width of trapezium = 2a – a = a.\n\nStep 3: Area A = ½(y₁ + y₂) × a = ½(24a – 5a²) × a = 12a² – (5/2)a³.\n\nStep 4: A'(a) = 24a – (15/2)a² = a(24 – 15a/2) = 0.\n\nStep 5: Reject a = 0.\n\nStep 6: Then 24 = 15a/2, so a = 48/15 = 16/5 = 3.2 (within 0 ≤ a ≤ 4).\n\nStep 7: A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96.\n\nStep 8: Check A''(a) = 24 – 15a;.\n\nStep 9: at a = 3.2, A'' = 24 – 48 = –24 < 0, confirming a maximum.\n\nStep 10: Maximum area ≈ 40.96.\n\nStep 11: Excellence = correct maximum with calculus working and verification.\n\nFinal answer: Maximum area when a = 3.2 (= 16/5), area ≈ 40.96.",
       "graph": {
         "type": "line",
         "title": "Parabola y = 8x – x²",
         "xLabel": "x",
         "yLabel": "y",
-        "xValues": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        "xValues": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
         "series": [
           {
             "name": "y",
-            "values": [0, 7, 12, 15, 16, 15, 12, 7, 0],
+            "values": [
+              0,
+              7,
+              12,
+              15,
+              16,
+              15,
+              12,
+              7,
+              0
+            ],
             "color": "#22c55e"
           }
         ]
@@ -215,7 +257,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "(9, 7.5)",
-      "markingGuide": "h'(x) = x – 4. Set = 5: x = 9. h(9) = 0.5(81) – 36 + 3 = 40.5 – 36 + 3 = 7.5. Point is (9, 7.5)."
+      "markingGuide": "Step 1: h'(x) = x – 4.\n\nStep 2: Set = 5: x = 9.\n\nStep 3: h(9) = 0.5(81) – 36 + 3 = 40.5 – 36 + 3 = 7.5.\n\nStep 4: Point is (9, 7.5)."
     },
     {
       "id": "l2c24-q3b",
@@ -229,7 +271,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "60 m",
-      "markingGuide": "v(t) = 1.2t. Time to 12 m/s: t = 10 s. d(t) = 0.6t². d(10) = 0.6 × 100 = 60 m."
+      "markingGuide": "Step 1: v(t) = 1.2t.\n\nStep 2: Time to 12 m/s: t = 10 s.\n\nStep 3: d(t) = 0.6t².\n\nStep 4: d(10) = 0.6 × 100 = 60 m."
     },
     {
       "id": "l2c24-q3c",
@@ -244,22 +286,70 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f(x) = 0.5x² + 3x – 13.5. Roots at x = –9 and x = 3, minimum at (–3, –18).",
-      "markingGuide": "f(x) = 0.5x² + 3x + c. f(3) = 4.5 + 9 + c = 0. c = –13.5. f(x) = 0.5x² + 3x – 13.5. Min at x = –3: f(–3) = 4.5 – 9 – 13.5 = –18. Roots: 0.5x²+3x–13.5=0 → x²+6x–27=0 → (x+9)(x–3)=0. x = –9, 3.",
+      "markingGuide": "Step 1: f(x) = 0.5x² + 3x + c.\n\nStep 2: f(3) = 4.5 + 9 + c = 0.\n\nStep 3: c = –13.5.\n\nStep 4: f(x) = 0.5x² + 3x – 13.5.\n\nStep 5: Min at x = –3: f(–3) = 4.5 – 9 – 13.5 = –18.\n\nStep 6: Roots: 0.5x²+3x–13.5=0 → x²+6x–27=0 → (x+9)(x–3)=0.\n\nStep 7: x = –9, 3.\n\nFinal answer: f(x) = 0.5x² + 3x – 13.5. Roots at x = –9 and x = 3, minimum at (–3, –18)..",
       "graph": {
         "type": "line",
         "title": "f(x) and its derivative f'(x)",
         "xLabel": "x",
         "yLabel": "y",
-        "xValues": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+        "xValues": [
+          -10,
+          -9,
+          -8,
+          -7,
+          -6,
+          -5,
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
         "series": [
           {
             "name": "f(x) = 0.5x² + 3x – 13.5",
-            "values": [6.5, 0, -5.5, -10, -13.5, -16, -17.5, -18, -17.5, -16, -13.5, -10, -5.5, 0, 6.5],
+            "values": [
+              6.5,
+              0,
+              -5.5,
+              -10,
+              -13.5,
+              -16,
+              -17.5,
+              -18,
+              -17.5,
+              -16,
+              -13.5,
+              -10,
+              -5.5,
+              0,
+              6.5
+            ],
             "color": "#6366f1"
           },
           {
             "name": "f'(x) = x + 3",
-            "values": [-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7],
+            "values": [
+              -7,
+              -6,
+              -5,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
             "color": "#ef4444"
           }
         ]
@@ -277,7 +367,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "W_min = 5k²/6",
-      "markingGuide": "W = x² + 5(k–x)² = x² + 5k² – 10kx + 5x² = 6x² – 10kx + 5k². W' = 12x – 10k = 0. x = 5k/6. W = 6(25k²/36) – 10k(5k/6) + 5k² = 25k²/6 – 50k²/6 + 30k²/6 = 5k²/6."
+      "markingGuide": "Step 1: W = x² + 5(k–x)² = x² + 5k² – 10kx + 5x² = 6x² – 10kx + 5k².\n\nStep 2: W' = 12x – 10k = 0.\n\nStep 3: x = 5k/6.\n\nStep 4: W = 6(25k²/36) – 10k(5k/6) + 5k² = 25k²/6 – 50k²/6 + 30k²/6 = 5k²/6.\n\nFinal answer: W_min = 5k²/6."
     }
   ],
   "cutScores": {

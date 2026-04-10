@@ -20,7 +20,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "A: Summer, B: Autumn, C: Winter, D: Spring",
-      "markingGuide": "Achievement: Correctly label all four seasons in the Southern Hemisphere at the appropriate orbital positions. Summer when tilted toward Sun (December), winter when tilted away (June), and autumn/spring at the equinoxes.",
+      "markingGuide": "Achievement: Correctly label all four seasons in the Southern Hemisphere at the appropriate orbital positions.\n\nSummer when tilted toward Sun (December), winter when tilted away (June), and autumn/spring at the equinoxes.",
       "graph": {
         "type": "table",
         "title": "Earth's Orbital Positions",
@@ -106,7 +106,7 @@
         ]
       },
       "expectedAnswer": "The Earth is on a tilt of 23.5 degrees relative to its orbital plane.",
-      "markingGuide": "Achievement: States the tilt and orbit of the Earth, and explains the relationship between seasons. Merit: Explains why the Southern Hemisphere experiences the differences in temperature through comparing solar radiation intensity at different times of year. Excellence: Discusses why the temperature changes throughout the year by linking tilt, orbit, solar radiation intensity (angle of incidence) and seasonal temperature changes comprehensively."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States the tilt and orbit of the Earth, and explains the relationship between seasons.\n\nFor Merit:\n- Explains why the Southern Hemisphere experiences the differences in temperature through comparing solar radiation intensity at different times of year.\n\nFor Excellence:\n- Discusses why the temperature changes throughout the year by linking tilt, orbit, solar radiation intensity (angle of incidence) and seasonal temperature changes comprehensively."
     },
     {
       "id": "92046-25-q1c",
@@ -121,7 +121,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The Earth spins once on its axis every 24 hours, creating day and night.",
-      "markingGuide": "Achievement: Describes why we have day and night (Earth's rotation), and describes the height of the Sun for the seasons. Merit: Explains the differences in daylength between summer and winter by linking tilt and Sun height. Excellence: Discusses why daylength changes throughout the year, comprehensively linking Earth's rotation, axial tilt, Sun height, and the resulting differences in sunrise/sunset times.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes why we have day and night (Earth's rotation), and describes the height of the Sun for the seasons.\n\nFor Merit:\n- Explains the differences in daylength between summer and winter by linking tilt and Sun height.\n\nFor Excellence:\n- Discusses why daylength changes throughout the year, comprehensively linking Earth's rotation, axial tilt, Sun height, and the resulting differences in sunrise/sunset times.",
       "graph": {
         "type": "table",
         "title": "Christchurch Sunrise and Sunset Times",
@@ -158,7 +158,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "New Moon, First Quarter, Full Moon, Third Quarter",
-      "markingGuide": "Achievement: 3 out of 4 Moon phases correctly named. The phases correspond to the Moon's position relative to Earth and Sun.",
+      "markingGuide": "Achievement: 3 out of 4 Moon phases correctly named.\n\nThe phases correspond to the Moon's position relative to Earth and Sun.",
       "graph": {
         "type": "table",
         "title": "Moon Phases",
@@ -200,7 +200,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The Moon is visible because sunlight reflects off its surface.",
-      "markingGuide": "Achievement: Describes the position of Moon and Sun for new and full moon, states that the Moon is lit by the Sun, describes changes in the Moon's appearance. Merit: Explains the position of Earth, Moon, and the Sun during the phases of the Moon, explains the Moon phases using relative position. Excellence: Uses the Moon's position and observers' location to discuss how the Moon phases appear from different locations on Earth, including that the illuminated portion appears reversed between hemispheres."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the position of Moon and Sun for new and full moon, states that the Moon is lit by the Sun, describes changes in the Moon's appearance.\n\nFor Merit:\n- Explains the position of Earth, Moon, and the Sun during the phases of the Moon, explains the Moon phases using relative position.\n\nFor Excellence:\n- Uses the Moon's position and observers' location to discuss how the Moon phases appear from different locations on Earth, including that the illuminated portion appears reversed between hemispheres."
     },
     {
       "id": "92046-25-q2c",
@@ -214,7 +214,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "A lunar eclipse occurs when the Earth is directly between the Sun and the Moon, and the Moon passes through Earth's shadow.",
-      "markingGuide": "Achievement: Describes that a lunar eclipse requires alignment of Sun, Earth, and Moon. Merit: Explains that the Moon's orbital plane is tilted about 5° relative to Earth's orbital plane, so most full Moons pass above or below Earth's shadow. Excellence: Discusses the orbital tilt comprehensively, including nodes (points where the orbits cross), and explains that eclipses only occur when a full Moon coincides with the Moon being near a node."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes that a lunar eclipse requires alignment of Sun, Earth, and Moon.\n\nFor Merit:\n- Explains that the Moon's orbital plane is tilted about 5° relative to Earth's orbital plane, so most full Moons pass above or below Earth's shadow.\n\nFor Excellence:\n- Discusses the orbital tilt comprehensively, including nodes (points where the orbits cross), and explains that eclipses only occur when a full Moon coincides with the Moon being near a node."
     },
     {
       "id": "92046-25-q3a",
@@ -244,7 +244,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "An equinox is when New Zealand experiences approximately equal day and night lengths.",
-      "markingGuide": "Achievement: Defines equinox OR solstice, describes the changing position of the Sun rising and setting throughout the year. Merit: Explains the changing daylengths by linking location of sunrise and sunset with Sun's apparent path throughout the year, explains differences between Whangārei and Stewart Island. Excellence: Discusses why the daylength changes throughout the year at the two locations based on latitude, tilt, and Sun's apparent path comprehensively."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Defines equinox OR solstice, describes the changing position of the Sun rising and setting throughout the year.\n\nFor Merit:\n- Explains the changing daylengths by linking location of sunrise and sunset with Sun's apparent path throughout the year, explains differences between Whangārei and Stewart Island.\n\nFor Excellence:\n- Discusses why the daylength changes throughout the year at the two locations based on latitude, tilt, and Sun's apparent path comprehensively."
     },
     {
       "id": "92046-25-q3c",
@@ -259,7 +259,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "At the spring equinox, the Sun is directly above the Equator.",
-      "markingGuide": "Achievement: Describes the angle of the Sun at noon between the two locations. Merit: Explains why the differences in angles occur, linking latitude and curvature of Earth. Excellence: Discusses shadow differences in both length and direction between the two locations, comprehensively linking sun angle, latitude and shadow effects."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the angle of the Sun at noon between the two locations.\n\nFor Merit:\n- Explains why the differences in angles occur, linking latitude and curvature of Earth.\n\nFor Excellence:\n- Discusses shadow differences in both length and direction between the two locations, comprehensively linking sun angle, latitude and shadow effects."
     }
   ],
   "cutScores": {

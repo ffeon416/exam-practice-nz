@@ -14,10 +14,31 @@
       "text": "Answer ONE of the following questions with reference to one or more classical art works or buildings. You must answer using paragraphs. Support your answer with evidence from one or more classical art works or buildings. Aim for a concise answer of no more than 5-6 pages.\n\nQuestion 1: Discuss the extent to which the pursuit of perfection characterised the style of one or more classical art works.\n\nQuestion 2: Discuss the extent to which themes of struggle or triumph were central to one or more classical art works.\n\nQuestion 3: Discuss the significance of storytelling as a feature of one or more classical art works.\n\nQuestion 4: Discuss the extent to which civic and/or spiritual beliefs shaped the design and purpose of one or more classical art works.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["classical-art-works", "classical-architecture", "classical-analysis"],
+      "topics": [
+        "classical-art-works",
+        "classical-architecture",
+        "classical-analysis"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement (3-4 marks): Analyse the significance by undertaking a methodical examination and interpretation of the features and effect(s) of the work(s) of art in their artistic and/or historical context. Discuss the work(s) of art in light of that examination, use primary-source evidence, and draw conclusions. The candidate shows a general understanding of the ways works of art reflect the social, political, religious, and/or artistic environment and draws general conclusions. May lack specific detail. Merit (5-6 marks): Analyse in-depth, the significance by providing an informed and coherent discussion of the features and effect(s). Integrate ideas, make comparisons, and draw conclusions supported by primary-source evidence. The candidate shows an in-depth understanding and draws well-supported conclusions. The response covers most aspects but treatment may be unbalanced. Excellence (7-8 marks): Analyse with perception, the significance by discussing with insight the features and effect(s). Give evidence of artistic influence, provide critical evaluation, show understanding of wider implications, and draw developed conclusions. The discussion is sophisticated and reveals an ability to synthesise information; insightful links to historical events and/or artistic developments clarify the wider implications. Modern art historical criticism may be cited."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Analyse the significance by undertaking a methodical examination and interpretation of the features and effect(s) of the work(s) of art in their artistic and/or historical context.\n- Discuss the work(s) of art in light of that examination, use primary-source evidence, and draw conclusions.\n- The candidate shows a general understanding of the ways works of art reflect the social, political, religious, and/or artistic environment and draws general conclusions.\n- May lack specific detail.\n\nFor Merit:\n- Analyse in-depth, the significance by providing an informed and coherent discussion of the features and effect(s).\n- Integrate ideas, make comparisons, and draw conclusions supported by primary-source evidence.\n- The candidate shows an in-depth understanding and draws well-supported conclusions.\n- The response covers most aspects but treatment may be unbalanced.\n\nFor Excellence:\n- Analyse with perception, the significance by discussing with insight the features and effect(s).\n- Give evidence of artistic influence, provide critical evaluation, show understanding of wider implications, and draw developed conclusions.\n- The discussion is sophisticated and reveals an ability to synthesise information.\n- insightful links to historical events and/or artistic developments clarify the wider implications.\n- Modern art historical criticism may be cited."
     }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

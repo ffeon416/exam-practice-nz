@@ -83,7 +83,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "For closed pipe, harmonics are odd: L = 5 lambda/4. lambda = 4L/5 = 4 x 0.095/5 = 0.0760 m. f = v/lambda = 343/0.0760 = 4513 Hz.",
-      "markingGuide": "Achievement: Correct wavelength. Merit: Correct frequency with working."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct wavelength.\n\nFor Merit:\n- Correct frequency with working."
     },
     {
       "id": "91523-24-q1c",
@@ -99,7 +99,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Sound waves reflect off the closed end with a 180 degree phase change (node at closed end). The reflected wave superposes with the incident wave. Only odd harmonics can form because the tube must have a node at the closed end and an antinode at the open end, which requires odd multiples of quarter wavelengths.",
-      "markingGuide": "Achievement: Wave reflects. Merit: Odd harmonics with quarter wavelength requirement. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Wave reflects.\n\nFor Merit:\n- Odd harmonics with quarter wavelength requirement.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "91523-24-q1d",
@@ -115,7 +115,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f_beat = |f1 - f2|. 7 = |477 - f2|. f2 = 470 Hz (longer tube = lower frequency). v = f lambda, lambda = v/f = 343/470 = 0.7298 m. L = lambda/4 = 0.18245 m. DL = 0.18245 - 0.180 = 0.00245 m = 2.45 mm. As the tube is shortened, the beat frequency decreases until no beat is heard when the frequencies match.",
-      "markingGuide": "Achievement: f2 = 470 Hz. Merit: Correct length or beat explanation. Excellence: Both correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- f2 = 470 Hz.\n\nFor Merit:\n- Correct length or beat explanation.\n\nFor Excellence:\n- Both correct."
     },
     {
       "id": "91523-24-q2a",
@@ -145,7 +145,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "d = 1/300000 = 3.333 x 10^-6 m. n_max = d sin 90 / lambda = 3.333e-6 / 532e-9 = 6.26. n_max = 6. Total = 6 + 6 + 1 = 13 dots.",
-      "markingGuide": "Achievement: d correct. Merit: n_max found. Excellence: 13 total dots."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- d correct.\n\nFor Merit:\n- n_max found.\n\nFor Excellence:\n- 13 total dots."
     },
     {
       "id": "91523-24-q2c",
@@ -161,7 +161,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Two-slit pattern: maxima further apart (larger d), less bright (only 2 slits), less well-defined (gradual change rather than sharp peaks).",
-      "markingGuide": "Achievement: ONE difference. Merit: Justify ONE. Excellence: Justify THREE."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE difference.\n\nFor Merit:\n- Justify ONE.\n\nFor Excellence:\n- Justify THREE."
     },
     {
       "id": "91523-24-q2d",
@@ -177,7 +177,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "White light contains many wavelengths. From n lambda = d sin theta, longer wavelength (red) diffracts at larger angle, shorter wavelength (violet) at smaller angle. So violet appears closest to the centre and red furthest away in each order.",
-      "markingGuide": "Achievement: Identifies wavelength difference. Merit: Justifies using formula. Excellence: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies wavelength difference.\n\nFor Merit:\n- Justifies using formula.\n\nFor Excellence:\n- Complete answer."
     },
     {
       "id": "91523-24-q3a",
@@ -208,7 +208,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The wave fronts bunch up in front of the approaching ambulance, so apparent wavelength decreases. The speed of sound remains constant. Therefore frequency increases (v = f lambda with v constant and lambda smaller).",
-      "markingGuide": "Achievement: Wave fronts bunch. Merit: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Wave fronts bunch.\n\nFor Merit:\n- Full explanation."
     },
     {
       "id": "91523-24-q3c",
@@ -223,7 +223,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f_app(v-vs) = f_rec(v+vs). 1350(343-vs) = 1240(343+vs). 463050 - 1350vs = 425320 + 1240vs. 37730 = 2590vs. vs = 14.6 m s-1.",
-      "markingGuide": "Achievement: Correct equation setup. Merit: One error. Excellence: vs = 14.6 m s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct equation setup.\n\nFor Merit:\n- One error.\n\nFor Excellence:\n- vs = 14.6 m s-1."
     },
     {
       "id": "91523-24-q3di",
@@ -238,7 +238,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The graph shows increasing frequency as the ambulance approaches. This indicates the ambulance is accelerating — as it gets closer and faster, wave fronts bunch up more, increasing the apparent frequency.",
-      "markingGuide": "Achievement: Increasing frequency. Merit: Justify with acceleration."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Increasing frequency.\n\nFor Merit:\n- Justify with acceleration."
     },
     {
       "id": "91523-24-q3dii",
@@ -267,7 +267,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Decreasing frequency as the ambulance recedes and accelerates away. The wave fronts spread out more as the velocity increases relative to the observers.",
-      "markingGuide": "Achievement: Decreasing frequency. Merit: Justified with acceleration."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Decreasing frequency.\n\nFor Merit:\n- Justified with acceleration."
     }
   ]
 }

@@ -14,15 +14,30 @@
       "text": "Produce a piece of writing in te reo Māori (at least 150 words) on ONE of the following topics. Kuputaka/glossed vocabulary is provided to help but does not have to be included in your writing.\n\nTopic 1: Whakatairitea ētahi hākinakina e rua. Whakamāramatia mai ko tēhea te mea pai ake.\nCompare and contrast two sports. Explain which is better.\nKuputaka: kaha = strong; tere = fast; pārekareka = fun; uaua = difficult; hauora = health/fitness; rōpū = team\n\nTopic 2: Matapakina mai tētahi raru i tō hapori. He aha ētahi rautaki hei whakaea i tēnei raru?\nDiscuss a problem in your community. What are some solutions?\nKuputaka: taiao = environment; para = rubbish; waka = transport; huarahi = road; hauora = health; rangatahi = young people\n\nTopic 3: Tuhia mai tētahi kōrero mō tō rā tuatahi ki te kura hou. He aha ō kare ā-roto?\nWrite about your first day at a new school. What were your feelings?\nKuputaka: āwangawanga = worried; koa = happy; whakamā = shy; hoa = friend; kaiako = teacher; akomanga = classroom\n\nTopic 4: Whakatairitea tō tino wāhi ki tētahi atu wāhi kāore e pai ki a koe. He aha ngā rerekētanga me ngā ōritenga?\nCompare and contrast your favourite place with another place you don't like. What are the differences and similarities?\nKuputaka: ātaahua = beautiful; makariri = cold; wera = hot; ngahere = forest; moana = sea; tāone = town\n\nTopic 5: Ko wai tō tino tangata i roto i tō whānau, ā, he aha te take he tino tangata ia ki a koe?\nWho is the most important person in your whānau, and why are they so important to you?\nKuputaka: aroha = love; manaaki = to care for; tohutohu = to guide/advise; tautoko = to support; kaha = strong; māia = brave",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["tuhituhi-writing-l1", "reo-expression-l1"],
+      "topics": [
+        "tuhituhi-writing-l1",
+        "reo-expression-l1"
+      ],
       "answerType": "working",
-      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 150 words in te reo Māori only.\n\nAchieved (Paetae 3-4): Writes in te reo Māori on one of the topics. Writing is understandable and communication of ideas is mostly achieved. Shows sufficient basic evidence from Curriculum Levels 5 and 6. Contains errors but a few words in English for unknown translations are acceptable if infrequent. Simplistic ideas with few details or opinions.\n\nMerit (Kaiaka 5-6): Writes in te reo Māori on one of the topics and adheres to the specific instructions. Writing is understandable with effective communication of ideas. Shows a range of complex evidence from Curriculum Levels 5 and 6. Contains few errors. Shows depth and regularly provides details and opinions.\n\nExcellence (Kairangi 7-8): Comprehensive response in te reo Māori that shows a thorough understanding of the instructions. Communication of ideas is extensive. Shows a wide range of sophisticated evidence from Curriculum Levels 5 and 6. Contains minimal errors. Well-crafted response that is convincing; reasons and opinions are effectively placed and validate the candidate's ideas."
+      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 150 words in te reo Māori only.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Writes in te reo Māori on one of the topics.\n- Writing is understandable and communication of ideas is mostly achieved.\n- Shows sufficient basic evidence from Curriculum Levels 5 and 6.\n- Contains errors but a few words in English for unknown translations are acceptable if infrequent.\n- Simplistic ideas with few details or opinions.\n\nFor Merit:\n- Writes in te reo Māori on one of the topics and adheres to the specific instructions.\n- Writing is understandable with effective communication of ideas.\n- Shows a range of complex evidence from Curriculum Levels 5 and 6.\n- Contains few errors.\n- Shows depth and regularly provides details and opinions.\n\nFor Excellence:\n- Comprehensive response in te reo Māori that shows a thorough understanding of the instructions.\n- Communication of ideas is extensive.\n- Shows a wide range of sophisticated evidence from Curriculum Levels 5 and 6.\n- Contains minimal errors.\n- Well-crafted response that is convincing.\n- reasons and opinions are effectively placed and validate the candidate's ideas."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

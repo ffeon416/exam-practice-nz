@@ -50,7 +50,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Going concern assumes the entity will continue operating into the foreseeable future. Purchasing a $35,000 van and signing a 4-year lease demonstrate Sam's intention and expectation that the business will continue operating for at least 4 years. Without this assumption, assets would need to be reported at liquidation value rather than historical cost.",
-      "markingGuide": "A: Defines going concern. M: Links van purchase and lease to continued operation. E: Explains implications for financial reporting."
+      "markingGuide": "A: Defines going concern.\n\nM: Links van purchase and lease to continued operation.\n\nE: Explains implications for financial reporting."
     },
     {
       "id": "l2af25-q2b",
@@ -65,7 +65,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Grooming van reported as non-current asset (PPE) at $35,000. Asset characteristics: (1) controlled by the entity (owned), (2) as a result of a past event (purchased in February), (3) from which future economic benefits are expected (used to generate grooming income over several years).",
-      "markingGuide": "A: Identifies as non-current asset. M: Explains asset characteristics with context. E: Links all three characteristics and justifies amount."
+      "markingGuide": "A: Identifies as non-current asset.\n\nM: Explains asset characteristics with context.\n\nE: Links all three characteristics and justifies amount."
     },
     {
       "id": "l2af25-q2c",
@@ -96,7 +96,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Accrual basis: transactions recorded when earned, not when cash received. The $4,250 deposits are not revenue yet because the grooming service hasn't been provided. Income Statement: no revenue recognised for these deposits. SFP: reported as a current liability (income in advance) because Sam has an obligation to either provide the service or refund the deposit.",
-      "markingGuide": "A: Identifies deposits not as revenue. M: Explains accrual basis and correct SFP treatment. E: Fully justifies classification as current liability."
+      "markingGuide": "A: Identifies deposits not as revenue.\n\nM: Explains accrual basis and correct SFP treatment.\n\nE: Fully justifies classification as current liability."
     },
     {
       "id": "l2af25-q3b",
@@ -111,7 +111,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Materiality: information is material if omitting/misstating it could influence decisions. The separation reveals that both grooming and retail dipped in July (likely winter slowdown) but retail recovered strongly in August. If reported as one total, Sam might not see the different recovery patterns. This helps Sam plan staffing and stock purchases — e.g., ordering more retail products for the spring uptick.",
-      "markingGuide": "A: Defines materiality. M: Identifies seasonal patterns. E: Discusses how separation aids decision-making about business strategy.",
+      "markingGuide": "A: Defines materiality.\n\nM: Identifies seasonal patterns.\n\nE: Discusses how separation aids decision-making about business strategy.",
       "graph": {
         "type": "bar",
         "title": "Rata Dog Grooming — Quarterly Revenue Breakdown",

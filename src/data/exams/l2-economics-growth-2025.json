@@ -309,7 +309,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Graph Two (A to B): Movement along the PPF means the economy is still operating efficiently but has changed its allocation of resources (e.g., a decline in a key export market might shift production patterns). Graph Three (C to D): Movement inside the PPF means resources are underutilised — this represents a recession with unemployment and idle capacity. Graph Three is worse for long-term growth because underutilised resources generate no return and workers lose skills during unemployment, reducing future productive capacity.",
-      "markingGuide": "Compares causes (reallocation vs underutilisation) and effects (still efficient vs inefficient). Assesses which is worse for long-term growth with reasoning."
+      "markingGuide": "Compares causes (reallocation vs underutilisation) and effects (still efficient vs inefficient).\n\nAssesses which is worse for long-term growth with reasoning."
     }
   ]
 }

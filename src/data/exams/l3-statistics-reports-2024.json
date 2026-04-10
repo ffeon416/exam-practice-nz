@@ -20,7 +20,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The margin of error of 4.1% means that we can be reasonably confident (95% confident) that the true proportion of all New Zealanders who believe electric vehicles should be subsidised lies within 4.1 percentage points of the sample estimate. That is, approximately between 50.9% and 59.1%.",
-      "markingGuide": "Achieved: States that the true proportion is likely within 4.1% of 55%, or gives the interval 50.8%–59.1%. Merit: Explains that this gives a confidence interval and relates it to the population parameter. Excellence: Explains the concept fully — connects to sampling variability, notes the 95% confidence level, and correctly interprets in context."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States that the true proportion is likely within 4.1% of 55%, or gives the interval 50.8%–59.1%.\n\nFor Merit:\n- Explains that this gives a confidence interval and relates it to the population parameter.\n\nFor Excellence:\n- Explains the concept fully — connects to sampling variability, notes the 95% confidence level, and correctly interprets in context."
     },
     {
       "id": "stat584-24-q1b",
@@ -34,7 +34,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "1. Self-selection bias / voluntary response bias: Only people who choose to click on the link and complete the survey will respond. People with strong opinions about vehicle subsidies are more likely to participate, which could skew results.\n2. Non-representative sampling frame: Only people who follow the website's social media can see the survey. This excludes people who don't use social media and may over-represent younger, more tech-savvy demographics who are more likely to support free transport for their age group.",
-      "markingGuide": "Achieved: Identifies one source of bias with a brief explanation. Merit: Identifies two distinct sources of bias with clear explanations of how each could affect the results. Excellence: Provides detailed explanations of two sources of bias, explains the direction of the bias (how it would affect the 55% figure), and discusses the implications for the validity of the survey's conclusions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies one source of bias with a brief explanation.\n\nFor Merit:\n- Identifies two distinct sources of bias with clear explanations of how each could affect the results.\n\nFor Excellence:\n- Provides detailed explanations of two sources of bias, explains the direction of the bias (how it would affect the 55% figure), and discusses the implications for the validity of the survey's conclusions."
     },
     {
       "id": "stat584-24-q1c",
@@ -49,7 +49,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The conclusion is not well supported. While 55% appears to show majority support, the sampling method (social media link on one website) means the sample is unlikely to be representative of all New Zealanders. The voluntary response method means those with strong opinions are over-represented. The margin of error of 4.1% is calculated assuming a random sample, which this is not — so the actual uncertainty could be much larger. Additionally, a single online survey is not sufficient basis for policy decisions; the question wording may have been leading, and public opinion can vary by demographics and region.",
-      "markingGuide": "Achieved: Identifies at least one limitation that affects the conclusion. Merit: Discusses multiple limitations (sampling bias, representativeness) and how they undermine the conclusion. Links the margin of error to the sampling method. Excellence: Provides a comprehensive evaluation covering: (1) the margin of error assumes random sampling which wasn't used, (2) self-selection and coverage bias mean the sample doesn't represent all NZers, (3) the strength of the conclusion is not justified by the evidence, (4) additional considerations such as question wording, sample demographics, or the difference between statistical evidence and policy decisions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies at least one limitation that affects the conclusion.\n\nFor Merit:\n- Discusses multiple limitations (sampling bias, representativeness) and how they undermine the conclusion.\n- Links the margin of error to the sampling method.\n\nFor Excellence:\n- Provides a comprehensive evaluation covering: (1) the margin of error assumes random sampling which wasn't used, (2) self-selection and coverage bias mean the sample doesn't represent all NZers, (3) the strength of the conclusion is not justified by the evidence, (4) additional considerations such as question wording, sample demographics, or the difference between statistical evidence and policy decisions."
     },
     {
       "id": "stat584-24-q2a",
@@ -63,7 +63,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "A p-value less than 0.05 means that if the mindfulness programme had no real effect on anxiety levels (the null hypothesis), there would be less than a 5% probability of observing a difference as large as 25% (or larger) just by chance. Because this probability is small, we reject the null hypothesis and conclude the observed difference is unlikely to be due to chance alone.",
-      "markingGuide": "Achieved: States that the result is unlikely to have occurred by chance. Merit: Explains in terms of the null hypothesis — if there were no real difference, the probability of seeing this result by chance is less than 5%. Excellence: Clearly explains the p-value in context, notes it means we reject the null hypothesis, and distinguishes between statistical significance and practical significance."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States that the result is unlikely to have occurred by chance.\n\nFor Merit:\n- Explains in terms of the null hypothesis — if there were no real difference, the probability of seeing this result by chance is less than 5%.\n\nFor Excellence:\n- Clearly explains the p-value in context, notes it means we reject the null hypothesis, and distinguishes between statistical significance and practical significance."
     },
     {
       "id": "stat584-24-q2b",
@@ -77,7 +77,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "1. Funding bias: The company that developed the mindfulness programme has a financial interest in positive results. This could lead to publication bias (only publishing favourable results), selective reporting of outcomes, or design choices that favour a positive finding.\n2. Lack of blinding: Because participants knew which group they were in, this introduces the placebo effect — those using the mindfulness programme may feel less anxious simply because they expect it to work, while those on the relaxation control may not engage as sincerely. This means the 25% reduction may not be entirely due to the mindfulness technique itself.",
-      "markingGuide": "Achieved: Identifies one factor and gives a brief explanation. Merit: Discusses both factors clearly — explains how funding source creates potential bias and how lack of blinding introduces the placebo effect. Excellence: Provides detailed discussion of both factors, explains the direction of bias (both would tend to overstate the benefit), discusses what 'double-blind' means and why it matters, and considers the overall impact on the reliability of the 25% claim."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies one factor and gives a brief explanation.\n\nFor Merit:\n- Discusses both factors clearly — explains how funding source creates potential bias and how lack of blinding introduces the placebo effect.\n\nFor Excellence:\n- Provides detailed discussion of both factors, explains the direction of bias (both would tend to overstate the benefit), discusses what 'double-blind' means and why it matters, and considers the overall impact on the reliability of the 25% claim."
     },
     {
       "id": "stat584-24-q2c",
@@ -92,7 +92,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The university study provides stronger evidence because: (1) It used a double-blind design, eliminating placebo effects and observer bias. (2) It was independently funded, reducing potential funding bias. (3) It had a larger sample size (3,500 vs 1,800), giving it more statistical power to detect a real effect. (4) Despite the larger sample size and more rigorous design, the effect was smaller (8% vs 25%) and not statistically significant (p = 0.11 > 0.05). This suggests the true effect of the mindfulness programme on anxiety is smaller than the first study claimed, and may not be real. The larger, better-designed study finding a smaller, non-significant effect is more trustworthy than the smaller, potentially biased study finding a larger, significant effect.",
-      "markingGuide": "Achieved: Identifies that the second study has better design features. Merit: Compares the studies on at least two dimensions (sample size, blinding, funding, significance) and concludes the second study is more reliable. Excellence: Provides a comprehensive comparison covering study design (double-blind vs not), sample size, independence of funding, the contradiction in results, and explains why the second study's non-significant finding with better methodology is more convincing than the first study's significant finding with poorer methodology. May also note that p = 0.11 is not far from 0.05 and discuss what this means."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that the second study has better design features.\n\nFor Merit:\n- Compares the studies on at least two dimensions (sample size, blinding, funding, significance) and concludes the second study is more reliable.\n\nFor Excellence:\n- Provides a comprehensive comparison covering study design (double-blind vs not), sample size, independence of funding, the contradiction in results, and explains why the second study's non-significant finding with better methodology is more convincing than the first study's significant finding with poorer methodology.\n- May also note that p = 0.11 is not far from 0.05 and discuss what this means."
     }
   ],
   "cutScores": {

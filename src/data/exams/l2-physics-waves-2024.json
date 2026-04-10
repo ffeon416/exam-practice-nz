@@ -54,7 +54,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f = 8/10 = 0.80 Hz. v_deep = f x lambda_deep = 0.80 x 0.050 = 0.040 m/s. v_shallow/v_deep = lambda_shallow/lambda_deep. v_shallow = 0.040 x 0.030/0.050 = 0.024 m/s.",
-      "markingGuide": "Achieved: Correct frequency. Merit: Correct velocity."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct frequency.\n\nFor Merit:\n- Correct velocity."
     },
     {
       "id": "w24-q1c",
@@ -70,7 +70,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The wave slows down as it enters shallow water. Wavelength decreases proportionally. Frequency remains constant (set by the source). Amplitude may increase slightly as energy is concentrated in a slower, shorter wave.",
-      "markingGuide": "Achieved: TWO correct points. Merit: THREE linked. Excellence: All FOUR."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- TWO correct points.\n\nFor Merit:\n- THREE linked.\n\nFor Excellence:\n- All FOUR."
     },
     {
       "id": "w24-q1di",
@@ -85,7 +85,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Reflected pulse: opposite phase (inverted), smaller amplitude, further from boundary. Transmitted pulse: same phase (upright), smaller amplitude, closer to boundary and slower.",
-      "markingGuide": "Achieved: Any correct feature. Merit: THREE features. Excellence: Fully correct diagram."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any correct feature.\n\nFor Merit:\n- THREE features.\n\nFor Excellence:\n- Fully correct diagram."
     },
     {
       "id": "w24-q1dii",
@@ -128,7 +128,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "1/f = 1/di + 1/do. 1/1.5 = 1/di + 1/0.80. di = -1.714 m. M = -di/do = 1.714/0.80 = 2.14. hi = 2.14 x 1.7 = 3.6 m.",
-      "markingGuide": "Achieved: Correct di. Merit: Correct hi."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct di.\n\nFor Merit:\n- Correct hi."
     },
     {
       "id": "w24-q2ci",
@@ -142,7 +142,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image is inverted, real, same size as object, located at di = 3.0 m (= 2f).",
-      "markingGuide": "Achieved: Correct image nature. Merit: Correct ray diagram. Excellence: Ray diagram with image described.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct image nature.\n\nFor Merit:\n- Correct ray diagram.\n\nFor Excellence:\n- Ray diagram with image described.",
       "graph": {
         "type": "table",
         "title": "Concave Mirror Data",
@@ -212,7 +212,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Object placed beyond 2F, two correct rays drawn, image between F and 2F on other side, inverted and diminished.",
-      "markingGuide": "Achieved: One correct ray. Merit: Two rays. Excellence: Complete diagram."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct ray.\n\nFor Merit:\n- Two rays.\n\nFor Excellence:\n- Complete diagram."
     },
     {
       "id": "w24-q2diii",
@@ -269,7 +269,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The angle of incidence on the core-cladding boundary must be greater than the critical angle, and light must travel from the denser medium (core) to the less dense medium (cladding).",
-      "markingGuide": "Achieved: One condition. Merit: Both conditions in context."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One condition.\n\nFor Merit:\n- Both conditions in context."
     },
     {
       "id": "w24-q3ci",
@@ -283,7 +283,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Ray bending away from normal in air, with label and arrow.",
-      "markingGuide": "Achieved: Correct direction. Merit: Correct with angle."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct direction.\n\nFor Merit:\n- Correct with angle."
     },
     {
       "id": "w24-q3cii",
@@ -298,7 +298,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n_glycerine = v_air/v_glycerine = 3.00e8/2.04e8 = 1.47. n1 sin theta1 = n2 sin theta2. 1.47 x sin 25 = 1.00 x sin theta2. sin theta2 = 0.621. theta2 = 38.4 degrees.",
-      "markingGuide": "Achieved: n found or correct direction. Merit: Two of three correct. Excellence: Correct angle."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- n found or correct direction.\n\nFor Merit:\n- Two of three correct.\n\nFor Excellence:\n- Correct angle."
     },
     {
       "id": "w24-q3d",
@@ -314,7 +314,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Visitors hear alternating loud and soft sounds due to constructive and destructive interference. Where path difference is a whole number of wavelengths, constructive interference occurs (loud). Where path difference is an odd number of half wavelengths, destructive interference occurs (soft).",
-      "markingGuide": "Achieved: ONE point. Merit: THREE points. Excellence: Full explanation with path difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE point.\n\nFor Merit:\n- THREE points.\n\nFor Excellence:\n- Full explanation with path difference."
     }
   ]
 }

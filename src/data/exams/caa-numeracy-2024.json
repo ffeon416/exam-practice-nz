@@ -19,18 +19,36 @@
       ],
       "answerType": "number",
       "expectedAnswer": "5",
-      "markingGuide": "The 5 arrows divide the timeline into 6 equal sections of 50 million years each. Arrow 1 = 250 mya, Arrow 2 = 200 mya, Arrow 3 = 150 mya, Arrow 4 = 100 mya, Arrow 5 = 50 mya. 60 mya is closest to Arrow 5 (50 mya). Accept 5.",
+      "markingGuide": "Step 1: The 5 arrows divide the timeline into 6 equal sections of 50 million years each.\n\nStep 2: Arrow 1 = 250 mya, Arrow 2 = 200 mya, Arrow 3 = 150 mya, Arrow 4 = 100 mya, Arrow 5 = 50 mya.\n\nStep 3: 60 mya is closest to Arrow 5 (50 mya).\n\nStep 4: Accept 5.",
       "graph": {
         "type": "number-line",
         "title": "Timeline (million years ago)",
         "xLabel": "300 mya||Today (0)",
-        "xValues": [300, 0],
+        "xValues": [
+          300,
+          0
+        ],
         "data": [
-          { "label": "1", "value": 250 },
-          { "label": "2", "value": 200 },
-          { "label": "3", "value": 150 },
-          { "label": "4", "value": 100 },
-          { "label": "5", "value": 50 }
+          {
+            "label": "1",
+            "value": 250
+          },
+          {
+            "label": "2",
+            "value": 200
+          },
+          {
+            "label": "3",
+            "value": 150
+          },
+          {
+            "label": "4",
+            "value": 100
+          },
+          {
+            "label": "5",
+            "value": 50
+          }
         ]
       }
     },
@@ -60,7 +78,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "18 chicks (1 nest × 3 chicks × 6 years)",
-      "markingGuide": "This is an estimation question — accept any reasonable answer between 12 and 48 with clear working. Common correct approaches: (1) 1 nest × 3 chicks (mid of 2–4) × 6 years = 18. (2) Minimum: 1 × 2 × 6 = 12. (3) Maximum: 2 × 4 × 6 = 48. (4) Mid-range nests: 1.5 × 3 × 6 = 27. Student must show their working — nests per year × chicks per nest × number of years."
+      "markingGuide": "Step 1: This is an estimation question — accept any reasonable answer between 12 and 48 with clear working.\n\nStep 2: Common correct approaches: (1) 1 nest × 3 chicks (mid of 2–4) × 6 years = 18.\n\nStep 3: (2) Minimum: 1 × 2 × 6 = 12.\n\nStep 4: (3) Maximum: 2 × 4 × 6 = 48.\n\nStep 5: (4) Mid-range nests: 1.5 × 3 × 6 = 27.\n\nStep 6: Student must show their working — nests per year × chicks per nest × number of years.\n\nFinal answer: 18 chicks (1 nest × 3 chicks × 6 years)."
     },
     {
       "id": "caan24-q1d",
@@ -75,7 +93,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "20",
-      "markingGuide": "Read from the graph: 2012 = 40 trees, 2018 = 160 trees. Increase = 160 - 40 = 120 trees over 6 years. Average per year = 120 ÷ 6 = 20 trees. Accept 20.",
+      "markingGuide": "Step 1: Read from the graph: 2012 = 40 trees, 2018 = 160 trees.\n\nStep 2: Increase = 160 - 40 = 120 trees over 6 years.\n\nStep 3: Average per year = 120 ÷ 6 = 20 trees.\n\nStep 4: Accept 20.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -115,7 +133,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Yes — some trees are quite short (0.6–1.0 m), which suggests they were planted more recently",
-      "markingGuide": "Student must say yes AND refer to specific heights from the data. Trees below about 1.2 m are likely more recently planted since established nursery kauri are typically 1.2–2.0 m. Accept reference to heights below the median or in the 0.6–1.0 m range as evidence of younger plantings.",
+      "markingGuide": "Student must say yes AND refer to specific heights from the data.\n\nTrees below about 1.2 m are likely more recently planted since established nursery kauri are typically 1.2–2.0 m.\n\nAccept reference to heights below the median or in the 0.6–1.0 m range as evidence of younger plantings.",
       "graph": {
         "type": "histogram",
         "title": "Heights of 25 Young Kauri Trees",
@@ -181,7 +199,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "51",
-      "markingGuide": "The pattern of total toothpicks is: 3, 9, 19, 33, ... The differences are: 6, 10, 14, ... (increasing by 4 each time). So the next difference is 18. 33 + 18 = 51 toothpicks for Pattern 5."
+      "markingGuide": "The pattern of total toothpicks is: 3, 9, 19, 33, ...\n\nThe differences are: 6, 10, 14, ...\n\n(increasing by 4 each time).\n\nSo the next difference is 18.\n\n33 + 18 = 51 toothpicks for Pattern 5."
     },
     {
       "id": "caan24-q2b",
@@ -202,7 +220,7 @@
         "6"
       ],
       "expectedAnswer": "2 and 5",
-      "markingGuide": "Lines of reflection symmetry in the woven mat pass through stripes 2 and 5 (the horizontal lines of symmetry that divide each repeating section). Accept 2 and 5 only."
+      "markingGuide": "Lines of reflection symmetry in the woven mat pass through stripes 2 and 5 (the horizontal lines of symmetry that divide each repeating section).\n\nAccept 2 and 5 only."
     },
     {
       "id": "caan24-q2c",
@@ -215,7 +233,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "No — the legs should start at 1/2 but they start at 2/5, which is too high up",
-      "markingGuide": "Student must compare fractions: 1/2 = 0.5 and 2/5 = 0.4. Since 2/5 < 1/2, the legs start too high up (the upper body is too short). Accept any response that correctly compares these fractions and reaches a justified conclusion."
+      "markingGuide": "Step 1: Student must compare fractions: 1/2 = 0.5 and 2/5 = 0.4.\n\nStep 2: Since 2/5 < 1/2, the legs start too high up (the upper body is too short).\n\nStep 3: Accept any response that correctly compares these fractions and reaches a justified conclusion.\n\nFinal answer: No — the legs should start at 1/2 but they start at 2/5, which is too high up."
     },
     {
       "id": "caan24-q2d",
@@ -235,7 +253,7 @@
         "E"
       ],
       "expectedAnswer": "B",
-      "markingGuide": "Looking from above, the trophy with a rectangular base and triangular roof would appear as a rectangle (the footprint of the base). Accept B."
+      "markingGuide": "Looking from above, the trophy with a rectangular base and triangular roof would appear as a rectangle (the footprint of the base).\n\nAccept B."
     },
     {
       "id": "caan24-q2e",
@@ -256,7 +274,7 @@
         "500,000"
       ],
       "expectedAnswer": "5,000",
-      "markingGuide": "$2 million = $2,000,000. $2,000,000 / $400 = 5,000."
+      "markingGuide": "Step 1: $2 million = $2,000,000.\n\nStep 2: $2,000,000 / $400 = 5,000."
     },
     {
       "id": "caan24-q2f",
@@ -284,7 +302,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "372",
-      "markingGuide": "15 litres of water weighs 15 kg. Total weight is 15.372 kg. Empty tank = 15.372 - 15 = 0.372 kg = 372 grams."
+      "markingGuide": "Step 1: 15 litres of water weighs 15 kg.\n\nStep 2: Total weight is 15.372 kg.\n\nStep 3: Empty tank = 15.372 - 15 = 0.372 kg = 372 grams."
     },
     {
       "id": "caan24-q3b",
@@ -298,7 +316,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "30",
-      "markingGuide": "Total cordial = 5 x 1.5 L = 7.5 L = 7500 mL. Number of cups = 7500 / 250 = 30."
+      "markingGuide": "Step 1: Total cordial = 5 x 1.5 L = 7.5 L = 7500 mL.\n\nStep 2: Number of cups = 7500 / 250 = 30."
     },
     {
       "id": "caan24-q3c",
@@ -312,7 +330,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "1.4",
-      "markingGuide": "Puppy water: 75% of 4 kg = 3 kg. Adult dog water: 55% of 8 kg = 4.4 kg. Difference: 4.4 - 3 = 1.4 kg."
+      "markingGuide": "Step 1: Puppy water: 75% of 4 kg = 3 kg.\n\nStep 2: Adult dog water: 55% of 8 kg = 4.4 kg.\n\nStep 3: Difference: 4.4 - 3 = 1.4 kg."
     },
     {
       "id": "caan24-q3d",
@@ -341,7 +359,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Reducing shower time saves more water",
-      "markingGuide": "Student must compare both ideas using table data. Idea 1 (shower time): Saving per person = 80 - 40 = 40 litres/day. For 4 people = 160 litres/day. Idea 2 (washing machine): Running every 2 days saves 120/2 = 60 litres/day. Shower reduction (160 L) saves more than washing machine (60 L). Accept answer with correct calculations shown.",
+      "markingGuide": "Step 1: Student must compare both ideas using table data.\n\nStep 2: Idea 1 (shower time): Saving per person = 80 - 40 = 40 litres/day.\n\nStep 3: For 4 people = 160 litres/day.\n\nStep 4: Idea 2 (washing machine): Running every 2 days saves 120/2 = 60 litres/day.\n\nStep 5: Shower reduction (160 L) saves more than washing machine (60 L).\n\nStep 6: Accept answer with correct calculations shown.\n\nFinal answer: Reducing shower time saves more water.",
       "graph": {
         "type": "table",
         "title": "Estimated Water Use",
@@ -379,7 +397,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "180",
-      "markingGuide": "From the chart: Dec = 185, Jan = 190, Feb = 165. Sum = 185 + 190 + 165 = 540. Average = 540 / 3 = 180 hours. Accept 180.",
+      "markingGuide": "Step 1: From the chart: Dec = 185, Jan = 190, Feb = 165.\n\nStep 2: Sum = 185 + 190 + 165 = 540.\n\nStep 3: Average = 540 / 3 = 180 hours.\n\nStep 4: Accept 180.",
       "graph": {
         "type": "bar",
         "title": "Average Monthly Sunshine Hours — Dunedin",
@@ -449,7 +467,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "40000",
-      "markingGuide": "From the data: 2022 attendance = 65,000, 2015 attendance = 25,000. Difference = 65,000 - 25,000 = 40,000. Accept 40,000.",
+      "markingGuide": "Step 1: From the data: 2022 attendance = 65,000, 2015 attendance = 25,000.\n\nStep 2: Difference = 65,000 - 25,000 = 40,000.\n\nStep 3: Accept 40,000.\n\nFinal answer: 40000.",
       "graph": {
         "type": "bar",
         "title": "Pasifika Festival Attendance",
@@ -491,7 +509,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Agree — attendance has been increasing steadily and 85,000 follows the trend",
-      "markingGuide": "Student should reference specific data. Agree: attendance has been growing by about 5,000–10,000 each year, so 85,000 by 2026 is reasonable. Disagree: growth may slow down; there was no data for 2020–2021. Accept either position if supported by evidence from the data."
+      "markingGuide": "Student should reference specific data.\n\nAgree: attendance has been growing by about 5,000–10,000 each year, so 85,000 by 2026 is reasonable.\n\nDisagree: growth may slow down;.\n\nthere was no data for 2020–2021.\n\nAccept either position if supported by evidence from the data."
     },
     {
       "id": "caan24-q4c",
@@ -505,7 +523,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "27",
-      "markingGuide": "3 adults, Standard online ($6.00), 2 nights each. Total before discount: 3 x $6.00 x 2 = $36.00. 25% discount: $36.00 x 0.25 = $9.00. Total: $36.00 - $9.00 = $27.00."
+      "markingGuide": "Step 1: 3 adults, Standard online ($6.00), 2 nights each.\n\nStep 2: Total before discount: 3 x $6.00 x 2 = $36.00.\n\nStep 3: 25% discount: $36.00 x 0.25 = $9.00.\n\nStep 4: Total: $36.00 - $9.00 = $27.00."
     },
     {
       "id": "caan24-q4d",
@@ -518,7 +536,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "2/12 or 1/6",
-      "markingGuide": "Count East teams: 2 out of 12 total. Probability = 2/12 = 1/6. Accept 2/12, 1/6, or equivalent.",
+      "markingGuide": "Step 1: Count East teams: 2 out of 12 total.\n\nStep 2: Probability = 2/12 = 1/6.\n\nStep 3: Accept 2/12, 1/6, or equivalent.\n\nFinal answer: 2/12 or 1/6.",
       "graph": {
         "type": "pie",
         "title": "Fun Run Teams by Zone",
@@ -558,7 +576,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "75",
-      "markingGuide": "There are 3 rugby games shown in the timetable (Game 1, Game 2, Game 3), each lasting 25 minutes (9:00-9:25, 9:30-9:55, 10:00-10:25). Total rugby time = 3 × 25 = 75 minutes.",
+      "markingGuide": "Step 1: There are 3 rugby games shown in the timetable (Game 1, Game 2, Game 3), each lasting 25 minutes (9:00-9:25, 9:30-9:55, 10:00-10:25).\n\nStep 2: Total rugby time = 3 × 25 = 75 minutes.",
       "graph": {
         "type": "table",
         "title": "School Sports Day Morning Timetable",
@@ -625,7 +643,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "8",
-      "markingGuide": "Formation A has 4 rows of 10 (40 performers). Formation B has 5 rows of 8 (40 performers). Keep 8 performers in each of the original 4 rows (32 stay in place). Move 2 performers out of each of those 4 rows to form the new 5th row: 4 × 2 = 8 performers moved. This creates a 5th row of exactly 8. Minimum number of performers that need to change rows = 8."
+      "markingGuide": "Step 1: Formation A has 4 rows of 10 (40 performers).\n\nStep 2: Formation B has 5 rows of 8 (40 performers).\n\nStep 3: Keep 8 performers in each of the original 4 rows (32 stay in place).\n\nStep 4: Move 2 performers out of each of those 4 rows to form the new 5th row: 4 × 2 = 8 performers moved.\n\nStep 5: This creates a 5th row of exactly 8.\n\nStep 6: Minimum number of performers that need to change rows = 8."
     }
   ]
 }

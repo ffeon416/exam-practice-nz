@@ -20,7 +20,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "NCl3: Lewis structure shows N with three Cl atoms bonded and one lone pair on N. Shape: trigonal pyramidal. CO2: Lewis structure shows O=C=O with two double bonds and no lone pairs on C. Shape: linear.",
-      "markingGuide": "Achievement: Draws a correct Lewis structure OR identifies the correct shape and bond angles. Merit: Links lone pairs and bonding regions to geometry. Excellence: Explains bond angles and shapes by referring to electron repulsion including lone pairs."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws a correct Lewis structure OR identifies the correct shape and bond angles.\n\nFor Merit:\n- Links lone pairs and bonding regions to geometry.\n\nFor Excellence:\n- Explains bond angles and shapes by referring to electron repulsion including lone pairs."
     },
     {
       "id": "l2cr24-q1b",
@@ -35,7 +35,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "AlCl3 is trigonal planar with bond angles of 120 degrees, as the Al central atom has three bonding pairs and no lone pairs, so the three regions of electron density repel equally. PCl3 is trigonal pyramidal with bond angles of approximately 107 degrees; the lone pair on phosphorus repels the bonding pairs more strongly, compressing the Cl-P-Cl bond angles below the ideal tetrahedral 109.5 degrees.",
-      "markingGuide": "Achievement: Identifies the correct shape of ONE molecule. Merit: Links lone pairs to shape for ONE molecule. Excellence: Explains both shapes with reference to electron repulsion."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies the correct shape of ONE molecule.\n\nFor Merit:\n- Links lone pairs to shape for ONE molecule.\n\nFor Excellence:\n- Explains both shapes with reference to electron repulsion."
     },
     {
       "id": "l2cr24-q1ci",
@@ -68,7 +68,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "H2O is polar because the O-H bonds are polar (electronegativity difference) and the bent shape means the dipoles do not cancel. CO2 is non-polar because although C=O bonds are polar, the linear symmetrical arrangement means the dipoles cancel.",
-      "markingGuide": "Achievement: Identifies polarity OR electronegativity difference. Merit: Links asymmetry to non-cancellation for one molecule. Excellence: Justifies polarity of BOTH molecules."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies polarity OR electronegativity difference.\n\nFor Merit:\n- Links asymmetry to non-cancellation for one molecule.\n\nFor Excellence:\n- Justifies polarity of BOTH molecules."
     },
     {
       "id": "l2cr24-q1di",
@@ -83,7 +83,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n(CH3CH2NH2) = 2650 / 318 = 8.333 mol (1 mol of ethanamine is formed per 318 kJ released)\nm = n x M = 8.333 x 45.1 = 375.8 g (376 g, 3 s.f.)",
-      "markingGuide": "Achievement: One step correct. Merit: Correct answer for one part. Excellence: Correct answer with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer for one part.\n\nFor Excellence:\n- Correct answer with units."
     },
     {
       "id": "l2cr24-q1dii",
@@ -97,7 +97,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The LEFT diagram is correct (exothermic, DH is negative).",
-      "markingGuide": "Achievement: Identifies correct energy diagram. Merit: Correct diagram with labels."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies correct energy diagram.\n\nFor Merit:\n- Correct diagram with labels."
     },
     {
       "id": "l2cr24-q2a",
@@ -112,7 +112,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "SiO2: covalent network, atoms, strong covalent bonds. SCl2: molecular, molecules, weak intermolecular forces. NaCl: ionic, ions, strong ionic bonds. Ag: metallic, metal cations in a sea of delocalised electrons, metallic bonds.",
-      "markingGuide": "Achievement: Two rows correct. Merit: Full table correct.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Two rows correct.\n\nFor Merit:\n- Full table correct.",
       "graph": {
         "type": "table",
         "title": "Properties of Solids",
@@ -171,7 +171,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "SiO2 is a 3D covalent network solid held together by strong covalent bonds requiring large amounts of energy to break. SCl2 is a molecular solid held together by weak intermolecular forces requiring little energy to overcome.",
-      "markingGuide": "Achievement: Identifies melting point is linked to force strength. Merit: Links forces to energy for ONE substance. Excellence: Compares both substances."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies melting point is linked to force strength.\n\nFor Merit:\n- Links forces to energy for ONE substance.\n\nFor Excellence:\n- Compares both substances."
     },
     {
       "id": "l2cr24-q2c",
@@ -186,7 +186,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "SCl2 is a polar molecular substance but has only weak dipole-dipole and dispersion forces; although SCl2 is slightly polar it does not form hydrogen bonds, so it does not dissolve well in water and instead dissolves better in non-polar or low-polarity solvents (like dissolves like). NaCl is ionic; the polar water molecules surround the Na+ and Cl- ions (the partially negative O ends of water attract Na+, and the partially positive H ends attract Cl-), overcoming the ionic bonds and dissolving the solid.",
-      "markingGuide": "Achievement: Identifies SCl2 as non-polar OR identifies attractions needed. Merit: Links forces to solubility for ONE solute. Excellence: Full explanation for both."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies SCl2 as non-polar OR identifies attractions needed.\n\nFor Merit:\n- Links forces to solubility for ONE solute.\n\nFor Excellence:\n- Full explanation for both."
     },
     {
       "id": "l2cr24-q3ai",
@@ -201,7 +201,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n(ethane) = 1500 / 30.1 = 49.83 mol\nEnergy = 49.83 x 1561 = 77,800 kJ released (3 s.f.)",
-      "markingGuide": "Achievement: One step correct. Merit: Correct answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer."
     },
     {
       "id": "l2cr24-q3aii",
@@ -216,7 +216,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n(propane) = 1500 / 44.1 = 34.01 mol\nEnergy = 34.01 x 2220 = 75,500 kJ released (3 s.f.)",
-      "markingGuide": "Achievement: One step correct. Merit: Correct answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer."
     },
     {
       "id": "l2cr24-q3aiii",
@@ -245,7 +245,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Bonds broken: 4 x C-H = 4 x 413 = 1652 kJ; 2 x O=O = 2 x 498 = 996 kJ. Total broken = 2648 kJ.\nBonds formed in products: 2 x C=O (in CO2) = 2 x 805 = 1610 kJ; 4 x O-H (in 2 H2O) = 4x.\nDH = bonds broken - bonds formed: -802 = 2648 - (1610 + 4x). Rearranging: 4x = 2648 + 802 - 1610 = 1840. x = 460 kJ mol-1. Average O-H bond energy = 460 kJ mol-1.",
-      "markingGuide": "Achievement: Correctly calculates total bonds broken OR formed. Merit: Correct process with minor error. Excellence: Correct answer with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correctly calculates total bonds broken OR formed.\n\nFor Merit:\n- Correct process with minor error.\n\nFor Excellence:\n- Correct answer with units."
     },
     {
       "id": "l2cr24-q3ci",
@@ -274,7 +274,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Cu is a metallic solid with metal cations in a 3D lattice surrounded by delocalised valence electrons. The delocalised electrons can move freely, carrying charge (conductivity). The non-directional metallic bonds allow layers to slide without breaking (malleability).",
-      "markingGuide": "Achievement: Describes metallic structure. Merit: Links conductivity to delocalised electrons OR malleability to non-directional bonds. Excellence: Explains both properties and links to uses."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes metallic structure.\n\nFor Merit:\n- Links conductivity to delocalised electrons OR malleability to non-directional bonds.\n\nFor Excellence:\n- Explains both properties and links to uses."
     }
   ],
   "totalMarks": 24,

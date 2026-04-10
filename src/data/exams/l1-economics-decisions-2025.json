@@ -25,7 +25,7 @@
         "Something the government provides for free"
       ],
       "expectedAnswer": "Something essential for survival, such as food, shelter, or clothing",
-      "markingGuide": "The correct answer is 'Something essential for survival, such as food, shelter, or clothing'. Needs are things required for basic survival and wellbeing. Wants are things that improve quality of life but are not essential (e.g. the latest phone, a holiday)."
+      "markingGuide": "The correct answer is Something essential for survival, such as food, shelter, or clothing.\n\nHere's why:\nNeeds are things required for basic survival and wellbeing.\nWants are things that improve quality of life but are not essential (e.g. the latest phone, a holiday)."
     },
     {
       "id": "ecde-q2",
@@ -44,7 +44,7 @@
         "To calculate how much tax to pay"
       ],
       "expectedAnswer": "To plan and track income and expenses so spending does not exceed income",
-      "markingGuide": "The correct answer is 'To plan and track income and expenses so spending does not exceed income'. A budget helps households make informed decisions about spending, saving, and prioritising their limited income across their needs and wants."
+      "markingGuide": "The correct answer is To plan and track income and expenses so spending does not exceed income.\n\nHere's why:\nA budget helps households make informed decisions about spending, saving, and prioritising their limited income across their needs and wants."
     },
     {
       "id": "ecde-q3",
@@ -57,7 +57,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "190",
-      "markingGuide": "1 mark for correct working: $220 + $35 + $25 + $20 + $40 + $120 = $460 total expenses. 1 mark for correct answer: $650 - $460 = $190 remaining per week. Accept $190 or 190.",
+      "markingGuide": "Step 1: 1 mark for correct working: $220 + $35 + $25 + $20 + $40 + $120 = $460 total expenses.\n\nStep 2: 1 mark for correct answer: $650 - $460 = $190 remaining per week.\n\nStep 3: Accept $190 or 190.",
       "graph": {
         "type": "bar",
         "title": "Aroha's Weekly Expenses",
@@ -114,7 +114,7 @@
         "Households can no longer borrow money at all"
       ],
       "expectedAnswer": "Interest rates on loans increase, discouraging borrowing",
-      "markingGuide": "The correct answer is 'Interest rates on loans increase, discouraging borrowing'. When the RBNZ raises the OCR, commercial banks typically increase their lending rates. Higher interest rates make loans (mortgages, personal loans) more expensive, so households borrow less."
+      "markingGuide": "The correct answer is Interest rates on loans increase, discouraging borrowing.\n\nHere's why:\nWhen the RBNZ raises the OCR, commercial banks typically increase their lending rates.\nHigher interest rates make loans (mortgages, personal loans) more expensive, so households borrow less."
     },
     {
       "id": "ecde-q5",
@@ -126,7 +126,7 @@
         "consumer-decisions-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the concept: Inflation is a general rise in the price level over time. When prices rise but income stays the same (or rises more slowly), households can afford fewer goods and services — their purchasing power decreases. 1 mark for a relevant NZ example: e.g. 'In 2023, the price of groceries in NZ rose significantly. A family spending $200 per week on groceries in 2022 might need $230 for the same items in 2023. If their wages did not increase by the same amount, they can buy less food or must cut spending elsewhere.' Accept examples involving petrol, rent, or other everyday costs.",
+      "markingGuide": "1 mark for explaining the concept: Inflation is a general rise in the price level over time.\n\nWhen prices rise but income stays the same (or rises more slowly), households can afford fewer goods and services — their purchasing power decreases.\n\n1 mark for a relevant NZ example: e.g. 'In 2023, the price of groceries in NZ rose significantly.\n\nA family spending $200 per week on groceries in 2022 might need $230 for the same items in 2023.\n\nIf their wages did not increase by the same amount, they can buy less food or must cut spending elsewhere.' Accept examples involving petrol, rent, or other everyday costs.",
       "graph": {
         "type": "line",
         "title": "NZ Inflation Rate 2019–2024",
@@ -177,7 +177,7 @@
         "Taking out a personal loan for a holiday"
       ],
       "expectedAnswer": "Putting $50 per week into a bank term deposit",
-      "markingGuide": "The correct answer is 'Putting $50 per week into a bank term deposit'. Saving means setting aside income for future use rather than spending it now. A term deposit is a form of saving where money earns interest. Buying on sale is still spending. Credit cards and loans involve borrowing, not saving."
+      "markingGuide": "The correct answer is Putting $50 per week into a bank term deposit.\n\nHere's why:\nSaving means setting aside income for future use rather than spending it now.\nA term deposit is a form of saving where money earns interest.\nBuying on sale is still spending.\nCredit cards and loans involve borrowing, not saving."
     },
     {
       "id": "ecde-q7",
@@ -189,7 +189,7 @@
         "consumer-decisions-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark per valid reason (2 required). Possible reasons: (1) Compound interest — money saved early grows over time because interest earns interest, so starting at 18 means much more savings by retirement than starting at 30. (2) Emergency fund — unexpected costs (car repairs, medical bills) can be covered without going into debt. (3) KiwiSaver — NZ's retirement savings scheme benefits from employer contributions and government contributions; starting early maximises these benefits. (4) Financial independence — saving builds a deposit for a first home, which is a major goal for many young New Zealanders. (5) Good habits — developing a savings habit early leads to better long-term financial wellbeing."
+      "markingGuide": "1 mark per valid reason (2 required).\n\nPossible reasons: (1) Compound interest — money saved early grows over time because interest earns interest, so starting at 18 means much more savings by retirement than starting at 30.\n\n(2) Emergency fund — unexpected costs (car repairs, medical bills) can be covered without going into debt.\n\n(3) KiwiSaver — NZ's retirement savings scheme benefits from employer contributions and government contributions;.\n\nstarting early maximises these benefits.\n\n(4) Financial independence — saving builds a deposit for a first home, which is a major goal for many young New Zealanders.\n\n(5) Good habits — developing a savings habit early leads to better long-term financial wellbeing."
     },
     {
       "id": "ecde-q8",
@@ -208,7 +208,7 @@
         "To run the New Zealand Stock Exchange"
       ],
       "expectedAnswer": "To maintain price stability by managing inflation and setting the Official Cash Rate",
-      "markingGuide": "The correct answer is 'To maintain price stability by managing inflation and setting the Official Cash Rate'. The RBNZ's primary function is to maintain price stability (keeping inflation between 1-3%) and support maximum sustainable employment. It does this mainly by adjusting the OCR, which influences interest rates across the economy."
+      "markingGuide": "The correct answer is To maintain price stability by managing inflation and setting the Official Cash Rate.\n\nHere's why:\nThe RBNZ's primary function is to maintain price stability (keeping inflation between 1-3%) and support maximum sustainable employment.\nIt does this mainly by adjusting the OCR, which influences interest rates across the economy."
     },
     {
       "id": "ecde-q9",
@@ -220,7 +220,7 @@
         "consumer-decisions-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for a benefit: e.g. Trade allows NZ to earn foreign income from exports (dairy to China, wine to Australia), which supports jobs and economic growth. Or: NZ consumers can access goods not produced locally (electronics, tropical fruit, cars) at lower prices than if produced domestically. Or: specialisation — NZ can focus on producing what it does best (dairy, agriculture) and trade for other goods.\n\n1 mark for a cost: e.g. NZ industries face competition from cheaper imports (e.g. clothing from Asia), which can lead to local job losses. Or: dependence on overseas markets — if China reduces dairy imports, NZ farmers suffer. Or: environmental costs of transporting goods long distances. Or: exchange rate fluctuations can make exports more expensive and reduce income for exporters."
+      "markingGuide": "1 mark for a benefit: e.g. Trade allows NZ to earn foreign income from exports (dairy to China, wine to Australia), which supports jobs and economic growth.\n\nOr: NZ consumers can access goods not produced locally (electronics, tropical fruit, cars) at lower prices than if produced domestically.\n\nOr: specialisation — NZ can focus on producing what it does best (dairy, agriculture) and trade for other goods.\n\n1 mark for a cost: e.g. NZ industries face competition from cheaper imports (e.g. clothing from Asia), which can lead to local job losses.\n\nOr: dependence on overseas markets — if China reduces dairy imports, NZ farmers suffer.\n\nOr: environmental costs of transporting goods long distances.\n\nOr: exchange rate fluctuations can make exports more expensive and reduce income for exporters."
     },
     {
       "id": "ecde-q10",
@@ -233,7 +233,7 @@
         "scarcity-choice"
       ],
       "answerType": "working",
-      "markingGuide": "4 marks total.\n\n1 mark — Income analysis: Calculate Hemi's approximate monthly take-home pay. $52,000 gross = ~$4,333/month. After tax (~$733) and KiwiSaver 3% (~$130), take-home is approximately $3,470/month. Total expenses = $800 + $400 + $200 + $100 + $150 = $1,650/month, leaving approximately $1,820/month for savings and discretionary spending.\n\n1 mark — KiwiSaver and saving: Hemi should contribute to KiwiSaver (minimum 3%) to benefit from employer contributions (3%) and the government contribution (up to $521/year). He should also save separately — e.g. an emergency fund of 3 months' expenses (about $4,950), then save toward longer-term goals like a house deposit (first-home withdrawal available after 3 years of KiwiSaver contributions).\n\n1 mark — Opportunity cost and trade-offs: Hemi faces trade-offs with his surplus income. If he saves $1,000/month, the opportunity cost is reduced entertainment, travel, or lifestyle spending now. If he spends more now, the opportunity cost is slower progress toward a house deposit or less financial security.\n\n1 mark — Quality of advice and economic reasoning: Well-structured advice that links concepts together. E.g. discusses prioritising needs over wants, the benefit of compound interest from starting to save at 18, the role of budgeting in managing limited income, and making informed consumer decisions (comparing prices, avoiding unnecessary debt).\n\nExcellence-level responses will use economic terminology accurately, show understanding of trade-offs, and provide practical NZ-specific advice.",
+      "markingGuide": "Step 1: 4 marks total.\n\nStep 2: 1 mark — Income analysis: Calculate Hemi's approximate monthly take-home pay.\n\nStep 3: $52,000 gross = ~$4,333/month.\n\nStep 4: After tax (~$733) and KiwiSaver 3% (~$130), take-home is approximately $3,470/month.\n\nStep 5: Total expenses = $800 + $400 + $200 + $100 + $150 = $1,650/month, leaving approximately $1,820/month for savings and discretionary spending.\n\nStep 6: 1 mark — KiwiSaver and saving: Hemi should contribute to KiwiSaver (minimum 3%) to benefit from employer contributions (3%) and the government contribution (up to $521/year).\n\nStep 7: He should also save separately — e.g. an emergency fund of 3 months' expenses (about $4,950), then save toward longer-term goals like a house deposit (first-home withdrawal available after 3 years of KiwiSaver contributions).\n\nStep 8: 1 mark — Opportunity cost and trade-offs: Hemi faces trade-offs with his surplus income.\n\nStep 9: If he saves $1,000/month, the opportunity cost is reduced entertainment, travel, or lifestyle spending now.\n\nStep 10: If he spends more now, the opportunity cost is slower progress toward a house deposit or less financial security.\n\nStep 11: 1 mark — Quality of advice and economic reasoning: Well-structured advice that links concepts together.\n\nStep 12: E.g.\n\nStep 13: discusses prioritising needs over wants, the benefit of compound interest from starting to save at 18, the role of budgeting in managing limited income, and making informed consumer decisions (comparing prices, avoiding unnecessary debt).\n\nStep 14: Excellence-level responses will use economic terminology accurately, show understanding of trade-offs, and provide practical NZ-specific advice.",
       "graph": {
         "type": "table",
         "title": "Hemi's Monthly Financial Summary",

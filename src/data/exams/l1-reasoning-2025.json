@@ -19,7 +19,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "1122 units²",
-      "markingGuide": "Substitute x = 4: (2(4)+3) = 11, (3(4)–1) = 11, 5(4) = 20. Dimensions are 11, 11, 20. SA = 2(11×11 + 11×20 + 11×20) = 2(121 + 220 + 220) = 2(561) = 1122. Award Achieved for correct surface area = 1122."
+      "markingGuide": "Step 1: Substitute x = 4: (2(4)+3) = 11, (3(4)–1) = 11, 5(4) = 20.\n\nStep 2: Dimensions are 11, 11, 20.\n\nStep 3: SA = 2(11×11 + 11×20 + 11×20) = 2(121 + 220 + 220) = 2(561) = 1122.\n\nStep 4: Award Achieved for correct surface area = 1122.\n\nFinal answer: 1122 units²."
     },
     {
       "id": "l1r25-q1b",
@@ -33,22 +33,46 @@
       ],
       "answerType": "working",
       "expectedAnswer": "R = (3, 4)",
-      "markingGuide": "From eq 1: y = 3x – 5. Sub into eq 2: x + 3(3x – 5) = 15. x + 9x – 15 = 15. 10x = 30. x = 3. y = 3(3) – 5 = 4. R = (3, 4). Achieved = eliminate one variable. Merit = correct coordinates with algebraic method.",
+      "markingGuide": "Step 1: From eq 1: y = 3x – 5.\n\nStep 2: Sub into eq 2: x + 3(3x – 5) = 15.\n\nStep 3: x + 9x – 15 = 15.\n\nStep 4: 10x = 30.\n\nStep 5: x = 3.\n\nStep 6: y = 3(3) – 5 = 4.\n\nStep 7: R = (3, 4).\n\nStep 8: Achieved = eliminate one variable.\n\nStep 9: Merit = correct coordinates with algebraic method.",
       "graph": {
         "type": "line",
         "title": "Lines 3x – y = 5 and x + 3y = 15",
         "xLabel": "x",
         "yLabel": "y",
-        "xValues": [0, 1, 2, 3, 4, 5, 6],
+        "xValues": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
         "series": [
           {
             "name": "y = 3x – 5",
-            "values": [-5, -2, 1, 4, 7, 10, 13],
+            "values": [
+              -5,
+              -2,
+              1,
+              4,
+              7,
+              10,
+              13
+            ],
             "color": "#6366f1"
           },
           {
             "name": "y = (15 – x)/3",
-            "values": [5, 4.67, 4.33, 4, 3.67, 3.33, 3],
+            "values": [
+              5,
+              4.67,
+              4.33,
+              4,
+              3.67,
+              3.33,
+              3
+            ],
             "color": "#22c55e"
           }
         ]
@@ -67,7 +91,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "≈ 264.6 cm",
-      "markingGuide": "AD = 1.2 m = 120 cm. AB = 40 cm. In triangle ABT right-angled at B with angle ATB = 30°: tan(30°) = AB/BT → BT = 40/tan(30°) = 40/0.5774 = 69.28 cm. AT = AB/sin(30°) = 40/0.5 = 80 cm. BC = AD = 120 cm, so TC = 120 – 69.28 = 50.72 cm. TD = √(CD² + TC²) = √(40² + 50.72²) = √(1600 + 2572.5) = √4172.5 = 64.59 cm. Perimeter = AT + TD + AD = 80 + 64.59 + 120 = 264.59 cm ≈ 264.6 cm. Achieved = finding one side length. Merit = correct perimeter with working."
+      "markingGuide": "Step 1: AD = 1.2 m = 120 cm.\n\nStep 2: AB = 40 cm.\n\nStep 3: In triangle ABT right-angled at B with angle ATB = 30°: tan(30°) = AB/BT → BT = 40/tan(30°) = 40/0.5774 = 69.28 cm.\n\nStep 4: AT = AB/sin(30°) = 40/0.5 = 80 cm.\n\nStep 5: BC = AD = 120 cm, so TC = 120 – 69.28 = 50.72 cm.\n\nStep 6: TD = √(CD² + TC²) = √(40² + 50.72²) = √(1600 + 2572.5) = √4172.5 = 64.59 cm.\n\nStep 7: Perimeter = AT + TD + AD = 80 + 64.59 + 120 = 264.59 cm ≈ 264.6 cm.\n\nStep 8: Achieved = finding one side length.\n\nStep 9: Merit = correct perimeter with working."
     },
     {
       "id": "l1r25-q1di",
@@ -82,7 +106,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = 2 × 3^x + 2",
-      "markingGuide": "Subtract 2 from each y: 6, 18, 54, 162, 486. These are 6, 18, 54, 162, 486 — each multiplied by 3. This is 6 × 3^(x-1) = 2 × 3^x. So y = 2 × 3^x + 2. Check: x=1: 6+2=8 ✓, x=2: 18+2=20 ✓, x=3: 54+2=56 ✓. Achieved = identifies base 3 multiplier. Excellence = fully correct equation with working.",
+      "markingGuide": "Step 1: Subtract 2 from each y: 6, 18, 54, 162, 486.\n\nStep 2: These are 6, 18, 54, 162, 486 — each multiplied by 3.\n\nStep 3: This is 6 × 3^(x-1) = 2 × 3^x.\n\nStep 4: So y = 2 × 3^x + 2.\n\nStep 5: Check: x=1: 6+2=8 ✓, x=2: 18+2=20 ✓, x=3: 54+2=56 ✓.\n\nStep 6: Achieved = identifies base 3 multiplier.\n\nStep 7: Excellence = fully correct equation with working.",
       "graph": {
         "type": "table",
         "title": "Sequence Values",
@@ -120,7 +144,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E.g. exponential shape, y-intercept at (0, 4), horizontal asymptote at y = 2",
-      "markingGuide": "Using y = 2×3^x + 2: (1) y-intercept at (0, 2×1+2) = (0, 4). (2) Horizontal asymptote at y = 2 as x → –∞. (3) Exponential growth as x → +∞. (4) No x-intercepts (always > 2). (5) Always increasing. Achieved = one feature. Merit = two features. Excellence = at least three features with justification."
+      "markingGuide": "Step 1: Using y = 2×3^x + 2: (1) y-intercept at (0, 2×1+2) = (0, 4).\n\nStep 2: (2) Horizontal asymptote at y = 2 as x → –∞.\n\nStep 3: (3) Exponential growth as x → +∞.\n\nStep 4: (4) No x-intercepts (always > 2).\n\nStep 5: (5) Always increasing.\n\nStep 6: Achieved = one feature.\n\nStep 7: Merit = two features.\n\nStep 8: Excellence = at least three features with justification.\n\nFinal answer: E.g. exponential shape, y-intercept at (0, 4), horizontal asymptote at y = 2."
     },
     {
       "id": "l1r25-q2a",
@@ -133,7 +157,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "x = 25",
-      "markingGuide": "Angles sum to 180°: 3x + (2x + 10) + (x + 20) = 180. 6x + 30 = 180. 6x = 150. x = 25. Award Achieved for x = 25."
+      "markingGuide": "Step 1: Angles sum to 180°: 3x + (2x + 10) + (x + 20) = 180.\n\nStep 2: 6x + 30 = 180.\n\nStep 3: 6x = 150.\n\nStep 4: x = 25.\n\nStep 5: Award Achieved for x = 25."
     },
     {
       "id": "l1r25-q2b",
@@ -147,7 +171,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "≈ 18.1°",
-      "markingGuide": "In triangle HEF (right-angled at E): HE = 12 × sin 25° = 5.071 cm; EF = 12 × cos 25° = 10.876 cm. In triangle EFG (right-angled at E, angle EFG = 55°): EG = EF × tan 55° = 10.876 × 1.4281 = 15.531 cm. In triangle HEG (right-angled at E): tan(angle HGE) = HE/EG = 5.071/15.531 = 0.3265. Angle HGE = 18.08° ≈ 18.1°. Achieved = finding HE or EF. Excellence = correct angle with full working."
+      "markingGuide": "Step 1: In triangle HEF (right-angled at E): HE = 12 × sin 25° = 5.071 cm;.\n\nStep 2: EF = 12 × cos 25° = 10.876 cm.\n\nStep 3: In triangle EFG (right-angled at E, angle EFG = 55°): EG = EF × tan 55° = 10.876 × 1.4281 = 15.531 cm.\n\nStep 4: In triangle HEG (right-angled at E): tan(angle HGE) = HE/EG = 5.071/15.531 = 0.3265.\n\nStep 5: Angle HGE = 18.08° ≈ 18.1°.\n\nStep 6: Achieved = finding HE or EF.\n\nStep 7: Excellence = correct angle with full working."
     },
     {
       "id": "l1r25-q2c",
@@ -161,7 +185,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "x = 1/3 or x = –1/4",
-      "markingGuide": "12x² – x – 1 = 0. Factorise: (3x – 1)(4x + 1) = 0. x = 1/3 or x = –1/4. Achieved = correct rearrangement. Merit = correct factorisation AND both solutions."
+      "markingGuide": "Step 1: 12x² – x – 1 = 0.\n\nStep 2: Factorise: (3x – 1)(4x + 1) = 0.\n\nStep 3: x = 1/3 or x = –1/4.\n\nStep 4: Achieved = correct rearrangement.\n\nStep 5: Merit = correct factorisation AND both solutions."
     },
     {
       "id": "l1r25-q2d",
@@ -175,7 +199,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "384 trips",
-      "markingGuide": "Top section: 15 × 10 × 40 = 6000 m³. Bottom section is trapezoidal: area = ½(15 + 45) × 5 = 150 m². Volume = 150 × 40 = 6000 m³. Total = 12000 m³. Weight = 12000 × 800 = 9,600,000 kg = 9600 tonnes. Trips = 9600/25 = 384 trips. Achieved = one volume correct. Merit = total volume correct. Excellence = correct trips with rounding justified."
+      "markingGuide": "Step 1: Top section: 15 × 10 × 40 = 6000 m³.\n\nStep 2: Bottom section is trapezoidal: area = ½(15 + 45) × 5 = 150 m².\n\nStep 3: Volume = 150 × 40 = 6000 m³.\n\nStep 4: Total = 12000 m³.\n\nStep 5: Weight = 12000 × 800 = 9,600,000 kg = 9600 tonnes.\n\nStep 6: Trips = 9600/25 = 384 trips.\n\nStep 7: Achieved = one volume correct.\n\nStep 8: Merit = total volume correct.\n\nStep 9: Excellence = correct trips with rounding justified."
     },
     {
       "id": "l1r25-q3ai",
@@ -188,13 +212,22 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = –0.5x + 6 (or equivalent)",
-      "markingGuide": "Gradient: (3–7)/(6–(–2)) = –4/8 = –0.5. y – 7 = –0.5(x + 2). y = –0.5x – 1 + 7 = –0.5x + 6. Achieved = correct equation.",
+      "markingGuide": "Step 1: Gradient: (3–7)/(6–(–2)) = –4/8 = –0.5.\n\nStep 2: y – 7 = –0.5(x + 2).\n\nStep 3: y = –0.5x – 1 + 7 = –0.5x + 6.\n\nStep 4: Achieved = correct equation.\n\nFinal answer: y = –0.5x + 6 (or equivalent).",
       "graph": {
         "type": "scatter",
         "title": "Points on line L",
         "xLabel": "x",
         "yLabel": "y",
-        "data": [[-2, 7], [6, 3]]
+        "data": [
+          [
+            -2,
+            7
+          ],
+          [
+            6,
+            3
+          ]
+        ]
       }
     },
     {
@@ -209,17 +242,37 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = –(x – 2)² + 9 or y = –(x + 1)(x – 5)",
-      "markingGuide": "Using vertex form: y = a(x – 2)² + 9. Substitute (5, 0): 0 = a(9) + 9. a = –1. So y = –(x – 2)² + 9. Or using intercept form: y = a(x + 1)(x – 5). Substitute (2, 9): 9 = a(3)(–3) = –9a. a = –1. Achieved: equation with incorrect a-value. Merit: correct equation with justification.",
+      "markingGuide": "Using vertex form: y = a(x – 2)² + 9. Substitute (5, 0): 0 = a(9) + 9. a = –1. So y = –(x – 2)² + 9. Or using intercept form: y = a(x + 1)(x – 5). Substitute (2, 9): 9 = a(3)(–3) = –9a. a = –1.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- equation with incorrect a-value.\n\nFor Merit:\n- correct equation with justification.",
       "graph": {
         "type": "line",
         "title": "Parabola y = –(x – 2)² + 9",
         "xLabel": "x",
         "yLabel": "y",
-        "xValues": [-2, -1, 0, 1, 2, 3, 4, 5, 6],
+        "xValues": [
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
         "series": [
           {
             "name": "y",
-            "values": [-7, 0, 5, 8, 9, 8, 5, 0, -7],
+            "values": [
+              -7,
+              0,
+              5,
+              8,
+              9,
+              8,
+              5,
+              0,
+              -7
+            ],
             "color": "#ef4444"
           }
         ]
@@ -237,7 +290,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "πp/2 – p√2 (approximately 0.157p)",
-      "markingGuide": "AB (straight line) = √(p² + p²) = p√2. Arc AB = (1/4)(2πp) = πp/2. Difference = πp/2 – p√2 = p(π/2 – √2). Achieved = correct AB or arc length. Merit = correct difference with working."
+      "markingGuide": "Step 1: AB (straight line) = √(p² + p²) = p√2.\n\nStep 2: Arc AB = (1/4)(2πp) = πp/2.\n\nStep 3: Difference = πp/2 – p√2 = p(π/2 – √2).\n\nStep 4: Achieved = correct AB or arc length.\n\nStep 5: Merit = correct difference with working.\n\nFinal answer: πp/2 – p√2 (approximately 0.157p)."
     },
     {
       "id": "l1r25-q3c",
@@ -252,7 +305,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "x = 12",
-      "markingGuide": "Area = ½ × (x/3) × 2x = x²/3 = 48. x² = 144. x = 12 (taking positive root). Achieved = correct area formula setup. Excellence = x = 12 with full working."
+      "markingGuide": "Step 1: Area = ½ × (x/3) × 2x = x²/3 = 48.\n\nStep 2: x² = 144.\n\nStep 3: x = 12 (taking positive root).\n\nStep 4: Achieved = correct area formula setup.\n\nStep 5: Excellence = x = 12 with full working."
     }
   ],
   "totalMarks": 44,

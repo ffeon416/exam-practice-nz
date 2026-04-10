@@ -18,7 +18,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "26⅔",
-      "markingGuide": "f'(x) = 12x² – 14x + 2/3. f'(–1) = 12 + 14 + 2/3 = 26⅔."
+      "markingGuide": "Step 1: f'(x) = 12x² – 14x + 2/3.\n\nStep 2: f'(–1) = 12 + 14 + 2/3 = 26⅔."
     },
     {
       "id": "l2c25-q1b",
@@ -32,22 +32,52 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = 7x – 11",
-      "markingGuide": "f'(x) = x² – 2x + 4. f'(3) = 9 – 6 + 4 = 7 (gradient of tangent). f(3) = 27/3 – 9 + 12 – 2 = 9 – 9 + 12 – 2 = 10. Tangent: y – 10 = 7(x – 3), so y = 7x – 21 + 10 = 7x – 11. Merit = correct tangent equation with full working.",
+      "markingGuide": "Step 1: f'(x) = x² – 2x + 4.\n\nStep 2: f'(3) = 9 – 6 + 4 = 7 (gradient of tangent).\n\nStep 3: f(3) = 27/3 – 9 + 12 – 2 = 9 – 9 + 12 – 2 = 10.\n\nStep 4: Tangent: y – 10 = 7(x – 3), so y = 7x – 21 + 10 = 7x – 11.\n\nStep 5: Merit = correct tangent equation with full working.\n\nFinal answer: y = 7x – 11.",
       "graph": {
         "type": "line",
         "title": "f(x) = x³/3 – x² + 4x – 2 and tangent at x = 3",
         "xLabel": "x",
         "yLabel": "y",
-        "xValues": [-2, -1, 0, 1, 2, 3, 4, 5, 6],
+        "xValues": [
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
         "series": [
           {
             "name": "f(x)",
-            "values": [-16.67, -7.33, -2, 1.33, 4.67, 10, 19.33, 34.67, 58],
+            "values": [
+              -16.67,
+              -7.33,
+              -2,
+              1.33,
+              4.67,
+              10,
+              19.33,
+              34.67,
+              58
+            ],
             "color": "#6366f1"
           },
           {
             "name": "Tangent y = 7x – 11",
-            "values": [-25, -18, -11, -4, 3, 10, 17, 24, 31],
+            "values": [
+              -25,
+              -18,
+              -11,
+              -4,
+              3,
+              10,
+              17,
+              24,
+              31
+            ],
             "color": "#ef4444"
           }
         ]
@@ -65,17 +95,45 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f(x) = x³ – 3x² – 24x + 32",
-      "markingGuide": "Antidifferentiate: f(x) = x³ – 3x² – 24x + c. Stationary points: f'(x) = 3x² – 6x – 24 = 3(x² – 2x – 8) = 3(x – 4)(x + 2) = 0, so x = 4 or x = –2. f''(x) = 6x – 6. f''(4) = 18 > 0 so x = 4 is a local minimum. f(4) = 64 – 48 – 96 + c = –80 + c. Set = –48: c = 32. Therefore f(x) = x³ – 3x² – 24x + 32. Excellence = correct full working including constant.",
+      "markingGuide": "Step 1: Antidifferentiate: f(x) = x³ – 3x² – 24x + c.\n\nStep 2: Stationary points: f'(x) = 3x² – 6x – 24 = 3(x² – 2x – 8) = 3(x – 4)(x + 2) = 0, so x = 4 or x = –2.\n\nStep 3: f''(x) = 6x – 6.\n\nStep 4: f''(4) = 18 > 0 so x = 4 is a local minimum.\n\nStep 5: f(4) = 64 – 48 – 96 + c = –80 + c.\n\nStep 6: Set = –48: c = 32.\n\nStep 7: Therefore f(x) = x³ – 3x² – 24x + 32.\n\nStep 8: Excellence = correct full working including constant.",
       "graph": {
         "type": "line",
         "title": "f(x) = x³ – 3x² – 24x + 32",
         "xLabel": "x",
         "yLabel": "f(x)",
-        "xValues": [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7],
+        "xValues": [
+          -5,
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
         "series": [
           {
             "name": "f(x)",
-            "values": [-48, 16, 50, 60, 52, 32, 6, -20, -40, -48, -38, -4, 60],
+            "values": [
+              -48,
+              16,
+              50,
+              60,
+              52,
+              32,
+              6,
+              -20,
+              -40,
+              -48,
+              -38,
+              -4,
+              60
+            ],
             "color": "#22c55e"
           }
         ]
@@ -94,22 +152,52 @@
       ],
       "answerType": "working",
       "expectedAnswer": "400 m from bus stop (at t = 40 s)",
-      "markingGuide": "Let t = time after car starts. Bus position: s_B(t) = 5t + 200 (head start of 200 m). Car velocity: v(t) = 0.5t. Integrate: s_C(t) = 0.25t². They meet when s_C = s_B: 0.25t² = 5t + 200, i.e. t² – 20t – 800 = 0. Factorise: (t – 40)(t + 20) = 0. Since t > 0, t = 40 s. Distance: s_C(40) = 0.25 × 1600 = 400 m. Check: bus = 5(40) + 200 = 400 m ✓. Achieved = integration. Merit = correct equation. Excellence = complete solution.",
+      "markingGuide": "Step 1: Let t = time after car starts.\n\nStep 2: Bus position: s_B(t) = 5t + 200 (head start of 200 m).\n\nStep 3: Car velocity: v(t) = 0.5t.\n\nStep 4: Integrate: s_C(t) = 0.25t².\n\nStep 5: They meet when s_C = s_B: 0.25t² = 5t + 200, i.e. t² – 20t – 800 = 0.\n\nStep 6: Factorise: (t – 40)(t + 20) = 0.\n\nStep 7: Since t > 0, t = 40 s.\n\nStep 8: Distance: s_C(40) = 0.25 × 1600 = 400 m.\n\nStep 9: Check: bus = 5(40) + 200 = 400 m ✓.\n\nStep 10: Achieved = integration.\n\nStep 11: Merit = correct equation.\n\nStep 12: Excellence = complete solution.\n\nFinal answer: 400 m from bus stop (at t = 40 s).",
       "graph": {
         "type": "line",
         "title": "Bus and Car Position vs Time",
         "xLabel": "Time (s)",
         "yLabel": "Distance from bus stop (m)",
-        "xValues": [0, 5, 10, 15, 20, 25, 30, 35, 40],
+        "xValues": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40
+        ],
         "series": [
           {
             "name": "Bus: s = 5t + 200",
-            "values": [200, 225, 250, 275, 300, 325, 350, 375, 400],
+            "values": [
+              200,
+              225,
+              250,
+              275,
+              300,
+              325,
+              350,
+              375,
+              400
+            ],
             "color": "#6366f1"
           },
           {
             "name": "Car: s = 0.25t²",
-            "values": [0, 6.25, 25, 56.25, 100, 156.25, 225, 306.25, 400],
+            "values": [
+              0,
+              6.25,
+              25,
+              56.25,
+              100,
+              156.25,
+              225,
+              306.25,
+              400
+            ],
             "color": "#ef4444"
           }
         ]
@@ -127,7 +215,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Upward-opening parabola with x-intercepts at the turning points of f(x)",
-      "markingGuide": "f'(x) is quadratic, opens upward, zeros at the turning points of f(x). Achieved = 2 of 3 features. Merit = all 3."
+      "markingGuide": "Step 1: f'(x) is quadratic, opens upward, zeros at the turning points of f(x).\n\nStep 2: Achieved = 2 of 3 features.\n\nStep 3: Merit = all 3.\n\nFinal answer: Upward-opening parabola with x-intercepts at the turning points of f(x)."
     },
     {
       "id": "l2c25-q2b",
@@ -140,7 +228,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f(x) = x⁴ – x³ + x² + 5x – 2",
-      "markingGuide": "f(x) = x⁴ – x³ + x² + 5x + c. f(1) = 1–1+1+5+c = 6+c = 4. c = –2. f(x) = x⁴–x³+x²+5x–2."
+      "markingGuide": "Step 1: f(x) = x⁴ – x³ + x² + 5x + c.\n\nStep 2: f(1) = 1–1+1+5+c = 6+c = 4.\n\nStep 3: c = –2.\n\nStep 4: f(x) = x⁴–x³+x²+5x–2.\n\nFinal answer: f(x) = x⁴ – x³ + x² + 5x – 2."
     },
     {
       "id": "l2c25-q2ci",
@@ -154,7 +242,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "T'(20) = –1 °C per minute",
-      "markingGuide": "T'(t) = 2t/20 – 3 = t/10 – 3. T'(20) = 20/10 – 3 = 2 – 3 = –1. Confirmed.",
+      "markingGuide": "Step 1: T'(t) = 2t/20 – 3 = t/10 – 3.\n\nStep 2: T'(20) = 20/10 – 3 = 2 – 3 = –1.\n\nStep 3: Confirmed.\n\nFinal answer: T'(20) = –1 °C per minute.",
       "graph": {
         "type": "line",
         "title": "Bread Cooling Temperature",
@@ -197,7 +285,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The loaf cools most rapidly at t = 0 (rate of change is –3 °C/min, the most negative value since T'(t) is strictly increasing).",
-      "markingGuide": "T'(t) = t/10 – 3. T''(t) = 1/10 = 0.1 > 0 for all t, so T'(t) is strictly increasing. The minimum (most negative) rate of change therefore occurs at the earliest time, t = 0, where T'(0) = –3 °C/min. So the loaf cools most rapidly at the instant it is taken out of the oven. Excellence = correct reasoning using second derivative and boundary argument."
+      "markingGuide": "Step 1: T'(t) = t/10 – 3.\n\nStep 2: T''(t) = 1/10 = 0.1 > 0 for all t, so T'(t) is strictly increasing.\n\nStep 3: The minimum (most negative) rate of change therefore occurs at the earliest time, t = 0, where T'(0) = –3 °C/min.\n\nStep 4: So the loaf cools most rapidly at the instant it is taken out of the oven.\n\nStep 5: Excellence = correct reasoning using second derivative and boundary argument.\n\nFinal answer: The loaf cools most rapidly at t = 0 (rate of change is –3 °C/min, the most negative value since T'(t) is strictly increasing).."
     },
     {
       "id": "l2c25-q2di",
@@ -211,7 +299,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "x = –5/9",
-      "markingGuide": "a = –1, so f(x) = –x³ + bx² + cx + 5. f(1) = –1 + b + c + 5 = 0 → b + c = –4 …(1). f'(x) = –3x² + 2bx + c. f'(–1) = –3 – 2b + c = 0 …(2). From (1): c = –4 – b. Substitute into (2): –3 – 2b + (–4 – b) = 0 → –7 – 3b = 0 → b = –7/3, and c = –4 + 7/3 = –5/3. So f'(x) = –3x² – (14/3)x – 5/3. Set f'(x) = 0 and multiply by –3: 9x² + 14x + 5 = 0 → (9x + 5)(x + 1) = 0. So x = –1 (the given stationary point) or x = –5/9. The other stationary point is at x = –5/9."
+      "markingGuide": "Step 1: a = –1, so f(x) = –x³ + bx² + cx + 5.\n\nStep 2: f(1) = –1 + b + c + 5 = 0 → b + c = –4 …(1).\n\nStep 3: f'(x) = –3x² + 2bx + c.\n\nStep 4: f'(–1) = –3 – 2b + c = 0 …(2).\n\nStep 5: From (1): c = –4 – b.\n\nStep 6: Substitute into (2): –3 – 2b + (–4 – b) = 0 → –7 – 3b = 0 → b = –7/3, and c = –4 + 7/3 = –5/3.\n\nStep 7: So f'(x) = –3x² – (14/3)x – 5/3.\n\nStep 8: Set f'(x) = 0 and multiply by –3: 9x² + 14x + 5 = 0 → (9x + 5)(x + 1) = 0.\n\nStep 9: So x = –1 (the given stationary point) or x = –5/9.\n\nStep 10: The other stationary point is at x = –5/9."
     },
     {
       "id": "l2c25-q2dii",
@@ -225,7 +313,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Local maximum",
-      "markingGuide": "f''(x) = –6x + 2b = –6x – 14/3. At x = –5/9: f''(–5/9) = –6(–5/9) – 14/3 = 30/9 – 14/3 = 10/3 – 14/3 = –4/3 < 0. Since f''(–5/9) < 0, the stationary point at x = –5/9 is a local maximum. Excellence = correct second derivative, evaluated, with conclusion."
+      "markingGuide": "Step 1: f''(x) = –6x + 2b = –6x – 14/3.\n\nStep 2: At x = –5/9: f''(–5/9) = –6(–5/9) – 14/3 = 30/9 – 14/3 = 10/3 – 14/3 = –4/3 < 0.\n\nStep 3: Since f''(–5/9) < 0, the stationary point at x = –5/9 is a local maximum.\n\nStep 4: Excellence = correct second derivative, evaluated, with conclusion.\n\nFinal answer: Local maximum."
     },
     {
       "id": "l2c25-q3a",
@@ -238,7 +326,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "(3, –11)",
-      "markingGuide": "f'(x) = 4x – 8. Set = 4: 4x = 12, x = 3. f(3) = 18 – 24 – 5 = –11. Point: (3, –11)."
+      "markingGuide": "Step 1: f'(x) = 4x – 8.\n\nStep 2: Set = 4: 4x = 12, x = 3.\n\nStep 3: f(3) = 18 – 24 – 5 = –11.\n\nStep 4: Point: (3, –11)."
     },
     {
       "id": "l2c25-q3b",
@@ -252,7 +340,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "40 cm",
-      "markingGuide": "Width = w, length = 4w. A = 4w². A'(w) = 8w. When A = 100: 4w² = 100, w = 5. A'(5) = 40."
+      "markingGuide": "Step 1: Width = w, length = 4w.\n\nStep 2: A = 4w².\n\nStep 3: A'(w) = 8w.\n\nStep 4: When A = 100: 4w² = 100, w = 5.\n\nStep 5: A'(5) = 40.\n\nFinal answer: 40 cm."
     },
     {
       "id": "l2c25-q3c",
@@ -266,7 +354,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Maximum volume ≈ 1.53 m³ (at h ≈ 0.596 m)",
-      "markingGuide": "Let height = h, width = 3h, length = L. Lidless surface area = base + 4 walls = 3hL + 2(3h·h) + 2(L·h) = 5hL + 6h² = 6.4, so L = (6.4 – 6h²)/(5h). Volume V = 3h²L = 3h²(6.4 – 6h²)/(5h) = (3h/5)(6.4 – 6h²) = (19.2h – 18h³)/5. dV/dh = (19.2 – 54h²)/5 = 0, so h² = 19.2/54 = 16/45 and h = 4/(3√5) ≈ 0.5963 m. Then L ≈ 1.431 m. V ≈ (19.2(0.5963) – 18(0.5963)³)/5 ≈ (11.449 – 3.816)/5 ≈ 1.527 m³. Confirm maximum: d²V/dh² = –108h/5 < 0 for h > 0. Excellence = correct maximum volume with proof."
+      "markingGuide": "Step 1: Let height = h, width = 3h, length = L.\n\nStep 2: Lidless surface area = base + 4 walls = 3hL + 2(3h·h) + 2(L·h) = 5hL + 6h² = 6.4, so L = (6.4 – 6h²)/(5h).\n\nStep 3: Volume V = 3h²L = 3h²(6.4 – 6h²)/(5h) = (3h/5)(6.4 – 6h²) = (19.2h – 18h³)/5.\n\nStep 4: dV/dh = (19.2 – 54h²)/5 = 0, so h² = 19.2/54 = 16/45 and h = 4/(3√5) ≈ 0.5963 m.\n\nStep 5: Then L ≈ 1.431 m.\n\nStep 6: V ≈ (19.2(0.5963) – 18(0.5963)³)/5 ≈ (11.449 – 3.816)/5 ≈ 1.527 m³.\n\nStep 7: Confirm maximum: d²V/dh² = –108h/5 < 0 for h > 0.\n\nStep 8: Excellence = correct maximum volume with proof.\n\nFinal answer: Maximum volume ≈ 1.53 m³ (at h ≈ 0.596 m)."
     },
     {
       "id": "l2c25-q3d",
@@ -280,7 +368,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f(x) is decreasing for x < –n and 0 < x < 3",
-      "markingGuide": "f'(x) = x³ + (n–3)x² – 3nx = x[x² + (n–3)x – 3n] = x(x–3)(x+n). Stationary points at x = 0, 3, –n. For n > 0, order: –n, 0, 3. Sign analysis: f(x) decreasing when f'(x) < 0, i.e. x < –n and 0 < x < 3. Achieved = correct derivative. Merit = stationary points found. Excellence = correct decreasing regions."
+      "markingGuide": "Step 1: f'(x) = x³ + (n–3)x² – 3nx = x[x² + (n–3)x – 3n] = x(x–3)(x+n).\n\nStep 2: Stationary points at x = 0, 3, –n.\n\nStep 3: For n > 0, order: –n, 0, 3.\n\nStep 4: Sign analysis: f(x) decreasing when f'(x) < 0, i.e. x < –n and 0 < x < 3.\n\nStep 5: Achieved = correct derivative.\n\nStep 6: Merit = stationary points found.\n\nStep 7: Excellence = correct decreasing regions.\n\nFinal answer: f(x) is decreasing for x < –n and 0 < x < 3."
     }
   ],
   "cutScores": {

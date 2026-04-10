@@ -14,9 +14,14 @@
       "text": "QUESTION ONE: Prose\n\nRead the passage provided (Text A — a short story about a teenager helping their parent pack up a childhood home before a move).\n\nAnalyse how the writer uses language to convey the emotional weight of leaving a place behind.\n\nSupport your answer with evidence from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["unfamiliar-texts", "language-features", "close-reading", "prose"],
+      "topics": [
+        "unfamiliar-texts",
+        "language-features",
+        "close-reading",
+        "prose"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific and relevant details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned and clear discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details from the text. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Look for: how ordinary objects (a doorframe with height marks, a faded curtain) are given emotional significance through descriptive language; contrast between the parent's stoicism and the teenager's reluctance; sensory details that anchor memory to place; shifts in tone from practicality to grief; how the empty house becomes a symbol of endings and beginnings."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology.\n- Show awareness that meaning has been deliberately crafted.\n- Include specific and relevant details from the text.\n\nFor Merit:\n- Convincingly address the question, presenting a reasoned and clear discussion of one or more ideas.\n- Show awareness of deliberate crafting for a particular purpose.\n- Weave a range of specific details from the text.\n\nFor Excellence:\n- Develop an insightful or original argument or interpretation.\n- Make judgments about how effects and meanings relate to the purpose of the text.\n- Look for: how ordinary objects (a doorframe with height marks, a faded curtain) are given emotional significance through descriptive language.\n- contrast between the parent's stoicism and the teenager's reluctance.\n- sensory details that anchor memory to place.\n- shifts in tone from practicality to grief.\n- how the empty house becomes a symbol of endings and beginnings."
     },
     {
       "id": "eng100-24-q2",
@@ -24,9 +29,14 @@
       "text": "QUESTION TWO: Poetry\n\nRead the poem provided (Text B — a poem about an old photograph found in a drawer).\n\nAnalyse how the poet explores the relationship between memory and the passage of time.\n\nSupport your answer with evidence from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["unfamiliar-texts", "language-features", "close-reading", "poetry"],
+      "topics": [
+        "unfamiliar-texts",
+        "language-features",
+        "close-reading",
+        "poetry"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Look for: the photograph as a concrete object that triggers abstract reflection; contrast between the frozen moment in the image and the speaker's present awareness of time passing; visual imagery describing the photograph's details; how verb tenses shift to move between then and now; the bittersweet quality of remembering something that cannot be revisited."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology.\n- Show awareness that meaning has been deliberately crafted.\n- Include specific details from the text.\n\nFor Merit:\n- Convincingly address the question, presenting a reasoned discussion of one or more ideas.\n- Show awareness of deliberate crafting for a particular purpose.\n- Weave a range of specific details.\n\nFor Excellence:\n- Develop an insightful or original argument or interpretation.\n- Make judgments about how effects and meanings relate to the purpose of the text.\n- Look for: the photograph as a concrete object that triggers abstract reflection.\n- contrast between the frozen moment in the image and the speaker's present awareness of time passing.\n- visual imagery describing the photograph's details.\n- how verb tenses shift to move between then and now.\n- the bittersweet quality of remembering something that cannot be revisited."
     },
     {
       "id": "eng100-24-q3",
@@ -34,15 +44,32 @@
       "text": "QUESTION THREE: Non-fiction\n\nRead the passage provided (Text C — an essay about the experience of learning to swim as an adult).\n\nAnalyse how the writer conveys the difficulty and reward of mastering something new later in life.\n\nSupport your answer with evidence from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["unfamiliar-texts", "language-features", "close-reading", "non-fiction"],
+      "topics": [
+        "unfamiliar-texts",
+        "language-features",
+        "close-reading",
+        "non-fiction"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Look for: self-deprecating humour used to manage vulnerability; sensory descriptions of being in the water (cold, buoyancy, the echo of the pool); contrast between the ease of child learners and the self-consciousness of the adult; how the writer moves from fear to gradual confidence; the swimming pool as a setting that strips away social roles; metaphor connecting learning to swim with broader ideas about courage or starting over."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology.\n- Show awareness that meaning has been deliberately crafted.\n- Include specific details from the text.\n\nFor Merit:\n- Convincingly address the question, presenting a reasoned discussion of one or more ideas.\n- Show awareness of deliberate crafting for a particular purpose.\n- Weave a range of specific details.\n\nFor Excellence:\n- Develop an insightful or original argument or interpretation.\n- Make judgments about how effects and meanings relate to the purpose of the text.\n- Look for: self-deprecating humour used to manage vulnerability.\n- sensory descriptions of being in the water (cold, buoyancy, the echo of the pool).\n- contrast between the ease of child learners and the self-consciousness of the adult.\n- how the writer moves from fear to gradual confidence.\n- the swimming pool as a setting that strips away social roles.\n- metaphor connecting learning to swim with broader ideas about courage or starting over."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

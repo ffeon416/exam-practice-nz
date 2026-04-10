@@ -50,7 +50,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Let solubility be s. [Ag+] = s and [Cl-] = s (1:1 ratio). Ks = s x s = s^2. s = sqrt(1.77 x 10^-10) = 1.33 x 10^-5 mol L-1. So [Ag+] = [Cl-] = 1.33 x 10^-5 mol L-1.",
-      "markingGuide": "Achievement: Correct process. Merit: Correct solubility with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct process.\n\nFor Merit:\n- Correct solubility with units."
     },
     {
       "id": "l3ce24-q1bi",
@@ -65,7 +65,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Add NH3. Ammonia forms a complex ion with Ag+, removing Ag+ from the equilibrium and shifting it forward, dissolving more AgCl.",
-      "markingGuide": "Achievement: Recognises Ag+ can form a complex ion. Merit: Explains removal of Ag+ from equilibrium. Excellence: Full justification with equation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises Ag+ can form a complex ion.\n\nFor Merit:\n- Explains removal of Ag+ from equilibrium.\n\nFor Excellence:\n- Full justification with equation."
     },
     {
       "id": "l3ce24-q1bii",
@@ -80,7 +80,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Add NaCl. Cl- is a common ion; increasing [Cl-] shifts equilibrium to the left (reverse), precipitating more AgCl.",
-      "markingGuide": "Achievement: Recognises common ion. Merit: Explains shift to reverse."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises common ion.\n\nFor Merit:\n- Explains shift to reverse."
     },
     {
       "id": "l3ce24-q1c",
@@ -95,7 +95,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Total volume = 30.0 + 20.0 = 50.0 mL. [Ag+] after mixing = (30.0/50.0) x 0.0150 = 9.00 x 10^-3 mol L-1. [Cl-] after mixing = (20.0/50.0) x 0.0250 = 1.00 x 10^-2 mol L-1. IP = [Ag+][Cl-] = 9.00 x 10^-3 x 1.00 x 10^-2 = 9.00 x 10^-5. IP (9.00 x 10^-5) is much greater than Ks (1.77 x 10^-10), so a precipitate of AgCl will form.",
-      "markingGuide": "Achievement: Correct [Ag+] OR [Cl-]. Merit: Correct process for IP. Excellence: Correct calculation and comparison."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct [Ag+] OR [Cl-].\n\nFor Merit:\n- Correct process for IP.\n\nFor Excellence:\n- Correct calculation and comparison."
     },
     {
       "id": "l3ce24-q2ai",
@@ -125,7 +125,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "When HCl is added, the basic component CH3COO- reacts with H3O+ to form CH3COOH, minimising pH change. CH3COO- + H3O+ -> CH3COOH + H2O",
-      "markingGuide": "Achievement: Identifies the acid is removed by the buffer. Merit: Explains the reaction with equation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies the acid is removed by the buffer.\n\nFor Merit:\n- Explains the reaction with equation."
     },
     {
       "id": "l3ce24-q2aiii",
@@ -140,7 +140,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "pH = pKa + log([A-]/[HA]). 4.50 = 4.87 + log([A-]/0.380). log([A-]/0.380) = -0.37. [A-]/0.380 = 10^-0.37 = 0.427. [A-] = 0.162 mol L-1. n(CH3COONa) = 0.162 x 0.250 = 0.0406 mol. m = 0.0406 x 82.0 = 3.33 g.",
-      "markingGuide": "Achievement: Correct substitution. Merit: Correct process with minor error. Excellence: Correct mass with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct substitution.\n\nFor Merit:\n- Correct process with minor error.\n\nFor Excellence:\n- Correct mass with units."
     },
     {
       "id": "l3ce24-q2b",
@@ -159,16 +159,32 @@
         "type": "table",
         "title": "Unknown Solutions — Conductivity and Indicator Tests",
         "data": {
-          "headers": ["Solution", "Electrical Conductivity", "Colour with Bromothymol Blue (pKa = 7.2)"],
+          "headers": [
+            "Solution",
+            "Electrical Conductivity",
+            "Colour with Bromothymol Blue (pKa = 7.2)"
+          ],
           "rows": [
-            ["A", "Poor", "Yellow"],
-            ["B", "Poor", "Blue"],
-            ["C", "Good", "Yellow"]
+            [
+              "A",
+              "Poor",
+              "Yellow"
+            ],
+            [
+              "B",
+              "Poor",
+              "Blue"
+            ],
+            [
+              "C",
+              "Good",
+              "Yellow"
+            ]
           ]
         }
       },
       "expectedAnswer": "A = CH3COOH (weak acid, poor conductivity, yellow = acidic). B = CH3NH2 (weak base, poor conductivity, blue = basic). C = (CH3NH3)Cl (fully dissociates, good conductivity, yellow = acidic salt).",
-      "markingGuide": "Achievement: Recognises ions needed for conductivity. Merit: Links conductivity and colour for TWO solutions. Excellence: Justifies ALL THREE solutions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises ions needed for conductivity.\n\nFor Merit:\n- Links conductivity and colour for TWO solutions.\n\nFor Excellence:\n- Justifies ALL THREE solutions."
     },
     {
       "id": "l3ce24-q3ai",
@@ -183,7 +199,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Ka = [H3O+][A-] / [HA]. For a weak acid, [H3O+] = [A-] = x, and [HA] is approximately 0.180 mol L-1. So 1.34 x 10^-5 = x^2 / 0.180. x^2 = 2.412 x 10^-6. x = 1.553 x 10^-3 mol L-1. pH = -log(1.553 x 10^-3) = 2.81.",
-      "markingGuide": "Achievement: Correct substitution. Merit: Correct pH."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct substitution.\n\nFor Merit:\n- Correct pH."
     },
     {
       "id": "l3ce24-q3aii",
@@ -198,7 +214,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The curve starts at the initial pH, gradually rises through the buffer region, then shows a steep rise near the equivalence point.",
-      "markingGuide": "Achievement: At least ONE pH point plotted correctly. Merit: BOTH points plotted correctly with correctly drawn shape."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- At least ONE pH point plotted correctly.\n\nFor Merit:\n- BOTH points plotted correctly with correctly drawn shape."
     },
     {
       "id": "l3ce24-q3bi",
@@ -213,7 +229,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "pH = pKa + log([A-]/[HA]) = 4.87 + log(7/1) = 4.87 + 0.845 = 5.72. The buffer is more effective at neutralising added strong acid than added strong base, because there is much more conjugate base (7 parts) than weak acid (1 part) — the conjugate base is available in excess to react with added H+.",
-      "markingGuide": "Achievement: Correct process. Merit: Correct pH and explanation. Excellence: pH and evaluation of buffer effectiveness."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct process.\n\nFor Merit:\n- Correct pH and explanation.\n\nFor Excellence:\n- pH and evaluation of buffer effectiveness."
     },
     {
       "id": "l3ce24-q3bii",
@@ -228,7 +244,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "As the titration nears 18.0 mL (the equivalence point), the remaining weak acid is almost entirely converted to its conjugate base, so the buffering capacity is depleted and any added OH- has a much larger effect on pH. Just past the equivalence point, excess NaOH is added directly to the solution (no more weak acid to neutralise it), causing the pH to rise very rapidly over this small volume range.",
-      "markingGuide": "Achievement: Recognises the buffer is no longer effective. Merit: Explains the rapid pH increase near and past equivalence."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises the buffer is no longer effective.\n\nFor Merit:\n- Explains the rapid pH increase near and past equivalence."
     },
     {
       "id": "l3ce24-q3ci",
@@ -244,7 +260,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "At equivalence, all CH3COOH has been converted to CH3COO-. The ethanoate ion hydrolyses: CH3COO- + H2O <=> CH3COOH + OH-. Kb = Kw/Ka = 1 x 10^-14 / 1.34 x 10^-5 = 7.46 x 10^-10. The resulting pH will be basic (around 8-9).",
-      "markingGuide": "Achievement: Correct process. Merit: Calculates pH but may not dilute correctly. Excellence: Correct pH at equivalence."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct process.\n\nFor Merit:\n- Calculates pH but may not dilute correctly.\n\nFor Excellence:\n- Correct pH at equivalence."
     },
     {
       "id": "l3ce24-q3cii",
@@ -260,7 +276,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Lower pH. Methanoic acid has a larger Ka (1.77 x 10^-4) than ethanoic acid (1.34 x 10^-5), so methanoic acid is the stronger of the two weak acids. Its conjugate base (methanoate, HCOO-) is correspondingly a weaker base than ethanoate (CH3COO-). At the equivalence point, the conjugate base hydrolyses in water to produce OH-. Because methanoate is the weaker base, it hydrolyses less, producing a lower [OH-] and therefore a lower pH than the equivalence point of the ethanoic acid titration.",
-      "markingGuide": "Achievement: Recognises relative acid strengths. Merit: Links Ka to [OH-] at equivalence. Excellence: Correct prediction with full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises relative acid strengths.\n\nFor Merit:\n- Links Ka to [OH-] at equivalence.\n\nFor Excellence:\n- Correct prediction with full explanation."
     }
   ],
   "totalMarks": 24,

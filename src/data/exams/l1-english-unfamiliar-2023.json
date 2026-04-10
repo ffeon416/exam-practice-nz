@@ -11,38 +11,62 @@
     {
       "id": "eng27-23-q1",
       "number": "1",
-      "text": "Read the passage provided (Text A — a personal essay about a community garden).\n\nHow do the writer's language choices help us understand their feelings about growing food with others? You might consider how they have used:\n\u2022 descriptions of the natural world\n\u2022 ideas about shared effort and cooperation\n\u2022 ideas about patience and reward.\n\nSupport your explanation with quotes and examples of language features from the text.",
+      "text": "Read the passage provided (Text A — a personal essay about a community garden).\n\nHow do the writer's language choices help us understand their feelings about growing food with others? You might consider how they have used:\n• descriptions of the natural world\n• ideas about shared effort and cooperation\n• ideas about patience and reward.\n\nSupport your explanation with quotes and examples of language features from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "unfamiliar-texts", "non-fiction"],
+      "topics": [
+        "language-features",
+        "unfamiliar-texts",
+        "non-fiction"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved: Identify and describe aspects of the text that are relevant to the question; explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to build meaning across the text. Excellence: Explain how aspects have been deliberately chosen to create meanings and effects that connect to the writer's purpose and broader contexts. Look for: sensory imagery (sight, smell, touch of the garden); metaphor or personification applied to plants or seasons; contrast between solitary effort and communal gathering; sentence variation to mirror the rhythm of planting and harvesting; tone shifts from uncertainty to satisfaction."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identify and describe aspects of the text that are relevant to the question.\n- explain how one or more aspects create meaning.\n\nFor Merit:\n- Explain how two or more aspects work together to build meaning across the text.\n\nFor Excellence:\n- Explain how aspects have been deliberately chosen to create meanings and effects that connect to the writer's purpose and broader contexts.\n- Look for: sensory imagery (sight, smell, touch of the garden).\n- metaphor or personification applied to plants or seasons.\n- contrast between solitary effort and communal gathering.\n- sentence variation to mirror the rhythm of planting and harvesting.\n- tone shifts from uncertainty to satisfaction."
     },
     {
       "id": "eng27-23-q2",
       "number": "2",
-      "text": "Read the poem provided (Text B — a poem about walking home at dusk).\n\nHow does the poet help us understand the speaker's reflections on change? You might consider how they have used:\n\u2022 imagery of light and darkness\n\u2022 ideas about memory and the passage of time\n\u2022 the mood or atmosphere of the poem.\n\nSupport your explanation with quotes and examples of language features from the text.",
+      "text": "Read the poem provided (Text B — a poem about walking home at dusk).\n\nHow does the poet help us understand the speaker's reflections on change? You might consider how they have used:\n• imagery of light and darkness\n• ideas about memory and the passage of time\n• the mood or atmosphere of the poem.\n\nSupport your explanation with quotes and examples of language features from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "unfamiliar-texts", "poetry"],
+      "topics": [
+        "language-features",
+        "unfamiliar-texts",
+        "poetry"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved: Identify and describe aspects of the text that are relevant to the question; explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to build meaning across the text. Excellence: Explain how aspects have been deliberately chosen to create meanings and effects that connect to the writer's purpose and broader contexts. Look for: light/dark symbolism representing knowledge and uncertainty; use of past and present tense to show the speaker moving between memory and reality; repetition or refrain that echoes the cyclical nature of change; enjambment creating a sense of movement; contrast between familiar landmarks and unfamiliar feelings."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identify and describe aspects of the text that are relevant to the question.\n- explain how one or more aspects create meaning.\n\nFor Merit:\n- Explain how two or more aspects work together to build meaning across the text.\n\nFor Excellence:\n- Explain how aspects have been deliberately chosen to create meanings and effects that connect to the writer's purpose and broader contexts.\n- Look for: light/dark symbolism representing knowledge and uncertainty.\n- use of past and present tense to show the speaker moving between memory and reality.\n- repetition or refrain that echoes the cyclical nature of change.\n- enjambment creating a sense of movement.\n- contrast between familiar landmarks and unfamiliar feelings."
     },
     {
       "id": "eng27-23-q3",
       "number": "3",
-      "text": "Read the passage provided (Text C — a narrative about a family preparing for a storm).\n\nHow does the writer help us understand the family's experience of facing an uncertain situation? You might consider how they have used:\n\u2022 descriptions of actions and preparations\n\u2022 ideas about roles within a family\n\u2022 mood or atmosphere.\n\nSupport your explanation with quotes and examples of language features from the text.",
+      "text": "Read the passage provided (Text C — a narrative about a family preparing for a storm).\n\nHow does the writer help us understand the family's experience of facing an uncertain situation? You might consider how they have used:\n• descriptions of actions and preparations\n• ideas about roles within a family\n• mood or atmosphere.\n\nSupport your explanation with quotes and examples of language features from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "unfamiliar-texts", "prose"],
+      "topics": [
+        "language-features",
+        "unfamiliar-texts",
+        "prose"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved: Identify and describe aspects of the text that are relevant to the question; explain how one or more aspects create meaning. Merit: Explain how two or more aspects work together to build meaning across the text. Excellence: Explain how aspects have been deliberately chosen to create meanings and effects that connect to the writer's purpose and broader contexts. Look for: short, urgent sentences to build tension; listing of practical tasks to show how people cope through action; dialogue or lack of dialogue revealing family dynamics; personification of the storm or weather; contrast between the chaos outside and the routine inside; how different family members respond differently, revealing character and relationships."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identify and describe aspects of the text that are relevant to the question.\n- explain how one or more aspects create meaning.\n\nFor Merit:\n- Explain how two or more aspects work together to build meaning across the text.\n\nFor Excellence:\n- Explain how aspects have been deliberately chosen to create meanings and effects that connect to the writer's purpose and broader contexts.\n- Look for: short, urgent sentences to build tension.\n- listing of practical tasks to show how people cope through action.\n- dialogue or lack of dialogue revealing family dynamics.\n- personification of the storm or weather.\n- contrast between the chaos outside and the routine inside.\n- how different family members respond differently, revealing character and relationships."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

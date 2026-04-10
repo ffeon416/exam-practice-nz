@@ -7,26 +7,319 @@
   "subject": "mathematics",
   "timeMinutes": 60,
   "questions": [
-    {"id":"l2a24-q1a","number":"1(a)","text":"Write x² + 8x – 5 in the form (x + p)² – q.","marks":2,"gradeLevel":"achieved","topics":["quadratic-methods","algebraic-expressions-l2"],"answerType":"working","expectedAnswer":"(x + 4)² – 21","markingGuide":"Half of 8 is 4. (x+4)² = x²+8x+16. So x²+8x–5 = (x+4)²–16–5 = (x+4)²–21.","graph":{"type":"line","title":"y = x² + 8x – 5","xLabel":"x","yLabel":"y","xValues":[-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1],"series":[{"name":"y","values":[4,-5,-12,-17,-20,-21,-20,-17,-12,-5,4],"color":"#6366f1"}]}},
-    {"id":"l2a24-q1b","number":"1(b)","text":"Find the discriminant of the quadratic equation 3x² + 5 = 11x.","marks":2,"gradeLevel":"achieved","topics":["quadratic-methods"],"answerType":"working","expectedAnswer":"61","markingGuide":"Rearrange: 3x²–11x+5=0. a=3, b=–11, c=5. Discriminant = 121–60 = 61."},
-    {"id":"l2a24-q1c","number":"1(c)","text":"Write as a single fraction in simplest form:\n\n3/x + (x – 5)/(6x²) – 3/x","marks":3,"gradeLevel":"merit","topics":["algebraic-expressions-l2"],"answerType":"working","expectedAnswer":"(x – 5)/(6x²)","markingGuide":"3/x – 3/x = 0. Expression simplifies to (x–5)/(6x²). Or via common denominator 6x²: 18x/(6x²) + (x–5)/(6x²) – 18x/(6x²) = (x–5)/(6x²)."},
-    {"id":"l2a24-q1d","number":"1(d)","text":"A cubic polynomial f(x) = 2x³ + ax² + bx + c has roots –2, 1/2, and 4.\n\nFind the values of a, b, and c.","marks":3,"gradeLevel":"merit","topics":["polynomials","algebraic-expressions-l2"],"answerType":"working","expectedAnswer":"a = –5, b = –14, c = 8","markingGuide":"f(x) = 2(x+2)(x–1/2)(x–4) = (x+2)(2x–1)(x–4). Expand (x+2)(2x–1) = 2x²+4x–x–2 = 2x²+3x–2. Then (2x²+3x–2)(x–4) = 2x³–8x²+3x²–12x–2x+8 = 2x³–5x²–14x+8. So a = –5, b = –14, c = 8.","graph":{"type":"line","title":"Cubic f(x) = 2x³ – 5x² – 14x + 8","xLabel":"x","yLabel":"f(x)","xValues":[-3,-2,-1,0,1,2,3,4,5],"series":[{"name":"f(x)","values":[-49,0,15,8,-9,-24,-25,0,63],"color":"#6366f1"}]}},
-    {"id":"l2a24-q1e","number":"1(e)","text":"Show that\n\n[(x^(3/2) + x^(1/2))(x^(1/2) – x^(–1/2))] / (x^(3/2) – x^(1/2))²\n\nsimplifies to\n\n(x + 1) / [x(x – 1)].","marks":5,"gradeLevel":"excellence","topics":["surds-indices","algebraic-expressions-l2"],"answerType":"working","expectedAnswer":"(x + 1) / [x(x – 1)]","markingGuide":"Numerator: factor x^(1/2) from first bracket: x^(1/2)(x+1). Factor x^(–1/2) from second: x^(–1/2)(x–1). Product = x^(1/2)·x^(–1/2)·(x+1)(x–1) = (x+1)(x–1). Denominator: x^(3/2)–x^(1/2) = x^(1/2)(x–1). Squared: x(x–1)². Result = (x+1)(x–1)/[x(x–1)²] = (x+1)/[x(x–1)]. Achieved = correct expansion of one part. Excellence = full proof."},
-    {"id":"l2a24-q2a","number":"2(a)","text":"Solve 2x + 1 = 10/x.","marks":2,"gradeLevel":"achieved","topics":["quadratic-methods"],"answerType":"working","expectedAnswer":"x = –5/2 or x = 2","markingGuide":"Multiply both sides by x: 2x² + x = 10. 2x² + x – 10 = 0. Factorise: (2x + 5)(x – 2) = 0. So x = –5/2 or x = 2.","graph":{"type":"line","title":"y = 2x² + x – 10","xLabel":"x","yLabel":"y","xValues":[-4,-3,-2.5,-2,-1,0,1,2,3],"series":[{"name":"y","values":[18,5,0,-4,-9,-10,-7,0,11],"color":"#6366f1"}]}},
-    {"id":"l2a24-q2b","number":"2(b)","text":"Simplify (9x² + 12x + 4) / (2x + 3x²).","marks":3,"gradeLevel":"merit","topics":["algebraic-expressions-l2","quadratic-methods"],"answerType":"working","expectedAnswer":"(3x + 2) / x","markingGuide":"Numerator: 9x² + 12x + 4 = (3x + 2)². Denominator: 2x + 3x² = x(2 + 3x) = x(3x + 2). Cancel one factor of (3x + 2): (3x + 2)² / [x(3x + 2)] = (3x + 2) / x. Merit = correct simplified form with factorisation shown."},
-    {"id":"l2a24-q2c","number":"2(c)","text":"Find the value of k for which the equation\n\n(x²–3x)/(2x–1) = (k–1)/(k+1)\n\nhas roots that are numerically equal but opposite in sign.","marks":4,"gradeLevel":"excellence","topics":["quadratic-methods","algebraic-expressions-l2"],"answerType":"working","expectedAnswer":"k = –1/5","markingGuide":"Cross-multiply: (x²–3x)(k+1) = (k–1)(2x–1). Expand: (k+1)x²–3(k+1)x = 2(k–1)x–(k–1). Rearrange: (k+1)x² – [3(k+1)+2(k–1)]x + (k–1) = 0. (k+1)x² – (5k+1)x + (k–1) = 0. For roots equal and opposite, sum of roots = 0: (5k+1)/(k+1) = 0. 5k+1 = 0, k = –1/5."},
-    {"id":"l2a24-q2di","number":"2(d)(i)","text":"A company emblem consists of two semicircles forming a wave shape, each with the same radius, arranged within a rectangle of width x. The rectangle's height equals its width.\n\nFind an expression for the area of one semicircle in terms of x.","marks":2,"gradeLevel":"achieved","topics":["algebraic-expressions-l2"],"answerType":"working","expectedAnswer":"πx²/32","markingGuide":"Each semicircle has diameter = x/2 (two semicircles stack vertically in height x). So radius = x/4. Area of one semicircle = (1/2)π(x/4)² = πx²/32. Achieved = correct expression."},
-    {"id":"l2a24-q2dii","number":"2(d)(ii)","text":"If the uncovered area of the rectangle (not covered by the two semicircles) is 12.858 cm², find the width x.","marks":2,"gradeLevel":"merit","topics":["algebraic-expressions-l2","quadratic-methods"],"answerType":"working","expectedAnswer":"x = 4 cm","markingGuide":"Rectangle area = x². Two semicircles = one full circle = π(x/4)² = πx²/16. Uncovered = x² – πx²/16 = x²(16–π)/16. Set equal to 12.858: x²(16–π)/16 = 12.858. x² = 12.858 × 16/(16–π) = 205.73/12.858 = 16. x = 4. Merit = correct x value."},
-    {"id":"l2a24-q3a","number":"3(a)","text":"Solve x = log₂ 128.","marks":2,"gradeLevel":"achieved","topics":["logarithms"],"answerType":"working","expectedAnswer":"x = 7","markingGuide":"2^x = 128. 2⁷ = 128. x = 7."},
-    {"id":"l2a24-q3b","number":"3(b)","text":"Solve 9^(2x + 1) = (1/27)^x.","marks":3,"gradeLevel":"merit","topics":["logarithms","exponents-l2"],"answerType":"working","expectedAnswer":"x = –2/7","markingGuide":"Convert to base 3: 9 = 3², so 9^(2x+1) = 3^(4x+2). 1/27 = 3^(–3), so (1/27)^x = 3^(–3x). Equate: 4x+2 = –3x. 7x = –2. x = –2/7."},
-    {"id":"l2a24-q3c","number":"3(c)","text":"If log_b x = 4 and log_(3b) y = 4, write y in terms of x.","marks":4,"gradeLevel":"excellence","topics":["logarithms"],"answerType":"working","expectedAnswer":"y = 81x","markingGuide":"From log_b x = 4: b⁴ = x. From log_(3b) y = 4: (3b)⁴ = y, so y = 81b⁴. Since b⁴ = x: y = 81x."},
-    {"id":"l2a24-q3d","number":"3(d)","text":"Consider the quadratic equation 7x² – 8kx + k² = 0.\n\nUsing the quadratic formula, find fully simplified solutions for x in terms of k.","marks":3,"gradeLevel":"merit","topics":["quadratic-methods"],"answerType":"working","expectedAnswer":"x = k or x = k/7","markingGuide":"a=7, b=–8k, c=k². x = [8k ± √(64k²–28k²)] / 14 = [8k ± √(36k²)] / 14 = [8k ± 6k] / 14. x = 14k/14 = k or x = 2k/14 = k/7."}
+    {
+      "id": "l2a24-q1a",
+      "number": "1(a)",
+      "text": "Write x² + 8x – 5 in the form (x + p)² – q.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "quadratic-methods",
+        "algebraic-expressions-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(x + 4)² – 21",
+      "markingGuide": "Step 1: Half of 8 is 4.\n\nStep 2: (x+4)² = x²+8x+16.\n\nStep 3: So x²+8x–5 = (x+4)²–16–5 = (x+4)²–21.\n\nFinal answer: (x + 4)² – 21.",
+      "graph": {
+        "type": "line",
+        "title": "y = x² + 8x – 5",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [
+          -9,
+          -8,
+          -7,
+          -6,
+          -5,
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1
+        ],
+        "series": [
+          {
+            "name": "y",
+            "values": [
+              4,
+              -5,
+              -12,
+              -17,
+              -20,
+              -21,
+              -20,
+              -17,
+              -12,
+              -5,
+              4
+            ],
+            "color": "#6366f1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "l2a24-q1b",
+      "number": "1(b)",
+      "text": "Find the discriminant of the quadratic equation 3x² + 5 = 11x.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "quadratic-methods"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "61",
+      "markingGuide": "Step 1: Rearrange: 3x²–11x+5=0.\n\nStep 2: a=3, b=–11, c=5.\n\nStep 3: Discriminant = 121–60 = 61."
+    },
+    {
+      "id": "l2a24-q1c",
+      "number": "1(c)",
+      "text": "Write as a single fraction in simplest form:\n\n3/x + (x – 5)/(6x²) – 3/x",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "algebraic-expressions-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(x – 5)/(6x²)",
+      "markingGuide": "Step 1: 3/x – 3/x = 0.\n\nStep 2: Expression simplifies to (x–5)/(6x²).\n\nStep 3: Or via common denominator 6x²: 18x/(6x²) + (x–5)/(6x²) – 18x/(6x²) = (x–5)/(6x²).\n\nFinal answer: (x – 5)/(6x²)."
+    },
+    {
+      "id": "l2a24-q1d",
+      "number": "1(d)",
+      "text": "A cubic polynomial f(x) = 2x³ + ax² + bx + c has roots –2, 1/2, and 4.\n\nFind the values of a, b, and c.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "polynomials",
+        "algebraic-expressions-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "a = –5, b = –14, c = 8",
+      "markingGuide": "Step 1: f(x) = 2(x+2)(x–1/2)(x–4) = (x+2)(2x–1)(x–4).\n\nStep 2: Expand (x+2)(2x–1) = 2x²+4x–x–2 = 2x²+3x–2.\n\nStep 3: Then (2x²+3x–2)(x–4) = 2x³–8x²+3x²–12x–2x+8 = 2x³–5x²–14x+8.\n\nStep 4: So a = –5, b = –14, c = 8.",
+      "graph": {
+        "type": "line",
+        "title": "Cubic f(x) = 2x³ – 5x² – 14x + 8",
+        "xLabel": "x",
+        "yLabel": "f(x)",
+        "xValues": [
+          -3,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "series": [
+          {
+            "name": "f(x)",
+            "values": [
+              -49,
+              0,
+              15,
+              8,
+              -9,
+              -24,
+              -25,
+              0,
+              63
+            ],
+            "color": "#6366f1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "l2a24-q1e",
+      "number": "1(e)",
+      "text": "Show that\n\n[(x^(3/2) + x^(1/2))(x^(1/2) – x^(–1/2))] / (x^(3/2) – x^(1/2))²\n\nsimplifies to\n\n(x + 1) / [x(x – 1)].",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "surds-indices",
+        "algebraic-expressions-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(x + 1) / [x(x – 1)]",
+      "markingGuide": "Step 1: Numerator: factor x^(1/2) from first bracket: x^(1/2)(x+1).\n\nStep 2: Factor x^(–1/2) from second: x^(–1/2)(x–1).\n\nStep 3: Product = x^(1/2)·x^(–1/2)·(x+1)(x–1) = (x+1)(x–1).\n\nStep 4: Denominator: x^(3/2)–x^(1/2) = x^(1/2)(x–1).\n\nStep 5: Squared: x(x–1)².\n\nStep 6: Result = (x+1)(x–1)/[x(x–1)²] = (x+1)/[x(x–1)].\n\nStep 7: Achieved = correct expansion of one part.\n\nStep 8: Excellence = full proof.\n\nFinal answer: (x + 1) / [x(x – 1)]."
+    },
+    {
+      "id": "l2a24-q2a",
+      "number": "2(a)",
+      "text": "Solve 2x + 1 = 10/x.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "quadratic-methods"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = –5/2 or x = 2",
+      "markingGuide": "Step 1: Multiply both sides by x: 2x² + x = 10.\n\nStep 2: 2x² + x – 10 = 0.\n\nStep 3: Factorise: (2x + 5)(x – 2) = 0.\n\nStep 4: So x = –5/2 or x = 2.",
+      "graph": {
+        "type": "line",
+        "title": "y = 2x² + x – 10",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [
+          -4,
+          -3,
+          -2.5,
+          -2,
+          -1,
+          0,
+          1,
+          2,
+          3
+        ],
+        "series": [
+          {
+            "name": "y",
+            "values": [
+              18,
+              5,
+              0,
+              -4,
+              -9,
+              -10,
+              -7,
+              0,
+              11
+            ],
+            "color": "#6366f1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "l2a24-q2b",
+      "number": "2(b)",
+      "text": "Simplify (9x² + 12x + 4) / (2x + 3x²).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "algebraic-expressions-l2",
+        "quadratic-methods"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(3x + 2) / x",
+      "markingGuide": "Step 1: Numerator: 9x² + 12x + 4 = (3x + 2)².\n\nStep 2: Denominator: 2x + 3x² = x(2 + 3x) = x(3x + 2).\n\nStep 3: Cancel one factor of (3x + 2): (3x + 2)² / [x(3x + 2)] = (3x + 2) / x.\n\nStep 4: Merit = correct simplified form with factorisation shown."
+    },
+    {
+      "id": "l2a24-q2c",
+      "number": "2(c)",
+      "text": "Find the value of k for which the equation\n\n(x²–3x)/(2x–1) = (k–1)/(k+1)\n\nhas roots that are numerically equal but opposite in sign.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "quadratic-methods",
+        "algebraic-expressions-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "k = –1/5",
+      "markingGuide": "Step 1: Cross-multiply: (x²–3x)(k+1) = (k–1)(2x–1).\n\nStep 2: Expand: (k+1)x²–3(k+1)x = 2(k–1)x–(k–1).\n\nStep 3: Rearrange: (k+1)x² – [3(k+1)+2(k–1)]x + (k–1) = 0.\n\nStep 4: (k+1)x² – (5k+1)x + (k–1) = 0.\n\nStep 5: For roots equal and opposite, sum of roots = 0: (5k+1)/(k+1) = 0.\n\nStep 6: 5k+1 = 0, k = –1/5."
+    },
+    {
+      "id": "l2a24-q2di",
+      "number": "2(d)(i)",
+      "text": "A company emblem consists of two semicircles forming a wave shape, each with the same radius, arranged within a rectangle of width x. The rectangle's height equals its width.\n\nFind an expression for the area of one semicircle in terms of x.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "algebraic-expressions-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "πx²/32",
+      "markingGuide": "Step 1: Each semicircle has diameter = x/2 (two semicircles stack vertically in height x).\n\nStep 2: So radius = x/4.\n\nStep 3: Area of one semicircle = (1/2)π(x/4)² = πx²/32.\n\nStep 4: Achieved = correct expression."
+    },
+    {
+      "id": "l2a24-q2dii",
+      "number": "2(d)(ii)",
+      "text": "If the uncovered area of the rectangle (not covered by the two semicircles) is 12.858 cm², find the width x.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "algebraic-expressions-l2",
+        "quadratic-methods"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 4 cm",
+      "markingGuide": "Step 1: Rectangle area = x².\n\nStep 2: Two semicircles = one full circle = π(x/4)² = πx²/16.\n\nStep 3: Uncovered = x² – πx²/16 = x²(16–π)/16.\n\nStep 4: Set equal to 12.858: x²(16–π)/16 = 12.858.\n\nStep 5: x² = 12.858 × 16/(16–π) = 205.73/12.858 = 16.\n\nStep 6: x = 4.\n\nStep 7: Merit = correct x value.\n\nFinal answer: x = 4 cm."
+    },
+    {
+      "id": "l2a24-q3a",
+      "number": "3(a)",
+      "text": "Solve x = log₂ 128.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "logarithms"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 7",
+      "markingGuide": "Step 1: 2^x = 128.\n\nStep 2: 2⁷ = 128.\n\nStep 3: x = 7."
+    },
+    {
+      "id": "l2a24-q3b",
+      "number": "3(b)",
+      "text": "Solve 9^(2x + 1) = (1/27)^x.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "logarithms",
+        "exponents-l2"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = –2/7",
+      "markingGuide": "Step 1: Convert to base 3: 9 = 3², so 9^(2x+1) = 3^(4x+2).\n\nStep 2: 1/27 = 3^(–3), so (1/27)^x = 3^(–3x).\n\nStep 3: Equate: 4x+2 = –3x.\n\nStep 4: 7x = –2.\n\nStep 5: x = –2/7."
+    },
+    {
+      "id": "l2a24-q3c",
+      "number": "3(c)",
+      "text": "If log_b x = 4 and log_(3b) y = 4, write y in terms of x.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "logarithms"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = 81x",
+      "markingGuide": "Step 1: From log_b x = 4: b⁴ = x.\n\nStep 2: From log_(3b) y = 4: (3b)⁴ = y, so y = 81b⁴.\n\nStep 3: Since b⁴ = x: y = 81x."
+    },
+    {
+      "id": "l2a24-q3d",
+      "number": "3(d)",
+      "text": "Consider the quadratic equation 7x² – 8kx + k² = 0.\n\nUsing the quadratic formula, find fully simplified solutions for x in terms of k.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "quadratic-methods"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = k or x = k/7",
+      "markingGuide": "Step 1: a=7, b=–8k, c=k².\n\nStep 2: x = [8k ± √(64k²–28k²)] / 14 = [8k ± √(36k²)] / 14 = [8k ± 6k] / 14.\n\nStep 3: x = 14k/14 = k or x = 2k/14 = k/7.\n\nFinal answer: x = k or x = k/7."
+    }
   ],
   "totalMarks": 40,
   "cutScores": {
-    "notAchieved": {"min":0,"max":12},
-    "achieved": {"min":13,"max":22},
-    "merit": {"min":23,"max":32},
-    "excellence": {"min":33,"max":40}
+    "notAchieved": {
+      "min": 0,
+      "max": 12
+    },
+    "achieved": {
+      "min": 13,
+      "max": 22
+    },
+    "merit": {
+      "min": 23,
+      "max": 32
+    },
+    "excellence": {
+      "min": 33,
+      "max": 40
+    }
   }
 }

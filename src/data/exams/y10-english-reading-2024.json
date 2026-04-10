@@ -14,11 +14,18 @@
       "text": "'The classroom buzzed with nervous energy as students shuffled papers and exchanged worried glances.'\n\nThe mood created in this sentence is best described as:",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10"],
+      "topics": [
+        "language-features-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["Excited and happy", "Anxious and tense", "Angry and frustrated", "Bored and tired"],
+      "options": [
+        "Excited and happy",
+        "Anxious and tense",
+        "Angry and frustrated",
+        "Bored and tired"
+      ],
       "expectedAnswer": "Anxious and tense",
-      "markingGuide": "The correct answer is 'Anxious and tense'. Words like 'nervous energy', 'shuffled', and 'worried glances' all contribute to an anxious, tense atmosphere."
+      "markingGuide": "The correct answer is Anxious and tense.\n\nHere's why:\nWords like 'nervous energy', 'shuffled', and 'worried glances' all contribute to an anxious, tense atmosphere."
     },
     {
       "id": "y10r2-q2",
@@ -26,11 +33,18 @@
       "text": "'Her words cut through the silence like a knife.'\n\nThis is an example of:",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10"],
+      "topics": [
+        "language-features-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["Metaphor", "Simile", "Hyperbole", "Onomatopoeia"],
+      "options": [
+        "Metaphor",
+        "Simile",
+        "Hyperbole",
+        "Onomatopoeia"
+      ],
       "expectedAnswer": "Simile",
-      "markingGuide": "The correct answer is Simile. The comparison uses 'like' to compare the effect of her words to a knife cutting through silence."
+      "markingGuide": "The correct answer is Simile.\n\nHere's why:\nThe comparison uses 'like' to compare the effect of her words to a knife cutting through silence."
     },
     {
       "id": "y10r2-q3",
@@ -38,9 +52,12 @@
       "text": "Read this passage:\n\n'Grandad's workshop smelled of sawdust and stories. Every shelf held a memory — the wooden boat he carved for Mum, the chess set with the missing knight, the half-finished picture frame that would never be completed now.'\n\nWhat do we learn about Grandad from this description? Use evidence from the text.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10", "prose-y10"],
+      "topics": [
+        "language-features-y10",
+        "prose-y10"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark: Grandad was skilled with his hands/a craftsman (carved boats, chess sets, picture frames). 1 mark: He is likely deceased ('would never be completed now'); he was a family man who made things for loved ones; the workshop preserves his memory/legacy. Accept any reasonable inference supported by text evidence."
+      "markingGuide": "1 mark: Grandad was skilled with his hands/a craftsman (carved boats, chess sets, picture frames).\n\n1 mark: He is likely deceased ('would never be completed now');.\n\nhe was a family man who made things for loved ones;.\n\nthe workshop preserves his memory/legacy.\n\nAccept any reasonable inference supported by text evidence."
     },
     {
       "id": "y10r2-q4",
@@ -48,11 +65,18 @@
       "text": "In the passage above, 'smelled of sawdust and stories' uses:",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10"],
+      "topics": [
+        "language-features-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["Alliteration and metaphor", "Simile and repetition", "Onomatopoeia and personification", "Hyperbole and rhetorical question"],
+      "options": [
+        "Alliteration and metaphor",
+        "Simile and repetition",
+        "Onomatopoeia and personification",
+        "Hyperbole and rhetorical question"
+      ],
       "expectedAnswer": "Alliteration and metaphor",
-      "markingGuide": "The correct answer is 'Alliteration and metaphor'. Alliteration: 'sawdust and stories' (repeated 's' sound). Metaphor: a workshop cannot literally smell of 'stories' — this is a figurative way of saying the place is full of memories."
+      "markingGuide": "The correct answer is Alliteration and metaphor.\n\nHere's why:\nAlliteration: 'sawdust and stories' (repeated 's' sound).\nMetaphor: a workshop cannot literally smell of 'stories' — this is a figurative way of saying the place is full of memories."
     },
     {
       "id": "y10r2-q5",
@@ -60,9 +84,12 @@
       "text": "Read this advertisement text:\n\n'Tired of soggy sandwiches? Sick of the same old lunch? Revolution Wraps are here to rescue your taste buds! Made with 100% natural ingredients and wrapped in our signature whole-grain tortilla, you'll never look at lunch the same way again.'\n\nIdentify TWO persuasive techniques used and explain how each one works to persuade the reader.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10", "non-fiction-y10"],
+      "topics": [
+        "language-features-y10",
+        "non-fiction-y10"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark each for technique + explanation. Rhetorical questions ('Tired of...? Sick of...?') — connects with reader's frustration, makes them feel understood; Personification ('rescue your taste buds') — makes the product seem heroic/exciting; Alliteration ('soggy sandwiches') — creates rhythm, memorable; Hyperbole ('never look at lunch the same way again') — exaggerates to create excitement; Appeal to health ('100% natural ingredients') — targets health-conscious buyers."
+      "markingGuide": "1 mark each for technique + explanation.\n\nRhetorical questions ('Tired of...?\n\nSick of...?') — connects with reader's frustration, makes them feel understood;.\n\nPersonification ('rescue your taste buds') — makes the product seem heroic/exciting;.\n\nAlliteration ('soggy sandwiches') — creates rhythm, memorable;.\n\nHyperbole ('never look at lunch the same way again') — exaggerates to create excitement;.\n\nAppeal to health ('100% natural ingredients') — targets health-conscious buyers."
     },
     {
       "id": "y10r2-q6",
@@ -70,11 +97,18 @@
       "text": "Which of the following is the BEST definition of 'tone' in writing?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10"],
+      "topics": [
+        "language-features-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["The topic the writer is discussing", "The writer's attitude toward the subject", "The feeling the reader gets from the text", "The speed at which events happen"],
+      "options": [
+        "The topic the writer is discussing",
+        "The writer's attitude toward the subject",
+        "The feeling the reader gets from the text",
+        "The speed at which events happen"
+      ],
       "expectedAnswer": "The writer's attitude toward the subject",
-      "markingGuide": "The correct answer is 'The writer's attitude toward the subject'. Tone refers to the writer's attitude (e.g. sarcastic, formal, playful), not the mood (reader's feeling) or the topic."
+      "markingGuide": "The correct answer is The writer's attitude toward the subject.\n\nHere's why:\nTone refers to the writer's attitude (e.g. sarcastic, formal, playful), not the mood (reader's feeling) or the topic."
     },
     {
       "id": "y10r2-q7",
@@ -82,9 +116,11 @@
       "text": "Explain the difference between 'mood' and 'tone' in a text. Give a brief example of each.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10"],
+      "topics": [
+        "language-features-y10"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark: Tone is the writer's attitude toward the subject (e.g. sarcastic, serious, playful). 1 mark: Mood is the feeling/atmosphere the text creates for the reader (e.g. tense, peaceful, eerie). Example: A writer might use a humorous tone (their attitude) to create a lighthearted mood (reader's feeling). Accept any clear distinction with valid examples."
+      "markingGuide": "1 mark: Tone is the writer's attitude toward the subject (e.g. sarcastic, serious, playful).\n\n1 mark: Mood is the feeling/atmosphere the text creates for the reader (e.g. tense, peaceful, eerie).\n\nExample: A writer might use a humorous tone (their attitude) to create a lighthearted mood (reader's feeling).\n\nAccept any clear distinction with valid examples."
     },
     {
       "id": "y10r2-q8",
@@ -92,15 +128,30 @@
       "text": "Read this extract:\n\n'The Waiting Room\n\nPlastic chairs in rows like soldiers,\nthe clock's tick marking time\nlike a heartbeat slowing down.\nA child builds towers from magazines\nwhile her mother stares at the door —\nthat door which swallows people whole\nand sometimes spits them back\nchanged.\n\nWe sit in the fluorescent glow,\nstrangers sharing the same silence,\nthe same prayers we won't say aloud.'\n\nHow does the poet create a sense of tension and shared human experience in this poem? In your answer, discuss:\n• the use of simile and metaphor\n• the contrast between the child and the adults\n• how the ending brings the people together.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["language-features-y10", "poetry-y10"],
+      "topics": [
+        "language-features-y10",
+        "poetry-y10"
+      ],
       "answerType": "working",
-      "markingGuide": "4 marks total. 1 mark: similes/metaphors ('chairs like soldiers' — rigid, orderly, waiting for orders; 'clock's tick like a heartbeat slowing down' — time feels heavy, suggests life/death anxiety; 'door which swallows people whole' — hospital/doctor as something frightening, consuming). 1 mark: contrast (child innocently building towers — unaware of seriousness; mother staring at door — consumed by worry; innocence vs anxiety). 1 mark: ending ('strangers sharing the same silence, the same prayers') — despite being strangers, they share the same fear and hope; universal human experience of waiting/worry. 1 mark: quality — how these features work together to build tension while showing common humanity in a medical waiting room."
+      "markingGuide": "4 marks total.\n\n1 mark: similes/metaphors ('chairs like soldiers' — rigid, orderly, waiting for orders;.\n\n'clock's tick like a heartbeat slowing down' — time feels heavy, suggests life/death anxiety;.\n\n'door which swallows people whole' — hospital/doctor as something frightening, consuming).\n\n1 mark: contrast (child innocently building towers — unaware of seriousness;.\n\nmother staring at door — consumed by worry;.\n\ninnocence vs anxiety).\n\n1 mark: ending ('strangers sharing the same silence, the same prayers') — despite being strangers, they share the same fear and hope;.\n\nuniversal human experience of waiting/worry.\n\n1 mark: quality — how these features work together to build tension while showing common humanity in a medical waiting room."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 4 },
-    "achieved": { "min": 5, "max": 9 },
-    "merit": { "min": 10, "max": 12 },
-    "excellence": { "min": 13, "max": 14 }
+    "notAchieved": {
+      "min": 0,
+      "max": 4
+    },
+    "achieved": {
+      "min": 5,
+      "max": 9
+    },
+    "merit": {
+      "min": 10,
+      "max": 12
+    },
+    "excellence": {
+      "min": 13,
+      "max": 14
+    }
   }
 }

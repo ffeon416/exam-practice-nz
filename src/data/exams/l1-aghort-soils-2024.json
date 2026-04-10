@@ -14,10 +14,13 @@
       "text": "Choose a primary production system.\n\nName and describe a soil type that tends to dry out quickly during periods of low rainfall, requiring irrigation to maintain moisture levels.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["soil-properties", "primary-production"],
+      "topics": [
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Identify and describe a soil type (e.g. sandy soils with large pore spaces drain water rapidly).",
-      "markingGuide": "Achieved: Identifies and describes the types of soil that dry out quickly. Sandy soils or soils with large pore spaces (macropores) drain water rapidly due to the spaces between the large, loosely packed particles. These soils have low water-holding capacity because gravity pulls water through the large pores faster than the roots can absorb it."
+      "markingGuide": "Achieved: Identifies and describes the types of soil that dry out quickly.\n\nSandy soils or soils with large pore spaces (macropores) drain water rapidly due to the spaces between the large, loosely packed particles.\n\nThese soils have low water-holding capacity because gravity pulls water through the large pores faster than the roots can absorb it."
     },
     {
       "id": "91930-24-q1aii",
@@ -25,10 +28,13 @@
       "text": "What impact can insufficient soil moisture have on soil properties and plant growth?",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["soil-properties", "primary-production"],
+      "topics": [
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Explain that insufficient moisture reduces nutrient uptake and limits plant growth.",
-      "markingGuide": "Merit: Explains an impact that insufficient soil moisture has on properties of soil and plant growth. Dry soils reduce the ability of plant roots to absorb dissolved nutrients (as nutrients must be in solution for uptake). Without adequate moisture, soil organisms such as bacteria and fungi become less active, slowing the decomposition of organic matter and the release of nutrients. Dry soils can become hydrophobic (water-repellent), making it harder for water to re-enter the soil even when irrigation is applied. Plants under water stress close their stomata to reduce water loss, which also reduces photosynthesis and growth."
+      "markingGuide": "Merit: Explains an impact that insufficient soil moisture has on properties of soil and plant growth.\n\nDry soils reduce the ability of plant roots to absorb dissolved nutrients (as nutrients must be in solution for uptake).\n\nWithout adequate moisture, soil organisms such as bacteria and fungi become less active, slowing the decomposition of organic matter and the release of nutrients.\n\nDry soils can become hydrophobic (water-repellent), making it harder for water to re-enter the soil even when irrigation is applied.\n\nPlants under water stress close their stomata to reduce water loss, which also reduces photosynthesis and growth."
     },
     {
       "id": "91930-24-q1b",
@@ -36,10 +42,14 @@
       "text": "Evaluate a soil management practice that is used to increase the water-holding capacity of a soil in your chosen primary production system.\n\nIn your answer, you should consider how the management practice:\n- modifies conditions for plant growth and productivity\n- improves soil conditions\n- cares for the soil.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["soil-management", "soil-properties", "primary-production"],
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Evaluate a practice such as adding organic matter/compost or mulching.",
-      "markingGuide": "Achieved: Describes how the practice can modify the growing environment and demonstrates care for the soil. Merit: Explains how the practice impacts the growing environment. Excellence: Evaluates the use of the management practice by discussing how it enhances plant growth and productivity.\n\nAdding organic matter/compost to sandy soil increases water-holding capacity by increasing the proportion of smaller pore spaces (micropores) that hold water against gravity. Compost also provides a food source for soil microorganisms, increasing biological activity. Mulching reduces evaporation from the soil surface, keeping moisture available for longer. These practices show manaakitanga (care) for the soil by maintaining its long-term health and productivity. A grower who applies compost regularly will build up humus levels over time, progressively improving soil structure and water retention."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes how the practice can modify the growing environment and demonstrates care for the soil.\n\nFor Merit:\n- Explains how the practice impacts the growing environment.\n\nFor Excellence:\n- Evaluates the use of the management practice by discussing how it enhances plant growth and productivity.\n\nEXPLANATION / WORKED EXAMPLE:\n\nAdding organic matter/compost to sandy soil increases water-holding capacity by increasing the proportion of smaller pore spaces (micropores) that hold water against gravity.\nCompost also provides a food source for soil microorganisms, increasing biological activity.\nMulching reduces evaporation from the soil surface, keeping moisture available for longer.\nThese practices show manaakitanga (care) for the soil by maintaining its long-term health and productivity.\nA grower who applies compost regularly will build up humus levels over time, progressively improving soil structure and water retention."
     },
     {
       "id": "91930-24-q2a",
@@ -47,10 +57,13 @@
       "text": "Choose the same or a different primary production system.\n\nHow is the pH of soil measured in your chosen primary production system?",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["soil-properties", "soil-management"],
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describe how soil pH is measured: collecting soil samples and testing with a pH meter or indicator solution.",
-      "markingGuide": "Achieved: Describes how pH is measured. Soil pH can be measured by collecting soil samples from several locations across the property, mixing them with distilled water, and using a calibrated pH meter or pH indicator solution. Soil pH indicates how acidic or alkaline the soil is. Most plants grow best in a pH range of 5.5 to 7.0. Knowing the pH helps a grower decide whether lime (to raise pH) or sulphur (to lower pH) is needed."
+      "markingGuide": "Achieved: Describes how pH is measured.\n\nSoil pH can be measured by collecting soil samples from several locations across the property, mixing them with distilled water, and using a calibrated pH meter or pH indicator solution.\n\nSoil pH indicates how acidic or alkaline the soil is.\n\nMost plants grow best in a pH range of 5.5 to 7.0.\n\nKnowing the pH helps a grower decide whether lime (to raise pH) or sulphur (to lower pH) is needed."
     },
     {
       "id": "91930-24-q2b",
@@ -58,10 +71,14 @@
       "text": "Evaluate a soil management practice for your chosen primary production system that can adjust the pH of the soil to an optimal range for plant growth. This practice must be different from the one discussed in Question One.\n\nIn your answer, you should consider how the management practice:\n- alters the properties of soil\n- cares for the soil\n- helps optimise plant growth.",
       "marks": 6,
       "gradeLevel": "excellence",
-      "topics": ["soil-management", "soil-properties", "primary-production"],
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Evaluate a pH management practice (e.g. liming).",
-      "markingGuide": "Achieved: Describes a management practice that adjusts soil pH. Merit: Explains a management practice that adjusts pH and its impact on soil properties for plant growth. Excellence: Evaluates a management practice that adjusts pH and how it optimises plant growth and care for the soil.\n\nLiming is the application of calcium carbonate (agricultural lime) to acidic soils to raise the pH. Acidic soils (pH below 5.5) reduce the availability of key nutrients like phosphorus and nitrogen, and can increase the toxicity of aluminium to plant roots. Applying lime raises the pH towards the optimal range (6.0–6.5 for most pasture species), increasing nutrient availability and improving conditions for soil organisms. The rate of lime application depends on soil test results and the target pH. Over-liming can make the soil too alkaline, reducing the availability of trace elements like iron and manganese. Applying the correct amount based on soil testing demonstrates manaakitanga — caring for the soil by maintaining it in a condition that supports productive plant growth over the long term."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes a management practice that adjusts soil pH.\n\nFor Merit:\n- Explains a management practice that adjusts pH and its impact on soil properties for plant growth.\n\nFor Excellence:\n- Evaluates a management practice that adjusts pH and how it optimises plant growth and care for the soil.\n\nEXPLANATION / WORKED EXAMPLE:\n\nLiming is the application of calcium carbonate (agricultural lime) to acidic soils to raise the pH.\nAcidic soils (pH below 5.5) reduce the availability of key nutrients like phosphorus and nitrogen, and can increase the toxicity of aluminium to plant roots.\nApplying lime raises the pH towards the optimal range (6.0–6.5 for most pasture species), increasing nutrient availability and improving conditions for soil organisms.\nThe rate of lime application depends on soil test results and the target pH.\nOver-liming can make the soil too alkaline, reducing the availability of trace elements like iron and manganese.\nApplying the correct amount based on soil testing demonstrates manaakitanga — caring for the soil by maintaining it in a condition that supports productive plant growth over the long term."
     },
     {
       "id": "91930-24-q3a",
@@ -69,10 +86,13 @@
       "text": "Choose the same or a different primary production system.\n\nWhat benefits does soil aeration provide for soil properties and plant growth in your chosen primary production system?",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["soil-properties", "primary-production"],
+      "topics": [
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describe benefits of soil aeration: provides oxygen for root respiration and soil organisms.",
-      "markingGuide": "Achieved: Describes the benefits that soil aeration has on soil. Merit: Explains the benefits that soil aeration has on soil.\n\nWell-aerated soils contain oxygen in the pore spaces, which is essential for root respiration. Root respiration provides energy for nutrient uptake and growth. Soil organisms such as earthworms and aerobic bacteria also require oxygen — their activity breaks down organic matter, releasing nutrients into the soil for plant uptake. Good aeration promotes healthy root development, allowing plants to access water and nutrients from a larger volume of soil."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the benefits that soil aeration has on soil.\n\nFor Merit:\n- Explains the benefits that soil aeration has on soil.\n\nEXPLANATION / WORKED EXAMPLE:\n\nWell-aerated soils contain oxygen in the pore spaces, which is essential for root respiration.\nRoot respiration provides energy for nutrient uptake and growth.\nSoil organisms such as earthworms and aerobic bacteria also require oxygen — their activity breaks down organic matter, releasing nutrients into the soil for plant uptake.\nGood aeration promotes healthy root development, allowing plants to access water and nutrients from a larger volume of soil."
     },
     {
       "id": "91930-24-q3b",
@@ -80,16 +100,32 @@
       "text": "Evaluate how a soil management practice for your chosen primary production system can improve soil aeration. This practice must be different from ones discussed in Questions One and Two.\n\nIn your answer, you should consider how the management practice:\n- improves the overall health of the soil\n- helps optimise plant production.",
       "marks": 6,
       "gradeLevel": "excellence",
-      "topics": ["soil-management", "soil-properties", "primary-production"],
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Evaluate a management practice (e.g. subsoil cultivation or reducing stock density to prevent compaction).",
-      "markingGuide": "Achieved: Describes a soil management practice that improves aeration. Merit: Explains how soil properties are improved by the practice. Excellence: Evaluates a management practice that improves aeration and how it optimises plant growth and overall soil health.\n\nReducing stock density (or rotating stock between paddocks) prevents soil compaction caused by heavy animals treading on wet soil. Compacted soil has fewer and smaller pore spaces, reducing both aeration and drainage. By reducing stocking rates during wet periods, soil structure is maintained — larger pore spaces (macropores) remain intact, allowing both air and water to move through the soil. This benefits root respiration and the activity of soil organisms. Subsoil cultivation (e.g. using a ripper behind a tractor) can physically break up compacted layers, restoring pore space and improving aeration in the root zone. However, cultivation should be done at the right soil moisture to avoid further damage to soil structure. Maintaining good soil aeration demonstrates care (manaakitanga) for the soil, ensuring its long-term productivity and health."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes a soil management practice that improves aeration.\n\nFor Merit:\n- Explains how soil properties are improved by the practice.\n\nFor Excellence:\n- Evaluates a management practice that improves aeration and how it optimises plant growth and overall soil health.\n\nEXPLANATION / WORKED EXAMPLE:\n\nReducing stock density (or rotating stock between paddocks) prevents soil compaction caused by heavy animals treading on wet soil.\nCompacted soil has fewer and smaller pore spaces, reducing both aeration and drainage.\nBy reducing stocking rates during wet periods, soil structure is maintained — larger pore spaces (macropores) remain intact, allowing both air and water to move through the soil.\nThis benefits root respiration and the activity of soil organisms.\nSubsoil cultivation (e.g. using a ripper behind a tractor) can physically break up compacted layers, restoring pore space and improving aeration in the root zone.\nHowever, cultivation should be done at the right soil moisture to avoid further damage to soil structure.\nMaintaining good soil aeration demonstrates care (manaakitanga) for the soil, ensuring its long-term productivity and health."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

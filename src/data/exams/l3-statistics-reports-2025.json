@@ -20,7 +20,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Current poll CI: 41% ± 3.0% = (38%, 44%). Previous poll CI: 48% ± 3.0% = (45%, 51%). Since the two intervals do not overlap (44% < 45%), there is evidence of a real decrease in support for the congestion charge.",
-      "markingGuide": "Achieved: Calculates the confidence interval for the current poll correctly as (38%, 44%). Merit: Considers both confidence intervals and discusses whether they overlap to assess if the change is real. Excellence: Discusses the non-overlapping CIs as strong evidence of a real difference, notes that both polls have their own sampling variability, and considers that other factors may have influenced the change."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Calculates the confidence interval for the current poll correctly as (38%, 44%).\n\nFor Merit:\n- Considers both confidence intervals and discusses whether they overlap to assess if the change is real.\n\nFor Excellence:\n- Discusses the non-overlapping CIs as strong evidence of a real difference, notes that both polls have their own sampling variability, and considers that other factors may have influenced the change."
     },
     {
       "id": "stat584-25-q1b",
@@ -34,7 +34,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Using landline numbers only means the sample would under-represent younger adults (who are more likely to use mobile phones only) and over-represent older adults who still maintain landlines. This creates coverage bias. Additionally, automated calls have low response rates, introducing non-response bias — those who choose to complete a robocall survey may have different political views from those who hang up. The political preferences of landline users may differ systematically from the general voting population.",
-      "markingGuide": "Achieved: Identifies that some groups would be missed by landline-only calls. Merit: Explains which groups would be over/under-represented and how this could systematically affect the poll results. Excellence: Provides a detailed explanation of how the method creates coverage and non-response bias, discusses specific demographic groups affected, explains the likely direction of bias on political preferences, and suggests how this could be mitigated."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that some groups would be missed by landline-only calls.\n\nFor Merit:\n- Explains which groups would be over/under-represented and how this could systematically affect the poll results.\n\nFor Excellence:\n- Provides a detailed explanation of how the method creates coverage and non-response bias, discusses specific demographic groups affected, explains the likely direction of bias on political preferences, and suggests how this could be mitigated."
     },
     {
       "id": "stat584-25-q1c",
@@ -49,7 +49,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The rival company's claim is not justified. While a larger sample size does reduce the margin of error (it would be roughly ±1.2% for n = 7000), this only measures random sampling error. The fundamental problem is that an online panel of volunteers is not a random sample — it suffers from self-selection bias and coverage bias. A large biased sample does not give better estimates than a smaller random sample. The margin of error formula assumes random sampling, so the ±1.2% would be misleading — the actual uncertainty could be much larger due to systematic bias.",
-      "markingGuide": "Achieved: Notes that volunteer samples are not random. Merit: Explains that larger sample size reduces random error but does not fix bias, and identifies the self-selection problem. Excellence: Clearly distinguishes between random sampling error (reduced by larger n) and systematic bias (not reduced by larger n). Explains that the margin of error formula doesn't apply to non-random samples. Discusses why the 1,100-person random sample may actually be more reliable despite being smaller."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Notes that volunteer samples are not random.\n\nFor Merit:\n- Explains that larger sample size reduces random error but does not fix bias, and identifies the self-selection problem.\n\nFor Excellence:\n- Clearly distinguishes between random sampling error (reduced by larger n) and systematic bias (not reduced by larger n).\n- Explains that the margin of error formula doesn't apply to non-random samples.\n- Discusses why the 1,100-person random sample may actually be more reliable despite being smaller."
     },
     {
       "id": "stat584-25-q2a",
@@ -63,7 +63,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "1. Confounding variables: Suburbs that install cycle lanes may also be implementing other safety measures at the same time (better lighting, traffic crossings, lower speed limits). The reduction in injuries may be partly or entirely due to these other changes.\n2. Regression to the mean / selection bias: Councils may install cycle lanes in suburbs that had unusually high injury rates. These areas would naturally tend to show improvement over time regardless of the intervention, simply because extreme values tend to move toward the average.",
-      "markingGuide": "Achieved: Identifies one valid reason why causation cannot be concluded. Merit: Identifies and explains two distinct reasons, such as confounding variables and regression to the mean. Excellence: Provides detailed explanations of both reasons with specific examples relevant to the context, discusses the direction of potential bias, and explains what study design would be needed to establish causation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies one valid reason why causation cannot be concluded.\n\nFor Merit:\n- Identifies and explains two distinct reasons, such as confounding variables and regression to the mean.\n\nFor Excellence:\n- Provides detailed explanations of both reasons with specific examples relevant to the context, discusses the direction of potential bias, and explains what study design would be needed to establish causation."
     },
     {
       "id": "stat584-25-q2b",
@@ -77,7 +77,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Feeling safer (perception) is different from being safer (reality measured by data). People may feel safer because of the visible infrastructure, but the actual injury rates may not have changed, or may have changed for other reasons. The survey measures subjective opinion, not objective safety outcomes. Additionally, the survey may suffer from response bias. Proper evidence of improved safety would require comparing actual injury data, not perceptions.",
-      "markingGuide": "Achieved: Notes that feeling safer is not the same as being safer. Merit: Explains the distinction between perception and actual safety data, and identifies at least one source of bias in the survey. Excellence: Thoroughly discusses: (1) the difference between subjective perception and objective measurement, (2) potential survey biases, (3) what proper evidence of improved safety would look like, and (4) why perceptions can be misleading in evaluating policy effectiveness."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Notes that feeling safer is not the same as being safer.\n\nFor Merit:\n- Explains the distinction between perception and actual safety data, and identifies at least one source of bias in the survey.\n\nFor Excellence:\n- Thoroughly discusses: (1) the difference between subjective perception and objective measurement, (2) potential survey biases, (3) what proper evidence of improved safety would look like, and (4) why perceptions can be misleading in evaluating policy effectiveness."
     },
     {
       "id": "stat584-25-q2c",
@@ -91,7 +91,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "A stronger design would be a quasi-experimental study: select pairs of similar suburbs (matched on population, traffic volume, road type, existing safety measures). In each pair, one suburb installs cycle lanes while the other doesn't (control). Compare injury rates over the same time period. This controls for time-related trends. Include before-and-after data for both groups (difference-in-differences design). Collect data on potential confounders (other road safety changes, traffic volume changes) and adjust for these statistically. This would be an improvement because it includes a control group to compare against, controls for confounding variables, and uses objective injury data rather than perceptions.",
-      "markingGuide": "Achieved: Suggests using a control group or comparison suburbs. Merit: Describes a study with matched comparison suburbs, before-and-after measurements, and control for confounding variables. Excellence: Provides a detailed, well-structured study design that addresses multiple limitations of the original study. Discusses matching, control groups, time period, confounding variables, and the type of data to collect."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Suggests using a control group or comparison suburbs.\n\nFor Merit:\n- Describes a study with matched comparison suburbs, before-and-after measurements, and control for confounding variables.\n\nFor Excellence:\n- Provides a detailed, well-structured study design that addresses multiple limitations of the original study.\n- Discusses matching, control groups, time period, confounding variables, and the type of data to collect."
     }
   ],
   "cutScores": {

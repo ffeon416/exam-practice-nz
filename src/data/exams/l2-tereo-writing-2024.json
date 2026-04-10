@@ -14,15 +14,30 @@
       "text": "Produce a piece of writing in te reo Māori (at least 250 words) on ONE of the following topics. Include a wide range of vocabulary and language structures. Include your own thoughts, ideas, or opinions.\n\nTopic 1: Kua whiwhi koe i tētahi taonga nō tō tūpuna. Tuhia mai he kōrero mō tēnei taonga me tōna hiranga ki tō whānau.\nYou have inherited a treasured item from your ancestor. Write about this taonga and why it is significant to your whānau.\n\nTopic 2: He hoa hou tāu nō Kanata. E hiahia ana koe kia whakamōhio i ō tikanga ki a ia. Tēnā, tuhia he mahere mō tētahi rā whakahirahira. Ka mahi kōrua i aha, ā, he aha ai?\nYou have a new friend from Canada. You want to share your customs with them. Write a plan for a special day together. What will you do and why?\n\nTopic 3: E kimi ana koe i tētahi kaupapa ā-hapori. Tuhia tō kōtaha e whakamārama ana ki te rōpū, ko koe te tangata e tika ana mō te mahi. Include: he paku mihi me tō pepeha; ō pukenga whaitake; ō āhuatanga ngākau pai; ngā mahi ā-hapori kua mahia e koe.\nYou are applying for a community project role. Write a short profile explaining why you are the right person for the job.\n\nTopic 4: Tuhia mai tētahi reta ki tō kaunihera ā-rohe e pā ana ki ō whakaaro mō te whakahou o tō papa tākaro ā-hapori. Whakamāramatia mai ngā mea pai, ngā mea hē o te mahere hou.\nWrite a letter to your local council about their plan to redevelop your community playground. Explain the positives and negatives.\n\nTopic 5: Kua mahue tō hoa i tētahi rōpū hākinakina. Tuhia mai he karere ki a ia hei matapaki i ō āwangawanga me te tuku tohutohu.\nYour friend has quit a sports team. Write them a message to discuss your concerns and give advice.\n\nTopic 6: Kua toa tō rōpū mahi toi i tētahi whakataetae ā-rohe. Whakamāramatia tō haerenga ki te whakataetae. He aha hoki ngā hua o tēnei wheako māu?\nYour art group won a regional competition. Write about your journey to the competition. What benefits did you gain from this experience?",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["tuhituhi-writing-l2", "reo-expression-l2"],
+      "topics": [
+        "tuhituhi-writing-l2",
+        "reo-expression-l2"
+      ],
       "answerType": "working",
-      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 250 words in te reo Māori only. Use the planning space to brainstorm your answer.\n\nAchieved (Paetae 3-4): Writes in te reo Māori on one of the topics. Writing is understandable and communication of ideas is mostly achieved. Basic evidence from up to Level 7 of the curriculum; evidence may be minimal. Contains errors; there may be a few words in English for unknown translations, but these are infrequent. Simplistic ideas with few details or opinions.\n\nMerit (Kaiaka 5-6): Writes in te reo Māori on one of the topics and adheres to the specific instructions. Writing is understandable with effective communication of ideas. Uses complex evidence from up to Level 7 of the curriculum. Contains few errors. Response shows depth and provides detail and opinions regularly.\n\nExcellence (Kairangi 7-8): Comprehensive response in te reo Māori that shows a thorough understanding of the instructions. Communication of ideas is extensive. Uses sophisticated evidence from Level 7 of the curriculum. Contains minimal errors. Well-crafted response that is convincing; reasons and opinions are effectively placed and validate the candidate's ideas."
+      "markingGuide": "This is a writing exam where you choose ONE topic and write at least 250 words in te reo Māori only. Use the planning space to brainstorm your answer.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Writes in te reo Māori on one of the topics.\n- Writing is understandable and communication of ideas is mostly achieved.\n- Basic evidence from up to Level 7 of the curriculum.\n- evidence may be minimal.\n- Contains errors.\n- there may be a few words in English for unknown translations, but these are infrequent.\n- Simplistic ideas with few details or opinions.\n\nFor Merit:\n- Writes in te reo Māori on one of the topics and adheres to the specific instructions.\n- Writing is understandable with effective communication of ideas.\n- Uses complex evidence from up to Level 7 of the curriculum.\n- Contains few errors.\n- Response shows depth and provides detail and opinions regularly.\n\nFor Excellence:\n- Comprehensive response in te reo Māori that shows a thorough understanding of the instructions.\n- Communication of ideas is extensive.\n- Uses sophisticated evidence from Level 7 of the curriculum.\n- Contains minimal errors.\n- Well-crafted response that is convincing.\n- reasons and opinions are effectively placed and validate the candidate's ideas."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

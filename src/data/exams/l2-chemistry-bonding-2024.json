@@ -48,7 +48,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A: Bromine water decolourises from orange to colourless. Reaction type: addition. Product functional group: haloalkane (dihaloalkane, two C-Br bonds). B: Acidified purple permanganate becomes colourless OR acidified orange dichromate becomes green. Reaction type: oxidation. Product functional group: carboxylic acid (-COOH).",
-      "markingGuide": "Achievement: Correct reagent AND associated observation or reaction type or product. Merit: Correct reagent AND THREE of: observation, reaction type, name, drawing correct for one group. Excellence: A and B are both correctly named with all correct reagents, full observations, reaction type, and named and drawn functional group of products."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct reagent AND associated observation or reaction type or product.\n\nFor Merit:\n- Correct reagent AND THREE of: observation, reaction type, name, drawing correct for one group.\n\nFor Excellence:\n- A and B are both correctly named with all correct reagents, full observations, reaction type, and named and drawn functional group of products."
     },
     {
       "id": "l2cb24-q1b",
@@ -63,7 +63,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Mix each unknown solvent in a test tube with water. Heptane (alkane) is non-polar and immiscible with water, forming a separate layer. Ethanol is miscible with water and pentan-1-ol is only partially miscible, as their polar hydroxyl groups can form hydrogen bonds with water. Distinguish ethanol from pentan-1-ol by measuring boiling points: ethanol boils at about 78 degrees C, pentan-1-ol at about 138 degrees C, because pentan-1-ol has a longer carbon chain producing stronger London dispersion forces.",
-      "markingGuide": "Achievement: Identifies ethanol or pentan-1-ol as miscible/soluble OR identifies heptane as an alkane. Merit: Correctly identifies heptane as non-soluble AND provides method to distinguish between the two alcohols. Excellence: Explains how all three can be distinguished, with reference to solubility, molecular structure, and carbon chain effects."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies ethanol or pentan-1-ol as miscible/soluble OR identifies heptane as an alkane.\n\nFor Merit:\n- Correctly identifies heptane as non-soluble AND provides method to distinguish between the two alcohols.\n\nFor Excellence:\n- Explains how all three can be distinguished, with reference to solubility, molecular structure, and carbon chain effects."
     },
     {
       "id": "l2cb24-q1ci",
@@ -77,7 +77,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Three repeating units showing the C-C backbone with a methyl branch on alternating carbons: -[CH2-CH(CH3)]3-",
-      "markingGuide": "Achievement: Identifies polymer is orientated correctly (C-C saturated backbone). Merit: Labels saturated (C-C) or monomer is unsaturated (C=C)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies polymer is orientated correctly (C-C saturated backbone).\n\nFor Merit:\n- Labels saturated (C-C) or monomer is unsaturated (C=C)."
     },
     {
       "id": "l2cb24-q1cii",
@@ -92,7 +92,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "In an addition polymerisation reaction, C=C double bonds in the monomer are broken and reform as single C-C bonds, linking many monomer units into a long chain. The monomer is more reactive because the C=C double bond is a region of high electron density, making it susceptible to electrophilic addition reactions. The polymer has only single C-C bonds, which are much less reactive. This chemical stability is essential for PP's uses in packaging materials that must resist degradation.",
-      "markingGuide": "Achievement: Identifies polymer is orientated correctly OR partial explanation of addition polymerisation. Merit: Links saturated/unsaturated nature of polymer/monomer to materials reactivity AND explains addition polymerisation. Excellence: Explains the difference of monomer and polymer in terms of structure, reactivity and use."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies polymer is orientated correctly OR partial explanation of addition polymerisation.\n\nFor Merit:\n- Links saturated/unsaturated nature of polymer/monomer to materials reactivity AND explains addition polymerisation.\n\nFor Excellence:\n- Explains the difference of monomer and polymer in terms of structure, reactivity and use."
     },
     {
       "id": "l2cb24-q2ai",
@@ -107,7 +107,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound C: pent-1-ene (H2C=CH-CH2-CH2-CH3). Compound D: pentan-2-ol (from Markovnikov-style addition of H2O to pent-2-ene). Compound E: pentan-3-ol (the other secondary alcohol isomer formed from pent-2-ene). Compound H: pentanoic acid. Reagent 1: KOH in ethanol (alcoholic KOH) / heat (elimination). Reagent 2: acidified potassium permanganate, MnO4-/H+ (cold) — forms a diol from the alkene.",
-      "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any 3/10 correct.\n\nFor Merit:\n- Any 6/10 correct.\n\nFor Excellence:\n- 10/10 correct."
     },
     {
       "id": "l2cb24-q2aiii",
@@ -121,7 +121,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "W: elimination. X: oxidation/addition. Y: substitution. Z: Acid/base reaction, neutralisation.",
-      "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any 3/10 correct.\n\nFor Merit:\n- Any 6/10 correct.\n\nFor Excellence:\n- 10/10 correct.",
       "graph": {
         "type": "table",
         "title": "Reaction Types",
@@ -164,7 +164,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Structure: 2-chloro-2-methylpropane, i.e. (CH3)3CCl. This is a tertiary haloalkane because the carbon bonded to the chlorine is also bonded to three other carbon atoms (no hydrogen atoms on the C bearing Cl).",
-      "markingGuide": "Achievement: Correct structure OR explanation. Merit: Correct structure AND explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct structure OR explanation.\n\nFor Merit:\n- Correct structure AND explanation."
     },
     {
       "id": "l2cb24-q2ci",
@@ -179,7 +179,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "This is an addition reaction. The HCl adds across the C=C double bond. According to Markovnikov's rule, the H adds to the carbon with more H atoms (C1 of pent-1-ene, which has 2 H), and the Cl adds to the more substituted carbon (C2, which has 1 H). Major product: 2-chloropentane (Cl on C2). Minor product: 1-chloropentane (Cl on C1).",
-      "markingGuide": "Achievement: Correct structure for one product OR identifies the haloalkane is formed. Merit: Explains major/minor and identifies both structures. Excellence: Explanation of addition reaction, options for major/minor products, and why they are produced in this situation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct structure for one product OR identifies the haloalkane is formed.\n\nFor Merit:\n- Explains major/minor and identifies both structures.\n\nFor Excellence:\n- Explanation of addition reaction, options for major/minor products, and why they are produced in this situation."
     },
     {
       "id": "l2cb24-q2cii",
@@ -194,7 +194,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "With Br2, both atoms that add across the double bond are the same (both Br), so both possible orientations give the same product: 1,2-dibromopentane. There is only ONE product, not two. With HCl, the two atoms (H and Cl) are different, so which atom ends up on which carbon matters, producing two different products (major and minor). The symmetry of the Br2 molecule means Markovnikov's rule does not apply.",
-      "markingGuide": "Achievement: Identifies symmetry as a factor OR identifies both structures are the same. Merit: Links symmetry and asymmetry of reactions. Excellence: Full explanation including why only one product for Br2 and two for HCl."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies symmetry as a factor OR identifies both structures are the same.\n\nFor Merit:\n- Links symmetry and asymmetry of reactions.\n\nFor Excellence:\n- Full explanation including why only one product for Br2 and two for HCl."
     },
     {
       "id": "l2cb24-q3a",
@@ -209,7 +209,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "K: pent-2-ene. L: structure of 4-methylhexanoic acid (CH3CH2CH(CH3)CH2CH2COOH). M: heptan-3-ol. N: structure of 3-bromoprop-1-ene (H2C=CH-CH2Br).",
-      "markingGuide": "Achievement: Any combination of two correct, structures or names. Merit: All FOUR correct.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any combination of two correct, structures or names.\n\nFor Merit:\n- All FOUR correct.",
       "graph": {
         "type": "table",
         "title": "Organic Compounds",
@@ -256,7 +256,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Primary alcohol isomers of C7H16O include: heptan-1-ol, 2-methylhexan-1-ol, 3-methylhexan-1-ol, 4-methylhexan-1-ol, 5-methylhexan-1-ol, 2-ethylpentan-1-ol, 2,2-dimethylpentan-1-ol, 2,3-dimethylpentan-1-ol, 2,4-dimethylpentan-1-ol, 3,3-dimethylpentan-1-ol, 3,4-dimethylpentan-1-ol, 4,4-dimethylpentan-1-ol, 2,2,3-trimethylbutan-1-ol.",
-      "markingGuide": "Achievement: TWO correct primary alcohol isomer structures drawn. Merit: THREE correct primary alcohol isomer structures drawn. Excellence: All correct primary alcohol isomer structures drawn."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- TWO correct primary alcohol isomer structures drawn.\n\nFor Merit:\n- THREE correct primary alcohol isomer structures drawn.\n\nFor Excellence:\n- All correct primary alcohol isomer structures drawn."
     },
     {
       "id": "l2cb24-q3ci",
@@ -271,7 +271,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Step 1: Substitution — react heptan-3-ol with concentrated HBr (or HCl) to convert the alcohol into 3-bromoheptane (a secondary haloalkane). Product functional group: haloalkane. Step 2: Elimination — heat 3-bromoheptane with KOH(alc) to give hept-2-ene and hept-3-ene (the hept-3-ene is the required alkene product).",
-      "markingGuide": "Achievement: 2/4 correct for Step 1 OR both correct for Step 2. Merit: Any 4/6 correct. Excellence: 6/6 correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- 2/4 correct for Step 1 OR both correct for Step 2.\n\nFor Merit:\n- Any 4/6 correct.\n\nFor Excellence:\n- 6/6 correct."
     },
     {
       "id": "l2cb24-q3cii",
@@ -286,7 +286,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "An elimination reaction results in the formation of a C=C double bond by removing a small molecule (HBr when using KOH(alc) with a haloalkane). When the Br (or OH) is on C3 of heptane, the double bond can form between C2-C3 (hept-2-ene) or C3-C4 (hept-3-ene). Because C2 and C4 each carry the same number of hydrogen atoms available for elimination, the products form in approximately equal amounts — there is an equal probability of H being removed from either adjacent carbon, so neither alkene is favoured as the major product.",
-      "markingGuide": "Achievement: Partial explanation of an elimination reaction OR states that in an elimination reaction a double bond could form in either direction. Merit: Explains what determines major/minor products. Excellence: Explanation of elimination reaction, options for products, what determines a majority/minority and why they are produced in equal amounts for this situation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Partial explanation of an elimination reaction OR states that in an elimination reaction a double bond could form in either direction.\n\nFor Merit:\n- Explains what determines major/minor products.\n\nFor Excellence:\n- Explanation of elimination reaction, options for products, what determines a majority/minority and why they are produced in equal amounts for this situation."
     },
     {
       "id": "l2cb24-q3di",
@@ -314,7 +314,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Trans isomer: HOCH2 and CH2CH2CH3 on opposite sides of the C=C double bond. Cis isomer: HOCH2 and CH2CH2CH3 on the same side of the C=C double bond.",
-      "markingGuide": "Achievement: Correct compound and isomers identified. Merit: Both structures correct with correct cis/trans labels."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct compound and isomers identified.\n\nFor Merit:\n- Both structures correct with correct cis/trans labels."
     }
   ],
   "totalMarks": 24,

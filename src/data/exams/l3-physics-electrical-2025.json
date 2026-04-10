@@ -1,6 +1,6 @@
 {
   "id": "l3-physics-electrical-2025",
-  "title": "Level 3 Physics \u2014 Electrical Systems (91526) \u2014 2025",
+  "title": "Level 3 Physics — Electrical Systems (91526) — 2025",
   "level": 3,
   "standard": "91526",
   "year": 2025,
@@ -55,7 +55,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The EMF stays the same. As internal resistance increases, more voltage is lost across it (V_lost = Ir increases). Therefore terminal voltage decreases.",
-      "markingGuide": "Achievement: Terminal voltage decreases. Merit: Explains why."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Terminal voltage decreases.\n\nFor Merit:\n- Explains why."
     },
     {
       "id": "91526-25-q1ci",
@@ -75,13 +75,38 @@
         "title": "Capacitor Discharge: Current vs Time",
         "xLabel": "Time (s)",
         "yLabel": "Current (A)",
-        "xValues": [0, 100, 200, 400, 600, 800, 1000, 1200, 1600, 2000],
+        "xValues": [
+          0,
+          100,
+          200,
+          400,
+          600,
+          800,
+          1000,
+          1200,
+          1600,
+          2000
+        ],
         "series": [
-          { "name": "Current", "values": [0.960, 0.745, 0.578, 0.353, 0.215, 0.131, 0.080, 0.049, 0.018, 0.007] }
+          {
+            "name": "Current",
+            "values": [
+              0.96,
+              0.745,
+              0.578,
+              0.353,
+              0.215,
+              0.131,
+              0.08,
+              0.049,
+              0.018,
+              0.007
+            ]
+          }
         ]
       },
       "expectedAnswer": "I_0 = V/R = 4.80/5.00 = 0.960 A. tau = RC = 80.0 x 5.00 = 400 s. At t = tau: I = 0.960 x e^-1 = 0.960 x 0.368 = 0.353 A. Graph shows exponential decay from 0.960 A through (400, 0.353).",
-      "markingGuide": "Achievement: I_0 or tau correct. Merit: Both correct with graph shape. Excellence: Full graph with values."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- I_0 or tau correct.\n\nFor Merit:\n- Both correct with graph shape.\n\nFor Excellence:\n- Full graph with values."
     },
     {
       "id": "91526-25-q1cii",
@@ -96,7 +121,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "As the capacitor discharges, charge Q decreases, so voltage V = Q/C decreases, so current I = V/R decreases. The rate of discharge slows because less charge means less driving voltage. This produces an exponential decay curve.",
-      "markingGuide": "Achievement: ONE link correct. Merit: Full chain of reasoning."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE link correct.\n\nFor Merit:\n- Full chain of reasoning."
     },
     {
       "id": "91526-25-q1d",
@@ -112,7 +137,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Circuit A (series): C_T = 80/3 = 26.7 F, V_T = 3 x 4.80 = 14.4 V. tau = 26.7 x 5 = 133 s. I_0 = 14.4/5 = 2.88 A. Higher initial current, faster decay. Circuit B (parallel): C_T = 3 x 80 = 240 F, V_T = 4.80 V. tau = 240 x 5 = 1200 s. I_0 = 4.80/5 = 0.96 A. Same initial current, slower decay.",
-      "markingGuide": "Achievement: ONE correct change. Merit: Two correct with reasoning. Excellence: Full explanation for both circuits."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct change.\n\nFor Merit:\n- Two correct with reasoning.\n\nFor Excellence:\n- Full explanation for both circuits."
     },
     {
       "id": "91526-25-q2a",
@@ -143,7 +168,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "tau = L/R = 0.500/2.15 = 0.233 s (using total R including internal). 0.250 s is approximately 1.07 tau. EMF = V_max x e^(-t/tau) = 13.2 x e^(-1.07) = 13.2 x 0.343 = 4.53 V.",
-      "markingGuide": "Achievement: tau calculated. Merit: EMF correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- tau calculated.\n\nFor Merit:\n- EMF correct."
     },
     {
       "id": "91526-25-q2c",
@@ -159,7 +184,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "When the switch opens, the magnetic field through the inductor collapses rapidly. This rapid change in flux induces a large back-EMF (Faraday's law). The small air gap has very high resistance, making tau = L/R very small, so the change is extremely rapid. The large voltage can ionise the air and cause a spark.",
-      "markingGuide": "Achievement: An EMF is induced. Merit: Explains why current decreases rapidly. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- An EMF is induced.\n\nFor Merit:\n- Explains why current decreases rapidly.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "91526-25-q2d",
@@ -174,7 +199,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "I_max = V/(R_total) = 13.2/(2.00 + 0.150) = 6.14 A. E_L = 1/2 LI^2 = 0.5 x 0.500 x 6.14^2 = 9.42 J. E_C = 1/2 CV^2. 9.42 = 0.5 x C x 13.2^2. C = 2 x 9.42 / 174.24 = 0.108 F.",
-      "markingGuide": "Achievement: I_max or one energy correct. Merit: Energy found. Excellence: C = 0.108 F."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- I_max or one energy correct.\n\nFor Merit:\n- Energy found.\n\nFor Excellence:\n- C = 0.108 F."
     },
     {
       "id": "91526-25-q3a",
@@ -205,7 +230,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Inserting the iron nail increases L, which increases X_L, which increases Z, which decreases I, which decreases V_R (since V_R = IR). So the voltage across the resistor decreases.",
-      "markingGuide": "Achievement: ONE step correct. Merit: Chain correct. Excellence: Full reasoning."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE step correct.\n\nFor Merit:\n- Chain correct.\n\nFor Excellence:\n- Full reasoning."
     },
     {
       "id": "91526-25-q3c",
@@ -221,7 +246,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "At resonance, X_L = X_C. The voltages across L and C are equal and opposite, so they cancel. Z = R (minimum), I = V/R (maximum), so V_R = V_supply (maximum). This occurs at one specific frequency where X_L = X_C.",
-      "markingGuide": "Achievement: ONE concept correct. Merit: Most concepts. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE concept correct.\n\nFor Merit:\n- Most concepts.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "91526-25-q3d",
@@ -237,7 +262,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "X_L = 2 pi x 18.0 x 0.500 = 56.55 ohm. X_C = 1/(2 pi x 18.0 x 1.50 x 10^-4) = 58.95 ohm. R_total = 60.0 + 2.00 = 62.0 ohm. Z = sqrt(R^2 + (X_L - X_C)^2) = sqrt(62.0^2 + (56.55 - 58.95)^2) = sqrt(3844 + 5.76) = sqrt(3849.76) = 62.05 ohm. I = V/Z = 10.0/62.05 = 0.161 A.",
-      "markingGuide": "Achievement: One reactance correct. Merit: Z correct. Excellence: I = 0.161 A."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One reactance correct.\n\nFor Merit:\n- Z correct.\n\nFor Excellence:\n- I = 0.161 A."
     }
   ]
 }

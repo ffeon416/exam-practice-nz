@@ -19,7 +19,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Two-way table: Arts & Technology = 100, Arts only = 100, Technology only = 175, Neither = 125. P(Arts or Technology) = (200 + 275 - 100)/500 = 375/500 = 0.75. Using addition rule: P(A ∪ T) = P(A) + P(T) - P(A ∩ T) = 0.40 + 0.55 - 0.20 = 0.75."
+      "markingGuide": "Step 1: Achievement: Two-way table: Arts & Technology = 100, Arts only = 100, Technology only = 175, Neither = 125.\n\nStep 2: P(Arts or Technology) = (200 + 275 - 100)/500 = 375/500 = 0.75.\n\nStep 3: Using addition rule: P(A ∪ T) = P(A) + P(T) - P(A ∩ T) = 0.40 + 0.55 - 0.20 = 0.75."
     },
     {
       "id": "st267-25-q1b",
@@ -32,7 +32,7 @@
         "independence"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) P(Technology | Arts) = 100/200 = 0.50. (ii) For independence: P(Technology) = 275/500 = 0.55, P(Technology | Arts) = 0.50. Since P(Technology | Arts) ≠ P(Technology), the events are NOT independent. Students who take Arts are slightly less likely to also take Technology than students in general. Alternatively: P(A) × P(T) = 0.40 × 0.55 = 0.22, but P(A ∩ T) = 100/500 = 0.20 ≠ 0.22."
+      "markingGuide": "Step 1: Merit: (i) P(Technology | Arts) = 100/200 = 0.50.\n\nStep 2: (ii) For independence: P(Technology) = 275/500 = 0.55, P(Technology | Arts) = 0.50.\n\nStep 3: Since P(Technology | Arts) ≠ P(Technology), the events are NOT independent.\n\nStep 4: Students who take Arts are slightly less likely to also take Technology than students in general.\n\nStep 5: Alternatively: P(A) × P(T) = 0.40 × 0.55 = 0.22, but P(A ∩ T) = 100/500 = 0.20 ≠ 0.22."
     },
     {
       "id": "st267-25-q2a",
@@ -45,7 +45,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6). Basketball on branch: Training (0.8), Library (0.2). No basketball branch: Library (0.6), Gym (0.25), Home (0.15). All branches correctly labelled with probabilities."
+      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6).\n\nBasketball on branch: Training (0.8), Library (0.2).\n\nNo basketball branch: Library (0.6), Gym (0.25), Home (0.15).\n\nAll branches correctly labelled with probabilities."
     },
     {
       "id": "st267-25-q2b",
@@ -58,7 +58,7 @@
         "conditional-probability"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: P(Library) = P(Basketball on and Library) + P(No basketball and Library) = 0.4 × 0.2 + 0.6 × 0.6 = 0.08 + 0.36 = 0.44. Merit: P(Basketball on | Library) = P(Basketball on and Library)/P(Library) = 0.08/0.44 = 8/44 = 2/11 ≈ 0.182. Clear working showing conditional probability formula applied correctly."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- P(Library) = P(Basketball on and Library) + P(No basketball and Library) = 0.4 × 0.2 + 0.6 × 0.6 = 0.08 + 0.36 = 0.44.\n\nFor Merit:\n- P(Basketball on | Library) = P(Basketball on and Library)/P(Library) = 0.08/0.44 = 8/44 = 2/11 ≈ 0.182.\n- Clear working showing conditional probability formula applied correctly."
     },
     {
       "id": "st267-25-q3a",
@@ -71,7 +71,7 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Risk of failing (daily short practice) = 48/120 = 0.40 (40%). Risk of failing (weekly long practice) = 75/120 = 0.625 (62.5%).",
+      "markingGuide": "Step 1: Achievement: Risk of failing (daily short practice) = 48/120 = 0.40 (40%).\n\nStep 2: Risk of failing (weekly long practice) = 75/120 = 0.625 (62.5%).",
       "graph": {
         "type": "table",
         "title": "Language Learning Approaches",
@@ -110,7 +110,7 @@
         "risk-interpretation"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: Relative risk = 0.625/0.40 = 1.5625. Students who practised in weekly long sessions were about 1.56 times as likely to fail the language assessment compared to students who practised in daily short sessions. This suggests that daily short practice sessions are a more effective approach than weekly long sessions for passing language assessments."
+      "markingGuide": "Step 1: Merit: Relative risk = 0.625/0.40 = 1.5625.\n\nStep 2: Students who practised in weekly long sessions were about 1.56 times as likely to fail the language assessment compared to students who practised in daily short sessions.\n\nStep 3: This suggests that daily short practice sessions are a more effective approach than weekly long sessions for passing language assessments."
     },
     {
       "id": "st267-25-q3c",
@@ -123,7 +123,7 @@
         "independence"
       ],
       "answerType": "text",
-      "markingGuide": "Excellence: The claim is not valid because: (1) This is an observational study, not a randomised experiment — students chose their own practice pattern, so we cannot establish causation. (2) Confounding variables could explain the results, e.g. students who chose daily practice may already be more disciplined or motivated learners. (3) We do not know if the groups were comparable in prior ability, total practice hours, or teacher quality. (4) The study only shows an association, not causation. To establish causation, a randomised controlled trial would be needed where students are randomly assigned to each practice regime. Must discuss at least two of these points with clear reasoning linked to the context."
+      "markingGuide": "Excellence: The claim is not valid because: (1) This is an observational study, not a randomised experiment — students chose their own practice pattern, so we cannot establish causation.\n\n(2) Confounding variables could explain the results, e.g. students who chose daily practice may already be more disciplined or motivated learners.\n\n(3) We do not know if the groups were comparable in prior ability, total practice hours, or teacher quality.\n\n(4) The study only shows an association, not causation.\n\nTo establish causation, a randomised controlled trial would be needed where students are randomly assigned to each practice regime.\n\nMust discuss at least two of these points with clear reasoning linked to the context."
     }
   ],
   "cutScores": {

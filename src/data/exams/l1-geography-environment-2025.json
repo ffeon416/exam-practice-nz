@@ -25,7 +25,7 @@
         "Pollution caused by human activity"
       ],
       "expectedAnswer": "A natural event or process that poses a risk to people and property",
-      "markingGuide": "The correct answer is 'A natural event or process that poses a risk to people and property'. A natural hazard is a natural event (e.g. earthquake, flood, volcanic eruption) that has the potential to cause harm to people, damage property, or disrupt communities."
+      "markingGuide": "The correct answer is A natural event or process that poses a risk to people and property.\n\nHere's why:\nA natural hazard is a natural event (e.g. earthquake, flood, volcanic eruption) that has the potential to cause harm to people, damage property, or disrupt communities."
     },
     {
       "id": "l1ge-q2",
@@ -45,7 +45,7 @@
         "Hamilton"
       ],
       "expectedAnswer": "Wellington",
-      "markingGuide": "The correct answer is Wellington. Wellington sits on the Wellington Fault and is close to the Hikurangi subduction zone where the Pacific Plate is being pushed under the Australian Plate. The 1855 Wairarapa earthquake (magnitude 8.2) caused significant damage to Wellington and raised land in the harbour area."
+      "markingGuide": "The correct answer is Wellington.\n\nHere's why:\nWellington sits on the Wellington Fault and is close to the Hikurangi subduction zone where the Pacific Plate is being pushed under the Australian Plate.\nThe 1855 Wairarapa earthquake (magnitude 8.2) caused significant damage to Wellington and raised land in the harbour area."
     },
     {
       "id": "l1ge-q3",
@@ -57,7 +57,7 @@
         "tectonic-processes-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark: Identifies that New Zealand sits on the boundary of the Pacific Plate and the Australian Plate (or describes plates moving relative to each other). 1 mark: Explains that pressure builds up as plates push against, pull apart, or slide past each other, and when this pressure is released suddenly it causes the ground to shake (earthquake). Strong answers may reference the Hikurangi subduction zone (east of the North Island) or the Alpine Fault (South Island) as specific examples."
+      "markingGuide": "1 mark: Identifies that New Zealand sits on the boundary of the Pacific Plate and the Australian Plate (or describes plates moving relative to each other).\n\n1 mark: Explains that pressure builds up as plates push against, pull apart, or slide past each other, and when this pressure is released suddenly it causes the ground to shake (earthquake).\n\nStrong answers may reference the Hikurangi subduction zone (east of the North Island) or the Alpine Fault (South Island) as specific examples."
     },
     {
       "id": "l1ge-q4",
@@ -77,7 +77,7 @@
         "The amount of damage caused by an earthquake"
       ],
       "expectedAnswer": "The magnitude (energy released) of an earthquake",
-      "markingGuide": "The correct answer is 'The magnitude (energy released) of an earthquake'. The Richter scale measures the amount of energy released at the source of an earthquake. Each whole number increase represents roughly 32 times more energy. Note: GeoNet now uses the Modified Mercalli Intensity scale to measure shaking intensity felt at the surface."
+      "markingGuide": "The correct answer is The magnitude (energy released) of an earthquake.\n\nHere's why:\nThe Richter scale measures the amount of energy released at the source of an earthquake.\nEach whole number increase represents roughly 32 times more energy.\nNote: GeoNet now uses the Modified Mercalli Intensity scale to measure shaking intensity felt at the surface."
     },
     {
       "id": "l1ge-q5",
@@ -96,7 +96,7 @@
         "Thermal expansion"
       ],
       "expectedAnswer": "Freeze-thaw weathering (frost shattering)",
-      "markingGuide": "The correct answer is 'Freeze-thaw weathering (frost shattering)'. This is a form of physical (mechanical) weathering where water seeps into cracks in rock, freezes and expands by about 9%, widening the crack. Repeated freeze-thaw cycles eventually break the rock apart. This process is common in New Zealand's Southern Alps and other mountainous areas."
+      "markingGuide": "The correct answer is Freeze-thaw weathering (frost shattering).\n\nHere's why:\nThis is a form of physical (mechanical) weathering where water seeps into cracks in rock, freezes and expands by about 9%, widening the crack.\nRepeated freeze-thaw cycles eventually break the rock apart.\nThis process is common in New Zealand's Southern Alps and other mountainous areas."
     },
     {
       "id": "l1ge-q6",
@@ -109,7 +109,7 @@
         "weathering-erosion-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark each for describing TWO different river processes with clear explanation. Possible answers include: Erosion — rivers wear away rock and soil from their banks and beds (e.g. the Waikato River has carved deep gorges near Taupō, Huka Falls shows powerful erosion); Transportation — rivers carry sediment downstream (e.g. the Waimakariri River carries greywacke gravel from the Southern Alps to the Canterbury Plains); Deposition — rivers deposit sediment when they slow down, forming floodplains and deltas (e.g. the Clutha River delta in Otago, the Canterbury Plains were formed by river deposition); V-shaped valleys — rivers cut downwards creating steep-sided valleys (e.g. Otira Gorge). Merit-level answers will clearly link the process to the landscape feature formed."
+      "markingGuide": "1 mark each for describing TWO different river processes with clear explanation.\n\nPossible answers include: Erosion — rivers wear away rock and soil from their banks and beds (e.g. the Waikato River has carved deep gorges near Taupō, Huka Falls shows powerful erosion);.\n\nTransportation — rivers carry sediment downstream (e.g. the Waimakariri River carries greywacke gravel from the Southern Alps to the Canterbury Plains);.\n\nDeposition — rivers deposit sediment when they slow down, forming floodplains and deltas (e.g. the Clutha River delta in Otago, the Canterbury Plains were formed by river deposition);.\n\nV-shaped valleys — rivers cut downwards creating steep-sided valleys (e.g. Otira Gorge).\n\nMerit-level answers will clearly link the process to the landscape feature formed."
     },
     {
       "id": "l1ge-q7",
@@ -128,7 +128,7 @@
         "The chemical change of rock due to acid rain"
       ],
       "expectedAnswer": "The wearing away and removal of rock and soil by natural forces such as water, wind, or ice",
-      "markingGuide": "The correct answer is 'The wearing away and removal of rock and soil by natural forces such as water, wind, or ice'. Erosion involves both the wearing away and the transport of material. This distinguishes it from weathering (which is the breakdown of rock in place without transport)."
+      "markingGuide": "The correct answer is The wearing away and removal of rock and soil by natural forces such as water, wind, or ice.\n\nHere's why:\nErosion involves both the wearing away and the transport of material.\nThis distinguishes it from weathering (which is the breakdown of rock in place without transport)."
     },
     {
       "id": "l1ge-q8",
@@ -141,7 +141,7 @@
         "natural-hazards-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark: Explains a process by which climate change affects coastlines (e.g. sea level rise causes coastal erosion and flooding; increased storm intensity causes more damaging storm surges; warmer sea temperatures affect coastal ecosystems). 1 mark: Provides a specific NZ example (e.g. Haumoana in Hawke's Bay where homes have been lost to coastal erosion; South Dunedin is at risk of flooding due to sea level rise and its low-lying position; the Chatham Islands are experiencing increased erosion; Matarangi on the Coromandel has experienced storm surge damage). Merit-level answers will clearly link the climate change process to the specific impact on the example location."
+      "markingGuide": "1 mark: Explains a process by which climate change affects coastlines (e.g. sea level rise causes coastal erosion and flooding;.\n\nincreased storm intensity causes more damaging storm surges;.\n\nwarmer sea temperatures affect coastal ecosystems).\n\n1 mark: Provides a specific NZ example (e.g. Haumoana in Hawke's Bay where homes have been lost to coastal erosion;.\n\nSouth Dunedin is at risk of flooding due to sea level rise and its low-lying position;.\n\nthe Chatham Islands are experiencing increased erosion;.\n\nMatarangi on the Coromandel has experienced storm surge damage).\n\nMerit-level answers will clearly link the climate change process to the specific impact on the example location."
     },
     {
       "id": "l1ge-q9",
@@ -160,7 +160,7 @@
         "Showing political boundaries between countries"
       ],
       "expectedAnswer": "Showing the shape and elevation of the land surface using contour lines",
-      "markingGuide": "The correct answer is 'Showing the shape and elevation of the land surface using contour lines'. Topographic maps (called 'topo maps') use contour lines to show the height and shape of the land. They also show features such as rivers, roads, buildings, and vegetation. In New Zealand, Land Information New Zealand (LINZ) produces the Topo50 map series at 1:50,000 scale."
+      "markingGuide": "The correct answer is Showing the shape and elevation of the land surface using contour lines.\n\nHere's why:\nTopographic maps (called 'topo maps') use contour lines to show the height and shape of the land.\nThey also show features such as rivers, roads, buildings, and vegetation.\nIn New Zealand, Land Information New Zealand (LINZ) produces the Topo50 map series at 1:50,000 scale."
     },
     {
       "id": "l1ge-q10",
@@ -174,7 +174,7 @@
         "landscape-processes-l1"
       ],
       "answerType": "working",
-      "markingGuide": "10 marks total.\n\nAchieved (1–4 marks): Identifies that flooding damages buildings/roads and that the glacier is getting smaller. Basic description of both risks. 1 mark per valid identification up to 4 marks.\n\nMerit (5–7 marks): Explains HOW flooding affects the community (e.g. the Waiho River floods regularly, damaging State Highway 6 and threatening the township; heavy rainfall on the West Coast — over 5,000 mm annually — combined with steep terrain causes rapid river rises). Explains HOW glacial retreat affects the community (e.g. Franz Josef Glacier has retreated significantly — the terminal face is now much further from the township than it was decades ago, affecting tourism which is the town's main income source; access walks have had to be lengthened; helicopter access is increasingly needed). Links processes to community impacts.\n\nExcellence (8–10 marks): Discusses management actions with evaluation. For flooding: stopbanks along the Waiho River, early warning systems, land-use zoning to avoid building on flood-prone areas, the 2019 decision to relocate parts of the township to higher ground. For glacial retreat: diversifying the local economy beyond glacier tourism, developing new walking tracks, adapting tourism offerings (e.g. heli-hikes). Evaluates effectiveness — e.g. stopbanks can fail in extreme events (as happened in March 2019 when flooding breached defences); relocation is expensive but addresses the long-term risk; tourism adaptation requires investment. Shows understanding of the interconnection between natural processes and human responses.",
+      "markingGuide": "10 marks total.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that flooding damages buildings/roads and that the glacier is getting smaller.\n- Basic description of both risks.\n- 1 mark per valid identification up to 4 marks.\n\nFor Merit:\n- Explains HOW flooding affects the community (e.g.\n- the Waiho River floods regularly, damaging State Highway 6 and threatening the township.\n- heavy rainfall on the West Coast — over 5,000 mm annually — combined with steep terrain causes rapid river rises).\n- Explains HOW glacial retreat affects the community (e.g.\n- Franz Josef Glacier has retreated significantly — the terminal face is now much further from the township than it was decades ago, affecting tourism which is the town's main income source.\n- access walks have had to be lengthened.\n- helicopter access is increasingly needed).\n- Links processes to community impacts.\n\nFor Excellence:\n- Discusses management actions with evaluation.\n- For flooding: stopbanks along the Waiho River, early warning systems, land-use zoning to avoid building on flood-prone areas, the 2019 decision to relocate parts of the township to higher ground.\n- For glacial retreat: diversifying the local economy beyond glacier tourism, developing new walking tracks, adapting tourism offerings (e.g.\n- heli-hikes).\n- Evaluates effectiveness — e.g.\n- stopbanks can fail in extreme events (as happened in March 2019 when flooding breached defences).\n- relocation is expensive but addresses the long-term risk.\n- tourism adaptation requires investment.\n- Shows understanding of the interconnection between natural processes and human responses.",
       "graph": {
         "type": "table",
         "title": "Franz Josef — Key Environmental Data",

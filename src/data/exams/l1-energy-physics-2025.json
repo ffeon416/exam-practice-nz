@@ -37,7 +37,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E = Pt = 300 × 15 = 4500 J. Ep = mgh = 25 × 10 × 15 = 3750 J",
-      "markingGuide": "Achieved: Selected the correct equation for either calculation and put in some numbers. Mentions energy loss. Merit: Both calculations correct. Explained the energy loss as heat or sound. Excellence: Both calculations with correct equation, working, and units. Explained where the loss of energy comes from (heat from friction in the motor, sound)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Selected the correct equation for either calculation and put in some numbers.\n- Mentions energy loss.\n\nFor Merit:\n- Both calculations correct.\n- Explained the energy loss as heat or sound.\n\nFor Excellence:\n- Both calculations with correct equation, working, and units.\n- Explained where the loss of energy comes from (heat from friction in the motor, sound)."
     },
     {
       "id": "ep25-q1c",
@@ -53,7 +53,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Gravitational potential energy is converted to kinetic energy and thermal energy.",
-      "markingGuide": "Achieved: Transfer from Ep to Ek + Ep. Merit: Transfer from Ep to Ek + Ep + Ethermal, showing that at halfway the bucket has lost half its original Ep, gained Ek and some thermal energy from air resistance."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Transfer from Ep to Ek + Ep.\n\nFor Merit:\n- Transfer from Ep to Ek + Ep + Ethermal, showing that at halfway the bucket has lost half its original Ep, gained Ek and some thermal energy from air resistance."
     },
     {
       "id": "ep25-q1d",
@@ -68,7 +68,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Ep = mgh = 25 × 10 × 15 = 3750 J. Ek = ½mv². 3750 = ½ × 25 × v². v² = 300. v = 17.3 m/s.",
-      "markingGuide": "Achieved: Selected correct formula for kinetic energy and added some values. Assumed all Ep is transformed into Ek. Mentioned energy lost due to friction. Merit: Correct process with minor error. Explains speed will be less due to air resistance / thermal energy / heat. Excellence: Correct calculation (v = 17.3 m/s) with correct unit. Correct assumption (assuming all Ep converts to Ek / no energy loss). Energy is lost to thermal due to air particles hitting the bucket surface. Therefore the bucket will not hit the ground as fast as the calculated speed."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Selected correct formula for kinetic energy and added some values.\n- Assumed all Ep is transformed into Ek.\n- Mentioned energy lost due to friction.\n\nFor Merit:\n- Correct process with minor error.\n- Explains speed will be less due to air resistance / thermal energy / heat.\n\nFor Excellence:\n- Correct calculation (v = 17.3 m/s) with correct unit.\n- Correct assumption (assuming all Ep converts to Ek / no energy loss).\n- Energy is lost to thermal due to air particles hitting the bucket surface.\n- Therefore the bucket will not hit the ground as fast as the calculated speed."
     },
     {
       "id": "ep25-q2a",
@@ -82,7 +82,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Temperature is the average kinetic energy of the particles, whereas thermal/heat energy is the total kinetic energy of all the particles.",
-      "markingGuide": "Achieved: Either definition correct. Merit: Has explained a difference between temperature and thermal/heat energy."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Either definition correct.\n\nFor Merit:\n- Has explained a difference between temperature and thermal/heat energy."
     },
     {
       "id": "ep25-q2b",
@@ -96,7 +96,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P = VI. I = P/V = 1200/230 = 5.22 A",
-      "markingGuide": "At 50% maximum, P = 1200 W. I = 1200/230 = 5.22 A (accept 5.2 A). Achieved: Shows correct equation with some numbers. Merit: Correct answer with working and units."
+      "markingGuide": "At 50% maximum, P = 1200 W. I = 1200/230 = 5.22 A (accept 5.2 A).\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Shows correct equation with some numbers.\n\nFor Merit:\n- Correct answer with working and units."
     },
     {
       "id": "ep25-q2c",
@@ -111,7 +111,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Increase in current causes increase in power (P = VI). Increase in power causes increase in energy output (E = Pt).",
-      "markingGuide": "Achieved: Increase in current increases electrical energy. OR increase in power causes increase in energy. Merit: Increase in current causes increase in power due to P = VI. Increase in power causes increase in energy due to E = Pt. Excellence: Where I increases, V stays constant so P increases (P = VI). Where P increases, time stays constant so E increases (E = Pt)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Increase in current increases electrical energy.\n- OR increase in power causes increase in energy.\n\nFor Merit:\n- Increase in current causes increase in power due to P = VI.\n- Increase in power causes increase in energy due to E = Pt.\n\nFor Excellence:\n- Where I increases, V stays constant so P increases (P = VI).\n- Where P increases, time stays constant so E increases (E = Pt)."
     },
     {
       "id": "ep25-q2d",
@@ -125,7 +125,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Convection currents: hot air rises near heater (particles move faster, spread apart, lower density), cool air sinks (particles slower, closer together, higher density).",
-      "markingGuide": "Achieved: States warm air rises OR cold air sinks. States warm air is less dense OR cold air is more dense. Merit: Labelled description of particles getting further apart/less dense and rising. OR when it cools, particles closer together, more dense, and sink. Excellence: Full description of particles gaining kinetic energy from heater, moving faster and further apart (less dense, rising), then cooling at distance from heater, slowing down, moving closer together (more dense, sinking) — creating a convection current."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States warm air rises OR cold air sinks.\n- States warm air is less dense OR cold air is more dense.\n\nFor Merit:\n- Labelled description of particles getting further apart/less dense and rising.\n- OR when it cools, particles closer together, more dense, and sink.\n\nFor Excellence:\n- Full description of particles gaining kinetic energy from heater, moving faster and further apart (less dense, rising), then cooling at distance from heater, slowing down, moving closer together (more dense, sinking) — creating a convection current."
     },
     {
       "id": "ep25-q3a",
@@ -153,7 +153,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P = VI = 20 × 4.0 = 80 W. E = Pt = 80 × 480 = 38 400 J.",
-      "markingGuide": "Achieved: One correct equation and adds some numbers. Merit: Correct answer. Students may do this in one line: E = VIt = 20 × 4.0 × 480 = 38 400 J."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct equation and adds some numbers.\n\nFor Merit:\n- Correct answer.\n- Students may do this in one line: E = VIt = 20 × 4.0 × 480 = 38 400 J."
     },
     {
       "id": "ep25-q3ci",
@@ -211,7 +211,7 @@
         }
       },
       "expectedAnswer": "c = E/(mΔT) = 38 400 / (0.400 × 22) = 38 400 / 8.8 = 4364 J kg⁻¹ °C⁻¹",
-      "markingGuide": "Achieved: Selects correct equation. Has ΔT as 22 °C. Merit: Calculates a value for c with a minor error OR correct answer but incorrect unit. Excellence: Correct calculation (c ≈ 4360 J kg⁻¹ °C⁻¹) with correct unit."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Selects correct equation.\n- Has ΔT as 22 °C.\n\nFor Merit:\n- Calculates a value for c with a minor error OR correct answer but incorrect unit.\n\nFor Excellence:\n- Correct calculation (c ≈ 4360 J kg⁻¹ °C⁻¹) with correct unit."
     },
     {
       "id": "ep25-q3cii",
@@ -225,7 +225,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Hana's value will be different because not all electrical energy was transferred to the water.",
-      "markingGuide": "Achieved: Statement that mentions why the value is different, e.g. some energy heats the beaker or is lost to the surroundings. Merit: Statement AND link to heat transfer. Some energy is transferred to the glass beaker/lost to the atmosphere/not all transferred to the water. OR due to the thermometer reading being affected by position in the water."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Statement that mentions why the value is different, e.g.\n- some energy heats the beaker or is lost to the surroundings.\n\nFor Merit:\n- Statement AND link to heat transfer.\n- Some energy is transferred to the glass beaker/lost to the atmosphere/not all transferred to the water.\n- OR due to the thermometer reading being affected by position in the water."
     },
     {
       "id": "ep25-q3d",
@@ -239,7 +239,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Suggested improvements include: insulate the beaker with a lid and foam wrapping, use a stirrer to ensure even heating, use a calorimeter instead of a beaker.",
-      "markingGuide": "Achieved: Describes a relevant improvement. Links improvement to a method of heat transfer. Merit: Describes a method to improve the accuracy AND explains how it helps with heat loss, linked to heat transfer (conduction, convection, or radiation). Excellence: Describes a method, explains how it reduces heat loss, AND links to heat transfer at a particle/wave level."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes a relevant improvement.\n- Links improvement to a method of heat transfer.\n\nFor Merit:\n- Describes a method to improve the accuracy AND explains how it helps with heat loss, linked to heat transfer (conduction, convection, or radiation).\n\nFor Excellence:\n- Describes a method, explains how it reduces heat loss, AND links to heat transfer at a particle/wave level."
     }
   ],
   "cutScores": {

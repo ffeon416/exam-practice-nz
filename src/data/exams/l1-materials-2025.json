@@ -13,7 +13,10 @@
       "text": "Polyethylene terephthalate (PET) is a type of polymer commonly used to make drink bottles.\n\nDefine the term polymer.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["materials", "bonding"],
+      "topics": [
+        "materials",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "A polymer is a large/long chain molecule made from many small units/repeating units/monomers.",
       "markingGuide": "Achievement: Defines polymer."
@@ -24,10 +27,14 @@
       "text": "PET is lightweight, transparent, and has a relatively low melting point compared to metals. It is strong enough to hold liquids under pressure (e.g. carbonated drinks).\n\nExplain how the structure and bonding of PET results in a lightweight, strong polymer that is suitable for use in drink bottles.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "PET is made of long chains of covalently bonded atoms with weak intermolecular forces between chains...",
-      "markingGuide": "Achievement: Describes the weak intermolecular bonds between molecules/chains OR describes covalent bonds between atoms within the chain OR identifies that the polymer is lightweight due to low density. Merit: Explains the structure and bonding of PET related to one property. Excellence: Explains the structure of PET related to both lightweight nature AND strength for use in drink bottles."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the weak intermolecular bonds between molecules/chains OR describes covalent bonds between atoms within the chain OR identifies that the polymer is lightweight due to low density.\n\nFor Merit:\n- Explains the structure and bonding of PET related to one property.\n\nFor Excellence:\n- Explains the structure of PET related to both lightweight nature AND strength for use in drink bottles."
     },
     {
       "id": "l1m25-q1ci",
@@ -35,9 +42,18 @@
       "text": "Silicon carbide (SiC) is used to make high-performance brake discs for racing cars.\n\nSelect the type of material silicon carbide is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["materials", "bonding"],
+      "topics": [
+        "materials",
+        "bonding"
+      ],
       "answerType": "multi-choice",
-      "options": ["covalent network", "ionic material", "metallic solid", "molecular substance", "polymer"],
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
       "expectedAnswer": "covalent network",
       "markingGuide": "Achievement: Identifies the type of substance."
     },
@@ -47,10 +63,14 @@
       "text": "Explain why the structure and bonding within silicon carbide results in brake discs that are extremely hard and can withstand very high temperatures.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "Silicon carbide is a 3D covalent network where each silicon atom is covalently bonded to four carbon atoms...",
-      "markingGuide": "Achievement: Identifies that a 3D network structure/one atom is joined to four other atoms OR identifies that a 3D network is strong OR identifies that a large force/energy is needed to break the bonds. Merit: Explains the structure and bonding AND explains that strong covalent bonds require large force/energy to break. Excellence: Identifies the type of substance, explains the structure and bonding, linking to the strength of covalent bonding AND identifies the high energy needed to melt the material, making it suitable for brake discs."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that a 3D network structure/one atom is joined to four other atoms OR identifies that a 3D network is strong OR identifies that a large force/energy is needed to break the bonds.\n\nFor Merit:\n- Explains the structure and bonding AND explains that strong covalent bonds require large force/energy to break.\n\nFor Excellence:\n- Identifies the type of substance, explains the structure and bonding, linking to the strength of covalent bonding AND identifies the high energy needed to melt the material, making it suitable for brake discs."
     },
     {
       "id": "l1m25-q2ai",
@@ -58,9 +78,18 @@
       "text": "Steel is an alloy of iron and carbon used to make bicycle frames.\n\nSelect the type of material iron, Fe, is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["materials", "bonding"],
+      "topics": [
+        "materials",
+        "bonding"
+      ],
       "answerType": "multi-choice",
-      "options": ["covalent network", "ionic material", "metallic solid", "molecular substance", "polymer"],
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
       "expectedAnswer": "metallic solid",
       "markingGuide": "Achievement: Identifies the type of substance."
     },
@@ -70,10 +99,14 @@
       "text": "How does the structure and bonding of iron, Fe, allow it to be drawn into thin tubes for a bicycle frame?",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "Iron is a 3D network of metal atoms/cations surrounded by delocalised electrons",
-      "markingGuide": "Achievement: Describes the metallic bond (electrostatic attraction) OR structure (delocalised electrons). Merit: Explains the structure and bonding AND explains how layers of atoms can slide over each other when force is applied without breaking the attraction, allowing the metal to be shaped. Excellence: Explains the structure and bonding, linking to malleability/ductility AND links to use in bicycle frame tubing."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the metallic bond (electrostatic attraction) OR structure (delocalised electrons).\n\nFor Merit:\n- Explains the structure and bonding AND explains how layers of atoms can slide over each other when force is applied without breaking the attraction, allowing the metal to be shaped.\n\nFor Excellence:\n- Explains the structure and bonding, linking to malleability/ductility AND links to use in bicycle frame tubing."
     },
     {
       "id": "l1m25-q2bi",
@@ -81,7 +114,10 @@
       "text": "Define the term alloy.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["materials", "bonding"],
+      "topics": [
+        "materials",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "An alloy is a mixture of metal(s) and other element(s) (M+M or M+NM).",
       "markingGuide": "Achievement: Defines alloy."
@@ -92,10 +128,14 @@
       "text": "Explain how adding carbon atoms to iron, Fe, to make steel changes the hardness of the material.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "Steel is harder than pure iron",
-      "markingGuide": "Achievement: Identifies that steel is harder than pure iron OR pure iron is softer than steel. Merit: Defines alloy and identifies that steel is harder because the carbon atoms are different sizes from the iron atoms, disrupting the regular lattice so layers cannot slide as easily (more force is needed). Excellence: Links to use in bicycle frame."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that steel is harder than pure iron OR pure iron is softer than steel.\n\nFor Merit:\n- Defines alloy and identifies that steel is harder because the carbon atoms are different sizes from the iron atoms, disrupting the regular lattice so layers cannot slide as easily (more force is needed).\n\nFor Excellence:\n- Links to use in bicycle frame."
     },
     {
       "id": "l1m25-q2c",
@@ -103,7 +143,11 @@
       "text": "The graph below compares the density of materials used for bicycle frames.\n\nA bicycle frame needs to be: strong enough to support the rider's weight; light enough for the rider to pedal efficiently; durable enough to last many years.\n\nUsing the information in the graph and Table 1, and your knowledge of structure and bonding of materials, discuss why a titanium alloy would be preferred over both pure iron and steel as the material used for bicycle frames.\n\nTable 1:\n| Material | Density (g/cm³) | Tensile strength |\n|---|---|---|\n| Pure iron | 7.87 | Low |\n| Steel (iron-carbon alloy) | 7.75 | High |\n| Titanium alloy | 4.50 | Very high |",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "graph": {
         "type": "bar",
@@ -111,13 +155,22 @@
         "xLabel": "Material",
         "yLabel": "Density (g/cm³)",
         "data": [
-          { "label": "Pure iron", "value": 7.87 },
-          { "label": "Steel", "value": 7.75 },
-          { "label": "Titanium alloy", "value": 4.50 }
+          {
+            "label": "Pure iron",
+            "value": 7.87
+          },
+          {
+            "label": "Steel",
+            "value": 7.75
+          },
+          {
+            "label": "Titanium alloy",
+            "value": 4.5
+          }
         ]
       },
       "expectedAnswer": "The titanium alloy has very high tensile strength (strongest) and the lowest density (4.50 g/cm³)...",
-      "markingGuide": "Achievement: Explains density OR tensile strength of one material in terms of structure. Merit: Identifies that the titanium alloy has the highest strength-to-weight ratio. Excellence: Justifies behaviour of the titanium alloy when used as a bicycle frame in comparison to pure iron and steel."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains density OR tensile strength of one material in terms of structure.\n\nFor Merit:\n- Identifies that the titanium alloy has the highest strength-to-weight ratio.\n\nFor Excellence:\n- Justifies behaviour of the titanium alloy when used as a bicycle frame in comparison to pure iron and steel."
     },
     {
       "id": "l1m25-q3ai",
@@ -125,9 +178,18 @@
       "text": "Coastal air contains water, H₂O, and dissolved sodium chloride, NaCl. This salty moisture can cause corrosion of metal structures near the coast.\n\nSelect the type of material water, H₂O, is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["materials", "bonding"],
+      "topics": [
+        "materials",
+        "bonding"
+      ],
       "answerType": "multi-choice",
-      "options": ["covalent network", "ionic material", "metallic solid", "molecular substance", "polymer"],
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
       "expectedAnswer": "molecular substance",
       "markingGuide": "Achievement: Identifies the type of substance."
     },
@@ -137,9 +199,18 @@
       "text": "Select the type of material sodium chloride, NaCl, is:\n(A) covalent network\n(B) ionic material\n(C) metallic solid\n(D) molecular substance\n(E) polymer",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["materials", "bonding"],
+      "topics": [
+        "materials",
+        "bonding"
+      ],
       "answerType": "multi-choice",
-      "options": ["covalent network", "ionic material", "metallic solid", "molecular substance", "polymer"],
+      "options": [
+        "covalent network",
+        "ionic material",
+        "metallic solid",
+        "molecular substance",
+        "polymer"
+      ],
       "expectedAnswer": "ionic material",
       "markingGuide": "Achievement: Identifies the type of substance."
     },
@@ -149,10 +220,14 @@
       "text": "When sodium chloride crystals are struck with a hammer, they shatter into smaller pieces rather than bending.\n\nExplain how the arrangement of particles in sodium chloride, NaCl, and the attractive forces between these particles leads to this brittleness.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "NaCl has a 3D lattice of alternating Na⁺ and Cl⁻ ions with strong ionic bonds.",
-      "markingGuide": "Achievement: Describes the structure and describes the bonding in solid. Merit: Explains that when force is applied, like ions line up, repel, and shatter."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the structure and describes the bonding in solid.\n\nFor Merit:\n- Explains that when force is applied, like ions line up, repel, and shatter."
     },
     {
       "id": "l1m25-q3c",
@@ -160,10 +235,14 @@
       "text": "Explain how the properties and attractive forces of water, H₂O, and sodium chloride, NaCl, allow water to dissolve the salt from a corroded metal surface.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["materials", "physical-properties", "bonding"],
+      "topics": [
+        "materials",
+        "physical-properties",
+        "bonding"
+      ],
       "answerType": "working",
       "expectedAnswer": "NaCl is soluble in water",
-      "markingGuide": "Achievement: Identifies that NaCl is soluble/dissolvable AND describes attractive forces of Na⁺ and Cl⁻ ions in the solid/lattice. Merit: Explains the strength of the attractive forces of Na⁺ and Cl⁻ ions AND H₂O to ions in the solid/lattice. Excellence: Compares the strength of the attractive forces of Na⁺ and Cl⁻ ions, H₂O to ions in the solid AND links to salt dissolved/washed away from the metal surface."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that NaCl is soluble/dissolvable AND describes attractive forces of Na⁺ and Cl⁻ ions in the solid/lattice.\n\nFor Merit:\n- Explains the strength of the attractive forces of Na⁺ and Cl⁻ ions AND H₂O to ions in the solid/lattice.\n\nFor Excellence:\n- Compares the strength of the attractive forces of Na⁺ and Cl⁻ ions, H₂O to ions in the solid AND links to salt dissolved/washed away from the metal surface."
     },
     {
       "id": "l1m25-q3d",
@@ -171,17 +250,32 @@
       "text": "Table 2 shows the density and arrangement of particles of different materials.\n\n| Material | Density (g/cm³) | Description |\n|---|---|---|\n| Seawater | 1.025 | Mixture containing sodium chloride and water |\n| Freshwater | 1.000 | Pure substance (water molecules) |\n| Cork | 0.12–0.24 | Natural polymer with trapped air pockets |\n| Steel | 7.75 | Alloy (metallic solid) |\n\nA cork fishing float sits on the surface of seawater. The steel sinker attached below sinks.\n\nUsing the information in Table 2 and your own knowledge of properties of materials, explain why the cork float floats on seawater while the steel sinker sinks.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["materials", "physical-properties"],
+      "topics": [
+        "materials",
+        "physical-properties"
+      ],
       "answerType": "working",
       "expectedAnswer": "Seawater is denser (1.025 g/cm³) than cork (0.12–0.24 g/cm³) but much less dense than steel (7.75 g/cm³)...",
-      "markingGuide": "Achievement: Identifies that seawater is more dense than cork OR identifies that steel is more dense than seawater. Merit: Explains the attractive forces and particles of TWO of the substances. Excellence: Compares the relative strength of the attractive forces and particle arrangements of the materials AND makes links as to why cork floats and steel sinks in seawater."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that seawater is more dense than cork OR identifies that steel is more dense than seawater.\n\nFor Merit:\n- Explains the attractive forces and particles of TWO of the substances.\n\nFor Excellence:\n- Compares the relative strength of the attractive forces and particle arrangements of the materials AND makes links as to why cork floats and steel sinks in seawater."
     }
   ],
   "totalMarks": 24,
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

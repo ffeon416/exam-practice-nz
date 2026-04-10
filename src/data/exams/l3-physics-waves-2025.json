@@ -54,7 +54,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "As the boat approaches, wave fronts bunch up in front, making the apparent wavelength shorter. Since the speed of sound is constant, shorter wavelength means higher frequency.",
-      "markingGuide": "Achievement: ONE point. Merit: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE point.\n\nFor Merit:\n- Complete answer."
     },
     {
       "id": "91523-25-q1c",
@@ -112,7 +112,7 @@
         ]
       },
       "expectedAnswer": "When the boat is far away and approaching, both hear similar frequencies (nearly same component of velocity toward each). As it passes Kiri directly, she hears the actual frequency momentarily, then hears a much lower frequency (directly receding). Moana, offset from the path, always has a component of velocity toward/away from her that is less than the full speed, so her frequency change is more gradual and less extreme.",
-      "markingGuide": "Achievement: Explains one section. Merit: Explains transition. Excellence: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains one section.\n\nFor Merit:\n- Explains transition.\n\nFor Excellence:\n- Complete answer."
     },
     {
       "id": "91523-25-q1d",
@@ -127,7 +127,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f' = f x v/(v+vs). 512.0 = 520.0 x v/(v+24.5). 512.0(v+24.5) = 520.0v. 512v + 12544 = 520v. 8v = 12544. v = 1568 m s-1.",
-      "markingGuide": "Achievement: '+' in denominator identified. Merit: One error. Excellence: v = 1568 m s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- '+' in denominator identified.\n\nFor Merit:\n- One error.\n\nFor Excellence:\n- v = 1568 m s-1."
     },
     {
       "id": "91523-25-q2a",
@@ -190,7 +190,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "As tension decreases, v decreases (from the equation). Since v = f lambda and lambda is constant (string length determines the harmonic wavelength), frequency decreases. The note played would be lower than intended.",
-      "markingGuide": "Achievement: v or f decreased. Merit: Two points linked. Excellence: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- v or f decreased.\n\nFor Merit:\n- Two points linked.\n\nFor Excellence:\n- Complete answer."
     },
     {
       "id": "91523-25-q2c",
@@ -206,7 +206,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "lambda_1 = 2L = 2 x 0.650 = 1.30 m. v = f lambda = 165 x 1.30 = 214.5 m/s. lambda_2 = v/f2 = 214.5/220 = 0.975 m. L2 = lambda_2/2 = 0.488 m.",
-      "markingGuide": "Achievement: v or lambda1 found. Merit: Correct v. Excellence: L = 0.488 m."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- v or lambda1 found.\n\nFor Merit:\n- Correct v.\n\nFor Excellence:\n- L = 0.488 m."
     },
     {
       "id": "91523-25-q2di",
@@ -221,7 +221,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "When the two strings produce similar frequencies, the waves periodically move in and out of phase. When in phase, constructive interference produces a loud sound. When out of phase, destructive interference produces a quiet sound. This alternating loud-quiet pattern is the beat.",
-      "markingGuide": "Achievement: Constructive/destructive. Merit: Explains beat formation. Excellence: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Constructive/destructive.\n\nFor Merit:\n- Explains beat formation.\n\nFor Excellence:\n- Complete answer."
     },
     {
       "id": "91523-25-q2dii",
@@ -235,7 +235,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "As the string shortens, its frequency increases. Beat frequency = |f1 - f2|. Initially the beat frequency decreases as f1 approaches f2 = 110 Hz. When f1 = 110 Hz, no beat is heard. As string continues to shorten, f1 > 110, beat frequency increases again.",
-      "markingGuide": "Achievement: Beat decreases then increases. Merit: Explains. Excellence: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Beat decreases then increases.\n\nFor Merit:\n- Explains.\n\nFor Excellence:\n- Complete answer."
     },
     {
       "id": "91523-25-q3a",
@@ -265,7 +265,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "When the path difference is a whole number of wavelengths, waves arrive in phase (constructive interference), producing bright fringes. When the path difference is an odd number of half wavelengths, waves arrive out of phase (destructive interference), producing dark fringes. Between these extremes, intensity varies gradually.",
-      "markingGuide": "Achievement: Path difference mentioned. Merit: Constructive and destructive. Excellence: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Path difference mentioned.\n\nFor Merit:\n- Constructive and destructive.\n\nFor Excellence:\n- Complete answer."
     },
     {
       "id": "91523-25-q3c",
@@ -280,7 +280,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Maxima are further apart (smaller d means larger angle for same order). Maxima are brighter (more slits contribute light). Maxima are more sharply defined (more slits means narrower peaks). Fewer maxima visible (larger angles needed for each order, some exceed 90 degrees).",
-      "markingGuide": "Achievement: ONE change identified. Merit: ONE justified. Excellence: THREE justified."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE change identified.\n\nFor Merit:\n- ONE justified.\n\nFor Excellence:\n- THREE justified."
     },
     {
       "id": "91523-25-q3d",
@@ -295,7 +295,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "9 maxima: 4 on each side plus central maximum. n = 4. The 4th order must fit on the screen: tan theta = 0.50/1.50, theta = 18.43 degrees. For n=4: d = n lambda/sin theta = 4 x 525e-9/sin 18.43 = 6.64e-6 m. For n=5 to NOT fit: d < 5 x 525e-9/sin 18.43 = 8.30e-6 m. So 6.64e-6 < d < 8.30e-6 m.",
-      "markingGuide": "Achievement: n=4 or angle found. Merit: d calculated for one limit. Excellence: Both limits correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- n=4 or angle found.\n\nFor Merit:\n- d calculated for one limit.\n\nFor Excellence:\n- Both limits correct."
     }
   ]
 }

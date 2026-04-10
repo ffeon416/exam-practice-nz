@@ -20,7 +20,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Photosynthesis: 6CO2 + 6H2O -> C6H12O6 + 6O2. Light-dependent reactions occur on thylakoid membranes using chlorophyll to absorb light. Light-independent reactions occur in the stroma. Coastal dune grasses may close stomata during peak heat to conserve water, limiting CO2 intake and reducing photosynthesis rate.",
-      "markingGuide": "Achieved (A3-A4): Describes the process of photosynthesis; the light-dependent phase as occurring in the thylakoid/grana; the light-independent phase as occurring in the stroma; the change in light intensity during daylight hours; the effect of water availability; why CO2 is needed for photosynthesis; what is meant by a limiting factor; the role of chlorophyll. Merit (M5-M6): Explains the light-dependent phase and where it occurs; the light-independent phase and where it occurs; changes in rate of photosynthesis due to light intensity; changes in rate due to water availability; why stomatal closure in hot conditions limits photosynthesis in coastal dune grasses. Excellence (E7-E8): Provides detailed discussion of the key phases of photosynthesis, locations, and linked to the context; changes in rate of photosynthesis due to a combination of factors; why coastal dune grass plants may show reduced photosynthesis during peak heat compared to sheltered rātā-kāmahi forest plants."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the process of photosynthesis.\n- the light-dependent phase as occurring in the thylakoid/grana.\n- the light-independent phase as occurring in the stroma.\n- the change in light intensity during daylight hours.\n- the effect of water availability.\n- why CO2 is needed for photosynthesis.\n- what is meant by a limiting factor.\n- the role of chlorophyll.\n\nFor Merit:\n- Explains the light-dependent phase and where it occurs.\n- the light-independent phase and where it occurs.\n- changes in rate of photosynthesis due to light intensity.\n- changes in rate due to water availability.\n- why stomatal closure in hot conditions limits photosynthesis in coastal dune grasses.\n\nFor Excellence:\n- Provides detailed discussion of the key phases of photosynthesis, locations, and linked to the context.\n- changes in rate of photosynthesis due to a combination of factors.\n- why coastal dune grass plants may show reduced photosynthesis during peak heat compared to sheltered rātā-kāmahi forest plants."
     },
     {
       "id": "bl25-q2a",
@@ -49,7 +49,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Anaerobic respiration occurs in the cytoplasm, producing small amounts of ATP quickly without oxygen. Aerobic respiration occurs in the mitochondria, producing larger amounts of ATP but requiring oxygen. During a predatory lunge, muscles work faster than oxygen can be delivered via the gills and bloodstream.",
-      "markingGuide": "Achieved (A3-A4): Describes aerobic respiration; anaerobic respiration; anaerobic occurring in the cytoplasm; aerobic occurring in the mitochondria; anaerobic being used during intense bursts of activity; aerobic being used when oxygen is available; an advantage of aerobic OR anaerobic; a disadvantage of aerobic OR anaerobic. Merit (M5-M6): Explains aerobic respiration and its advantages and disadvantages; anaerobic respiration and its advantages and disadvantages; the process of anaerobic respiration/glycolysis including its location; the process of aerobic respiration including its location; functions of the various parts of the mitochondria. Excellence (E7-E8): Provides detailed discussion of anaerobic respiration and how the advantages and disadvantages directly relate to the longfin eel; aerobic respiration and how the advantages and disadvantages directly relate to the eel; why the eel needs BOTH systems to function effectively in its lifestyle as an ambush predator."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes aerobic respiration.\n- anaerobic respiration.\n- anaerobic occurring in the cytoplasm.\n- aerobic occurring in the mitochondria.\n- anaerobic being used during intense bursts of activity.\n- aerobic being used when oxygen is available.\n- an advantage of aerobic OR anaerobic.\n- a disadvantage of aerobic OR anaerobic.\n\nFor Merit:\n- Explains aerobic respiration and its advantages and disadvantages.\n- anaerobic respiration and its advantages and disadvantages.\n- the process of anaerobic respiration/glycolysis including its location.\n- the process of aerobic respiration including its location.\n- functions of the various parts of the mitochondria.\n\nFor Excellence:\n- Provides detailed discussion of anaerobic respiration and how the advantages and disadvantages directly relate to the longfin eel.\n- aerobic respiration and how the advantages and disadvantages directly relate to the eel.\n- why the eel needs BOTH systems to function effectively in its lifestyle as an ambush predator."
     },
     {
       "id": "bl25-q3",
@@ -68,13 +68,36 @@
         "title": "Effect of Temperature on Enzyme Activity",
         "xLabel": "Temperature (°C)",
         "yLabel": "Rate of Reaction (arbitrary units)",
-        "xValues": [0, 10, 20, 30, 37, 45, 50, 60, 70],
+        "xValues": [
+          0,
+          10,
+          20,
+          30,
+          37,
+          45,
+          50,
+          60,
+          70
+        ],
         "series": [
-          { "name": "Enzyme activity", "values": [5, 15, 35, 65, 100, 80, 40, 10, 0] }
+          {
+            "name": "Enzyme activity",
+            "values": [
+              5,
+              15,
+              35,
+              65,
+              100,
+              80,
+              40,
+              10,
+              0
+            ]
+          }
         ]
       },
       "expectedAnswer": "Enzymes are biological catalysts made of proteins. They have a specific 3D shape including an active site. Temperature affects the kinetic energy of molecules and the shape of the active site, thus influencing enzyme function.",
-      "markingGuide": "Achieved (A3-A4): Describes the structure of enzymes; function of enzymes as biological catalysts; lower activation energy; catalyse biochemical reactions; tolerance limits of enzymes; enzymes denaturing at extreme temperatures; optimal temperature described; reduced reaction rate outside optimal temperature; the lock and key model OR the induced-fit model. Merit (M5-M6): Explains how the structure of enzymes enables them to work; the lock and key model or induced fit model; why extreme temperatures affect the rate of activity of enzymes; the formation of the enzyme-substrate complex; the role of enzymes in a biological process. Excellence (E7-E8): Provides detailed discussion of the function of enzymes related to their structure and why temperature affects them; the effects of high and low temperatures on the rate of enzyme activity; the impact of enzyme activity on the rate of cellular activity in an organism."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the structure of enzymes.\n- function of enzymes as biological catalysts.\n- lower activation energy.\n- catalyse biochemical reactions.\n- tolerance limits of enzymes.\n- enzymes denaturing at extreme temperatures.\n- optimal temperature described.\n- reduced reaction rate outside optimal temperature.\n- the lock and key model OR the induced-fit model.\n\nFor Merit:\n- Explains how the structure of enzymes enables them to work.\n- the lock and key model or induced fit model.\n- why extreme temperatures affect the rate of activity of enzymes.\n- the formation of the enzyme-substrate complex.\n- the role of enzymes in a biological process.\n\nFor Excellence:\n- Provides detailed discussion of the function of enzymes related to their structure and why temperature affects them.\n- the effects of high and low temperatures on the rate of enzyme activity.\n- the impact of enzyme activity on the rate of cellular activity in an organism."
     }
   ],
   "totalMarks": 24,

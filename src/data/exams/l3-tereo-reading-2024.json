@@ -14,9 +14,13 @@
       "text": "Read the text 'Te Haka me tōna Hītori' (The Haka and its History) about the origins and evolution of haka, then answer this question.\n\nThe text describes the deep roots of haka in Māori culture — how it was originally performed as a preparation for battle, as a welcome for visitors, and as a way to express strong emotions. It explains how haka was suppressed during colonisation but survived through kapa haka groups and schools. In the modern era, haka has gained worldwide recognition through the All Blacks and international kapa haka competitions, but some Māori are concerned about its commercialisation and misuse.\n\nKuputaka: Tūmatauenga = god of war; Whakaara = to rouse/awaken; Whatumanawa = heart/emotions; Maungārongo = peace; Kaitiaki = guardian; Whakapapa = genealogy; Tapu = sacred\n\nĀta whakamāramahia te hītori o te haka me te take kei te whakanuia tonutia i ēnei rā.\nExplain in detail the history of haka and why it continues to be celebrated and practised today.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["panui-reading-l3", "hitori-history-l3", "comprehension-l3"],
+      "topics": [
+        "panui-reading-l3",
+        "hitori-history-l3",
+        "comprehension-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (Paetae 3-4): Presents a basic interpretation of the text. May include errors in detail or interpretation. Identifies the main theme — haka is an important Māori cultural practice.\n\nMerit (Kaiaka 5-6): Explains some main ideas emerging from the text but they are lacking in finer detail. Ideas form evidence based only on the text. Includes limited personal opinions. Key points should include: haka has deep roots in Māori culture; it was used for battle, welcoming, and expressing emotion; it was suppressed during colonisation but survived; it is now recognised worldwide.\n\nExcellence (Kairangi 7-8): Explains the main ideas emerging from the text and includes finer details. Strongly evidence-based from the text. Clearly and confidently includes personal opinions. Key points: haka originates from Tūmatauenga and was performed before battle; it also served as welcome and expression of deep emotion; during colonisation, haka practice was discouraged; kapa haka groups in schools and communities kept the tradition alive; the All Blacks performing Ka Mate brought global attention; kapa haka competitions celebrate excellence; concerns exist about commercialisation and ensuring the tapu nature is respected."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Presents a basic interpretation of the text.\n- May include errors in detail or interpretation.\n- Identifies the main theme — haka is an important Māori cultural practice.\n\nFor Merit:\n- Explains some main ideas emerging from the text but they are lacking in finer detail.\n- Ideas form evidence based only on the text.\n- Includes limited personal opinions.\n- Key points should include: haka has deep roots in Māori culture.\n- it was used for battle, welcoming, and expressing emotion.\n- it was suppressed during colonisation but survived.\n- it is now recognised worldwide.\n\nFor Excellence:\n- Explains the main ideas emerging from the text and includes finer details.\n- Strongly evidence-based from the text.\n- Clearly and confidently includes personal opinions.\n- Key points: haka originates from Tūmatauenga and was performed before battle.\n- it also served as welcome and expression of deep emotion.\n- during colonisation, haka practice was discouraged.\n- kapa haka groups in schools and communities kept the tradition alive.\n- the All Blacks performing Ka Mate brought global attention.\n- kapa haka competitions celebrate excellence.\n- concerns exist about commercialisation and ensuring the tapu nature is respected."
     },
     {
       "id": "trm652-24-q2",
@@ -24,9 +28,13 @@
       "text": "Read the text 'Ko te Reo te Mauri o te Mana Māori' about the revitalisation of te reo Māori, then answer this question.\n\nKuputaka: Whakarauora = revitalise; Kōhanga Reo = language nest; Kura Kaupapa = Māori immersion school; Mīmiti = diminish; Pēhi(-a) = oppress; Rautaki = strategy; Ture = law; Whakatāonetanga = urbanisation\n\nHe aha te reo Māori i motuhake ai, ā, he aha ngā tino wero kei mua i te aroaro? Whakamahia ngā kōrero i roto i te tuhinga hei tautoko i tō whakautu.\nWhat makes te reo Māori unique, and what are the key challenges ahead? Use detail from the text to support your answer.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["panui-reading-l3", "hitori-history-l3", "tikanga-maori-l3"],
+      "topics": [
+        "panui-reading-l3",
+        "hitori-history-l3",
+        "tikanga-maori-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (Paetae 3-4): Presents a basic interpretation — te reo Māori is the indigenous language of Aotearoa and faces challenges.\n\nMerit (Kaiaka 5-6): Explains some main ideas: te reo Māori is unique as the indigenous language of Aotearoa; it nearly disappeared due to colonisation and urbanisation; initiatives like Kōhanga Reo and Kura Kaupapa have helped revitalise it; challenges remain in achieving widespread use.\n\nExcellence (Kairangi 7-8): Provides a comprehensive explanation: Te reo Māori is unique because it is the original language of Aotearoa with no close relatives — it carries within it the worldview, values, and identity of Māori. The language nearly disappeared due to colonial suppression, Native Schools policy, and urbanisation which separated Māori from their communities. Revitalisation efforts including Kōhanga Reo, Kura Kaupapa Māori, and the Māori Language Act have been significant. Challenges ahead include: ensuring intergenerational transmission; increasing the number of fluent speakers; normalising te reo in all domains of life; and maintaining quality as usage grows."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Presents a basic interpretation — te reo Māori is the indigenous language of Aotearoa and faces challenges.\n\nFor Merit:\n- Explains some main ideas: te reo Māori is unique as the indigenous language of Aotearoa.\n- it nearly disappeared due to colonisation and urbanisation.\n- initiatives like Kōhanga Reo and Kura Kaupapa have helped revitalise it.\n- challenges remain in achieving widespread use.\n\nFor Excellence:\n- Provides a comprehensive explanation: Te reo Māori is unique because it is the original language of Aotearoa with no close relatives — it carries within it the worldview, values, and identity of Māori.\n- The language nearly disappeared due to colonial suppression, Native Schools policy, and urbanisation which separated Māori from their communities.\n- Revitalisation efforts including Kōhanga Reo, Kura Kaupapa Māori, and the Māori Language Act have been significant.\n- Challenges ahead include: ensuring intergenerational transmission.\n- increasing the number of fluent speakers.\n- normalising te reo in all domains of life.\n- and maintaining quality as usage grows."
     },
     {
       "id": "trm652-24-q3",
@@ -34,15 +42,31 @@
       "text": "Pātai Tuatoru / Question Three:\nNā runga i tāu i pānui ai, ko tēhea o ngā kaupapa nei te mea whakahirahira rawa hei whakanui mā tātou? Whakamahia ngā kōrero i roto i te tuhinga hei tautoko i ō whakaaro.\n\nBased on what you have read, which of the two kaupapa is more important to celebrate and promote? Use information from the text to support your argument.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["panui-reading-l3", "whakaaro-opinion-l3", "hitori-history-l3"],
+      "topics": [
+        "panui-reading-l3",
+        "whakaaro-opinion-l3",
+        "hitori-history-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (Paetae 3-4): Has given a short yet correct answer as to which of the two kaupapa (haka or te reo revitalisation) is more important to celebrate. Has used basic information from the text to support their argument.\n\nMerit (Kaiaka 5-6): Has given a moderately detailed correct answer as to which kaupapa is more important. Has used information from the text to support their argument. Explains the message/main theme with some development.\n\nExcellence (Kairangi 7-8): Has given a detailed correct answer as to which kaupapa is more important. Has used comprehensive information from the text to support their argument. Integrates/synthesises the main ideas. Justifies thoughts with clear examples. Clearly articulated response with convincing justifications. May argue for te reo revitalisation as the foundation — without the language, haka loses its meaning and depth; or may argue for haka as a powerful vehicle for language promotion and cultural pride; or argue that both are interconnected and mutually reinforcing."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Has given a short yet correct answer as to which of the two kaupapa (haka or te reo revitalisation) is more important to celebrate.\n- Has used basic information from the text to support their argument.\n\nFor Merit:\n- Has given a moderately detailed correct answer as to which kaupapa is more important.\n- Has used information from the text to support their argument.\n- Explains the message/main theme with some development.\n\nFor Excellence:\n- Has given a detailed correct answer as to which kaupapa is more important.\n- Has used comprehensive information from the text to support their argument.\n- Integrates/synthesises the main ideas.\n- Justifies thoughts with clear examples.\n- Clearly articulated response with convincing justifications.\n- May argue for te reo revitalisation as the foundation — without the language, haka loses its meaning and depth.\n- or may argue for haka as a powerful vehicle for language promotion and cultural pride.\n- or argue that both are interconnected and mutually reinforcing."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 7 },
-    "achieved": { "min": 8, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

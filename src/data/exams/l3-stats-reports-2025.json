@@ -19,7 +19,7 @@
         "confidence-intervals"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) 95% CI ≈ 38% ± 3.3% = (34.7%, 41.3%). (ii) The rule of thumb gives 1/√900 = 1/30 ≈ 0.0333 = 3.3%, which matches the reported margin of error. (A more exact calculation using 1.96·√(p(1 – p)/n) = 1.96 × √(0.38 × 0.62/900) ≈ 1.96 × 0.01618 ≈ 0.0317 ≈ 3.2% is also close.)"
+      "markingGuide": "Step 1: Achievement: (i) 95% CI ≈ 38% ± 3.3% = (34.7%, 41.3%).\n\nStep 2: (ii) The rule of thumb gives 1/√900 = 1/30 ≈ 0.0333 = 3.3%, which matches the reported margin of error.\n\nStep 3: (A more exact calculation using 1.96·√(p(1 – p)/n) = 1.96 × √(0.38 × 0.62/900) ≈ 1.96 × 0.01618 ≈ 0.0317 ≈ 3.2% is also close.)."
     },
     {
       "id": "st584-25-q1b",
@@ -33,7 +33,7 @@
         "statistical-significance"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: 2020 CI ≈ 30% ± 5% = (25%, 35%). 2025 CI ≈ 38% ± 3.3% = (34.7%, 41.3%). The two intervals barely overlap (from 34.7% to 35%) — essentially no overlap, which gives clear evidence of a significant increase from 2020 to 2025. The observed difference is 38% – 30% = 8 percentage points. Excellence: Discusses that (almost) non-overlapping CIs provide strong evidence, notes the same methodology was used (good for comparison), but that changes in how people interpret or report workplace anxiety over 5 years could also contribute to the observed difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- 2020 CI ≈ 30% ± 5% = (25%, 35%).\n- 2025 CI ≈ 38% ± 3.3% = (34.7%, 41.3%).\n- The two intervals barely overlap (from 34.7% to 35%) — essentially no overlap, which gives clear evidence of a significant increase from 2020 to 2025.\n- The observed difference is 38% – 30% = 8 percentage points.\n\nFor Excellence:\n- Discusses that (almost) non-overlapping CIs provide strong evidence, notes the same methodology was used (good for comparison), but that changes in how people interpret or report workplace anxiety over 5 years could also contribute to the observed difference."
     },
     {
       "id": "st584-25-q2a",
@@ -47,7 +47,7 @@
         "sampling-bias"
       ],
       "answerType": "text",
-      "markingGuide": "Merit (any 2 well-explained): (1) Observational study — cannot establish causation. People who are already less physically active may turn to screens as a passive alternative (reverse causation). (2) Self-reported data — students may inaccurately recall their screen time or physical activity, or under-report (recall bias, social desirability bias). (3) Online questionnaire — non-response bias: heavier screen users may be more likely to complete online surveys, skewing the sample. (4) Confounding variables — factors such as socio-economic status, study workload, part-time work, health conditions or access to exercise facilities could affect both screen time and activity levels. (5) Sample limited to university students — does not generalise to the wider population. (6) 'Screen time' is broad — passive scrolling may differ from active use or study-related screen use. Excellence: At least 3 limitations, each clearly explained with how it specifically undermines the causal claim."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- (1) Observational study — cannot establish causation.\n- People who are already less physically active may turn to screens as a passive alternative (reverse causation).\n- (2) Self-reported data — students may inaccurately recall their screen time or physical activity, or under-report (recall bias, social desirability bias).\n- (3) Online questionnaire — non-response bias: heavier screen users may be more likely to complete online surveys, skewing the sample.\n- (4) Confounding variables — factors such as socio-economic status, study workload, part-time work, health conditions or access to exercise facilities could affect both screen time and activity levels.\n- (5) Sample limited to university students — does not generalise to the wider population.\n- (6) 'Screen time' is broad — passive scrolling may differ from active use or study-related screen use.\n\nFor Excellence:\n- At least 3 limitations, each clearly explained with how it specifically undermines the causal claim."
     },
     {
       "id": "st584-25-q2b",
@@ -60,7 +60,7 @@
         "confounding-variables"
       ],
       "answerType": "text",
-      "markingGuide": "Excellence: A randomised controlled experiment where participants are randomly assigned to different social media limits. Use objective measures (screen time tracking apps, sleep monitoring devices) rather than self-report. Control for confounding variables by ensuring groups are similar. Use a longitudinal design over at least several weeks. Consider ethical implications — restricting screen time raises questions. A well-designed observational study with statistical controls for confounders would be more practical."
+      "markingGuide": "Excellence: A randomised controlled experiment where participants are randomly assigned to different social media limits.\n\nUse objective measures (screen time tracking apps, sleep monitoring devices) rather than self-report.\n\nControl for confounding variables by ensuring groups are similar.\n\nUse a longitudinal design over at least several weeks.\n\nConsider ethical implications — restricting screen time raises questions.\n\nA well-designed observational study with statistical controls for confounders would be more practical."
     },
     {
       "id": "st584-25-q3",
@@ -75,7 +75,7 @@
         "evaluating-claims"
       ],
       "answerType": "text",
-      "markingGuide": "Achievement: Identifies that the low response rate is a problem. Merit: Explains that the margin of error assumes random sampling, the 25% response rate introduces non-response bias, and property owners may have different views from renters. Excellence: Comprehensive evaluation covering: (1) Coverage bias — excluding renters, who also pay rates indirectly through rent. (2) Non-response bias — only 25% responded, and those who responded may have different views from those who didn't (people who support the rates increase may be more motivated to respond). (3) The margin of error is not strictly valid because the formula assumes random responses from the sample, but the 75% non-response rate means the 300 respondents are not representative. (4) Leading questions about road safety could push respondents toward supporting the increase. (5) The claim of a 'strong mandate' is not justified. Improvements: boost response rate through follow-up, include renters, use neutral question wording, use stratified sampling to cover different property types and neighbourhoods."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that the low response rate is a problem.\n\nFor Merit:\n- Explains that the margin of error assumes random sampling, the 25% response rate introduces non-response bias, and property owners may have different views from renters.\n\nFor Excellence:\n- Comprehensive evaluation covering: (1) Coverage bias — excluding renters, who also pay rates indirectly through rent.\n- (2) Non-response bias — only 25% responded, and those who responded may have different views from those who didn't (people who support the rates increase may be more motivated to respond).\n- (3) The margin of error is not strictly valid because the formula assumes random responses from the sample, but the 75% non-response rate means the 300 respondents are not representative.\n- (4) Leading questions about road safety could push respondents toward supporting the increase.\n- (5) The claim of a 'strong mandate' is not justified.\n- Improvements: boost response rate through follow-up, include renters, use neutral question wording, use stratified sampling to cover different property types and neighbourhoods."
     }
   ],
   "cutScores": {

@@ -14,15 +14,31 @@
       "text": "Write an essay on at least ONE visual or oral text that you have studied, in response to ONE of the statements below. Discuss the extent to which you agree with your chosen statement. Respond critically to the statement by making a close analysis of the text(s).\n\nSTATEMENTS (Choose ONE):\n1. The strongest texts use visual and aural elements together to challenge what the audience believes.\n2. Flawed characters earn our respect by confronting their own limitations.\n3. The way characters navigate their physical world reveals truths about the human condition.\n4. A powerful text contains a moment that permanently shifts the audience's understanding.\n5. Contrasting locations within a text illuminate ideas that a single setting could not.\n6. Texts that matter most are those that leave the audience questioning their own values.\n7. Unexpected connections between characters reshape how the audience sees ordinary life.\n8. The characters who stay with us longest are those who provoke unease rather than comfort.\n\nYou should aim to write a concise essay of no more than 5-6 pages in length. The quality of your writing is more important than the length of your essay.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "visual-text-l3", "critical-response"],
+      "topics": [
+        "language-features",
+        "visual-text-l3",
+        "critical-response"
+      ],
       "answerType": "working",
-      "markingGuide": "ACHIEVED (3-4 marks): Present a structured response following essay conventions (some clumsiness in style or organisation is acceptable). Develop a relevant critical argument that provides an evaluative response to the chosen statement, showing engagement with the text(s). Make and evaluate a range of relevant points showing understanding of the aspect(s) specified in the statement. Include specific and relevant details from the text(s) to support the argument. For visual or oral texts, reference specific techniques such as camera work, lighting, sound design, mise-en-scene, dialogue, or performance.\n\nMERIT (5-6 marks): Present a structured response following essay conventions. Develop a convincing critical argument showing familiarity and engagement with the text(s). Make and evaluate relevant points showing convincing understanding of the aspect(s) specified. Begin to weave specific details from the text(s) into the response to effectively support the argument. Potentially link the argument to matters beyond the text(s). Demonstrate understanding of how visual or oral techniques create meaning.\n\nEXCELLENCE (7-8 marks): Present a cohesive and articulate response following essay conventions, showing some originality of expression. Develop a sophisticated and insightful or original critical argument showing familiarity with and appreciation of the text(s). Make and evaluate relevant points showing perceptive understanding of the aspect(s) specified. Weave specific and judiciously chosen relevant details from the text(s) into the response to effectively support and expand the argument. Link the argument to other aspects of the text or other contexts such as human experience, society, and the wider world."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Present a structured response following essay conventions (some clumsiness in style or organisation is acceptable).\n- Develop a relevant critical argument that provides an evaluative response to the chosen statement, showing engagement with the text(s).\n- Make and evaluate a range of relevant points showing understanding of the aspect(s) specified in the statement.\n- Include specific and relevant details from the text(s) to support the argument.\n- For visual or oral texts, reference specific techniques such as camera work, lighting, sound design, mise-en-scene, dialogue, or performance.\n\nFor Merit:\n- Present a structured response following essay conventions.\n- Develop a convincing critical argument showing familiarity and engagement with the text(s).\n- Make and evaluate relevant points showing convincing understanding of the aspect(s) specified.\n- Begin to weave specific details from the text(s) into the response to effectively support the argument.\n- Potentially link the argument to matters beyond the text(s).\n- Demonstrate understanding of how visual or oral techniques create meaning.\n\nFor Excellence:\n- Present a cohesive and articulate response following essay conventions, showing some originality of expression.\n- Develop a sophisticated and insightful or original critical argument showing familiarity with and appreciation of the text(s).\n- Make and evaluate relevant points showing perceptive understanding of the aspect(s) specified.\n- Weave specific and judiciously chosen relevant details from the text(s) into the response to effectively support and expand the argument.\n- Link the argument to other aspects of the text or other contexts such as human experience, society, and the wider world."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

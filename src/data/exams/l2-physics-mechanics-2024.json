@@ -52,7 +52,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Fc = mv^2/r. 12 = 5.0 x 1.2^2 / r. r = 5.0 x 1.44 / 12 = 0.60 m.",
-      "markingGuide": "Achieved: 0.60 m. Merit: Calculation and explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- 0.60 m.\n\nFor Merit:\n- Calculation and explanation."
     },
     {
       "id": "m24-q1bii",
@@ -81,7 +81,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "p = mv = 1.2 x 5.0 = 6.0 kg m s-1. Dp = Ft. 6.0 = F x 1.5. F = 4.0 N. If t = 0.08 s: F = 6.0/0.08 = 75 N. By increasing the stopping time, the force on the cat is much lower, reducing the chance of injury.",
-      "markingGuide": "Achieved: p = 6.0 kg m s-1. Merit: F = 4.0 N AND force would be less. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- p = 6.0 kg m s-1.\n\nFor Merit:\n- F = 4.0 N AND force would be less.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "m24-q1d",
@@ -96,7 +96,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Taking neighbourhood cat's direction as positive: p_before = p_after. -5.0(1.4) + 6.0(v) = 11.0(0.20). -7.0 + 6.0v = 2.2. 6.0v = 9.2. v = 1.53 m s-1.",
-      "markingGuide": "Achieved: Any relevant momentum calculated. Merit: Two momenta found. Excellence: Correct v = 1.53 m s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any relevant momentum calculated.\n\nFor Merit:\n- Two momenta found.\n\nFor Excellence:\n- Correct v = 1.53 m s-1."
     },
     {
       "id": "m24-q2a",
@@ -125,7 +125,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "F = mg = 0.15 x 9.8 = 1.47 N. System k = F/x = 1.47/0.012 = 122.5 N/m. One spring: k = 122.5/4 = 30.6 N m-1.",
-      "markingGuide": "Achieved: System k. Merit: One spring k = 30.6 N m-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- System k.\n\nFor Merit:\n- One spring k = 30.6 N m-1."
     },
     {
       "id": "m24-q2c",
@@ -141,7 +141,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Work done is the same (same height gained). The ramp requires less force (longer distance). Because it takes less time on the ramp, Tama has more power going up the ramp.",
-      "markingGuide": "Achieved: ONE correct statement. Merit: TWO linked. Excellence: Complete comparison."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct statement.\n\nFor Merit:\n- TWO linked.\n\nFor Excellence:\n- Complete comparison."
     },
     {
       "id": "m24-q2di",
@@ -170,7 +170,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Taking torques about wire B: Anti-clockwise torques = Fw(chilli) x 0.30 + Fw(rack) x 0.25 + Fw(pepper) x 0.44 = 0.040x9.8x0.30 + 0.35x9.8x0.25 + 0.45x9.8x0.44 = 0.1176 + 0.8575 + 1.9404 = 2.9155 Nm. This equals wire A x 0.50. FA = 2.9155/0.50 = 5.83 N. FB = total weight - FA = (0.040+0.35+0.45)x9.8 - 5.83 = 8.232 - 5.83 = 2.40 N. Both FA = 5.83 N and FB = 2.40 N are below the 6.0 N limit, so the wires can hold the shelf.",
-      "markingGuide": "Achieved: One torque correct. Merit: One tension correct. Excellence: Full answer with conclusion."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One torque correct.\n\nFor Merit:\n- One tension correct.\n\nFor Excellence:\n- Full answer with conclusion."
     },
     {
       "id": "m24-q3a",
@@ -199,7 +199,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "vx = 6 cos 35 = 4.9 m s-1. vy = 6 sin 35 = 3.4 m s-1.",
-      "markingGuide": "Achieved: One value found. Merit: Both correct and identified."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One value found.\n\nFor Merit:\n- Both correct and identified."
     },
     {
       "id": "m24-q3ci",
@@ -227,7 +227,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "At all three points: Weight force (Fw) downward, same size. Velocity arrows tangent to the curve at each point.",
-      "markingGuide": "Achieved: Correct force or velocity arrows. Merit: Both correct at all points."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct force or velocity arrows.\n\nFor Merit:\n- Both correct at all points."
     },
     {
       "id": "m24-q3ciii",
@@ -255,7 +255,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Time to max height: 0 = 3.4 - 9.8t, t = 0.347 s. Max height: d = 3.4 x 0.347 - 0.5 x 9.8 x 0.347^2 = 0.59 m (below 1.8 m ceiling). Total time = 2 x 0.347 = 0.694 s. Horizontal distance = 4.9 x 0.694 = 3.4 m. The berry will reach Aroha (3.4 m > 2.5 m) without hitting the ceiling (0.59 m < 1.8 m).",
-      "markingGuide": "Achieved: Time or height found. Merit: Range calculated. Excellence: Both found with conclusion."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Time or height found.\n\nFor Merit:\n- Range calculated.\n\nFor Excellence:\n- Both found with conclusion."
     }
   ]
 }

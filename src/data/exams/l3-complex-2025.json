@@ -8,26 +8,290 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {"id":"l3cn25-q1a","number":"1(a)","text":"When the polynomial 3x⁴ + px³ – 7x + 5 is divided by x – 1, the remainder is 10. Find p.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"p = 9","markingGuide":"f(1) = 10. 3+p–7+5 = 10. p+1 = 10. p = 9."},
-    {"id":"l3cn25-q1b","number":"1(b)","text":"Solve x² – 6kx = 5k² for x, in terms of k.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x = k(3 ± √14)","markingGuide":"x²–6kx–5k²=0. x = (6k±√(36k²+20k²))/2 = (6k±√(56k²))/2 = (6k±2k√14)/2 = k(3±√14)."},
-    {"id":"l3cn25-q1c","number":"1(c)","text":"Prove that (kx)² = 7 – x/k has real roots for all real values of k, where k ≠ 0.","marks":2,"gradeLevel":"merit","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"Discriminant = 1/k² + 28k² > 0 for all k ≠ 0","markingGuide":"k²x² + x/k – 7 = 0. Disc = 1/k² + 28k². Since k≠0, both terms positive. Disc > 0. Roots always real."},
-    {"id":"l3cn25-q1d","number":"1(d)","text":"Solve z³ + 8m³i = 0 in polar form, in terms of m (m > 0).","marks":2,"gradeLevel":"merit","topics":["de-moivres","polar-form","complex-numbers"],"answerType":"working","expectedAnswer":"z = 2m cis(–π/6), 2m cis(π/2), 2m cis(7π/6)","markingGuide":"z³ = –8m³i = 8m³ cis(–π/2). r = 2m. θ = (–π/2+2nπ)/3. n=0: –π/6. n=1: π/2. n=2: 7π/6.","graph":{"type":"scatter","title":"Cube roots on Argand diagram (m = 1)","xLabel":"Real","yLabel":"Imaginary","data":[[1.732,-1],[0,2],[-1.732,-1]]}},
-    {"id":"l3cn25-q1e","number":"1(e)","text":"The locus |z – 5i| – |z + 5i| = 8.\n\nFind the Cartesian equation in the form ay² – bx² = k.","marks":2,"gradeLevel":"excellence","topics":["loci","complex-numbers"],"answerType":"working","expectedAnswer":"9y² – 16x² = 144","markingGuide":"Hyperbola: foci (0,5) and (0,–5). 2a=8, a=4. c=5. b²=25–16=9. y²/16–x²/9=1. 9y²–16x²=144."},
-    {"id":"l3cn25-q2a","number":"2(a)","text":"Given u = 4 + i and w = –2 – 5i, find z = 2u + 3w.","marks":1,"gradeLevel":"achieved","topics":["complex-numbers"],"answerType":"working","expectedAnswer":"z = 2 – 13i","markingGuide":"2u = 8+2i. 3w = –6–15i. z = 2–13i.","graph":{"type":"scatter","title":"u, w, and z = 2u + 3w on Argand","xLabel":"Real","yLabel":"Imaginary","data":[[4,1],[-2,-5],[2,-13]]}},
-    {"id":"l3cn25-q2b","number":"2(b)","text":"If u = m cis(2π/3), write u³ in the form a + bi, in terms of m.","marks":1,"gradeLevel":"achieved","topics":["de-moivres","polar-form","complex-numbers"],"answerType":"working","expectedAnswer":"u³ = m³ cis(2π) = m³","markingGuide":"u³ = m³ cis(2π) = m³(1+0i) = m³."},
-    {"id":"l3cn25-q2c","number":"2(c)","text":"Solve |4 – mi| = √(2m²) for m (real).","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"m = ±4","markingGuide":"|4–mi| = √(16+m²). √(16+m²) = √(2m²). 16+m² = 2m². 16 = m². m = ±4."},
-    {"id":"l3cn25-q2d","number":"2(d)","text":"If (g + i)(2 + hi) = 6 – 2i, find all possible real values of g and h.","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"g = 1, h = –4 or g = 2, h = –2","markingGuide":"LHS: (g + i)(2 + hi) = 2g + ghi + 2i + hi² = (2g – h) + (gh + 2)i. Equate real and imaginary parts with RHS 6 – 2i: 2g – h = 6 …(1) and gh + 2 = –2, so gh = –4 …(2). From (1): h = 2g – 6. Substitute into (2): g(2g – 6) = –4, i.e. 2g² – 6g + 4 = 0, so g² – 3g + 2 = 0. Factorise: (g – 1)(g – 2) = 0. So g = 1 giving h = 2(1) – 6 = –4, or g = 2 giving h = 2(2) – 6 = –2. Check (1 + i)(2 – 4i) = 2 – 4i + 2i – 4i² = 6 – 2i ✓ and (2 + i)(2 – 2i) = 4 – 4i + 2i – 2i² = 6 – 2i ✓."},
-    {"id":"l3cn25-q2e","number":"2(e)","text":"Given that arg((d + 6i)/(1 – di)) = π/4, find d (real).","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers","polar-form"],"answerType":"working","expectedAnswer":"d = –2 or d = –3","markingGuide":"(d+6i)(1+di)/(1+d²) = (d–6d+(d²+6)i)/(1+d²) = –5d+(d²+6)i all over (1+d²). For arg=π/4: Re=Im>0. –5d = d²+6. d²+5d+6=0. (d+2)(d+3)=0. d=–2 or d=–3. Check d=–2: Re=10>0, Im=10>0 ✓ (first quadrant). d=–3: Re=15>0, Im=15>0 ✓."},
-    {"id":"l3cn25-q3a","number":"3(a)","text":"One solution of a quadratic equation with real coefficients is x = 4 + √(3p)i. Find the equation in terms of p.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x² – 8x + 16 + 3p = 0","markingGuide":"Other root: 4–√(3p)i. Sum=8, Product=16+3p. Equation: x²–8x+16+3p=0."},
-    {"id":"l3cn25-q3b","number":"3(b)","text":"Expand and simplify (√(3a) – √(5a)i)², in terms of a.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"–2a – 2a√15 i","markingGuide":"(√(3a))²–2√(3a)√(5a)i+(√(5a)i)² = 3a–2√(15a²)i+5a·i² = 3a–2a√15·i–5a = –2a–2a√15·i."},
-    {"id":"l3cn25-q3c","number":"3(c)","text":"Solve: (3 + 2√x)(1 + √x) = 3 + 7√x","marks":2,"gradeLevel":"merit","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x = 0 or x = 1","markingGuide":"Expand LHS: (3 + 2√x)(1 + √x) = 3 + 3√x + 2√x + 2x = 3 + 5√x + 2x. Set equal to RHS: 3 + 5√x + 2x = 3 + 7√x, so 2x – 2√x = 0, i.e. 2√x(√x – 1) = 0. Therefore √x = 0 or √x = 1, giving x = 0 or x = 1. Check x = 1: LHS = (3 + 2)(1 + 1) = 10; RHS = 3 + 7 = 10 ✓. Check x = 0: LHS = 3·1 = 3; RHS = 3 ✓. Both valid."},
-    {"id":"l3cn25-q3d","number":"3(d)","text":"One solution of 2z³ + pz² + qz – 10 = 0 is z = 1 + 2i. If p, q are real, find the other solutions and p, q.","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"p = –6, q = 14; other solutions z = 1–2i and z = 1","markingGuide":"z=1–2i also a root. Factor: z²–2z+5. f(z)=2(z²–2z+5)(z–a). Constant: 2(5)(–a)=–10. a=1. Expand: 2(z³–z²–2z²+2z+5z–5)=2(z³–3z²+7z–5)=2z³–6z²+14z–10. p=–6, q=14. Third root z=1.","graph":{"type":"scatter","title":"Roots of 2z³ – 6z² + 14z – 10 = 0","xLabel":"Real","yLabel":"Imaginary","data":[[1,2],[1,-2],[1,0]]}},
-    {"id":"l3cn25-q3e","number":"3(e)","text":"Solve the simultaneous equations for u and v (complex):\n\nui + 2v = 4\nu + (1 – i)v = 3","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"u = –1 + 3i, v = (7 + i)/2","markingGuide":"From (2): u = 3–(1–i)v. Multiply (2) by i: ui+(1–i)iv=3i → ui+(i+1)v=3i. Eq(1): ui+2v=4. Subtract: [2–(i+1)]v = 4–3i. (1–i)v = 4–3i. v = (4–3i)/(1–i) = (4–3i)(1+i)/2 = (4+4i–3i–3i²)/2 = (7+i)/2. u = 3–(1–i)(7+i)/2 = 3–(7+i–7i–i²)/2 = 3–(8–6i)/2 = 3–4+3i = –1+3i. Check: ui+2v = (–1+3i)i+2(7+i)/2 = (–i–3)+7+i = 4 ✓."}
+    {
+      "id": "l3cn25-q1a",
+      "number": "1(a)",
+      "text": "When the polynomial 3x⁴ + px³ – 7x + 5 is divided by x – 1, the remainder is 10. Find p.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "complex-algebra"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "p = 9",
+      "markingGuide": "Step 1: f(1) = 10.\n\nStep 2: 3+p–7+5 = 10.\n\nStep 3: p+1 = 10.\n\nStep 4: p = 9."
+    },
+    {
+      "id": "l3cn25-q1b",
+      "number": "1(b)",
+      "text": "Solve x² – 6kx = 5k² for x, in terms of k.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "complex-algebra"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = k(3 ± √14)",
+      "markingGuide": "Step 1: x²–6kx–5k²=0.\n\nStep 2: x = (6k±√(36k²+20k²))/2 = (6k±√(56k²))/2 = (6k±2k√14)/2 = k(3±√14).\n\nFinal answer: x = k(3 ± √14)."
+    },
+    {
+      "id": "l3cn25-q1c",
+      "number": "1(c)",
+      "text": "Prove that (kx)² = 7 – x/k has real roots for all real values of k, where k ≠ 0.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "complex-algebra"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Discriminant = 1/k² + 28k² > 0 for all k ≠ 0",
+      "markingGuide": "Step 1: k²x² + x/k – 7 = 0.\n\nStep 2: Disc = 1/k² + 28k².\n\nStep 3: Since k≠0, both terms positive.\n\nStep 4: Disc > 0.\n\nStep 5: Roots always real.\n\nFinal answer: Discriminant = 1/k² + 28k² > 0 for all k ≠ 0."
+    },
+    {
+      "id": "l3cn25-q1d",
+      "number": "1(d)",
+      "text": "Solve z³ + 8m³i = 0 in polar form, in terms of m (m > 0).",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "de-moivres",
+        "polar-form",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "z = 2m cis(–π/6), 2m cis(π/2), 2m cis(7π/6)",
+      "markingGuide": "Step 1: z³ = –8m³i = 8m³ cis(–π/2).\n\nStep 2: r = 2m.\n\nStep 3: θ = (–π/2+2nπ)/3.\n\nStep 4: n=0: –π/6.\n\nStep 5: n=1: π/2.\n\nStep 6: n=2: 7π/6.\n\nFinal answer: z = 2m cis(–π/6), 2m cis(π/2), 2m cis(7π/6).",
+      "graph": {
+        "type": "scatter",
+        "title": "Cube roots on Argand diagram (m = 1)",
+        "xLabel": "Real",
+        "yLabel": "Imaginary",
+        "data": [
+          [
+            1.732,
+            -1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            -1.732,
+            -1
+          ]
+        ]
+      }
+    },
+    {
+      "id": "l3cn25-q1e",
+      "number": "1(e)",
+      "text": "The locus |z – 5i| – |z + 5i| = 8.\n\nFind the Cartesian equation in the form ay² – bx² = k.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "loci",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "9y² – 16x² = 144",
+      "markingGuide": "Step 1: Hyperbola: foci (0,5) and (0,–5).\n\nStep 2: 2a=8, a=4.\n\nStep 3: c=5.\n\nStep 4: b²=25–16=9.\n\nStep 5: y²/16–x²/9=1.\n\nStep 6: 9y²–16x²=144.\n\nFinal answer: 9y² – 16x² = 144."
+    },
+    {
+      "id": "l3cn25-q2a",
+      "number": "2(a)",
+      "text": "Given u = 4 + i and w = –2 – 5i, find z = 2u + 3w.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "z = 2 – 13i",
+      "markingGuide": "Step 1: 2u = 8+2i.\n\nStep 2: 3w = –6–15i.\n\nStep 3: z = 2–13i.\n\nFinal answer: z = 2 – 13i.",
+      "graph": {
+        "type": "scatter",
+        "title": "u, w, and z = 2u + 3w on Argand",
+        "xLabel": "Real",
+        "yLabel": "Imaginary",
+        "data": [
+          [
+            4,
+            1
+          ],
+          [
+            -2,
+            -5
+          ],
+          [
+            2,
+            -13
+          ]
+        ]
+      }
+    },
+    {
+      "id": "l3cn25-q2b",
+      "number": "2(b)",
+      "text": "If u = m cis(2π/3), write u³ in the form a + bi, in terms of m.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "de-moivres",
+        "polar-form",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "u³ = m³ cis(2π) = m³",
+      "markingGuide": "u³ = m³ cis(2π) = m³(1+0i) = m³."
+    },
+    {
+      "id": "l3cn25-q2c",
+      "number": "2(c)",
+      "text": "Solve |4 – mi| = √(2m²) for m (real).",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "complex-algebra",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "m = ±4",
+      "markingGuide": "Step 1: |4–mi| = √(16+m²).\n\nStep 2: √(16+m²) = √(2m²).\n\nStep 3: 16+m² = 2m².\n\nStep 4: 16 = m².\n\nStep 5: m = ±4."
+    },
+    {
+      "id": "l3cn25-q2d",
+      "number": "2(d)",
+      "text": "If (g + i)(2 + hi) = 6 – 2i, find all possible real values of g and h.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "complex-algebra",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "g = 1, h = –4 or g = 2, h = –2",
+      "markingGuide": "Step 1: LHS: (g + i)(2 + hi) = 2g + ghi + 2i + hi² = (2g – h) + (gh + 2)i.\n\nStep 2: Equate real and imaginary parts with RHS 6 – 2i: 2g – h = 6 …(1) and gh + 2 = –2, so gh = –4 …(2).\n\nStep 3: From (1): h = 2g – 6.\n\nStep 4: Substitute into (2): g(2g – 6) = –4, i.e. 2g² – 6g + 4 = 0, so g² – 3g + 2 = 0.\n\nStep 5: Factorise: (g – 1)(g – 2) = 0.\n\nStep 6: So g = 1 giving h = 2(1) – 6 = –4, or g = 2 giving h = 2(2) – 6 = –2.\n\nStep 7: Check (1 + i)(2 – 4i) = 2 – 4i + 2i – 4i² = 6 – 2i ✓ and (2 + i)(2 – 2i) = 4 – 4i + 2i – 2i² = 6 – 2i ✓.\n\nFinal answer: g = 1, h = –4 or g = 2, h = –2."
+    },
+    {
+      "id": "l3cn25-q2e",
+      "number": "2(e)",
+      "text": "Given that arg((d + 6i)/(1 – di)) = π/4, find d (real).",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "complex-algebra",
+        "complex-numbers",
+        "polar-form"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "d = –2 or d = –3",
+      "markingGuide": "Step 1: (d+6i)(1+di)/(1+d²) = (d–6d+(d²+6)i)/(1+d²) = –5d+(d²+6)i all over (1+d²).\n\nStep 2: For arg=π/4: Re=Im>0.\n\nStep 3: –5d = d²+6.\n\nStep 4: d²+5d+6=0.\n\nStep 5: (d+2)(d+3)=0.\n\nStep 6: d=–2 or d=–3.\n\nStep 7: Check d=–2: Re=10>0, Im=10>0 ✓ (first quadrant).\n\nStep 8: d=–3: Re=15>0, Im=15>0 ✓.\n\nFinal answer: d = –2 or d = –3."
+    },
+    {
+      "id": "l3cn25-q3a",
+      "number": "3(a)",
+      "text": "One solution of a quadratic equation with real coefficients is x = 4 + √(3p)i. Find the equation in terms of p.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "complex-algebra"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x² – 8x + 16 + 3p = 0",
+      "markingGuide": "Step 1: Other root: 4–√(3p)i.\n\nStep 2: Sum=8, Product=16+3p.\n\nStep 3: Equation: x²–8x+16+3p=0.\n\nFinal answer: x² – 8x + 16 + 3p = 0."
+    },
+    {
+      "id": "l3cn25-q3b",
+      "number": "3(b)",
+      "text": "Expand and simplify (√(3a) – √(5a)i)², in terms of a.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "complex-algebra",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "–2a – 2a√15 i",
+      "markingGuide": "(√(3a))²–2√(3a)√(5a)i+(√(5a)i)² = 3a–2√(15a²)i+5a·i² = 3a–2a√15·i–5a = –2a–2a√15·i."
+    },
+    {
+      "id": "l3cn25-q3c",
+      "number": "3(c)",
+      "text": "Solve: (3 + 2√x)(1 + √x) = 3 + 7√x",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "complex-algebra"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 0 or x = 1",
+      "markingGuide": "Step 1: Expand LHS: (3 + 2√x)(1 + √x) = 3 + 3√x + 2√x + 2x = 3 + 5√x + 2x.\n\nStep 2: Set equal to RHS: 3 + 5√x + 2x = 3 + 7√x, so 2x – 2√x = 0, i.e. 2√x(√x – 1) = 0.\n\nStep 3: Therefore √x = 0 or √x = 1, giving x = 0 or x = 1.\n\nStep 4: Check x = 1: LHS = (3 + 2)(1 + 1) = 10;.\n\nStep 5: RHS = 3 + 7 = 10 ✓.\n\nStep 6: Check x = 0: LHS = 3·1 = 3;.\n\nStep 7: RHS = 3 ✓.\n\nStep 8: Both valid."
+    },
+    {
+      "id": "l3cn25-q3d",
+      "number": "3(d)",
+      "text": "One solution of 2z³ + pz² + qz – 10 = 0 is z = 1 + 2i. If p, q are real, find the other solutions and p, q.",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "complex-algebra",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "p = –6, q = 14; other solutions z = 1–2i and z = 1",
+      "markingGuide": "Step 1: z=1–2i also a root.\n\nStep 2: Factor: z²–2z+5.\n\nStep 3: f(z)=2(z²–2z+5)(z–a).\n\nStep 4: Constant: 2(5)(–a)=–10.\n\nStep 5: a=1.\n\nStep 6: Expand: 2(z³–z²–2z²+2z+5z–5)=2(z³–3z²+7z–5)=2z³–6z²+14z–10.\n\nStep 7: p=–6, q=14.\n\nStep 8: Third root z=1.\n\nFinal answer: p = –6, q = 14; other solutions z = 1–2i and z = 1.",
+      "graph": {
+        "type": "scatter",
+        "title": "Roots of 2z³ – 6z² + 14z – 10 = 0",
+        "xLabel": "Real",
+        "yLabel": "Imaginary",
+        "data": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            -2
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "l3cn25-q3e",
+      "number": "3(e)",
+      "text": "Solve the simultaneous equations for u and v (complex):\n\nui + 2v = 4\nu + (1 – i)v = 3",
+      "marks": 2,
+      "gradeLevel": "excellence",
+      "topics": [
+        "complex-algebra",
+        "complex-numbers"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "u = –1 + 3i, v = (7 + i)/2",
+      "markingGuide": "Step 1: From (2): u = 3–(1–i)v.\n\nStep 2: Multiply (2) by i: ui+(1–i)iv=3i → ui+(i+1)v=3i.\n\nStep 3: Eq(1): ui+2v=4.\n\nStep 4: Subtract: [2–(i+1)]v = 4–3i.\n\nStep 5: (1–i)v = 4–3i.\n\nStep 6: v = (4–3i)/(1–i) = (4–3i)(1+i)/2 = (4+4i–3i–3i²)/2 = (7+i)/2.\n\nStep 7: u = 3–(1–i)(7+i)/2 = 3–(7+i–7i–i²)/2 = 3–(8–6i)/2 = 3–4+3i = –1+3i.\n\nStep 8: Check: ui+2v = (–1+3i)i+2(7+i)/2 = (–i–3)+7+i = 4 ✓.\n\nFinal answer: u = –1 + 3i, v = (7 + i)/2."
+    }
   ],
   "cutScores": {
-    "notAchieved": {"min":0,"max":6},
-    "achieved": {"min":7,"max":12},
-    "merit": {"min":13,"max":19},
-    "excellence": {"min":20,"max":24}
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
   }
 }

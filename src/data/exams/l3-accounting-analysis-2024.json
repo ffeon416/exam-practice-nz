@@ -21,7 +21,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "A potential business customer would be interested because: carbon reduction efforts align with their own sustainability goals and reporting requirements. Fair treatment of drivers ensures reliable, motivated service. Community investment demonstrates corporate responsibility. Customers can feel confident partnering with a company that shares ethical values, which may also benefit their own brand reputation.",
-      "markingGuide": "A: Identifies goals relevant to customers. M: Explains why these goals matter to potential business customers with context. E: Provides assurance about values alignment and connects to partnership decisions."
+      "markingGuide": "A: Identifies goals relevant to customers.\n\nM: Explains why these goals matter to potential business customers with context.\n\nE: Provides assurance about values alignment and connects to partnership decisions."
     },
     {
       "id": "l3aa24-q1b",
@@ -36,7 +36,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Purpose: shows revenue, profit, and assets broken down by geographic region and business segment (transport, warehousing, air & ocean), revealing where the company generates value. An investor would look at: which segments are growing fastest; which regions are most profitable; whether the company is over-reliant on one segment; and how capital is allocated across segments.",
-      "markingGuide": "A: States purpose. M: Links specific items to investor interests. E: Discusses how segmented data indicates diversification and growth potential."
+      "markingGuide": "A: States purpose.\n\nM: Links specific items to investor interests.\n\nE: Discusses how segmented data indicates diversification and growth potential."
     },
     {
       "id": "l3aa24-q1c",
@@ -52,7 +52,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Faithful representation: the auditor confirms the statements present a true and fair view — information is complete, neutral, and free from material error. Comparability: compliance with NZ IFRS means the financial statements can be compared with other logistics companies using the same standards. A shareholder can make investment decisions with confidence because the audit provides independent assurance that the numbers are reliable.",
-      "markingGuide": "A: Identifies faithful representation and comparability. M: Explains how audit opinion provides assurance. E: Justifies how this enables confident decision-making."
+      "markingGuide": "A: Identifies faithful representation and comparability.\n\nM: Explains how audit opinion provides assurance.\n\nE: Justifies how this enables confident decision-making."
     },
     {
       "id": "l3aa24-q2a",
@@ -83,7 +83,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Income tax expense ($42m) is reported in the income statement as an expense — it represents the total tax cost attributable to the period's profit. Current tax payable ($31m) is a liability on the statement of financial position — it represents the actual amount owed to IRD at balance date. The difference ($11m) relates to deferred tax — timing differences between accounting profit and taxable income.",
-      "markingGuide": "A: Identifies different financial statements. M: Explains different recognition criteria. E: Justifies with reference to deferred tax concept.",
+      "markingGuide": "A: Identifies different financial statements.\n\nM: Explains different recognition criteria.\n\nE: Justifies with reference to deferred tax concept.",
       "graph": {
         "type": "table",
         "title": "Mainfreight — Tax Reporting Summary",
@@ -128,7 +128,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Customer goods are not Mainfreight's assets because they are not controlled by Mainfreight — they belong to the customers and will be collected. Warehousing facilities are PPE because they are used in operations over multiple periods to generate logistics revenue. Historical cost: PPE recorded at the price paid at acquisition, providing a reliable and verifiable measurement basis. New fit-out meets asset definition: (1) controlled by entity, (2) from past event (construction/purchase), (3) future economic benefits expected (generates warehousing income). It is capital expenditure because the benefit extends beyond one accounting period.",
-      "markingGuide": "A: Identifies PPE vs customer goods distinction. M: Explains historical cost. E: Justifies with full asset definition and capital expenditure."
+      "markingGuide": "A: Identifies PPE vs customer goods distinction.\n\nM: Explains historical cost.\n\nE: Justifies with full asset definition and capital expenditure."
     }
   ],
   "cutScores": {

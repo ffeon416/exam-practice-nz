@@ -14,15 +14,32 @@
       "text": "Write a concise and well-argued essay on ONE significant historical event that you have studied, using the question below.\n\nESSAY QUESTION:\nHow far do the immediate consequences of your chosen historical event differ from the consequences that emerged over time?\n\nWrite your chosen historical event in the box below, then plan your essay and begin writing. You should aim to write a concise essay of no more than 5-6 pages. The quality of your writing is more important than the length of your essay.",
       "marks": 8,
       "gradeLevel": "excellence",
-      "topics": ["causes-and-consequences", "historical-argument", "evidence-use", "essay-writing"],
+      "topics": [
+        "causes-and-consequences",
+        "historical-argument",
+        "evidence-use",
+        "essay-writing"
+      ],
       "answerType": "working",
-      "markingGuide": "This is an essay-based exam marked on a holistic A3-E8 scale.\n\nACHIEVED (A3): Establishes an immediate and a longer-term consequence of a significant historical event, with some comparison. Uses supporting evidence.\n\nACHIEVED (A4): Explains how an immediate consequence of a significant historical event differs from a consequence that emerged over time. Uses relevant, supporting evidence with some accurate detail.\n\nMERIT (M5): Assesses how an immediate consequence differs from a longer-term consequence, showing some depth. Uses some relevant, specific supporting evidence to show some depth of understanding.\n\nMERIT (M6): Assesses and compares how the immediate and longer-term consequences differed, with clear analysis. Uses relevant, specific supporting evidence to show depth of understanding.\n\nEXCELLENCE (E7): Evaluates the differences between immediate and longer-term consequences with some insight. Uses well-chosen, specific supporting evidence to show some comprehensive understanding. Attempts to present a well-considered argument. This should be a concise response.\n\nEXCELLENCE (E8): Evaluates and shows a clear and perceptive understanding of how and why the consequences changed over time, with insight. Uses well-chosen, specific supporting evidence to show comprehensive understanding. Presents a well-considered argument. This should be a concise response.\n\nN2: Identifies ONE consequence of the event, but the relationship between the consequence and the event is unclear, with limited supporting evidence provided.\nN1: Identifies ONE consequence of the event but with no supporting evidence.\nN0: No response; no relevant evidence.\n\nKEY DIFFERENCES BETWEEN GRADE LEVELS:\n- Achieved: Identifies and explains consequences with supporting evidence.\n- Merit: Assesses and compares consequences, showing depth through specific evidence.\n- Excellence: Evaluates with insight and perceptive understanding, presenting a well-considered argument with comprehensive evidence."
+      "markingGuide": "This is an essay-based exam marked on a holistic A3-E8 scale.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Establishes an immediate and a longer-term consequence of a significant historical event, with some comparison.\n- Uses supporting evidence.\n\nFor Achievement:\n- Explains how an immediate consequence of a significant historical event differs from a consequence that emerged over time.\n- Uses relevant, supporting evidence with some accurate detail.\n\nFor Merit:\n- Assesses how an immediate consequence differs from a longer-term consequence, showing some depth.\n- Uses some relevant, specific supporting evidence to show some depth of understanding.\n\nFor Merit:\n- Assesses and compares how the immediate and longer-term consequences differed, with clear analysis.\n- Uses relevant, specific supporting evidence to show depth of understanding.\n\nFor Excellence:\n- Evaluates the differences between immediate and longer-term consequences with some insight.\n- Uses well-chosen, specific supporting evidence to show some comprehensive understanding.\n- Attempts to present a well-considered argument.\n- This should be a concise response.\n\nFor Excellence:\n- Evaluates and shows a clear and perceptive understanding of how and why the consequences changed over time, with insight.\n- Uses well-chosen, specific supporting evidence to show comprehensive understanding.\n- Presents a well-considered argument.\n- This should be a concise response.\n- N2: Identifies ONE consequence of the event, but the relationship between the consequence and the event is unclear, with limited supporting evidence provided.\n- N1: Identifies ONE consequence of the event but with no supporting evidence.\n- N0: No response.\n- no relevant evidence.\n- KEY DIFFERENCES BETWEEN GRADE LEVELS:\n-.\n\nFor Achievement:\n- Identifies and explains consequences with supporting evidence.\n- -.\n\nFor Merit:\n- Assesses and compares consequences, showing depth through specific evidence.\n- -.\n\nFor Excellence:\n- Evaluates with insight and perceptive understanding, presenting a well-considered argument with comprehensive evidence."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
   }
 }

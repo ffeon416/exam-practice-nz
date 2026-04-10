@@ -19,7 +19,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "25%",
-      "markingGuide": "From the box plot, Brand B upper quartile is $240. By definition, 25% of values lie above the upper quartile. So approximately 25% of Brand B shoes cost more than $240. That is about 0.25 × 95 ≈ 24 shoes. Award Achieved for 25% with reference to the upper quartile.",
+      "markingGuide": "From the box plot, Brand B upper quartile is $240.\n\nBy definition, 25% of values lie above the upper quartile.\n\nSo approximately 25% of Brand B shoes cost more than $240.\n\nThat is about 0.25 × 95 ≈ 24 shoes.\n\nAward Achieved for 25% with reference to the upper quartile.",
       "graph": {
         "type": "box-plot",
         "title": "Running Shoe Prices — Brand A vs Brand B",
@@ -60,7 +60,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Brand B is more expensive — median $185 vs Brand A median $90",
-      "markingGuide": "Centre: Brand B median ($185) much higher than Brand A ($90). Shift: Brand A UQ ($130) < Brand B LQ ($140), meaning no overlap in IQRs. Spread: Brand B has larger range ($530 vs $420) and larger IQR ($100 vs $70). Shape: Both right-skewed (long upper whisker). Conclusion: No IQR overlap strongly supports Brand B being more expensive. Achieved = one feature. Merit = two features. Excellence = comprehensive comparison with numerical evidence."
+      "markingGuide": "Step 1: Centre: Brand B median ($185) much higher than Brand A ($90).\n\nStep 2: Shift: Brand A UQ ($130) < Brand B LQ ($140), meaning no overlap in IQRs.\n\nStep 3: Spread: Brand B has larger range ($530 vs $420) and larger IQR ($100 vs $70).\n\nStep 4: Shape: Both right-skewed (long upper whisker).\n\nStep 5: Conclusion: No IQR overlap strongly supports Brand B being more expensive.\n\nStep 6: Achieved = one feature.\n\nStep 7: Merit = two features.\n\nStep 8: Excellence = comprehensive comparison with numerical evidence.\n\nFinal answer: Brand B is more expensive — median $185 vs Brand A median $90."
     },
     {
       "id": "l1s25-q1c",
@@ -73,7 +73,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Data from only one website, may not represent all retailers",
-      "markingGuide": "Valid reasons: Data from only one website. Unknown whether prices are sale or RRP. Sample sizes differ (80 vs 95). Only NZ prices — doesn't represent other countries. Award Achieved for one justified reason."
+      "markingGuide": "Valid reasons: Data from only one website.\n\nUnknown whether prices are sale or RRP.\n\nSample sizes differ (80 vs 95).\n\nOnly NZ prices — doesn't represent other countries.\n\nAward Achieved for one justified reason."
     },
     {
       "id": "l1s25-q1d",
@@ -87,7 +87,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Increasing trend ($500M to $750M), seasonal peaks in Q4 (Christmas)",
-      "markingGuide": "Trend: Long-term upward from ~$500M (2012) to ~$750M (2024). Repeating: Q4 peaks (Christmas). Unusual: COVID dip in 2020, supply chain spike in 2021. Achieved = one feature. Merit = two features with evidence.",
+      "markingGuide": "Step 1: Trend: Long-term upward from ~$500M (2012) to ~$750M (2024).\n\nStep 2: Repeating: Q4 peaks (Christmas).\n\nStep 3: Unusual: COVID dip in 2020, supply chain spike in 2021.\n\nStep 4: Achieved = one feature.\n\nStep 5: Merit = two features with evidence.\n\nFinal answer: Increasing trend ($500M to $750M), seasonal peaks in Q4 (Christmas).",
       "graph": {
         "type": "line",
         "title": "NZ Quarterly Sportswear Spending (2012–2024)",
@@ -143,7 +143,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Spending will continue to rise, following long-term upward trend",
-      "markingGuide": "Prediction: Likely to continue increasing. Seasonal Q4 peaks will persist. Confidence: Reasonable for 1-2 years as trend is established. Less confident long-term due to economic changes, technology shifts. Achieved = prediction with basic reasoning. Merit = prediction with justified confidence discussion."
+      "markingGuide": "Step 1: Prediction: Likely to continue increasing.\n\nStep 2: Seasonal Q4 peaks will persist.\n\nStep 3: Confidence: Reasonable for 1-2 years as trend is established.\n\nStep 4: Less confident long-term due to economic changes, technology shifts.\n\nStep 5: Achieved = prediction with basic reasoning.\n\nStep 6: Merit = prediction with justified confidence discussion.\n\nFinal answer: Spending will continue to rise, following long-term upward trend."
     },
     {
       "id": "l1s25-q2a",
@@ -157,7 +157,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Positive trend — shoes with higher cushioning cost more. Two clusters: budget (levels 3-5) and premium (levels 7-10)",
-      "markingGuide": "Features: Positive relationship (higher cushioning = more expensive). Two apparent clusters (budget levels 3-5, premium levels 7-10). Wide price variation at each cushioning level. Award Achieved for two features.",
+      "markingGuide": "Features: Positive relationship (higher cushioning = more expensive).\n\nTwo apparent clusters (budget levels 3-5, premium levels 7-10).\n\nWide price variation at each cushioning level.\n\nAward Achieved for two features.",
       "graph": {
         "type": "scatter",
         "title": "Running Shoe Price vs Cushioning Level",
@@ -279,7 +279,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "About $1000-$1250 from the scatter plot. Moderate confidence — there is reasonable data at level 8 but prices range from $900 to $1250",
-      "markingGuide": "Reading from scatter plot: approximately $1000-$1250 for cushioning level 8. Confidence: Moderate — level 8 has 3 data points ranging from $900 to $1250, showing some spread. Achieved = reasonable price reading. Merit = price AND justified confidence."
+      "markingGuide": "Step 1: Reading from scatter plot: approximately $1000-$1250 for cushioning level 8.\n\nStep 2: Confidence: Moderate — level 8 has 3 data points ranging from $900 to $1250, showing some spread.\n\nStep 3: Achieved = reasonable price reading.\n\nStep 4: Merit = price AND justified confidence.\n\nFinal answer: About $1000-$1250 from the scatter plot. Moderate confidence — there is reasonable data at level 8 but prices range from $900 to $1250."
     },
     {
       "id": "l1s25-q2c",
@@ -292,7 +292,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Factory Outlet (collecting) at $943 is cheapest. SportZone: $1107.50. Shoe World (No GST deal): $1008.",
-      "markingGuide": "SportZone: $950 × 1.15 = $1092.50 + $15 delivery = $1107.50 (no free delivery because it is below $1200). Shoe World with No GST deal: $1150 ÷ 1.15 = $1000 + $8 delivery = $1008. (With 5% loyalty instead: $1150 × 0.95 + $8 = $1100.50.) Factory Outlet collecting: $820 × 1.15 = $943. With delivery: $820 × 1.15 + $25 = $968. Cheapest overall = Factory Outlet collecting at $943. Achieved = one correct calculation. Merit = two correct retailer totals. Excellence = comprehensive comparison of all three with correct conclusion.",
+      "markingGuide": "Step 1: SportZone: $950 × 1.15 = $1092.50 + $15 delivery = $1107.50 (no free delivery because it is below $1200).\n\nStep 2: Shoe World with No GST deal: $1150 ÷ 1.15 = $1000 + $8 delivery = $1008.\n\nStep 3: (With 5% loyalty instead: $1150 × 0.95 + $8 = $1100.50.) Factory Outlet collecting: $820 × 1.15 = $943.\n\nStep 4: With delivery: $820 × 1.15 + $25 = $968.\n\nStep 5: Cheapest overall = Factory Outlet collecting at $943.\n\nStep 6: Achieved = one correct calculation.\n\nStep 7: Merit = two correct retailer totals.\n\nStep 8: Excellence = comprehensive comparison of all three with correct conclusion.\n\nFinal answer: Factory Outlet (collecting) at $943 is cheapest. SportZone: $1107.50. Shoe World (No GST deal): $1008..",
       "graph": {
         "type": "table",
         "title": "Retailer Pricing for Running Shoes",
@@ -338,7 +338,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Consider Factory Outlet for best base price, but factor in travel costs to warehouse if not collecting",
-      "markingGuide": "Key points: Higher cushioning shoes cost more (scatter plot shows level 7-10 range $800-$1800). Factory Outlet has lowest base price but requires collection. If Ricky lives far from warehouse, delivery cost matters. Shoe World with loyalty card may be better if he already has one. Achieved = one relevant point. Merit = points from multiple sources."
+      "markingGuide": "Step 1: Key points: Higher cushioning shoes cost more (scatter plot shows level 7-10 range $800-$1800).\n\nStep 2: Factory Outlet has lowest base price but requires collection.\n\nStep 3: If Ricky lives far from warehouse, delivery cost matters.\n\nStep 4: Shoe World with loyalty card may be better if he already has one.\n\nStep 5: Achieved = one relevant point.\n\nStep 6: Merit = points from multiple sources.\n\nFinal answer: Consider Factory Outlet for best base price, but factor in travel costs to warehouse if not collecting."
     },
     {
       "id": "l1s25-q3a",
@@ -366,7 +366,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Running 24%, but Gym (21%) and Swimming (18%) close — not highly confident",
-      "markingGuide": "Running is most preferred at 24%. However, Gym (21%) is very close. Range across top three is only 6 percentage points. Large sample (2400) helps but small differences mean a different sample could change rankings. Achieved = identifies Running. Merit = discusses confidence.",
+      "markingGuide": "Step 1: Running is most preferred at 24%.\n\nStep 2: However, Gym (21%) is very close.\n\nStep 3: Range across top three is only 6 percentage points.\n\nStep 4: Large sample (2400) helps but small differences mean a different sample could change rankings.\n\nStep 5: Achieved = identifies Running.\n\nStep 6: Merit = discusses confidence.\n\nFinal answer: Running 24%, but Gym (21%) and Swimming (18%) close — not highly confident.",
       "graph": {
         "type": "pie",
         "title": "Preferred Exercise Type",
@@ -416,7 +416,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Younger prefer running, older prefer lower-impact. Mia likely running or gym.",
-      "markingGuide": "Differences: Younger people prefer running, older prefer lower-impact activities (swimming, walking). In the 25-35 bracket, running and gym are tied. For Mia (34): in the 25-35 bracket, either running or gym. Achieved = one comparison. Merit = two comparisons AND recommendation.",
+      "markingGuide": "Step 1: Differences: Younger people prefer running, older prefer lower-impact activities (swimming, walking).\n\nStep 2: In the 25-35 bracket, running and gym are tied.\n\nStep 3: For Mia (34): in the 25-35 bracket, either running or gym.\n\nStep 4: Achieved = one comparison.\n\nStep 5: Merit = two comparisons AND recommendation.\n\nFinal answer: Younger prefer running, older prefer lower-impact. Mia likely running or gym..",
       "graph": {
         "type": "table",
         "title": "Most Popular Exercise by Age Group",
@@ -463,7 +463,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Swimming — most popular for 46-55 age group. Budget $80-$120/month based on pool pass data.",
-      "markingGuide": "James is 46-55 where swimming is most popular. He already swims 4× per week. Survey shows 52% of exercisers spend $50-$150/month. Recommendation: Continue swimming, budget $80-$120/month for pool membership. Achieved = recommendation with one piece of evidence. Excellence = comprehensive with cost estimate."
+      "markingGuide": "Step 1: James is 46-55 where swimming is most popular.\n\nStep 2: He already swims 4× per week.\n\nStep 3: Survey shows 52% of exercisers spend $50-$150/month.\n\nStep 4: Recommendation: Continue swimming, budget $80-$120/month for pool membership.\n\nStep 5: Achieved = recommendation with one piece of evidence.\n\nStep 6: Excellence = comprehensive with cost estimate.\n\nFinal answer: Swimming — most popular for 46-55 age group. Budget $80-$120/month based on pool pass data.."
     },
     {
       "id": "l1s25-q3e",
@@ -476,7 +476,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Moderately confident — large sample (2400) but may not represent all NZ adults",
-      "markingGuide": "Strengths: Large sample (2400). Detailed breakdowns by age and frequency. Weaknesses: Unknown how respondents were selected. Self-reported data (people may overestimate exercise). May not include all demographics equally. Achieved = one strength or weakness. Merit = both discussed."
+      "markingGuide": "Step 1: Strengths: Large sample (2400).\n\nStep 2: Detailed breakdowns by age and frequency.\n\nStep 3: Weaknesses: Unknown how respondents were selected.\n\nStep 4: Self-reported data (people may overestimate exercise).\n\nStep 5: May not include all demographics equally.\n\nStep 6: Achieved = one strength or weakness.\n\nStep 7: Merit = both discussed.\n\nFinal answer: Moderately confident — large sample (2400) but may not represent all NZ adults."
     }
   ],
   "totalMarks": 41,

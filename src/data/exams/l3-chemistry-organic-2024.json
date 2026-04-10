@@ -35,7 +35,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "2-bromobutane has a chiral centre (asymmetric / stereocentre carbon) at C2, which is bonded to four different groups (-CH3, -CH2CH3, -H, -Br). This means the molecule and its mirror image are non-superimposable — they are enantiomers.",
-      "markingGuide": "Achievement: Identifies asymmetric C. Merit: Draws TWO correct 3D structures AND explains."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies asymmetric C.\n\nFor Merit:\n- Draws TWO correct 3D structures AND explains."
     },
     {
       "id": "l3co24-q1aiii",
@@ -50,7 +50,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "One possible multi-step scheme: Step 1: 2-bromobutane + KOH(alc)/heat -> but-1-ene (Hofmann minor elimination product; select this alkene to keep a straight chain for butanamide). Step 2: but-1-ene + HBr with peroxides (anti-Markovnikov addition) -> 1-bromobutane. Step 3: 1-bromobutane + NaOH(aq), heat (substitution) -> butan-1-ol. Step 4: butan-1-ol + acidified Cr2O72- with heat and excess oxidising agent -> butanoic acid (oxidation). Step 5: butanoic acid + SOCl2 -> butanoyl chloride. Step 6: butanoyl chloride + concentrated NH3 -> butanamide (CH3CH2CH2C(=O)NH2).",
-      "markingGuide": "Achievement: ONE correct conversion. Merit: THREE correct conversions. Excellence: Complete scheme."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct conversion.\n\nFor Merit:\n- THREE correct conversions.\n\nFor Excellence:\n- Complete scheme."
     },
     {
       "id": "l3co24-q1bi",
@@ -65,7 +65,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Three repeating units showing: -[O-CH(CH3)-C(=O)]3- with ester linkages formed between the -OH and -COOH groups of adjacent lactic acid monomers (each unit carries a -CH3 branch on the carbon between the ester oxygens).",
-      "markingGuide": "Achievement: Draws polymer with ester linkages. Merit: Correctly draws THREE repeating units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws polymer with ester linkages.\n\nFor Merit:\n- Correctly draws THREE repeating units."
     },
     {
       "id": "l3co24-q1bii",
@@ -80,7 +80,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Condensation polymerisation. An ester bond is formed between the -OH and -COOH groups of adjacent monomers, with loss of a water molecule each time.",
-      "markingGuide": "Achievement: Identifies condensation. Merit: Explains with ester bond and loss of water."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies condensation.\n\nFor Merit:\n- Explains with ester bond and loss of water."
     },
     {
       "id": "l3co24-q1ci",
@@ -110,7 +110,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Acidic hydrolysis has occurred. Water has been used to split the amide (peptide) linkage, regenerating the two amino acids.",
-      "markingGuide": "Achievement: Recognises hydrolysis. Merit: Explains the process."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises hydrolysis.\n\nFor Merit:\n- Explains the process."
     },
     {
       "id": "l3co24-q1ciii",
@@ -125,7 +125,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Two products: the sodium salts of the two amino acids (with -COO-Na+ instead of -COOH).",
-      "markingGuide": "Achievement: Draws two organic products. Merit: Shows -COO- instead of -COOH."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws two organic products.\n\nFor Merit:\n- Shows -COO- instead of -COOH."
     },
     {
       "id": "l3co24-q2ai",
@@ -140,7 +140,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A (methyl pentanoate): CH3-O-C(=O)-CH2-CH2-CH2-CH3. B (CH3CH2C(=O)CH2CH2CH3): hexan-3-one. C (CH3-CH(Cl)-C(=O)H): 2-chloropropanal. D (4-hydroxyhexanoyl chloride): Cl-C(=O)-CH2-CH2-CH(OH)-CH2-CH3.",
-      "markingGuide": "Achievement: THREE correct. Merit: ALL correct.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- THREE correct.\n\nFor Merit:\n- ALL correct.",
       "graph": {
         "type": "table",
         "title": "Organic Compounds - Names and Structures",
@@ -188,7 +188,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Three structural isomers containing a carbonyl group with the same molecular formula.",
-      "markingGuide": "Achievement: TWO correct. Merit: ALL correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- TWO correct.\n\nFor Merit:\n- ALL correct."
     },
     {
       "id": "l3co24-q2b",
@@ -203,7 +203,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound A: but-2-ene (from elimination of butan-2-ol with conc. H2SO4 and heat — Zaitsev major product). Compound B: butan-2-ol (addition of H2O to but-2-ene; the symmetric alkene regenerates the secondary alcohol). Compound C: butan-2-one (oxidation of secondary alcohol butan-2-ol with acidified dichromate — Reagent 1 = Cr2O72-/H+ with heat). Compound D: 2-bromobutane, formed by addition of HBr to but-2-ene (Reagent 2 = HBr). Reagent 3 = excess NH3 in ethanol with heat (substitution to give butan-2-amine). Compound E: butan-2-aminium hydrogensulfate, the ammonium salt formed when butan-2-amine reacts with H2SO4(aq).",
-      "markingGuide": "Achievement: FIVE correct entries. Merit: SEVEN correct. Excellence: ALL correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- FIVE correct entries.\n\nFor Merit:\n- SEVEN correct.\n\nFor Excellence:\n- ALL correct."
     },
     {
       "id": "l3co24-q2ci",
@@ -218,7 +218,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Test 1: Compound 1 (primary alcohol). Test 2: Compound 3 (aldehyde + alkene). Test 3: Compound 4 (acyl chloride + alkene).",
-      "markingGuide": "Achievement: THREE correct compounds. Merit: FOUR observations linked to functional groups. Excellence: ALL linked with reaction types."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- THREE correct compounds.\n\nFor Merit:\n- FOUR observations linked to functional groups.\n\nFor Excellence:\n- ALL linked with reaction types."
     },
     {
       "id": "l3co24-q2cii",
@@ -233,7 +233,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound 1: primary alcohol oxidised by dichromate. Compound 3: aldehyde reduces Fehling's, alkene decolourises KMnO4. Compound 4: acyl chloride reacts with water producing steamy fumes.",
-      "markingGuide": "Achievement: THREE reaction types. Merit: FOUR observations linked to functional groups. Excellence: ALL linked."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- THREE reaction types.\n\nFor Merit:\n- FOUR observations linked to functional groups.\n\nFor Excellence:\n- ALL linked."
     },
     {
       "id": "l3co24-q3ai",
@@ -263,7 +263,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "(1) Heating increases the rate of reaction. (2) Reflux prevents loss of volatile reactants/products.",
-      "markingGuide": "Achievement: ONE reason. Merit: TWO reasons."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE reason.\n\nFor Merit:\n- TWO reasons."
     },
     {
       "id": "l3co24-q3aiii",
@@ -293,7 +293,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The mixture is heated carefully in a distillation apparatus. Ethyl methanoate has the lowest boiling point (54.3 degrees C), so it vaporises first and is condensed and collected, leaving behind the higher-boiling ethanol (78.4 degrees C) and methanoic acid (101 degrees C). Collect the fraction at approximately 53-56 degrees C.",
-      "markingGuide": "Achievement: Recognises boiling point determines separation. Merit: References boiling points. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises boiling point determines separation.\n\nFor Merit:\n- References boiling points.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "l3co24-q3bi",
@@ -308,7 +308,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound C (H2N-CH2-CH2-CHO, 3-aminopropanal). It does not exist as enantiomers because none of its carbons are bonded to four different groups (no chiral centre). It has an aldehyde (-CHO) group, so it forms a silver mirror when warmed with Tollens' reagent. It has a primary amine (-NH2), which is a weak base, so it turns damp red litmus blue. Compound A is eliminated because it has a chiral carbon (C2 bonded to Cl, CHO, H, CH3) and no amine group. Compound B is eliminated because it has a chiral carbon and no aldehyde (no silver mirror).",
-      "markingGuide": "Achievement: Chooses correct compound. Merit: Explains choice with TWO properties. Excellence: Full explanation with all three properties."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Chooses correct compound.\n\nFor Merit:\n- Explains choice with TWO properties.\n\nFor Excellence:\n- Full explanation with all three properties."
     },
     {
       "id": "l3co24-q3bii",
@@ -323,7 +323,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "2-methylbutanoyl chloride, CH3-CH2-CH(CH3)-C(=O)Cl. This has a branched carbon chain (methyl branch on C2), an acyl chloride group (C(=O)Cl) which produces steamy fumes of HCl when water is added, and a chiral centre at C2 (bonded to CH3, CH2CH3, H, and COCl), so it exists as a pair of enantiomers. Formula C5H9ClO.",
-      "markingGuide": "Achievement: Draws a branched chain or acyl halide. Merit: Correct structural formula."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws a branched chain or acyl halide.\n\nFor Merit:\n- Correct structural formula."
     },
     {
       "id": "l3co24-q3biii",
@@ -338,7 +338,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "An example is 1-bromopent-3-en-2-ol: BrCH2-CH(OH)-CH=CH-CH3. Formula C5H9BrO. It is a straight chain, has a C=C double bond with two different groups on each sp2 carbon (so it shows cis-trans isomerism), and the -OH is on a secondary carbon (C2), so acidified dichromate oxidises it to a ketone (1-bromopent-3-en-2-one). Ketones do not react with Benedict's reagent, matching the observation. Orange to green colour change confirms the oxidation by dichromate.",
-      "markingGuide": "Achievement: Draws a C=C bond or secondary alcohol. Merit: Correct formula for one part. Excellence: Correct formulae for both (ii) and (iii)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Draws a C=C bond or secondary alcohol.\n\nFor Merit:\n- Correct formula for one part.\n\nFor Excellence:\n- Correct formulae for both (ii) and (iii)."
     }
   ],
   "totalMarks": 24,

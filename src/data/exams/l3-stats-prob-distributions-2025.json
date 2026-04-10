@@ -19,7 +19,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (55 - 46)/6 = 1.50. P(Z > 1.50) ≈ 0.0668. (ii) z₁ = (40 - 46)/6 = -1.00, z₂ = (58 - 46)/6 = 2.00. P(-1.00 < Z < 2.00) = P(Z<2.00) - P(Z<-1.00) = 0.9772 - 0.1587 = 0.8186. Merit: (iii) P(X > 36) per battery: z = (36 - 46)/6 = -1.667, P(Z > -1.667) = 0.9525. P(all 6 > 36) = 0.9525⁶ = 0.7458.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) z = (55 - 46)/6 = 1.50.\n- P(Z > 1.50) ≈ 0.0668.\n- (ii) z₁ = (40 - 46)/6 = -1.00, z₂ = (58 - 46)/6 = 2.00.\n- P(-1.00 < Z < 2.00) = P(Z<2.00) - P(Z<-1.00) = 0.9772 - 0.1587 = 0.8186.\n\nFor Merit:\n- (iii) P(X > 36) per battery: z = (36 - 46)/6 = -1.667, P(Z > -1.667) = 0.9525.\n- P(all 6 > 36) = 0.9525⁶ = 0.7458.",
       "graph": {
         "type": "histogram",
         "title": "Normal Distribution — Battery Lifetime (mean=46mo, sd=6mo)",
@@ -64,7 +64,7 @@
         "normal-distribution-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: Need P(X < g) = 0.03. z for 3rd percentile = -1.881. g = 46 + (-1.881)(6) = 46 - 11.29 = 34.71 months. The warranty should cover up to 34 months."
+      "markingGuide": "Step 1: Merit: Need P(X < g) = 0.03.\n\nStep 2: z for 3rd percentile = -1.881.\n\nStep 3: g = 46 + (-1.881)(6) = 46 - 11.29 = 34.71 months.\n\nStep 4: The warranty should cover up to 34 months."
     },
     {
       "id": "st586-25-q2a",
@@ -77,7 +77,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) In 2 hours, λ = 10. P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126. (ii) In 15 min, λ = 5/4 = 1.25. P(X = 0) = e⁻¹·²⁵ ≈ 0.2865. Merit: (iii) In any 15-minute window (the duration of a call), λ = 1.25. All 4 operators are busy when X ≥ 4. P(X ≥ 4) = 1 – P(X ≤ 3). With λ = 1.25: P(0) ≈ 0.2865, P(1) ≈ 0.3581, P(2) ≈ 0.2238, P(3) ≈ 0.0932. P(X ≤ 3) ≈ 0.9616. Therefore P(X ≥ 4) ≈ 0.0384, i.e. about 3.8% of calls cannot be answered immediately.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) In 2 hours, λ = 10.\n- P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126.\n- (ii) In 15 min, λ = 5/4 = 1.25.\n- P(X = 0) = e⁻¹·²⁵ ≈ 0.2865.\n\nFor Merit:\n- (iii) In any 15-minute window (the duration of a call), λ = 1.25.\n- All 4 operators are busy when X ≥ 4.\n- P(X ≥ 4) = 1 – P(X ≤ 3).\n- With λ = 1.25: P(0) ≈ 0.2865, P(1) ≈ 0.3581, P(2) ≈ 0.2238, P(3) ≈ 0.0932.\n- P(X ≤ 3) ≈ 0.9616.\n- Therefore P(X ≥ 4) ≈ 0.0384, i.e.\n- about 3.8% of calls cannot be answered immediately.",
       "graph": {
         "type": "bar",
         "title": "Poisson Distribution — Calls per Hour (mean=5)",
@@ -142,7 +142,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) Mean = 1/λ = 1/5 hours = 12 minutes. (ii) λ = 5 per hour. 20 minutes = 1/3 hour. P(T > 1/3) = e^(-5 × 1/3) = e^(-1.667) = 0.1889. Merit: (iii) The memoryless property means that if 10 minutes have already passed without a call, the probability of waiting at least another 20 minutes is the same as waiting 20 minutes from the start."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) Mean = 1/λ = 1/5 hours = 12 minutes.\n- (ii) λ = 5 per hour.\n- 20 minutes = 1/3 hour.\n- P(T > 1/3) = e^(-5 × 1/3) = e^(-1.667) = 0.1889.\n\nFor Merit:\n- (iii) The memoryless property means that if 10 minutes have already passed without a call, the probability of waiting at least another 20 minutes is the same as waiting 20 minutes from the start."
     },
     {
       "id": "st586-25-q3",
@@ -155,7 +155,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) ∫₀² cx³ dx = c[x⁴/4]₀² = c(4) = 1, so c = 1/4. Merit: (ii) E(X) = ∫₀² x · (1/4)x³ dx = (1/4)∫₀² x⁴ dx = (1/4)[x⁵/5]₀² = (1/4)(32/5) = 32/20 = 8/5 = 1.6. E(X²) = ∫₀² x² · (1/4)x³ dx = (1/4)∫₀² x⁵ dx = (1/4)[x⁶/6]₀² = (1/4)(64/6) = 64/24 = 8/3 = 2.667. Var(X) = 8/3 - (8/5)² = 2.667 - 2.56 = 0.107. Excellence: (iii) Find m such that ∫₀ᵐ (1/4)x³ dx = 0.5. (1/4)(m⁴/4) = 0.5. m⁴ = 8. m = ⁴√8 = 8^(1/4) = 1.682. (iv) P(1 < X < 1.5) = ∫₁¹·⁵ (1/4)x³ dx = (1/4)[x⁴/4]₁¹·⁵ = (1/4)(5.0625/4 - 1/4) = (1/4)(1.265625 - 0.25) = (1/4)(1.015625) = 0.2539."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) ∫₀² cx³ dx = c[x⁴/4]₀² = c(4) = 1, so c = 1/4.\n\nFor Merit:\n- (ii) E(X) = ∫₀² x · (1/4)x³ dx = (1/4)∫₀² x⁴ dx = (1/4)[x⁵/5]₀² = (1/4)(32/5) = 32/20 = 8/5 = 1.6.\n- E(X²) = ∫₀² x² · (1/4)x³ dx = (1/4)∫₀² x⁵ dx = (1/4)[x⁶/6]₀² = (1/4)(64/6) = 64/24 = 8/3 = 2.667.\n- Var(X) = 8/3 - (8/5)² = 2.667 - 2.56 = 0.107.\n\nFor Excellence:\n- (iii) Find m such that ∫₀ᵐ (1/4)x³ dx = 0.5.\n- (1/4)(m⁴/4) = 0.5.\n- m⁴ = 8.\n- m = ⁴√8 = 8^(1/4) = 1.682.\n- (iv) P(1 < X < 1.5) = ∫₁¹·⁵ (1/4)x³ dx = (1/4)[x⁴/4]₁¹·⁵ = (1/4)(5.0625/4 - 1/4) = (1/4)(1.265625 - 0.25) = (1/4)(1.015625) = 0.2539."
     }
   ],
   "cutScores": {

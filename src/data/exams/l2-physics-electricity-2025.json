@@ -53,7 +53,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E = F/Q = 6.40 x 10^-4 / 3.20 x 10^-10 = 2.0 x 10^6 V/m. V = Ed = 2.0 x 10^6 x 2.0 x 10^-3 = 4000 V.",
-      "markingGuide": "Achieved: E calculated. Merit: Correct voltage = 4000 V."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- E calculated.\n\nFor Merit:\n- Correct voltage = 4000 V."
     },
     {
       "id": "e25-q1c",
@@ -69,7 +69,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Charge: q = 5.00 x 10^6 x 1.6 x 10^-19 = 8.0 x 10^-13 C. Electrical work done on the particle: W = qV = 8.0 x 10^-13 x 6000 = 4.80 x 10^-9 J. This becomes kinetic energy: Ek = 1/2 m v^2. v = sqrt(2 Ek / m) = sqrt(2 x 4.80 x 10^-9 / 2.04 x 10^-11) = sqrt(470.6) = 21.7 m s-1.",
-      "markingGuide": "Achieved: q found or substitutes correctly. Merit: v with one error. Excellence: Correct v = 21.7 m s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- q found or substitutes correctly.\n\nFor Merit:\n- v with one error.\n\nFor Excellence:\n- Correct v = 21.7 m s-1."
     },
     {
       "id": "e25-q1d",
@@ -84,7 +84,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Gravitational force acts downward. The electric force must act upward to balance it. For the electric force to push upward (against gravity), the particle must be positively charged (attracted toward the negative plate above). The two forces are equal in magnitude and opposite in direction, producing zero net force.",
-      "markingGuide": "Achieved: One correct statement. Merit: Two linked statements. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct statement.\n\nFor Merit:\n- Two linked statements.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "e25-q2a",
@@ -102,13 +102,37 @@
         "type": "table",
         "title": "Heat Pump Circuit Components",
         "data": {
-          "headers": ["Component", "Resistance (Ω)", "Status"],
+          "headers": [
+            "Component",
+            "Resistance (Ω)",
+            "Status"
+          ],
           "rows": [
-            ["Supply voltage", "—", "230 V"],
-            ["Compressor", "920", "ON"],
-            ["Control light", "920", "ON"],
-            ["Fan 1", "460", "OFF"],
-            ["Fan 2", "460", "OFF"]
+            [
+              "Supply voltage",
+              "—",
+              "230 V"
+            ],
+            [
+              "Compressor",
+              "920",
+              "ON"
+            ],
+            [
+              "Control light",
+              "920",
+              "ON"
+            ],
+            [
+              "Fan 1",
+              "460",
+              "OFF"
+            ],
+            [
+              "Fan 2",
+              "460",
+              "OFF"
+            ]
           ]
         }
       },
@@ -128,7 +152,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Decreasing the resistance would increase the current. Since the voltage across the compressor is fixed at 230 V, P = V^2/R, so lower R means higher P.",
-      "markingGuide": "Achieved: Decrease R. Merit: Decrease R with explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Decrease R.\n\nFor Merit:\n- Decrease R with explanation."
     },
     {
       "id": "e25-q2ci",
@@ -144,7 +168,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "R = V^2/P = 230^2/2000 = 52900/2000 = 26.45 ohm = 26.5 ohm.",
-      "markingGuide": "Achieved: Any sub-calculation. Merit: Correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any sub-calculation.\n\nFor Merit:\n- Correct."
     },
     {
       "id": "e25-q2cii",
@@ -159,7 +183,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compressor I = 230/26.5 = 8.68 A. Light I = 230/920 = 0.25 A. Fan 1 I = 230/460 = 0.50 A. Fan 2 I = 230/460 = 0.50 A. Total I = 9.93 A. Q = It = 9.93 x 240 = 2383 C. (Accept rounding variations.)",
-      "markingGuide": "Achieved: Any correct sub-calculation. Merit: Correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Any correct sub-calculation.\n\nFor Merit:\n- Correct."
     },
     {
       "id": "e25-q2d",
@@ -175,7 +199,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The light is in parallel. When it stops working, total resistance increases slightly, total current decreases slightly. However, the compressor still has 230 V across it (parallel), so its current and power remain unchanged. Only the total circuit current changes.",
-      "markingGuide": "Achieved: ONE correct statement. Merit: TWO linked statements. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct statement.\n\nFor Merit:\n- TWO linked statements.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "e25-q3a",
@@ -220,7 +244,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Force on CD = 18 N downwards. Force on BC = 0 N (current parallel to field).",
-      "markingGuide": "Achieved: One force correct. Merit: Both forces correct with direction."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One force correct.\n\nFor Merit:\n- Both forces correct with direction."
     },
     {
       "id": "e25-q3biii",
@@ -249,7 +273,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "F = BIL. I_total = F/(BL) = 18/(1.5 x 0.60) = 20 A. I_coil = 20/50 = 0.40 A.",
-      "markingGuide": "Achieved: I_total = 20 A. Merit: I_coil = 0.40 A."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- I_total = 20 A.\n\nFor Merit:\n- I_coil = 0.40 A."
     },
     {
       "id": "e25-q3di",
@@ -264,7 +288,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "V = nBLv. 15 = 50 x 1.5 x 0.60 x v. v = 15/45 = 0.33 m s-1.",
-      "markingGuide": "Achieved: Substitution shown. Merit: v = 0.33 m s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Substitution shown.\n\nFor Merit:\n- v = 0.33 m s-1."
     },
     {
       "id": "e25-q3dii",

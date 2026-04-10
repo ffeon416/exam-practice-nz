@@ -25,7 +25,7 @@
         "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha whenua (environmental)"
       ],
       "expectedAnswer": "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual)",
-      "markingGuide": "The correct answer is Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual). These are the four walls of Te Whare Tapa Whā, Mason Durie's model of health and well-being used throughout the NZ Health curriculum."
+      "markingGuide": "The correct answer is Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual).\n\nHere's why:\nThese are the four walls of Te Whare Tapa Whā, Mason Durie's model of health and well-being used throughout the NZ Health curriculum."
     },
     {
       "id": "y10h1-q2",
@@ -44,7 +44,7 @@
         "Taha wairua"
       ],
       "expectedAnswer": "Taha whānau",
-      "markingGuide": "The correct answer is Taha whānau. This dimension relates to belonging, family relationships, and feeling connected to others in your community. It recognises that our well-being is linked to our relationships with whānau and wider social groups."
+      "markingGuide": "The correct answer is Taha whānau.\n\nHere's why:\nThis dimension relates to belonging, family relationships, and feeling connected to others in your community.\nIt recognises that our well-being is linked to our relationships with whānau and wider social groups."
     },
     {
       "id": "y10h1-q3",
@@ -56,7 +56,7 @@
         "hauora"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying two dimensions and explaining a valid connection. 1 mark for a relevant, specific example from a teenager's life. For example: Taha tinana and Taha hinengaro are connected — when a teenager exercises regularly (physical), they may feel less stressed and more confident (mental/emotional). Or: Taha whānau and Taha wairua — when a teenager feels supported by their family (social), they may feel a stronger sense of purpose and identity (spiritual)."
+      "markingGuide": "1 mark for identifying two dimensions and explaining a valid connection.\n\n1 mark for a relevant, specific example from a teenager's life.\n\nFor example: Taha tinana and Taha hinengaro are connected — when a teenager exercises regularly (physical), they may feel less stressed and more confident (mental/emotional).\n\nOr: Taha whānau and Taha wairua — when a teenager feels supported by their family (social), they may feel a stronger sense of purpose and identity (spiritual)."
     },
     {
       "id": "y10h1-q4",
@@ -70,7 +70,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "710",
-      "markingGuide": "From the chart: Fat = 37 kJ/g, Carbohydrates = 17 kJ/g. Fat energy = 10 × 37 = 370 kJ. Carbohydrate energy = 20 × 17 = 340 kJ. Total = 370 + 340 = 710 kJ. Accept 710.",
+      "markingGuide": "Step 1: From the chart: Fat = 37 kJ/g, Carbohydrates = 17 kJ/g.\n\nStep 2: Fat energy = 10 × 37 = 370 kJ.\n\nStep 3: Carbohydrate energy = 20 × 17 = 340 kJ.\n\nStep 4: Total = 370 + 340 = 710 kJ.\n\nStep 5: Accept 710.",
       "graph": {
         "type": "bar",
         "title": "Energy Content per Gram of Macronutrients",
@@ -117,7 +117,7 @@
         "21"
       ],
       "expectedAnswer": "18",
-      "markingGuide": "The correct answer is 18. In New Zealand, the minimum purchase age for alcohol is 18 years. It is illegal for anyone under 18 to buy alcohol in NZ. Note: there is no minimum legal drinking age in NZ, but the purchase age is 18."
+      "markingGuide": "The correct answer is 18.\n\nHere's why:\nIn New Zealand, the minimum purchase age for alcohol is 18 years.\nIt is illegal for anyone under 18 to buy alcohol in NZ.\nNote: there is no minimum legal drinking age in NZ, but the purchase age is 18."
     },
     {
       "id": "y10h1-q6",
@@ -129,7 +129,7 @@
         "drugs-alcohol"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each valid strategy (2 required). Possible strategies include: saying 'no thanks' assertively and offering an alternative reason (e.g. 'I'm driving' or 'I have training tomorrow'); removing themselves from the situation by leaving the party or calling a parent; having a non-alcoholic drink in hand so they are not offered alcohol; choosing friends who respect their decision not to drink; planning ahead with a trusted friend to support each other; using humour to deflect pressure. Each strategy must be clearly described, not just named."
+      "markingGuide": "1 mark for each valid strategy (2 required).\n\nPossible strategies include: saying 'no thanks' assertively and offering an alternative reason (e.g. 'I'm driving' or 'I have training tomorrow');.\n\nremoving themselves from the situation by leaving the party or calling a parent;.\n\nhaving a non-alcoholic drink in hand so they are not offered alcohol;.\n\nchoosing friends who respect their decision not to drink;.\n\nplanning ahead with a trusted friend to support each other;.\n\nusing humour to deflect pressure.\n\nEach strategy must be clearly described, not just named."
     },
     {
       "id": "y10h1-q7",
@@ -148,7 +148,7 @@
         "Avoiding all stressful situations"
       ],
       "expectedAnswer": "Being able to cope with challenges and bounce back from difficulties",
-      "markingGuide": "The correct answer is 'Being able to cope with challenges and bounce back from difficulties'. Resilience does not mean avoiding negative emotions or always being happy. It is the ability to adapt and recover when things go wrong, and to keep going through tough times."
+      "markingGuide": "The correct answer is Being able to cope with challenges and bounce back from difficulties.\n\nHere's why:\nResilience does not mean avoiding negative emotions or always being happy.\nIt is the ability to adapt and recover when things go wrong, and to keep going through tough times."
     },
     {
       "id": "y10h1-q8",
@@ -161,7 +161,7 @@
         "hauora"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the link between physical activity and mental well-being (e.g. exercise releases endorphins which improve mood; physical activity reduces stress hormones like cortisol; being active can improve sleep which supports mental health; exercise provides a distraction from worries). 1 mark for a specific, relevant example (e.g. 'A teenager who goes for a run after a stressful day at school may feel calmer and more able to focus on homework' or 'Playing in a sports team helps a young person feel a sense of belonging, which supports taha whānau and taha hinengaro')."
+      "markingGuide": "1 mark for explaining the link between physical activity and mental well-being (e.g. exercise releases endorphins which improve mood;.\n\nphysical activity reduces stress hormones like cortisol;.\n\nbeing active can improve sleep which supports mental health;.\n\nexercise provides a distraction from worries).\n\n1 mark for a specific, relevant example (e.g. 'A teenager who goes for a run after a stressful day at school may feel calmer and more able to focus on homework' or 'Playing in a sports team helps a young person feel a sense of belonging, which supports taha whānau and taha hinengaro')."
     },
     {
       "id": "y10h1-q9",
@@ -180,7 +180,7 @@
         "If someone does not say no, they have given consent"
       ],
       "expectedAnswer": "Freely given, informed, and can be withdrawn at any time",
-      "markingGuide": "The correct answer is 'Freely given, informed, and can be withdrawn at any time'. Consent must be active, ongoing, and freely given without pressure or coercion. It can be withdrawn at any point. Silence or not saying no does not equal consent. Consent given once does not apply to future situations."
+      "markingGuide": "The correct answer is Freely given, informed, and can be withdrawn at any time.\n\nHere's why:\nConsent must be active, ongoing, and freely given without pressure or coercion.\nIt can be withdrawn at any point.\nSilence or not saying no does not equal consent.\nConsent given once does not apply to future situations."
     },
     {
       "id": "y10h1-q10",
@@ -193,7 +193,7 @@
         "mental-health-y10"
       ],
       "answerType": "working",
-      "markingGuide": "Up to 2 marks for explaining effects on all four dimensions: Taha tinana (physical) — stress may cause headaches, poor sleep, loss of appetite, or feeling physically unwell; Taha hinengaro (mental/emotional) — may feel anxious, depressed, scared, angry, or lose confidence and self-esteem; Taha whānau (social/family) — may withdraw from friends and family, feel isolated, or not want to go to school; Taha wairua (spiritual) — may lose sense of self-worth, purpose, or identity, and feel hopeless about the future. Must address at least 3 dimensions clearly for 1 mark, all 4 for 2 marks. 1 mark for suggesting a practical action (e.g. talk to a trusted adult such as a parent, teacher, or school counsellor; block the person online; report the bullying to the platform; contact Netsafe or a helpline like 1737)."
+      "markingGuide": "Up to 2 marks for explaining effects on all four dimensions: Taha tinana (physical) — stress may cause headaches, poor sleep, loss of appetite, or feeling physically unwell;.\n\nTaha hinengaro (mental/emotional) — may feel anxious, depressed, scared, angry, or lose confidence and self-esteem;.\n\nTaha whānau (social/family) — may withdraw from friends and family, feel isolated, or not want to go to school;.\n\nTaha wairua (spiritual) — may lose sense of self-worth, purpose, or identity, and feel hopeless about the future.\n\nMust address at least 3 dimensions clearly for 1 mark, all 4 for 2 marks.\n\n1 mark for suggesting a practical action (e.g. talk to a trusted adult such as a parent, teacher, or school counsellor;.\n\nblock the person online;.\n\nreport the bullying to the platform;.\n\ncontact Netsafe or a helpline like 1737)."
     }
   ],
   "cutScores": {

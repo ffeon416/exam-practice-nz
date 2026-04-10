@@ -35,7 +35,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Ep = mgh = 0.160 × 10 × 12.5 = 20.0 J",
-      "markingGuide": "Achieved: Correct answer using Ep = mgh. Must show the formula with numbers substituted: 0.160 × 10 × 12.5 = 20.0 J."
+      "markingGuide": "Step 1: Achieved: Correct answer using Ep = mgh.\n\nStep 2: Must show the formula with numbers substituted: 0.160 × 10 × 12.5 = 20.0 J.\n\nFinal answer: Ep = mgh = 0.160 × 10 × 12.5 = 20.0 J."
     },
     {
       "id": "ep24-q1c",
@@ -49,7 +49,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "v = 15.8 m/s",
-      "markingGuide": "Using Ek = ½mv². Since all Ep converts to Ek: 20.0 = ½ × 0.160 × v². v² = (2 × 20.0) / 0.160 = 250. v = 15.8 m/s. Achieved: Correct formula used with numbers substituted but minor computational error. OR correct answer with no working. Merit: Correct answer with working shown."
+      "markingGuide": "Using Ek = ½mv². Since all Ep converts to Ek: 20.0 = ½ × 0.160 × v². v² = (2 × 20.0) / 0.160 = 250. v = 15.8 m/s.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct formula used with numbers substituted but minor computational error.\n- OR correct answer with no working.\n\nFor Merit:\n- Correct answer with working shown."
     },
     {
       "id": "ep24-q1d",
@@ -63,7 +63,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Speed will be less due to air resistance converting some energy to heat.",
-      "markingGuide": "Achieved: Speed will be less. OR some energy is lost (due to air resistance). Merit: Speed will be less AND some energy is lost due to air resistance / friction / heat. Excellence: Speed will be less due to some energy lost due to air resistance as the particles of air collide with the ball, transferring some kinetic energy to thermal energy."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Speed will be less.\n- OR some energy is lost (due to air resistance).\n\nFor Merit:\n- Speed will be less AND some energy is lost due to air resistance / friction / heat.\n\nFor Excellence:\n- Speed will be less due to some energy lost due to air resistance as the particles of air collide with the ball, transferring some kinetic energy to thermal energy."
     },
     {
       "id": "ep24-q1e",
@@ -78,7 +78,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P = 236 W",
-      "markingGuide": "Power is how quickly work is done or energy is transferred. When Tai runs up the stairs, kinetic energy is changed into gravitational potential energy. Assuming all kinetic energy is changed into gravitational potential energy (no loss through friction): Ep = mgh = 55 × 10 × 12.0 = 6600 J. P = E/t = 6600/28.0 = 235.7 ≈ 236 W. Achieved: Power is how quickly work is done or energy is gained or lost. OR kinetic energy is changed to gravitational potential energy. OR correct answer for Ep = 6600 J. Merit: One definition and one calculation. Excellence: Definition for power and connection between kinetic energy and gravitational potential energy. Assumption that all kinetic energy is transformed into potential energy and both equations correct with units."
+      "markingGuide": "Power is how quickly work is done or energy is transferred. When Tai runs up the stairs, kinetic energy is changed into gravitational potential energy. Assuming all kinetic energy is changed into gravitational potential energy (no loss through friction): Ep = mgh = 55 × 10 × 12.0 = 6600 J. P = E/t = 6600/28.0 = 235.7 ≈ 236 W.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Power is how quickly work is done or energy is gained or lost.\n- OR kinetic energy is changed to gravitational potential energy.\n- OR correct answer for Ep = 6600 J.\n\nFor Merit:\n- One definition and one calculation.\n\nFor Excellence:\n- Definition for power and connection between kinetic energy and gravitational potential energy.\n- Assumption that all kinetic energy is transformed into potential energy and both equations correct with units."
     },
     {
       "id": "ep24-q2a",
@@ -106,7 +106,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E = 77 805 J (77.8 kJ)",
-      "markingGuide": "E = mcΔT = 0.350 × 3900 × (65 − 8) = 0.350 × 3900 × 57 = 77 805 J. Achieved: Correct answer."
+      "markingGuide": "Step 1: E = mcΔT = 0.350 × 3900 × (65 − 8) = 0.350 × 3900 × 57 = 77 805 J.\n\nStep 2: Achieved: Correct answer.\n\nFinal answer: E = 77 805 J (77.8 kJ)."
     },
     {
       "id": "ep24-q2c",
@@ -120,7 +120,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Ice absorbs much more energy than cold water because it needs energy to change state (melt) in addition to energy to warm up.",
-      "markingGuide": "Achieved: States that ice takes more energy to warm up than water at 0 °C. OR that changing state absorbs energy. Merit: Explains that ice first absorbs energy to change state (latent heat of fusion = 334 000 J/kg) without changing temperature, and then absorbs additional energy as the melted water warms up (specific heat capacity). Cold water at 0 °C only needs energy to warm up — it does not absorb the extra latent heat energy."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States that ice takes more energy to warm up than water at 0 °C.\n- OR that changing state absorbs energy.\n\nFor Merit:\n- Explains that ice first absorbs energy to change state (latent heat of fusion = 334 000 J/kg) without changing temperature, and then absorbs additional energy as the melted water warms up (specific heat capacity).\n- Cold water at 0 °C only needs energy to warm up — it does not absorb the extra latent heat energy."
     },
     {
       "id": "ep24-q2d",
@@ -134,7 +134,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "1. Trapped air pockets reduce convection and conduction. 2. Thick wool fibres are poor conductors.",
-      "markingGuide": "Evidence: Trapped air pockets reduce heat loss via conduction/convection (air is a poor conductor and trapped air cannot circulate). Wool fibres are poor thermal conductors, reducing conduction. A lid would reduce convection (stops hot air rising away). Achieved: One feature with the correct type of heat transfer. Merit: TWO features with the correct type of heat transfer for each. Excellence: TWO features named plus ONE explanation of how the heat transfer is reduced at a particle level."
+      "markingGuide": "Evidence: Trapped air pockets reduce heat loss via conduction/convection (air is a poor conductor and trapped air cannot circulate). Wool fibres are poor thermal conductors, reducing conduction. A lid would reduce convection (stops hot air rising away).\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One feature with the correct type of heat transfer.\n\nFor Merit:\n- TWO features with the correct type of heat transfer for each.\n\nFor Excellence:\n- TWO features named plus ONE explanation of how the heat transfer is reduced at a particle level."
     },
     {
       "id": "ep24-q2e",
@@ -149,7 +149,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E = 34 125 J, P = 4.7 W",
-      "markingGuide": "ΔT = 60 − 35 = 25 °C. E = mcΔT = 0.350 × 3900 × 25 = 34 125 J. t = 2 × 60 × 60 = 7200 s. P = E/t = 34 125 / 7200 = 4.74 W ≈ 4.7 W. Achieved: Correct change in temperature. OR attempts formula. Merit: Correct value for thermal energy lost. Excellence: Correct value for thermal energy lost and correct value for power with units."
+      "markingGuide": "ΔT = 60 − 35 = 25 °C. E = mcΔT = 0.350 × 3900 × 25 = 34 125 J. t = 2 × 60 × 60 = 7200 s. P = E/t = 34 125 / 7200 = 4.74 W ≈ 4.7 W.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct change in temperature.\n- OR attempts formula.\n\nFor Merit:\n- Correct value for thermal energy lost.\n\nFor Excellence:\n- Correct value for thermal energy lost and correct value for power with units."
     },
     {
       "id": "ep24-q3a",
@@ -163,7 +163,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Ammeter in series, voltmeter in parallel across the fixed resistor.",
-      "markingGuide": "Achieved: Ammeter in series OR voltmeter in parallel to the fixed resistor. Merit: Ammeter and voltmeter are both correct (ammeter in series anywhere in the circuit loop, voltmeter in parallel across the fixed resistor).",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Ammeter in series OR voltmeter in parallel to the fixed resistor.\n\nFor Merit:\n- Ammeter and voltmeter are both correct (ammeter in series anywhere in the circuit loop, voltmeter in parallel across the fixed resistor).",
       "graph": {
         "type": "table",
         "title": "Circuit Components",
@@ -215,7 +215,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "R = 10.0 Ω",
-      "markingGuide": "R = V/I = 2.0/0.20 = 10.0 Ω (or any consistent pair from the table). Achieved: Correct answer with working plus unit."
+      "markingGuide": "Step 1: R = V/I = 2.0/0.20 = 10.0 Ω (or any consistent pair from the table).\n\nStep 2: Achieved: Correct answer with working plus unit.\n\nFinal answer: R = 10.0 Ω."
     },
     {
       "id": "ep24-q3c",
@@ -229,7 +229,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "To improve reliability / identify anomalous results / calculate an average.",
-      "markingGuide": "Achieved: To improve reliability OR get an average. Merit: To improve reliability by identifying anomalous results and calculating a more accurate average."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- To improve reliability OR get an average.\n\nFor Merit:\n- To improve reliability by identifying anomalous results and calculating a more accurate average."
     },
     {
       "id": "ep24-q3d",
@@ -244,7 +244,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P = 2.5 W",
-      "markingGuide": "Using P = IV. Max V = 5.0 V. Max I = 0.50 A. P = 5.0 × 0.50 = 2.5 W. Achieved: Correct use of formula with some numbers. Merit: Correct answer with incorrect units or minor error. Excellence: Correct answer with correct unit (W or J s⁻¹)."
+      "markingGuide": "Using P = IV. Max V = 5.0 V. Max I = 0.50 A. P = 5.0 × 0.50 = 2.5 W.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct use of formula with some numbers.\n\nFor Merit:\n- Correct answer with incorrect units or minor error.\n\nFor Excellence:\n- Correct answer with correct unit (W or J s⁻¹)."
     },
     {
       "id": "ep24-q3e",
@@ -258,7 +258,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "As resistance of variable resistor increases, the voltage across the fixed resistor decreases and the current decreases.",
-      "markingGuide": "The variable resistor adjusts the total resistance and changes the current. As total resistance increases, current decreases. The supply voltage stays constant (V = IR_total). As current decreases, the voltage across the fixed resistor decreases (V_fixed = IR_fixed). The voltage across the variable resistor increases. Achieved: The variable resistor changes the total resistance. OR as resistance increases, current reduces. Merit: As resistance increases, voltage across the fixed resistor decreases and current reduces. OR total voltage of circuit stays the same. Excellence: Full explanation including that supply voltage stays constant, increased variable resistance reduces current, which reduces voltage across fixed resistor while increasing voltage across the variable resistor."
+      "markingGuide": "The variable resistor adjusts the total resistance and changes the current. As total resistance increases, current decreases. The supply voltage stays constant (V = IR_total). As current decreases, the voltage across the fixed resistor decreases (V_fixed = IR_fixed). The voltage across the variable resistor increases.\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- The variable resistor changes the total resistance.\n- OR as resistance increases, current reduces.\n\nFor Merit:\n- As resistance increases, voltage across the fixed resistor decreases and current reduces.\n- OR total voltage of circuit stays the same.\n\nFor Excellence:\n- Full explanation including that supply voltage stays constant, increased variable resistance reduces current, which reduces voltage across fixed resistor while increasing voltage across the variable resistor."
     }
   ],
   "totalMarks": 24,

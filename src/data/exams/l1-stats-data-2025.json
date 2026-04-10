@@ -25,7 +25,7 @@
         "3"
       ],
       "expectedAnswer": "7",
-      "markingGuide": "The correct answer is 7. The median is the middle value when data is arranged in order from smallest to largest. With 5 values (3, 5, 7, 8, 12), the middle value is the 3rd value, which is 7. Exam tip: For an odd number of values, the median is the middle one. For an even number, it is the average of the two middle values."
+      "markingGuide": "The correct answer is 7.\n\nHere's why:\nThe median is the middle value when data is arranged in order from smallest to largest.\nWith 5 values (3, 5, 7, 8, 12), the middle value is the 3rd value, which is 7.\nExam tip: For an odd number of values, the median is the middle one.\nFor an even number, it is the average of the two middle values."
     },
     {
       "id": "l1sd-q2",
@@ -44,7 +44,7 @@
         "Line graph"
       ],
       "expectedAnswer": "Histogram",
-      "markingGuide": "The correct answer is Histogram. A histogram is used to display the distribution of continuous numerical data by grouping values into intervals (bins). Unlike a bar graph (which is for categorical data and has gaps between bars), a histogram has no gaps between bars because the data is continuous. Pie charts show proportions of categories, and line graphs typically show trends over time. Exam tip: Remember — bar graphs are for categorical data, histograms are for continuous numerical data."
+      "markingGuide": "The correct answer is Histogram.\n\nHere's why:\nA histogram is used to display the distribution of continuous numerical data by grouping values into intervals (bins).\nUnlike a bar graph (which is for categorical data and has gaps between bars), a histogram has no gaps between bars because the data is continuous.\nPie charts show proportions of categories, and line graphs typically show trends over time.\nExam tip: Remember — bar graphs are for categorical data, histograms are for continuous numerical data."
     },
     {
       "id": "l1sd-q3",
@@ -57,7 +57,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "19",
-      "markingGuide": "1 mark for showing correct working: Mean = (14 + 18 + 22 + 16 + 25) ÷ 5 = 95 ÷ 5. 1 mark for the correct answer: 19. The mean is calculated by adding all values together and dividing by the number of values. Exam tip: Always show your working — if you make a calculation error but your method is correct, you can still earn a mark for working."
+      "markingGuide": "Step 1: 1 mark for showing correct working: Mean = (14 + 18 + 22 + 16 + 25) ÷ 5 = 95 ÷ 5.\n\nStep 2: 1 mark for the correct answer: 19.\n\nStep 3: The mean is calculated by adding all values together and dividing by the number of values.\n\nStep 4: Exam tip: Always show your working — if you make a calculation error but your method is correct, you can still earn a mark for working."
     },
     {
       "id": "l1sd-q4",
@@ -76,7 +76,7 @@
         "The proportion of each category as a percentage of the total"
       ],
       "expectedAnswer": "The minimum, lower quartile, median, upper quartile, and maximum of a data set",
-      "markingGuide": "The correct answer is 'The minimum, lower quartile, median, upper quartile, and maximum of a data set'. A box plot is a five-number summary that shows the spread and centre of a data set. The box spans from the lower quartile (Q1) to the upper quartile (Q3), with a line at the median (Q2). The whiskers extend to the minimum and maximum values (or to a defined limit, with outliers shown as individual points). Box plots are particularly useful for comparing distributions between groups. Exam tip: Box plots show the spread and shape of data — they do not show individual data values or frequencies."
+      "markingGuide": "The correct answer is The minimum, lower quartile, median, upper quartile, and maximum of a data set.\n\nHere's why:\nA box plot is a five-number summary that shows the spread and centre of a data set.\nThe box spans from the lower quartile (Q1) to the upper quartile (Q3), with a line at the median (Q2).\nThe whiskers extend to the minimum and maximum values (or to a defined limit, with outliers shown as individual points).\nBox plots are particularly useful for comparing distributions between groups.\nExam tip: Box plots show the spread and shape of data — they do not show individual data values or frequencies."
     },
     {
       "id": "l1sd-q5",
@@ -88,7 +88,7 @@
         "sampling-stats"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the difference: A population is the entire group that you are interested in studying (e.g. all Year 11 students in New Zealand). A sample is a smaller subset of the population that is selected for study (e.g. 200 Year 11 students from schools across NZ). 1 mark for explaining why samples are used: It is often impractical, too expensive, or too time-consuming to collect data from every member of a population. A well-chosen sample can provide reliable estimates about the population. For example, surveying all 60,000+ Year 11 students in NZ would be logistically impossible, but a representative sample of a few hundred can give useful information. Exam tip: A good sample should be representative of the population — this means it should reflect the diversity of the population (e.g. different regions, genders, ethnicities). Random sampling helps achieve this."
+      "markingGuide": "1 mark for explaining the difference: A population is the entire group that you are interested in studying (e.g. all Year 11 students in New Zealand).\n\nA sample is a smaller subset of the population that is selected for study (e.g. 200 Year 11 students from schools across NZ).\n\n1 mark for explaining why samples are used: It is often impractical, too expensive, or too time-consuming to collect data from every member of a population.\n\nA well-chosen sample can provide reliable estimates about the population.\n\nFor example, surveying all 60,000+ Year 11 students in NZ would be logistically impossible, but a representative sample of a few hundred can give useful information.\n\nExam tip: A good sample should be representative of the population — this means it should reflect the diversity of the population (e.g. different regions, genders, ethnicities).\n\nRandom sampling helps achieve this."
     },
     {
       "id": "l1sd-q6",
@@ -107,7 +107,7 @@
         "1"
       ],
       "expectedAnswer": "1/2",
-      "markingGuide": "The correct answer is 1/2. A fair coin has two equally likely outcomes: heads or tails. The probability of any event = number of favourable outcomes ÷ total number of possible outcomes = 1 ÷ 2 = 1/2 (or 0.5 or 50%). Exam tip: Probabilities always range from 0 (impossible) to 1 (certain). A probability of 1/2 means the event is equally likely to happen or not happen."
+      "markingGuide": "The correct answer is 1/2.\n\nHere's why:\nA fair coin has two equally likely outcomes: heads or tails.\nThe probability of any event = number of favourable outcomes ÷ total number of possible outcomes = 1 ÷ 2 = 1/2 (or 0.5 or 50%).\nExam tip: Probabilities always range from 0 (impossible) to 1 (certain).\nA probability of 1/2 means the event is equally likely to happen or not happen."
     },
     {
       "id": "l1sd-q7",
@@ -120,7 +120,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "1/2",
-      "markingGuide": "1 mark for correct working: Total marbles = 3 + 5 + 2 = 10. Number of blue marbles = 5. Probability = 5/10. 1 mark for simplifying to the correct answer: 5/10 = 1/2. The probability of picking a blue marble is 1/2. Exam tip: Always simplify fractions in your final answer unless told otherwise. You can also express probabilities as decimals (0.5) or percentages (50%), but fractions are standard for probability questions.",
+      "markingGuide": "Step 1: 1 mark for correct working: Total marbles = 3 + 5 + 2 = 10.\n\nStep 2: Number of blue marbles = 5.\n\nStep 3: Probability = 5/10.\n\nStep 4: 1 mark for simplifying to the correct answer: 5/10 = 1/2.\n\nStep 5: The probability of picking a blue marble is 1/2.\n\nStep 6: Exam tip: Always simplify fractions in your final answer unless told otherwise.\n\nStep 7: You can also express probabilities as decimals (0.5) or percentages (50%), but fractions are standard for probability questions.",
       "graph": {
         "type": "pie",
         "title": "Marbles in the Bag",
@@ -154,7 +154,7 @@
         "statistical-literacy"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying a valid reason. 1 mark for explaining it clearly with supporting detail. Possible reasons include:\n\n- Sampling bias: The survey may have been conducted online, which would over-represent teenagers who already use the internet and social media, leading to a higher percentage than the true figure.\n\n- Non-representative sample: The survey might have only sampled teenagers from urban areas (e.g. Auckland, Wellington) and missed those in rural or remote communities who may have less internet access.\n\n- Sample size: If the sample was too small, the results may not be reliable — a survey of 50 students at one school cannot represent all NZ teenagers.\n\n- Self-selection bias: If teenagers chose to participate (voluntary response), those with strong opinions about social media may have been more likely to respond.\n\n- Question wording: The definition of 'use' might be unclear — does checking notifications count, or does it mean active posting? Different interpretations would affect results.\n\n- Age range: The term 'teenagers' covers 13–19, and social media habits vary significantly across this range.\n\nExam tip: When evaluating statistics, always consider who was surveyed, how they were selected, sample size, and how the question was worded."
+      "markingGuide": "1 mark for identifying a valid reason.\n\n1 mark for explaining it clearly with supporting detail.\n\nPossible reasons include:\n\n- Sampling bias: The survey may have been conducted online, which would over-represent teenagers who already use the internet and social media, leading to a higher percentage than the true figure.\n\n- Non-representative sample: The survey might have only sampled teenagers from urban areas (e.g. Auckland, Wellington) and missed those in rural or remote communities who may have less internet access.\n\n- Sample size: If the sample was too small, the results may not be reliable — a survey of 50 students at one school cannot represent all NZ teenagers.\n\n- Self-selection bias: If teenagers chose to participate (voluntary response), those with strong opinions about social media may have been more likely to respond.\n\n- Question wording: The definition of 'use' might be unclear — does checking notifications count, or does it mean active posting?\n\nDifferent interpretations would affect results.\n\n- Age range: The term 'teenagers' covers 13–19, and social media habits vary significantly across this range.\n\nExam tip: When evaluating statistics, always consider who was surveyed, how they were selected, sample size, and how the question was worded."
     },
     {
       "id": "l1sd-q9",
@@ -173,7 +173,7 @@
         "Time series"
       ],
       "expectedAnswer": "Categorical",
-      "markingGuide": "The correct answer is Categorical. Favourite colour is categorical data because the values are categories or labels (e.g. red, blue, green) rather than numbers. Numerical discrete data involves countable numbers (e.g. number of siblings), numerical continuous data involves measurable quantities (e.g. height, weight), and time series data involves measurements taken over time. Exam tip: Ask yourself — can I do meaningful arithmetic with this data? If not, it is likely categorical. You cannot calculate the 'average colour'."
+      "markingGuide": "The correct answer is Categorical.\n\nHere's why:\nFavourite colour is categorical data because the values are categories or labels (e.g. red, blue, green) rather than numbers.\nNumerical discrete data involves countable numbers (e.g. number of siblings), numerical continuous data involves measurable quantities (e.g. height, weight), and time series data involves measurements taken over time.\nExam tip: Ask yourself — can I do meaningful arithmetic with this data?\nIf not, it is likely categorical.\nYou cannot calculate the 'average colour'."
     },
     {
       "id": "l1sd-q10",
@@ -187,7 +187,7 @@
         "statistical-literacy"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark for describing the distribution:\n- Shape: The distribution is right-skewed (positively skewed) because most values are clustered at the lower end (2–5 hours) with a tail extending to the right (8–10 hours).\n- Centre: The centre (median) would be approximately 3–4 hours.\n- Spread: The range is approximately 8 hours (from about 2 to 10). The majority of values are within a 3-hour spread (2–5).\n- Unusual features: The values at 8–10 hours could be considered outliers as they are separated from the main cluster of data.\n\n1 mark for reasonable conclusions:\n- Most students in the class spend between 2 and 5 hours per day on screens.\n- A typical (median) daily screen time is around 3–4 hours.\n- A small number of students have much higher screen time (8–10 hours), which may indicate heavy gaming or streaming habits.\n- The data suggests that excessive screen time (8+ hours) is not common in this class but does occur.\n\n1 mark for identifying limitations:\n- The sample of 30 classmates from one class is small and may not represent all NZ teenagers.\n- Students may under-report or over-report their screen time (social desirability bias or inaccurate recall).\n- The survey only covers one class in one school — different schools, regions, or socioeconomic groups may have different patterns.\n- 'Screen time' is not clearly defined — does it include school-related use, or only leisure?\n- The data is from one day and may not represent typical daily habits.\n\n1 mark for overall quality — uses correct statistical vocabulary (skewed, outlier, median, range, distribution), links evidence to conclusions, and demonstrates understanding of statistical concepts.\n\nExam tip: When describing distributions, always address shape, centre, spread, and unusual features (SOCS). Use the data to support your statements.",
+      "markingGuide": "1 mark for describing the distribution:\n- Shape: The distribution is right-skewed (positively skewed) because most values are clustered at the lower end (2–5 hours) with a tail extending to the right (8–10 hours).\n\n- Centre: The centre (median) would be approximately 3–4 hours.\n\n- Spread: The range is approximately 8 hours (from about 2 to 10).\n\nThe majority of values are within a 3-hour spread (2–5).\n\n- Unusual features: The values at 8–10 hours could be considered outliers as they are separated from the main cluster of data.\n\n1 mark for reasonable conclusions:\n- Most students in the class spend between 2 and 5 hours per day on screens.\n\n- A typical (median) daily screen time is around 3–4 hours.\n\n- A small number of students have much higher screen time (8–10 hours), which may indicate heavy gaming or streaming habits.\n\n- The data suggests that excessive screen time (8+ hours) is not common in this class but does occur.\n\n1 mark for identifying limitations:\n- The sample of 30 classmates from one class is small and may not represent all NZ teenagers.\n\n- Students may under-report or over-report their screen time (social desirability bias or inaccurate recall).\n\n- The survey only covers one class in one school — different schools, regions, or socioeconomic groups may have different patterns.\n\n- 'Screen time' is not clearly defined — does it include school-related use, or only leisure?\n\n- The data is from one day and may not represent typical daily habits.\n\n1 mark for overall quality — uses correct statistical vocabulary (skewed, outlier, median, range, distribution), links evidence to conclusions, and demonstrates understanding of statistical concepts.\n\nExam tip: When describing distributions, always address shape, centre, spread, and unusual features (SOCS).\n\nUse the data to support your statements.",
       "graph": {
         "type": "histogram",
         "title": "Daily Screen Time of 30 Students",

@@ -33,7 +33,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Kc is the concentration of products divided by the concentration of reactants. Since Kc < 1, the equilibrium lies to the left, meaning reactants are favoured.",
-      "markingGuide": "Achievement: A correct statement about Kc. Merit: Explains the ratio and identifies that the reaction favours reactants."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- A correct statement about Kc.\n\nFor Merit:\n- Explains the ratio and identifies that the reaction favours reactants."
     },
     {
       "id": "l2rx25-q1aiii",
@@ -48,7 +48,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The enthalpy is positive, showing the forward reaction is endothermic. Increasing temperature favours the endothermic (forward) direction, producing more products. Kc will increase.",
-      "markingGuide": "Achievement: Identifies that increasing temperature will favour the endothermic reaction. Merit: Identifies that the forward reaction is favoured. Excellence: Fully describes the effect on both reactions and Kc."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies that increasing temperature will favour the endothermic reaction.\n\nFor Merit:\n- Identifies that the forward reaction is favoured.\n\nFor Excellence:\n- Fully describes the effect on both reactions and Kc."
     },
     {
       "id": "l2rx25-q1bi",
@@ -76,7 +76,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "[H3O+] = 10^-1.5 = 0.0316 mol L-1. Kw = 1 x 10^-14. [OH-] = 1 x 10^-14 / 0.0316 = 3.16 x 10^-13 mol L-1",
-      "markingGuide": "Achievement: One step correct. Merit: Correct answer with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct answer with units."
     },
     {
       "id": "l2rx25-q1biii",
@@ -95,16 +95,32 @@
         "type": "table",
         "title": "Comparison of Hydrochloric Acid and Nitrous Acid",
         "data": {
-          "headers": ["Property", "HCl", "HNO₂"],
+          "headers": [
+            "Property",
+            "HCl",
+            "HNO₂"
+          ],
           "rows": [
-            ["Acid Strength", "Strong", "Weak"],
-            ["pH", "1.0", "3.8"],
-            ["Concentration", "0.10 mol L⁻¹", "0.10 mol L⁻¹"]
+            [
+              "Acid Strength",
+              "Strong",
+              "Weak"
+            ],
+            [
+              "pH",
+              "1.0",
+              "3.8"
+            ],
+            [
+              "Concentration",
+              "0.10 mol L⁻¹",
+              "0.10 mol L⁻¹"
+            ]
           ]
         }
       },
       "expectedAnswer": "Strong acids dissociate completely; weak acids dissociate partially. HCl has lower pH because all molecules donate protons. HNO2 has higher pH because only some molecules donate protons. HCl has greater conductivity due to more ions in solution.",
-      "markingGuide": "Achievement: Identifies dissociation difference OR defines pH OR defines conductivity. Merit: Explains pH and conductivity for both solutions. Excellence: Justifies both properties with equations."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies dissociation difference OR defines pH OR defines conductivity.\n\nFor Merit:\n- Explains pH and conductivity for both solutions.\n\nFor Excellence:\n- Justifies both properties with equations."
     },
     {
       "id": "l2rx25-q2ai",
@@ -133,7 +149,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Shell B will be more vulnerable due to having a greater surface area exposed to the acidic water, leading to more frequent collisions between acid particles and the shell surface.",
-      "markingGuide": "Achievement: Identifies Shell B as having greater surface area. Merit: Full explanation linking surface area to collision theory and rate."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies Shell B as having greater surface area.\n\nFor Merit:\n- Full explanation linking surface area to collision theory and rate."
     },
     {
       "id": "l2rx25-q2bi",
@@ -163,7 +179,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Catalysts increase the rate by providing an alternative pathway with lower activation energy, meaning more particles have sufficient energy for successful collisions.",
-      "markingGuide": "Achievement: Basic definition of a catalyst. Merit: Links rate to lower activation energy. Excellence: Full explanation with alternative pathway, activation energy, and successful collisions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Basic definition of a catalyst.\n\nFor Merit:\n- Links rate to lower activation energy.\n\nFor Excellence:\n- Full explanation with alternative pathway, activation energy, and successful collisions."
     },
     {
       "id": "l2rx25-q2ci",
@@ -191,7 +207,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "CH3CH2COO- + H2O <=> CH3CH2COOH + OH-",
-      "markingGuide": "Achievement: Identifies reaction with water. Merit: Correct equation with reversible arrow."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies reaction with water.\n\nFor Merit:\n- Correct equation with reversible arrow."
     },
     {
       "id": "l2rx25-q2ciii",
@@ -211,13 +227,22 @@
         "xLabel": "Solution",
         "yLabel": "pH",
         "data": [
-          { "label": "Ba(OH)₂", "value": 13.2 },
-          { "label": "BaCl₂", "value": 7.0 },
-          { "label": "Ba(CH₃CH₂COO)₂", "value": 8.5 }
+          {
+            "label": "Ba(OH)₂",
+            "value": 13.2
+          },
+          {
+            "label": "BaCl₂",
+            "value": 7.0
+          },
+          {
+            "label": "Ba(CH₃CH₂COO)₂",
+            "value": 8.5
+          }
         ]
       },
       "expectedAnswer": "Acids donate protons; bases accept protons. Ba(OH)2 is strongly basic (OH- accepts protons). BaCl2 is neutral (neither Ba2+ nor Cl- transfers protons). Ba(CH3CH2COO)2 is mildly basic (propanoate is the conjugate base of a weak acid and accepts a proton from water, producing OH-).",
-      "markingGuide": "Achievement: Recognises the nature of TWO solutions OR defines acid and base. Merit: Explains how barium propanoate acts as a basic salt. Excellence: Fully discusses all three."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises the nature of TWO solutions OR defines acid and base.\n\nFor Merit:\n- Explains how barium propanoate acts as a basic salt.\n\nFor Excellence:\n- Fully discusses all three."
     },
     {
       "id": "l2rx25-q3ai",
@@ -231,7 +256,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Removing the product PF5 will cause the equilibrium to shift forward to replace the lost product.",
-      "markingGuide": "Achievement: Identifies forward is favoured. Merit: Correct explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies forward is favoured.\n\nFor Merit:\n- Correct explanation."
     },
     {
       "id": "l2rx25-q3aii",
@@ -246,7 +271,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Decreasing the volume increases the pressure. By Le Chatelier's principle, the system shifts to the side with fewer gas moles (forward: 2 moles -> 1 mole), producing more PF5.",
-      "markingGuide": "Achievement: Explains why pressure has increased OR identifies forward is favoured. Merit: Identifies pressure favours fewest moles. Excellence: Full explanation with mole comparison."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains why pressure has increased OR identifies forward is favoured.\n\nFor Merit:\n- Identifies pressure favours fewest moles.\n\nFor Excellence:\n- Full explanation with mole comparison."
     },
     {
       "id": "l2rx25-q3bi",
@@ -274,7 +299,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Increasing [F2] favours the forward reaction, producing more PF5 and consuming PF3. Kc does not change because Kc only changes with temperature.",
-      "markingGuide": "Achievement: Identifies forward is favoured. Merit: Explains no change to Kc."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies forward is favoured.\n\nFor Merit:\n- Explains no change to Kc."
     },
     {
       "id": "l2rx25-q3biii",
@@ -291,17 +316,37 @@
         "type": "table",
         "title": "Equilibrium Conditions for PF₅ Production",
         "data": {
-          "headers": ["Property", "Condition 1", "Condition 2"],
+          "headers": [
+            "Property",
+            "Condition 1",
+            "Condition 2"
+          ],
           "rows": [
-            ["Temperature", "250 °C", "650 °C"],
-            ["Kc", "62", "0.035"],
-            ["[PF₅] (mol L⁻¹)", "0.15", "0.18"],
-            ["[F₂] (mol L⁻¹)", "0.11", "0.14"]
+            [
+              "Temperature",
+              "250 °C",
+              "650 °C"
+            ],
+            [
+              "Kc",
+              "62",
+              "0.035"
+            ],
+            [
+              "[PF₅] (mol L⁻¹)",
+              "0.15",
+              "0.18"
+            ],
+            [
+              "[F₂] (mol L⁻¹)",
+              "0.11",
+              "0.14"
+            ]
           ]
         }
       },
       "expectedAnswer": "Condition 1 would be better because Kc = 62 (much greater than 1) means products are strongly favoured at this temperature.",
-      "markingGuide": "Achievement: Identifies Condition 1. Merit: Explains why Condition 1 is better."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies Condition 1.\n\nFor Merit:\n- Explains why Condition 1 is better."
     },
     {
       "id": "l2rx25-q3biv",
@@ -315,7 +360,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Condition 1: [PF3] = [PF5] / (Kc x [F2]) = 0.15 / (62 x 0.11) = 0.15 / 6.82 = 0.022 mol L-1\nCondition 2: [PF3] = 0.18 / (0.035 x 0.14) = 0.18 / 0.0049 = 36.7 mol L-1",
-      "markingGuide": "Achievement: One with correct process. Merit: Two concentrations correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One with correct process.\n\nFor Merit:\n- Two concentrations correct."
     },
     {
       "id": "l2rx25-q3c",
@@ -331,7 +376,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The forward reaction must be exothermic, as decreasing the temperature favours product formation. Higher temperature disadvantage: shifts equilibrium toward reverse, reducing yield. Higher temperature advantage: increases rate of reaction by increasing frequency and energy of collisions. A compromise temperature of 95 degrees C is used.",
-      "markingGuide": "Achievement: Identifies forward reaction as exothermic OR describes faster particle movement. Merit: Explains equilibrium disadvantage AND collision theory advantage. Excellence: Full explanation including the compromise."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies forward reaction as exothermic OR describes faster particle movement.\n\nFor Merit:\n- Explains equilibrium disadvantage AND collision theory advantage.\n\nFor Excellence:\n- Full explanation including the compromise."
     }
   ],
   "totalMarks": 24,

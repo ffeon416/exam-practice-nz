@@ -21,7 +21,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Define photoperiodism (the physiological response of an organism to the relative lengths of light and dark periods). Short-day plants flower when the dark period exceeds a critical length. Long-day plants flower when the dark period is shorter than a critical length. The phytochrome system uses Pr and Pfr forms to detect light conditions.",
-      "markingGuide": "Achievement: Describe short-day plant; long-day plant; photoperiodism; phytochrome system; critical day/night length. Merit: Explain difference between short-day and long-day plant with reference to critical day/night length; how Pr and Pfr work; critical day/night length — uninterrupted darkness is critical for Pfr to revert to Pr; how flowering is caused in a long-day plant; how flowering is caused in a short-day plant; how plant growers can produce flowers from long-day plants during NZ winters. Excellence: Provides detailed discussion of the photoperiodic response of flowering in short-day and long-day plants which includes the phytochrome system; how plant growers produce harakeke flowers during New Zealand winters, both methods, with justification. Method 1: Plants exposed to supplementary lighting to artificially lengthen the day, maintaining Pfr levels above the critical threshold, inducing flower development. Method 2: Night interrupted by red light — red light converts inactive Pr to active Pfr, maintaining high Pfr levels and mimicking a long day, allowing the harakeke to flower. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describe short-day plant.\n- long-day plant.\n- photoperiodism.\n- phytochrome system.\n- critical day/night length.\n\nFor Merit:\n- Explain difference between short-day and long-day plant with reference to critical day/night length.\n- how Pr and Pfr work.\n- critical day/night length — uninterrupted darkness is critical for Pfr to revert to Pr.\n- how flowering is caused in a long-day plant.\n- how flowering is caused in a short-day plant.\n- how plant growers can produce flowers from long-day plants during NZ winters.\n\nFor Excellence:\n- Provides detailed discussion of the photoperiodic response of flowering in short-day and long-day plants which includes the phytochrome system.\n- how plant growers produce harakeke flowers during New Zealand winters, both methods, with justification.\n- Method 1: Plants exposed to supplementary lighting to artificially lengthen the day, maintaining Pfr levels above the critical threshold, inducing flower development.\n- Method 2: Night interrupted by red light — red light converts inactive Pr to active Pfr, maintaining high Pfr levels and mimicking a long day, allowing the harakeke to flower.\n- N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
     },
     {
       "id": "l3bb25-q2",
@@ -42,16 +42,34 @@
         "xLabel": "Experimental Group",
         "yLabel": "% Returned",
         "data": [
-          { "label": "Control (clear day)", "value": 95 },
-          { "label": "Control (overcast)", "value": 85 },
-          { "label": "Frosted lens (clear)", "value": 75 },
-          { "label": "Frosted lens (overcast)", "value": 60 },
-          { "label": "Magnet (clear day)", "value": 55 },
-          { "label": "Magnet (overcast)", "value": 25 }
+          {
+            "label": "Control (clear day)",
+            "value": 95
+          },
+          {
+            "label": "Control (overcast)",
+            "value": 85
+          },
+          {
+            "label": "Frosted lens (clear)",
+            "value": 75
+          },
+          {
+            "label": "Frosted lens (overcast)",
+            "value": 60
+          },
+          {
+            "label": "Magnet (clear day)",
+            "value": 55
+          },
+          {
+            "label": "Magnet (overcast)",
+            "value": 25
+          }
         ]
       },
       "expectedAnswer": "Describe diurnal organism, circadian rhythm with internal biological clock, Sun compass navigation, landmarks, magnetic field detection. Weka use multiple redundant cues for homing.",
-      "markingGuide": "Achievement: Describe diurnal organism/behaviour; circadian rhythm (includes internal biological clock); landmarks used by weka for homing; sun compass used for homing; Earth's magnetic field used for homing; olfactory/scent cues used for homing; navigation on clear days; navigation on overcast days. Merit: Explain why weka's circadian rhythm is closely linked to its sun compass; environmental cues for homing on clear days; environmental cues for homing on overcast days; navigation of control group; navigation of frosted-lens group; navigation of magnet-fitted group; why weka navigate during overcast conditions. Excellence: Provides detailed discussion of circadian rhythm and how weka use environmental cues on clear and overcast days to navigate home; weka navigation across the different experimental groups and why some weka still navigate on overcast days. The circadian rhythm is closely linked to sun compass; Sun's position changes throughout the day and weka constantly adjust navigation using their internal clock. On overcast days they use magnetic field detection, landmarks, and olfactory cues. Frosted-lens weka could still detect light direction and use magnetic fields. Magnet-fitted weka lost magnetic cues and on overcast days also lost sun compass, explaining their poor performance. Weka use redundant navigation systems so losing one cue does not necessarily prevent homing. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describe diurnal organism/behaviour.\n- circadian rhythm (includes internal biological clock).\n- landmarks used by weka for homing.\n- sun compass used for homing.\n- Earth's magnetic field used for homing.\n- olfactory/scent cues used for homing.\n- navigation on clear days.\n- navigation on overcast days.\n\nFor Merit:\n- Explain why weka's circadian rhythm is closely linked to its sun compass.\n- environmental cues for homing on clear days.\n- environmental cues for homing on overcast days.\n- navigation of control group.\n- navigation of frosted-lens group.\n- navigation of magnet-fitted group.\n- why weka navigate during overcast conditions.\n\nFor Excellence:\n- Provides detailed discussion of circadian rhythm and how weka use environmental cues on clear and overcast days to navigate home.\n- weka navigation across the different experimental groups and why some weka still navigate on overcast days.\n- The circadian rhythm is closely linked to sun compass.\n- Sun's position changes throughout the day and weka constantly adjust navigation using their internal clock.\n- On overcast days they use magnetic field detection, landmarks, and olfactory cues.\n- Frosted-lens weka could still detect light direction and use magnetic fields.\n- Magnet-fitted weka lost magnetic cues and on overcast days also lost sun compass, explaining their poor performance.\n- Weka use redundant navigation systems so losing one cue does not necessarily prevent homing.\n- N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
     },
     {
       "id": "l3bb25-q3",
@@ -67,7 +85,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Define hierarchy (a ranking system within a social group based on dominance) and territory (a defended area). Kin selection: subordinates assist relatives, ensuring shared alleles are passed on even though they do not breed directly.",
-      "markingGuide": "Achievement: Describe hierarchy; territory; kin selection (must state relatedness); an example of kin selection; an advantage of living in a group; a disadvantage of living in a group. Merit: Explain at least TWO examples of how the group's hierarchy is maintained; why members demonstrate kin selection; an example of kin selection linked to genetic relatedness; an advantage of living in a group linked to increased survival rate; a disadvantage of living in a group linked to cost-benefit. Excellence: Provides detailed discussion of how the group hierarchy is maintained AND why wild dogs demonstrate kin selection to increase reproductive success; advantages of subordinate individuals living in a group AND disadvantages. Kin selection examples: scout duty — subordinates take turns standing guard, supporting the alpha pair to remain healthy and reproduce, passing on shared genes; pup-care — non-breeding members guard and feed pups, investing in survival of shared alleles; territorial defence — subordinates risk injury defending territory, helping the alpha pair maintain resources. Advantages: scout system greatly reduces predation risk; protection in numbers; access to shared food resources; future opportunity to breed. Disadvantages: eat last; less food; unlikely to breed directly; receive more aggression. Ultimately subordinates remain because benefits outweigh costs — they have a greater chance of passing on shared alleles by helping genetically close relatives reproduce. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describe hierarchy.\n- territory.\n- kin selection (must state relatedness).\n- an example of kin selection.\n- an advantage of living in a group.\n- a disadvantage of living in a group.\n\nFor Merit:\n- Explain at least TWO examples of how the group's hierarchy is maintained.\n- why members demonstrate kin selection.\n- an example of kin selection linked to genetic relatedness.\n- an advantage of living in a group linked to increased survival rate.\n- a disadvantage of living in a group linked to cost-benefit.\n\nFor Excellence:\n- Provides detailed discussion of how the group hierarchy is maintained AND why wild dogs demonstrate kin selection to increase reproductive success.\n- advantages of subordinate individuals living in a group AND disadvantages.\n- Kin selection examples: scout duty — subordinates take turns standing guard, supporting the alpha pair to remain healthy and reproduce, passing on shared genes.\n- pup-care — non-breeding members guard and feed pups, investing in survival of shared alleles.\n- territorial defence — subordinates risk injury defending territory, helping the alpha pair maintain resources.\n- Advantages: scout system greatly reduces predation risk.\n- protection in numbers.\n- access to shared food resources.\n- future opportunity to breed.\n- Disadvantages: eat last.\n- less food.\n- unlikely to breed directly.\n- receive more aggression.\n- Ultimately subordinates remain because benefits outweigh costs — they have a greater chance of passing on shared alleles by helping genetically close relatives reproduce.\n- N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
     }
   ],
   "cutScores": {

@@ -25,7 +25,7 @@
         "Owner's drawings"
       ],
       "expectedAnswer": "Accounts receivable",
-      "markingGuide": "The correct answer is 'Accounts receivable'. Accounts receivable (debtors) is money owed to the business by customers — it is a current asset. A bank loan is a liability, rent expense is an expense (reduces profit), and owner's drawings reduce owner's equity."
+      "markingGuide": "The correct answer is Accounts receivable.\n\nHere's why:\nAccounts receivable (debtors) is money owed to the business by customers — it is a current asset.\nA bank loan is a liability, rent expense is an expense (reduces profit), and owner's drawings reduce owner's equity."
     },
     {
       "id": "acfn-q2",
@@ -44,7 +44,7 @@
         "Revenue + Expenses"
       ],
       "expectedAnswer": "Liabilities + Owner's Equity",
-      "markingGuide": "The correct answer is 'Liabilities + Owner's Equity'. The accounting equation (Assets = Liabilities + Owner's Equity) is the foundation of double-entry bookkeeping. It must always balance. Assets are what the business owns, liabilities are what it owes to others, and owner's equity is what the owner has invested."
+      "markingGuide": "The correct answer is Liabilities + Owner's Equity.\n\nHere's why:\nThe accounting equation (Assets = Liabilities + Owner's Equity) is the foundation of double-entry bookkeeping.\nIt must always balance.\nAssets are what the business owns, liabilities are what it owes to others, and owner's equity is what the owner has invested."
     },
     {
       "id": "acfn-q3",
@@ -57,7 +57,7 @@
         "transactions-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the difference: A cash sale is when payment is received at the time of the sale (immediate exchange of goods/services for money). A credit sale is when goods/services are provided now but payment is received later (the customer owes money to the business).\n\n1 mark for giving an example of each: Cash sale — e.g. 'A customer buys a coffee at a cafe in Ponsonby and pays $5.50 with their EFTPOS card immediately.' Credit sale — e.g. 'A building supplies company in Christchurch delivers $2,000 of timber to a builder with 30-day payment terms.' Accept any reasonable NZ business examples."
+      "markingGuide": "1 mark for explaining the difference: A cash sale is when payment is received at the time of the sale (immediate exchange of goods/services for money).\n\nA credit sale is when goods/services are provided now but payment is received later (the customer owes money to the business).\n\n1 mark for giving an example of each: Cash sale — e.g. 'A customer buys a coffee at a cafe in Ponsonby and pays $5.50 with their EFTPOS card immediately.' Credit sale — e.g. 'A building supplies company in Christchurch delivers $2,000 of timber to a builder with 30-day payment terms.' Accept any reasonable NZ business examples."
     },
     {
       "id": "acfn-q4",
@@ -76,7 +76,7 @@
         "Cash Flow Statement"
       ],
       "expectedAnswer": "Income Statement (Statement of Financial Performance)",
-      "markingGuide": "The correct answer is 'Income Statement (Statement of Financial Performance)'. The income statement summarises revenue and expenses over a period to calculate net profit or net loss. The Statement of Financial Position shows assets, liabilities, and equity at a point in time. A bank reconciliation compares bank records with the business's cash book."
+      "markingGuide": "The correct answer is Income Statement (Statement of Financial Performance).\n\nHere's why:\nThe income statement summarises revenue and expenses over a period to calculate net profit or net loss.\nThe Statement of Financial Position shows assets, liabilities, and equity at a point in time.\nA bank reconciliation compares bank records with the business's cash book."
     },
     {
       "id": "acfn-q5",
@@ -89,7 +89,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "3800",
-      "markingGuide": "1 mark for correct working: 150 × $12 = $1,800 and 80 × $25 = $2,000. 1 mark for correct answer: $1,800 + $2,000 = $3,800. Accept 3800 or $3,800.",
+      "markingGuide": "Step 1: 1 mark for correct working: 150 × $12 = $1,800 and 80 × $25 = $2,000.\n\nStep 2: 1 mark for correct answer: $1,800 + $2,000 = $3,800.\n\nStep 3: Accept 3800 or $3,800.",
       "graph": {
         "type": "table",
         "title": "Weekly Sales Data",
@@ -133,7 +133,7 @@
         "financial-statements-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark per valid reason (2 required). Possible reasons: (1) To know whether the business is making a profit or loss, so the owner can make informed decisions about pricing, costs, and growth. (2) To meet legal requirements — NZ businesses must keep records for IRD (Inland Revenue) for tax purposes (income tax, GST returns). (3) To manage cash flow — knowing when money is coming in and going out helps avoid running out of cash. (4) To apply for bank loans or attract investors — lenders require financial statements to assess the business's viability. (5) To track expenses and identify areas where costs can be reduced. (6) To prepare accurate GST returns and avoid penalties from IRD."
+      "markingGuide": "1 mark per valid reason (2 required).\n\nPossible reasons: (1) To know whether the business is making a profit or loss, so the owner can make informed decisions about pricing, costs, and growth.\n\n(2) To meet legal requirements — NZ businesses must keep records for IRD (Inland Revenue) for tax purposes (income tax, GST returns).\n\n(3) To manage cash flow — knowing when money is coming in and going out helps avoid running out of cash.\n\n(4) To apply for bank loans or attract investors — lenders require financial statements to assess the business's viability.\n\n(5) To track expenses and identify areas where costs can be reduced.\n\n(6) To prepare accurate GST returns and avoid penalties from IRD."
     },
     {
       "id": "acfn-q7",
@@ -146,7 +146,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "27000",
-      "markingGuide": "1 mark for showing/applying the accounting equation: Assets = Liabilities + Owner's Equity, therefore Owner's Equity = Assets - Liabilities. 1 mark for correct answer: $45,000 - $18,000 = $27,000. Accept 27000 or $27,000."
+      "markingGuide": "Step 1: 1 mark for showing/applying the accounting equation: Assets = Liabilities + Owner's Equity, therefore Owner's Equity = Assets - Liabilities.\n\nStep 2: 1 mark for correct answer: $45,000 - $18,000 = $27,000.\n\nStep 3: Accept 27000 or $27,000."
     },
     {
       "id": "acfn-q8",
@@ -165,7 +165,7 @@
         "20%"
       ],
       "expectedAnswer": "15%",
-      "markingGuide": "The correct answer is '15%'. Goods and Services Tax (GST) in New Zealand has been 15% since 1 October 2010. Before that it was 12.5%. GST is a consumption tax added to most goods and services sold in NZ."
+      "markingGuide": "The correct answer is 15%.\n\nHere's why:\nGoods and Services Tax (GST) in New Zealand has been 15% since 1 October 2010.\nBefore that it was 12.5%.\nGST is a consumption tax added to most goods and services sold in NZ."
     },
     {
       "id": "acfn-q9",
@@ -177,7 +177,7 @@
         "gst-calculations"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining what GST is: Goods and Services Tax is a consumption tax of 15% that is added to the price of most goods and services sold in New Zealand. It is collected by businesses on behalf of the government (IRD). Businesses registered for GST charge GST on sales (output tax) and can claim back GST on business purchases (input tax).\n\n1 mark for explaining the effect on consumers: GST increases the final price consumers pay. For example, if a product costs $100 before GST, the consumer pays $115 (100 × 1.15). Consumers bear the full cost of GST as it is included in the retail price. Some items are GST-exempt (e.g. financial services, residential rent)."
+      "markingGuide": "1 mark for explaining what GST is: Goods and Services Tax is a consumption tax of 15% that is added to the price of most goods and services sold in New Zealand.\n\nIt is collected by businesses on behalf of the government (IRD).\n\nBusinesses registered for GST charge GST on sales (output tax) and can claim back GST on business purchases (input tax).\n\n1 mark for explaining the effect on consumers: GST increases the final price consumers pay.\n\nFor example, if a product costs $100 before GST, the consumer pays $115 (100 × 1.15).\n\nConsumers bear the full cost of GST as it is included in the retail price.\n\nSome items are GST-exempt (e.g. financial services, residential rent)."
     },
     {
       "id": "acfn-q10",
@@ -190,7 +190,7 @@
         "accounting-equation"
       ],
       "answerType": "working",
-      "markingGuide": "4 marks total.\n\n1 mark — Profit calculation: Total expenses = $3,200 + $450 + $600 + $200 + $80 = $4,530. Profit = Revenue - Expenses = $8,500 - $4,530 = $3,970 net profit for March.\n\n1 mark — Sustainability analysis: $3,970 profit per month = approximately $47,640 per year. This needs to cover Sam's personal living costs (rent, food, etc.). In Auckland, living costs are high. The profit margin is $3,970/$8,500 = 46.7%, which is reasonable for a food business. However, this does not account for the cost of the truck itself, maintenance, or quiet months.\n\n1 mark — Advice (at least TWO points): e.g. (1) Sam should track whether revenue is consistent across all months — food trucks may have seasonal variation (quieter in winter). (2) Sam could reduce his ingredient costs by finding cheaper suppliers or reducing waste. (3) Sam should set aside money for GST payments (he needs to register if revenue exceeds $60,000/year). (4) He should save for unexpected costs (truck breakdown, equipment replacement). (5) He could increase revenue by adding catering, using social media marketing, or attending more events.\n\n1 mark — Quality of financial reasoning: Links accounting concepts together. Discusses the difference between profit and cash flow, the importance of keeping records for IRD, or the need to separate business and personal finances. Shows understanding that profit on paper does not always mean the business is thriving.",
+      "markingGuide": "Step 1: 4 marks total.\n\nStep 2: 1 mark — Profit calculation: Total expenses = $3,200 + $450 + $600 + $200 + $80 = $4,530.\n\nStep 3: Profit = Revenue - Expenses = $8,500 - $4,530 = $3,970 net profit for March.\n\nStep 4: 1 mark — Sustainability analysis: $3,970 profit per month = approximately $47,640 per year.\n\nStep 5: This needs to cover Sam's personal living costs (rent, food, etc.).\n\nStep 6: In Auckland, living costs are high.\n\nStep 7: The profit margin is $3,970/$8,500 = 46.7%, which is reasonable for a food business.\n\nStep 8: However, this does not account for the cost of the truck itself, maintenance, or quiet months.\n\nStep 9: 1 mark — Advice (at least TWO points): e.g. (1) Sam should track whether revenue is consistent across all months — food trucks may have seasonal variation (quieter in winter).\n\nStep 10: (2) Sam could reduce his ingredient costs by finding cheaper suppliers or reducing waste.\n\nStep 11: (3) Sam should set aside money for GST payments (he needs to register if revenue exceeds $60,000/year).\n\nStep 12: (4) He should save for unexpected costs (truck breakdown, equipment replacement).\n\nStep 13: (5) He could increase revenue by adding catering, using social media marketing, or attending more events.\n\nStep 14: 1 mark — Quality of financial reasoning: Links accounting concepts together.\n\nStep 15: Discusses the difference between profit and cash flow, the importance of keeping records for IRD, or the need to separate business and personal finances.\n\nStep 16: Shows understanding that profit on paper does not always mean the business is thriving.",
       "graph": {
         "type": "bar",
         "title": "Sam's Food Truck — March Expenses",

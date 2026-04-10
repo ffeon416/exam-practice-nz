@@ -58,7 +58,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Using Hess's law: Target = (1) + 2 x (2) - (3). DrH = (-394) + 2(-286) - (-890) = -394 - 572 + 890 = -76 kJ mol-1.",
-      "markingGuide": "Achievement: Recognises need to manipulate equations. Merit: Correct process with one error. Excellence: Correct answer with units."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises need to manipulate equations.\n\nFor Merit:\n- Correct process with one error.\n\nFor Excellence:\n- Correct answer with units."
     },
     {
       "id": "l3ct24-q1bii",
@@ -73,7 +73,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The combustion is highly exothermic (DrH = -890 kJ mol-1), so a large amount of heat is released to the surroundings. This increases the entropy of the surroundings (DS_surr = -DrH / T is positive). The system changes from 3 mol of gas (1 CH4 + 2 O2) to 1 mol of gas (CO2) plus 2 mol of liquid water, so the system entropy decreases (DS_sys is negative and relatively small). However, the positive DS_surr is much larger in magnitude than the negative DS_sys, so the total entropy change DS_total = DS_sys + DS_surr is positive. Because DS_total > 0, the reaction is spontaneous.",
-      "markingGuide": "Achievement: Recognises entropy is positive. Merit: Explains entropy for system and surroundings. Excellence: Fully justifies spontaneity."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises entropy is positive.\n\nFor Merit:\n- Explains entropy for system and surroundings.\n\nFor Excellence:\n- Fully justifies spontaneity."
     },
     {
       "id": "l3ct24-q2ai",
@@ -103,7 +103,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Order of decreasing first ionisation energy: Ar > Kr > S. Ar has the highest IE because it is a noble gas with a full n=3 outer shell (very stable electron configuration) and a relatively small atomic radius. Kr also has a full outer shell but its outer (4p) electrons are further from the nucleus and more shielded by additional inner shells, so less energy is required to remove an electron. S has the lowest IE of the three because it has only 6 electrons in its outer shell (3p4), which is a less stable configuration and the outer electron is more easily removed.",
-      "markingGuide": "Achievement: Recognises one factor. Merit: Explains with two factors. Excellence: Justifies for all three."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises one factor.\n\nFor Merit:\n- Explains with two factors.\n\nFor Excellence:\n- Justifies for all three."
     },
     {
       "id": "l3ct24-q2b",
@@ -118,7 +118,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "In a trigonal planar arrangement, the three Br-F bond dipoles are arranged symmetrically at 120 degrees to one another and cancel, giving no net dipole (non-polar). In the T-shaped arrangement (with two lone pairs occupying equatorial positions of the trigonal bipyramidal electron geometry), the three Br-F dipoles do not cancel — the axial Br-F dipoles oppose each other but the equatorial Br-F dipole is unopposed — giving a net dipole moment. Because BrF3 is observed to be polar, its molecular shape must be T-shaped, not trigonal planar.",
-      "markingGuide": "Achievement: Identifies polarity of each shape. Merit: Compares using dipole arrangement. Excellence: Full explanation with lone pair positions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies polarity of each shape.\n\nFor Merit:\n- Compares using dipole arrangement.\n\nFor Excellence:\n- Full explanation with lone pair positions."
     },
     {
       "id": "l3ct24-q3ai",
@@ -147,7 +147,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Ethylamine (bp 17 degrees C) has a much higher boiling point than hydrogen bromide (bp -67 degrees C). Ethylamine molecules can form hydrogen bonds between the N-H of one molecule and the lone pair on N of another molecule, which are strong intermolecular forces requiring significant energy to overcome. HBr only has weaker permanent dipole-dipole attractions and London dispersion forces; it cannot hydrogen-bond because Br is not electronegative enough (and is not N, O, or F). The stronger hydrogen bonds in ethylamine mean more energy is needed to separate the molecules, giving a higher boiling point.",
-      "markingGuide": "Achievement: Recognises H-bonding is stronger. Merit: Explains why ethylamine has higher bp."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises H-bonding is stronger.\n\nFor Merit:\n- Explains why ethylamine has higher bp."
     },
     {
       "id": "l3ct24-q3aiii",
@@ -162,7 +162,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Pentane (C5H12, bp 36 degrees C) has only London dispersion forces, whereas HBr (bp -67 degrees C) has both dipole-dipole and London dispersion forces. Despite HBr having dipole-dipole attraction in addition to dispersion forces, pentane's much larger electron cloud (more electrons, larger surface area) produces significantly stronger total London dispersion forces than the combined intermolecular forces of the small HBr molecule. Because pentane's overall intermolecular forces are stronger, more energy is needed to separate the molecules and it has a higher boiling point.",
-      "markingGuide": "Achievement: Recognises size/electron cloud. Merit: Explains chain length gives stronger forces. Excellence: Compares all three."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises size/electron cloud.\n\nFor Merit:\n- Explains chain length gives stronger forces.\n\nFor Excellence:\n- Compares all three."
     },
     {
       "id": "l3ct24-q3bi",
@@ -177,7 +177,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Mass of ethanol burned = 58.2 - 57.6 = 0.600 g. n(ethanol) = 0.600 / 46.1 = 0.01302 mol. Energy released = n x DcH = 0.01302 x 726 = 9.45 kJ = 9450 J. Temperature change DT = 28.7 - 20.5 = 8.2 degrees C. Using q = mcDT: 9450 = m x 4.18 x 8.2. m = 9450 / (4.18 x 8.2) = 9450 / 34.28 = 276 g of water.",
-      "markingGuide": "Achievement: One step correct. Merit: Correct process with one error. Excellence: Correct mass."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- Correct process with one error.\n\nFor Excellence:\n- Correct mass."
     },
     {
       "id": "l3ct24-q3bii",
@@ -192,7 +192,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Temperature change of water. Heat is lost to the surroundings (beaker, air) so the measured temperature change is less than the actual heat produced. This makes the calculated enthalpy less exothermic than the true value.",
-      "markingGuide": "Achievement: Identifies temperature change and ONE reason. Merit: Explains ONE reason for the error."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies temperature change and ONE reason.\n\nFor Merit:\n- Explains ONE reason for the error."
     }
   ],
   "totalMarks": 24,

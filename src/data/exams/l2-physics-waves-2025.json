@@ -82,7 +82,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "1/f = 1/di + 1/do. 1/(-8) = 1/di + 1/12. 1/di = -1/8 - 1/12 = -3/24 - 2/24 = -5/24. di = -4.8 cm. Magnification = di/do = 4.8/12 = 0.4 times.",
-      "markingGuide": "Achieved: Uses correct formula. Merit: Correct magnification = 0.4."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Uses correct formula.\n\nFor Merit:\n- Correct magnification = 0.4."
     },
     {
       "id": "w25-q1bii",
@@ -111,7 +111,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "di/do = 3, so di = 3do. Using 1/f = 1/di + 1/do: do = 4f/3. hI = 12 squares.",
-      "markingGuide": "Achieved: States di = 3do. Merit: Places object and image correctly. Excellence: Full diagram with calculations."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- States di = 3do.\n\nFor Merit:\n- Places object and image correctly.\n\nFor Excellence:\n- Full diagram with calculations."
     },
     {
       "id": "w25-q1di",
@@ -126,7 +126,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image located using two rays. Image is virtual, upright, and enlarged (object within F).",
-      "markingGuide": "Achieved: Correct diagram. Merit: Diagram AND description."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct diagram.\n\nFor Merit:\n- Diagram AND description."
     },
     {
       "id": "w25-q1dii",
@@ -169,7 +169,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The speed of light is 1.4 times slower in glass than in air. v_glass = 3.0 x 10^8 / 1.4 = 2.14 x 10^8 m s-1.",
-      "markingGuide": "Achieved: Light is slower in glass. Merit: Quantitative answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Light is slower in glass.\n\nFor Merit:\n- Quantitative answer."
     },
     {
       "id": "w25-q2c",
@@ -184,7 +184,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "n_glass = lambda_air/lambda_glass = 6.30e-7/4.50e-7 = 1.40. n1 sin theta1 = n2 sin theta2. 1.0 x sin 35 = 1.40 x sin theta2. sin theta2 = 0.5736/1.40 = 0.4097. theta2 = 24.2 degrees.",
-      "markingGuide": "Achieved: n_glass = 1.40. Merit: One error. Excellence: Correct angle."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- n_glass = 1.40.\n\nFor Merit:\n- One error.\n\nFor Excellence:\n- Correct angle."
     },
     {
       "id": "w25-q2di",
@@ -213,7 +213,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Light must travel from a medium of higher refractive index to lower refractive index. The angle of incidence must exceed the critical angle.",
-      "markingGuide": "Achieved: One condition. Merit: Partial. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One condition.\n\nFor Merit:\n- Partial.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "w25-q3a",
@@ -241,7 +241,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "When two waves of the same frequency overlap, they interfere. Constructive interference (waves in phase, path difference = whole wavelengths) produces strong signal. Destructive interference (waves out of phase, path difference = odd half wavelengths) produces weak signal.",
-      "markingGuide": "Achieved: Recognises interference. Merit: Partial explanation. Excellence: Full explanation with path difference."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Recognises interference.\n\nFor Merit:\n- Partial explanation.\n\nFor Excellence:\n- Full explanation with path difference."
     },
     {
       "id": "w25-q3c",
@@ -284,7 +284,7 @@
         }
       },
       "expectedAnswer": "f = v/lambda = 3.0 x 10^8 / 0.030 = 1.0 x 10^10 Hz. 3 hours = 10800 s. Number = 1.0 x 10^10 x 10800 = 1.08 x 10^14.",
-      "markingGuide": "Achieved: Correct frequency. Merit: Correct answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct frequency.\n\nFor Merit:\n- Correct answer."
     },
     {
       "id": "w25-q3di",
@@ -299,7 +299,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The frequency does not change as the signal enters or leaves the wall.",
-      "markingGuide": "Achieved: Frequency unchanged. Merit: Frequency unchanged with justification."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Frequency unchanged.\n\nFor Merit:\n- Frequency unchanged with justification."
     },
     {
       "id": "w25-q3dii",
@@ -315,7 +315,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Correct diagram showing transmitted and reflected pulses at correct positions after 3 seconds, with correct amplitudes (half of original).",
-      "markingGuide": "Achieved: One pulse positioned correctly. Merit: Two pulses correct. Excellence: Full diagram."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One pulse positioned correctly.\n\nFor Merit:\n- Two pulses correct.\n\nFor Excellence:\n- Full diagram."
     }
   ]
 }

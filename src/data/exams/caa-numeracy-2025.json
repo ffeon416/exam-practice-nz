@@ -19,7 +19,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Yes — 3 weeks = 21 days = 504 hours = about 30,240 minutes",
-      "markingGuide": "Student must show calculation: 3 weeks x 7 = 21 days, 21 x 24 = 504 hours, 504 x 60 = 30,240 minutes. Then state that 30,240 is about 30,000 so she is approximately right. Accept rounding explanations."
+      "markingGuide": "Step 1: Student must show calculation: 3 weeks x 7 = 21 days, 21 x 24 = 504 hours, 504 x 60 = 30,240 minutes.\n\nStep 2: Then state that 30,240 is about 30,000 so she is approximately right.\n\nStep 3: Accept rounding explanations.\n\nFinal answer: Yes — 3 weeks = 21 days = 504 hours = about 30,240 minutes."
     },
     {
       "id": "caa25-q1b",
@@ -32,7 +32,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "50",
-      "markingGuide": "The angle from horizontal = 90° - 40° = 50°. Accept 50 degrees."
+      "markingGuide": "Step 1: The angle from horizontal = 90° - 40° = 50°.\n\nStep 2: Accept 50 degrees."
     },
     {
       "id": "caa25-q1c",
@@ -53,7 +53,7 @@
         "E"
       ],
       "expectedAnswer": "C",
-      "markingGuide": "1200 m in 12 min, so 3600 m at same rate = 3600/1200 x 12 = 3 x 12 = 36 minutes. The correct answer is C."
+      "markingGuide": "Step 1: 1200 m in 12 min, so 3600 m at same rate = 3600/1200 x 12 = 3 x 12 = 36 minutes.\n\nStep 2: The correct answer is C."
     },
     {
       "id": "caa25-q1d",
@@ -107,7 +107,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "No — Rewa has 18 kg of gear (too heavy for Medium at 16 kg max) and needs 65 L of space (Medium only has 55 L). She needs Large.",
-      "markingGuide": "Student must compare Rewa's needs against the table. Weight 18 kg exceeds Medium's max load (16 kg). Volume 65 L exceeds Medium's volume (55 L). Large (70 L, 20 kg) fits both requirements. Accept answers that correctly use data from the table.",
+      "markingGuide": "Student must compare Rewa's needs against the table.\n\nWeight 18 kg exceeds Medium's max load (16 kg).\n\nVolume 65 L exceeds Medium's volume (55 L).\n\nLarge (70 L, 20 kg) fits both requirements.\n\nAccept answers that correctly use data from the table.\n\nFinal answer: No — Rewa has 18 kg of gear (too heavy for Medium at 16 kg max) and needs 65 L of space (Medium only has 55 L). She needs Large..",
       "graph": {
         "type": "table",
         "title": "Tramping Pack Sizes",
@@ -153,7 +153,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "144",
-      "markingGuide": "20% of $180 = $36.00. Sale price = $180 - $36 = $144. Accept $144."
+      "markingGuide": "Step 1: 20% of $180 = $36.00.\n\nStep 2: Sale price = $180 - $36 = $144.\n\nStep 3: Accept $144."
     },
     {
       "id": "caa25-q2c",
@@ -188,7 +188,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Partially true — Board C is lightest and most expensive, and shortest. Board B is heaviest and cheapest, and longest.",
-      "markingGuide": "Student must compare data from two boards and use specific numbers (weight, length, and/or price) to support or refute the claim. Accept any correct comparison with supporting numbers.",
+      "markingGuide": "Student must compare data from two boards and use specific numbers (weight, length, and/or price) to support or refute the claim.\n\nAccept any correct comparison with supporting numbers.\n\nFinal answer: Partially true — Board C is lightest and most expensive, and shortest. Board B is heaviest and cheapest, and longest..",
       "graph": {
         "type": "table",
         "title": "Surfboard Specifications",
@@ -233,7 +233,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "11",
-      "markingGuide": "8.6 - (-2.4) = 8.6 + 2.4 = 11°C. Award mark for 11."
+      "markingGuide": "Step 1: 8.6 - (-2.4) = 8.6 + 2.4 = 11°C.\n\nStep 2: Award mark for 11."
     },
     {
       "id": "caa25-q2f",
@@ -248,7 +248,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "1040",
-      "markingGuide": "Winter total = Jun 350 + Jul 480 + Aug 420 = 1250. Summer total = Dec 70 + Jan 80 + Feb 60 = 210. Difference = 1250 - 210 = 1040 more visitors in winter. Accept 1040.",
+      "markingGuide": "Step 1: Winter total = Jun 350 + Jul 480 + Aug 420 = 1250.\n\nStep 2: Summer total = Dec 70 + Jan 80 + Feb 60 = 210.\n\nStep 3: Difference = 1250 - 210 = 1040 more visitors in winter.\n\nStep 4: Accept 1040.",
       "graph": {
         "type": "bar",
         "title": "Monthly Ski Field Visitors",
@@ -332,7 +332,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "3.20",
-      "markingGuide": "500 g = 0.5 kg. 0.5 x $6.40 = $3.20. Award mark for $3.20."
+      "markingGuide": "Step 1: 500 g = 0.5 kg.\n\nStep 2: 0.5 x $6.40 = $3.20.\n\nStep 3: Award mark for $3.20."
     },
     {
       "id": "caa25-q3c",
@@ -345,7 +345,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "20",
-      "markingGuide": "The difference between 6 crates (150 cm) and 3 crates (90 cm) is 60 cm for 3 extra crates. So each extra crate adds 60 / 3 = 20 cm. Award mark for 20 cm."
+      "markingGuide": "The difference between 6 crates (150 cm) and 3 crates (90 cm) is 60 cm for 3 extra crates.\n\nSo each extra crate adds 60 / 3 = 20 cm.\n\nAward mark for 20 cm."
     },
     {
       "id": "caa25-q3d",
@@ -359,7 +359,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The 2 kg bag — $0.28 per 100 g vs $0.35 and $0.44",
-      "markingGuide": "Student must calculate the price per 100 g for at least two bags and identify the 2 kg bag as cheapest. 2 kg = $0.28/100 g, 1 kg = $0.35/100 g, 500 g = $0.44/100 g.",
+      "markingGuide": "Step 1: Student must calculate the price per 100 g for at least two bags and identify the 2 kg bag as cheapest.\n\nStep 2: 2 kg = $0.28/100 g, 1 kg = $0.35/100 g, 500 g = $0.44/100 g.\n\nFinal answer: The 2 kg bag — $0.28 per 100 g vs $0.35 and $0.44.",
       "graph": {
         "type": "table",
         "title": "Flour Prices",
@@ -433,7 +433,7 @@
         "(iv)"
       ],
       "expectedAnswer": "(iii)",
-      "markingGuide": "Count beats: (i) 2x2 + 1 = 5, (ii) 4 + 2x0.5 = 5, (iii) 3x1 + 2x0.5 = 4, (iv) 2 + 3 + 1 = 6. The correct answer is (iii)."
+      "markingGuide": "Step 1: Count beats: (i) 2x2 + 1 = 5, (ii) 4 + 2x0.5 = 5, (iii) 3x1 + 2x0.5 = 4, (iv) 2 + 3 + 1 = 6.\n\nStep 2: The correct answer is (iii)."
     },
     {
       "id": "caa25-q4b",
@@ -453,7 +453,7 @@
         "(v) Central tendril"
       ],
       "expectedAnswer": "(ii) Border panels and (iv) Outer border",
-      "markingGuide": "Student must identify the TWO parts with mirror symmetry. The border panels and outer border are symmetrical. Both must be selected for the mark."
+      "markingGuide": "Student must identify the TWO parts with mirror symmetry.\n\nThe border panels and outer border are symmetrical.\n\nBoth must be selected for the mark."
     },
     {
       "id": "caa25-q4c",
@@ -481,7 +481,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "30",
-      "markingGuide": "60 out of 200 = 60/200 = 0.30 = 30%. Award mark for 30%.",
+      "markingGuide": "Step 1: 60 out of 200 = 60/200 = 0.30 = 30%.\n\nStep 2: Award mark for 30%.",
       "graph": {
         "type": "pie",
         "title": "Class Library Books by Genre",
@@ -522,7 +522,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "330",
-      "markingGuide": "Highest = Platform C at $1.20. Lowest = Platform D at $0.45. Earnings: 200 × $1.20 = $240. 200 × $0.45 = $90. Total = $240 + $90 = $330. Accept 330 or $330.",
+      "markingGuide": "Step 1: Highest = Platform C at $1.20.\n\nStep 2: Lowest = Platform D at $0.45.\n\nStep 3: Earnings: 200 × $1.20 = $240.\n\nStep 4: 200 × $0.45 = $90.\n\nStep 5: Total = $240 + $90 = $330.\n\nStep 6: Accept 330 or $330.",
       "graph": {
         "type": "bar",
         "title": "Artist Earnings per Sale by Platform",
@@ -572,7 +572,7 @@
         "(v) Less than 10% of 55-64 year olds go to live events"
       ],
       "expectedAnswer": "(i) and (iv)",
-      "markingGuide": "Check each: (i) 65% > 60% (3/5) — TRUE. (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE. (iii) 15% is not 50% — FALSE. (iv) 45% = 9/20 — TRUE. (v) 12% > 10% — FALSE. Both (i) and (iv) must be selected.",
+      "markingGuide": "Step 1: Check each: (i) 65% > 60% (3/5) — TRUE.\n\nStep 2: (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE.\n\nStep 3: (iii) 15% is not 50% — FALSE.\n\nStep 4: (iv) 45% = 9/20 — TRUE.\n\nStep 5: (v) 12% > 10% — FALSE.\n\nStep 6: Both (i) and (iv) must be selected.",
       "graph": {
         "type": "table",
         "title": "How People Watch Sport — by Age Group",
@@ -636,7 +636,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "0.4",
-      "markingGuide": "Minimum is 8% of 5 kg. 8% x 5 = 0.08 x 5 = 0.4 kg. Award mark for 0.4."
+      "markingGuide": "Step 1: Minimum is 8% of 5 kg.\n\nStep 2: 8% x 5 = 0.08 x 5 = 0.4 kg.\n\nStep 3: Award mark for 0.4."
     },
     {
       "id": "caa25-q5c",
@@ -673,7 +673,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "200",
-      "markingGuide": "Maximum depth from scale = 600 m. Sperm whale depth = 2/3 × 600 = 400 m. Beaked whale depth = 600 m. Difference = 600 - 400 = 200 m. Accept 200.",
+      "markingGuide": "Step 1: Maximum depth from scale = 600 m.\n\nStep 2: Sperm whale depth = 2/3 × 600 = 400 m.\n\nStep 3: Beaked whale depth = 600 m.\n\nStep 4: Difference = 600 - 400 = 200 m.\n\nStep 5: Accept 200.",
       "graph": {
         "type": "line",
         "title": "Ocean Depth Scale",
@@ -718,7 +718,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Yes — fish (50%) + squid (25%) = 75%, which is three quarters of the diet",
-      "markingGuide": "Student must read autumn/winter percentages and add them: fish 50% + squid 25% = 75%. This is well over half, so fish and squid are the clear majority of the diet. Accept either agree or disagree if justified with specific percentages.",
+      "markingGuide": "Student must read autumn/winter percentages and add them: fish 50% + squid 25% = 75%.\n\nThis is well over half, so fish and squid are the clear majority of the diet.\n\nAccept either agree or disagree if justified with specific percentages.\n\nFinal answer: Yes — fish (50%) + squid (25%) = 75%, which is three quarters of the diet.",
       "graph": {
         "type": "pie",
         "title": "Seal Diet — Autumn/Winter",
@@ -759,7 +759,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "2",
-      "markingGuide": "One-way distance = 5 × 8 km = 40 km. Round trip = 40 × 2 = 80 km. Time = distance / speed = 80 / 40 = 2 hours. Accept 2.",
+      "markingGuide": "Step 1: One-way distance = 5 × 8 km = 40 km.\n\nStep 2: Round trip = 40 × 2 = 80 km.\n\nStep 3: Time = distance / speed = 80 / 40 = 2 hours.\n\nStep 4: Accept 2.",
       "graph": {
         "type": "table",
         "title": "Map Scale",

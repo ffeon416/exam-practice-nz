@@ -8,8 +8,53 @@
   "timeMinutes": 60,
   "totalMarks": 8,
   "questions": [
-    { "id": "91240-2024-q1a", "number": "1(a)", "text": "Name the large natural environment you have studied this year. The environment can be in New Zealand or overseas and can be at a national, regional, or continental scale.\n\nExplain how your chosen large natural environment has been formed and how it continues to change over time.\n\nYou may include diagrams and maps in your answer.", "marks": 4, "gradeLevel": "excellence", "topics": ["natural-environment", "formation", "change"], "answerType": "text", "expectedAnswer": "Explains the natural processes that form the environment (tectonic, weathering, erosion, deposition, climatic) and how it has changed over geological and recent timescales.", "markingGuide": "Achievement: Explains aspects of formation and change with some evidence. Merit: Explains in detail with case study evidence. Excellence: Fully explains using geographic terminology and concepts, showing insight, with comprehensive evidence." },
-    { "id": "91240-2024-q1b", "number": "1(b)", "text": "Explain how one person or group's understanding of your chosen large natural environment has evolved over time. Consider how scientific knowledge, cultural values, or economic priorities have shaped their perspective.", "marks": 4, "gradeLevel": "excellence", "topics": ["natural-environment", "perspectives", "change"], "answerType": "text", "expectedAnswer": "Explains how perceptions have changed — e.g., from resource to be exploited to environment to be protected; from spiritual/cultural significance to scientific understanding; from economic asset to conservation priority.", "markingGuide": "Achievement: Describes how perception changes with some evidence. Merit: Explains in detail with case study evidence. Excellence: Explains with insight, integrating comprehensive evidence and geographic concepts." }
+    {
+      "id": "91240-2024-q1a",
+      "number": "1(a)",
+      "text": "Name the large natural environment you have studied this year. The environment can be in New Zealand or overseas and can be at a national, regional, or continental scale.\n\nExplain how your chosen large natural environment has been formed and how it continues to change over time.\n\nYou may include diagrams and maps in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "natural-environment",
+        "formation",
+        "change"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explains the natural processes that form the environment (tectonic, weathering, erosion, deposition, climatic) and how it has changed over geological and recent timescales.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains aspects of formation and change with some evidence.\n\nFor Merit:\n- Explains in detail with case study evidence.\n\nFor Excellence:\n- Fully explains using geographic terminology and concepts, showing insight, with comprehensive evidence."
+    },
+    {
+      "id": "91240-2024-q1b",
+      "number": "1(b)",
+      "text": "Explain how one person or group's understanding of your chosen large natural environment has evolved over time. Consider how scientific knowledge, cultural values, or economic priorities have shaped their perspective.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "natural-environment",
+        "perspectives",
+        "change"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Explains how perceptions have changed — e.g., from resource to be exploited to environment to be protected; from spiritual/cultural significance to scientific understanding; from economic asset to conservation priority.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes how perception changes with some evidence.\n\nFor Merit:\n- Explains in detail with case study evidence.\n\nFor Excellence:\n- Explains with insight, integrating comprehensive evidence and geographic concepts."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

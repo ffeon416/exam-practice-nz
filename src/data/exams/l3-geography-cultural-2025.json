@@ -14,10 +14,14 @@
       "text": "Name a geographic environment AND a cultural process to use to answer both parts of the question.\n\nUse the space provided to draw an annotated map(s) and/or diagram(s) to explain how your chosen cultural process has shaped your chosen geographic environment.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["cultural-process", "geographic-environment", "annotated-diagram"],
+      "topics": [
+        "cultural-process",
+        "geographic-environment",
+        "annotated-diagram"
+      ],
       "answerType": "text",
       "expectedAnswer": "Draw annotated map/diagram explaining how a named cultural process has shaped a named geographic environment.",
-      "markingGuide": "Not Achieved (N1-N2): Includes some relevant description of the cultural process with little or no evidence. Does not adequately analyse. Achievement (A3-A4): Includes some supporting case study evidence. Partially analyses how the cultural process has shaped the environment. Merit (M5-M6): Includes detailed supporting case study evidence. Analyses in detail how the operation of the cultural process has shaped the natural or cultural environment. Excellence (E7-E8): Insightful analysis with comprehensive, integrated case study evidence throughout."
+      "markingGuide": "Not\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Includes some relevant description of the cultural process with little or no evidence.\n- Does not adequately analyse.\n\nFor Achievement:\n- Includes some supporting case study evidence.\n- Partially analyses how the cultural process has shaped the environment.\n\nFor Merit:\n- Includes detailed supporting case study evidence.\n- Analyses in detail how the operation of the cultural process has shaped the natural or cultural environment.\n\nFor Excellence:\n- Insightful analysis with comprehensive, integrated case study evidence throughout."
     },
     {
       "id": "91427-2025-q1b",
@@ -25,11 +29,32 @@
       "text": "How does the cultural process operate to create impacts on people in the geographic environment?\n\nYour response to part (b) should include:\n- how the operation of the cultural process has created impacts on people\n- links between the elements of the cultural process to draw conclusions\n- integrated comprehensive supporting case study evidence.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["cultural-process", "impacts-on-people", "case-study"],
+      "topics": [
+        "cultural-process",
+        "impacts-on-people",
+        "case-study"
+      ],
       "answerType": "text",
       "expectedAnswer": "Analyses how the cultural process impacts people in the geographic environment, drawing conclusions about links between elements.",
-      "markingGuide": "Not Achieved (N1-N2): Describes where or how people are impacted with little analysis. Achievement (A3-A4): Includes supporting case study evidence. Describes how the cultural process operates to create impacts on people. Merit (M5-M6): Includes detailed supporting case study evidence. Analyses how the cultural process creates impacts on people, drawing conclusions. Excellence (E7-E8): Insightful analysis. Integrates comprehensive evidence throughout and analyses the links between elements to draw conclusions about how the cultural process creates impacts on people."
+      "markingGuide": "Not\n\nWHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes where or how people are impacted with little analysis.\n\nFor Achievement:\n- Includes supporting case study evidence.\n- Describes how the cultural process operates to create impacts on people.\n\nFor Merit:\n- Includes detailed supporting case study evidence.\n- Analyses how the cultural process creates impacts on people, drawing conclusions.\n\nFor Excellence:\n- Insightful analysis.\n- Integrates comprehensive evidence throughout and analyses the links between elements to draw conclusions about how the cultural process creates impacts on people."
     }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

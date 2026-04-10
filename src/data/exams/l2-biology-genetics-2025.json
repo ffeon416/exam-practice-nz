@@ -55,10 +55,22 @@
         "xLabel": "Phenotype",
         "yLabel": "Expected number out of 16",
         "data": [
-          { "label": "Brown Long", "value": 9 },
-          { "label": "Brown Short", "value": 3 },
-          { "label": "White Long", "value": 3 },
-          { "label": "White Short", "value": 1 }
+          {
+            "label": "Brown Long",
+            "value": 9
+          },
+          {
+            "label": "Brown Short",
+            "value": 3
+          },
+          {
+            "label": "White Long",
+            "value": 3
+          },
+          {
+            "label": "White Short",
+            "value": 1
+          }
         ]
       },
       "expectedAnswer": "9:3:3:1 — 9 brown long : 3 brown short : 3 white long : 1 white short.",
@@ -78,7 +90,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Linked genes are located close together on the same chromosome and tend to be inherited together. Unlinked genes are on different chromosomes and assort independently. Crossing over during meiosis can separate linked genes, producing recombinant offspring at a lower frequency than expected from independent assortment.",
-      "markingGuide": "Achieved (A3-A4): Describes linked genes; unlinked genes; crossing over (accept annotated diagram); segregation. Merit (M5-M6): Explains how the process of crossing over influences the inheritance patterns of both linked and unlinked genes on the same chromosome; how the process of segregation influences inheritance patterns of both linked and unlinked genes; why the two species have different ratios. Excellence (E7-E8): Provides detailed discussion of the inheritance patterns of linked and unlinked genes with reference to the ratios in the source material for both species; the processes of crossing over and segregation, confidently linked to the observed ratios in each species."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes linked genes.\n- unlinked genes.\n- crossing over (accept annotated diagram).\n- segregation.\n\nFor Merit:\n- Explains how the process of crossing over influences the inheritance patterns of both linked and unlinked genes on the same chromosome.\n- how the process of segregation influences inheritance patterns of both linked and unlinked genes.\n- why the two species have different ratios.\n\nFor Excellence:\n- Provides detailed discussion of the inheritance patterns of linked and unlinked genes with reference to the ratios in the source material for both species.\n- the processes of crossing over and segregation, confidently linked to the observed ratios in each species."
     },
     {
       "id": "bg25-q2",
@@ -100,14 +112,26 @@
         "xLabel": "Population",
         "yLabel": "Heterozygosity Index",
         "data": [
-          { "label": "Northern islands (large pop.)", "value": 0.68 },
-          { "label": "Cook Strait (medium pop.)", "value": 0.52 },
-          { "label": "Brothers Island (small pop.)", "value": 0.21 },
-          { "label": "Mainland sanctuary", "value": 0.45 }
+          {
+            "label": "Northern islands (large pop.)",
+            "value": 0.68
+          },
+          {
+            "label": "Cook Strait (medium pop.)",
+            "value": 0.52
+          },
+          {
+            "label": "Brothers Island (small pop.)",
+            "value": 0.21
+          },
+          {
+            "label": "Mainland sanctuary",
+            "value": 0.45
+          }
         ]
       },
       "expectedAnswer": "Allele frequency: how common an allele is in a population. Gene pool: all the alleles present in a population. Genetic drift: random changes in allele frequency, more significant in small populations. Migration (gene flow) introduces new alleles, increasing genetic diversity.",
-      "markingGuide": "Achieved (A3-A4): Describes allele frequency; gene pool; genetic drift; natural selection; identify any ONE selection pressure (predation, temperature, food supply, habitat); population bottleneck; founder effect. Merit (M5-M6): Explains migration; genetic drift (must have idea of allele frequency increasing/fixed OR decreasing/lost) (accept founder or bottleneck effect explained as an example of genetic drift); effect of migration/genetic drift on small isolated populations; natural selection/mate selection (must have idea of allele frequency increasing/fixed OR decreasing/lost); why larger olive-green tuatara might be more successful in warm food-rich habitats; why smaller darker tuatara might be more successful in cooler exposed habitats. Excellence (E7-E8): Provides detailed discussion of how migration and genetic drift changed allele frequencies in the tuatara gene pool; the selection pressures that drive natural selection, in reference to the tuatara, and how it led to the different phenotypes seen across New Zealand populations."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes allele frequency.\n- gene pool.\n- genetic drift.\n- natural selection.\n- identify any ONE selection pressure (predation, temperature, food supply, habitat).\n- population bottleneck.\n- founder effect.\n\nFor Merit:\n- Explains migration.\n- genetic drift (must have idea of allele frequency increasing/fixed OR decreasing/lost) (accept founder or bottleneck effect explained as an example of genetic drift).\n- effect of migration/genetic drift on small isolated populations.\n- natural selection/mate selection (must have idea of allele frequency increasing/fixed OR decreasing/lost).\n- why larger olive-green tuatara might be more successful in warm food-rich habitats.\n- why smaller darker tuatara might be more successful in cooler exposed habitats.\n\nFor Excellence:\n- Provides detailed discussion of how migration and genetic drift changed allele frequencies in the tuatara gene pool.\n- the selection pressures that drive natural selection, in reference to the tuatara, and how it led to the different phenotypes seen across New Zealand populations."
     },
     {
       "id": "bg25-q3",
@@ -124,7 +148,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Multiple alleles: more than two alleles exist for a single gene at the same locus in a population. Child 1 expresses HLA-A2 only, so possible genotypes are HLA-A2/HLA-A2 (one A2 from each parent). Co-dominant alleles are both expressed when present together.",
-      "markingGuide": "Achieved (A3-A4): Describes multiple alleles; the possible genotypes of the parents; the possible genotypes of Child 1 OR a monohybrid Punnett square showing possible genotypes of Child 1; complete dominance; co-dominance; possible phenotypes OR genotypes of the offspring of Child 1 with an HLA-A3/HLA-A3 partner OR provides a Punnett square. Merit (M5-M6): Explains why Child 1 has a specific genotype (must mention alleles of gametes from BOTH parents); complete dominance with an example; co-dominance with an HLA allele example; how to use offspring phenotypes to deduce Child 1's genotype (must mention alleles of gametes from BOTH parents). Excellence (E7-E8): Provides detailed discussion linking the idea of co-dominance and complete dominance to discuss the genotype of Child 1, based on the parents' genotypes and phenotypes; of the possibility to determine the genotype of Child 1, based on the HLA types of his children, if his partner was HLA-A3/HLA-A3, and why such a determination cannot be guaranteed to be correct (must use parental gametes and offspring genotypes with ratios/percentages)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes multiple alleles.\n- the possible genotypes of the parents.\n- the possible genotypes of Child 1 OR a monohybrid Punnett square showing possible genotypes of Child 1.\n- complete dominance.\n- co-dominance.\n- possible phenotypes OR genotypes of the offspring of Child 1 with an HLA-A3/HLA-A3 partner OR provides a Punnett square.\n\nFor Merit:\n- Explains why Child 1 has a specific genotype (must mention alleles of gametes from BOTH parents).\n- complete dominance with an example.\n- co-dominance with an HLA allele example.\n- how to use offspring phenotypes to deduce Child 1's genotype (must mention alleles of gametes from BOTH parents).\n\nFor Excellence:\n- Provides detailed discussion linking the idea of co-dominance and complete dominance to discuss the genotype of Child 1, based on the parents' genotypes and phenotypes.\n- of the possibility to determine the genotype of Child 1, based on the HLA types of his children, if his partner was HLA-A3/HLA-A3, and why such a determination cannot be guaranteed to be correct (must use parental gametes and offspring genotypes with ratios/percentages)."
     }
   ],
   "totalMarks": 24,

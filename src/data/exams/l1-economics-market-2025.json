@@ -25,7 +25,7 @@
         "A place where only food is traded"
       ],
       "expectedAnswer": "Any situation where buyers and sellers interact to exchange goods or services",
-      "markingGuide": "The correct answer is 'Any situation where buyers and sellers interact to exchange goods or services'. A market is not limited to a physical location — it includes online markets, labour markets, and any arrangement where exchange occurs."
+      "markingGuide": "The correct answer is Any situation where buyers and sellers interact to exchange goods or services.\n\nHere's why:\nA market is not limited to a physical location — it includes online markets, labour markets, and any arrangement where exchange occurs."
     },
     {
       "id": "ecmk-q2",
@@ -44,7 +44,7 @@
         "Quantity demanded doubles"
       ],
       "expectedAnswer": "Quantity demanded decreases",
-      "markingGuide": "The correct answer is 'Quantity demanded decreases'. The law of demand states there is an inverse relationship between price and quantity demanded — as price rises, consumers buy less, ceteris paribus (all other things being equal).",
+      "markingGuide": "The correct answer is Quantity demanded decreases.\n\nHere's why:\nThe law of demand states there is an inverse relationship between price and quantity demanded — as price rises, consumers buy less, ceteris paribus (all other things being equal).",
       "graph": {
         "type": "line",
         "title": "Demand for Ice Cream in Auckland",
@@ -95,7 +95,7 @@
         "A decrease in the number of suppliers in the market"
       ],
       "expectedAnswer": "New technology that reduces production costs",
-      "markingGuide": "The correct answer is 'New technology that reduces production costs'. When production costs fall (e.g. through better technology), producers can supply more at every price level, shifting the supply curve to the right. The other options would all decrease supply (shift left)."
+      "markingGuide": "The correct answer is New technology that reduces production costs.\n\nHere's why:\nWhen production costs fall (e.g. through better technology), producers can supply more at every price level, shifting the supply curve to the right.\nThe other options would all decrease supply (shift left)."
     },
     {
       "id": "ecmk-q4",
@@ -107,7 +107,7 @@
         "scarcity-choice"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining scarcity: resources (land, labour, capital) are limited while wants are unlimited, so not everything can be produced or consumed. 1 mark for a relevant NZ example, e.g. 'A family in Wellington has a limited weekly budget of $250 for groceries. They cannot buy everything they want, so they must choose between buying organic produce or cheaper conventional items.' Other valid examples: choosing between spending on a ski trip to Ruapehu or saving for a new phone; NZ government choosing between funding healthcare or education with limited tax revenue."
+      "markingGuide": "1 mark for explaining scarcity: resources (land, labour, capital) are limited while wants are unlimited, so not everything can be produced or consumed.\n\n1 mark for a relevant NZ example, e.g. 'A family in Wellington has a limited weekly budget of $250 for groceries.\n\nThey cannot buy everything they want, so they must choose between buying organic produce or cheaper conventional items.' Other valid examples: choosing between spending on a ski trip to Ruapehu or saving for a new phone;.\n\nNZ government choosing between funding healthcare or education with limited tax revenue."
     },
     {
       "id": "ecmk-q5",
@@ -126,7 +126,7 @@
         "The cost of borrowing money from a bank"
       ],
       "expectedAnswer": "The next best alternative given up when a choice is made",
-      "markingGuide": "The correct answer is 'The next best alternative given up when a choice is made'. Opportunity cost is a fundamental economic concept — because resources are scarce, choosing one option means sacrificing the next best alternative. It is not simply a monetary cost."
+      "markingGuide": "The correct answer is The next best alternative given up when a choice is made.\n\nHere's why:\nOpportunity cost is a fundamental economic concept — because resources are scarce, choosing one option means sacrificing the next best alternative.\nIt is not simply a monetary cost."
     },
     {
       "id": "ecmk-q6",
@@ -138,7 +138,7 @@
         "scarcity-choice"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying the opportunity cost: the income and benefits from milk production that the farmer gives up by switching to avocados. 1 mark for explaining this in context: e.g. 'The opportunity cost is the revenue from milk sales, the established relationships with Fonterra, and the steady income stream the farmer would have earned. The farmer must weigh the potential future profits from avocados against this lost milk income.' Accept references to the time it takes for avocado trees to mature (3-5 years with no fruit income)."
+      "markingGuide": "1 mark for identifying the opportunity cost: the income and benefits from milk production that the farmer gives up by switching to avocados.\n\n1 mark for explaining this in context: e.g. 'The opportunity cost is the revenue from milk sales, the established relationships with Fonterra, and the steady income stream the farmer would have earned.\n\nThe farmer must weigh the potential future profits from avocados against this lost milk income.' Accept references to the time it takes for avocado trees to mature (3-5 years with no fruit income)."
     },
     {
       "id": "ecmk-q7",
@@ -157,7 +157,7 @@
         "Consumers start buying more at the same price"
       ],
       "expectedAnswer": "Producers lower their prices to sell the excess stock, moving toward equilibrium",
-      "markingGuide": "The correct answer is 'Producers lower their prices to sell the excess stock, moving toward equilibrium'. When quantity supplied exceeds quantity demanded (surplus), producers have unsold stock. They reduce prices to attract buyers. As prices fall, quantity demanded increases and quantity supplied decreases until equilibrium is reached.",
+      "markingGuide": "The correct answer is Producers lower their prices to sell the excess stock, moving toward equilibrium.\n\nHere's why:\nWhen quantity supplied exceeds quantity demanded (surplus), producers have unsold stock.\nThey reduce prices to attract buyers.\nAs prices fall, quantity demanded increases and quantity supplied decreases until equilibrium is reached.",
       "graph": {
         "type": "table",
         "title": "Market for Avocados — Weekly",
@@ -214,7 +214,7 @@
         "government-role-l1"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for effect on workers: higher income for those who keep their jobs, increased spending power, improved standard of living. May also note some workers could lose hours or jobs if employers cut back. 1 mark for effect on employers: higher labour costs, may need to increase prices (e.g. a cafe in Tauranga raising coffee prices), reduce staff hours, hire fewer workers, or absorb the cost through lower profits. Merit-level answers will discuss both positive and negative effects rather than just one side."
+      "markingGuide": "1 mark for effect on workers: higher income for those who keep their jobs, increased spending power, improved standard of living.\n\nMay also note some workers could lose hours or jobs if employers cut back.\n\n1 mark for effect on employers: higher labour costs, may need to increase prices (e.g. a cafe in Tauranga raising coffee prices), reduce staff hours, hire fewer workers, or absorb the cost through lower profits.\n\nMerit-level answers will discuss both positive and negative effects rather than just one side."
     },
     {
       "id": "ecmk-q9",
@@ -233,7 +233,7 @@
         "The government only collects taxes but does not spend money"
       ],
       "expectedAnswer": "The government provides public goods, regulates markets, and redistributes income while private businesses also operate",
-      "markingGuide": "The correct answer is 'The government provides public goods, regulates markets, and redistributes income while private businesses also operate'. New Zealand has a mixed economy where both the private sector and government play roles. The government provides services like healthcare and education, regulates businesses (e.g. Commerce Commission), and redistributes income through taxes and benefits."
+      "markingGuide": "The correct answer is The government provides public goods, regulates markets, and redistributes income while private businesses also operate.\n\nHere's why:\nNew Zealand has a mixed economy where both the private sector and government play roles.\nThe government provides services like healthcare and education, regulates businesses (e.g. Commerce Commission), and redistributes income through taxes and benefits."
     },
     {
       "id": "ecmk-q10",
@@ -247,7 +247,7 @@
         "scarcity-choice"
       ],
       "answerType": "working",
-      "markingGuide": "4 marks total.\n\n1 mark — How the tax works: The tax increases the cost of producing/selling sugary drinks, which raises the price consumers pay. According to the law of demand, a higher price leads to a decrease in quantity demanded. Consumers may switch to cheaper alternatives like water or sugar-free drinks.\n\n1 mark — Consumer choice impact: Consumers now face a higher opportunity cost when choosing sugary drinks. The price signal encourages them to make healthier choices, reallocating their limited budget toward other goods.\n\n1 mark — ONE advantage: e.g. Reduced consumption of sugary drinks leads to improved public health, lower rates of obesity and diabetes, reduced long-term healthcare costs for the government (taxpayer savings). Or: tax revenue can fund health programmes or subsidise healthy food.\n\n1 mark — ONE disadvantage: e.g. The tax is regressive — it affects low-income families more because they spend a higher proportion of their income on food and drink. Or: producers and retailers may lose revenue and jobs. Or: consumers may switch to other unhealthy alternatives not covered by the tax. Or: it limits consumer freedom of choice (government intervention in personal decisions).\n\nExcellence-level responses will use economic terminology accurately, link concepts together, and evaluate the policy rather than just describe it.",
+      "markingGuide": "4 marks total.\n\n1 mark — How the tax works: The tax increases the cost of producing/selling sugary drinks, which raises the price consumers pay.\n\nAccording to the law of demand, a higher price leads to a decrease in quantity demanded.\n\nConsumers may switch to cheaper alternatives like water or sugar-free drinks.\n\n1 mark — Consumer choice impact: Consumers now face a higher opportunity cost when choosing sugary drinks.\n\nThe price signal encourages them to make healthier choices, reallocating their limited budget toward other goods.\n\n1 mark — ONE advantage: e.g. Reduced consumption of sugary drinks leads to improved public health, lower rates of obesity and diabetes, reduced long-term healthcare costs for the government (taxpayer savings).\n\nOr: tax revenue can fund health programmes or subsidise healthy food.\n\n1 mark — ONE disadvantage: e.g. The tax is regressive — it affects low-income families more because they spend a higher proportion of their income on food and drink.\n\nOr: producers and retailers may lose revenue and jobs.\n\nOr: consumers may switch to other unhealthy alternatives not covered by the tax.\n\nOr: it limits consumer freedom of choice (government intervention in personal decisions).\n\nExcellence-level responses will use economic terminology accurately, link concepts together, and evaluate the policy rather than just describe it.",
       "graph": {
         "type": "pie",
         "title": "Average NZ Household Weekly Spending Breakdown",

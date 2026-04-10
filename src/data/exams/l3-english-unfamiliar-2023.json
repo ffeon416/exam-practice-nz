@@ -14,9 +14,13 @@
       "text": "Read the poem provided (Text A — a poem about an evening ritual in a family kitchen).\n\nDiscuss how the writer explores the significance of everyday routines, referring to at least TWO specific aspects of written texts.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "unfamiliar-texts-l3", "poetry"],
+      "topics": [
+        "language-features",
+        "unfamiliar-texts-l3",
+        "poetry"
+      ],
       "answerType": "working",
-      "markingGuide": "ACHIEVED (3-4 marks): Develop a relevant critical discussion in response to the question, showing engagement with the text. Make and evaluate a range of relevant points showing understanding of how at least TWO aspects of the text have been crafted to create meaning. Include specific and relevant details from the text to support the discussion.\n\nMERIT (5-6 marks): Develop a convincing critical discussion showing informed engagement with the text. Make and evaluate relevant points showing convincing understanding of how at least TWO aspects have been crafted to create meaning. Begin to weave specific details from the text into the response to effectively support the discussion. Potentially link points to matters beyond the text.\n\nEXCELLENCE (7-8 marks): Develop a sophisticated or original critical discussion showing insightful engagement with the text. Make and evaluate relevant points showing perceptive understanding of how at least TWO aspects have been crafted to create meaning. Weave specific and judiciously chosen details into the response to effectively support and expand the discussion. Trace the development of ideas throughout the text and link points to other contexts such as human experience, society, and the wider world.\n\nRelevant aspects might include: audiences and purposes; ideas (e.g. comfort found in repetition, the sacred nature of the mundane, how domestic rituals anchor us in family and culture, the passage of time marked by small acts); language features (e.g. sensory imagery of food/warmth, present tense creating immediacy, enjambment suggesting flow and continuity, personal pronouns building intimacy); structures (e.g. cyclical structure mirroring routine, movement from specific detail to broader reflection, use of stanza breaks as pauses)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Develop a relevant critical discussion in response to the question, showing engagement with the text.\n- Make and evaluate a range of relevant points showing understanding of how at least TWO aspects of the text have been crafted to create meaning.\n- Include specific and relevant details from the text to support the discussion.\n\nFor Merit:\n- Develop a convincing critical discussion showing informed engagement with the text.\n- Make and evaluate relevant points showing convincing understanding of how at least TWO aspects have been crafted to create meaning.\n- Begin to weave specific details from the text into the response to effectively support the discussion.\n- Potentially link points to matters beyond the text.\n\nFor Excellence:\n- Develop a sophisticated or original critical discussion showing insightful engagement with the text.\n- Make and evaluate relevant points showing perceptive understanding of how at least TWO aspects have been crafted to create meaning.\n- Weave specific and judiciously chosen details into the response to effectively support and expand the discussion.\n- Trace the development of ideas throughout the text and link points to other contexts such as human experience, society, and the wider world.\n\nEXPLANATION / WORKED EXAMPLE:\n\nRelevant aspects might include: audiences and purposes;.\nideas (e.g. comfort found in repetition, the sacred nature of the mundane, how domestic rituals anchor us in family and culture, the passage of time marked by small acts);.\nlanguage features (e.g. sensory imagery of food/warmth, present tense creating immediacy, enjambment suggesting flow and continuity, personal pronouns building intimacy);.\nstructures (e.g. cyclical structure mirroring routine, movement from specific detail to broader reflection, use of stanza breaks as pauses)."
     },
     {
       "id": "eng74-23-q2",
@@ -24,9 +28,13 @@
       "text": "Read the passage provided (Text B — a personal essay about returning to a hometown after years away).\n\nDiscuss the ways the writer explores the tension between memory and reality, referring to at least TWO specific aspects of written texts.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "unfamiliar-texts-l3", "prose"],
+      "topics": [
+        "language-features",
+        "unfamiliar-texts-l3",
+        "prose"
+      ],
       "answerType": "working",
-      "markingGuide": "ACHIEVED (3-4 marks): Develop a relevant critical discussion in response to the question, showing engagement with the text. Make and evaluate a range of relevant points showing understanding of how at least TWO aspects of the text have been crafted to create meaning. Include specific and relevant details from the text to support the discussion.\n\nMERIT (5-6 marks): Develop a convincing critical discussion showing informed engagement with the text. Make and evaluate relevant points showing convincing understanding of how at least TWO aspects have been crafted to create meaning. Begin to weave specific details from the text into the response to effectively support the discussion. Potentially link points to matters beyond the text.\n\nEXCELLENCE (7-8 marks): Develop a sophisticated or original critical discussion showing insightful engagement with the text. Make and evaluate relevant points showing perceptive understanding of how at least TWO aspects have been crafted to create meaning. Weave specific and judiciously chosen details into the response to effectively support and expand the discussion. Trace the development of ideas throughout the text and link points to other contexts such as human experience, society, and the wider world.\n\nRelevant aspects might include: audiences and purposes; ideas (e.g. nostalgia versus disillusionment, the impossibility of going back, how places change while memories remain fixed, identity shaped by where we come from); language features (e.g. contrast between remembered and actual descriptions, emotive language, metaphor connecting place to self, shifts in tense); structures (e.g. past/present alternation, journey as organising principle, building from anticipation to arrival to reflection)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Develop a relevant critical discussion in response to the question, showing engagement with the text.\n- Make and evaluate a range of relevant points showing understanding of how at least TWO aspects of the text have been crafted to create meaning.\n- Include specific and relevant details from the text to support the discussion.\n\nFor Merit:\n- Develop a convincing critical discussion showing informed engagement with the text.\n- Make and evaluate relevant points showing convincing understanding of how at least TWO aspects have been crafted to create meaning.\n- Begin to weave specific details from the text into the response to effectively support the discussion.\n- Potentially link points to matters beyond the text.\n\nFor Excellence:\n- Develop a sophisticated or original critical discussion showing insightful engagement with the text.\n- Make and evaluate relevant points showing perceptive understanding of how at least TWO aspects have been crafted to create meaning.\n- Weave specific and judiciously chosen details into the response to effectively support and expand the discussion.\n- Trace the development of ideas throughout the text and link points to other contexts such as human experience, society, and the wider world.\n\nEXPLANATION / WORKED EXAMPLE:\n\nRelevant aspects might include: audiences and purposes;.\nideas (e.g. nostalgia versus disillusionment, the impossibility of going back, how places change while memories remain fixed, identity shaped by where we come from);.\nlanguage features (e.g. contrast between remembered and actual descriptions, emotive language, metaphor connecting place to self, shifts in tense);.\nstructures (e.g. past/present alternation, journey as organising principle, building from anticipation to arrival to reflection)."
     },
     {
       "id": "eng74-23-q3",
@@ -34,15 +42,30 @@
       "text": "Refer to BOTH Text A and Text B.\n\nCompare how the writers explore the relationship between place and identity, referring to at least TWO specific aspects of written texts. You may refer to one or both texts in your response.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["language-features", "unfamiliar-texts-l3"],
+      "topics": [
+        "language-features",
+        "unfamiliar-texts-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "ACHIEVED (3-4 marks): Develop a relevant critical discussion in response to the question, showing engagement with the text(s). Make and evaluate a range of relevant points showing understanding of how at least TWO aspects of the text(s) have been crafted to create meaning. Include specific and relevant details from the text(s) to support the discussion.\n\nMERIT (5-6 marks): Develop a convincing critical discussion showing informed engagement with the text(s). Make and evaluate relevant points showing convincing understanding of how at least TWO aspects have been crafted to create meaning. Begin to weave specific details from the text(s) into the response to effectively support the discussion. Potentially link points to matters beyond the text(s).\n\nEXCELLENCE (7-8 marks): Develop a sophisticated or original critical discussion showing insightful engagement with the text(s). Make and evaluate relevant points showing perceptive understanding of how at least TWO aspects have been crafted to create meaning. Weave specific and judiciously chosen details into the response to effectively support and expand the discussion. Trace the development of ideas throughout the text(s) and link points to other contexts such as human experience, society, and the wider world.\n\nRelevant aspects might include: audiences and purposes; ideas (e.g. how both texts use specific places to explore belonging and selfhood — the kitchen as a site of continuity versus the hometown as a site of disruption; how physical spaces hold emotional significance; how identity is both anchored by and tested by place); language features (e.g. both writers use sensory detail but to different effect — warmth and comfort in the poem versus disorientation in the prose; personal pronouns create different relationships with the reader; emotive language in both but different registers); structures (e.g. the poem's cyclical form suggests security while the prose's linear journey suggests change; both move between the particular and the universal)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Develop a relevant critical discussion in response to the question, showing engagement with the text(s).\n- Make and evaluate a range of relevant points showing understanding of how at least TWO aspects of the text(s) have been crafted to create meaning.\n- Include specific and relevant details from the text(s) to support the discussion.\n\nFor Merit:\n- Develop a convincing critical discussion showing informed engagement with the text(s).\n- Make and evaluate relevant points showing convincing understanding of how at least TWO aspects have been crafted to create meaning.\n- Begin to weave specific details from the text(s) into the response to effectively support the discussion.\n- Potentially link points to matters beyond the text(s).\n\nFor Excellence:\n- Develop a sophisticated or original critical discussion showing insightful engagement with the text(s).\n- Make and evaluate relevant points showing perceptive understanding of how at least TWO aspects have been crafted to create meaning.\n- Weave specific and judiciously chosen details into the response to effectively support and expand the discussion.\n- Trace the development of ideas throughout the text(s) and link points to other contexts such as human experience, society, and the wider world.\n\nEXPLANATION / WORKED EXAMPLE:\n\nRelevant aspects might include: audiences and purposes;.\nideas (e.g. how both texts use specific places to explore belonging and selfhood — the kitchen as a site of continuity versus the hometown as a site of disruption;.\nhow physical spaces hold emotional significance;.\nhow identity is both anchored by and tested by place);.\nlanguage features (e.g. both writers use sensory detail but to different effect — warmth and comfort in the poem versus disorientation in the prose;.\npersonal pronouns create different relationships with the reader;.\nemotive language in both but different registers);.\nstructures (e.g. the poem's cyclical form suggests security while the prose's linear journey suggests change;.\nboth move between the particular and the universal)."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 7 },
-    "achieved": { "min": 8, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

@@ -20,7 +20,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Precis map with Marine Parade, Bluff Hill, Art Deco district, and Clive Square accurately located with appropriate mapping conventions.",
-      "markingGuide": "Achievement: Completes precis map using skills and geographic conventions with some accuracy. Features located approximately correctly. Title, north arrow, key, and symbols present. Merit: High level of accuracy in location of all features with detailed mapping conventions.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Completes precis map using skills and geographic conventions with some accuracy.\n- Features located approximately correctly.\n- Title, north arrow, key, and symbols present.\n\nFor Merit:\n- High level of accuracy in location of all features with detailed mapping conventions.",
       "graph": {
         "type": "table",
         "title": "Precis Map Features — Central Napier",
@@ -67,7 +67,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Natural features: coastal location, flat reclaimed land from earthquake uplift, Bluff Hill. Cultural features: Art Deco architecture built during reconstruction, grid street pattern, Marine Parade promenade.",
-      "markingGuide": "Achievement: Describes natural and cultural features. Merit: Describes in detail features that influenced development, showing understanding of change/pattern concepts."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes natural and cultural features.\n\nFor Merit:\n- Describes in detail features that influenced development, showing understanding of change/pattern concepts."
     },
     {
       "id": "91243-2024-q1bi",
@@ -95,7 +95,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identifies most significant change with detailed justification using geographic terminology.",
-      "markingGuide": "Achievement: Identifies most significant change. Merit: Identifies and justifies using geographic concepts. Excellence: Fully justifies using geographic terminology and evidence."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Identifies most significant change.\n\nFor Merit:\n- Identifies and justifies using geographic concepts.\n\nFor Excellence:\n- Fully justifies using geographic terminology and evidence."
     },
     {
       "id": "91243-2024-q1biv",
@@ -172,7 +172,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Discusses all three aspects of sustainability with specific evidence from Napier's Art Deco rebuild and heritage tourism, using geographic concepts such as change, interaction, and sustainability.",
-      "markingGuide": "Achievement: Shows understanding of ONE aspect of sustainability. Merit: Detailed understanding of TWO aspects with specific references. Excellence: Detailed understanding of all THREE aspects with interrelationships explained, geographic terminology, and comprehensive references."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Shows understanding of ONE aspect of sustainability.\n\nFor Merit:\n- Detailed understanding of TWO aspects with specific references.\n\nFor Excellence:\n- Detailed understanding of all THREE aspects with interrelationships explained, geographic terminology, and comprehensive references."
     }
   ],
   "cutScores": {

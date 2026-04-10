@@ -19,7 +19,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) Binomial because: fixed number of trials (n = 8), two outcomes (cycle/don't cycle), constant probability (p = 0.55), independent trials. (ii) P(X = 5) = C(8,5) × 0.55⁵ × 0.45³ = 56 × 0.05033 × 0.09113 = 0.2568. Accept 0.257."
+      "markingGuide": "Step 1: Achievement: (i) Binomial because: fixed number of trials (n = 8), two outcomes (cycle/don't cycle), constant probability (p = 0.55), independent trials.\n\nStep 2: (ii) P(X = 5) = C(8,5) × 0.55⁵ × 0.45³ = 56 × 0.05033 × 0.09113 = 0.2568.\n\nStep 3: Accept 0.257."
     },
     {
       "id": "st585-24-q1b",
@@ -32,7 +32,7 @@
         "expected-value-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Expected value: E(X) = np = 250 × 0.55 = 137.5 students. Standard deviation: σ = √(np(1 – p)) = √(250 × 0.55 × 0.45) = √61.875 ≈ 7.87."
+      "markingGuide": "Step 1: Achievement: Expected value: E(X) = np = 250 × 0.55 = 137.5 students.\n\nStep 2: Standard deviation: σ = √(np(1 – p)) = √(250 × 0.55 × 0.45) = √61.875 ≈ 7.87."
     },
     {
       "id": "st585-24-q1c",
@@ -45,7 +45,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: Need P(X > 160) where X = number of students who cycle. Using normal approximation X ~ N(137.5, 7.87²): z = (160 – 137.5)/7.87 = 22.5/7.87 ≈ 2.86. P(Z > 2.86) ≈ 0.0021 (≈ 0.2%). With continuity correction: z = (160.5 – 137.5)/7.87 ≈ 2.92, giving P ≈ 0.0018. Either approach acceptable. Must show clear working using the normal distribution."
+      "markingGuide": "Step 1: Merit: Need P(X > 160) where X = number of students who cycle.\n\nStep 2: Using normal approximation X ~ N(137.5, 7.87²): z = (160 – 137.5)/7.87 = 22.5/7.87 ≈ 2.86.\n\nStep 3: P(Z > 2.86) ≈ 0.0021 (≈ 0.2%).\n\nStep 4: With continuity correction: z = (160.5 – 137.5)/7.87 ≈ 2.92, giving P ≈ 0.0018.\n\nStep 5: Either approach acceptable.\n\nStep 6: Must show clear working using the normal distribution."
     },
     {
       "id": "st585-24-q2a",
@@ -58,7 +58,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) P(X ∪ Y) = P(X) + P(Y) - P(X ∩ Y), so 0.675 = 0.35 + 0.50 - P(X ∩ Y), P(X ∩ Y) = 0.175. (ii) P(X | Y) = P(X ∩ Y)/P(Y) = 0.175/0.50 = 0.35. (iii) P(X | Y) = 0.35 = P(X), so X and Y ARE independent. Alternatively: P(X) × P(Y) = 0.35 × 0.50 = 0.175 = P(X ∩ Y)."
+      "markingGuide": "Step 1: Achievement: (i) P(X ∪ Y) = P(X) + P(Y) - P(X ∩ Y), so 0.675 = 0.35 + 0.50 - P(X ∩ Y), P(X ∩ Y) = 0.175.\n\nStep 2: (ii) P(X | Y) = P(X ∩ Y)/P(Y) = 0.175/0.50 = 0.35.\n\nStep 3: (iii) P(X | Y) = 0.35 = P(X), so X and Y ARE independent.\n\nStep 4: Alternatively: P(X) × P(Y) = 0.35 × 0.50 = 0.175 = P(X ∩ Y)."
     },
     {
       "id": "st585-24-q2b",
@@ -71,7 +71,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) If R and S are mutually exclusive, P(R ∩ S) = 0. For independence, we need P(R ∩ S) = P(R) × P(S) = 0.25 × 0.35 = 0.0875. Since 0 ≠ 0.0875, they cannot be independent. Intuitively: if one event occurs, the other definitely cannot, so knowing one occurred gives information about the other. (ii) P(R | S) = P(R ∩ S)/P(S) = 0/0.35 = 0."
+      "markingGuide": "Step 1: Merit: (i) If R and S are mutually exclusive, P(R ∩ S) = 0.\n\nStep 2: For independence, we need P(R ∩ S) = P(R) × P(S) = 0.25 × 0.35 = 0.0875.\n\nStep 3: Since 0 ≠ 0.0875, they cannot be independent.\n\nStep 4: Intuitively: if one event occurs, the other definitely cannot, so knowing one occurred gives information about the other.\n\nStep 5: (ii) P(R | S) = P(R ∩ S)/P(S) = 0/0.35 = 0."
     },
     {
       "id": "st585-24-q3",
@@ -84,7 +84,7 @@
         "probability-concepts-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) P(X = 9) = e⁻¹² × 12⁹/9! ≈ 0.0874 (from tables or calculator). Merit: (ii) In 15 min, λ = 3. P(X ≤ 2) = P(0) + P(1) + P(2) = e⁻³(1 + 3 + 4.5) = 0.0498 × 8.5 = 0.4232. Excellence: (iii) P(X > 16) = 1 - P(X ≤ 16). Using Poisson tables with λ = 12: P(X ≤ 16) ≈ 0.8987, so P(X > 16) ≈ 0.1013 (about 10%)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) P(X = 9) = e⁻¹² × 12⁹/9! ≈ 0.0874 (from tables or calculator).\n\nFor Merit:\n- (ii) In 15 min, λ = 3.\n- P(X ≤ 2) = P(0) + P(1) + P(2) = e⁻³(1 + 3 + 4.5) = 0.0498 × 8.5 = 0.4232.\n\nFor Excellence:\n- (iii) P(X > 16) = 1 - P(X ≤ 16).\n- Using Poisson tables with λ = 12: P(X ≤ 16) ≈ 0.8987, so P(X > 16) ≈ 0.1013 (about 10%)."
     }
   ],
   "cutScores": {

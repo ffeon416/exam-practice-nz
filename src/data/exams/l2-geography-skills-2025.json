@@ -20,7 +20,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Precis map showing all five features with appropriate mapping conventions including title, north arrow, key.",
-      "markingGuide": "Achievement: Completes precis map with some accuracy. Merit: High level of accuracy, all features correctly located, detailed conventions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Completes precis map with some accuracy.\n\nFor Merit:\n- High level of accuracy, all features correctly located, detailed conventions."
     },
     {
       "id": "91243-2025-q1aii",
@@ -34,7 +34,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Describes temporal pattern of Singapore's urban area growth, land reclamation, or population change over time with specific data.",
-      "markingGuide": "Achievement: Describes the temporal pattern. Merit: Describes in detail with specific data and evidence."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes the temporal pattern.\n\nFor Merit:\n- Describes in detail with specific data and evidence."
     },
     {
       "id": "91243-2025-q1aiii",
@@ -48,7 +48,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Explains reasons for the pattern, e.g., government-led urban planning, strategic location on trade routes, investment in housing and infrastructure, attracting multinational corporations.",
-      "markingGuide": "Achievement: Explains reasons. Merit: Explains in detail with specific evidence. Excellence: Shows thorough understanding with insight."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains reasons.\n\nFor Merit:\n- Explains in detail with specific evidence.\n\nFor Excellence:\n- Shows thorough understanding with insight."
     },
     {
       "id": "91243-2025-q1aiv",
@@ -62,7 +62,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Events placed accurately on timeline in chronological order with appropriate title.",
-      "markingGuide": "Achievement: Places events with some accuracy. Merit: Places events with high accuracy, correctly labelled.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Places events with some accuracy.\n\nFor Merit:\n- Places events with high accuracy, correctly labelled.",
       "graph": {
         "type": "table",
         "title": "Key Events in Singapore's Development",
@@ -108,7 +108,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Three changes such as: land reclamation expanding the coastline, mangrove wetlands replaced by housing estates, traditional kampong villages replaced by high-rise public housing.",
-      "markingGuide": "Achievement: Three changes identified with location. Merit: Three changes described in detail."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Three changes identified with location.\n\nFor Merit:\n- Three changes described in detail."
     },
     {
       "id": "91243-2025-q1bii",
@@ -122,7 +122,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Explains significance of one change with specific examples and geographic concepts.",
-      "markingGuide": "Achievement: Explains significance. Merit: Explains in detail with specific examples. Excellence: Comprehensive explanation with insight."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains significance.\n\nFor Merit:\n- Explains in detail with specific examples.\n\nFor Excellence:\n- Comprehensive explanation with insight."
     },
     {
       "id": "91243-2025-q1c",
@@ -138,7 +138,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Discusses how Singapore's strategic location on the Strait of Malacca, combined with comprehensive government planning (HDB housing, port development, green city initiatives), has driven rapid urban transformation from a colonial trading post to a modern city-state.",
-      "markingGuide": "Achievement: Shows understanding of ONE concept. Merit: Detailed understanding of TWO concepts. Excellence: Comprehensive understanding of all concepts with interrelationships, geographic terminology, and specific references."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Shows understanding of ONE concept.\n\nFor Merit:\n- Detailed understanding of TWO concepts.\n\nFor Excellence:\n- Comprehensive understanding of all concepts with interrelationships, geographic terminology, and specific references."
     }
   ],
   "cutScores": {

@@ -14,7 +14,10 @@
       "text": "A historian finds a letter written by a Polynesian Advisory Committee member in 1975 protesting against the Dawn Raids. What type of source is this?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["source-types-l1", "dawn-raids-l1"],
+      "topics": [
+        "source-types-l1",
+        "dawn-raids-l1"
+      ],
       "answerType": "multi-choice",
       "options": [
         "A secondary source because it is old",
@@ -23,7 +26,7 @@
         "A primary source because it was written by a historian"
       ],
       "expectedAnswer": "A primary source because it was written by someone involved at the time",
-      "markingGuide": "The correct answer is 'A primary source because it was written by someone involved at the time'. The letter is a primary source because it was created during the events (the Dawn Raids of the 1970s) by someone who was directly involved. Primary sources provide first-hand evidence — the age of the source or whether it contains opinions does not determine whether it is primary or secondary."
+      "markingGuide": "The correct answer is A primary source because it was written by someone involved at the time.\n\nHere's why:\nThe letter is a primary source because it was created during the events (the Dawn Raids of the 1970s) by someone who was directly involved.\nPrimary sources provide first-hand evidence — the age of the source or whether it contains opinions does not determine whether it is primary or secondary."
     },
     {
       "id": "l1hs-q2",
@@ -31,7 +34,10 @@
       "text": "Which of the following questions would BEST help a historian assess the reliability of a source?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["source-analysis-l1", "reliability-bias-l1"],
+      "topics": [
+        "source-analysis-l1",
+        "reliability-bias-l1"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Is the source interesting to read?",
@@ -40,7 +46,7 @@
         "How long is the source?"
       ],
       "expectedAnswer": "Who created the source, when, and for what purpose?",
-      "markingGuide": "The correct answer is 'Who created the source, when, and for what purpose?'. Assessing reliability requires understanding the origin and context of a source. Knowing who created it reveals potential bias (e.g. a government official may present events differently from a protester). Knowing when it was created tells us if it was a first-hand account or written long after. Knowing the purpose (to inform, persuade, justify, entertain) helps us understand why certain information may be included or left out."
+      "markingGuide": "The correct answer is Who created the source, when, and for what purpose?.\n\nHere's why:\nAssessing reliability requires understanding the origin and context of a source.\nKnowing who created it reveals potential bias (e.g. a government official may present events differently from a protester).\nKnowing when it was created tells us if it was a first-hand account or written long after.\nKnowing the purpose (to inform, persuade, justify, entertain) helps us understand why certain information may be included or left out."
     },
     {
       "id": "l1hs-q3",
@@ -48,9 +54,13 @@
       "text": "Read Source A below:\n\n\"The raids were conducted in the early hours of the morning. Police and immigration officials would knock on doors — or sometimes break them down — demanding to see passports and visas. Pacific Island families, including New Zealand-born children, were terrified. People were taken from their beds and detained.\"\n— From an interview with a Samoan community leader, recorded in 1976.\n\nRead Source B below:\n\n\"The immigration checks were necessary to uphold the law. Overstayers had been given ample opportunity to regularise their status or return home. The enforcement operations were conducted professionally and targeted only those who had broken immigration law.\"\n— Statement by the Minister of Immigration, 1976.\n\nExplain why Sources A and B give such different accounts of the Dawn Raids.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["source-analysis-l1", "reliability-bias-l1", "dawn-raids-l1"],
+      "topics": [
+        "source-analysis-l1",
+        "reliability-bias-l1",
+        "dawn-raids-l1"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark: Identifies that the sources come from people with very different experiences and positions — Source A is from a Samoan community leader who experienced or witnessed the raids firsthand, while Source B is from a government minister who authorised and defended the policy. 1 mark: Explains how perspective affects the account — the community leader describes the fear and violence experienced by Pacific families (emotional language: 'terrified', 'break them down'), while the minister uses formal, distanced language ('enforcement operations', 'conducted professionally') to make the raids sound reasonable and lawful. 1 mark: Discusses purpose and bias — Source A aims to highlight injustice and the human impact of the raids (the community leader wants people to understand the harm caused). Source B aims to justify government actions and maintain public support (the minister wants to portray the raids as fair and legal). Neither source is 'wrong' — they reflect genuine but different perspectives on the same events. A strong answer may note that the Dawn Raids disproportionately targeted Pacific Islanders even though most overstayers were actually British or from other European countries, which suggests the government's claim of fair enforcement was misleading."
+      "markingGuide": "1 mark: Identifies that the sources come from people with very different experiences and positions — Source A is from a Samoan community leader who experienced or witnessed the raids firsthand, while Source B is from a government minister who authorised and defended the policy.\n\n1 mark: Explains how perspective affects the account — the community leader describes the fear and violence experienced by Pacific families (emotional language: 'terrified', 'break them down'), while the minister uses formal, distanced language ('enforcement operations', 'conducted professionally') to make the raids sound reasonable and lawful.\n\n1 mark: Discusses purpose and bias — Source A aims to highlight injustice and the human impact of the raids (the community leader wants people to understand the harm caused).\n\nSource B aims to justify government actions and maintain public support (the minister wants to portray the raids as fair and legal).\n\nNeither source is 'wrong' — they reflect genuine but different perspectives on the same events.\n\nA strong answer may note that the Dawn Raids disproportionately targeted Pacific Islanders even though most overstayers were actually British or from other European countries, which suggests the government's claim of fair enforcement was misleading."
     },
     {
       "id": "l1hs-q4",
@@ -58,9 +68,12 @@
       "text": "A photograph shows a large crowd gathered at Bastion Point (Takaparawhau) in Auckland in 1978, with protest banners visible.\n\nWhat makes a photograph useful as a historical source? Give ONE limitation of using photographs as evidence.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["source-analysis-l1", "bastion-point-l1"],
+      "topics": [
+        "source-analysis-l1",
+        "bastion-point-l1"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark for usefulness: Photographs are useful because they provide direct visual evidence of an event — they show what actually happened at a specific moment in time. A photograph of Bastion Point would show the scale of the protest (how many people attended), what the protesters looked like, what banners and messages they carried, and the physical setting. Photographs can reveal details that written accounts might miss or not describe. 1 mark for limitation: Photographs only capture a single moment and can be misleading about the wider event — a photo might show a calm scene but not the violent eviction that happened later (507 protesters were arrested on 25 May 1978). The photographer chooses what to include and exclude (framing), which can create bias. Photographs do not explain why people were there or what they were thinking/feeling — context is needed. Photos can also be staged or taken from angles that exaggerate or minimise the size of a crowd."
+      "markingGuide": "1 mark for usefulness: Photographs are useful because they provide direct visual evidence of an event — they show what actually happened at a specific moment in time.\n\nA photograph of Bastion Point would show the scale of the protest (how many people attended), what the protesters looked like, what banners and messages they carried, and the physical setting.\n\nPhotographs can reveal details that written accounts might miss or not describe.\n\n1 mark for limitation: Photographs only capture a single moment and can be misleading about the wider event — a photo might show a calm scene but not the violent eviction that happened later (507 protesters were arrested on 25 May 1978).\n\nThe photographer chooses what to include and exclude (framing), which can create bias.\n\nPhotographs do not explain why people were there or what they were thinking/feeling — context is needed.\n\nPhotos can also be staged or taken from angles that exaggerate or minimise the size of a crowd."
     },
     {
       "id": "l1hs-q5",
@@ -68,7 +81,10 @@
       "text": "In 1984, New Zealand declared itself nuclear-free, banning nuclear-powered and nuclear-armed ships from its waters. This policy was made law in the New Zealand Nuclear Free Zone, Disarmament, and Arms Control Act 1987.\n\nWhich of the following is a secondary source about the nuclear-free policy?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["source-types-l1", "nuclear-free-nz-l1"],
+      "topics": [
+        "source-types-l1",
+        "nuclear-free-nz-l1"
+      ],
       "answerType": "multi-choice",
       "options": [
         "A 1985 newspaper editorial arguing for the nuclear-free policy",
@@ -77,7 +93,7 @@
         "A protest poster from the 1984 'No Nukes' campaign"
       ],
       "expectedAnswer": "A 2010 university textbook chapter analysing New Zealand's nuclear-free movement",
-      "markingGuide": "The correct answer is 'A 2010 university textbook chapter analysing New Zealand's nuclear-free movement'. This is a secondary source because it was written well after the events by an author who researched and interpreted the nuclear-free movement using primary sources. The other options are all primary sources: the 1985 newspaper editorial was written at the time; Lange's Oxford Union speech was delivered during the events; the protest poster was created as part of the campaign itself."
+      "markingGuide": "The correct answer is A 2010 university textbook chapter analysing New Zealand's nuclear-free movement.\n\nHere's why:\nThis is a secondary source because it was written well after the events by an author who researched and interpreted the nuclear-free movement using primary sources.\nThe other options are all primary sources: the 1985 newspaper editorial was written at the time;.\nLange's Oxford Union speech was delivered during the events;.\nthe protest poster was created as part of the campaign itself."
     },
     {
       "id": "l1hs-q6",
@@ -85,9 +101,13 @@
       "text": "Read this extract from a government document:\n\n\"The overstayer problem in New Zealand has reached serious proportions. It is estimated that there are approximately 10,000 persons who have remained in New Zealand beyond the period of their permits. Firm but fair enforcement action is required.\"\n— New Zealand Immigration Division report, 1974.\n\nIdentify ONE example of bias or loaded language in this source. Explain how it might affect a historian's interpretation.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["reliability-bias-l1", "source-analysis-l1", "dawn-raids-l1"],
+      "topics": [
+        "reliability-bias-l1",
+        "source-analysis-l1",
+        "dawn-raids-l1"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying bias/loaded language. Examples: 'The overstayer problem' — framing overstaying as a 'problem' implies it is inherently negative and creates a sense of threat; 'reached serious proportions' — emotive language that exaggerates urgency; 'firm but fair' — this phrase attempts to pre-justify harsh actions as reasonable; the document does not distinguish between nationalities of overstayers or acknowledge the economic contribution of Pacific Island workers. 1 mark for explaining the effect on interpretation. A historian reading this document might initially accept the government's framing that overstaying was a major crisis requiring tough action. However, by recognising the loaded language and considering what the document leaves out (e.g. that British and other European overstayers were rarely targeted; that Pacific Island workers had been actively recruited by NZ employers), the historian can see that the document reflects the government's perspective and was likely written to justify a policy that disproportionately targeted Pacific peoples. This reminds historians to cross-reference government documents with accounts from affected communities."
+      "markingGuide": "1 mark for identifying bias/loaded language.\n\nExamples: 'The overstayer problem' — framing overstaying as a 'problem' implies it is inherently negative and creates a sense of threat;.\n\n'reached serious proportions' — emotive language that exaggerates urgency;.\n\n'firm but fair' — this phrase attempts to pre-justify harsh actions as reasonable;.\n\nthe document does not distinguish between nationalities of overstayers or acknowledge the economic contribution of Pacific Island workers.\n\n1 mark for explaining the effect on interpretation.\n\nA historian reading this document might initially accept the government's framing that overstaying was a major crisis requiring tough action.\n\nHowever, by recognising the loaded language and considering what the document leaves out (e.g. that British and other European overstayers were rarely targeted;.\n\nthat Pacific Island workers had been actively recruited by NZ employers), the historian can see that the document reflects the government's perspective and was likely written to justify a policy that disproportionately targeted Pacific peoples.\n\nThis reminds historians to cross-reference government documents with accounts from affected communities."
     },
     {
       "id": "l1hs-q7",
@@ -95,9 +115,13 @@
       "text": "Explain why it is important for historians to use MULTIPLE sources when studying a historical event. Use the example of the Bastion Point occupation (1977–1978) to support your answer.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["source-analysis-l1", "bastion-point-l1", "comparing-sources-l1"],
+      "topics": [
+        "source-analysis-l1",
+        "bastion-point-l1",
+        "comparing-sources-l1"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark: Explains the general principle — using multiple sources allows historians to build a fuller, more balanced picture of an event by seeing it from different viewpoints. No single source tells the complete story. 1 mark: Identifies different types of sources available for Bastion Point — government documents (e.g. Auckland City Council plans to develop the land for housing), protest statements from Ngāti Whātua (explaining their ancestral connection to the land and the history of Crown confiscation), newspaper articles from 1977–78, photographs and film footage of the 506-day occupation and the eviction, oral histories from those who were there. 1 mark: Explains how different sources would give different perspectives — government sources would emphasise the legal right to develop the land and the need to enforce the law; Ngāti Whātua sources would explain their whakapapa connection to Takaparawhau and the injustice of the 1886 confiscation; media sources might focus on the dramatic eviction (600 police and army personnel removed protesters on 25 May 1978). 1 mark: Evaluates why comparison matters — by comparing sources, historians can identify where accounts agree (strengthening reliability) and where they disagree (revealing bias or gaps). For Bastion Point, comparing Māori oral histories with government documents reveals that the 'development' was actually a continuation of land alienation that began in the 1860s — something the government documents alone would not make clear. The Waitangi Tribunal later found in favour of Ngāti Whātua (1987), and the land was returned in 1988."
+      "markingGuide": "1 mark: Explains the general principle — using multiple sources allows historians to build a fuller, more balanced picture of an event by seeing it from different viewpoints.\n\nNo single source tells the complete story.\n\n1 mark: Identifies different types of sources available for Bastion Point — government documents (e.g. Auckland City Council plans to develop the land for housing), protest statements from Ngāti Whātua (explaining their ancestral connection to the land and the history of Crown confiscation), newspaper articles from 1977–78, photographs and film footage of the 506-day occupation and the eviction, oral histories from those who were there.\n\n1 mark: Explains how different sources would give different perspectives — government sources would emphasise the legal right to develop the land and the need to enforce the law;.\n\nNgāti Whātua sources would explain their whakapapa connection to Takaparawhau and the injustice of the 1886 confiscation;.\n\nmedia sources might focus on the dramatic eviction (600 police and army personnel removed protesters on 25 May 1978).\n\n1 mark: Evaluates why comparison matters — by comparing sources, historians can identify where accounts agree (strengthening reliability) and where they disagree (revealing bias or gaps).\n\nFor Bastion Point, comparing Māori oral histories with government documents reveals that the 'development' was actually a continuation of land alienation that began in the 1860s — something the government documents alone would not make clear.\n\nThe Waitangi Tribunal later found in favour of Ngāti Whātua (1987), and the land was returned in 1988."
     },
     {
       "id": "l1hs-q8",
@@ -105,15 +129,32 @@
       "text": "Study the following three sources about the sinking of the Rainbow Warrior in Auckland Harbour on 10 July 1985:\n\nSource 1: \"At about 11:50 pm, a massive explosion ripped through the Rainbow Warrior. Crew members were thrown from their bunks. Photographer Fernando Pereira went below to save his camera equipment and drowned when a second bomb exploded.\"\n— Auckland Star newspaper report, 11 July 1985.\n\nSource 2: \"The operation was approved at the highest levels of the French government. It was a necessary action to prevent Greenpeace from interfering with French nuclear testing at Moruroa Atoll.\"\n— Statement attributed to a French intelligence (DGSE) official, published in Le Monde, 1986.\n\nSource 3: \"The bombing of the Rainbow Warrior was an act of state-sponsored terrorism on New Zealand soil. It was an attack not just on Greenpeace, but on New Zealand's sovereignty and our commitment to nuclear disarmament.\"\n— Prime Minister David Lange, 1985.\n\nUsing all three sources, explain what happened and why. Evaluate how useful and reliable each source is for understanding this event. Which source would be most valuable to a historian and why?",
       "marks": 6,
       "gradeLevel": "excellence",
-      "topics": ["source-analysis-l1", "reliability-bias-l1", "comparing-sources-l1", "nuclear-free-nz-l1"],
+      "topics": [
+        "source-analysis-l1",
+        "reliability-bias-l1",
+        "comparing-sources-l1",
+        "nuclear-free-nz-l1"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (1–2 marks): Describes what happened using the sources. Identifies that French agents bombed the Rainbow Warrior. Basic use of sources.\n\nMerit (3–4 marks): Analyses each source's usefulness and reliability. Source 1 (newspaper report): Useful because it provides factual details (time, what happened, Fernando Pereira's death) and was written immediately after the event. Reliable for factual details but journalists may not have known who was responsible at that early stage. Source 2 (French official): Very useful because it reveals the motive (preventing Greenpeace from disrupting nuclear tests) and confirms the bombing was authorised by the French government — this is effectively an admission. However, the phrase 'necessary action' is a self-justification that minimises the seriousness of bombing a civilian vessel in a foreign harbour. It was published in a French newspaper, possibly as a controlled leak. Source 3 (Lange): Useful for understanding the NZ government's response — the strong language ('state-sponsored terrorism', 'sovereignty') shows how seriously NZ took the attack. However, Lange was a politician with an agenda — he was promoting his nuclear-free policy and the bombing strengthened his position. The language is deliberately emotive.\n\nExcellence (5–6 marks): Evaluates which source is most valuable and demonstrates sophisticated understanding. A strong answer would argue that Source 2 is the most valuable because it provides evidence of French government responsibility and motive from the perpetrators themselves — this is rare in history and particularly significant because governments rarely admit to acts of state terrorism. However, it must be used cautiously because the language downplays the severity of the act. By comparing all three sources, a historian can reconstruct what happened (Source 1), why it happened (Source 2), and what it meant for NZ (Source 3). Together they are more valuable than any single source. May note that the French agents Alain Mafart and Dominique Prieur were caught, convicted of manslaughter, and sentenced — but were later released to France under international pressure, which added to NZ's sense of injustice."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes what happened using the sources.\n- Identifies that French agents bombed the Rainbow Warrior.\n- Basic use of sources.\n\nFor Merit:\n- Analyses each source's usefulness and reliability.\n- Source 1 (newspaper report): Useful because it provides factual details (time, what happened, Fernando Pereira's death) and was written immediately after the event.\n- Reliable for factual details but journalists may not have known who was responsible at that early stage.\n- Source 2 (French official): Very useful because it reveals the motive (preventing Greenpeace from disrupting nuclear tests) and confirms the bombing was authorised by the French government — this is effectively an admission.\n- However, the phrase 'necessary action' is a self-justification that minimises the seriousness of bombing a civilian vessel in a foreign harbour.\n- It was published in a French newspaper, possibly as a controlled leak.\n- Source 3 (Lange): Useful for understanding the NZ government's response — the strong language ('state-sponsored terrorism', 'sovereignty') shows how seriously NZ took the attack.\n- However, Lange was a politician with an agenda — he was promoting his nuclear-free policy and the bombing strengthened his position.\n- The language is deliberately emotive.\n\nFor Excellence:\n- Evaluates which source is most valuable and demonstrates sophisticated understanding.\n- A strong answer would argue that Source 2 is the most valuable because it provides evidence of French government responsibility and motive from the perpetrators themselves — this is rare in history and particularly significant because governments rarely admit to acts of state terrorism.\n- However, it must be used cautiously because the language downplays the severity of the act.\n- By comparing all three sources, a historian can reconstruct what happened (Source 1), why it happened (Source 2), and what it meant for NZ (Source 3).\n- Together they are more valuable than any single source.\n- May note that the French agents Alain Mafart and Dominique Prieur were caught, convicted of manslaughter, and sentenced — but were later released to France under international pressure, which added to NZ's sense of injustice."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 11 },
-    "merit": { "min": 12, "max": 16 },
-    "excellence": { "min": 17, "max": 20 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 11
+    },
+    "merit": {
+      "min": 12,
+      "max": 16
+    },
+    "excellence": {
+      "min": 17,
+      "max": 20
+    }
   }
 }

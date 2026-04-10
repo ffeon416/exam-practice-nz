@@ -14,11 +14,18 @@
       "text": "Which of the following structures is found in a plant cell but NOT in an animal cell?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["cells-biology"],
+      "topics": [
+        "cells-biology"
+      ],
       "answerType": "multi-choice",
-      "options": ["Cell membrane", "Nucleus", "Cell wall", "Mitochondria"],
+      "options": [
+        "Cell membrane",
+        "Nucleus",
+        "Cell wall",
+        "Mitochondria"
+      ],
       "expectedAnswer": "Cell wall",
-      "markingGuide": "The correct answer is Cell wall. Plant cells have a rigid cell wall made of cellulose that provides structural support. Animal cells only have a cell membrane. Both plant and animal cells contain a nucleus, cell membrane, and mitochondria. Exam tip: Remember the three structures unique to plant cells — cell wall, chloroplasts, and large central vacuole."
+      "markingGuide": "The correct answer is Cell wall.\n\nHere's why:\nPlant cells have a rigid cell wall made of cellulose that provides structural support.\nAnimal cells only have a cell membrane.\nBoth plant and animal cells contain a nucleus, cell membrane, and mitochondria.\nExam tip: Remember the three structures unique to plant cells — cell wall, chloroplasts, and large central vacuole."
     },
     {
       "id": "y10bio-q2",
@@ -26,11 +33,18 @@
       "text": "What is the function of chloroplasts in a plant cell?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["cells-biology"],
+      "topics": [
+        "cells-biology"
+      ],
       "answerType": "multi-choice",
-      "options": ["To store water and nutrients", "To carry out photosynthesis", "To control what enters and leaves the cell", "To provide energy through cellular respiration"],
+      "options": [
+        "To store water and nutrients",
+        "To carry out photosynthesis",
+        "To control what enters and leaves the cell",
+        "To provide energy through cellular respiration"
+      ],
       "expectedAnswer": "To carry out photosynthesis",
-      "markingGuide": "The correct answer is 'To carry out photosynthesis'. Chloroplasts contain the green pigment chlorophyll, which absorbs light energy and converts carbon dioxide and water into glucose and oxygen. The large vacuole stores water, the cell membrane controls entry/exit, and mitochondria carry out cellular respiration."
+      "markingGuide": "The correct answer is To carry out photosynthesis.\n\nHere's why:\nChloroplasts contain the green pigment chlorophyll, which absorbs light energy and converts carbon dioxide and water into glucose and oxygen.\nThe large vacuole stores water, the cell membrane controls entry/exit, and mitochondria carry out cellular respiration."
     },
     {
       "id": "y10bio-q3",
@@ -38,11 +52,18 @@
       "text": "In humans, DNA is found inside the nucleus of cells. Chromosomes are made of tightly coiled DNA. How many chromosomes does a normal human body cell contain?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["genetics-y10"],
+      "topics": [
+        "genetics-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["23", "46", "44", "92"],
+      "options": [
+        "23",
+        "46",
+        "44",
+        "92"
+      ],
       "expectedAnswer": "46",
-      "markingGuide": "The correct answer is 46. Human body cells contain 46 chromosomes arranged in 23 pairs. Sex cells (sperm and egg) contain only 23 chromosomes — half the normal number — so that when they combine at fertilisation, the resulting cell has 46. Exam tip: 23 pairs = 46 total. Don't confuse the number of pairs with the total number."
+      "markingGuide": "The correct answer is 46.\n\nHere's why:\nHuman body cells contain 46 chromosomes arranged in 23 pairs.\nSex cells (sperm and egg) contain only 23 chromosomes — half the normal number — so that when they combine at fertilisation, the resulting cell has 46.\nExam tip: 23 pairs = 46 total.\nDon't confuse the number of pairs with the total number."
     },
     {
       "id": "y10bio-q4",
@@ -50,11 +71,18 @@
       "text": "Which of the following is an example of an inherited trait?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["genetics-y10"],
+      "topics": [
+        "genetics-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["A scar on your knee from a bike accident", "Natural eye colour", "Being able to speak Te Reo Māori", "A suntan from spending time at the beach"],
+      "options": [
+        "A scar on your knee from a bike accident",
+        "Natural eye colour",
+        "Being able to speak Te Reo Māori",
+        "A suntan from spending time at the beach"
+      ],
       "expectedAnswer": "Natural eye colour",
-      "markingGuide": "The correct answer is 'Natural eye colour'. Inherited traits are determined by genes passed from parents to offspring through DNA. Eye colour is controlled by genes. A scar, language ability, and a suntan are all acquired characteristics — they result from environmental factors or learning, not from genes."
+      "markingGuide": "The correct answer is Natural eye colour.\n\nHere's why:\nInherited traits are determined by genes passed from parents to offspring through DNA.\nEye colour is controlled by genes.\nA scar, language ability, and a suntan are all acquired characteristics — they result from environmental factors or learning, not from genes."
     },
     {
       "id": "y10bio-q5",
@@ -62,11 +90,18 @@
       "text": "In a food chain: phytoplankton → krill → blue cod → bottlenose dolphin\n\nWhat would most likely happen to the blue cod population if a disease killed most of the krill?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["ecosystems-y10"],
+      "topics": [
+        "ecosystems-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["The blue cod population would increase because there is less competition", "The blue cod population would decrease because their food source is reduced", "The blue cod population would stay the same", "The blue cod population would increase because dolphins would have less to eat"],
+      "options": [
+        "The blue cod population would increase because there is less competition",
+        "The blue cod population would decrease because their food source is reduced",
+        "The blue cod population would stay the same",
+        "The blue cod population would increase because dolphins would have less to eat"
+      ],
       "expectedAnswer": "The blue cod population would decrease because their food source is reduced",
-      "markingGuide": "The correct answer is 'The blue cod population would decrease because their food source is reduced'. Krill are the primary food source for blue cod in this food chain. If krill numbers drop drastically, blue cod would have less food, leading to starvation and population decline. This would also affect the dolphins further up the chain. This demonstrates how changes at one trophic level cascade through an ecosystem."
+      "markingGuide": "The correct answer is The blue cod population would decrease because their food source is reduced.\n\nHere's why:\nKrill are the primary food source for blue cod in this food chain.\nIf krill numbers drop drastically, blue cod would have less food, leading to starvation and population decline.\nThis would also affect the dolphins further up the chain.\nThis demonstrates how changes at one trophic level cascade through an ecosystem."
     },
     {
       "id": "y10bio-q6",
@@ -74,9 +109,11 @@
       "text": "The human digestive system breaks food down so nutrients can be absorbed into the blood. Describe the role of TWO of the following organs in digestion: stomach, small intestine, large intestine.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["human-body-y10"],
+      "topics": [
+        "human-body-y10"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark for each organ correctly described (max 2). Stomach: produces hydrochloric acid and enzymes (e.g. pepsin) to break down proteins; churns food into a semi-liquid called chyme. Small intestine: where most chemical digestion and nutrient absorption occurs; enzymes from the pancreas and bile from the liver help break down fats, proteins, and carbohydrates; nutrients are absorbed through the intestinal wall (villi) into the blood. Large intestine: absorbs water and minerals from remaining undigested food; compacts waste into faeces. Exam tip: The small intestine is the main site of absorption — remember the villi increase the surface area for this."
+      "markingGuide": "1 mark for each organ correctly described (max 2).\n\nStomach: produces hydrochloric acid and enzymes (e.g. pepsin) to break down proteins;.\n\nchurns food into a semi-liquid called chyme.\n\nSmall intestine: where most chemical digestion and nutrient absorption occurs;.\n\nenzymes from the pancreas and bile from the liver help break down fats, proteins, and carbohydrates;.\n\nnutrients are absorbed through the intestinal wall (villi) into the blood.\n\nLarge intestine: absorbs water and minerals from remaining undigested food;.\n\ncompacts waste into faeces.\n\nExam tip: The small intestine is the main site of absorption — remember the villi increase the surface area for this."
     },
     {
       "id": "y10bio-q7",
@@ -84,9 +121,11 @@
       "text": "Explain how the human circulatory system and respiratory system work together to supply oxygen to body cells.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["human-body-y10"],
+      "topics": [
+        "human-body-y10"
+      ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the respiratory system's role: air is breathed into the lungs where oxygen passes (diffuses) from the alveoli into the blood in the surrounding capillaries. 1 mark for explaining the circulatory system's role: the heart pumps oxygenated blood through arteries to body cells, where oxygen is delivered and carbon dioxide is picked up; deoxygenated blood returns to the heart via veins and is pumped back to the lungs. Key concept: gas exchange occurs by diffusion — oxygen moves from high concentration (alveoli) to low concentration (blood/cells)."
+      "markingGuide": "1 mark for explaining the respiratory system's role: air is breathed into the lungs where oxygen passes (diffuses) from the alveoli into the blood in the surrounding capillaries.\n\n1 mark for explaining the circulatory system's role: the heart pumps oxygenated blood through arteries to body cells, where oxygen is delivered and carbon dioxide is picked up;.\n\ndeoxygenated blood returns to the heart via veins and is pumped back to the lungs.\n\nKey concept: gas exchange occurs by diffusion — oxygen moves from high concentration (alveoli) to low concentration (blood/cells)."
     },
     {
       "id": "y10bio-q8",
@@ -94,9 +133,12 @@
       "text": "A food web in a New Zealand forest includes the following organisms:\n- Leaves and seeds (producers)\n- Wētā and kererū (primary consumers)\n- Morepork/ruru (secondary consumer)\n- Stoats (introduced predator that eats wētā, kererū, and morepork eggs)\n\nExplain why the introduction of stoats has been so damaging to this food web. In your answer, discuss the impact on at least TWO native species.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["ecosystems-y10", "nz-ecology"],
+      "topics": [
+        "ecosystems-y10",
+        "nz-ecology"
+      ],
       "answerType": "working",
-      "markingGuide": "1 mark: Explains that stoats are an additional predator competing at multiple trophic levels — they prey on both primary consumers (wētā, kererū) and secondary consumers (morepork eggs), disrupting the natural food web balance. 1 mark: Discusses impact on specific native species — e.g. kererū populations decline because they evolved without mammalian predators and lack defensive behaviours; wētā are ground-dwelling and vulnerable to stoats hunting at night. 1 mark: Links to broader ecosystem effects — e.g. if kererū decline, seed dispersal is affected because kererū are one of the few birds large enough to swallow and spread the seeds of native trees like taraire and karaka; decline in morepork affects control of invertebrate populations. Exam tip: NZ native species are particularly vulnerable to introduced predators because they evolved in isolation without mammals (except bats). This is why Predator Free 2050 is so important."
+      "markingGuide": "1 mark: Explains that stoats are an additional predator competing at multiple trophic levels — they prey on both primary consumers (wētā, kererū) and secondary consumers (morepork eggs), disrupting the natural food web balance.\n\n1 mark: Discusses impact on specific native species — e.g. kererū populations decline because they evolved without mammalian predators and lack defensive behaviours;.\n\nwētā are ground-dwelling and vulnerable to stoats hunting at night.\n\n1 mark: Links to broader ecosystem effects — e.g. if kererū decline, seed dispersal is affected because kererū are one of the few birds large enough to swallow and spread the seeds of native trees like taraire and karaka;.\n\ndecline in morepork affects control of invertebrate populations.\n\nExam tip: NZ native species are particularly vulnerable to introduced predators because they evolved in isolation without mammals (except bats).\n\nThis is why Predator Free 2050 is so important."
     },
     {
       "id": "y10bio-q9",
@@ -104,9 +146,11 @@
       "text": "The Predator Free 2050 initiative aims to remove all introduced mammalian predators (rats, stoats, and possums) from New Zealand by 2050.\n\nExplain why this programme is important for New Zealand's native biodiversity. In your answer, include:\n• at least ONE specific example of a native species that would benefit\n• how removing predators would help that species\n• ONE challenge scientists might face in achieving this goal.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["nz-ecology"],
+      "topics": [
+        "nz-ecology"
+      ],
       "answerType": "working",
-      "markingGuide": "1 mark: Names a specific native species and explains why it is threatened — e.g. kiwi (only 2–5% of kiwi chicks survive to adulthood in areas with stoats; kiwi are flightless and nest on the ground making them vulnerable); or Hauraki Gulf seabirds; or native frogs (pepeketua); or lizards like tuatara. 1 mark: Explains how removing predators would help — e.g. without stoats, kiwi chick survival rates increase dramatically (as seen in predator-free sanctuaries like Zealandia where populations have rebounded); native bird populations could recover to naturally sustainable levels; forest ecosystems would recover as seed-dispersing birds return. 1 mark: Identifies a realistic challenge — e.g. the scale of New Zealand's terrain makes complete eradication extremely difficult; reinvasion from surrounding areas; some predators breed rapidly; developing species-specific toxins that don't harm native species; cost and long-term funding; public concerns about toxin use (e.g. 1080). 1 mark: Quality of explanation — links ideas together logically, shows understanding of ecological relationships, uses scientific vocabulary appropriately (e.g. biodiversity, ecosystem, predator-prey, endemic, conservation)."
+      "markingGuide": "1 mark: Names a specific native species and explains why it is threatened — e.g. kiwi (only 2–5% of kiwi chicks survive to adulthood in areas with stoats;.\n\nkiwi are flightless and nest on the ground making them vulnerable);.\n\nor Hauraki Gulf seabirds;.\n\nor native frogs (pepeketua);.\n\nor lizards like tuatara.\n\n1 mark: Explains how removing predators would help — e.g. without stoats, kiwi chick survival rates increase dramatically (as seen in predator-free sanctuaries like Zealandia where populations have rebounded);.\n\nnative bird populations could recover to naturally sustainable levels;.\n\nforest ecosystems would recover as seed-dispersing birds return.\n\n1 mark: Identifies a realistic challenge — e.g. the scale of New Zealand's terrain makes complete eradication extremely difficult;.\n\nreinvasion from surrounding areas;.\n\nsome predators breed rapidly;.\n\ndeveloping species-specific toxins that don't harm native species;.\n\ncost and long-term funding;.\n\npublic concerns about toxin use (e.g. 1080).\n\n1 mark: Quality of explanation — links ideas together logically, shows understanding of ecological relationships, uses scientific vocabulary appropriately (e.g. biodiversity, ecosystem, predator-prey, endemic, conservation)."
     },
     {
       "id": "y10bio-q10",
@@ -114,27 +158,86 @@
       "text": "A scientist studying the Hauraki Gulf marine ecosystem notices that overfishing of snapper has led to an increase in kina (sea urchin) populations. The kina have grazed large areas of kelp forest, creating 'kina barrens' — bare rock with very little other marine life.\n\nThe graph below shows estimated population changes in the Hauraki Gulf between 1990 and 2020.\n\n(a) Calculate the total percentage decrease in kelp cover from 1990 to 2020.\n\n(b) Using your knowledge of food webs and ecosystems, explain how the removal of one species (snapper) has led to such a large change in the ecosystem. Suggest what might happen if snapper populations were allowed to recover.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["ecosystems-y10", "nz-ecology"],
+      "topics": [
+        "ecosystems-y10",
+        "nz-ecology"
+      ],
       "answerType": "working",
       "graph": {
         "type": "line",
         "title": "Estimated Population Trends in the Hauraki Gulf (1990–2020)",
         "xLabel": "Year",
         "yLabel": "Relative Population Index",
-        "xValues": [1990, 1995, 2000, 2005, 2010, 2015, 2020],
+        "xValues": [
+          1990,
+          1995,
+          2000,
+          2005,
+          2010,
+          2015,
+          2020
+        ],
         "series": [
-          { "name": "Snapper", "values": [85, 70, 50, 35, 30, 28, 25], "color": "#3b82f6" },
-          { "name": "Kina", "values": [20, 30, 50, 70, 80, 85, 90], "color": "#ef4444" },
-          { "name": "Kelp cover", "values": [90, 80, 65, 45, 30, 20, 15], "color": "#22c55e" }
+          {
+            "name": "Snapper",
+            "values": [
+              85,
+              70,
+              50,
+              35,
+              30,
+              28,
+              25
+            ],
+            "color": "#3b82f6"
+          },
+          {
+            "name": "Kina",
+            "values": [
+              20,
+              30,
+              50,
+              70,
+              80,
+              85,
+              90
+            ],
+            "color": "#ef4444"
+          },
+          {
+            "name": "Kelp cover",
+            "values": [
+              90,
+              80,
+              65,
+              45,
+              30,
+              20,
+              15
+            ],
+            "color": "#22c55e"
+          }
         ]
       },
-      "markingGuide": "(a) 1 mark for correct calculation: Kelp dropped from 90 (1990) to 15 (2020). Decrease = 90 - 15 = 75. Percentage decrease = (75/90) × 100 ≈ 83.3%. Accept 83% or 83.3%. (b) 1 mark: Explains the trophic cascade — snapper are a key predator of kina; when snapper are overfished, there are fewer predators to control kina numbers, so the kina population increases rapidly. 1 mark: Explains the ecosystem impact — kina overgraze kelp forests, which are critical habitat; the loss of kelp creates 'barrens' that support far fewer species, reducing biodiversity. 1 mark: Predicts recovery — recovering snapper would eat more kina, allowing kelp to regrow and other species to return. Quality of scientific reasoning — uses terms like trophic cascade, keystone species, biodiversity. Exam tip: This is a real example from Auckland's Hauraki Gulf."
+      "markingGuide": "Step 1: (a) 1 mark for correct calculation: Kelp dropped from 90 (1990) to 15 (2020).\n\nStep 2: Decrease = 90 - 15 = 75.\n\nStep 3: Percentage decrease = (75/90) × 100 ≈ 83.3%.\n\nStep 4: Accept 83% or 83.3%.\n\nStep 5: (b) 1 mark: Explains the trophic cascade — snapper are a key predator of kina;.\n\nStep 6: when snapper are overfished, there are fewer predators to control kina numbers, so the kina population increases rapidly.\n\nStep 7: 1 mark: Explains the ecosystem impact — kina overgraze kelp forests, which are critical habitat;.\n\nStep 8: the loss of kelp creates 'barrens' that support far fewer species, reducing biodiversity.\n\nStep 9: 1 mark: Predicts recovery — recovering snapper would eat more kina, allowing kelp to regrow and other species to return.\n\nStep 10: Quality of scientific reasoning — uses terms like trophic cascade, keystone species, biodiversity.\n\nStep 11: Exam tip: This is a real example from Auckland's Hauraki Gulf."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 16 },
-    "excellence": { "min": 17, "max": 20 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 16
+    },
+    "excellence": {
+      "min": 17,
+      "max": 20
+    }
   }
 }

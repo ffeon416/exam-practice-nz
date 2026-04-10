@@ -19,7 +19,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Correctly sets up two-way table with Drama/No Drama vs Community Service/No Community Service. P(Drama only) = 0.45 - 0.10 = 0.35. Table values: Both = 0.10, Drama only = 0.35, Community Service only = 0.20, Neither = 0.35. Merit: All values correct with clear working shown.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correctly sets up two-way table with Drama/No Drama vs Community Service/No Community Service.\n- P(Drama only) = 0.45 - 0.10 = 0.35.\n- Table values: Both = 0.10, Drama only = 0.35, Community Service only = 0.20, Neither = 0.35.\n\nFor Merit:\n- All values correct with clear working shown.",
       "graph": {
         "type": "table",
         "title": "Given Information",
@@ -64,7 +64,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: For independence, P(Drama AND Sport) should equal P(Drama) × P(Sport). P(Drama) × P(Sport) = 0.45 × 0.30 = 0.135. P(Drama AND Sport) = 0.10. Since 0.10 ≠ 0.135, the events are NOT independent. Excellence: Clear logical reasoning with correct calculations, concluding that participation in drama clubs and community services are not independent — students in drama clubs are slightly less likely to also play a community service than would be expected if they were independent."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- For independence, P(Drama AND Sport) should equal P(Drama) × P(Sport).\n- P(Drama) × P(Sport) = 0.45 × 0.30 = 0.135.\n- P(Drama AND Sport) = 0.10.\n- Since 0.10 ≠ 0.135, the events are NOT independent.\n\nFor Excellence:\n- Clear logical reasoning with correct calculations, concluding that participation in drama clubs and community services are not independent — students in drama clubs are slightly less likely to also play a community service than would be expected if they were independent."
     },
     {
       "id": "st267-24-q2a",
@@ -77,7 +77,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Correct tree with branches: Iron Deficiency (0.05) / No Deficiency (0.95), then Test+ / Test- for each. Using 5,000: Iron Def = 250, No Def = 4,750. Iron Def & Test+ = 225, Iron Def & Test- = 25, No Def & Test+ = 380, No Def & Test- = 4,370.",
+      "markingGuide": "Step 1: Achievement: Correct tree with branches: Iron Deficiency (0.05) / No Deficiency (0.95), then Test+ / Test- for each.\n\nStep 2: Using 5,000: Iron Def = 250, No Def = 4,750.\n\nStep 3: Iron Def & Test+ = 225, Iron Def & Test- = 25, No Def & Test+ = 380, No Def & Test- = 4,370.",
       "graph": {
         "type": "table",
         "title": "Iron Deficiency Screening Rates",
@@ -113,7 +113,7 @@
         "probability-trees"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: P(Test+) = (225 + 380)/5000 = 605/5000 = 0.121. Merit: P(Iron Def | Test+) = 225/605 = 0.372 (approximately 37.2%). Working must show conditional probability calculation clearly. Common error: confusing P(Test+ | Iron Def) with P(Iron Def | Test+)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- P(Test+) = (225 + 380)/5000 = 605/5000 = 0.121.\n\nFor Merit:\n- P(Iron Def | Test+) = 225/605 = 0.372 (approximately 37.2%).\n- Working must show conditional probability calculation clearly.\n- Common error: confusing P(Test+ | Iron Def) with P(Iron Def | Test+)."
     },
     {
       "id": "st267-24-q2c",
@@ -126,7 +126,7 @@
         "risk-interpretation"
       ],
       "answerType": "text",
-      "markingGuide": "Excellence: Despite the test being 90% accurate, a positive result only means about a 37% chance of actually having iron deficiency. This is surprising because most people assume a 90% accurate test means a 90% chance of having the condition if you test positive. The low base rate (5%) means that the number of false positives from the large healthy population overwhelms the true positives. Implications: a single positive test should not be used for definitive diagnosis — follow-up blood work is needed. This demonstrates the base rate fallacy and why screening programmes must be carefully designed and communicated."
+      "markingGuide": "Excellence: Despite the test being 90% accurate, a positive result only means about a 37% chance of actually having iron deficiency.\n\nThis is surprising because most people assume a 90% accurate test means a 90% chance of having the condition if you test positive.\n\nThe low base rate (5%) means that the number of false positives from the large healthy population overwhelms the true positives.\n\nImplications: a single positive test should not be used for definitive diagnosis — follow-up blood work is needed.\n\nThis demonstrates the base rate fallacy and why screening programmes must be carefully designed and communicated."
     },
     {
       "id": "st267-24-q3a",
@@ -139,7 +139,7 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Risk for break group = 48/150 = 0.32 (32.0%). Risk for no-break group = 32/150 = 0.213 (21.3%).",
+      "markingGuide": "Step 1: Achievement: Risk for break group = 48/150 = 0.32 (32.0%).\n\nStep 2: Risk for no-break group = 32/150 = 0.213 (21.3%).",
       "graph": {
         "type": "table",
         "title": "Study Breaks and Test Performance",
@@ -178,7 +178,7 @@
         "risk-interpretation"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: Relative risk = 0.32/0.213 = 1.50. Interpretation: Students who took regular breaks were 1.50 times as likely to score above 70% as those who did not, meaning they had about 50% more chance of achieving a high score. Must include both the calculation and a correct contextual interpretation."
+      "markingGuide": "Step 1: Merit: Relative risk = 0.32/0.213 = 1.50.\n\nStep 2: Interpretation: Students who took regular breaks were 1.50 times as likely to score above 70% as those who did not, meaning they had about 50% more chance of achieving a high score.\n\nStep 3: Must include both the calculation and a correct contextual interpretation."
     }
   ],
   "cutScores": {

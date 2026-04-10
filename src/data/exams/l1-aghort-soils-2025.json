@@ -14,10 +14,13 @@
       "text": "Name a primary production system of your choice.\n\nHow is organic matter (such as compost) applied in your named primary production system?",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["soil-management", "primary-production"],
+      "topics": [
+        "soil-management",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describe how organic matter is applied, e.g. spread over the soil surface or incorporated into the topsoil.",
-      "markingGuide": "Achieved: Describes how organic matter is applied. Organic matter/compost can be applied by spreading it evenly over the soil surface using a spreader or by hand. On a horticultural property, compost may be dug or rotary-hoed into the topsoil before planting."
+      "markingGuide": "Achieved: Describes how organic matter is applied.\n\nOrganic matter/compost can be applied by spreading it evenly over the soil surface using a spreader or by hand.\n\nOn a horticultural property, compost may be dug or rotary-hoed into the topsoil before planting."
     },
     {
       "id": "91930-25-q1b",
@@ -25,10 +28,13 @@
       "text": "Explain how adding organic matter impacts soil properties.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["soil-properties", "soil-management"],
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
       "answerType": "text",
       "expectedAnswer": "Explain that organic matter changes soil properties by improving structure, water-holding capacity, and nutrient content.",
-      "markingGuide": "Merit: Explains how organic matter impacts soil properties. Organic matter improves soil structure by binding soil particles into aggregates (peds), creating a mix of macropores and micropores. This improves both drainage and water-holding capacity. Organic matter also increases the nutrient content of the soil as it is broken down by microorganisms. It can buffer soil pH changes. Dark-coloured organic matter absorbs heat, warming the soil and increasing the rate of biological activity."
+      "markingGuide": "Merit: Explains how organic matter impacts soil properties.\n\nOrganic matter improves soil structure by binding soil particles into aggregates (peds), creating a mix of macropores and micropores.\n\nThis improves both drainage and water-holding capacity.\n\nOrganic matter also increases the nutrient content of the soil as it is broken down by microorganisms.\n\nIt can buffer soil pH changes.\n\nDark-coloured organic matter absorbs heat, warming the soil and increasing the rate of biological activity."
     },
     {
       "id": "91930-25-q1c",
@@ -36,24 +42,64 @@
       "text": "The table below shows soil test results from a kiwifruit orchard over three years.\n\nJustify why soil tests should be carried out regularly as part of managing soil health.\n\nIn your answer consider:\n- chemical and biological soil properties\n- how regular monitoring can guide management decisions to improve plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["soil-properties", "soil-management", "primary-production"],
+      "topics": [
+        "soil-properties",
+        "soil-management",
+        "primary-production"
+      ],
       "answerType": "text",
       "graph": {
         "type": "table",
         "title": "Kiwifruit Orchard Soil Test Results (2022–2024)",
         "data": {
-          "headers": ["Property", "2022", "2023", "2024", "Optimal Range"],
+          "headers": [
+            "Property",
+            "2022",
+            "2023",
+            "2024",
+            "Optimal Range"
+          ],
           "rows": [
-            ["pH", "5.4", "5.6", "5.8", "5.8–6.5"],
-            ["Nitrogen (kg/ha)", "120", "95", "80", "100–150"],
-            ["Phosphorus (Olsen P)", "32", "28", "22", "25–35"],
-            ["Organic matter (%)", "3.8", "4.2", "4.5", "4.0–6.0"],
-            ["Earthworm count (/m²)", "85", "110", "140", "100+"]
+            [
+              "pH",
+              "5.4",
+              "5.6",
+              "5.8",
+              "5.8–6.5"
+            ],
+            [
+              "Nitrogen (kg/ha)",
+              "120",
+              "95",
+              "80",
+              "100–150"
+            ],
+            [
+              "Phosphorus (Olsen P)",
+              "32",
+              "28",
+              "22",
+              "25–35"
+            ],
+            [
+              "Organic matter (%)",
+              "3.8",
+              "4.2",
+              "4.5",
+              "4.0–6.0"
+            ],
+            [
+              "Earthworm count (/m²)",
+              "85",
+              "110",
+              "140",
+              "100+"
+            ]
           ]
         }
       },
       "expectedAnswer": "Justify by explaining that soil tests provide baseline and trend data about nutrient levels and pH.",
-      "markingGuide": "Achieved: Describes why soil tests should be carried out. Merit: Explains why soil tests should be carried out and relates this to management decisions. Excellence: Justifies why regular soil testing is essential, giving detailed reasons.\n\nSoil tests reveal the current nutrient status, pH, and organic matter content. Regular testing (annually or before each planting season) allows growers to track trends — e.g. whether pH is gradually dropping or whether nitrogen levels are declining. This data guides targeted management decisions such as applying specific fertilisers, adjusting lime rates, or increasing organic matter inputs. Without regular testing, growers may over-apply fertiliser (wasting money and risking nutrient leaching into waterways) or under-apply (leading to nutrient deficiency and poor plant growth). Regular testing demonstrates responsible soil stewardship (manaakitanga) by ensuring inputs match the soil's actual needs."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes why soil tests should be carried out.\n\nFor Merit:\n- Explains why soil tests should be carried out and relates this to management decisions.\n\nFor Excellence:\n- Justifies why regular soil testing is essential, giving detailed reasons.\n\nEXPLANATION / WORKED EXAMPLE:\n\nSoil tests reveal the current nutrient status, pH, and organic matter content.\nRegular testing (annually or before each planting season) allows growers to track trends — e.g. whether pH is gradually dropping or whether nitrogen levels are declining.\nThis data guides targeted management decisions such as applying specific fertilisers, adjusting lime rates, or increasing organic matter inputs.\nWithout regular testing, growers may over-apply fertiliser (wasting money and risking nutrient leaching into waterways) or under-apply (leading to nutrient deficiency and poor plant growth).\nRegular testing demonstrates responsible soil stewardship (manaakitanga) by ensuring inputs match the soil's actual needs."
     },
     {
       "id": "91930-25-q2a",
@@ -61,10 +107,12 @@
       "text": "A kiwifruit grower has clay-rich soil and is using mulch to improve their soil.\n\nDescribe how mulch is prepared and applied.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["soil-management"],
+      "topics": [
+        "soil-management"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describe the mulching process: organic materials such as bark chips, straw, or leaf litter are spread over the soil surface.",
-      "markingGuide": "Achieved: Describes how mulch is prepared and applied. Mulch can be made from a range of organic materials including bark chips, straw, grass clippings, or shredded prunings. It is spread evenly over the soil surface around the base of plants to a depth of 50–100 mm, avoiding direct contact with plant stems to prevent rot."
+      "markingGuide": "Achieved: Describes how mulch is prepared and applied.\n\nMulch can be made from a range of organic materials including bark chips, straw, grass clippings, or shredded prunings.\n\nIt is spread evenly over the soil surface around the base of plants to a depth of 50–100 mm, avoiding direct contact with plant stems to prevent rot."
     },
     {
       "id": "91930-25-q2b",
@@ -72,10 +120,13 @@
       "text": "How can applying mulch improve the biological properties of the soil?",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["soil-properties", "soil-management"],
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
       "answerType": "text",
       "expectedAnswer": "Explain that mulch provides habitat and food for soil organisms, increasing biological activity.",
-      "markingGuide": "Achieved: Describes how mulch improves biological properties. Merit: Explains how mulch improves biological properties with reference to soil organisms.\n\nMulch provides a food source for soil organisms such as earthworms, bacteria, and fungi. As these organisms break down the mulch, they release nutrients into the soil. The mulch layer also creates a moist, sheltered environment that is ideal for soil organisms to thrive. Earthworm activity is increased, which improves soil structure through tunnelling and mixing."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes how mulch improves biological properties.\n\nFor Merit:\n- Explains how mulch improves biological properties with reference to soil organisms.\n\nEXPLANATION / WORKED EXAMPLE:\n\nMulch provides a food source for soil organisms such as earthworms, bacteria, and fungi.\nAs these organisms break down the mulch, they release nutrients into the soil.\nThe mulch layer also creates a moist, sheltered environment that is ideal for soil organisms to thrive.\nEarthworm activity is increased, which improves soil structure through tunnelling and mixing."
     },
     {
       "id": "91930-25-q2c",
@@ -83,10 +134,14 @@
       "text": "The grower is considering replacing mulch with a synthetic weed mat and drip irrigation system.\n\nEvaluate the application of mulch, compared to using a weed mat and drip irrigation.\n\nIn your answer consider:\n- the long-term effects on the soil\n- plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["soil-management", "soil-properties", "primary-production"],
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Evaluate mulch vs weed mat/irrigation by comparing: mulch improves soil biology and structure, weed mat does not.",
-      "markingGuide": "Achieved: Describes how mulch differs from weed mat/irrigation. Merit: Explains how both management practices affect soil properties. Excellence: Evaluates the use of mulch by comparing it to weed mat and irrigation, including long-term effects.\n\nMulch improves soil biology, adds nutrients as it decomposes, improves structure, and reduces evaporation. Long-term, mulch builds organic matter, improving the soil's ability to support plant growth without additional inputs. However, mulch needs regular replacement and can harbour pests.\n\nA synthetic weed mat suppresses weeds effectively and reduces evaporation, but does not add nutrients or organic matter. Long-term, the soil beneath a weed mat may become biologically inactive. Drip irrigation provides precise water delivery but does not improve soil structure or biology.\n\nA system combining drip irrigation under organic mulch may provide the benefits of both approaches — weed suppression, moisture retention, and ongoing soil improvement."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes how mulch differs from weed mat/irrigation.\n\nFor Merit:\n- Explains how both management practices affect soil properties.\n\nFor Excellence:\n- Evaluates the use of mulch by comparing it to weed mat and irrigation, including long-term effects.\n\nEXPLANATION / WORKED EXAMPLE:\n\nMulch improves soil biology, adds nutrients as it decomposes, improves structure, and reduces evaporation.\nLong-term, mulch builds organic matter, improving the soil's ability to support plant growth without additional inputs.\nHowever, mulch needs regular replacement and can harbour pests.\n\nA synthetic weed mat suppresses weeds effectively and reduces evaporation, but does not add nutrients or organic matter.\nLong-term, the soil beneath a weed mat may become biologically inactive.\nDrip irrigation provides precise water delivery but does not improve soil structure or biology.\n\nA system combining drip irrigation under organic mulch may provide the benefits of both approaches — weed suppression, moisture retention, and ongoing soil improvement."
     },
     {
       "id": "91930-25-q3a",
@@ -94,10 +149,13 @@
       "text": "Name a primary production system.\n\nFor your primary production system, choose a management practice from the list below that may help to reduce soil erosion.\n- Contour ploughing\n- Planting shelter belts\n- Applying ground cover crops\n- Reducing stock numbers\n- Installing retaining walls\n\nWith reference to your chosen primary production system, describe how this management practice is carried out.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["soil-management", "primary-production"],
+      "topics": [
+        "soil-management",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describe how the chosen management practice is performed.",
-      "markingGuide": "Achieved: Describes how one listed management practice is performed. Example — planting shelter belts: rows of trees or shrubs are planted along boundaries or exposed ridges to reduce wind speed across the property. Species such as poplars, willows, or native species like tōtara may be used depending on the region and conditions."
+      "markingGuide": "Achieved: Describes how one listed management practice is performed.\n\nExample — planting shelter belts: rows of trees or shrubs are planted along boundaries or exposed ridges to reduce wind speed across the property.\n\nSpecies such as poplars, willows, or native species like tōtara may be used depending on the region and conditions."
     },
     {
       "id": "91930-25-q3b",
@@ -105,10 +163,13 @@
       "text": "How does this management practice improve one physical and one biological property of the soil?\n\nPhysical property:\n\nBiological property:",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["soil-properties", "soil-management"],
+      "topics": [
+        "soil-properties",
+        "soil-management"
+      ],
       "answerType": "text",
       "expectedAnswer": "Explain how the management practice impacts one physical AND one biological property.",
-      "markingGuide": "Achieved: Describes how a management practice impacts physical OR biological properties. Merit: Explains how a management practice impacts physical AND biological properties.\n\nExample — planting shelter belts:\nPhysical property: Shelter belts reduce wind erosion by lowering wind speed, keeping topsoil in place and maintaining soil structure.\nBiological property: The leaf litter from shelter belt trees adds organic matter to the soil, providing food for soil organisms and increasing decomposition rates."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes how a management practice impacts physical OR biological properties.\n\nFor Merit:\n- Explains how a management practice impacts physical AND biological properties.\n\nEXPLANATION / WORKED EXAMPLE:\n\nExample — planting shelter belts:\nPhysical property: Shelter belts reduce wind erosion by lowering wind speed, keeping topsoil in place and maintaining soil structure.\nBiological property: The leaf litter from shelter belt trees adds organic matter to the soil, providing food for soil organisms and increasing decomposition rates."
     },
     {
       "id": "91930-25-q3c",
@@ -116,16 +177,32 @@
       "text": "Choose a second management practice from the list in the question above.\n\nFor your chosen primary production system, which of your two management practices is more effective in reducing soil erosion?\n\nJustify why the grower should use this management practice with reference to plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["soil-management", "soil-properties", "primary-production"],
+      "topics": [
+        "soil-management",
+        "soil-properties",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describe the second practice, explain how it impacts soil properties, then justify which is more effective.",
-      "markingGuide": "Achieved: Describes a second management practice and its impact on soil properties. Merit: Explains how a management practice has a greater impact on soil properties. Excellence: Justifies why a named management practice is more effective, with reference to optimised production.\n\nExample — applying ground cover crops: Cover crops (e.g. clover, ryegrass) are planted between main crop rows or during fallow periods. Their roots physically hold soil in place, reducing both wind and water erosion. The plants also increase organic matter when they decompose. Compared to shelter belts, ground cover crops provide more immediate and comprehensive erosion protection across the entire soil surface rather than just at boundaries. However, shelter belts provide long-term wind protection without needing replanting each season. The most effective approach depends on the type of erosion — wind-dominated areas benefit more from shelter belts, while sloping areas with water erosion benefit more from ground cover."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes a second management practice and its impact on soil properties.\n\nFor Merit:\n- Explains how a management practice has a greater impact on soil properties.\n\nFor Excellence:\n- Justifies why a named management practice is more effective, with reference to optimised production.\n\nEXPLANATION / WORKED EXAMPLE:\n\nExample — applying ground cover crops: Cover crops (e.g. clover, ryegrass) are planted between main crop rows or during fallow periods.\nTheir roots physically hold soil in place, reducing both wind and water erosion.\nThe plants also increase organic matter when they decompose.\nCompared to shelter belts, ground cover crops provide more immediate and comprehensive erosion protection across the entire soil surface rather than just at boundaries.\nHowever, shelter belts provide long-term wind protection without needing replanting each season.\nThe most effective approach depends on the type of erosion — wind-dominated areas benefit more from shelter belts, while sloping areas with water erosion benefit more from ground cover."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 7 },
-    "achieved": { "min": 8, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

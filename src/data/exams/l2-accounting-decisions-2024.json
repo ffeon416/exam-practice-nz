@@ -66,7 +66,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Revenue: Sales $418,500 less sales returns ($13,200) = Net sales $405,300. Cost of goods sold section. Gross profit. Selling expenses. Administrative expenses. Net profit.",
-      "markingGuide": "V: Correct figures. S: Correct account names/stems. C: Correct classification. T: Correct two-step calculations (e.g., COGS). P: Correct layout, subtotals, and fit for purpose."
+      "markingGuide": "V: Correct figures.\n\nS: Correct account names/stems.\n\nC: Correct classification.\n\nT: Correct two-step calculations (e.g., COGS).\n\nP: Correct layout, subtotals, and fit for purpose."
     },
     {
       "id": "l2ad24-q2a-i",
@@ -141,7 +141,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Current liabilities: Accounts payable, GST payable, Accrued expenses. Non-current liabilities: Bank loan. Total liabilities.",
-      "markingGuide": "V: Correct figures. S: Correct account names. C: Correct current/non-current classification. T: Correct totals. P: Fit for purpose layout."
+      "markingGuide": "V: Correct figures.\n\nS: Correct account names.\n\nC: Correct current/non-current classification.\n\nT: Correct totals.\n\nP: Fit for purpose layout."
     },
     {
       "id": "l2ad24-q2e",

@@ -14,10 +14,31 @@
       "text": "Answer ONE of the following questions with reference to one or more classical art works or buildings. You must answer using paragraphs. Support your answer with evidence from one or more classical art works or buildings. Aim for a concise answer of no more than 4-5 pages.\n\nQuestion 1: Explain how a classical artist used composition and form to communicate meaning.\n\nQuestion 2: Explain how movement and emotion were portrayed in a classical art work.\n\nQuestion 3: How did the architectural features of a classical building reflect the values of its society?\n\nQuestion 4: In what ways did the cultural setting in which a classical art work was created shape its subject matter and style?",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["classical-art-works", "classical-architecture", "classical-society"],
+      "topics": [
+        "classical-art-works",
+        "classical-architecture",
+        "classical-society"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement (3-4 marks): Examine the significance of features of work(s) of art in the classical world. Use primary-source evidence, place the work(s) of art in their artistic and/or historical context, explain the features and effect of the work(s) of art, and draw conclusions. Knowledge and interpretation are at a basic level; specific evidence may be lacking. Merit (5-6 marks): Examine in-depth by giving an informed explanation of the features and effects of work(s) of art, drawing conclusions supported by primary-source evidence of specific relevance, and explaining a range of aspects/factors. Most parts include detail. Excellence (7-8 marks): Examine with perception by giving an explanation that shows insight into the features and effects of work(s) of art, drawing developed conclusions, e.g. how aesthetic features reflect the ideals of beauty held by the Greeks and/or Romans. Features may include aesthetic impact, reasons for similarities and differences, themes and patterns, and cultural expectations. All parts include detail with relevant, accurate, and consistently provided evidence."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Examine the significance of features of work(s) of art in the classical world.\n- Use primary-source evidence, place the work(s) of art in their artistic and/or historical context, explain the features and effect of the work(s) of art, and draw conclusions.\n- Knowledge and interpretation are at a basic level.\n- specific evidence may be lacking.\n\nFor Merit:\n- Examine in-depth by giving an informed explanation of the features and effects of work(s) of art, drawing conclusions supported by primary-source evidence of specific relevance, and explaining a range of aspects/factors.\n- Most parts include detail.\n\nFor Excellence:\n- Examine with perception by giving an explanation that shows insight into the features and effects of work(s) of art, drawing developed conclusions, e.g.\n- how aesthetic features reflect the ideals of beauty held by the Greeks and/or Romans.\n- Features may include aesthetic impact, reasons for similarities and differences, themes and patterns, and cultural expectations.\n- All parts include detail with relevant, accurate, and consistently provided evidence."
     }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

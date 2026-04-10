@@ -1,6 +1,6 @@
 {
   "id": "l3-physics-electrical-2024",
-  "title": "Level 3 Physics \u2014 Electrical Systems (91526) \u2014 2024",
+  "title": "Level 3 Physics — Electrical Systems (91526) — 2024",
   "level": 3,
   "standard": "91526",
   "year": 2024,
@@ -55,7 +55,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Switch open: voltmeter reads 48.0 V (no current, no voltage drop across internal resistance). Switch closed: voltmeter reads less than 48.0 V because current flows through the internal resistance, causing a voltage drop.",
-      "markingGuide": "Achievement: ONE correct statement. Merit: Complete answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct statement.\n\nFor Merit:\n- Complete answer."
     },
     {
       "id": "91526-24-q1c",
@@ -70,7 +70,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "During charging, the charger drives current against the battery EMF. Net EMF around the loop = 60.0 - 48.0 = 12.0 V. Total resistance = 14.0 + 0.800 = 14.8 ohm. Circuit current I = 12.0 / 14.8 = 0.811 A. Terminal voltage across the battery = EMF_battery + I x r_internal = 48.0 + (0.811 x 0.800) = 48.6 V.",
-      "markingGuide": "Achievement: One step correct. Merit: I correct. Excellence: V_terminal = 48.6 V."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One step correct.\n\nFor Merit:\n- I correct.\n\nFor Excellence:\n- V_terminal = 48.6 V."
     },
     {
       "id": "91526-24-q1d",
@@ -86,7 +86,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Initially: Light A glows brightly as capacitor charges (large current flows through it). Light B also glows but less brightly as it shares voltage with the resistor. After 10 seconds: capacitor is fully charged, no more current flows through A, so A goes dark. B continues to glow as current still flows through the resistor branch.",
-      "markingGuide": "Achievement: ONE correct observation. Merit: TWO correct observations. Excellence: ALL correct with explanations."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct observation.\n\nFor Merit:\n- TWO correct observations.\n\nFor Excellence:\n- ALL correct with explanations."
     },
     {
       "id": "91526-24-q2a",
@@ -115,7 +115,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Dphi = BA = 1.50 x 2.00 x 10^-4 = 3.00 x 10^-4 Wb. V = N x Dphi/Dt = 30 x 3.00 x 10^-4 / 0.250 = 0.0360 V.",
-      "markingGuide": "Achievement: One sub-calculation correct. Merit: V = 0.0360 V."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One sub-calculation correct.\n\nFor Merit:\n- V = 0.0360 V."
     },
     {
       "id": "91526-24-q2c",
@@ -130,7 +130,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "As the magnet enters: changing flux induces a current in the ring (Faraday's law). By Lenz's law, this current creates a magnetic field opposing the change, repelling the magnet and reducing its acceleration below g. As the magnet leaves: the flux is decreasing, so the induced current creates a field that attracts the magnet, again opposing the motion and reducing acceleration.",
-      "markingGuide": "Achievement: ONE correct statement. Merit: Explains opposition to motion. Excellence: Explains both entering and leaving."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct statement.\n\nFor Merit:\n- Explains opposition to motion.\n\nFor Excellence:\n- Explains both entering and leaving."
     },
     {
       "id": "91526-24-q2d",
@@ -146,7 +146,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Time constant tau = L/R = 0.500 / 2.50 = 0.200 s. After t = 0.500 s, t/tau = 0.500/0.200 = 2.50, so I(t) = I_max x (1 - e^(-2.50)) = I_max x (1 - 0.0821) = 0.9179 x I_max. I_max = V/R = 48.0/2.50 = 19.2 A. I(0.500) = 0.9179 x 19.2 = 17.6 A.",
-      "markingGuide": "Achievement: tau = 0.200 s OR I_max. Merit: Correct sub-calculations. Excellence: Correct I."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- tau = 0.200 s OR I_max.\n\nFor Merit:\n- Correct sub-calculations.\n\nFor Excellence:\n- Correct I."
     },
     {
       "id": "91526-24-q3a",
@@ -178,7 +178,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "X_L = 2 pi f L = 2 pi x 50.0 x 0.0800 = 25.13 ohm. tan theta = X_L/R = 25.13/50.0 = 0.5027. theta = 26.7 degrees. Source voltage leads current.",
-      "markingGuide": "Achievement: X_L = 25.1 ohm. Merit: theta calculated. Excellence: Complete with phasor diagram."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- X_L = 25.1 ohm.\n\nFor Merit:\n- theta calculated.\n\nFor Excellence:\n- Complete with phasor diagram."
     },
     {
       "id": "91526-24-q3c",
@@ -194,7 +194,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Removing the core decreases L, which decreases X_L, which decreases Z, which increases I, which increases power in the bulb. The lamp becomes brighter.",
-      "markingGuide": "Achievement: ONE step correct. Merit: Chain of reasoning. Excellence: Full explanation with power."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE step correct.\n\nFor Merit:\n- Chain of reasoning.\n\nFor Excellence:\n- Full explanation with power."
     },
     {
       "id": "91526-24-q3d",
@@ -210,7 +210,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "At resonance, X_L = X_C. The voltages across the inductor and capacitor are equal and opposite, so they cancel. Z = R (minimum impedance), so I is maximum. Therefore X_C must equal 25.1 ohm.",
-      "markingGuide": "Achievement: One correct statement. Merit: Two correct. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct statement.\n\nFor Merit:\n- Two correct.\n\nFor Excellence:\n- Full explanation."
     }
   ]
 }

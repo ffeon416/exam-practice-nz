@@ -14,9 +14,14 @@
       "text": "QUESTION ONE: Prose\n\nRead the passage provided (Text A — a short story about two neighbours who gradually form an unlikely bond over a shared fence).\n\nAnalyse how the writer shows us the way small gestures can build trust between strangers.\n\nSupport your answer with evidence from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["unfamiliar-texts", "language-features", "close-reading", "prose"],
+      "topics": [
+        "unfamiliar-texts",
+        "language-features",
+        "close-reading",
+        "prose"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Look for: how initial suspicion gives way to curiosity and warmth; how everyday objects (a plate of baking, a borrowed tool) take on symbolic weight; how dialogue shifts from polite formality to genuine openness; how setting details (the fence, the weather) mirror the emotional distance or closeness between characters."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology.\n- Show awareness that meaning has been deliberately crafted.\n- Include specific details from the text.\n\nFor Merit:\n- Convincingly address the question, presenting a reasoned discussion of one or more ideas.\n- Show awareness of deliberate crafting for a particular purpose.\n- Weave a range of specific details.\n\nFor Excellence:\n- Develop an insightful or original argument or interpretation.\n- Make judgments about how effects and meanings relate to the purpose of the text.\n- Look for: how initial suspicion gives way to curiosity and warmth.\n- how everyday objects (a plate of baking, a borrowed tool) take on symbolic weight.\n- how dialogue shifts from polite formality to genuine openness.\n- how setting details (the fence, the weather) mirror the emotional distance or closeness between characters."
     },
     {
       "id": "eng100-23-q2",
@@ -24,9 +29,14 @@
       "text": "QUESTION TWO: Poetry\n\nRead the poem provided (Text B — a poem about a river that runs through a small town).\n\nAnalyse how the poet conveys their sense of connection to a familiar place.\n\nSupport your answer with evidence from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["unfamiliar-texts", "language-features", "close-reading", "poetry"],
+      "topics": [
+        "unfamiliar-texts",
+        "language-features",
+        "close-reading",
+        "poetry"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Look for: the river as both a literal feature and a symbol of continuity or memory; sensory imagery connecting the speaker to the landscape; how the poem moves between past and present; personification of the river or town; how the rhythm or structure mirrors the flow of water; the comfort of familiarity set against awareness of change."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology.\n- Show awareness that meaning has been deliberately crafted.\n- Include specific details from the text.\n\nFor Merit:\n- Convincingly address the question, presenting a reasoned discussion of one or more ideas.\n- Show awareness of deliberate crafting for a particular purpose.\n- Weave a range of specific details.\n\nFor Excellence:\n- Develop an insightful or original argument or interpretation.\n- Make judgments about how effects and meanings relate to the purpose of the text.\n- Look for: the river as both a literal feature and a symbol of continuity or memory.\n- sensory imagery connecting the speaker to the landscape.\n- how the poem moves between past and present.\n- personification of the river or town.\n- how the rhythm or structure mirrors the flow of water.\n- the comfort of familiarity set against awareness of change."
     },
     {
       "id": "eng100-23-q3",
@@ -34,15 +44,32 @@
       "text": "QUESTION THREE: Non-fiction\n\nRead the passage provided (Text C — an opinion piece about the disappearance of local libraries).\n\nAnalyse how the writer argues that public spaces shape who we are.\n\nSupport your answer with evidence from the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["unfamiliar-texts", "language-features", "close-reading", "non-fiction"],
+      "topics": [
+        "unfamiliar-texts",
+        "language-features",
+        "close-reading",
+        "non-fiction"
+      ],
       "answerType": "working",
-      "markingGuide": "Achieved (3-4): Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology. Show awareness that meaning has been deliberately crafted. Include specific details from the text. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of one or more ideas. Show awareness of deliberate crafting for a particular purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument or interpretation. Make judgments about how effects and meanings relate to the purpose of the text. Look for: personal anecdote used to ground the argument in lived experience; rhetorical strategies such as inclusive pronouns, rhetorical questions, and emotive language; contrast between what libraries offer and what digital alternatives lack; how the writer builds from the personal to the societal; the library as a metaphor for community, equality, or belonging."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Engage with the text by addressing the question, exploring a relevant idea using analysis-related terminology.\n- Show awareness that meaning has been deliberately crafted.\n- Include specific details from the text.\n\nFor Merit:\n- Convincingly address the question, presenting a reasoned discussion of one or more ideas.\n- Show awareness of deliberate crafting for a particular purpose.\n- Weave a range of specific details.\n\nFor Excellence:\n- Develop an insightful or original argument or interpretation.\n- Make judgments about how effects and meanings relate to the purpose of the text.\n- Look for: personal anecdote used to ground the argument in lived experience.\n- rhetorical strategies such as inclusive pronouns, rhetorical questions, and emotive language.\n- contrast between what libraries offer and what digital alternatives lack.\n- how the writer builds from the personal to the societal.\n- the library as a metaphor for community, equality, or belonging."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

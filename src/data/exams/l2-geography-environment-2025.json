@@ -8,7 +8,38 @@
   "timeMinutes": 60,
   "totalMarks": 8,
   "questions": [
-    { "id": "91240-2025-q1", "number": "1", "text": "Name the large natural environment you have studied this year. The environment can be in New Zealand or overseas, and can be at a national, regional, or continental scale.\n\nName ONE distinctive characteristic of your chosen large natural environment. Natural characteristics include landforms, climate patterns, soil types, and vegetation communities.\n\nExplain how different natural elements and processes interact to produce this characteristic.\n\nYou may include diagrams and maps in your answer.", "marks": 8, "gradeLevel": "excellence", "topics": ["natural-environment", "interaction", "processes"], "answerType": "text", "expectedAnswer": "Names a characteristic and explains how multiple interacting processes (tectonic, climatic, hydrological, biological) create it.", "markingGuide": "Achievement: Describes how a characteristic results from interaction of elements/processes with some evidence. Merit: Explains in detail with case study evidence. Excellence: Fully explains interactions using geographic terminology, showing insight, with comprehensive evidence." }
+    {
+      "id": "91240-2025-q1",
+      "number": "1",
+      "text": "Name the large natural environment you have studied this year. The environment can be in New Zealand or overseas, and can be at a national, regional, or continental scale.\n\nName ONE distinctive characteristic of your chosen large natural environment. Natural characteristics include landforms, climate patterns, soil types, and vegetation communities.\n\nExplain how different natural elements and processes interact to produce this characteristic.\n\nYou may include diagrams and maps in your answer.",
+      "marks": 8,
+      "gradeLevel": "excellence",
+      "topics": [
+        "natural-environment",
+        "interaction",
+        "processes"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Names a characteristic and explains how multiple interacting processes (tectonic, climatic, hydrological, biological) create it.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes how a characteristic results from interaction of elements/processes with some evidence.\n\nFor Merit:\n- Explains in detail with case study evidence.\n\nFor Excellence:\n- Fully explains interactions using geographic terminology, showing insight, with comprehensive evidence."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

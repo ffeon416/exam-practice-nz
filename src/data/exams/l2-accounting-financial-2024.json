@@ -21,7 +21,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Reported as non-current asset (PPE) at $13,200 ($12,000 + $1,200 wiring/installation). Maintenance is an ongoing operating expense, not capital expenditure.",
-      "markingGuide": "A: Reports as non-current asset. M: Explains capital expenditure concept — costs to acquire and install. E: Justifies exclusion of maintenance as ongoing operating cost."
+      "markingGuide": "A: Reports as non-current asset.\n\nM: Explains capital expenditure concept — costs to acquire and install.\n\nE: Justifies exclusion of maintenance as ongoing operating cost."
     },
     {
       "id": "l2af24-q1b",
@@ -36,7 +36,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Liability characteristics: (1) present obligation from a past event (receiving the lighting repair service), (2) expected to result in an outflow of economic benefits (payment required), (3) amount can be reliably measured (invoice amount). Recognition criteria: probable outflow of economic benefits and reliable measurement are met.",
-      "markingGuide": "A: Identifies AP as liability. M: Explains characteristics — present obligation, past event, probable outflow, reliable measurement. E: Links to recognition criteria."
+      "markingGuide": "A: Identifies AP as liability.\n\nM: Explains characteristics — present obligation, past event, probable outflow, reliable measurement.\n\nE: Links to recognition criteria."
     },
     {
       "id": "l2af24-q2a",
@@ -65,7 +65,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Going concern assumes the entity will continue operating into the foreseeable future. Offering 12 and 24-month packages demonstrates Maia expects the business to operate for at least two more years. This assumption affects financial reporting — assets are reported at historical cost rather than liquidation value.",
-      "markingGuide": "A: Defines going concern. M: Links to long-term enrolment packages indicating continued operation. E: Discusses implications for financial reporting."
+      "markingGuide": "A: Defines going concern.\n\nM: Links to long-term enrolment packages indicating continued operation.\n\nE: Discusses implications for financial reporting."
     },
     {
       "id": "l2af24-q2c",
@@ -80,7 +80,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Entity concept: the business is separate from the owner. The 8 given as prizes ($160) are a business expense (marketing/promotion). The 2 given to flatmates and 2 kept by Maia ($80) are drawings — personal use by the owner, not a business expense. An expense must: decrease economic benefits, occur during the reporting period, and result in a decrease in equity other than owner withdrawals.",
-      "markingGuide": "A: Identifies some as expense, some as drawings. M: Applies entity concept. E: Fully explains expense characteristics and correct treatment of all 12 bottles."
+      "markingGuide": "A: Identifies some as expense, some as drawings.\n\nM: Applies entity concept.\n\nE: Fully explains expense characteristics and correct treatment of all 12 bottles."
     },
     {
       "id": "l2af24-q3a",
@@ -96,7 +96,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Reporting period: both years cover 12 months to 31 March, making comparison valid. Comparability: same accounting policies used in both years enable meaningful comparison. Revenue increased by $33,000 (16.9%) and profit by $13,000 (39.4%). Since profit is growing faster than expenses, the business is becoming more profitable. Maia may decide not to raise fees since profitability is already improving.",
-      "markingGuide": "A: Identifies reporting period and comparability. M: Applies to data. E: Discusses decision implications with specific figures.",
+      "markingGuide": "A: Identifies reporting period and comparability.\n\nM: Applies to data.\n\nE: Discusses decision implications with specific figures.",
       "graph": {
         "type": "bar",
         "title": "Maia's Dance Academy — Income Statement Comparison",
@@ -150,7 +150,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Faithful representation: Note shows the true amount expected to be collected ($4,074), complete and free from bias. Predictive value: the allowance helps predict future cash flows — Maia can expect to collect about $4,074, not $4,200. Limitation: the 3% estimate is based on past experience and may not reflect future bad debts, especially if the corporate client's financial situation changes.",
-      "markingGuide": "A: Identifies faithful representation. M: Explains predictive value with context. E: Discusses limitation of estimation."
+      "markingGuide": "A: Identifies faithful representation.\n\nM: Explains predictive value with context.\n\nE: Discusses limitation of estimation."
     }
   ],
   "cutScores": {

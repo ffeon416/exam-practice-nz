@@ -19,7 +19,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (105 - 95)/12 = 0.833. P(Z > 0.833) = 1 - P(Z < 0.833) ≈ 0.2023. (ii) z₁ = (80 - 95)/12 = -1.250, z₂ = (110 - 95)/12 = 1.250. P(-1.250 < Z < 1.250) = P(Z < 1.250) - P(Z < -1.250).",
+      "markingGuide": "Step 1: Achievement: (i) z = (105 - 95)/12 = 0.833.\n\nStep 2: P(Z > 0.833) = 1 - P(Z < 0.833) ≈ 0.2023.\n\nStep 3: (ii) z₁ = (80 - 95)/12 = -1.250, z₂ = (110 - 95)/12 = 1.250.\n\nStep 4: P(-1.250 < Z < 1.250) = P(Z < 1.250) - P(Z < -1.250).",
       "graph": {
         "type": "histogram",
         "title": "Normal Distribution — Kiwifruit Weights (mean=95g, sd=12g)",
@@ -64,7 +64,7 @@
         "inverse-normal"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) Bottom 20% excluded. z for 20th percentile = -0.842. Weight = 95 + (-0.842)(12) = 95 - 10.1 = 84.9 g. Kiwifruit must weigh at least 84.9 g. (ii) 20% of kiwifruit would be rejected."
+      "markingGuide": "Step 1: Merit: (i) Bottom 20% excluded.\n\nStep 2: z for 20th percentile = -0.842.\n\nStep 3: Weight = 95 + (-0.842)(12) = 95 - 10.1 = 84.9 g.\n\nStep 4: Kiwifruit must weigh at least 84.9 g.\n\nStep 5: (ii) 20% of kiwifruit would be rejected."
     },
     {
       "id": "st586-24-q2a",
@@ -77,7 +77,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) f(x) = 1/15 for 0 ≤ x ≤ 15, f(x) = 0 otherwise. (ii) E(X) = (0 + 15)/2 = 7.5 minutes. SD = (15 - 0)/√12 = 15/3.464 = 4.33 minutes. (iii) P(X > 10) = (15 - 10)/15 = 5/15 = 1/3."
+      "markingGuide": "Step 1: Achievement: (i) f(x) = 1/15 for 0 ≤ x ≤ 15, f(x) = 0 otherwise.\n\nStep 2: (ii) E(X) = (0 + 15)/2 = 7.5 minutes.\n\nStep 3: SD = (15 - 0)/√12 = 15/3.464 = 4.33 minutes.\n\nStep 4: (iii) P(X > 10) = (15 - 10)/15 = 5/15 = 1/3."
     },
     {
       "id": "st586-24-q2b",
@@ -90,7 +90,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) λ = 1/30. P(X ≤ 20) = 1 - e^(-20/30) = 1 - e^(-0.667) = 1 - 0.5134 = 0.4866. Merit: (ii) By the memoryless property of the exponential distribution, P(X > 40 | X > 20) = P(X > 20) = e^(-20/30) = e^(-0.667) = 0.5134. The probability of waiting another 20 years is the same regardless of how long we've already waited. This is the key property of the exponential distribution."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) λ = 1/30.\n- P(X ≤ 20) = 1 - e^(-20/30) = 1 - e^(-0.667) = 1 - 0.5134 = 0.4866.\n\nFor Merit:\n- (ii) By the memoryless property of the exponential distribution, P(X > 40 | X > 20) = P(X > 20) = e^(-20/30) = e^(-0.667) = 0.5134.\n- The probability of waiting another 20 years is the same regardless of how long we've already waited.\n- This is the key property of the exponential distribution."
     },
     {
       "id": "st586-24-q3a",
@@ -103,7 +103,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) ∫₀⁶ kx(8-x) dx = 1. ∫₀⁶ k(8x - x²) dx = k[4x² - x³/3]₀⁶ = k(144 - 72) = 72k = 1. So k = 1/72. Merit: (ii) E(X) = ∫₀⁶ x · (1/72)x(8-x) dx = (1/72)∫₀⁶ (8x² - x³) dx = (1/72)[8x³/3 - x⁴/4]₀⁶ = (1/72)(576 - 324) = 252/72 = 3.5. (iii) P(X > 4) = ∫₄⁶ (1/72)x(8-x) dx = (1/72)[4x² - x³/3]₄⁶ = (1/72)[(144 - 72) - (64 - 64/3)] = (1/72)[72 - 42.667] = 29.333/72 ≈ 0.4074."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- (i) ∫₀⁶ kx(8-x) dx = 1.\n- ∫₀⁶ k(8x - x²) dx = k[4x² - x³/3]₀⁶ = k(144 - 72) = 72k = 1.\n- So k = 1/72.\n\nFor Merit:\n- (ii) E(X) = ∫₀⁶ x · (1/72)x(8-x) dx = (1/72)∫₀⁶ (8x² - x³) dx = (1/72)[8x³/3 - x⁴/4]₀⁶ = (1/72)(576 - 324) = 252/72 = 3.5.\n- (iii) P(X > 4) = ∫₄⁶ (1/72)x(8-x) dx = (1/72)[4x² - x³/3]₄⁶ = (1/72)[(144 - 72) - (64 - 64/3)] = (1/72)[72 - 42.667] = 29.333/72 ≈ 0.4074."
     },
     {
       "id": "st586-24-q3b",
@@ -116,7 +116,7 @@
         "inverse-normal"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) z = (500 - 510)/8 = -1.25. P(Z < -1.25) = 0.1056 ≈ 10.6%. Excellence: (ii) Need P(X < 500) ≤ 0.02. z for 2% tail = -2.054. 500 = μ + (-2.054)(8). μ = 500 + 2.054 × 8 = 500 + 16.43 = 516.4 mL. The mean should be set to at least 516.4 mL."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Merit:\n- (i) z = (500 - 510)/8 = -1.25.\n- P(Z < -1.25) = 0.1056 ≈ 10.6%.\n\nFor Excellence:\n- (ii) Need P(X < 500) ≤ 0.02.\n- z for 2% tail = -2.054.\n- 500 = μ + (-2.054)(8).\n- μ = 500 + 2.054 × 8 = 500 + 16.43 = 516.4 mL.\n- The mean should be set to at least 516.4 mL."
     }
   ],
   "cutScores": {

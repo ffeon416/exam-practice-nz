@@ -54,7 +54,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Compression doubles. Since Ek = 1/2 mv^2 and Ep = 1/2 kx^2, doubling v quadruples Ek, so x^2 quadruples, meaning x doubles.",
-      "markingGuide": "Achieved: x bigger. Merit: x doubles with evidence."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- x bigger.\n\nFor Merit:\n- x doubles with evidence."
     },
     {
       "id": "m25-q1c",
@@ -68,7 +68,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "vx = 20.0 cos 38.0 = 15.76 m/s. vy = 20.0 sin 38.0 = 12.31 m/s. Time to 40 m: t = 40.0/15.76 = 2.538 s. Height at 2.538 s: h = 12.31 x 2.538 - 0.5 x 9.81 x 2.538^2 = 31.24 - 31.57 = -0.33 m. The ball does NOT clear the crossbar — it has already come back down below ground level at 40 m.",
-      "markingGuide": "Achieved: One component calculated. Merit: One error in correct method. Excellence: Correct calculation showing the ball does NOT clear the crossbar, with conclusion and all working shown."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One component calculated.\n\nFor Merit:\n- One error in correct method.\n\nFor Excellence:\n- Correct calculation showing the ball does NOT clear the crossbar, with conclusion and all working shown."
     },
     {
       "id": "m25-q1d",
@@ -82,7 +82,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The path is identical. Same initial speeds (horizontal and vertical), same gravitational acceleration (g is independent of mass), same time in air, same horizontal distance. Mass does not affect projectile motion in the absence of air resistance.",
-      "markingGuide": "Achieved: One correct statement. Merit: Linking cause and effect. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct statement.\n\nFor Merit:\n- Linking cause and effect.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "m25-q2a",
@@ -110,7 +110,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "If there are no external forces, momentum is always conserved in all collisions (elastic and inelastic). Kinetic energy is only conserved in perfectly elastic collisions, which are rare.",
-      "markingGuide": "Achieved: One correct statement. Merit: Full answer."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One correct statement.\n\nFor Merit:\n- Full answer."
     },
     {
       "id": "m25-q2c",
@@ -125,7 +125,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Taking opposition direction as positive: p_AB = 890 x (-0.340) = -302.6. p_opp = 860 x 0.395 = 339.7. p_total = 339.7 - 302.6 = 37.1. v = 37.1 / 1750 = 0.0212 m s-1 in opposition direction.",
-      "markingGuide": "Achieved: One momentum correct. Merit: Total momentum found. Excellence: Correct speed with direction."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One momentum correct.\n\nFor Merit:\n- Total momentum found.\n\nFor Excellence:\n- Correct speed with direction."
     },
     {
       "id": "m25-q2d",
@@ -140,7 +140,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The change in momentum is the same with or without pads. The pads increase the stopping time. Since F = Dp/Dt, a longer time means a smaller force, reducing the risk of injury.",
-      "markingGuide": "Achieved: ONE point. Merit: Two linked. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE point.\n\nFor Merit:\n- Two linked.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "m25-q3a",
@@ -197,7 +197,7 @@
         ]
       },
       "expectedAnswer": "Ek = 1/2 mv^2 = 0.5 x 72.0 x 8.20^2 = 2421 J. P = W/t = 2421/4.50 = 538 W.",
-      "markingGuide": "Achieved: Ek found. Merit: P = 538 W."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Ek found.\n\nFor Merit:\n- P = 538 W."
     },
     {
       "id": "m25-q3ci",
@@ -270,7 +270,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Support A is 0.300 m from the left end. Support B is 0.300 m from the right end, so distance A–B = 3.00 − 0.60 = 2.40 m. Player 1 is 0.150 m left of A (0.150 m from the left end). Player 2 is 0.200 m right of A (0.500 m from the left end). Bench centre is 1.500 m from the left end (1.200 m right of A). Taking torques about A: clockwise torques = 720 × 0.200 + 580 × 1.200 = 144 + 696 = 840 N m. Anti-clockwise torques = 640 × 0.150 + FB × 2.40 = 96 + 2.40 FB. Setting these equal: 840 = 96 + 2.40 FB → FB = 744 / 2.40 = 310 N. Sum of vertical forces: FA + FB = 640 + 720 + 580 = 1940 N, so FA = 1940 − 310 = 1630 N.",
-      "markingGuide": "Achieved: One torque correct. Merit: One error. Excellence: Both forces correct."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One torque correct.\n\nFor Merit:\n- One error.\n\nFor Excellence:\n- Both forces correct."
     },
     {
       "id": "m25-q3di",
@@ -299,7 +299,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Velocity is a vector quantity (speed + direction). Although speed is constant, direction is continuously changing, so there is a change in velocity, which means acceleration. This centripetal acceleration is directed toward the centre and is caused by the tension in their arms.",
-      "markingGuide": "Achieved: One point. Merit: Two linked. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- One point.\n\nFor Merit:\n- Two linked.\n\nFor Excellence:\n- Full explanation."
     }
   ]
 }

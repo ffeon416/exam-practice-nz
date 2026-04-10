@@ -20,7 +20,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Forecast rate ≈ 21.4 L/year. Historical growth was ≈ 7.8 L/year (2014–2023), so the forecast rate is nearly 3× the historical rate and appears unrealistically high.",
-      "markingGuide": "Valid evaluation should include: Forecast growth = (900 – 750) ÷ 7 = 21.43 litres/year. Historical: 2014–2023 grew from 680 to 750 (70 litres over 9 years ≈ 7.78 litres/year). The forecast rate is nearly 3× the historical rate — likely too optimistic. Possible reasons the forecast could still be reasonable: population growth, hotter summers increasing garden irrigation, or new appliances. Achieved = describes trend. Merit = justifies with numerical evidence comparing forecast and historical rates.",
+      "markingGuide": "Step 1: Valid evaluation should include: Forecast growth = (900 – 750) ÷ 7 = 21.43 litres/year.\n\nStep 2: Historical: 2014–2023 grew from 680 to 750 (70 litres over 9 years ≈ 7.78 litres/year).\n\nStep 3: The forecast rate is nearly 3× the historical rate — likely too optimistic.\n\nStep 4: Possible reasons the forecast could still be reasonable: population growth, hotter summers increasing garden irrigation, or new appliances.\n\nStep 5: Achieved = describes trend.\n\nStep 6: Merit = justifies with numerical evidence comparing forecast and historical rates.\n\nFinal answer: Forecast rate ≈ 21.4 L/year. Historical growth was ≈ 7.8 L/year (2014–2023), so the forecast rate is nearly 3× the historical rate and appears unrealistically high..",
       "graph": {
         "type": "line",
         "title": "NZ Average Monthly Household Water Usage",
@@ -83,7 +83,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "AquaSave: cheaper at every tier, carry-over of unused allowance, can share within household. PureFlow: higher litre allowances per tier, free annual hot water check.",
-      "markingGuide": "AquaSave advantages: Cheaper at every tier (Basic $95 vs $110, Standard $130 vs $145, Unlimited $175 vs $190). Unused allowance carries over. Can share within household. Disadvantages: Lower litres allowance per tier (Basic 15,000 vs 18,000; Standard 25,000 vs 30,000). PureFlow advantages: Higher litre allowances (Basic 18,000 L vs 15,000 L; Standard 30,000 L vs 25,000 L). Free annual hot water check on Unlimited. Disadvantages: More expensive at every tier. No carry-over or sharing. Achieved = one advantage from each. Merit = two advantages each. Excellence = comprehensive comparison using numbers from the table.",
+      "markingGuide": "Step 1: AquaSave advantages: Cheaper at every tier (Basic $95 vs $110, Standard $130 vs $145, Unlimited $175 vs $190).\n\nStep 2: Unused allowance carries over.\n\nStep 3: Can share within household.\n\nStep 4: Disadvantages: Lower litres allowance per tier (Basic 15,000 vs 18,000;.\n\nStep 5: Standard 25,000 vs 30,000).\n\nStep 6: PureFlow advantages: Higher litre allowances (Basic 18,000 L vs 15,000 L;.\n\nStep 7: Standard 30,000 L vs 25,000 L).\n\nStep 8: Free annual hot water check on Unlimited.\n\nStep 9: Disadvantages: More expensive at every tier.\n\nStep 10: No carry-over or sharing.\n\nStep 11: Achieved = one advantage from each.\n\nStep 12: Merit = two advantages each.\n\nStep 13: Excellence = comprehensive comparison using numbers from the table.\n\nFinal answer: AquaSave: cheaper at every tier, carry-over of unused allowance, can share within household. PureFlow: higher litre allowances per tier, free annual hot water check..",
       "graph": {
         "type": "table",
         "title": "Water Provider Plans Comparison",
@@ -135,7 +135,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "AquaSave Standard ($130/mo, 25,000 L) covers 20,000 L current usage with some buffer; AquaSave Unlimited ($175/mo) is safer if garden irrigation significantly raises usage.",
-      "markingGuide": "Family of 5 currently uses 20,000 L/mo. AquaSave Basic (15,000 L) is not enough. AquaSave Standard ($130, 25,000 L) covers current usage with a 5,000 L buffer. PureFlow Standard ($145, 30,000 L) gives more room but costs $15/mo more. If garden irrigation is significant, an Unlimited plan (AquaSave $175 or PureFlow $190) may be safer. Assumptions to state: whether garden irrigation is a major monthly draw; whether carry-over and sharing matter; climate change (Samoa vs NZ) may reduce or increase usage. Achieved = recommendation with one reason. Merit = reasoning on usage AND cost using numbers from the table. Excellence = comprehensive recommendation with assumptions and numerical comparison of at least two plans."
+      "markingGuide": "Step 1: Family of 5 currently uses 20,000 L/mo.\n\nStep 2: AquaSave Basic (15,000 L) is not enough.\n\nStep 3: AquaSave Standard ($130, 25,000 L) covers current usage with a 5,000 L buffer.\n\nStep 4: PureFlow Standard ($145, 30,000 L) gives more room but costs $15/mo more.\n\nStep 5: If garden irrigation is significant, an Unlimited plan (AquaSave $175 or PureFlow $190) may be safer.\n\nStep 6: Assumptions to state: whether garden irrigation is a major monthly draw;.\n\nStep 7: whether carry-over and sharing matter;.\n\nStep 8: climate change (Samoa vs NZ) may reduce or increase usage.\n\nStep 9: Achieved = recommendation with one reason.\n\nStep 10: Merit = reasoning on usage AND cost using numbers from the table.\n\nStep 11: Excellence = comprehensive recommendation with assumptions and numerical comparison of at least two plans.\n\nFinal answer: AquaSave Standard ($130/mo, 25,000 L) covers 20,000 L current usage with some buffer; AquaSave Unlimited ($175/mo) is safer if garden irrigation significantly raises usage.."
     },
     {
       "id": "l1s24-q2a",
@@ -149,7 +149,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Moderate negative trend — higher grocery spending tends to correspond with less exercise time, but there is wide spread",
-      "markingGuide": "The scatter plot shows a moderate negative trend — suburbs with higher grocery spending tend to have lower exercise times. This partially supports the claim. However, there is wide vertical spread at each spending level. Other factors (suburb demographics, access to facilities) also matter. Correlation does not prove causation. Achieved = uses negative trend. Merit = describes strength and discusses limitations.",
+      "markingGuide": "Step 1: The scatter plot shows a moderate negative trend — suburbs with higher grocery spending tend to have lower exercise times.\n\nStep 2: This partially supports the claim.\n\nStep 3: However, there is wide vertical spread at each spending level.\n\nStep 4: Other factors (suburb demographics, access to facilities) also matter.\n\nStep 5: Correlation does not prove causation.\n\nStep 6: Achieved = uses negative trend.\n\nStep 7: Merit = describes strength and discusses limitations.\n\nFinal answer: Moderate negative trend — higher grocery spending tends to correspond with less exercise time, but there is wide spread.",
       "graph": {
         "type": "scatter",
         "title": "Weekly Grocery Cost vs Exercise Hours by Suburb",
@@ -271,7 +271,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Large range ($135), Auckland highest ($280), Gisborne lowest ($145), distribution appears right-skewed",
-      "markingGuide": "Features: Range is large (280 - 145 = $135/week). Auckland ($280) is highest and pulls the mean up. Distribution is right-skewed (more regions are below the average). Gap between top 3 regions and the rest. Achieved = one feature. Merit = two features with evidence.",
+      "markingGuide": "Step 1: Features: Range is large (280 - 145 = $135/week).\n\nStep 2: Auckland ($280) is highest and pulls the mean up.\n\nStep 3: Distribution is right-skewed (more regions are below the average).\n\nStep 4: Gap between top 3 regions and the rest.\n\nStep 5: Achieved = one feature.\n\nStep 6: Merit = two features with evidence.\n\nFinal answer: Large range ($135), Auckland highest ($280), Gisborne lowest ($145), distribution appears right-skewed.",
       "graph": {
         "type": "bar",
         "title": "Average Weekly Grocery Spending by Region",
@@ -334,7 +334,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "NZ grocery costs rose 18% vs Australia 12%. NZ smaller population (5.1M vs 26M) may mean less competition and more volatile prices.",
-      "markingGuide": "Key factors: (1) NZ grocery costs rose 18% vs Australia 12% — a 6 percentage point difference. (2) NZ has 5.1M people vs 26M — smaller market may mean less competition and higher transport costs. (3) Similar organic buying rates (35.5% vs 34%) suggest similar consumer preferences, so the difference is likely supply-side. Achieved = one factor. Merit = one factor with numbers. Excellence = two+ factors with evidence.",
+      "markingGuide": "Step 1: Key factors: (1) NZ grocery costs rose 18% vs Australia 12% — a 6 percentage point difference.\n\nStep 2: (2) NZ has 5.1M people vs 26M — smaller market may mean less competition and higher transport costs.\n\nStep 3: (3) Similar organic buying rates (35.5% vs 34%) suggest similar consumer preferences, so the difference is likely supply-side.\n\nStep 4: Achieved = one factor.\n\nStep 5: Merit = one factor with numbers.\n\nStep 6: Excellence = two+ factors with evidence.\n\nFinal answer: NZ grocery costs rose 18% vs Australia 12%. NZ smaller population (5.1M vs 26M) may mean less competition and more volatile prices..",
       "graph": {
         "type": "table",
         "title": "NZ vs Australia Grocery Comparison",

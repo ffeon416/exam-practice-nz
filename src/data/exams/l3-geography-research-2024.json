@@ -14,10 +14,15 @@
       "text": "The following questions relate to coral reef degradation in the Pacific region. Integrate geographic concepts and supporting evidence into your answers.\n\nDescribe the spatial or temporal pattern of coral reef decline across the Pacific.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["patterns", "spatial", "temporal", "coral-reefs"],
+      "topics": [
+        "patterns",
+        "spatial",
+        "temporal",
+        "coral-reefs"
+      ],
       "answerType": "text",
       "expectedAnswer": "Describes spatial pattern (e.g. reef decline concentrated near populated islands, more severe in warmer equatorial waters) or temporal pattern (accelerating decline since the 1990s with mass bleaching events).",
-      "markingGuide": "Achievement: Partially describes the spatial or temporal pattern of coral reef decline. Describes a pattern with limited evidence. Merit: Describes the spatial or temporal pattern in detail with supporting evidence. Describes two different patterns or one in detail with specific data. Excellence: Description is detailed with comprehensive evidence integrated throughout."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Partially describes the spatial or temporal pattern of coral reef decline.\n- Describes a pattern with limited evidence.\n\nFor Merit:\n- Describes the spatial or temporal pattern in detail with supporting evidence.\n- Describes two different patterns or one in detail with specific data.\n\nFor Excellence:\n- Description is detailed with comprehensive evidence integrated throughout."
     },
     {
       "id": "91429-2024-q1b",
@@ -25,10 +30,13 @@
       "text": "What are two different perspectives related to coral reef degradation, and why do people hold these perspectives?\n\nPerspective 1:\n\nPerspective 2:",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["perspectives", "coral-reefs"],
+      "topics": [
+        "perspectives",
+        "coral-reefs"
+      ],
       "answerType": "text",
       "expectedAnswer": "Two different perspectives on coral reef degradation, e.g. (1) environmental scientists who see reef loss as a climate emergency requiring immediate emission reductions; (2) local fishing communities who depend on reefs for food security and livelihoods.",
-      "markingGuide": "Achievement: Describes two different perspectives (e.g. a group/individual) related to reef degradation. Outlines consequences with some reference to the environment. Merit: Describes two different perspectives with supporting evidence. Excellence: Explains in detail two perspectives with comprehensive evidence, analysing why people hold these views."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Describes two different perspectives (e.g.\n- a group/individual) related to reef degradation.\n- Outlines consequences with some reference to the environment.\n\nFor Merit:\n- Describes two different perspectives with supporting evidence.\n\nFor Excellence:\n- Explains in detail two perspectives with comprehensive evidence, analysing why people hold these views."
     },
     {
       "id": "91429-2024-q1c",
@@ -36,11 +44,33 @@
       "text": "Coral reef degradation is an environmental issue with significant ecological, economic, and social consequences. Evaluate the consequences of coral reef decline for people and the environment.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["evaluation", "consequences", "coral-reefs", "sustainability"],
+      "topics": [
+        "evaluation",
+        "consequences",
+        "coral-reefs",
+        "sustainability"
+      ],
       "answerType": "text",
       "expectedAnswer": "Evaluates environmental consequences (biodiversity loss, coastal erosion, reduced fish stocks), economic consequences (loss of tourism revenue, fishing industry decline), and social consequences (food insecurity for Pacific communities, cultural loss).",
-      "markingGuide": "Achievement: Includes some evidence that demonstrates use of geographic skills and conventions. Responses may lack specific concepts or geographic terminology. Merit: Includes evidence that includes detailed geographic skills and conventions. Response shows some geographic concepts. Excellence: Includes detailed evidence. Comprehensively evaluates the consequences for people and the environment with insight, using geographic terminology. Evidence is fully integrated."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Includes some evidence that demonstrates use of geographic skills and conventions.\n- Responses may lack specific concepts or geographic terminology.\n\nFor Merit:\n- Includes evidence that includes detailed geographic skills and conventions.\n- Response shows some geographic concepts.\n\nFor Excellence:\n- Includes detailed evidence.\n- Comprehensively evaluates the consequences for people and the environment with insight, using geographic terminology.\n- Evidence is fully integrated."
     }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

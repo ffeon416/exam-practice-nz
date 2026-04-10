@@ -53,7 +53,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "At max speed, F_N = 0, so mg = mv^2/r. g = v^2/r. 9.81 x 0.0400 = v^2. v = sqrt(0.3924) = 0.626 m s-1.",
-      "markingGuide": "Achievement: F_N = 0 at max speed. Merit: v = 0.626 m s-1."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- F_N = 0 at max speed.\n\nFor Merit:\n- v = 0.626 m s-1."
     },
     {
       "id": "91524-24-q1c",
@@ -69,7 +69,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "At X (bottom): Fg down, FN up. FN > Fg so net force = FN - Fg = Fc (directed upward toward centre). At Y (top): Fg down, FN down (if any). Fc = Fg - FN (directed downward toward centre). At the top, the weight must provide the centripetal force.",
-      "markingGuide": "Achievement: ONE correct statement. Merit: One position explained. Excellence: Full answer with both positions."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- ONE correct statement.\n\nFor Merit:\n- One position explained.\n\nFor Excellence:\n- Full answer with both positions."
     },
     {
       "id": "91524-24-q1d",
@@ -84,7 +84,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "mgh = 1/2 mv^2 + 1/2 I omega^2. mgh = 1/2 mv^2 + 1/2 (2/5)mr^2 (v/r)^2. gh = v^2/2 + v^2/5 = 7v^2/10. h = 7(0.626)^2/(10 x 9.81) = 7 x 0.3919/98.1 = 0.0280 m = 28.0 mm.",
-      "markingGuide": "Achievement: Attempts energy conservation. Merit: Two energy terms correct. Excellence: h = 0.0280 m."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Attempts energy conservation.\n\nFor Merit:\n- Two energy terms correct.\n\nFor Excellence:\n- h = 0.0280 m."
     },
     {
       "id": "91524-24-q2a",
@@ -113,7 +113,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "theta = d/r = 0.850/0.12 = 7.083 rad. omega_f^2 = omega_i^2 + 2 alpha theta = 0 + 2(16.25)(7.083) = 230.2. omega_f = 15.2 rad s-1.",
-      "markingGuide": "Achievement: Correct theta. Merit: Correct omega_f."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Correct theta.\n\nFor Merit:\n- Correct omega_f."
     },
     {
       "id": "91524-24-q2c",
@@ -129,7 +129,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Tension: T = m(g-a) = 0.0580(9.81-1.95) = 0.4559 N. Torque = Tr = 0.4559 x 0.12 = 0.05471 Nm. I = torque/alpha = 0.05471/16.25 = 0.00337 kg m^2.",
-      "markingGuide": "Achievement: Tension identified. Merit: One error. Excellence: I = 0.00337 kg m^2.",
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Tension identified.\n\nFor Merit:\n- One error.\n\nFor Excellence:\n- I = 0.00337 kg m^2.",
       "graph": {
         "type": "table",
         "title": "Flywheel Experiment Data",
@@ -182,7 +182,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "A solid disc has mass distributed closer to the axis of rotation, so I decreases (I_disc = 1/2 mr^2 vs flywheel with mass at rim). Lower I means greater angular acceleration (tau = I alpha), so the ball falls faster and reaches a higher final velocity.",
-      "markingGuide": "Achievement: I decreases. Merit: Links I to alpha. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- I decreases.\n\nFor Merit:\n- Links I to alpha.\n\nFor Excellence:\n- Full explanation."
     },
     {
       "id": "91524-24-q3a",
@@ -211,7 +211,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "omega = 2 pi / T = 2 pi / 0.950 = 6.614 rad s-1. x = A cos(omega t) = 0.0350 cos(6.614 x 1.30) = 0.0350 cos(8.598 rad) = 0.0350 x (-0.678) = -0.0237 m.",
-      "markingGuide": "Achievement: omega correct. Merit: Minor mistake. Excellence: x = -0.0237 m (accept values between -0.023 m and -0.024 m)."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- omega correct.\n\nFor Merit:\n- Minor mistake.\n\nFor Excellence:\n- x = -0.0237 m (accept values between -0.023 m and -0.024 m)."
     },
     {
       "id": "91524-24-q3c",
@@ -241,7 +241,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Damping. Friction between the marble and the glass converts kinetic energy to thermal energy. Each oscillation, the total energy decreases, so the maximum displacement (amplitude) decreases. Eventually all energy is lost and the marble stops. E_k = 1/2 mv^2, E_p = mgh.",
-      "markingGuide": "Achievement: Damping or friction or amplitude decreases. Merit: Damping AND energy loss. Excellence: Full explanation."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Damping or friction or amplitude decreases.\n\nFor Merit:\n- Damping AND energy loss.\n\nFor Excellence:\n- Full explanation."
     }
   ]
 }
