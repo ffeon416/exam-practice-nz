@@ -45,7 +45,21 @@
       ],
       "answerType": "working",
       "expectedAnswer": "x = 4",
-      "markingGuide": "dy/dx = 6x² – 18x – 24 = 6(x² – 3x – 4) = 6(x – 4)(x + 1). Set dy/dx = 0: x = 4 or x = –1. d²y/dx² = 12x – 18. At x = 4: 12(4) – 18 = 30 > 0, so x = 4 is a local minimum. (At x = –1: 12(–1) – 18 = –30 < 0, so x = –1 is a local maximum.) Merit = correct identification with justification."
+      "markingGuide": "dy/dx = 6x² – 18x – 24 = 6(x² – 3x – 4) = 6(x – 4)(x + 1). Set dy/dx = 0: x = 4 or x = –1. d²y/dx² = 12x – 18. At x = 4: 12(4) – 18 = 30 > 0, so x = 4 is a local minimum. (At x = –1: 12(–1) – 18 = –30 < 0, so x = –1 is a local maximum.) Merit = correct identification with justification.",
+      "graph": {
+        "type": "line",
+        "title": "Cubic y = 2x³ – 9x² – 24x + 5",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6],
+        "series": [
+          {
+            "name": "y",
+            "values": [-58, 1, 18, 5, -26, -63, -94, -107, -90, -31],
+            "color": "#6366f1"
+          }
+        ]
+      }
     },
     {
       "id": "l2c24-q1cii",
@@ -174,7 +188,21 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Maximum area when a = 3.2 (= 16/5), area ≈ 40.96",
-      "markingGuide": "Heights at x = a and x = 2a: y₁ = 8a – a², y₂ = 16a – 4a². Width of trapezium = 2a – a = a. Area A = ½(y₁ + y₂) × a = ½(24a – 5a²) × a = 12a² – (5/2)a³. A'(a) = 24a – (15/2)a² = a(24 – 15a/2) = 0. Reject a = 0. Then 24 = 15a/2, so a = 48/15 = 16/5 = 3.2 (within 0 ≤ a ≤ 4). A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96. Check A''(a) = 24 – 15a; at a = 3.2, A'' = 24 – 48 = –24 < 0, confirming a maximum. Maximum area ≈ 40.96. Excellence = correct maximum with calculus working and verification."
+      "markingGuide": "Heights at x = a and x = 2a: y₁ = 8a – a², y₂ = 16a – 4a². Width of trapezium = 2a – a = a. Area A = ½(y₁ + y₂) × a = ½(24a – 5a²) × a = 12a² – (5/2)a³. A'(a) = 24a – (15/2)a² = a(24 – 15a/2) = 0. Reject a = 0. Then 24 = 15a/2, so a = 48/15 = 16/5 = 3.2 (within 0 ≤ a ≤ 4). A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96. Check A''(a) = 24 – 15a; at a = 3.2, A'' = 24 – 48 = –24 < 0, confirming a maximum. Maximum area ≈ 40.96. Excellence = correct maximum with calculus working and verification.",
+      "graph": {
+        "type": "line",
+        "title": "Parabola y = 8x – x²",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        "series": [
+          {
+            "name": "y",
+            "values": [0, 7, 12, 15, 16, 15, 12, 7, 0],
+            "color": "#22c55e"
+          }
+        ]
+      }
     },
     {
       "id": "l2c24-q3a",
@@ -216,7 +244,26 @@
       ],
       "answerType": "working",
       "expectedAnswer": "f(x) = 0.5x² + 3x – 13.5. Roots at x = –9 and x = 3, minimum at (–3, –18).",
-      "markingGuide": "f(x) = 0.5x² + 3x + c. f(3) = 4.5 + 9 + c = 0. c = –13.5. f(x) = 0.5x² + 3x – 13.5. Min at x = –3: f(–3) = 4.5 – 9 – 13.5 = –18. Roots: 0.5x²+3x–13.5=0 → x²+6x–27=0 → (x+9)(x–3)=0. x = –9, 3."
+      "markingGuide": "f(x) = 0.5x² + 3x + c. f(3) = 4.5 + 9 + c = 0. c = –13.5. f(x) = 0.5x² + 3x – 13.5. Min at x = –3: f(–3) = 4.5 – 9 – 13.5 = –18. Roots: 0.5x²+3x–13.5=0 → x²+6x–27=0 → (x+9)(x–3)=0. x = –9, 3.",
+      "graph": {
+        "type": "line",
+        "title": "f(x) and its derivative f'(x)",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4],
+        "series": [
+          {
+            "name": "f(x) = 0.5x² + 3x – 13.5",
+            "values": [6.5, 0, -5.5, -10, -13.5, -16, -17.5, -18, -17.5, -16, -13.5, -10, -5.5, 0, 6.5],
+            "color": "#6366f1"
+          },
+          {
+            "name": "f'(x) = x + 3",
+            "values": [-7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7],
+            "color": "#ef4444"
+          }
+        ]
+      }
     },
     {
       "id": "l2c24-q3d",

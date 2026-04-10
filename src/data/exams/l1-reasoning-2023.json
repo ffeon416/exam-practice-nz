@@ -49,7 +49,14 @@
       "topics": ["pythagoras"],
       "answerType": "working",
       "expectedAnswer": "150 km",
-      "markingGuide": "Triangle MPN has a right angle at M. Using Pythagoras: PN² = MP² + MN² = 90² + 120² = 8100 + 14400 = 22500. PN = √22500 = 150 km. Award Achieved for correct distance with working shown."
+      "markingGuide": "Triangle MPN has a right angle at M. Using Pythagoras: PN² = MP² + MN² = 90² + 120² = 8100 + 14400 = 22500. PN = √22500 = 150 km. Award Achieved for correct distance with working shown.",
+      "graph": {
+        "type": "scatter",
+        "title": "Town Locations (M at origin)",
+        "xLabel": "East (km)",
+        "yLabel": "North (km)",
+        "data": [[0, 0], [90, 0], [0, 120]]
+      }
     },
     {
       "id": "l1r23-q1cii",

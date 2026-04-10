@@ -183,7 +183,21 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y-intercept (0, 5), vertex (-1, 4), axis of symmetry x = -1, no x-intercepts",
-      "markingGuide": "y = x² + 2x + 5 = (x + 1)² + 4. Features: y-intercept at (0, 5); vertex/minimum at (–1, 4); axis of symmetry x = –1; parabola opens upward; no x-intercepts (discriminant = 4 – 20 = –16 < 0); range y ≥ 4. Achieved: One correct feature. Merit: Three correct features. Excellence: Three or more features with mathematical justification."
+      "markingGuide": "y = x² + 2x + 5 = (x + 1)² + 4. Features: y-intercept at (0, 5); vertex/minimum at (–1, 4); axis of symmetry x = –1; parabola opens upward; no x-intercepts (discriminant = 4 – 20 = –16 < 0); range y ≥ 4. Achieved: One correct feature. Merit: Three correct features. Excellence: Three or more features with mathematical justification.",
+      "graph": {
+        "type": "line",
+        "title": "Graph of y = x² + 2x + 5",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [-5, -4, -3, -2, -1, 0, 1, 2, 3],
+        "series": [
+          {
+            "name": "y = x² + 2x + 5",
+            "values": [20, 13, 8, 5, 4, 5, 8, 13, 20],
+            "color": "#6366f1"
+          }
+        ]
+      }
     },
     {
       "id": "l1r24-q3ci",
@@ -210,7 +224,26 @@
       ],
       "answerType": "working",
       "expectedAnswer": "(3, 5)",
-      "markingGuide": "Line L: y = –2x + 11. Line M: x + y – 8 = 0, i.e. y = 8 – x. Setting equal: –2x + 11 = 8 – x. –x = –3. x = 3, y = 5. Intersection at (3, 5). Achieved: Correctly eliminating one variable. Merit: Correct intersection point (3, 5) with algebraic working."
+      "markingGuide": "Line L: y = –2x + 11. Line M: x + y – 8 = 0, i.e. y = 8 – x. Setting equal: –2x + 11 = 8 – x. –x = –3. x = 3, y = 5. Intersection at (3, 5). Achieved: Correctly eliminating one variable. Merit: Correct intersection point (3, 5) with algebraic working.",
+      "graph": {
+        "type": "line",
+        "title": "Lines L and M",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [0, 1, 2, 3, 4, 5, 6],
+        "series": [
+          {
+            "name": "L: y = –2x + 11",
+            "values": [11, 9, 7, 5, 3, 1, -1],
+            "color": "#6366f1"
+          },
+          {
+            "name": "M: y = 8 – x",
+            "values": [8, 7, 6, 5, 4, 3, 2],
+            "color": "#22c55e"
+          }
+        ]
+      }
     },
     {
       "id": "l1r24-q3d",

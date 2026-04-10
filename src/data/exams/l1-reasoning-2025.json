@@ -33,7 +33,26 @@
       ],
       "answerType": "working",
       "expectedAnswer": "R = (3, 4)",
-      "markingGuide": "From eq 1: y = 3x – 5. Sub into eq 2: x + 3(3x – 5) = 15. x + 9x – 15 = 15. 10x = 30. x = 3. y = 3(3) – 5 = 4. R = (3, 4). Achieved = eliminate one variable. Merit = correct coordinates with algebraic method."
+      "markingGuide": "From eq 1: y = 3x – 5. Sub into eq 2: x + 3(3x – 5) = 15. x + 9x – 15 = 15. 10x = 30. x = 3. y = 3(3) – 5 = 4. R = (3, 4). Achieved = eliminate one variable. Merit = correct coordinates with algebraic method.",
+      "graph": {
+        "type": "line",
+        "title": "Lines 3x – y = 5 and x + 3y = 15",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [0, 1, 2, 3, 4, 5, 6],
+        "series": [
+          {
+            "name": "y = 3x – 5",
+            "values": [-5, -2, 1, 4, 7, 10, 13],
+            "color": "#6366f1"
+          },
+          {
+            "name": "y = (15 – x)/3",
+            "values": [5, 4.67, 4.33, 4, 3.67, 3.33, 3],
+            "color": "#22c55e"
+          }
+        ]
+      }
     },
     {
       "id": "l1r25-q1c",
@@ -169,7 +188,14 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = –0.5x + 6 (or equivalent)",
-      "markingGuide": "Gradient: (3–7)/(6–(–2)) = –4/8 = –0.5. y – 7 = –0.5(x + 2). y = –0.5x – 1 + 7 = –0.5x + 6. Achieved = correct equation."
+      "markingGuide": "Gradient: (3–7)/(6–(–2)) = –4/8 = –0.5. y – 7 = –0.5(x + 2). y = –0.5x – 1 + 7 = –0.5x + 6. Achieved = correct equation.",
+      "graph": {
+        "type": "scatter",
+        "title": "Points on line L",
+        "xLabel": "x",
+        "yLabel": "y",
+        "data": [[-2, 7], [6, 3]]
+      }
     },
     {
       "id": "l1r25-q3aii",
@@ -183,7 +209,21 @@
       ],
       "answerType": "working",
       "expectedAnswer": "y = –(x – 2)² + 9 or y = –(x + 1)(x – 5)",
-      "markingGuide": "Using vertex form: y = a(x – 2)² + 9. Substitute (5, 0): 0 = a(9) + 9. a = –1. So y = –(x – 2)² + 9. Or using intercept form: y = a(x + 1)(x – 5). Substitute (2, 9): 9 = a(3)(–3) = –9a. a = –1. Achieved: equation with incorrect a-value. Merit: correct equation with justification."
+      "markingGuide": "Using vertex form: y = a(x – 2)² + 9. Substitute (5, 0): 0 = a(9) + 9. a = –1. So y = –(x – 2)² + 9. Or using intercept form: y = a(x + 1)(x – 5). Substitute (2, 9): 9 = a(3)(–3) = –9a. a = –1. Achieved: equation with incorrect a-value. Merit: correct equation with justification.",
+      "graph": {
+        "type": "line",
+        "title": "Parabola y = –(x – 2)² + 9",
+        "xLabel": "x",
+        "yLabel": "y",
+        "xValues": [-2, -1, 0, 1, 2, 3, 4, 5, 6],
+        "series": [
+          {
+            "name": "y",
+            "values": [-7, 0, 5, 8, 9, 8, 5, 0, -7],
+            "color": "#ef4444"
+          }
+        ]
+      }
     },
     {
       "id": "l1r25-q3b",
