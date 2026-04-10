@@ -445,8 +445,8 @@ export default function ResultsPage({
 
                 {/* Correct working */}
                 <div>
-                  <p className="text-xs text-blue-400 mb-1 font-semibold uppercase tracking-wide">Correct working</p>
-                  <p className="text-sm text-slate-200 bg-blue-950/20 border border-blue-900/30 rounded p-2.5 whitespace-pre-wrap">
+                  <p className="text-xs text-green-400 mb-1 font-semibold uppercase tracking-wide">Correct working</p>
+                  <p className="text-sm text-white bg-green-950/30 border border-green-800/30 rounded p-2.5 whitespace-pre-wrap">
                     {qq.markingGuide.replace(/\n*Final answer:.*$/i, "").trim()}
                   </p>
                 </div>
@@ -670,9 +670,9 @@ export default function ResultsPage({
       </div>
 
       {/* Correct working */}
-      <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-4 mb-4">
-        <h4 className="text-xs font-semibold text-blue-400 mb-2 uppercase tracking-wide">Correct Working</h4>
-        <p className="text-slate-200 text-sm whitespace-pre-wrap">
+      <div className="bg-green-950/20 border border-green-900/30 rounded-lg p-4 mb-4">
+        <h4 className="text-xs font-semibold text-green-400 mb-2 uppercase tracking-wide">Correct Working</h4>
+        <p className="text-white text-sm whitespace-pre-wrap">
           {q.markingGuide.replace(/\n*Final answer:.*$/i, "").trim()}
         </p>
       </div>
