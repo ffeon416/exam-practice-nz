@@ -215,7 +215,7 @@
     {
       "id": "l2cb25-q3ai",
       "number": "3(a)(i)",
-      "text": "Kōrari (flax flower) extract can be processed into various products, as it contains organic acids, such as sinapic and caffeic acids, which have antioxidant properties.\n\nWhile extracting the kōrari fibre, the following compounds can be isolated:\n\nFerulic acid (with a carboxylic acid group circled), 1-decanamine (NH2-CH2-(CH2)6-CH3), and 1-hexanamine (NH2-CH2-CH2-CH2-CH3)\n\nName the functional group circled above.",
+      "text": "Kōrari (flax flower) extract can be processed into various products, as it contains organic acids, such as sinapic and caffeic acids, which have antioxidant properties.\n\nWhile extracting the kōrari fibre, the following compounds can be isolated:\n\nSinapic acid (with a carboxylic acid group circled), 1-decanamine (NH2-CH2-(CH2)8-CH3), and 1-hexanamine (NH2-CH2-(CH2)4-CH3)\n\nName the functional group circled above.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -252,7 +252,7 @@
         "acid-base"
       ],
       "answerType": "working",
-      "expectedAnswer": "Ferulic acid contains a carboxylic acid group and will turn blue litmus red. 1-decanamine contains an amine group and will turn red litmus blue.",
+      "expectedAnswer": "Sinapic acid contains a carboxylic acid group and will turn blue litmus red. 1-decanamine contains an amine group and will turn red litmus blue.",
       "markingGuide": "Achievement: Correct observations."
     },
     {

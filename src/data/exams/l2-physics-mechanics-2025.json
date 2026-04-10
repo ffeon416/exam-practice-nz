@@ -269,7 +269,7 @@
         "moments"
       ],
       "answerType": "working",
-      "expectedAnswer": "Taking torques about A: Clockwise: 720 x 0.200 + 580 x 1.200 + FB x 0 (wrong, need to set up properly). Let me use the standard approach. Support A is 0.300 from left end. Support B is 0.300 from right end. Distance A-B = 3.00 - 0.60 = 2.40 m. Player 1 at 0.150 m left of A means 0.150 m from left end. Player 2 at 0.200 m right of A means 0.500 m from left end. Taking torques about A: clockwise = 720 x 0.200 + 580 x 1.200. Anti-clockwise = 640 x 0.150 + FB x 2.40. Solving: 144 + 696 = 96 + 2.40 FB. 840 = 96 + 2.40 FB. FB = 744/2.40 = 310 N. FA = 640 + 720 + 580 - 310 = 1630 N.",
+      "expectedAnswer": "Support A is 0.300 m from the left end. Support B is 0.300 m from the right end, so distance A–B = 3.00 − 0.60 = 2.40 m. Player 1 is 0.150 m left of A (0.150 m from the left end). Player 2 is 0.200 m right of A (0.500 m from the left end). Bench centre is 1.500 m from the left end (1.200 m right of A). Taking torques about A: clockwise torques = 720 × 0.200 + 580 × 1.200 = 144 + 696 = 840 N m. Anti-clockwise torques = 640 × 0.150 + FB × 2.40 = 96 + 2.40 FB. Setting these equal: 840 = 96 + 2.40 FB → FB = 744 / 2.40 = 310 N. Sum of vertical forces: FA + FB = 640 + 720 + 580 = 1940 N, so FA = 1940 − 310 = 1630 N.",
       "markingGuide": "Achieved: One torque correct. Merit: One error. Excellence: Both forces correct."
     },
     {

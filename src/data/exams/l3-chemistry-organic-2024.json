@@ -49,7 +49,7 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Step 1: 2-bromobutane + KOH(alc)/heat -> but-1-ene (elimination, Hofmann minor product). Step 2: but-1-ene + H2O/H+ (or HBr then OH-) via anti-Markovnikov route to give butan-1-ol. Step 3: butan-1-ol + Cr2O72-/H+ with heat and excess oxidising agent -> butanoic acid (oxidation). Step 4: butanoic acid + SOCl2 -> butanoyl chloride. Step 5: butanoyl chloride + concentrated NH3 -> butanamide.",
+      "expectedAnswer": "One possible multi-step scheme: Step 1: 2-bromobutane + KOH(alc)/heat -> but-1-ene (Hofmann minor elimination product; select this alkene to keep a straight chain for butanamide). Step 2: but-1-ene + HBr with peroxides (anti-Markovnikov addition) -> 1-bromobutane. Step 3: 1-bromobutane + NaOH(aq), heat (substitution) -> butan-1-ol. Step 4: butan-1-ol + acidified Cr2O72- with heat and excess oxidising agent -> butanoic acid (oxidation). Step 5: butanoic acid + SOCl2 -> butanoyl chloride. Step 6: butanoyl chloride + concentrated NH3 -> butanamide (CH3CH2CH2C(=O)NH2).",
       "markingGuide": "Achievement: ONE correct conversion. Merit: THREE correct conversions. Excellence: Complete scheme."
     },
     {
@@ -193,7 +193,7 @@
     {
       "id": "l3co24-q2b",
       "number": "2(b)",
-      "text": "Complete the flowchart by drawing structural formulae for Compounds A, B, C, D, and E, and identifying Reagents 1, 2, 3, and 4.\n\nStarting material: butan-2-ol (CH3-CH(OH)-CH2-CH3)\n-> conc. H2SO4, heat -> Compound A\nCompound A + H2O/H+ -> Compound B\nCompound A + Reagent 2 -> Compound D\nCompound D + Reagent 3 -> CH3-CH2-CH2-CH2-NH2\nCH3-CH2-CH2-CH2-NH2 + H2SO4(aq) -> Compound E\nCompound B + Reagent 1 -> Compound C",
+      "text": "Complete the flowchart by drawing structural formulae for Compounds A, B, C, D, and E, and identifying Reagents 1, 2, 3, and 4.\n\nStarting material: butan-2-ol (CH3-CH(OH)-CH2-CH3)\n-> conc. H2SO4, heat -> Compound A (major elimination product)\nCompound A + H2O/H+ -> Compound B\nCompound A + Reagent 2 -> Compound D\nCompound D + Reagent 3 -> CH3-CH2-CH(NH2)-CH3 (butan-2-amine)\nbutan-2-amine + H2SO4(aq) -> Compound E\nCompound B + Reagent 1 -> Compound C",
       "marks": 8,
       "gradeLevel": "excellence",
       "topics": [
@@ -202,7 +202,7 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound A: but-2-ene (from elimination of butan-2-ol with conc. H2SO4 and heat). Compound B: butan-2-ol (addition of H2O to but-2-ene, Markovnikov). Compound C: butan-2-one (oxidation of the secondary alcohol butan-2-ol with acidified dichromate — Reagent 1 = Cr2O72-/H+). Compound D: 1-bromobutane or 2-bromobutane formed by addition of HBr to but-2-ene (Reagent 2 = HBr). Reagent 3 = excess NH3 in ethanol (substitution to give butan-1-amine). Compound E: butan-1-aminium hydrogensulfate (salt from CH3CH2CH2CH2NH2 + H2SO4).",
+      "expectedAnswer": "Compound A: but-2-ene (from elimination of butan-2-ol with conc. H2SO4 and heat — Zaitsev major product). Compound B: butan-2-ol (addition of H2O to but-2-ene; the symmetric alkene regenerates the secondary alcohol). Compound C: butan-2-one (oxidation of secondary alcohol butan-2-ol with acidified dichromate — Reagent 1 = Cr2O72-/H+ with heat). Compound D: 2-bromobutane, formed by addition of HBr to but-2-ene (Reagent 2 = HBr). Reagent 3 = excess NH3 in ethanol with heat (substitution to give butan-2-amine). Compound E: butan-2-aminium hydrogensulfate, the ammonium salt formed when butan-2-amine reacts with H2SO4(aq).",
       "markingGuide": "Achievement: FIVE correct entries. Merit: SEVEN correct. Excellence: ALL correct."
     },
     {

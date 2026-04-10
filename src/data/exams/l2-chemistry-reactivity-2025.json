@@ -50,7 +50,7 @@
           },
           {
             "label": "Metallic",
-            "value": 232
+            "value": 420
           },
           {
             "label": "Molecular",
@@ -58,7 +58,7 @@
           }
         ]
       },
-      "expectedAnswer": "3D Covalent Network (2730): Boron nitride (BN). Ionic (681): Potassium iodide (KI). Metallic (232): Zinc (Zn). Molecular (0): Water (H2O).",
+      "expectedAnswer": "3D Covalent Network (2730): Boron nitride (BN). Ionic (681): Potassium iodide (KI). Metallic (420): Zinc (Zn). Molecular (0): Water (H2O).",
       "markingGuide": "Achieved: THREE of four correct."
     },
     {
@@ -140,7 +140,7 @@
     {
       "id": "l2cr25-q2aiii",
       "number": "2(a)(iii)",
-      "text": "Potassium chloride, NH4NO3, is used in cold packs. The energy change shows reactant NH4NO3(s) at a lower energy level and products K+(aq) + Cl-(aq) at a higher energy level.\n\nIs the reaction absorbing energy from the surroundings or releasing energy to the surroundings?",
+      "text": "Ammonium nitrate, NH4NO3, is used in cold packs. The energy change shows reactant NH4NO3(s) at a lower energy level and products NH4+(aq) + NO3-(aq) at a higher energy level.\n\nIs the reaction absorbing energy from the surroundings or releasing energy to the surroundings?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [

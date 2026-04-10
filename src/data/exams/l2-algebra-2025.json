@@ -24,10 +24,10 @@
     {"id":"l2a25-q3e","number":"3(e)","text":"A cricketer hits a ball from a crease that is 2 m above the level of the boundary rope. The ball reaches maximum height of 30 m when 80 m from the crease. A fielder standing 150 m from the crease can jump to reach 3 m high. Assume a quadratic flight path.\n\nWill the ball clear the fielder?","marks":5,"gradeLevel":"excellence","topics":["quadratic-methods","graphing-l2"],"answerType":"working","expectedAnswer":"Yes, the ball clears the fielder. At x = 150 m, height ≈ 8.56 m > 3 m.","markingGuide":"Vertex form: y = a(x – 80)² + 30. At x = 0, y = 2: 2 = a(–80)² + 30 = 6400a + 30, so a = –28/6400 = –7/1600. At x = 150: y = (–7/1600)(150 – 80)² + 30 = (–7/1600)(4900) + 30 = –21.4375 + 30 = 8.5625 m. Since 8.56 m > 3 m, the ball clears the fielder easily. Achieved = vertex form set up. Merit = finds a. Excellence = evaluates at x = 150 and concludes."}
   ],
   "cutScores": {
-    "notAchieved": {"min":0,"max":7},
-    "achieved": {"min":8,"max":13},
-    "merit": {"min":14,"max":19},
-    "excellence": {"min":20,"max":24}
+    "notAchieved": {"min":0,"max":14},
+    "achieved": {"min":15,"max":26},
+    "merit": {"min":27,"max":38},
+    "excellence": {"min":39,"max":49}
   },
   "totalMarks": 49
 }

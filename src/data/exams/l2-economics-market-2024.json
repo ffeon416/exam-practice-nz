@@ -253,7 +253,7 @@
     {
       "id": "91222-2024-q3d",
       "number": "3(d)",
-      "text": "The chart below compares annual inflation rates in 2023 for New Zealand, Singapore, and Canada.\n\nCompare and contrast the impact of New Zealand's higher inflation rate on New Zealand importers and exporters trading with Singapore and Canada.",
+      "text": "The chart below compares annual inflation rates in 2023 for New Zealand, Japan, and Canada.\n\nCompare and contrast the impact of New Zealand's higher inflation rate on New Zealand importers and exporters trading with Japan and Canada.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -263,7 +263,7 @@
         "exporters"
       ],
       "answerType": "text",
-      "expectedAnswer": "NZ exporters are disadvantaged because NZ goods become relatively more expensive compared to Singaporean and Canadian goods, reducing international competitiveness and potentially reducing export volumes. NZ importers benefit because Singaporean and Canadian goods become relatively cheaper compared to NZ goods, meaning imported products cost less in real terms.",
+      "expectedAnswer": "NZ exporters are disadvantaged because NZ goods become relatively more expensive compared to Japanese and Canadian goods, reducing international competitiveness and potentially reducing export volumes. NZ importers benefit because Japanese and Canadian goods become relatively cheaper compared to NZ goods, meaning imported products cost less in real terms.",
       "markingGuide": "Fully explains impact of inflation on both importers AND exporters, comparing/contrasting effects with reference to both trading partners.",
       "graph": {
         "type": "bar",
@@ -282,8 +282,8 @@
             "color": "#3b82f6"
           },
           {
-            "label": "Singapore",
-            "value": 3.1,
+            "label": "Japan",
+            "value": 3.3,
             "color": "#10b981"
           }
         ]

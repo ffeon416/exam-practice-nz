@@ -68,7 +68,7 @@
         "velocity"
       ],
       "answerType": "working",
-      "expectedAnswer": "q = 5.00 x 10^6 x 1.6 x 10^-19 = 8.0 x 10^-13 C. E = V/d = 6000/0.002 = 3.0 x 10^6 V/m. Ep = Eqd = 3.0 x 10^6 x 8.0 x 10^-13 x 0.002 = 4.80 x 10^-9 J. Ek = 1/2 mv^2. v = sqrt(2 x 4.80 x 10^-9 / 2.04 x 10^-11) = sqrt(470.6) = 21.7 m/s. Wait let me recalculate: Ep = qV = 8.0 x 10^-13 x 6000 = 4.80 x 10^-9 J. v = sqrt(2 x 4.80 x 10^-9 / 2.04 x 10^-11) = sqrt(470.6) = 21.7 m/s. Hmm that seems low. Actually: v = sqrt(2Ep/m) = sqrt(2 x 4.8 x 10^-9 / 2.04 x 10^-11) = sqrt(470.59) = 21.7 m/s. v = 21.7 m s-1.",
+      "expectedAnswer": "Charge: q = 5.00 x 10^6 x 1.6 x 10^-19 = 8.0 x 10^-13 C. Electrical work done on the particle: W = qV = 8.0 x 10^-13 x 6000 = 4.80 x 10^-9 J. This becomes kinetic energy: Ek = 1/2 m v^2. v = sqrt(2 Ek / m) = sqrt(2 x 4.80 x 10^-9 / 2.04 x 10^-11) = sqrt(470.6) = 21.7 m s-1.",
       "markingGuide": "Achieved: q found or substitutes correctly. Merit: v with one error. Excellence: Correct v = 21.7 m s-1."
     },
     {

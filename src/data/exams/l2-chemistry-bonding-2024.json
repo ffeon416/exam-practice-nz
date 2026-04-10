@@ -97,7 +97,7 @@
     {
       "id": "l2cb24-q2ai",
       "number": "2(a)(i)-(ii)",
-      "text": "An incomplete reaction scheme starting with 2-bromopentane, Compound A, is shown.\n\nCompound A (2-bromopentane) undergoes Reaction type W with Reagent 1 to form Compound B (an alkene) and Compound C (a different alkene isomer). Compound B reacts with H2O/H+ and heat to form Compound D (an alcohol). Compound B also forms Compound E (a secondary alcohol on C2 of pentane). Compound C reacts with MnO4-/H+ in Reaction type X to form Compound F. Compound F reacts with Cr2O72-/H+ and heat to form Compound H. Compound H reacts with KOH in Reaction type Z to form Compound J (a potassium salt of a carboxylic acid).\n\n(i) Draw the structural formulae of Compounds C, D, E, and H.\n(ii) Complete the Reagents 1 and 2.",
+      "text": "An incomplete reaction scheme starting with 2-bromopentane, Compound A, is shown.\n\nCompound A (2-bromopentane) undergoes Reaction type W with Reagent 1 to form Compound B (pent-2-ene, the major alkene) and Compound C (pent-1-ene, the minor alkene isomer). Compound B reacts with H2O/H+ and heat in an addition reaction, producing Compound D (pentan-2-ol) and Compound E (pentan-3-ol) as a mixture of secondary alcohol isomers. Compound C reacts with acidified KMnO4 (Reagent 2) in Reaction type X to form Compound F, a diol. Compound F is oxidised further with Cr2O72-/H+ and heat to form Compound H, a carboxylic acid. Compound H reacts with KOH in Reaction type Z to form Compound J (a potassium salt of a carboxylic acid).\n\n(i) Draw the structural formulae of Compounds C, D, E, and H.\n(ii) Complete the Reagents 1 and 2.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -106,7 +106,7 @@
         "structures"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound C: pent-1-ene (H2C=CH-CH2-CH2-CH3). Compound D: pentan-2-ol (Markovnikov addition of H2O to pent-2-ene) or pentan-1-ol / pentan-2-ol from pent-1-ene. Compound E: pentan-2-ol. Compound H: pentanoic acid. Reagent 1: KOH(alc)/heat (elimination). Reagent 2: H2O/H+.",
+      "expectedAnswer": "Compound C: pent-1-ene (H2C=CH-CH2-CH2-CH3). Compound D: pentan-2-ol (from Markovnikov-style addition of H2O to pent-2-ene). Compound E: pentan-3-ol (the other secondary alcohol isomer formed from pent-2-ene). Compound H: pentanoic acid. Reagent 1: KOH in ethanol (alcoholic KOH) / heat (elimination). Reagent 2: acidified potassium permanganate, MnO4-/H+ (cold) — forms a diol from the alkene.",
       "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct."
     },
     {

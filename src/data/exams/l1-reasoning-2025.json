@@ -101,7 +101,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E.g. exponential shape, y-intercept at (0, 4), horizontal asymptote at y = 2",
-      "markingGuide": "Using y = 2×3^x + 2: (1) y-intercept at (0, 2×1+2) = (0, 4). (2) Horizontal asymptote at y = 2 as x → –∞. (3) Exponential growth as x → +∞. (4) No x-intercepts (always > 2). (5) Always increasing. Achieved = one feature. Merit = two features. Excellence = at least two features with justification."
+      "markingGuide": "Using y = 2×3^x + 2: (1) y-intercept at (0, 2×1+2) = (0, 4). (2) Horizontal asymptote at y = 2 as x → –∞. (3) Exponential growth as x → +∞. (4) No x-intercepts (always > 2). (5) Always increasing. Achieved = one feature. Merit = two features. Excellence = at least three features with justification."
     },
     {
       "id": "l1r25-q2a",

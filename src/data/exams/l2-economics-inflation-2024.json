@@ -107,28 +107,28 @@
         "yLabel": "Trade Value ($ billions)",
         "data": [
           {
-            "label": "Australia",
-            "value": 16.2,
-            "color": "#3b82f6"
-          },
-          {
             "label": "China",
-            "value": 15.8,
+            "value": 38.2,
             "color": "#ef4444"
           },
           {
+            "label": "Australia",
+            "value": 27.5,
+            "color": "#3b82f6"
+          },
+          {
             "label": "USA",
-            "value": 9.4,
+            "value": 19.8,
             "color": "#10b981"
           },
           {
             "label": "Japan",
-            "value": 5.1,
+            "value": 8.9,
             "color": "#f59e0b"
           },
           {
             "label": "South Korea",
-            "value": 3.8,
+            "value": 5.4,
             "color": "#8b5cf6"
           }
         ]
