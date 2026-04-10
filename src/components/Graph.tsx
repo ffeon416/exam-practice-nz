@@ -337,17 +337,20 @@ function NumberLine({ data }: { data: GraphData }) {
   const items = data.data as Array<{ label: string; value: number; color?: string }>;
   if (!Array.isArray(items) || items.length === 0) return null;
 
-  const allVals = items.map((d) => d.value);
-  const minVal = Math.min(...allVals, 0);
-  const maxVal = Math.max(...allVals);
-  const range = maxVal - minVal || 1;
+  // xValues[0] = left end value, xValues[1] = right end value
+  // If left > right (e.g. 300 mya → 0), the scale is reversed
+  const leftVal = data.xValues?.[0] ?? 0;
+  const rightVal = data.xValues?.[1] ?? Math.max(...items.map((d) => d.value));
 
   const W = 400, H = 90;
-  const pad = { l: 30, r: 30 };
+  const pad = { l: 50, r: 50 };
   const lineW = W - pad.l - pad.r;
   const lineY = 35;
 
-  function toX(v: number) { return pad.l + ((v - minVal) / range) * lineW; }
+  function toX(v: number) {
+    const range = rightVal - leftVal || 1;
+    return pad.l + ((v - leftVal) / range) * lineW;
+  }
 
   return (
     <div className="my-3 bg-zinc-900/50 border border-zinc-800/50 rounded-lg p-4">
