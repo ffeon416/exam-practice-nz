@@ -140,7 +140,40 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A: CH3-CH2-O-C(=O)-CH2-CH2-CH3 (methyl pentanoate is an ester). B: heptan-4-one. C: 3-chlorobutanal. D: structural formula.",
-      "markingGuide": "Achievement: THREE correct. Merit: ALL correct."
+      "markingGuide": "Achievement: THREE correct. Merit: ALL correct.",
+      "graph": {
+        "type": "table",
+        "title": "Organic Compounds - Names and Structures",
+        "data": {
+          "headers": [
+            "Compound",
+            "Given Information",
+            "To Complete"
+          ],
+          "rows": [
+            [
+              "A",
+              "IUPAC name: methyl pentanoate",
+              "Draw structural formula"
+            ],
+            [
+              "B",
+              "Structure: CH₃CH₂C(=O)CH₂CH₂CH₃",
+              "Give IUPAC name"
+            ],
+            [
+              "C",
+              "Structure: CH₃CH(Cl)C(=O)H",
+              "Give IUPAC name"
+            ],
+            [
+              "D",
+              "IUPAC name: 4-hydroxyhexanoyl chloride",
+              "Draw structural formula"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l3co24-q2aii",

@@ -1,6 +1,6 @@
 {
   "id": "l3-physics-waves-2024",
-  "title": "Level 3 Physics \u2014 Waves (91523) \u2014 2024",
+  "title": "Level 3 Physics — Waves (91523) — 2024",
   "level": 3,
   "standard": "91523",
   "year": 2024,
@@ -39,7 +39,35 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Diagram showing 5th harmonic in a closed pipe (5/4 wavelength): node at closed end, antinode at open end, with 3 nodes and 3 antinodes in between.",
-      "markingGuide": "Achievement: Correct shape with correct node/antinode labels."
+      "markingGuide": "Achievement: Correct shape with correct node/antinode labels.",
+      "graph": {
+        "type": "table",
+        "title": "Recorder (Closed Pipe) Data",
+        "data": {
+          "headers": [
+            "Quantity",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Speed of sound in air",
+              "343 m s⁻¹"
+            ],
+            [
+              "Pipe type",
+              "Closed at one end"
+            ],
+            [
+              "Harmonic to draw",
+              "5th harmonic"
+            ],
+            [
+              "Harmonics present in closed pipe",
+              "Odd only (1st, 3rd, 5th, ...)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "91523-24-q1b",
@@ -209,7 +237,7 @@
         "acceleration"
       ],
       "answerType": "text",
-      "expectedAnswer": "The graph shows increasing frequency as the ambulance approaches. This indicates the ambulance is accelerating \u2014 as it gets closer and faster, wave fronts bunch up more, increasing the apparent frequency.",
+      "expectedAnswer": "The graph shows increasing frequency as the ambulance approaches. This indicates the ambulance is accelerating — as it gets closer and faster, wave fronts bunch up more, increasing the apparent frequency.",
       "markingGuide": "Achievement: Increasing frequency. Merit: Justify with acceleration."
     },
     {

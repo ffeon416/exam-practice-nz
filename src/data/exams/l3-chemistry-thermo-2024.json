@@ -20,7 +20,30 @@
       ],
       "answerType": "working",
       "expectedAnswer": "IF5: Lewis structure shows Br central atom with 5 bonding pairs to F atoms and 1 lone pair. Shape: square pyramidal. BrF4-: I central atom with 4 bonding pairs and 2 lone pairs. Shape: square planar.",
-      "markingGuide": "Achievement: TWO correct Lewis structures with shapes."
+      "markingGuide": "Achievement: TWO correct Lewis structures with shapes.",
+      "graph": {
+        "type": "table",
+        "title": "Lewis Structures and Molecular Shapes",
+        "data": {
+          "headers": [
+            "Molecule/Ion",
+            "Lewis Structure",
+            "Shape"
+          ],
+          "rows": [
+            [
+              "IF₅",
+              "(to draw: I central, 5 F bonded, 1 lone pair)",
+              "(to identify)"
+            ],
+            [
+              "BrF₄⁻",
+              "(to draw: Br central, 4 F bonded, 2 lone pairs)",
+              "(to identify)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l3ct24-q1bi",

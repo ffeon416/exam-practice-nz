@@ -142,7 +142,35 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image is inverted, real, same size as object, located at di = 3.0 m (= 2f).",
-      "markingGuide": "Achieved: Correct image nature. Merit: Correct ray diagram. Excellence: Ray diagram with image described."
+      "markingGuide": "Achieved: Correct image nature. Merit: Correct ray diagram. Excellence: Ray diagram with image described.",
+      "graph": {
+        "type": "table",
+        "title": "Concave Mirror Data",
+        "data": {
+          "headers": [
+            "Quantity",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Object distance (do)",
+              "3.0 m"
+            ],
+            [
+              "Focal length (f)",
+              "1.5 m"
+            ],
+            [
+              "Mirror type",
+              "Concave"
+            ],
+            [
+              "Centre of curvature (C = 2f)",
+              "3.0 m"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "w24-q2cii",

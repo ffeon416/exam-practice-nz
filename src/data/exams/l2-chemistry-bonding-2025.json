@@ -20,7 +20,50 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A: structure of butanamine (CH3CH2CH2NH2).",
-      "markingGuide": "Achievement: THREE of six correct. Merit: SIX of six correct."
+      "markingGuide": "Achievement: THREE of six correct. Merit: SIX of six correct.",
+      "graph": {
+        "type": "table",
+        "title": "Organic Compounds",
+        "data": {
+          "headers": [
+            "Compound",
+            "Structure",
+            "IUPAC Name"
+          ],
+          "rows": [
+            [
+              "A",
+              "(to draw)",
+              "butanamine"
+            ],
+            [
+              "B",
+              "CHCl₂ (shown)",
+              "(to name)"
+            ],
+            [
+              "C",
+              "(to draw)",
+              "2,2-dimethylpropanoic acid"
+            ],
+            [
+              "D",
+              "(shown: chloroalkene structure)",
+              "(to name)"
+            ],
+            [
+              "E",
+              "(to draw)",
+              "1-pentyne"
+            ],
+            [
+              "F",
+              "(shown: alcohol structure)",
+              "(to name)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l2cb25-q1b",

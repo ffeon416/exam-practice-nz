@@ -1,6 +1,6 @@
 {
   "id": "l2-physics-waves-2025",
-  "title": "Level 2 Physics \u2014 Waves (2025)",
+  "title": "Level 2 Physics — Waves (2025)",
   "level": 2,
   "standard": "91170",
   "year": 2025,
@@ -39,7 +39,35 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image found between F and the lens, on the same side as the object. Virtual, upright, diminished.",
-      "markingGuide": "Achieved: Image found."
+      "markingGuide": "Achieved: Image found.",
+      "graph": {
+        "type": "table",
+        "title": "Concave Lens Data",
+        "data": {
+          "headers": [
+            "Quantity",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Object distance (do)",
+              "12 cm"
+            ],
+            [
+              "Focal length (f)",
+              "8 cm"
+            ],
+            [
+              "Lens type",
+              "Concave (diverging)"
+            ],
+            [
+              "2F distance",
+              "16 cm"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "w25-q1bi",
@@ -231,12 +259,27 @@
         "type": "table",
         "title": "Satellite Signal Data",
         "data": {
-          "headers": ["Quantity", "Value"],
+          "headers": [
+            "Quantity",
+            "Value"
+          ],
           "rows": [
-            ["Altitude", "600 km"],
-            ["Wavelength (λ)", "0.030 m"],
-            ["Speed of EM waves", "3.0 × 10⁸ m s⁻¹"],
-            ["Duration", "3 hours"]
+            [
+              "Altitude",
+              "600 km"
+            ],
+            [
+              "Wavelength (λ)",
+              "0.030 m"
+            ],
+            [
+              "Speed of EM waves",
+              "3.0 × 10⁸ m s⁻¹"
+            ],
+            [
+              "Duration",
+              "3 hours"
+            ]
           ]
         }
       },

@@ -14,10 +14,46 @@
       "text": "The Earth orbits the Sun once every 365.25 days. The Earth's axis is tilted at 23.5° relative to the plane of its orbit.\n\nIn the table below, identify which season occurs in the Southern Hemisphere at each position of the Earth in its orbit.\n\n| Position | Earth's tilt relative to Sun | Southern Hemisphere season |\n|---|---|---|\n| A | Southern Hemisphere tilted towards Sun | |\n| B | Neither hemisphere tilted towards Sun (equinox) | |\n| C | Southern Hemisphere tilted away from Sun | |\n| D | Neither hemisphere tilted towards Sun (equinox) | |",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["earth-space", "seasons"],
+      "topics": [
+        "earth-space",
+        "seasons"
+      ],
       "answerType": "text",
       "expectedAnswer": "A: Summer, B: Autumn, C: Winter, D: Spring",
-      "markingGuide": "Achievement: Correctly label all four seasons in the Southern Hemisphere at the appropriate orbital positions. Summer when tilted toward Sun (December), winter when tilted away (June), and autumn/spring at the equinoxes."
+      "markingGuide": "Achievement: Correctly label all four seasons in the Southern Hemisphere at the appropriate orbital positions. Summer when tilted toward Sun (December), winter when tilted away (June), and autumn/spring at the equinoxes.",
+      "graph": {
+        "type": "table",
+        "title": "Earth's Orbital Positions",
+        "data": {
+          "headers": [
+            "Position",
+            "Earth's Tilt Relative to Sun",
+            "Southern Hemisphere Season"
+          ],
+          "rows": [
+            [
+              "A",
+              "Southern Hemisphere tilted towards Sun",
+              ""
+            ],
+            [
+              "B",
+              "Neither hemisphere tilted towards Sun (equinox)",
+              ""
+            ],
+            [
+              "C",
+              "Southern Hemisphere tilted away from Sun",
+              ""
+            ],
+            [
+              "D",
+              "Neither hemisphere tilted towards Sun (equinox)",
+              ""
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "92046-25-q1b",
@@ -25,16 +61,48 @@
       "text": "The graph below shows average monthly temperatures for Christchurch for the year 2024.\n\nExplain the differences in average monthly temperatures for Christchurch throughout the year.\n\nInclude in your answer:\n- why the Earth experiences seasons (include length of orbit and axial tilt)\n- a comparison of the differences in the amount of solar radiation throughout the year\n- why the temperature changes throughout the year.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["earth-space", "seasons"],
+      "topics": [
+        "earth-space",
+        "seasons"
+      ],
       "answerType": "text",
       "graph": {
         "type": "line",
         "title": "Average Monthly Temperatures — Christchurch 2024",
         "xLabel": "Month",
         "yLabel": "Average Temperature (°C)",
-        "xValues": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "xValues": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
         "series": [
-          { "name": "Temperature", "values": [18, 17, 15, 12, 9, 6, 5, 7, 10, 12, 15, 17] }
+          {
+            "name": "Temperature",
+            "values": [
+              18,
+              17,
+              15,
+              12,
+              9,
+              6,
+              5,
+              7,
+              10,
+              12,
+              15,
+              17
+            ]
+          }
         ]
       },
       "expectedAnswer": "The Earth is on a tilt of 23.5 degrees relative to its orbital plane.",
@@ -46,7 +114,11 @@
       "text": "Christchurch experiences changes in daylength throughout the year. In summer, the days are longer; in winter, the days are shorter.\n\n| | Summer day | Winter day |\n|---|---|---|\n| Time of sunrise | 5:48 a.m. | 8:02 a.m. |\n| Time of sunset | 9:04 p.m. | 5:02 p.m. |\n\nUsing the data above, discuss why this happens.\n\nInclude in your answer:\n- why the Earth experiences day and night\n- how the height of the Sun changes throughout the year\n- why the daylength changes throughout the year.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["earth-space", "seasons", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "The Earth spins once on its axis every 24 hours, creating day and night.",
       "markingGuide": "Achievement: Describes why we have day and night (Earth's rotation), and describes the height of the Sun for the seasons. Merit: Explains the differences in daylength between summer and winter by linking tilt and Sun height. Excellence: Discusses why daylength changes throughout the year, comprehensively linking Earth's rotation, axial tilt, Sun height, and the resulting differences in sunrise/sunset times."
@@ -57,10 +129,41 @@
       "text": "The Moon takes approximately 29.5 days to complete one cycle of phases as seen from Earth.\n\nComplete the table below to describe or name the Moon phase at each position.\n\n| Position relative to Earth and Sun | Moon phase name |\n|---|---|\n| Moon between Earth and Sun | |\n| Moon 90° ahead of Earth–Sun line (first quarter) | |\n| Moon on opposite side of Earth from Sun | |\n| Moon 90° behind Earth–Sun line (third quarter) | |",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["earth-space", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "New Moon, First Quarter, Full Moon, Third Quarter",
-      "markingGuide": "Achievement: 3 out of 4 Moon phases correctly named. The phases correspond to the Moon's position relative to Earth and Sun."
+      "markingGuide": "Achievement: 3 out of 4 Moon phases correctly named. The phases correspond to the Moon's position relative to Earth and Sun.",
+      "graph": {
+        "type": "table",
+        "title": "Moon Phases",
+        "data": {
+          "headers": [
+            "Position Relative to Earth and Sun",
+            "Moon Phase Name"
+          ],
+          "rows": [
+            [
+              "Moon between Earth and Sun",
+              ""
+            ],
+            [
+              "Moon 90° ahead of Earth–Sun line",
+              ""
+            ],
+            [
+              "Moon on opposite side of Earth from Sun",
+              ""
+            ],
+            [
+              "Moon 90° behind Earth–Sun line",
+              ""
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "92046-25-q2b",
@@ -68,7 +171,10 @@
       "text": "Explain why viewers on Earth observe different phases of the Moon over time.\n\nInclude in your answer:\n- why we see the Moon\n- why the Moon appears to have different shapes over time, as seen from Earth\n- how the Moon appears in the Southern Hemisphere as compared to the Northern Hemisphere.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["earth-space", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "The Moon is visible because sunlight reflects off its surface.",
       "markingGuide": "Achievement: Describes the position of Moon and Sun for new and full moon, states that the Moon is lit by the Sun, describes changes in the Moon's appearance. Merit: Explains the position of Earth, Moon, and the Sun during the phases of the Moon, explains the Moon phases using relative position. Excellence: Uses the Moon's position and observers' location to discuss how the Moon phases appear from different locations on Earth, including that the illuminated portion appears reversed between hemispheres."
@@ -79,7 +185,10 @@
       "text": "A lunar eclipse occurs when the Earth passes between the Sun and the Moon, casting Earth's shadow onto the Moon. A lunar eclipse can only happen during a full Moon, yet a lunar eclipse does not occur every month.\n\nExplain why a lunar eclipse does not occur every full Moon.\n\nInclude in your answer:\n- what causes a lunar eclipse\n- why the Moon must be in a specific position for an eclipse to occur\n- why the tilt of the Moon's orbit prevents monthly eclipses.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["earth-space", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "A lunar eclipse occurs when the Earth is directly between the Sun and the Moon, and the Moon passes through Earth's shadow.",
       "markingGuide": "Achievement: Describes that a lunar eclipse requires alignment of Sun, Earth, and Moon. Merit: Explains that the Moon's orbital plane is tilted about 5° relative to Earth's orbital plane, so most full Moons pass above or below Earth's shadow. Excellence: Discusses the orbital tilt comprehensively, including nodes (points where the orbits cross), and explains that eclipses only occur when a full Moon coincides with the Moon being near a node."
@@ -90,7 +199,11 @@
       "text": "The Sun appears to follow different paths across the sky at different times of year, as seen from the Southern Hemisphere.\n\nPath A is the highest arc across the sky. Path B is the middle arc. Path C is the lowest arc.\n\nLabel paths A, B, and C as summer solstice, equinox, or winter solstice.\n\n| Path | Label |\n|---|---|\n| A (highest) | |\n| B (middle) | |\n| C (lowest) | |",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["earth-space", "seasons", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "A: Summer solstice (highest path), B: Equinox (middle path), C: Winter solstice (lowest path)",
       "markingGuide": "Achievement: Table completed correctly with all three labels matching the correct arc positions."
@@ -101,7 +214,11 @@
       "text": "During the winter solstice, Whangārei (latitude 36°S) experiences a longer day than Stewart Island (latitude 47°S), while the opposite is true for the summer solstice. During an equinox they experience similar daylengths.\n\nDiscuss why Whangārei and Stewart Island experience differences in daylength throughout the year.\n\nInclude in your answer:\n- definitions of winter solstice, equinox, summer solstice\n- why the location of sunrise and sunset appear to change throughout the year\n- why Whangārei and Stewart Island experience different daylengths during the solstices but similar during an equinox.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["earth-space", "seasons", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "An equinox is when New Zealand experiences approximately equal day and night lengths.",
       "markingGuide": "Achievement: Defines equinox OR solstice, describes the changing position of the Sun rising and setting throughout the year. Merit: Explains the changing daylengths by linking location of sunrise and sunset with Sun's apparent path throughout the year, explains differences between Whangārei and Stewart Island. Excellence: Discusses why the daylength changes throughout the year at the two locations based on latitude, tilt, and Sun's apparent path comprehensively."
@@ -112,16 +229,32 @@
       "text": "The Equator and Queenstown are at different latitudes, meaning they experience different Sun angles throughout the year. The Equator has a latitude of 0° and Queenstown is at 45°S.\n\nAt the spring equinox:\n\n| Location | Sun angle at noon |\n|---|---|\n| Equator | 90° |\n| Queenstown | 45° |\n\nDiscuss why these two locations experience differences in the angle of the Sun during the spring equinox.\n\nInclude in your answer:\n- compare the angle of the Sun at noon between the two locations\n- explain why these differences in angles occur\n- discuss the differences in shadow lengths and directions between the two locations.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["earth-space", "seasons", "sun-earth-moon"],
+      "topics": [
+        "earth-space",
+        "seasons",
+        "sun-earth-moon"
+      ],
       "answerType": "text",
       "expectedAnswer": "At the spring equinox, the Sun is directly above the Equator.",
       "markingGuide": "Achievement: Describes the angle of the Sun at noon between the two locations. Merit: Explains why the differences in angles occur, linking latitude and curvature of Earth. Excellence: Discusses shadow differences in both length and direction between the two locations, comprehensively linking sun angle, latitude and shadow effects."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 7 },
-    "achieved": { "min": 8, "max": 13 },
-    "merit": { "min": 14, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

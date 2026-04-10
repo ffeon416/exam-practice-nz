@@ -174,9 +174,26 @@
         "title": "Velocity–Time Graph for Sprint",
         "xLabel": "Time (s)",
         "yLabel": "Velocity (m s⁻¹)",
-        "xValues": [0, 1, 2, 3, 4, 4.5],
+        "xValues": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          4.5
+        ],
         "series": [
-          { "name": "Velocity", "values": [0, 1.82, 3.64, 5.47, 7.29, 8.20] }
+          {
+            "name": "Velocity",
+            "values": [
+              0,
+              1.82,
+              3.64,
+              5.47,
+              7.29,
+              8.2
+            ]
+          }
         ]
       },
       "expectedAnswer": "Ek = 1/2 mv^2 = 0.5 x 72.0 x 8.20^2 = 2421 J. P = W/t = 2421/4.50 = 538 W.",
@@ -194,7 +211,51 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Five forces: weight of bench (down, centre), weight of each player (down), support A (up), support B (up).",
-      "markingGuide": "Achieved: All 5 forces labelled."
+      "markingGuide": "Achieved: All 5 forces labelled.",
+      "graph": {
+        "type": "table",
+        "title": "Bench and Player Data",
+        "data": {
+          "headers": [
+            "Quantity",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Bench weight",
+              "580 N"
+            ],
+            [
+              "Bench length",
+              "3.00 m"
+            ],
+            [
+              "Support A distance from left end",
+              "0.300 m"
+            ],
+            [
+              "Support B distance from right end",
+              "0.300 m"
+            ],
+            [
+              "Player 1 weight",
+              "640 N"
+            ],
+            [
+              "Player 1 position",
+              "0.150 m left of Support A"
+            ],
+            [
+              "Player 2 weight",
+              "720 N"
+            ],
+            [
+              "Player 2 position",
+              "0.200 m right of Support A"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "m25-q3cii",

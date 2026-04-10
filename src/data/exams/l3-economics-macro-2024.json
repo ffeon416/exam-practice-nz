@@ -88,7 +88,39 @@
       ],
       "answerType": "text",
       "expectedAnswer": "RBNZ rate hikes shift AD left (contractionary monetary policy). Government spending increases shift AD right (expansionary fiscal policy). Net effect on AD depends on relative magnitudes. If they offset, AD may not change significantly. Price level and output effects are ambiguous. On an AD/AS diagram, show both shifts and discuss possible net outcomes. The conflicting policies reduce the effectiveness of each.",
-      "markingGuide": "Evaluate conflicting policy effects with diagram showing both AD shifts."
+      "markingGuide": "Evaluate conflicting policy effects with diagram showing both AD shifts.",
+      "graph": {
+        "type": "table",
+        "title": "Conflicting Macroeconomic Policies",
+        "data": {
+          "headers": [
+            "Policy",
+            "Action",
+            "Effect on AD",
+            "Mechanism"
+          ],
+          "rows": [
+            [
+              "Monetary (RBNZ)",
+              "Raise OCR",
+              "AD shifts left",
+              "Higher interest rates reduce C and I"
+            ],
+            [
+              "Fiscal (Govt)",
+              "Increase G on health & infrastructure",
+              "AD shifts right",
+              "Higher G directly increases AD"
+            ],
+            [
+              "Net effect",
+              "Ambiguous",
+              "Depends on relative magnitudes",
+              "Policies partially offset each other"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l3em24-q2b",

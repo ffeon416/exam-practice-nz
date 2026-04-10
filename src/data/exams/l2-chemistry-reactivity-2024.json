@@ -112,7 +112,50 @@
       ],
       "answerType": "working",
       "expectedAnswer": "SiO2: covalent network, atoms, strong covalent bonds. SCl2: molecular, molecules, weak intermolecular forces. NaCl: ionic, ions, strong ionic bonds. Cu: metallic, cations/atoms, metallic bonds.",
-      "markingGuide": "Achievement: Two rows correct. Merit: Full table correct."
+      "markingGuide": "Achievement: Two rows correct. Merit: Full table correct.",
+      "graph": {
+        "type": "table",
+        "title": "Properties of Solids",
+        "data": {
+          "headers": [
+            "Solid",
+            "Melting point (°C)",
+            "Type of solid",
+            "Type of particle",
+            "Attractive forces"
+          ],
+          "rows": [
+            [
+              "SiO₂ (silicon dioxide)",
+              "2730",
+              "",
+              "",
+              ""
+            ],
+            [
+              "SCl₂ (sulfur dichloride)",
+              "-41",
+              "",
+              "",
+              ""
+            ],
+            [
+              "NaCl (sodium chloride)",
+              "734",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Ag (silver)",
+              "1085",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l2cr24-q2b",

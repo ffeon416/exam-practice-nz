@@ -20,7 +20,33 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P(drink) = P(hot and drink) + P(cold and drink) = 0.55 × 0.40 + 0.45 × 0.25 = 0.22 + 0.1125 = 0.3325",
-      "markingGuide": "Achieved: Draws tree diagram with correct branches (hot 0.55/cold 0.45, then drink/no drink for each). Calculates P(drink) = 0.3325. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram."
+      "markingGuide": "Achieved: Draws tree diagram with correct branches (hot 0.55/cold 0.45, then drink/no drink for each). Calculates P(drink) = 0.3325. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram.",
+      "graph": {
+        "type": "table",
+        "title": "Cafe Orders Probability Data",
+        "data": {
+          "headers": [
+            "Drink",
+            "P(Drink)",
+            "Buys muffin",
+            "No muffin"
+          ],
+          "rows": [
+            [
+              "Coffee",
+              "0.60",
+              "0.35",
+              "0.65"
+            ],
+            [
+              "Tea",
+              "0.40",
+              "0.20",
+              "0.80"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "stat267-25-q1b",

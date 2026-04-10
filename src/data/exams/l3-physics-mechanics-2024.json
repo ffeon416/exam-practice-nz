@@ -1,6 +1,6 @@
 {
   "id": "l3-physics-mechanics-2024",
-  "title": "Level 3 Physics \u2014 Mechanics (91524) \u2014 2024",
+  "title": "Level 3 Physics — Mechanics (91524) — 2024",
   "level": 3,
   "standard": "91524",
   "year": 2024,
@@ -129,7 +129,45 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Tension: T = m(g-a) = 0.0580(9.81-1.95) = 0.4559 N. Torque = Tr = 0.4559 x 0.12 = 0.05471 Nm. I = torque/alpha = 0.05471/16.25 = 0.00337 kg m^2.",
-      "markingGuide": "Achievement: Tension identified. Merit: One error. Excellence: I = 0.00337 kg m^2."
+      "markingGuide": "Achievement: Tension identified. Merit: One error. Excellence: I = 0.00337 kg m^2.",
+      "graph": {
+        "type": "table",
+        "title": "Flywheel Experiment Data",
+        "data": {
+          "headers": [
+            "Quantity",
+            "Symbol",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Mass of hanging weight",
+              "m",
+              "0.0580 kg"
+            ],
+            [
+              "Radius of axle",
+              "r",
+              "0.12 m"
+            ],
+            [
+              "Linear acceleration of mass",
+              "a",
+              "1.95 m s⁻²"
+            ],
+            [
+              "Angular acceleration of flywheel",
+              "α",
+              "16.25 rad s⁻²"
+            ],
+            [
+              "Acceleration due to gravity",
+              "g",
+              "9.81 m s⁻²"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "91524-24-q2d",

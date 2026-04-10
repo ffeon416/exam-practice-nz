@@ -144,7 +144,47 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Short-run: G increases, shifting AD right, boosting output and employment in construction and related industries (multiplier effect). Long-run: more housing supply shifts LRAS right — reduced housing costs free up household spending, lower wage demands, and improve labour mobility. Funding: borrowing is appropriate during a slowdown (low opportunity cost, Keynesian stimulus), but adds to government debt; tax increases would be counterproductive. Crowding out: if funded by borrowing, interest rates may rise, reducing private investment — but less of a concern during a slowdown when private investment is already weak. Risks: construction cost overruns, misallocation if houses are built where demand is low, and time lags. Overall: well-targeted housing construction addresses both demand stimulus and a binding supply-side constraint.",
-      "markingGuide": "Sophisticated assessment of fiscal policy covering short-run, long-run, funding, and risks."
+      "markingGuide": "Sophisticated assessment of fiscal policy covering short-run, long-run, funding, and risks.",
+      "graph": {
+        "type": "table",
+        "title": "State Housing Construction Programme",
+        "data": {
+          "headers": [
+            "Parameter",
+            "Detail"
+          ],
+          "rows": [
+            [
+              "Total houses planned",
+              "10,000"
+            ],
+            [
+              "Timeframe",
+              "5 years"
+            ],
+            [
+              "Houses per year",
+              "2,000"
+            ],
+            [
+              "Policy type",
+              "Expansionary fiscal policy"
+            ],
+            [
+              "Short-run effect",
+              "AD shifts right (↑G, multiplier)"
+            ],
+            [
+              "Long-run effect",
+              "LRAS shifts right (↑housing supply, ↓costs)"
+            ],
+            [
+              "Funding risk",
+              "Crowding out if borrowing raises interest rates"
+            ]
+          ]
+        }
+      }
     }
   ],
   "cutScores": {

@@ -77,7 +77,35 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Correct tree with branches: High Cholesterol (0.04) / Normal (0.96), then Test+ / Test- for each. Using 5,000: High Chol = 200, Normal = 4,800. High Chol & Test+ = 184, High Chol & Test- = 16, Normal & Test+ = 288, Normal & Test- = 4,512."
+      "markingGuide": "Achievement: Correct tree with branches: High Cholesterol (0.04) / Normal (0.96), then Test+ / Test- for each. Using 5,000: High Chol = 200, Normal = 4,800. High Chol & Test+ = 184, High Chol & Test- = 16, Normal & Test+ = 288, Normal & Test- = 4,512.",
+      "graph": {
+        "type": "table",
+        "title": "Iron Deficiency Screening Data",
+        "data": {
+          "headers": [
+            "",
+            "Has iron deficiency (5%)",
+            "No iron deficiency (95%)"
+          ],
+          "rows": [
+            [
+              "Population (of 5,000)",
+              "250",
+              "4,750"
+            ],
+            [
+              "Test positive",
+              "225 (90% of 250)",
+              "380 (8% of 4,750)"
+            ],
+            [
+              "Test negative",
+              "25 (10% of 250)",
+              "4,370 (92% of 4,750)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-24-q2b",
@@ -90,7 +118,45 @@
         "probability-trees"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: P(Test+) = (184 + 288)/5000 = 472/5000 = 0.0944. Merit: P(High Chol | Test+) = 184/472 = 0.32102 (approximately 39.0%). Working must show conditional probability calculation clearly. Common error: confusing P(Test+ | High Chol) with P(High Chol | Test+)."
+      "markingGuide": "Achievement: P(Test+) = (184 + 288)/5000 = 472/5000 = 0.0944. Merit: P(High Chol | Test+) = 184/472 = 0.32102 (approximately 39.0%). Working must show conditional probability calculation clearly. Common error: confusing P(Test+ | High Chol) with P(High Chol | Test+).",
+      "graph": {
+        "type": "table",
+        "title": "Probability Tree Summary",
+        "data": {
+          "headers": [
+            "Branch",
+            "Probability",
+            "Outcome",
+            "Joint Probability"
+          ],
+          "rows": [
+            [
+              "Iron deficient",
+              "0.05",
+              "Test +",
+              "0.05 x 0.90 = 0.045"
+            ],
+            [
+              "Iron deficient",
+              "0.05",
+              "Test -",
+              "0.05 x 0.10 = 0.005"
+            ],
+            [
+              "Not iron deficient",
+              "0.95",
+              "Test +",
+              "0.95 x 0.08 = 0.076"
+            ],
+            [
+              "Not iron deficient",
+              "0.95",
+              "Test -",
+              "0.95 x 0.92 = 0.874"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-24-q2c",

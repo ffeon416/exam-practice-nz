@@ -45,7 +45,57 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6). Basketball on branch: Training (0.8), Library (0.2). No basketball branch: Library (0.6), Mate's house (0.25), Home (0.15). All branches correctly labelled with probabilities."
+      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6). Basketball on branch: Training (0.8), Library (0.2). No basketball branch: Library (0.6), Mate's house (0.25), Home (0.15). All branches correctly labelled with probabilities.",
+      "graph": {
+        "type": "table",
+        "title": "After-School Activity Probabilities",
+        "data": {
+          "headers": [
+            "First Branch",
+            "P",
+            "Second Branch",
+            "P",
+            "Joint P"
+          ],
+          "rows": [
+            [
+              "Basketball on",
+              "0.4",
+              "Training",
+              "0.8",
+              "0.32"
+            ],
+            [
+              "Basketball on",
+              "0.4",
+              "Library",
+              "0.2",
+              "0.08"
+            ],
+            [
+              "No basketball",
+              "0.6",
+              "Library",
+              "0.6",
+              "0.36"
+            ],
+            [
+              "No basketball",
+              "0.6",
+              "Gym",
+              "0.25",
+              "0.15"
+            ],
+            [
+              "No basketball",
+              "0.6",
+              "Home",
+              "0.15",
+              "0.09"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-25-q2b",
@@ -58,7 +108,50 @@
         "conditional-probability"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: P(Library) = P(Basketball on and Library) + P(No basketball and Library) = 0.4 × 0.2 + 0.6 × 0.6 = 0.08 + 0.36 = 0.44. Merit: P(Basketball on | Library) = P(Basketball on and Library)/P(Library) = 0.08/0.44 = 8/44 = 2/11 ≈ 0.182. Clear working showing conditional probability formula applied correctly."
+      "markingGuide": "Achievement: P(Library) = P(Basketball on and Library) + P(No basketball and Library) = 0.4 × 0.2 + 0.6 × 0.6 = 0.08 + 0.36 = 0.44. Merit: P(Basketball on | Library) = P(Basketball on and Library)/P(Library) = 0.08/0.44 = 8/44 = 2/11 ≈ 0.182. Clear working showing conditional probability formula applied correctly.",
+      "graph": {
+        "type": "table",
+        "title": "Tree Diagram Summary for Conditional Probability",
+        "data": {
+          "headers": [
+            "Outcome",
+            "Path",
+            "Joint Probability"
+          ],
+          "rows": [
+            [
+              "Basketball on -> Training",
+              "0.4 x 0.8",
+              "0.32"
+            ],
+            [
+              "Basketball on -> Library",
+              "0.4 x 0.2",
+              "0.08"
+            ],
+            [
+              "No basketball -> Library",
+              "0.6 x 0.6",
+              "0.36"
+            ],
+            [
+              "No basketball -> Gym",
+              "0.6 x 0.25",
+              "0.15"
+            ],
+            [
+              "No basketball -> Home",
+              "0.6 x 0.15",
+              "0.09"
+            ],
+            [
+              "Total",
+              "",
+              "1.00"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-25-q3a",

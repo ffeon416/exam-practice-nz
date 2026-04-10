@@ -19,7 +19,31 @@
       ],
       "answerType": "number",
       "expectedAnswer": "5",
-      "markingGuide": "The timeline runs from 300 million years ago to today. 60 million years ago is 60/300 = 20% from the right end (today). With 5 arrows evenly spaced, arrow 5 is closest to 'Today'. Accept arrow 5."
+      "markingGuide": "The timeline runs from 300 million years ago to today. 60 million years ago is 60/300 = 20% from the right end (today). With 5 arrows evenly spaced, arrow 5 is closest to 'Today'. Accept arrow 5.",
+      "graph": {
+        "type": "table",
+        "title": "Timeline: 300 Million Years Ago to Today",
+        "data": {
+          "headers": [
+            "Position",
+            "Arrow 1",
+            "Arrow 2",
+            "Arrow 3",
+            "Arrow 4",
+            "Arrow 5"
+          ],
+          "rows": [
+            [
+              "Million years ago",
+              "240",
+              "180",
+              "120",
+              "60",
+              "0 (Today)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "caan24-q1b",
@@ -549,7 +573,60 @@
       ],
       "answerType": "number",
       "expectedAnswer": "10",
-      "markingGuide": "Rugby games are 25 minutes each. Netball games are 15 minutes each. Difference: 25 - 15 = 10 minutes."
+      "markingGuide": "Rugby games are 25 minutes each. Netball games are 15 minutes each. Difference: 25 - 15 = 10 minutes.",
+      "graph": {
+        "type": "table",
+        "title": "School Sports Day Morning Timetable",
+        "data": {
+          "headers": [
+            "Time",
+            "Rugby",
+            "Netball"
+          ],
+          "rows": [
+            [
+              "9:00 - 9:25",
+              "Game 1",
+              "Game 1 (9:00 - 9:15)"
+            ],
+            [
+              "9:15 - 9:20",
+              "",
+              "Break"
+            ],
+            [
+              "9:20 - 9:35",
+              "",
+              "Game 2"
+            ],
+            [
+              "9:25 - 9:30",
+              "Break",
+              ""
+            ],
+            [
+              "9:30 - 9:55",
+              "Game 2",
+              "Game 3 (9:40 - 9:55)"
+            ],
+            [
+              "9:35 - 9:40",
+              "",
+              "Break"
+            ],
+            [
+              "9:55 - 10:00",
+              "Break",
+              "Break"
+            ],
+            [
+              "10:00 - 10:25",
+              "Game 3",
+              "Game 4 (10:00 - 10:15)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "caan24-q4f",

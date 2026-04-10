@@ -99,9 +99,18 @@
         "xLabel": "Compound",
         "yLabel": "Boiling Point (°C)",
         "data": [
-          { "label": "Hexanal", "value": 129 },
-          { "label": "Hexan-1-ol", "value": 157 },
-          { "label": "Hexanoic acid", "value": 205 }
+          {
+            "label": "Hexanal",
+            "value": 129
+          },
+          {
+            "label": "Hexan-1-ol",
+            "value": 157
+          },
+          {
+            "label": "Hexanoic acid",
+            "value": 205
+          }
         ]
       },
       "expectedAnswer": "The hexan-1-ol was fully oxidised past the aldehyde stage to hexanoic acid because excess oxidising agent and reflux were used. Hexanoic acid has bp 205 degrees C, much higher than 129 degrees C.",
@@ -135,7 +144,40 @@
       ],
       "answerType": "working",
       "expectedAnswer": "A: octan-2-one. B: CH3CH2CH2CH2-O-CO-CH2CH3. C: CH3CH2CH(CH3)CH2CH2CONH2. D: 4-chlorohexanal.",
-      "markingGuide": "Achievement: THREE correct. Merit: ALL four correct."
+      "markingGuide": "Achievement: THREE correct. Merit: ALL four correct.",
+      "graph": {
+        "type": "table",
+        "title": "Organic Compounds - Names and Structures",
+        "data": {
+          "headers": [
+            "Compound",
+            "Given Information",
+            "To Complete"
+          ],
+          "rows": [
+            [
+              "A",
+              "Structure: CH₃(CH₂)₄C(=O)CH₃",
+              "Give IUPAC name"
+            ],
+            [
+              "B",
+              "IUPAC name: pentyl ethanoate",
+              "Draw structural formula"
+            ],
+            [
+              "C",
+              "IUPAC name: 4-methylheptanamide",
+              "Draw structural formula"
+            ],
+            [
+              "D",
+              "Structure: CH₃CH(Cl)CH₂CH₂C(=O)H",
+              "Give IUPAC name"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l3co25-q2aii",

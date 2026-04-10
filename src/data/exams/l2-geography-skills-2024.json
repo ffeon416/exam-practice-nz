@@ -20,7 +20,40 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Precis map with Marine Parade, Bluff Hill, Art Deco district, and Clive Square accurately located with appropriate mapping conventions.",
-      "markingGuide": "Achievement: Completes precis map using skills and geographic conventions with some accuracy. Features located approximately correctly. Title, north arrow, key, and symbols present. Merit: High level of accuracy in location of all features with detailed mapping conventions."
+      "markingGuide": "Achievement: Completes precis map using skills and geographic conventions with some accuracy. Features located approximately correctly. Title, north arrow, key, and symbols present. Merit: High level of accuracy in location of all features with detailed mapping conventions.",
+      "graph": {
+        "type": "table",
+        "title": "Precis Map Features — Central Napier",
+        "data": {
+          "headers": [
+            "Feature",
+            "Type",
+            "Map Convention"
+          ],
+          "rows": [
+            [
+              "Marine Parade",
+              "Road / Coastal promenade",
+              "Line symbol"
+            ],
+            [
+              "Bluff Hill / Mataruahou",
+              "Landform / Hill",
+              "Area symbol with label"
+            ],
+            [
+              "Art Deco commercial district",
+              "Urban zone",
+              "Shaded area with label"
+            ],
+            [
+              "Clive Square",
+              "Park / Reserve",
+              "Area symbol with label"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "91243-2024-q1aiii",

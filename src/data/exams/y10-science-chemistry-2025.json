@@ -14,9 +14,16 @@
       "text": "An atom consists of a nucleus surrounded by electrons. What particles are found in the nucleus of an atom?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["atoms-elements"],
+      "topics": [
+        "atoms-elements"
+      ],
       "answerType": "multi-choice",
-      "options": ["Electrons and neutrons", "Protons and electrons", "Protons and neutrons", "Only protons"],
+      "options": [
+        "Electrons and neutrons",
+        "Protons and electrons",
+        "Protons and neutrons",
+        "Only protons"
+      ],
       "expectedAnswer": "Protons and neutrons",
       "markingGuide": "The correct answer is 'Protons and neutrons'. The nucleus contains positively charged protons and neutral neutrons. Electrons are negatively charged particles that orbit the nucleus in energy levels (shells). Exam tip: Remember — Protons are Positive, Neutrons are Neutral, and Electrons are nEgative."
     },
@@ -26,9 +33,16 @@
       "text": "The element carbon has an atomic number of 6 and a mass number of 12. How many protons, neutrons, and electrons does a carbon atom have?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["atoms-elements"],
+      "topics": [
+        "atoms-elements"
+      ],
       "answerType": "multi-choice",
-      "options": ["6 protons, 6 neutrons, 12 electrons", "6 protons, 6 neutrons, 6 electrons", "12 protons, 6 neutrons, 6 electrons", "6 protons, 12 neutrons, 6 electrons"],
+      "options": [
+        "6 protons, 6 neutrons, 12 electrons",
+        "6 protons, 6 neutrons, 6 electrons",
+        "12 protons, 6 neutrons, 6 electrons",
+        "6 protons, 12 neutrons, 6 electrons"
+      ],
       "expectedAnswer": "6 protons, 6 neutrons, 6 electrons",
       "markingGuide": "The correct answer is '6 protons, 6 neutrons, 6 electrons'. The atomic number tells you the number of protons (6). In a neutral atom, the number of electrons equals the number of protons (6). The mass number = protons + neutrons, so neutrons = 12 - 6 = 6. Exam tip: Atomic number = protons = electrons (in a neutral atom). Mass number = protons + neutrons."
     },
@@ -38,9 +52,16 @@
       "text": "Which of the following is a sign that a chemical reaction has taken place?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["chemical-reactions-y10"],
+      "topics": [
+        "chemical-reactions-y10"
+      ],
       "answerType": "multi-choice",
-      "options": ["The substance dissolves in water", "A colour change, gas production, or temperature change occurs", "The substance changes from a solid to a liquid", "The substance is mixed with another substance"],
+      "options": [
+        "The substance dissolves in water",
+        "A colour change, gas production, or temperature change occurs",
+        "The substance changes from a solid to a liquid",
+        "The substance is mixed with another substance"
+      ],
       "expectedAnswer": "A colour change, gas production, or temperature change occurs",
       "markingGuide": "The correct answer is 'A colour change, gas production, or temperature change occurs'. Signs of a chemical reaction include: colour change, gas bubbles produced, temperature change (exothermic or endothermic), precipitate formed, light or sound produced, or a new smell. Dissolving and melting are physical changes, not chemical reactions. Simply mixing substances does not guarantee a reaction."
     },
@@ -50,9 +71,17 @@
       "text": "A student adds hydrochloric acid to sodium hydroxide solution. The word equation for this reaction is:\n\nhydrochloric acid + sodium hydroxide → sodium chloride + water\n\nWhat type of reaction is this?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["chemical-reactions-y10", "acids-bases"],
+      "topics": [
+        "chemical-reactions-y10",
+        "acids-bases"
+      ],
       "answerType": "multi-choice",
-      "options": ["Combustion", "Neutralisation", "Decomposition", "Photosynthesis"],
+      "options": [
+        "Combustion",
+        "Neutralisation",
+        "Decomposition",
+        "Photosynthesis"
+      ],
       "expectedAnswer": "Neutralisation",
       "markingGuide": "The correct answer is 'Neutralisation'. When an acid reacts with a base (or alkali), the products are a salt and water. This is called a neutralisation reaction. Hydrochloric acid + sodium hydroxide (a base) → sodium chloride (a salt) + water. Exam tip: acid + base → salt + water is ALWAYS a neutralisation reaction."
     },
@@ -62,11 +91,101 @@
       "text": "The pH scale measures how acidic or alkaline a substance is. Which of the following correctly describes the pH scale?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["acids-bases"],
+      "topics": [
+        "acids-bases"
+      ],
       "answerType": "multi-choice",
-      "options": ["pH 0 is neutral, pH 7 is strongly acidic, pH 14 is strongly alkaline", "pH 0 is strongly alkaline, pH 7 is neutral, pH 14 is strongly acidic", "pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline", "pH 1 is weakly acidic, pH 7 is neutral, pH 14 is weakly alkaline"],
+      "options": [
+        "pH 0 is neutral, pH 7 is strongly acidic, pH 14 is strongly alkaline",
+        "pH 0 is strongly alkaline, pH 7 is neutral, pH 14 is strongly acidic",
+        "pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline",
+        "pH 1 is weakly acidic, pH 7 is neutral, pH 14 is weakly alkaline"
+      ],
       "expectedAnswer": "pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline",
-      "markingGuide": "The correct answer is 'pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline'. The pH scale runs from 0 to 14. Below 7 is acidic (lower = stronger acid), 7 is neutral (e.g. pure water), and above 7 is alkaline/basic (higher = stronger alkali). Exam tip: Think of pH as 'power of Hydrogen' — more H⁺ ions means more acidic and a lower pH number."
+      "markingGuide": "The correct answer is 'pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline'. The pH scale runs from 0 to 14. Below 7 is acidic (lower = stronger acid), 7 is neutral (e.g. pure water), and above 7 is alkaline/basic (higher = stronger alkali). Exam tip: Think of pH as 'power of Hydrogen' — more H⁺ ions means more acidic and a lower pH number.",
+      "graph": {
+        "type": "bar",
+        "title": "The pH Scale",
+        "xLabel": "pH Value",
+        "yLabel": "Acidity/Alkalinity",
+        "data": [
+          {
+            "label": "0 (Strong acid)",
+            "value": 0,
+            "color": "#ef4444"
+          },
+          {
+            "label": "1",
+            "value": 1,
+            "color": "#f97316"
+          },
+          {
+            "label": "2",
+            "value": 2,
+            "color": "#f97316"
+          },
+          {
+            "label": "3",
+            "value": 3,
+            "color": "#fb923c"
+          },
+          {
+            "label": "4",
+            "value": 4,
+            "color": "#fbbf24"
+          },
+          {
+            "label": "5",
+            "value": 5,
+            "color": "#fde047"
+          },
+          {
+            "label": "6",
+            "value": 6,
+            "color": "#d9f99d"
+          },
+          {
+            "label": "7 (Neutral)",
+            "value": 7,
+            "color": "#22c55e"
+          },
+          {
+            "label": "8",
+            "value": 8,
+            "color": "#86efac"
+          },
+          {
+            "label": "9",
+            "value": 9,
+            "color": "#67e8f9"
+          },
+          {
+            "label": "10",
+            "value": 10,
+            "color": "#38bdf8"
+          },
+          {
+            "label": "11",
+            "value": 11,
+            "color": "#60a5fa"
+          },
+          {
+            "label": "12",
+            "value": 12,
+            "color": "#818cf8"
+          },
+          {
+            "label": "13",
+            "value": 13,
+            "color": "#a78bfa"
+          },
+          {
+            "label": "14 (Strong alkali)",
+            "value": 14,
+            "color": "#7c3aed"
+          }
+        ]
+      }
     },
     {
       "id": "y10chem-q6",
@@ -74,7 +193,9 @@
       "text": "A student has a mixture of sand and salt. Describe how they could separate this mixture to obtain pure, dry salt. Include all the steps needed and name the separation technique used at each step.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["mixtures-separation"],
+      "topics": [
+        "mixtures-separation"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark: Add water to the mixture and stir — the salt dissolves in the water but the sand does not. This uses the difference in solubility (salt is soluble, sand is insoluble). 1 mark: Filter the mixture using filter paper and a funnel — the sand is trapped in the filter paper (residue) and the salt solution passes through (filtrate). The technique is filtration and it separates insoluble solids from a liquid. 1 mark: Evaporate the water from the salt solution by heating it gently (or leaving it to evaporate slowly for better crystals) — this leaves behind pure, dry salt crystals. The technique is evaporation/crystallisation. Exam tip: This question tests three separation techniques in sequence — dissolving, filtration, and evaporation. Always think about which physical property allows you to separate each component."
     },
@@ -84,7 +205,10 @@
       "text": "New Zealand has significant geothermal activity, especially in the Taupō Volcanic Zone. The geothermal water in places like Rotorua often smells of 'rotten eggs' due to hydrogen sulphide gas (H₂S) and the water is naturally acidic.\n\nExplain why geothermal water might damage metal pipes over time. Use your knowledge of acids and chemical reactions in your answer.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["acids-bases", "chemical-reactions-y10"],
+      "topics": [
+        "acids-bases",
+        "chemical-reactions-y10"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark: Explains that the geothermal water is acidic (contains dissolved hydrogen sulphide and other acidic gases like carbon dioxide and sulphur dioxide which form acids when dissolved in water). 1 mark: Explains that acids react with metals — this is a chemical reaction called corrosion/acid attack. The acid reacts with the metal in the pipes, gradually dissolving it and weakening the pipes over time. Signs of this reaction include the metal surface becoming pitted or thin, and gas bubbles (hydrogen gas) may be produced. Exam tip: This is a real-world application of acid-metal reactions. In Rotorua, special corrosion-resistant materials must be used for pipes and buildings because of the acidic geothermal environment."
     },
@@ -94,7 +218,9 @@
       "text": "Sodium chloride (table salt, NaCl) is an ionic compound, while water (H₂O) is a covalent compound. Describe ONE key difference between ionic and covalent bonding, and explain how this difference affects the properties of these two substances.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["chemical-bonding-y10"],
+      "topics": [
+        "chemical-bonding-y10"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark: Correctly describes ionic bonding — electrons are transferred from a metal atom to a non-metal atom, forming positive ions (cations) and negative ions (anions) that are held together by the electrostatic attraction between opposite charges. 1 mark: Correctly describes covalent bonding — electrons are shared between two non-metal atoms; each atom contributes one or more electrons to form shared pairs that hold the atoms together. Accept clear descriptions that demonstrate understanding of the key difference: transfer vs sharing of electrons. 1 mark: Links bonding to properties — e.g. ionic compounds like NaCl have high melting points due to strong electrostatic forces between ions, form crystals, and conduct electricity when dissolved in water or molten (ions are free to move); covalent compounds like water have lower melting/boiling points because the forces between molecules are weaker, and they generally do not conduct electricity. Exam tip: Ionic = metal + non-metal (transfer electrons). Covalent = non-metal + non-metal (share electrons)."
     },
@@ -104,7 +230,10 @@
       "text": "Ocean acidification is a growing concern in New Zealand's marine environment, particularly in areas like the Hauraki Gulf. As carbon dioxide (CO₂) levels in the atmosphere increase, more CO₂ dissolves in seawater, making it more acidic.\n\nThe word equation is: carbon dioxide + water → carbonic acid\n\nExplain how ocean acidification could affect marine organisms such as pāua (abalone) and mussels. In your answer, include:\n• how the pH of the ocean changes\n• why this is harmful to shellfish\n• one way this could affect New Zealand's economy.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["acids-bases", "chemical-reactions-y10"],
+      "topics": [
+        "acids-bases",
+        "chemical-reactions-y10"
+      ],
       "answerType": "working",
       "markingGuide": "1 mark: Explains pH change — as more CO₂ dissolves in seawater, more carbonic acid is formed, which lowers the pH of the ocean (makes it more acidic). Even small changes in pH can have significant effects on marine life. 1 mark: Explains harm to shellfish — pāua, mussels, and other shellfish build their shells from calcium carbonate (CaCO₃). Acidic water reacts with calcium carbonate (acid + carbonate → salt + water + carbon dioxide), dissolving or weakening the shells. In more acidic water, these organisms struggle to build and maintain their shells, making them vulnerable to predators and disease. 1 mark: Links to NZ economy — New Zealand's aquaculture industry (especially green-lipped mussels and pāua) is worth hundreds of millions of dollars annually; ocean acidification threatens shellfish farming and wild fisheries; this could affect jobs in coastal communities and export revenue; Māori customary fisheries (kaimoana) would also be impacted. Exam tip: This connects chemistry (acid-carbonate reactions) with biology (ecosystems) and economics — exam questions increasingly ask you to make these cross-topic links."
     },
@@ -114,7 +243,10 @@
       "text": "A student carries out an experiment to investigate the reaction between magnesium ribbon and hydrochloric acid at different concentrations. They measure the time taken for the magnesium to completely dissolve.\n\nTheir results are shown in the graph below.\n\n(a) Describe the pattern shown in the results.\n(b) Explain, using particle theory, why increasing the concentration of acid speeds up the reaction.\n(c) Write the word equation for this reaction.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["chemical-reactions-y10", "acids-bases"],
+      "topics": [
+        "chemical-reactions-y10",
+        "acids-bases"
+      ],
       "answerType": "working",
       "graph": {
         "type": "bar",
@@ -122,18 +254,39 @@
         "xLabel": "Concentration of HCl (mol/L)",
         "yLabel": "Time to dissolve (seconds)",
         "data": [
-          { "label": "0.5", "value": 120 },
-          { "label": "1.0", "value": 60 },
-          { "label": "2.0", "value": 30 }
+          {
+            "label": "0.5",
+            "value": 120
+          },
+          {
+            "label": "1.0",
+            "value": 60
+          },
+          {
+            "label": "2.0",
+            "value": 30
+          }
         ]
       },
       "markingGuide": "1 mark (a): As the concentration of acid increases, the time taken for the magnesium to dissolve decreases (the reaction is faster). When the concentration doubles, the time roughly halves — there is an inverse relationship between concentration and time. 1 mark (b): At higher concentrations, there are more acid particles (H⁺ ions) in the same volume of solution. This means there are more frequent collisions between the acid particles and the magnesium atoms. More collisions per second means the reaction happens faster. 1 mark (b continued): Quality of explanation — uses scientific vocabulary correctly (particles, collisions, concentration, rate of reaction); may mention that the particles must collide with enough energy to react (collision theory). 1 mark (c): magnesium + hydrochloric acid → magnesium chloride + hydrogen. Accept: Mg + HCl → MgCl₂ + H₂ if the student writes the symbol equation instead. Exam tip: When explaining rates of reaction, always link back to particle theory and collisions. More particles = more collisions = faster reaction."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 16 },
-    "excellence": { "min": 17, "max": 20 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 16
+    },
+    "excellence": {
+      "min": 17,
+      "max": 20
+    }
   }
 }

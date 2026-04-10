@@ -98,7 +98,40 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Forestry companies bear only private costs (land, planting, harvesting, transport) and do not pay for environmental damage, leading to overproduction relative to the social optimum. Local communities bear costs through degraded waterways (reduced fishing, swimming, water quality), increased flood risk from deforestation, and dust and noise. The tourism sector may face reputational damage if NZ's 'clean green' image is undermined by visible environmental degradation. Deadweight loss exists because the market produces more forestry than is socially optimal.",
-      "markingGuide": "Explain positive and negative consequences for multiple stakeholders with reference to externality framework."
+      "markingGuide": "Explain positive and negative consequences for multiple stakeholders with reference to externality framework.",
+      "graph": {
+        "type": "bar",
+        "title": "Estimated Costs of Forestry Externalities in NZ ($ millions per year)",
+        "xLabel": "Type of Externality",
+        "yLabel": "Cost ($ millions)",
+        "data": [
+          {
+            "label": "Sediment in waterways",
+            "value": 180,
+            "color": "#8b5e3c"
+          },
+          {
+            "label": "Road damage",
+            "value": 95,
+            "color": "#6b7280"
+          },
+          {
+            "label": "Flood risk increase",
+            "value": 120,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Biodiversity loss",
+            "value": 65,
+            "color": "#22c55e"
+          },
+          {
+            "label": "Tourism impact",
+            "value": 40,
+            "color": "#f59e0b"
+          }
+        ]
+      }
     },
     {
       "id": "l3ef24-q2a",

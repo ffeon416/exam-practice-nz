@@ -670,7 +670,50 @@
       ],
       "answerType": "number",
       "expectedAnswer": "400",
-      "markingGuide": "2/3 of 600 = 400 metres. Accept 380-420 metres."
+      "markingGuide": "2/3 of 600 = 400 metres. Accept 380-420 metres.",
+      "graph": {
+        "type": "bar",
+        "title": "Ocean Depth Number Line",
+        "xLabel": "Depth markers",
+        "yLabel": "Depth (metres)",
+        "data": [
+          {
+            "label": "0m (Sea level)",
+            "value": 0,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "100m",
+            "value": 100,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "200m",
+            "value": 200,
+            "color": "#2563eb"
+          },
+          {
+            "label": "300m",
+            "value": 300,
+            "color": "#1d4ed8"
+          },
+          {
+            "label": "400m",
+            "value": 400,
+            "color": "#1e40af"
+          },
+          {
+            "label": "500m",
+            "value": 500,
+            "color": "#1e3a8a"
+          },
+          {
+            "label": "600m",
+            "value": 600,
+            "color": "#172554"
+          }
+        ]
+      }
     },
     {
       "id": "caa25-q5e",
@@ -725,7 +768,31 @@
       ],
       "answerType": "number",
       "expectedAnswer": "40",
-      "markingGuide": "5 x 8 km = 40 km. Accept 35-45 km."
+      "markingGuide": "5 x 8 km = 40 km. Accept 35-45 km.",
+      "graph": {
+        "type": "table",
+        "title": "Map Scale Reference",
+        "data": {
+          "headers": [
+            "Scale bar lengths from Banks Peninsula",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "rows": [
+            [
+              "Distance (km)",
+              "8",
+              "16",
+              "24",
+              "32",
+              "40"
+            ]
+          ]
+        }
+      }
     }
   ]
 }

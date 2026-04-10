@@ -1,6 +1,6 @@
 {
   "id": "l3-physics-waves-2025",
-  "title": "Level 3 Physics \u2014 Waves (91523) \u2014 2025",
+  "title": "Level 3 Physics — Waves (91523) — 2025",
   "level": 3,
   "standard": "91523",
   "year": 2025,
@@ -73,10 +73,42 @@
         "title": "Observed Frequency as Boat Passes",
         "xLabel": "Time (s)",
         "yLabel": "Frequency (Hz)",
-        "xValues": [0, 5, 10, 15, 20, 25, 30],
+        "xValues": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
         "series": [
-          { "name": "Kiri (close to path)", "values": [1055, 1050, 1040, 980, 920, 915, 912], "color": "#3b82f6" },
-          { "name": "Moana (on bank)", "values": [1020, 1010, 1000, 980, 960, 950, 945], "color": "#ef4444" }
+          {
+            "name": "Kiri (close to path)",
+            "values": [
+              1055,
+              1050,
+              1040,
+              980,
+              920,
+              915,
+              912
+            ],
+            "color": "#3b82f6"
+          },
+          {
+            "name": "Moana (on bank)",
+            "values": [
+              1020,
+              1010,
+              1000,
+              980,
+              960,
+              950,
+              945
+            ],
+            "color": "#ef4444"
+          }
         ]
       },
       "expectedAnswer": "When the boat is far away and approaching, both hear similar frequencies (nearly same component of velocity toward each). As it passes Kiri directly, she hears the actual frequency momentarily, then hears a much lower frequency (directly receding). Moana, offset from the path, always has a component of velocity toward/away from her that is less than the full speed, so her frequency change is more gradual and less extreme.",
@@ -110,7 +142,39 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Diagram showing 3rd harmonic on a string fixed at both ends: 3 antinodes, 4 nodes.",
-      "markingGuide": "Achievement: Correct diagram with labels."
+      "markingGuide": "Achievement: Correct diagram with labels.",
+      "graph": {
+        "type": "table",
+        "title": "Guitar String Data",
+        "data": {
+          "headers": [
+            "Quantity",
+            "Value"
+          ],
+          "rows": [
+            [
+              "String length (bridge to nut)",
+              "0.650 m"
+            ],
+            [
+              "Boundary conditions",
+              "Fixed at both ends"
+            ],
+            [
+              "Harmonic to draw",
+              "3rd harmonic"
+            ],
+            [
+              "Nodes in 3rd harmonic",
+              "4 (including endpoints)"
+            ],
+            [
+              "Antinodes in 3rd harmonic",
+              "3"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "91523-25-q2b",

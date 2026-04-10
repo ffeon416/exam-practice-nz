@@ -13,7 +13,12 @@
       "text": "Aroha drops a cricket ball from a balcony.\n\nDescribe the energy changes (transfer) that take place as the ball falls down.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["energy", "potential-energy", "kinetic-energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "potential-energy",
+        "kinetic-energy",
+        "energy-transfer"
+      ],
       "answerType": "text",
       "expectedAnswer": "Gravitational potential energy is converted to kinetic energy.",
       "markingGuide": "Achieved: Correct answer identifying gravitational potential energy transforming (transferring) to kinetic energy as the ball falls."
@@ -24,7 +29,10 @@
       "text": "The mass of the cricket ball is 0.160 kg. The ball falls through a height of 12.5 m.\n\nShow that the gravitational potential energy the ball loses as it falls to the ground is 20.0 J.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["potential-energy", "energy"],
+      "topics": [
+        "potential-energy",
+        "energy"
+      ],
       "answerType": "working",
       "expectedAnswer": "Ep = mgh = 0.160 × 10 × 12.5 = 20.0 J",
       "markingGuide": "Achieved: Correct answer using Ep = mgh. Must show the formula with numbers substituted: 0.160 × 10 × 12.5 = 20.0 J."
@@ -35,7 +43,10 @@
       "text": "Calculate the speed with which the ball hits the ground.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["kinetic-energy", "energy-transfer"],
+      "topics": [
+        "kinetic-energy",
+        "energy-transfer"
+      ],
       "answerType": "working",
       "expectedAnswer": "v = 15.8 m/s",
       "markingGuide": "Using Ek = ½mv². Since all Ep converts to Ek: 20.0 = ½ × 0.160 × v². v² = (2 × 20.0) / 0.160 = 250. v = 15.8 m/s. Achieved: Correct formula used with numbers substituted but minor computational error. OR correct answer with no working. Merit: Correct answer with working shown."
@@ -46,7 +57,10 @@
       "text": "In reality, the speed of the ball when it hits the ground is not the same as what was calculated in part (c) above.\n\nExplain the reason for this difference, including a statement whether the speed was more or less than what was calculated above.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["energy-transfer", "energy"],
+      "topics": [
+        "energy-transfer",
+        "energy"
+      ],
       "answerType": "text",
       "expectedAnswer": "Speed will be less due to air resistance converting some energy to heat.",
       "markingGuide": "Achieved: Speed will be less. OR some energy is lost (due to air resistance). Merit: Speed will be less AND some energy is lost due to air resistance / friction / heat. Excellence: Speed will be less due to some energy lost due to air resistance as the particles of air collide with the ball, transferring some kinetic energy to thermal energy."
@@ -57,7 +71,11 @@
       "text": "Aroha's friend Tai retrieves the ball and runs up a flight of stairs, covering a total height of 12.0 m. Tai has a mass of 55 kg and takes 28.0 seconds to reach the top.\n\nCalculate the power.\n- Begin your answer by describing the meaning of power and how it relates to Tai running up the stairs.\n- State any assumptions you make.\n- Include a unit with your answer.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["power", "potential-energy", "energy-transfer"],
+      "topics": [
+        "power",
+        "potential-energy",
+        "energy-transfer"
+      ],
       "answerType": "working",
       "expectedAnswer": "P = 236 W",
       "markingGuide": "Power is how quickly work is done or energy is transferred. When Tai runs up the stairs, kinetic energy is changed into gravitational potential energy. Assuming all kinetic energy is changed into gravitational potential energy (no loss through friction): Ep = mgh = 55 × 10 × 12.0 = 6600 J. P = E/t = 6600/28.0 = 235.7 ≈ 236 W. Achieved: Power is how quickly work is done or energy is gained or lost. OR kinetic energy is changed to gravitational potential energy. OR correct answer for Ep = 6600 J. Merit: One definition and one calculation. Excellence: Definition for power and connection between kinetic energy and gravitational potential energy. Assumption that all kinetic energy is transformed into potential energy and both equations correct with units."
@@ -68,7 +86,10 @@
       "text": "Tai is making hot chocolate and heats 0.350 kg (350 mL) of milk in a pot on the stove.\n\nThe specific heat capacity of milk = 3900 J kg⁻¹ °C⁻¹\n\nWhat does the term 'specific heat capacity' mean?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "text",
       "expectedAnswer": "The amount of energy required to raise the temperature of one kilogram of a substance by one degree Celsius without changing state.",
       "markingGuide": "Achieved: Correct definition."
@@ -79,7 +100,10 @@
       "text": "Calculate the heat energy required to raise the temperature of 0.350 kg of milk from 8 °C to 65 °C.\n\n(Specific heat capacity of milk = 3900 J kg⁻¹ °C⁻¹)",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "working",
       "expectedAnswer": "E = 77 805 J (77.8 kJ)",
       "markingGuide": "E = mcΔT = 0.350 × 3900 × (65 − 8) = 0.350 × 3900 × 57 = 77 805 J. Achieved: Correct answer."
@@ -90,7 +114,10 @@
       "text": "Tai then decides to cool the milk by placing ice cubes in it. The latent heat of fusion of ice is 334 000 J kg⁻¹.\n\nDescribe the reason why adding ice cubes cools the milk more effectively than adding the same mass of cold water at 0 °C.\n\nUse the concepts of latent heat and specific heat capacity in your answer.",
       "marks": 1,
       "gradeLevel": "merit",
-      "topics": ["energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "text",
       "expectedAnswer": "Ice absorbs much more energy than cold water because it needs energy to change state (melt) in addition to energy to warm up.",
       "markingGuide": "Achieved: States that ice takes more energy to warm up than water at 0 °C. OR that changing state absorbs energy. Merit: Explains that ice first absorbs energy to change state (latent heat of fusion = 334 000 J/kg) without changing temperature, and then absorbs additional energy as the melted water warms up (specific heat capacity). Cold water at 0 °C only needs energy to warm up — it does not absorb the extra latent heat energy."
@@ -101,7 +128,10 @@
       "text": "Tai wraps his mug of hot chocolate in a woollen cosy to keep it warm. The cosy is made of thick wool with air pockets trapped between the fibres.\n\nDescribe TWO key features of the woollen cosy that reduce heat transfer, and explain the type of heat transfer each feature is designed to reduce.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["energy-transfer", "energy"],
+      "topics": [
+        "energy-transfer",
+        "energy"
+      ],
       "answerType": "text",
       "expectedAnswer": "1. Trapped air pockets reduce convection and conduction. 2. Thick wool fibres are poor conductors.",
       "markingGuide": "Evidence: Trapped air pockets reduce heat loss via conduction/convection (air is a poor conductor and trapped air cannot circulate). Wool fibres are poor thermal conductors, reducing conduction. A lid would reduce convection (stops hot air rising away). Achieved: One feature with the correct type of heat transfer. Merit: TWO features with the correct type of heat transfer for each. Excellence: TWO features named plus ONE explanation of how the heat transfer is reduced at a particle level."
@@ -112,7 +142,11 @@
       "text": "Without the cosy, the hot chocolate cools from 60 °C to 35 °C over two hours.\n\nShow that the average rate of thermal energy loss from the hot chocolate over the two hours is approximately 1.3 W.\n\n(Specific heat capacity of milk = 3900 J kg⁻¹ °C⁻¹, Mass of hot chocolate = 0.350 kg)",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["energy", "power", "energy-transfer"],
+      "topics": [
+        "energy",
+        "power",
+        "energy-transfer"
+      ],
       "answerType": "working",
       "expectedAnswer": "E = 34 125 J, P = 4.7 W",
       "markingGuide": "ΔT = 60 − 35 = 25 °C. E = mcΔT = 0.350 × 3900 × 25 = 34 125 J. t = 2 × 60 × 60 = 7200 s. P = E/t = 34 125 / 7200 = 4.74 W. Note: The question says approximately 1.3 W — this uses a different mass or SHC. Using the given values: P ≈ 4.7 W. Accept either 1.3 W (if question value adjusted) or 4.7 W with correct working. Achieved: Correct change in temperature. OR attempts formula. Merit: Correct value for thermal energy lost. Excellence: Correct value for thermal energy lost and correct value for power with units."
@@ -123,10 +157,51 @@
       "text": "Aroha is investigating the relationship between current, voltage, and resistance in a circuit. She uses a power supply, a variable resistor, and a fixed resistor.\n\nIn the circuit diagram, include an ammeter to measure the circuit current and a voltmeter to measure the voltage across the fixed resistor.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "text",
       "expectedAnswer": "Ammeter in series, voltmeter in parallel across the fixed resistor.",
-      "markingGuide": "Achieved: Ammeter in series OR voltmeter in parallel to the fixed resistor. Merit: Ammeter and voltmeter are both correct (ammeter in series anywhere in the circuit loop, voltmeter in parallel across the fixed resistor)."
+      "markingGuide": "Achieved: Ammeter in series OR voltmeter in parallel to the fixed resistor. Merit: Ammeter and voltmeter are both correct (ammeter in series anywhere in the circuit loop, voltmeter in parallel across the fixed resistor).",
+      "graph": {
+        "type": "table",
+        "title": "Circuit Components",
+        "data": {
+          "headers": [
+            "Component",
+            "Symbol",
+            "Connection"
+          ],
+          "rows": [
+            [
+              "Power supply",
+              "V_s",
+              "Provides voltage to circuit"
+            ],
+            [
+              "Variable resistor",
+              "R_var",
+              "In series (adjusts current)"
+            ],
+            [
+              "Fixed resistor",
+              "R_fixed",
+              "In series (component under test)"
+            ],
+            [
+              "Ammeter",
+              "A",
+              "In series (measures current)"
+            ],
+            [
+              "Voltmeter",
+              "V",
+              "In parallel across fixed resistor"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "ep24-q3b",
@@ -134,7 +209,10 @@
       "text": "From her experiment, Aroha records the following data:\n\n| Voltage (V) | Current (A) |\n|---|---|\n| 1.0 | 0.10 |\n| 2.0 | 0.20 |\n| 3.0 | 0.30 |\n| 4.0 | 0.40 |\n| 5.0 | 0.50 |\n\nUsing information from the data, calculate the resistance of the fixed resistor and include an appropriate unit.\n\nShow your working clearly.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "working",
       "expectedAnswer": "R = 10.0 Ω",
       "markingGuide": "R = V/I = 2.0/0.20 = 10.0 Ω (or any consistent pair from the table). Achieved: Correct answer with working plus unit."
@@ -145,7 +223,10 @@
       "text": "Give a reason why Aroha should repeat her measurements multiple times at each voltage setting.",
       "marks": 1,
       "gradeLevel": "merit",
-      "topics": ["energy-transfer", "energy"],
+      "topics": [
+        "energy-transfer",
+        "energy"
+      ],
       "answerType": "text",
       "expectedAnswer": "To improve reliability / identify anomalous results / calculate an average.",
       "markingGuide": "Achieved: To improve reliability OR get an average. Merit: To improve reliability by identifying anomalous results and calculating a more accurate average."
@@ -156,7 +237,11 @@
       "text": "Using Aroha's data, what is the maximum rate of electrical energy being converted in the fixed resistor?\n\nInclude units with your answer.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["power", "energy", "energy-transfer"],
+      "topics": [
+        "power",
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "working",
       "expectedAnswer": "P = 2.5 W",
       "markingGuide": "Using P = IV. Max V = 5.0 V. Max I = 0.50 A. P = 5.0 × 0.50 = 2.5 W. Achieved: Correct use of formula with some numbers. Merit: Correct answer with incorrect units or minor error. Excellence: Correct answer with correct unit (W or J s⁻¹)."
@@ -167,7 +252,10 @@
       "text": "The variable resistor in Aroha's circuit allows her to change the total resistance.\n\nExplain how the variable resistor is used, and analyse the effect it has on both the current and the voltage for components in the circuit, as its resistance is increased.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["energy", "energy-transfer"],
+      "topics": [
+        "energy",
+        "energy-transfer"
+      ],
       "answerType": "text",
       "expectedAnswer": "As resistance of variable resistor increases, the voltage across the fixed resistor decreases and the current decreases.",
       "markingGuide": "The variable resistor adjusts the total resistance and changes the current. As total resistance increases, current decreases. The supply voltage stays constant (V = IR_total). As current decreases, the voltage across the fixed resistor decreases (V_fixed = IR_fixed). The voltage across the variable resistor increases. Achieved: The variable resistor changes the total resistance. OR as resistance increases, current reduces. Merit: As resistance increases, voltage across the fixed resistor decreases and current reduces. OR total voltage of circuit stays the same. Excellence: Full explanation including that supply voltage stays constant, increased variable resistance reduces current, which reduces voltage across fixed resistor while increasing voltage across the variable resistor."
@@ -175,9 +263,21 @@
   ],
   "totalMarks": 24,
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 17 },
-    "excellence": { "min": 18, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 17
+    },
+    "excellence": {
+      "min": 18,
+      "max": 24
+    }
   }
 }

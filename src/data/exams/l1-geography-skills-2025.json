@@ -40,7 +40,35 @@
       ],
       "answerType": "number",
       "expectedAnswer": "4",
-      "markingGuide": "The correct answer is 4 km. Working: 8 cm × 50,000 = 400,000 cm = 4,000 m = 4 km. At 1:50,000 scale, 1 cm on the map represents 50,000 cm (500 m or 0.5 km) in real life."
+      "markingGuide": "The correct answer is 4 km. Working: 8 cm × 50,000 = 400,000 cm = 4,000 m = 4 km. At 1:50,000 scale, 1 cm on the map represents 50,000 cm (500 m or 0.5 km) in real life.",
+      "graph": {
+        "type": "table",
+        "title": "Map Scale Conversion",
+        "data": {
+          "headers": [
+            "Measurement",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Map scale",
+              "1:50,000"
+            ],
+            [
+              "Distance on map",
+              "8 cm"
+            ],
+            [
+              "1 cm on map represents",
+              "50,000 cm = 500 m = 0.5 km"
+            ],
+            [
+              "Actual distance",
+              "? km"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l1gs-q3",

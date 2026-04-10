@@ -14,10 +14,47 @@
       "text": "Soil erosion from agricultural land has contributed to sedimentation in many New Zealand rivers and estuaries.\n\nName a primary production system.\n\nComplete the table below, describing:\n- two ways your named production system has contributed to soil erosion\n- how each type of erosion reduces soil quality.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Name a production system (e.g. sheep and beef farming) and identify two causes of erosion.",
-      "markingGuide": "Achieved: Identifies two ways a production system contributes to erosion. e.g. Overgrazing reduces ground cover, exposing bare soil to wind and rain erosion. Cultivation on steep hillsides without contour ploughing allows water to flow downhill, carrying topsoil into waterways. Removing native vegetation for pasture removes root systems that hold soil together."
+      "markingGuide": "Achieved: Identifies two ways a production system contributes to erosion. e.g. Overgrazing reduces ground cover, exposing bare soil to wind and rain erosion. Cultivation on steep hillsides without contour ploughing allows water to flow downhill, carrying topsoil into waterways. Removing native vegetation for pasture removes root systems that hold soil together.",
+      "graph": {
+        "type": "bar",
+        "title": "Estimated Sediment Load by Land Use in NZ (tonnes/ha/year)",
+        "xLabel": "Land Use Type",
+        "yLabel": "Sediment (tonnes/ha/year)",
+        "data": [
+          {
+            "label": "Native forest",
+            "value": 0.3,
+            "color": "#166534"
+          },
+          {
+            "label": "Managed pasture",
+            "value": 2.5,
+            "color": "#65a30d"
+          },
+          {
+            "label": "Hill country sheep & beef",
+            "value": 8.0,
+            "color": "#ca8a04"
+          },
+          {
+            "label": "Forestry (harvesting)",
+            "value": 15.0,
+            "color": "#92400e"
+          },
+          {
+            "label": "Bare/cultivated soil",
+            "value": 22.0,
+            "color": "#78716c"
+          }
+        ]
+      }
     },
     {
       "id": "91931-25-q1b",
@@ -25,7 +62,11 @@
       "text": "The following are management practices that farmers can use to reduce soil erosion:\n- Planting riparian margins along waterways\n- Contour ploughing on slopes\n- Maintaining ground cover crops\n- Reducing stocking rates\n\nChoose one management practice from the list above that could be used on your chosen primary production system.\n\nExplain how this practice is carried out, and how it reduces erosion.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Choose one practice and explain how it reduces erosion.",
       "markingGuide": "Merit: Describes how a management practice is carried out AND explains how it reduces erosion. Planting riparian margins: native plants such as harakeke, tī kōuka, and carex are planted along stream banks. Their roots stabilise the soil, preventing it from being washed into waterways during heavy rain. The vegetation also acts as a physical filter, trapping sediment before it reaches the water."
@@ -36,7 +77,11 @@
       "text": "Name an alternative management practice that could be used to reduce erosion on your primary production system.\n\nJustify which management practice is more effective at ensuring the long-term sustainability of your named primary production system.\n\nIn your answer consider:\n- how the alternative management practice is carried out\n- how both management practices reduce erosion.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Name an alternative practice and justify which is more effective.",
       "markingGuide": "Achieved: Describes how a management practice reduces erosion. Merit: Explains how both practices reduce erosion, with positives and negatives. Excellence: Justifies the use of a management practice by identifying strengths and weaknesses of both.\n\nRiparian margins: Strengths — long-term solution, also improves water quality and provides habitat. Weaknesses — takes years for plants to establish, reduces productive land area. Contour ploughing: Strengths — immediately reduces water runoff on slopes, maintains all land in production. Weaknesses — needs to be repeated each season, does not prevent wind erosion."
@@ -47,7 +92,11 @@
       "text": "Chemical pesticides are used to control insect pests that damage crops.\n\nDescribe the negative impact that chemical pesticides can have on:\n\n**Soil:**\n\n**Water:**\n\n**Biodiversity:**",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Soil: Pesticides can kill beneficial soil organisms such as earthworms and bacteria. Water: Pesticides can leach into groundwater or run off into streams. Biodiversity: Pesticides can kill non-target insects including pollinators.",
       "markingGuide": "Achieved: Describes a negative impact of pesticides on soil, water, OR biodiversity."
@@ -58,7 +107,11 @@
       "text": "Integrated pest management (IPM) combines multiple pest control methods.\n\nHow does IPM allow growers to reduce the negative environmental impacts of relying solely on chemical pesticides?",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "IPM reduces pesticide use by combining biological control, physical barriers, and targeted chemical application.",
       "markingGuide": "Merit: Explains how IPM allows growers to reduce negative environmental impacts. IPM uses pest monitoring to determine when treatment is necessary, biological control agents (e.g. predatory insects), physical barriers (e.g. netting), and targeted chemical application only when pest numbers exceed a threshold. This reduces overall pesticide use, minimising impacts on soil organisms, water quality, and non-target species."
@@ -69,7 +122,11 @@
       "text": "Name an environmentally sustainable alternative to chemical pesticide application.\n\nJustify why your chosen method is more environmentally sustainable by comparing it to chemical pesticide use.\n\nIn your answer consider:\n- strengths and weaknesses of both methods\n- impact on soil, water, or biodiversity\n- long-term sustainability.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Name an alternative (e.g. biological control, companion planting, crop rotation).",
       "markingGuide": "Achieved: Shows minimal understanding of sustainability when using pesticides. Merit: Describes how pesticides have a negative impact OR how an alternative can have a positive impact. Excellence: Fully justifies the use of a management practice by explaining in detail how it improves sustainability.\n\nBiological control (e.g. introducing parasitic wasps to control caterpillars): Advantages — no chemical residues, self-sustaining once established, does not harm non-target species. Disadvantages — slow to establish, may not control pests completely, introduced species could become pests themselves. Chemical pesticides: Advantages — fast-acting, effective, predictable. Disadvantages — kills beneficial organisms, contaminates water, pests develop resistance over time. Long-term, biological control is more sustainable because it does not degrade soil biology or water quality."
@@ -80,7 +137,11 @@
       "text": "Intensive grazing can lead to soil compaction, particularly on wet clay soils.\n\nHow can soil compaction have a negative impact on soil and plant growth?",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Compaction reduces pore space, limiting drainage, aeration, and root penetration.",
       "markingGuide": "Achieved: Describes a way compaction negatively impacts soil. Compaction crushes soil peds and reduces the size and number of pore spaces. This limits drainage (waterlogging), reduces aeration (less oxygen for roots and soil organisms), and physically restricts root penetration, reducing the volume of soil that roots can access for water and nutrients."
@@ -91,7 +152,11 @@
       "text": "Explain how managing grazing in a sustainable way has a positive impact on soil.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Sustainable grazing management maintains soil structure and prevents compaction.",
       "markingGuide": "Merit: Explains how sustainable grazing has a positive impact on soil. Rotational grazing (moving stock between paddocks) allows soil and pasture to recover between grazing events. Keeping stock off wet paddocks prevents compaction of saturated soil. Maintaining adequate pasture cover protects the soil surface from rain impact and wind erosion. These practices preserve soil structure, maintaining good drainage, aeration, and root penetration."
@@ -102,16 +167,32 @@
       "text": "Stand-off pads (keeping stock off paddocks during wet periods by housing them on a hard surface) can reduce soil compaction.\n\nName one other management practice used to reduce the negative impacts of compaction from grazing.\n\nComparing your chosen management practice with stand-off pads, which method is more effective at ensuring soils remain sustainable?\n\nIn your answer consider:\n- how each method reduces the negative impacts of compaction\n- short- and long-term sustainability of soils.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["sustainability", "environmental-impact", "primary-production"],
+      "topics": [
+        "sustainability",
+        "environmental-impact",
+        "primary-production"
+      ],
       "answerType": "text",
       "expectedAnswer": "Name a practice (e.g. rotational grazing, reducing stock numbers, subsoil aeration).",
       "markingGuide": "Achieved: Describes how one method reduces compaction. Merit: Explains how both methods reduce compaction. Excellence: Justifies the use of one method by comparing both with reference to short- and long-term soil sustainability.\n\nStand-off pads: Strengths — completely prevents compaction during wet periods, allows rapid paddock recovery. Weaknesses — requires capital investment, generates effluent that must be managed, stock welfare concerns. Rotational grazing: Strengths — spreads grazing pressure across paddocks, allows recovery time, lower cost. Weaknesses — does not completely prevent compaction during wet periods, requires careful planning. Short-term, stand-off pads are more effective at preventing compaction. Long-term, rotational grazing promotes sustainable soil management across the whole property without generating concentrated effluent waste."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

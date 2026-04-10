@@ -121,7 +121,35 @@
       ],
       "answerType": "working",
       "expectedAnswer": "W: elimination. X: oxidation/addition. Y: substitution. Z: Acid/base reaction, neutralisation.",
-      "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct."
+      "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct.",
+      "graph": {
+        "type": "table",
+        "title": "Reaction Types",
+        "data": {
+          "headers": [
+            "Reaction",
+            "Type"
+          ],
+          "rows": [
+            [
+              "W",
+              "(to identify)"
+            ],
+            [
+              "X",
+              "(to identify)"
+            ],
+            [
+              "Y",
+              "(to identify)"
+            ],
+            [
+              "Z",
+              "(to identify)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l2cb24-q2b",
@@ -181,7 +209,40 @@
       ],
       "answerType": "working",
       "expectedAnswer": "K: pent-2-ene. L: structure of 4-methylhexanoic acid (CH3CH2CH(CH3)CH2COOH). M: heptan-3-ol. N: structure of bromopropene (H2C=CHBr).",
-      "markingGuide": "Achievement: Any combination of two correct, structures or names. Merit: All FOUR correct."
+      "markingGuide": "Achievement: Any combination of two correct, structures or names. Merit: All FOUR correct.",
+      "graph": {
+        "type": "table",
+        "title": "Organic Compounds",
+        "data": {
+          "headers": [
+            "Compound",
+            "Structure",
+            "IUPAC Name"
+          ],
+          "rows": [
+            [
+              "K",
+              "CH₃-CH₂-CH=CH-CH₃",
+              "(to name)"
+            ],
+            [
+              "L",
+              "(to draw)",
+              "4-methylhexanoic acid"
+            ],
+            [
+              "M",
+              "(shown: heptan-3-ol structure)",
+              "(to name)"
+            ],
+            [
+              "N",
+              "(to draw)",
+              "bromopropene"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l2cb24-q3b",

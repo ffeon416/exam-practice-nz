@@ -20,7 +20,30 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P(positive) = P(Condition and +) + P(No Condition and +) = 0.05 × 0.90 + 0.95 × 0.15 = 0.045 + 0.1425 = 0.1875",
-      "markingGuide": "Achieved: Correctly sets up probability tree with condition (0.05/0.95) and screening result branches. Calculates P(positive) = 0.05 × 0.90 + 0.95 × 0.15 = 0.1875. Merit: Shows clear working with all probabilities labelled on the tree. Excellence: Full solution with clearly communicated reasoning."
+      "markingGuide": "Achieved: Correctly sets up probability tree with condition (0.05/0.95) and screening result branches. Calculates P(positive) = 0.05 × 0.90 + 0.95 × 0.15 = 0.1875. Merit: Shows clear working with all probabilities labelled on the tree. Excellence: Full solution with clearly communicated reasoning.",
+      "graph": {
+        "type": "table",
+        "title": "Food Allergy Screening Data",
+        "data": {
+          "headers": [
+            "",
+            "Has condition (6%)",
+            "No condition (94%)"
+          ],
+          "rows": [
+            [
+              "Test positive",
+              "88% (sensitivity)",
+              "14% (1 - specificity)"
+            ],
+            [
+              "Test negative",
+              "12%",
+              "86% (specificity)"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "stat267-24-q1b",

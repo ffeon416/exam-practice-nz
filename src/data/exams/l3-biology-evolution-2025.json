@@ -26,11 +26,26 @@
         "xLabel": "Population",
         "yLabel": "Average Number of Lateral Plates",
         "data": [
-          { "label": "Ancestral lake form", "value": 32 },
-          { "label": "Stream pop. A", "value": 8 },
-          { "label": "Stream pop. B", "value": 6 },
-          { "label": "Stream pop. C", "value": 9 },
-          { "label": "Stream pop. D", "value": 7 }
+          {
+            "label": "Ancestral lake form",
+            "value": 32
+          },
+          {
+            "label": "Stream pop. A",
+            "value": 8
+          },
+          {
+            "label": "Stream pop. B",
+            "value": 6
+          },
+          {
+            "label": "Stream pop. C",
+            "value": 9
+          },
+          {
+            "label": "Stream pop. D",
+            "value": 7
+          }
         ]
       },
       "expectedAnswer": "Define speciation (formation of new species) and reproductive isolating mechanism (a barrier preventing interbreeding). Species: organisms that interbreed to produce fertile offspring. The stream and lake forms can still produce fertile offspring in laboratory settings, so they remain one species.",
@@ -66,7 +81,57 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Define hybridisation (interbreeding between two different species or genetically distinct populations) and polyploidy (having more than two complete sets of chromosomes). Bread wheat (4N) cannot cross with diploid ancestors (2N) due to incompatible chromosome numbers.",
-      "markingGuide": "Achievement: Define hybridisation; polyploidy. Describe sympatric speciation; allopatric speciation; punctuated equilibrium; gradualism. Merit: Explain how polyploidy produced the hybrid; sympatric speciation; allopatric speciation; punctuated equilibrium vs gradualism. Excellence: Provides detailed discussion of how polyploidy produced bread wheat and why the speciation is sympatric and not allopatric; why this is punctuated equilibrium and not gradualism. T. urartu (AA) crossed with Ae. speltoides (CC). The hybrid (AC) was initially sterile. Chromosome doubling produced a fertile tetraploid (AABB). This was an instant new species. This is sympatric speciation because the plants lived in the same geographic region. It is not allopatric as there was no geographic barrier. This is punctuated equilibrium because each new species formed rapidly through chromosome doubling. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
+      "markingGuide": "Achievement: Define hybridisation; polyploidy. Describe sympatric speciation; allopatric speciation; punctuated equilibrium; gradualism. Merit: Explain how polyploidy produced the hybrid; sympatric speciation; allopatric speciation; punctuated equilibrium vs gradualism. Excellence: Provides detailed discussion of how polyploidy produced bread wheat and why the speciation is sympatric and not allopatric; why this is punctuated equilibrium and not gradualism. T. urartu (AA) crossed with Ae. speltoides (CC). The hybrid (AC) was initially sterile. Chromosome doubling produced a fertile tetraploid (AABB). This was an instant new species. This is sympatric speciation because the plants lived in the same geographic region. It is not allopatric as there was no geographic barrier. This is punctuated equilibrium because each new species formed rapidly through chromosome doubling. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E.",
+      "graph": {
+        "type": "table",
+        "title": "Wheat Species and Chromosome Data",
+        "data": {
+          "headers": [
+            "Species",
+            "Common Name",
+            "Ploidy",
+            "Genome",
+            "Chromosome No. (2n)"
+          ],
+          "rows": [
+            [
+              "Triticum urartu",
+              "Einkorn wheat",
+              "Diploid (2N)",
+              "AA",
+              "14"
+            ],
+            [
+              "Aegilops speltoides",
+              "Goatgrass",
+              "Diploid (2N)",
+              "BB",
+              "14"
+            ],
+            [
+              "Aegilops tauschii",
+              "Wild goatgrass",
+              "Diploid (2N)",
+              "DD",
+              "14"
+            ],
+            [
+              "Triticum turgidum",
+              "Emmer wheat",
+              "Tetraploid (4N)",
+              "AABB",
+              "28"
+            ],
+            [
+              "Triticum aestivum",
+              "Bread wheat",
+              "Tetraploid (4N)",
+              "AABB",
+              "28"
+            ]
+          ]
+        }
+      }
     }
   ],
   "cutScores": {
