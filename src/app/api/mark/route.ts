@@ -20,12 +20,19 @@ export async function POST(request: NextRequest) {
     const results = await Promise.all(
       questions.map(async (q) => {
         const studentAnswer = answers[q.id] ?? "";
+        const studentWorking = answers[`${q.id}_working`] ?? "";
+
+        // Combine working + answer for marking
+        const combinedAnswer = studentWorking
+          ? `WORKING:\n${studentWorking}\n\nFINAL ANSWER:\n${studentAnswer}`
+          : studentAnswer;
+
         const result = await markAnswer(
           q.text,
           q.marks,
           q.gradeLevel,
           q.markingGuide,
-          studentAnswer
+          combinedAnswer
         );
 
         return {

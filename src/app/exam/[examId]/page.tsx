@@ -282,22 +282,45 @@ export default function ExamPage({
               );
             })()
           ) : (
-            <textarea
-              value={answers[question.id] ?? ""}
-              onChange={(e) =>
-                setAnswers((prev) => ({
-                  ...prev,
-                  [question.id]: e.target.value,
-                }))
-              }
-              placeholder={
-                question.answerType === "working"
-                  ? "Show your working and final answer..."
-                  : "Type your answer..."
-              }
-              rows={question.answerType === "working" ? 6 : 2}
-              className="w-full bg-slate-900 border border-slate-700 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-y"
-            />
+            <div className="space-y-4">
+              {/* Working out box (1 mark) */}
+              <div>
+                <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
+                  Working out <span className="text-zinc-600 normal-case font-normal">(1 mark)</span>
+                </label>
+                <textarea
+                  value={answers[`${question.id}_working`] ?? ""}
+                  onChange={(e) =>
+                    setAnswers((prev) => ({
+                      ...prev,
+                      [`${question.id}_working`]: e.target.value,
+                    }))
+                  }
+                  placeholder="Show your working here..."
+                  rows={question.answerType === "working" ? 6 : 4}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 resize-y text-sm"
+                />
+              </div>
+
+              {/* Final answer box (1 mark) */}
+              <div>
+                <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
+                  Final answer <span className="text-zinc-600 normal-case font-normal">(1 mark)</span>
+                </label>
+                <textarea
+                  value={answers[question.id] ?? ""}
+                  onChange={(e) =>
+                    setAnswers((prev) => ({
+                      ...prev,
+                      [question.id]: e.target.value,
+                    }))
+                  }
+                  placeholder="Your final answer..."
+                  rows={2}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 resize-y text-sm"
+                />
+              </div>
+            </div>
           )}
         </div>
       </div>

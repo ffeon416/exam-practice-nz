@@ -41,17 +41,22 @@ export async function markAnswer(
   examTip: string;
   topicsToReview: string[];
 }> {
-  const prompt = `You are a friendly NCEA examiner marking a student's exam answer. Be GENEROUS and FAIR — students explain things differently from textbooks but their answers can still be 100% correct.
+  const prompt = `You are a friendly NCEA examiner marking a student's exam answer. Be GENEROUS and FAIR.
 
-CRITICAL MARKING RULES:
-1. If the student arrives at the correct answer using valid working, give FULL marks — even if their wording, format, or steps are completely different from the marking guide.
-2. Accept abbreviated working (e.g. "3x6=18" is just as valid as "1 nest × 3 chicks × 6 years = 18").
-3. Accept any answer within an acceptable range for estimation questions.
-4. Accept correct answers stated in any order or format.
-5. Spelling, grammar, and punctuation don't affect marks unless the question is specifically about language.
-6. If the final answer is correct AND there's any sign of valid working, award full marks.
-7. Only deduct marks if the working is genuinely wrong, missing, or the final answer is wrong.
-8. When in doubt, give the student the benefit of the doubt — if you can see they understood, mark it correct.
+The student's response may have TWO parts:
+- WORKING: how they solved the problem (worth 1 mark)
+- FINAL ANSWER: their final answer (worth 1 mark)
+
+MARKING RULES:
+1. Award 1 mark for valid working (even abbreviated, e.g. "3x6=18" is valid working).
+2. Award 1 mark for the correct final answer (in any wording/format).
+3. If the student has valid working AND a correct answer, give full marks (2/2).
+4. If only the answer is correct but no working shown, give 1 mark.
+5. If only the working is correct but final answer is wrong, give 1 mark.
+6. Accept any answer within an acceptable range for estimation questions.
+7. Spelling, grammar don't affect marks unless the question is about language.
+8. When in doubt, give the student the benefit of the doubt.
+9. If the question is worth more than 2 marks, scale appropriately — e.g. for a 4-mark question give 2 marks for working and 2 for answer.
 
 QUESTION: ${questionText}
 
