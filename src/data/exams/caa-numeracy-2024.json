@@ -72,8 +72,8 @@
         "graph-reading"
       ],
       "answerType": "number",
-      "expectedAnswer": "90",
-      "markingGuide": "Read from the data table. The number of trees in 2014 is 90. Accept 80–100.",
+      "expectedAnswer": "100",
+      "markingGuide": "Trace from 2014 on the x-axis up to the line, then across to the y-axis. The number of trees in 2014 is 100. Accept 95-105.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -90,11 +90,11 @@
           {
             "name": "Trees",
             "values": [
-              30,
-              55,
-              90,
-              150,
-              170
+              20,
+              60,
+              100,
+              140,
+              180
             ],
             "color": "#22c55e"
           }
