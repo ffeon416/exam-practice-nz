@@ -20,6 +20,19 @@
         "sympatric-speciation"
       ],
       "answerType": "text",
+      "graph": {
+        "type": "bar",
+        "title": "Average Lateral Plate Count in Stickleback Populations",
+        "xLabel": "Population",
+        "yLabel": "Average Number of Lateral Plates",
+        "data": [
+          { "label": "Ancestral lake form", "value": 32 },
+          { "label": "Stream pop. A", "value": 8 },
+          { "label": "Stream pop. B", "value": 6 },
+          { "label": "Stream pop. C", "value": 9 },
+          { "label": "Stream pop. D", "value": 7 }
+        ]
+      },
       "expectedAnswer": "Define speciation (formation of new species) and reproductive isolating mechanism (a barrier preventing interbreeding). Species: organisms that interbreed to produce fertile offspring. The stream and lake forms can still produce fertile offspring in laboratory settings, so they remain one species.",
       "markingGuide": "Achievement: Define speciation; reproductive isolating mechanism; species; describe isolating mechanisms as reducing gene flow; describe the isolating mechanisms as prezygotic. Identify two relevant RIMs. Merit: Explain how one RIM may be contributing to divergence; a second RIM contributing to divergence; the retreat of glaciers provided new stream habitats; independent genetic changes in separate catchments infer genetic differences have started to occur. Excellence: Provides detailed discussion of the RIMs leading to the divergence of the different forms of stickleback; the process of speciation and why the two forms are not yet considered separate species. RIMs include: habitat/ecological isolation; temporal isolation; behavioural isolation; reduced hybrid fitness. Speciation occurs over a long period and 12,000 years is relatively short; gene flow is still possible as they can still interbreed. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
     },

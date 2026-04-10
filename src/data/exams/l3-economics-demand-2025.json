@@ -8,10 +8,157 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    { "id": "l3ed25-q1a", "number": "1(a)", "text": "Kea Solar Ltd installs residential solar panel systems across New Zealand. In 2025, the government ended a subsidy programme that previously covered up to $4,000 of each installation's cost.\n\nUsing a demand diagram, explain the impact of removing the subsidy on the demand for solar installations. Calculate the price elasticity of demand if the effective price increase of $4,000 (on a $20,000 system) caused an 18% fall in installations.", "marks": 5, "gradeLevel": "achieved", "topics": ["demand elasticity", "price sensitivity", "consumer responsiveness"], "answerType": "text", "expectedAnswer": "Removing the subsidy effectively increases the price to consumers by $4,000 (a 20% increase on a $20,000 system). Demand curve does not shift — this is a movement along the demand curve. PED = %ΔQd / %ΔP = -18% / 20% = -0.9. Demand is relatively inelastic (|PED| < 1), meaning quantity demanded is somewhat responsive but less than proportional to price changes.", "markingGuide": "Clear explanation of elasticity measure and interpretation with correct calculation." },
-    { "id": "l3ed25-q1b", "number": "1(b)", "text": "Analyse the factors that determine the price elasticity of demand for residential solar panels in New Zealand. Consider how these factors might change over the next five years.", "marks": 6, "gradeLevel": "merit", "topics": ["elasticity factors", "substitutes", "necessities vs luxuries"], "answerType": "text", "expectedAnswer": "Current factors making demand relatively inelastic: (1) Few direct substitutes for generating your own electricity; (2) Long-term cost savings make solar a rational investment. Factors making demand elastic: (1) High proportion of income — $20,000 is significant; (2) Solar is a discretionary purchase, not an immediate necessity. Over five years: (1) Electricity prices rising makes solar more attractive (more inelastic); (2) Solar panel costs falling with technology improvements; (3) Battery storage becoming affordable increases solar's value proposition; (4) Climate awareness growing. These changes would make demand more inelastic over time.", "markingGuide": "Comprehensive analysis of elasticity determinants with forward-looking discussion." },
-    { "id": "l3ed25-q2a", "number": "2(a)", "text": "An outbreak of a livestock disease forced the culling of 30% of New Zealand's cattle herd. Using demand and supply analysis, explain how this supply shock affects the NZ beef market in the short run and the long run. Include diagrams.", "marks": 6, "gradeLevel": "merit", "topics": ["demand shocks", "market adjustment", "equilibrium"], "answerType": "text", "expectedAnswer": "Short run: Supply curve shifts left dramatically. Price increases significantly. Quantity traded falls. Consumers substitute to chicken, lamb, or plant-based alternatives. Long run: Herd rebuilding takes several years, supply gradually recovers. Price returns toward original equilibrium. Some farmers who lost stock may exit the industry, so long-run supply may be slightly lower. Imported beef may have established market share, reducing long-run demand for NZ beef.", "markingGuide": "Explain market mechanism connecting supply shock to short-run and long-run outcomes with diagrams." },
-    { "id": "l3ed25-q2b", "number": "2(b)", "text": "The government is considering two policy responses to the livestock disease crisis: (A) a compensation payment to affected farmers based on stock losses, or (B) a guaranteed minimum price for beef for two years.\n\nEvaluate which policy would be more effective in supporting the beef industry while minimising market distortions. Use demand and supply analysis to support your argument.", "marks": 7, "gradeLevel": "excellence", "topics": ["demand theory", "market analysis", "strategic decisions"], "answerType": "text", "expectedAnswer": "Policy A (compensation): helps farmers survive the crisis without distorting the market price. Consumers still face market prices, so demand adjusts naturally. Farmers receive income support to rebuild herds. However, it doesn't guarantee future profitability. Policy B (guaranteed minimum price): creates a price floor. If above equilibrium, it creates surplus, discourages consumption, and costs taxpayers through government purchasing of surplus. But it provides income certainty. Evaluation: Policy A is better because it provides targeted support without market distortion, allows price signals to operate, and is time-limited. Policy B creates ongoing distortions, may discourage herd rebuilding if the guarantee is too comfortable, and is expensive to administer.", "markingGuide": "Sophisticated analysis connecting theory to practical policy evaluation with clear recommendation." }
+    {
+      "id": "l3ed25-q1a",
+      "number": "1(a)",
+      "text": "Kea Solar Ltd installs residential solar panel systems across New Zealand. In 2025, the government ended a subsidy programme that previously covered up to $4,000 of each installation's cost.\n\nUsing a demand diagram, explain the impact of removing the subsidy on the demand for solar installations. Calculate the price elasticity of demand if the effective price increase of $4,000 (on a $20,000 system) caused an 18% fall in installations.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "demand elasticity",
+        "price sensitivity",
+        "consumer responsiveness"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Removing the subsidy effectively increases the price to consumers by $4,000 (a 20% increase on a $20,000 system). Demand curve does not shift — this is a movement along the demand curve. PED = %ΔQd / %ΔP = -18% / 20% = -0.9. Demand is relatively inelastic (|PED| < 1), meaning quantity demanded is somewhat responsive but less than proportional to price changes.",
+      "markingGuide": "Clear explanation of elasticity measure and interpretation with correct calculation.",
+      "graph": {
+        "type": "table",
+        "title": "Kea Solar — Installation Data",
+        "data": {
+          "headers": [
+            "Metric",
+            "With Subsidy",
+            "Without Subsidy",
+            "Change"
+          ],
+          "rows": [
+            [
+              "System price to consumer",
+              "$16,000",
+              "$20,000",
+              "+$4,000 (+25%)"
+            ],
+            [
+              "Effective price (after subsidy)",
+              "$16,000",
+              "$20,000",
+              "+25%"
+            ],
+            [
+              "Monthly installations",
+              "110",
+              "90",
+              "-18%"
+            ],
+            [
+              "PED calculation",
+              "",
+              "",
+              "-18% / +20% = -0.9"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l3ed25-q1b",
+      "number": "1(b)",
+      "text": "Analyse the factors that determine the price elasticity of demand for residential solar panels in New Zealand. Consider how these factors might change over the next five years.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "elasticity factors",
+        "substitutes",
+        "necessities vs luxuries"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Current factors making demand relatively inelastic: (1) Few direct substitutes for generating your own electricity; (2) Long-term cost savings make solar a rational investment. Factors making demand elastic: (1) High proportion of income — $20,000 is significant; (2) Solar is a discretionary purchase, not an immediate necessity. Over five years: (1) Electricity prices rising makes solar more attractive (more inelastic); (2) Solar panel costs falling with technology improvements; (3) Battery storage becoming affordable increases solar's value proposition; (4) Climate awareness growing. These changes would make demand more inelastic over time.",
+      "markingGuide": "Comprehensive analysis of elasticity determinants with forward-looking discussion."
+    },
+    {
+      "id": "l3ed25-q2a",
+      "number": "2(a)",
+      "text": "An outbreak of a livestock disease forced the culling of 30% of New Zealand's cattle herd. Using demand and supply analysis, explain how this supply shock affects the NZ beef market in the short run and the long run. Include diagrams.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "demand shocks",
+        "market adjustment",
+        "equilibrium"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Short run: Supply curve shifts left dramatically. Price increases significantly. Quantity traded falls. Consumers substitute to chicken, lamb, or plant-based alternatives. Long run: Herd rebuilding takes several years, supply gradually recovers. Price returns toward original equilibrium. Some farmers who lost stock may exit the industry, so long-run supply may be slightly lower. Imported beef may have established market share, reducing long-run demand for NZ beef.",
+      "markingGuide": "Explain market mechanism connecting supply shock to short-run and long-run outcomes with diagrams.",
+      "graph": {
+        "type": "line",
+        "title": "NZ Beef Price Index — Projected After 30% Herd Culling",
+        "xLabel": "Months After Outbreak",
+        "yLabel": "Price Index (base = 100)",
+        "data": [
+          {
+            "label": "0",
+            "value": 100
+          },
+          {
+            "label": "3",
+            "value": 145
+          },
+          {
+            "label": "6",
+            "value": 158
+          },
+          {
+            "label": "12",
+            "value": 140
+          },
+          {
+            "label": "24",
+            "value": 125
+          },
+          {
+            "label": "36",
+            "value": 112
+          },
+          {
+            "label": "48",
+            "value": 105
+          }
+        ]
+      }
+    },
+    {
+      "id": "l3ed25-q2b",
+      "number": "2(b)",
+      "text": "The government is considering two policy responses to the livestock disease crisis: (A) a compensation payment to affected farmers based on stock losses, or (B) a guaranteed minimum price for beef for two years.\n\nEvaluate which policy would be more effective in supporting the beef industry while minimising market distortions. Use demand and supply analysis to support your argument.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "demand theory",
+        "market analysis",
+        "strategic decisions"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Policy A (compensation): helps farmers survive the crisis without distorting the market price. Consumers still face market prices, so demand adjusts naturally. Farmers receive income support to rebuild herds. However, it doesn't guarantee future profitability. Policy B (guaranteed minimum price): creates a price floor. If above equilibrium, it creates surplus, discourages consumption, and costs taxpayers through government purchasing of surplus. But it provides income certainty. Evaluation: Policy A is better because it provides targeted support without market distortion, allows price signals to operate, and is time-limited. Policy B creates ongoing distortions, may discourage herd rebuilding if the guarantee is too comfortable, and is expensive to administer.",
+      "markingGuide": "Sophisticated analysis connecting theory to practical policy evaluation with clear recommendation."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
 }

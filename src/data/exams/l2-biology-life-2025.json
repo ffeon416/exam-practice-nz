@@ -54,7 +54,7 @@
     {
       "id": "bl25-q3",
       "number": "3",
-      "text": "Changes in temperature can significantly affect the activity of enzymes, thereby influencing the rate of all cellular processes in an organism.\n\nDiscuss the importance of enzymes in cellular processes, and how temperature affects enzyme activity.\n\nIn your answer, include discussion of:\n- the structure of enzymes\n- the role of enzymes in biological processes\n- the mechanism by which enzymes function\n- why high and low temperatures have different effects on enzyme activity compared to the optimum temperature.\n\nYou may include diagrams to support your answer (optional).",
+      "text": "Changes in temperature can significantly affect the activity of enzymes, thereby influencing the rate of all cellular processes in an organism.\n\nThe graph below shows how the rate of an enzyme-catalysed reaction changes with temperature.\n\nDiscuss the importance of enzymes in cellular processes, and how temperature affects enzyme activity.\n\nIn your answer, include discussion of:\n- the structure of enzymes\n- the role of enzymes in biological processes\n- the mechanism by which enzymes function\n- why high and low temperatures have different effects on enzyme activity compared to the optimum temperature.\n\nYou may include diagrams to support your answer (optional).",
       "marks": 8,
       "gradeLevel": "excellence",
       "topics": [
@@ -63,6 +63,16 @@
         "cell-biology"
       ],
       "answerType": "text",
+      "graph": {
+        "type": "line",
+        "title": "Effect of Temperature on Enzyme Activity",
+        "xLabel": "Temperature (°C)",
+        "yLabel": "Rate of Reaction (arbitrary units)",
+        "xValues": [0, 10, 20, 30, 37, 45, 50, 60, 70],
+        "series": [
+          { "name": "Enzyme activity", "values": [5, 15, 35, 65, 100, 80, 40, 10, 0] }
+        ]
+      },
       "expectedAnswer": "Enzymes are biological catalysts made of proteins. They have a specific 3D shape including an active site. Temperature affects the kinetic energy of molecules and the shape of the active site, thus influencing enzyme function.",
       "markingGuide": "Achieved (A3-A4): Describes the structure of enzymes; function of enzymes as biological catalysts; lower activation energy; catalyse biochemical reactions; tolerance limits of enzymes; enzymes denaturing at extreme temperatures; optimal temperature described; reduced reaction rate outside optimal temperature; the lock and key model OR the induced-fit model. Merit (M5-M6): Explains how the structure of enzymes enables them to work; the lock and key model or induced fit model; why extreme temperatures affect the rate of activity of enzymes; the formation of the enzyme-substrate complex; the role of enzymes in a biological process. Excellence (E7-E8): Provides detailed discussion of the function of enzymes related to their structure and why temperature affects them; the effects of high and low temperatures on the rate of enzyme activity; the impact of enzyme activity on the rate of cellular activity in an organism."
     }

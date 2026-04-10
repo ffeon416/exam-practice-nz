@@ -59,7 +59,7 @@
     {
       "id": "91523-25-q1c",
       "number": "1(c)",
-      "text": "Kiri is floating close to Tane's path while her friend Moana watches from the bank. The graph shows the frequency heard by each observer as the boat travels past.\n\nExplain why the frequency Kiri hears is the same or different to that which Moana hears.",
+      "text": "Kiri is floating close to Tane's path while her friend Moana watches from the bank. The graph below shows the frequency heard by each observer as the boat travels past.\n\nExplain why the frequency Kiri hears is the same or different to that which Moana hears.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -68,6 +68,17 @@
         "velocity-component"
       ],
       "answerType": "text",
+      "graph": {
+        "type": "line",
+        "title": "Observed Frequency as Boat Passes",
+        "xLabel": "Time (s)",
+        "yLabel": "Frequency (Hz)",
+        "xValues": [0, 5, 10, 15, 20, 25, 30],
+        "series": [
+          { "name": "Kiri (close to path)", "values": [1055, 1050, 1040, 980, 920, 915, 912], "color": "#3b82f6" },
+          { "name": "Moana (on bank)", "values": [1020, 1010, 1000, 980, 960, 950, 945], "color": "#ef4444" }
+        ]
+      },
       "expectedAnswer": "When the boat is far away and approaching, both hear similar frequencies (nearly same component of velocity toward each). As it passes Kiri directly, she hears the actual frequency momentarily, then hears a much lower frequency (directly receding). Moana, offset from the path, always has a component of velocity toward/away from her that is less than the full speed, so her frequency change is more gradual and less extreme.",
       "markingGuide": "Achievement: Explains one section. Merit: Explains transition. Excellence: Complete answer."
     },

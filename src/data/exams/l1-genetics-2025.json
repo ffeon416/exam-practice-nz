@@ -42,11 +42,23 @@
     {
       "id": "l1g25-q2ai",
       "number": "2(a)(i)",
-      "text": "A pedigree chart tracks the inheritance of Huntington's disease in a family. Individuals 3, 7, and 9 are affected (shaded). Individuals 1, 2, 4, 5, 6, 8, 10, 11, 12 are unaffected.\n\nHuntington's disease is caused by a dominant allele (H). The normal allele (h) is recessive.\n\nWhat are the possible genotypes of an individual who does not have Huntington's disease?",
+      "text": "A pedigree chart tracks the inheritance of Huntington's disease in a family. Individuals 3, 7, and 9 are affected (shaded). Individuals 1, 2, 4, 5, 6, 8, 10, 11, 12 are unaffected.\n\nHuntington's disease is caused by a dominant allele (H). The normal allele (h) is recessive.\n\nThe table below summarises the possible genotype-phenotype relationships.\n\nWhat are the possible genotypes of an individual who does not have Huntington's disease?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": ["genetics", "inheritance"],
       "answerType": "working",
+      "graph": {
+        "type": "table",
+        "title": "Huntington's Disease — Genotype and Phenotype",
+        "data": {
+          "headers": ["Genotype", "Type", "Phenotype"],
+          "rows": [
+            ["HH", "Homozygous dominant", "Affected"],
+            ["Hh", "Heterozygous", "Affected"],
+            ["hh", "Homozygous recessive", "Unaffected"]
+          ]
+        }
+      },
       "expectedAnswer": "hh (homozygous recessive) only",
       "markingGuide": "Achievement: Identifies the genotype correctly — hh is the only genotype that does not develop the disease."
     },

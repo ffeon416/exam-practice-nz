@@ -8,12 +8,145 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    { "id": "l3aa24-q1a", "number": "1(a)", "text": "This assessment is based on the Annual Report of Mainfreight Limited, an Aotearoa New Zealand logistics and supply chain company that operates warehousing, transport, and freight services across NZ, Australia, Asia, Europe, and the Americas.\n\nThe following is an extract from the Our People and Community section of the annual report.\n\nMainfreight's community goals include: reducing carbon emissions from their fleet, fair treatment of owner-drivers, investment in regional communities, mental health and wellbeing initiatives, and supporting local charities through freight donations.\n\nWith reference to these goals, explain why this information would be of interest to a potential business customer of Mainfreight.", "marks": 4, "gradeLevel": "achieved", "topics": ["annual report", "stakeholders", "employee interests"], "answerType": "text", "expectedAnswer": "A potential business customer would be interested because: carbon reduction efforts align with their own sustainability goals and reporting requirements. Fair treatment of drivers ensures reliable, motivated service. Community investment demonstrates corporate responsibility. Customers can feel confident partnering with a company that shares ethical values, which may also benefit their own brand reputation.", "markingGuide": "A: Identifies goals relevant to customers. M: Explains why these goals matter to potential business customers with context. E: Provides assurance about values alignment and connects to partnership decisions." },
-    { "id": "l3aa24-q1b", "number": "1(b)", "text": "Explain why a potential investor would be interested in the segmented reporting within the financial statements section of the annual report.\nIn your answer, include:\n- the purpose of segmented reporting\n- specific information that would be of interest to a potential investor.", "marks": 4, "gradeLevel": "merit", "topics": ["segmented reporting", "stakeholder decisions", "financial statements"], "answerType": "text", "expectedAnswer": "Purpose: shows revenue, profit, and assets broken down by geographic region and business segment (transport, warehousing, air & ocean), revealing where the company generates value. An investor would look at: which segments are growing fastest; which regions are most profitable; whether the company is over-reliant on one segment; and how capital is allocated across segments.", "markingGuide": "A: States purpose. M: Links specific items to investor interests. E: Discusses how segmented data indicates diversification and growth potential." },
-    { "id": "l3aa24-q1c", "number": "1(c)", "text": "The independent auditors' report confirms that the financial statements present fairly, in all material respects, the financial position of the company in accordance with NZ IFRS.\n\nExplain why a potential shareholder would be interested in this audit statement. Include reference to faithful representation and comparability, and how this enables confident decision-making.", "marks": 4, "gradeLevel": "excellence", "topics": ["auditors report", "faithful representation", "comparability", "NZ IFRS"], "answerType": "text", "expectedAnswer": "Faithful representation: the auditor confirms the statements present a true and fair view — information is complete, neutral, and free from material error. Comparability: compliance with NZ IFRS means the financial statements can be compared with other logistics companies using the same standards. A shareholder can make investment decisions with confidence because the audit provides independent assurance that the numbers are reliable.", "markingGuide": "A: Identifies faithful representation and comparability. M: Explains how audit opinion provides assurance. E: Justifies how this enables confident decision-making." },
-    { "id": "l3aa24-q2a", "number": "2(a)", "text": "Mainfreight paid external audit fees of $1,200,000.\nExplain why audit fees are reported as revenue expenditure in the financial statements.", "marks": 4, "gradeLevel": "achieved", "topics": ["revenue expenditure", "audit fees", "expenses"], "answerType": "text", "expectedAnswer": "Revenue expenditure: costs that benefit only the current accounting period and do not create a long-term asset. Audit fees are a recurring annual cost that provides assurance for the current year's financial statements only. They do not increase the company's productive capacity or create future economic benefits beyond the current period.", "markingGuide": "A: Defines revenue expenditure. M: Applies to audit fees. E: Contrasts with capital expenditure." },
-    { "id": "l3aa24-q2b", "number": "2(b)", "text": "Justify how and why the income tax expense of $42m is treated differently to the current tax payable of $31m as reported in the financial statements.\nInclude reference to the relevant financial statements and recognition criteria.", "marks": 4, "gradeLevel": "excellence", "topics": ["income tax", "tax payable", "recognition criteria", "financial elements"], "answerType": "text", "expectedAnswer": "Income tax expense ($42m) is reported in the income statement as an expense — it represents the total tax cost attributable to the period's profit. Current tax payable ($31m) is a liability on the statement of financial position — it represents the actual amount owed to IRD at balance date. The difference ($11m) relates to deferred tax — timing differences between accounting profit and taxable income.", "markingGuide": "A: Identifies different financial statements. M: Explains different recognition criteria. E: Justifies with reference to deferred tax concept." },
-    { "id": "l3aa24-q3", "number": "3", "text": "Mainfreight's PPE note shows: vehicles and trailers (depreciated over useful life), warehouse fit-outs (depreciated over lease term), land (not depreciated). Goods held for customers are not the company's assets. Historical cost basis is used.\n\nJustify why items of PPE are reported as assets. In your answer explain:\n- why customer goods stored in warehouses are not Mainfreight's assets while the warehousing facilities are PPE\n- how historical cost is applied to measurement of PPE\n- how a new warehouse fit-out meets the definition of an asset and why it is capital expenditure.", "marks": 4, "gradeLevel": "excellence", "topics": ["PPE", "asset classification", "historical cost", "capital expenditure", "inventory vs PPE"], "answerType": "text", "expectedAnswer": "Customer goods are not Mainfreight's assets because they are not controlled by Mainfreight — they belong to the customers and will be collected. Warehousing facilities are PPE because they are used in operations over multiple periods to generate logistics revenue. Historical cost: PPE recorded at the price paid at acquisition, providing a reliable and verifiable measurement basis. New fit-out meets asset definition: (1) controlled by entity, (2) from past event (construction/purchase), (3) future economic benefits expected (generates warehousing income). It is capital expenditure because the benefit extends beyond one accounting period.", "markingGuide": "A: Identifies PPE vs customer goods distinction. M: Explains historical cost. E: Justifies with full asset definition and capital expenditure." }
+    {
+      "id": "l3aa24-q1a",
+      "number": "1(a)",
+      "text": "This assessment is based on the Annual Report of Mainfreight Limited, an Aotearoa New Zealand logistics and supply chain company that operates warehousing, transport, and freight services across NZ, Australia, Asia, Europe, and the Americas.\n\nThe following is an extract from the Our People and Community section of the annual report.\n\nMainfreight's community goals include: reducing carbon emissions from their fleet, fair treatment of owner-drivers, investment in regional communities, mental health and wellbeing initiatives, and supporting local charities through freight donations.\n\nWith reference to these goals, explain why this information would be of interest to a potential business customer of Mainfreight.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "annual report",
+        "stakeholders",
+        "employee interests"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A potential business customer would be interested because: carbon reduction efforts align with their own sustainability goals and reporting requirements. Fair treatment of drivers ensures reliable, motivated service. Community investment demonstrates corporate responsibility. Customers can feel confident partnering with a company that shares ethical values, which may also benefit their own brand reputation.",
+      "markingGuide": "A: Identifies goals relevant to customers. M: Explains why these goals matter to potential business customers with context. E: Provides assurance about values alignment and connects to partnership decisions."
+    },
+    {
+      "id": "l3aa24-q1b",
+      "number": "1(b)",
+      "text": "Explain why a potential investor would be interested in the segmented reporting within the financial statements section of the annual report.\nIn your answer, include:\n- the purpose of segmented reporting\n- specific information that would be of interest to a potential investor.",
+      "marks": 4,
+      "gradeLevel": "merit",
+      "topics": [
+        "segmented reporting",
+        "stakeholder decisions",
+        "financial statements"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Purpose: shows revenue, profit, and assets broken down by geographic region and business segment (transport, warehousing, air & ocean), revealing where the company generates value. An investor would look at: which segments are growing fastest; which regions are most profitable; whether the company is over-reliant on one segment; and how capital is allocated across segments.",
+      "markingGuide": "A: States purpose. M: Links specific items to investor interests. E: Discusses how segmented data indicates diversification and growth potential."
+    },
+    {
+      "id": "l3aa24-q1c",
+      "number": "1(c)",
+      "text": "The independent auditors' report confirms that the financial statements present fairly, in all material respects, the financial position of the company in accordance with NZ IFRS.\n\nExplain why a potential shareholder would be interested in this audit statement. Include reference to faithful representation and comparability, and how this enables confident decision-making.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "auditors report",
+        "faithful representation",
+        "comparability",
+        "NZ IFRS"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Faithful representation: the auditor confirms the statements present a true and fair view — information is complete, neutral, and free from material error. Comparability: compliance with NZ IFRS means the financial statements can be compared with other logistics companies using the same standards. A shareholder can make investment decisions with confidence because the audit provides independent assurance that the numbers are reliable.",
+      "markingGuide": "A: Identifies faithful representation and comparability. M: Explains how audit opinion provides assurance. E: Justifies how this enables confident decision-making."
+    },
+    {
+      "id": "l3aa24-q2a",
+      "number": "2(a)",
+      "text": "Mainfreight paid external audit fees of $1,200,000.\nExplain why audit fees are reported as revenue expenditure in the financial statements.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "revenue expenditure",
+        "audit fees",
+        "expenses"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Revenue expenditure: costs that benefit only the current accounting period and do not create a long-term asset. Audit fees are a recurring annual cost that provides assurance for the current year's financial statements only. They do not increase the company's productive capacity or create future economic benefits beyond the current period.",
+      "markingGuide": "A: Defines revenue expenditure. M: Applies to audit fees. E: Contrasts with capital expenditure."
+    },
+    {
+      "id": "l3aa24-q2b",
+      "number": "2(b)",
+      "text": "Justify how and why the income tax expense of $42m is treated differently to the current tax payable of $31m as reported in the financial statements.\nInclude reference to the relevant financial statements and recognition criteria.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "income tax",
+        "tax payable",
+        "recognition criteria",
+        "financial elements"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Income tax expense ($42m) is reported in the income statement as an expense — it represents the total tax cost attributable to the period's profit. Current tax payable ($31m) is a liability on the statement of financial position — it represents the actual amount owed to IRD at balance date. The difference ($11m) relates to deferred tax — timing differences between accounting profit and taxable income.",
+      "markingGuide": "A: Identifies different financial statements. M: Explains different recognition criteria. E: Justifies with reference to deferred tax concept.",
+      "graph": {
+        "type": "table",
+        "title": "Mainfreight — Tax Reporting Summary",
+        "data": {
+          "headers": [
+            "Item",
+            "Amount ($m)",
+            "Financial Statement"
+          ],
+          "rows": [
+            [
+              "Income tax expense",
+              "42",
+              "Income Statement"
+            ],
+            [
+              "Current tax payable",
+              "31",
+              "Statement of Financial Position"
+            ],
+            [
+              "Deferred tax",
+              "11",
+              "Statement of Financial Position"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l3aa24-q3",
+      "number": "3",
+      "text": "Mainfreight's PPE note shows: vehicles and trailers (depreciated over useful life), warehouse fit-outs (depreciated over lease term), land (not depreciated). Goods held for customers are not the company's assets. Historical cost basis is used.\n\nJustify why items of PPE are reported as assets. In your answer explain:\n- why customer goods stored in warehouses are not Mainfreight's assets while the warehousing facilities are PPE\n- how historical cost is applied to measurement of PPE\n- how a new warehouse fit-out meets the definition of an asset and why it is capital expenditure.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "PPE",
+        "asset classification",
+        "historical cost",
+        "capital expenditure",
+        "inventory vs PPE"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Customer goods are not Mainfreight's assets because they are not controlled by Mainfreight — they belong to the customers and will be collected. Warehousing facilities are PPE because they are used in operations over multiple periods to generate logistics revenue. Historical cost: PPE recorded at the price paid at acquisition, providing a reliable and verifiable measurement basis. New fit-out meets asset definition: (1) controlled by entity, (2) from past event (construction/purchase), (3) future economic benefits expected (generates warehousing income). It is capital expenditure because the benefit extends beyond one accounting period.",
+      "markingGuide": "A: Identifies PPE vs customer goods distinction. M: Explains historical cost. E: Justifies with full asset definition and capital expenditure."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 6 }, "achieved": { "min": 7, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
 }

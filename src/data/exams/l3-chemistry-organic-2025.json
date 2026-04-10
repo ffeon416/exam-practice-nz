@@ -84,7 +84,7 @@
     {
       "id": "l3co25-q1cii",
       "number": "1(c)(ii)",
-      "text": "Explain why no fraction was collected at 127-131 degrees C.\n\nBoiling points: Pentan-1-ol 157 degrees C, Hexanal 129 degrees C, Hexanoic acid 205 degrees C.",
+      "text": "Explain why no fraction was collected at 127-131 degrees C.\n\nThe boiling points of the relevant compounds are shown in the graph below.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -93,6 +93,17 @@
         "practical-techniques"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "bar",
+        "title": "Boiling Points of Compounds in the Reaction",
+        "xLabel": "Compound",
+        "yLabel": "Boiling Point (°C)",
+        "data": [
+          { "label": "Hexanal", "value": 129 },
+          { "label": "Hexan-1-ol", "value": 157 },
+          { "label": "Hexanoic acid", "value": 205 }
+        ]
+      },
       "expectedAnswer": "The hexan-1-ol was fully oxidised past the aldehyde stage to hexanoic acid because excess oxidising agent and reflux were used. Hexanoic acid has bp 205 degrees C, much higher than 129 degrees C.",
       "markingGuide": "Achievement: Recognises over-oxidation to carboxylic acid. Merit: Explains why no fraction at 101-104."
     },

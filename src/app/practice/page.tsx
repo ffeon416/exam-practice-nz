@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ALL_EXAMS } from "@/data/exams";
 import { getTopicLabel, TOPICS } from "@/data/topics";
 import type { Question } from "@/lib/types";
+import Graph from "@/components/Graph";
 
 const ALL_QUESTIONS = ALL_EXAMS.flatMap((exam) =>
   exam.questions.map((q) => ({ ...q, examTitle: exam.title, level: exam.level }))
@@ -292,6 +293,7 @@ export default function PracticePage() {
         </div>
 
         <div className="px-4 py-4">
+          {question.graph && <Graph data={question.graph} />}
           {question.image && (
             <div className="rounded-lg overflow-hidden border border-zinc-800 bg-white p-2 mb-4">
               <img src={question.image} alt="Question diagram" className="max-w-full h-auto mx-auto max-h-[500px] object-contain" />

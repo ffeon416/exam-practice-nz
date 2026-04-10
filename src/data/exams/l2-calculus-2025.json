@@ -7,26 +7,247 @@
   "subject": "mathematics",
   "timeMinutes": 60,
   "questions": [
-    {"id":"l2c25-q1a","number":"1(a)","text":"f(x) = 4x³ – 7x² + 2x/3 + 5.\n\nUse calculus to find the gradient of f(x) at x = –1.","marks":2,"gradeLevel":"achieved","topics":["differentiation"],"answerType":"working","expectedAnswer":"26⅔","markingGuide":"f'(x) = 12x² – 14x + 2/3. f'(–1) = 12 + 14 + 2/3 = 26⅔."},
-    {"id":"l2c25-q1b","number":"1(b)","text":"For f(x) = x³/3 – 2x² + 3x + 1, find the equation of the tangent to the curve at x = 3.","marks":3,"gradeLevel":"merit","topics":["differentiation","tangent-lines"],"answerType":"working","expectedAnswer":"y = 6x – 17","markingGuide":"f'(x) = x² – 4x + 3. f'(3) = 9 – 12 + 3 = 0. Wait, that's zero. Let me use x=4: f'(4) = 16–16+3 = 3. f(4) = 64/3–32+12+1 = 64/3–19 = (64–57)/3 = 7/3. Not clean. Use f(x) = x³/3 – x² + 4x – 2. f'(x) = x²–2x+4. f'(3) = 9–6+4=7. f(3) = 9–9+12–2=10. Tangent: y–10=7(x–3). y=7x–11."},
-    {"id":"l2c25-q1c","number":"1(c)","text":"The gradient function is f'(x) = 3x² – 8x – 20.\n\nFind f(x) given that the y-value of the local minimum is –48.","marks":5,"gradeLevel":"excellence","topics":["anti-differentiation","stationary-points"],"answerType":"working","expectedAnswer":"f(x) = x³ – 4x² – 20x + 12","markingGuide":"f(x) = x³ – 4x² – 20x + c. f'(x) = 0: 3x²–8x–20 = 0. Hmm disc=64+240=304. Not clean. Use f'(x) = 3x²–6x–24. f(x) = x³–3x²–24x+c. 3(x²–2x–8)=0. 3(x–4)(x+2)=0. x=4 or x=–2. f''(x)=6x–6. f''(4)=18>0 (min). f(4)=64–48–96+c=–80+c=–48. c=32. f(x) = x³–3x²–24x+32."},
-    {"id":"l2c25-q1d","number":"1(d)","text":"A bus moves at a constant speed of 6 m/s past a stop. A car, starting from rest at the bus stop, accelerates at 0.5 m/s² to catch the bus.\n\nAt the moment the car leaves, the bus is 200 m ahead.\n\nFind the distance from the bus stop when the car catches the bus.","marks":5,"gradeLevel":"excellence","topics":["kinematics","differentiation","anti-differentiation"],"answerType":"working","expectedAnswer":"800 m from bus stop (at t = 40 s)","markingGuide":"Bus: s_B = 6t + 200. Car: v = 0.5t, s_C = 0.25t². Set equal: 0.25t² = 6t + 200. t² – 24t – 800 = 0. (t–40)(t+20)=0. t=40. s = 0.25 × 1600 = 400. Hmm: check bus: 6(40)+200=440. Car: 0.25(1600)=400. 400≠440. Not equal. Let me redo: 0.25t²=6t+200. t²=24t+800. t²–24t–800=0. t=(24±√(576+3200))/2=(24±√3776)/2=(24±61.45)/2. t=42.73. Not clean. Use bus speed 5, gap 200: 0.25t²=5t+200. t²–20t–800=0. (t–40)(t+20)=0. t=40! s=0.25(1600)=400. Bus: 5(40)+200=400 ✓."},
-    {"id":"l2c25-q2a","number":"2(a)","text":"The graph of f(x) is a positive cubic (rises left to right) with two turning points.\n\nSketch f'(x).","marks":3,"gradeLevel":"merit","topics":["differentiation","graph-sketching-calculus"],"answerType":"working","expectedAnswer":"Upward-opening parabola with x-intercepts at the turning points of f(x)","markingGuide":"f'(x) is quadratic, opens upward, zeros at the turning points of f(x). Achieved = 2 of 3 features. Merit = all 3."},
-    {"id":"l2c25-q2b","number":"2(b)","text":"f'(x) = 4x³ – 3x² + 2x + 5.\n\nThe graph of f(x) passes through (1, 4). Find f(x).","marks":3,"gradeLevel":"merit","topics":["anti-differentiation"],"answerType":"working","expectedAnswer":"f(x) = x⁴ – x³ + x² + 5x – 2","markingGuide":"f(x) = x⁴ – x³ + x² + 5x + c. f(1) = 1–1+1+5+c = 6+c = 4. c = –2. f(x) = x⁴–x³+x²+5x–2."},
-    {"id":"l2c25-q2ci","number":"2(c)(i)","text":"The temperature of a cooling loaf of bread is modelled by:\n\nT(t) = 3t²/100 – 3t + 60\n\nwhere T is °C and t is minutes.\n\nShow that the rate of change of temperature is –1.8 °C/min when t = 20.","marks":2,"gradeLevel":"achieved","topics":["differentiation","rates-of-change"],"answerType":"working","expectedAnswer":"T'(20) = –1.8 °C per minute","markingGuide":"T'(t) = 6t/100 – 3 = 0.06t – 3. T'(20) = 1.2 – 3 = –1.8. Confirmed."},
-    {"id":"l2c25-q2cii","number":"2(c)(ii)","text":"The cooling loaf was taken out of the oven. Use calculus to determine at what time the loaf cools most rapidly (reaches minimum temperature rate of change).","marks":4,"gradeLevel":"excellence","topics":["differentiation","stationary-points","rates-of-change"],"answerType":"working","expectedAnswer":"The loaf cools at a constant decreasing rate (T''(t)=0.06>0), so the most rapid cooling is at t=0.","markingGuide":"T'(t) = 0.06t – 3. This is always increasing (T''=0.06>0). The most negative rate of change is at t=0 where T'(0) = –3. So the loaf cools most rapidly at the instant it is removed."},
-    {"id":"l2c25-q2di","number":"2(d)(i)","text":"f(x) = ax³ + bx² + cx + 5.\n\nf(1) = 0 and f'(–1) = 0. Also a = –1.\n\nUse calculus to find the x-coordinate of the other stationary point.","marks":3,"gradeLevel":"merit","topics":["differentiation","stationary-points"],"answerType":"working","expectedAnswer":"x = –1/3","markingGuide":"a=–1: f(1) = –1+b+c+5 = 0 → b+c = –4 ...(1). f'(x) = –3x²+2bx+c. f'(–1) = –3–2b+c = 0 ...(2). From (1): c=–4–b. Sub into (2): –3–2b+(–4–b) = 0 → –7–3b=0 → b=–7/3. c=–4+7/3=–5/3. f'(x) = –3x²–14x/3–5/3. Set=0: 9x²+14x+5=0. (9x+5)(x+1)=0. x=–5/9 or x=–1. Other stationary point at x=–5/9."},
-    {"id":"l2c25-q2dii","number":"2(d)(ii)","text":"Determine the nature of the stationary point found in (d)(i) using calculus.","marks":3,"gradeLevel":"excellence","topics":["differentiation","stationary-points"],"answerType":"working","expectedAnswer":"Local minimum","markingGuide":"f''(x) = –6x+2b = –6x–14/3. f''(–5/9) = 30/9–14/3 = 10/3–14/3 = –4/3 < 0. So local maximum. Excellence = correct second derivative, evaluated, with conclusion."},
-    {"id":"l2c25-q3a","number":"3(a)","text":"f(x) = 2x² – 8x – 5.\n\nFind the point on the curve where the gradient equals 4.","marks":2,"gradeLevel":"achieved","topics":["differentiation"],"answerType":"working","expectedAnswer":"(3, –11)","markingGuide":"f'(x) = 4x – 8. Set = 4: 4x = 12, x = 3. f(3) = 18 – 24 – 5 = –11. Point: (3, –11)."},
-    {"id":"l2c25-q3b","number":"3(b)","text":"A rectangle's area is expanding such that its length is always 4 times its width.\n\nFind the rate of change of area with respect to width when the area equals 100 cm².","marks":3,"gradeLevel":"merit","topics":["differentiation","rates-of-change"],"answerType":"working","expectedAnswer":"40 cm","markingGuide":"Width = w, length = 4w. A = 4w². A'(w) = 8w. When A = 100: 4w² = 100, w = 5. A'(5) = 40."},
-    {"id":"l2c25-q3c","number":"3(c)","text":"A lidless rectangular container has width three times its height. Maximum material is 6.4 m². Use calculus to find the maximum volume and prove it's a maximum.","marks":5,"gradeLevel":"excellence","topics":["differentiation","optimisation"],"answerType":"working","expectedAnswer":"Maximum volume ≈ 1.28 m³","markingGuide":"Let height = h, width = 3h, length = L. SA (lidless): base = 3hL. Two short sides = 2(h×3h) = 6h². Two long sides = 2(h×L) = 2hL. Total = 3hL + 6h² + 2hL = 5hL + 6h² = 6.4. L = (6.4–6h²)/(5h). V = 3h²L = 3h²(6.4–6h²)/(5h) = 3h(6.4–6h²)/5 = (19.2h–18h³)/5. V'(h) = (19.2–54h²)/5 = 0. h² = 19.2/54 = 16/45. h = 4/(3√5). V = (19.2×4/(3√5)–18×64/(27×5√5))/5. This is messy. Use simpler: width=2h. SA: 2hL+2(2h²)+2hL = 4hL+4h² = 6.4. L=(6.4–4h²)/(4h). V=2h²L=2h²(6.4–4h²)/(4h)=h(6.4–4h²)/2=3.2h–2h³. V'=3.2–6h²=0. h²=8/15. h=√(8/15)≈0.730. V=3.2(0.730)–2(0.389)=2.336–0.778=1.558. V''=–12h<0 so max."},
-    {"id":"l2c25-q3d","number":"3(d)","text":"f(x) = x⁴/4 + (n – 3)x³/3 – 3nx²/2 + n.\n\nDetermine where f(x) is decreasing.","marks":5,"gradeLevel":"excellence","topics":["differentiation","stationary-points"],"answerType":"working","expectedAnswer":"f(x) is decreasing for x < –n and 0 < x < 3","markingGuide":"f'(x) = x³ + (n–3)x² – 3nx = x[x² + (n–3)x – 3n] = x(x–3)(x+n). Stationary points at x = 0, 3, –n. For n > 0, order: –n, 0, 3. Sign analysis: f(x) decreasing when f'(x) < 0, i.e. x < –n and 0 < x < 3. Achieved = correct derivative. Merit = stationary points found. Excellence = correct decreasing regions."}
+    {
+      "id": "l2c25-q1a",
+      "number": "1(a)",
+      "text": "f(x) = 4x³ – 7x² + 2x/3 + 5.\n\nUse calculus to find the gradient of f(x) at x = –1.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "26⅔",
+      "markingGuide": "f'(x) = 12x² – 14x + 2/3. f'(–1) = 12 + 14 + 2/3 = 26⅔."
+    },
+    {
+      "id": "l2c25-q1b",
+      "number": "1(b)",
+      "text": "For f(x) = x³/3 – 2x² + 3x + 1, find the equation of the tangent to the curve at x = 3.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "tangent-lines"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = 6x – 17",
+      "markingGuide": "f'(x) = x² – 4x + 3. f'(3) = 9 – 12 + 3 = 0. Wait, that's zero. Let me use x=4: f'(4) = 16–16+3 = 3. f(4) = 64/3–32+12+1 = 64/3–19 = (64–57)/3 = 7/3. Not clean. Use f(x) = x³/3 – x² + 4x – 2. f'(x) = x²–2x+4. f'(3) = 9–6+4=7. f(3) = 9–9+12–2=10. Tangent: y–10=7(x–3). y=7x–11."
+    },
+    {
+      "id": "l2c25-q1c",
+      "number": "1(c)",
+      "text": "The gradient function is f'(x) = 3x² – 8x – 20.\n\nFind f(x) given that the y-value of the local minimum is –48.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "anti-differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = x³ – 4x² – 20x + 12",
+      "markingGuide": "f(x) = x³ – 4x² – 20x + c. f'(x) = 0: 3x²–8x–20 = 0. Hmm disc=64+240=304. Not clean. Use f'(x) = 3x²–6x–24. f(x) = x³–3x²–24x+c. 3(x²–2x–8)=0. 3(x–4)(x+2)=0. x=4 or x=–2. f''(x)=6x–6. f''(4)=18>0 (min). f(4)=64–48–96+c=–80+c=–48. c=32. f(x) = x³–3x²–24x+32."
+    },
+    {
+      "id": "l2c25-q1d",
+      "number": "1(d)",
+      "text": "A bus moves at a constant speed of 6 m/s past a stop. A car, starting from rest at the bus stop, accelerates at 0.5 m/s² to catch the bus.\n\nAt the moment the car leaves, the bus is 200 m ahead.\n\nFind the distance from the bus stop when the car catches the bus.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "kinematics",
+        "differentiation",
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "800 m from bus stop (at t = 40 s)",
+      "markingGuide": "Bus: s_B = 6t + 200. Car: v = 0.5t, s_C = 0.25t². Set equal: 0.25t² = 6t + 200. t² – 24t – 800 = 0. (t–40)(t+20)=0. t=40. s = 0.25 × 1600 = 400. Hmm: check bus: 6(40)+200=440. Car: 0.25(1600)=400. 400≠440. Not equal. Let me redo: 0.25t²=6t+200. t²=24t+800. t²–24t–800=0. t=(24±√(576+3200))/2=(24±√3776)/2=(24±61.45)/2. t=42.73. Not clean. Use bus speed 5, gap 200: 0.25t²=5t+200. t²–20t–800=0. (t–40)(t+20)=0. t=40! s=0.25(1600)=400. Bus: 5(40)+200=400 ✓."
+    },
+    {
+      "id": "l2c25-q2a",
+      "number": "2(a)",
+      "text": "The graph of f(x) is a positive cubic (rises left to right) with two turning points.\n\nSketch f'(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "graph-sketching-calculus"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Upward-opening parabola with x-intercepts at the turning points of f(x)",
+      "markingGuide": "f'(x) is quadratic, opens upward, zeros at the turning points of f(x). Achieved = 2 of 3 features. Merit = all 3."
+    },
+    {
+      "id": "l2c25-q2b",
+      "number": "2(b)",
+      "text": "f'(x) = 4x³ – 3x² + 2x + 5.\n\nThe graph of f(x) passes through (1, 4). Find f(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = x⁴ – x³ + x² + 5x – 2",
+      "markingGuide": "f(x) = x⁴ – x³ + x² + 5x + c. f(1) = 1–1+1+5+c = 6+c = 4. c = –2. f(x) = x⁴–x³+x²+5x–2."
+    },
+    {
+      "id": "l2c25-q2ci",
+      "number": "2(c)(i)",
+      "text": "The temperature of a cooling loaf of bread is modelled by:\n\nT(t) = 3t²/100 – 3t + 60\n\nwhere T is °C and t is minutes.\n\nShow that the rate of change of temperature is –1.8 °C/min when t = 20.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "T'(20) = –1.8 °C per minute",
+      "markingGuide": "T'(t) = 6t/100 – 3 = 0.06t – 3. T'(20) = 1.2 – 3 = –1.8. Confirmed.",
+      "graph": {
+        "type": "line",
+        "title": "Bread Cooling Temperature",
+        "xLabel": "Time (minutes)",
+        "yLabel": "Temperature (°C)",
+        "xValues": [
+          0,
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "series": [
+          {
+            "name": "T(t)",
+            "values": [
+              60,
+              42,
+              30,
+              24,
+              24,
+              30
+            ],
+            "color": "#f59e0b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "l2c25-q2cii",
+      "number": "2(c)(ii)",
+      "text": "The cooling loaf was taken out of the oven. Use calculus to determine at what time the loaf cools most rapidly (reaches minimum temperature rate of change).",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "The loaf cools at a constant decreasing rate (T''(t)=0.06>0), so the most rapid cooling is at t=0.",
+      "markingGuide": "T'(t) = 0.06t – 3. This is always increasing (T''=0.06>0). The most negative rate of change is at t=0 where T'(0) = –3. So the loaf cools most rapidly at the instant it is removed."
+    },
+    {
+      "id": "l2c25-q2di",
+      "number": "2(d)(i)",
+      "text": "f(x) = ax³ + bx² + cx + 5.\n\nf(1) = 0 and f'(–1) = 0. Also a = –1.\n\nUse calculus to find the x-coordinate of the other stationary point.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = –1/3",
+      "markingGuide": "a=–1: f(1) = –1+b+c+5 = 0 → b+c = –4 ...(1). f'(x) = –3x²+2bx+c. f'(–1) = –3–2b+c = 0 ...(2). From (1): c=–4–b. Sub into (2): –3–2b+(–4–b) = 0 → –7–3b=0 → b=–7/3. c=–4+7/3=–5/3. f'(x) = –3x²–14x/3–5/3. Set=0: 9x²+14x+5=0. (9x+5)(x+1)=0. x=–5/9 or x=–1. Other stationary point at x=–5/9."
+    },
+    {
+      "id": "l2c25-q2dii",
+      "number": "2(d)(ii)",
+      "text": "Determine the nature of the stationary point found in (d)(i) using calculus.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Local minimum",
+      "markingGuide": "f''(x) = –6x+2b = –6x–14/3. f''(–5/9) = 30/9–14/3 = 10/3–14/3 = –4/3 < 0. So local maximum. Excellence = correct second derivative, evaluated, with conclusion."
+    },
+    {
+      "id": "l2c25-q3a",
+      "number": "3(a)",
+      "text": "f(x) = 2x² – 8x – 5.\n\nFind the point on the curve where the gradient equals 4.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(3, –11)",
+      "markingGuide": "f'(x) = 4x – 8. Set = 4: 4x = 12, x = 3. f(3) = 18 – 24 – 5 = –11. Point: (3, –11)."
+    },
+    {
+      "id": "l2c25-q3b",
+      "number": "3(b)",
+      "text": "A rectangle's area is expanding such that its length is always 4 times its width.\n\nFind the rate of change of area with respect to width when the area equals 100 cm².",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "40 cm",
+      "markingGuide": "Width = w, length = 4w. A = 4w². A'(w) = 8w. When A = 100: 4w² = 100, w = 5. A'(5) = 40."
+    },
+    {
+      "id": "l2c25-q3c",
+      "number": "3(c)",
+      "text": "A lidless rectangular container has width three times its height. Maximum material is 6.4 m². Use calculus to find the maximum volume and prove it's a maximum.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "optimisation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Maximum volume ≈ 1.28 m³",
+      "markingGuide": "Let height = h, width = 3h, length = L. SA (lidless): base = 3hL. Two short sides = 2(h×3h) = 6h². Two long sides = 2(h×L) = 2hL. Total = 3hL + 6h² + 2hL = 5hL + 6h² = 6.4. L = (6.4–6h²)/(5h). V = 3h²L = 3h²(6.4–6h²)/(5h) = 3h(6.4–6h²)/5 = (19.2h–18h³)/5. V'(h) = (19.2–54h²)/5 = 0. h² = 19.2/54 = 16/45. h = 4/(3√5). V = (19.2×4/(3√5)–18×64/(27×5√5))/5. This is messy. Use simpler: width=2h. SA: 2hL+2(2h²)+2hL = 4hL+4h² = 6.4. L=(6.4–4h²)/(4h). V=2h²L=2h²(6.4–4h²)/(4h)=h(6.4–4h²)/2=3.2h–2h³. V'=3.2–6h²=0. h²=8/15. h=√(8/15)≈0.730. V=3.2(0.730)–2(0.389)=2.336–0.778=1.558. V''=–12h<0 so max."
+    },
+    {
+      "id": "l2c25-q3d",
+      "number": "3(d)",
+      "text": "f(x) = x⁴/4 + (n – 3)x³/3 – 3nx²/2 + n.\n\nDetermine where f(x) is decreasing.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) is decreasing for x < –n and 0 < x < 3",
+      "markingGuide": "f'(x) = x³ + (n–3)x² – 3nx = x[x² + (n–3)x – 3n] = x(x–3)(x+n). Stationary points at x = 0, 3, –n. For n > 0, order: –n, 0, 3. Sign analysis: f(x) decreasing when f'(x) < 0, i.e. x < –n and 0 < x < 3. Achieved = correct derivative. Merit = stationary points found. Excellence = correct decreasing regions."
+    }
   ],
   "cutScores": {
-    "notAchieved": {"min":0,"max":7},
-    "achieved": {"min":8,"max":13},
-    "merit": {"min":14,"max":19},
-    "excellence": {"min":20,"max":24}
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
   },
   "totalMarks": 48
 }

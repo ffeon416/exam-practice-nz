@@ -40,7 +40,7 @@
     {
       "id": "bg25-q1c",
       "number": "1(c)",
-      "text": "State the predicted phenotype ratio of the F2 generation produced by this cross.",
+      "text": "State the predicted phenotype ratio of the F2 generation produced by this cross.\n\nThe expected distribution is shown in the graph below.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -49,6 +49,18 @@
         "phenotype-ratio"
       ],
       "answerType": "text",
+      "graph": {
+        "type": "bar",
+        "title": "Expected F2 Phenotype Ratio (out of 16)",
+        "xLabel": "Phenotype",
+        "yLabel": "Expected number out of 16",
+        "data": [
+          { "label": "Brown Long", "value": 9 },
+          { "label": "Brown Short", "value": 3 },
+          { "label": "White Long", "value": 3 },
+          { "label": "White Short", "value": 1 }
+        ]
+      },
       "expectedAnswer": "9:3:3:1 — 9 brown long : 3 brown short : 3 white long : 1 white short.",
       "markingGuide": "Achieved: Phenotype ratio (with correct appearance): 9 brown long : 3 brown short : 3 white long : 1 white short."
     },
@@ -71,7 +83,7 @@
     {
       "id": "bg25-q2",
       "number": "2",
-      "text": "The tuatara (Sphenodon punctatus) is a reptile endemic to Aotearoa New Zealand. It has cultural significance to many iwi, who regard it as a taonga.\n\nGenetic studies and historical records indicate that tuatara populations were once found across both main islands. Habitat loss caused by deforestation and predation by introduced mammals isolated populations into distinct groups on offshore islands and a few protected mainland sites.\n\nThe Brothers Island population of tuatara is genetically distinct from other populations. Conservation efforts include predator-free sanctuaries and translocation programmes.\n\nGenetic analyses have revealed that tuatara populations on different islands have become genetically distinct. The smallest island populations show markedly lower genetic diversity, with some alleles becoming fixed.\n\nThe table below summarises the distribution of phenotypic variation across different tuatara populations:\n\n| | Northern offshore islands | Cook Strait islands | Brothers Island — very small population |\n|---|---|---|---|\n| Larger body size, olive-green colouration | Common in warmer, food-rich habitats | Common in sheltered forest environments | Phenotype distribution is more variable and shows less consistent relationship with environment. |\n| Smaller body size, darker colouration | Found in cooler, exposed rocky habitats | Found in more open coastal habitats | |\n\nDiscuss what factors may cause allele frequencies in the tuatara gene pool to change, using the information provided above.\n\nIn your answer, include discussion of:\n- how the gene pool of the tuatara could be affected by migration between habitats AND by genetic drift\n- how natural selection and mate selection may have influenced the two distinct phenotypes of larger olive-green and smaller darker-coloured tuatara.",
+      "text": "The tuatara (Sphenodon punctatus) is a reptile endemic to Aotearoa New Zealand. It has cultural significance to many iwi, who regard it as a taonga.\n\nGenetic studies and historical records indicate that tuatara populations were once found across both main islands. Habitat loss caused by deforestation and predation by introduced mammals isolated populations into distinct groups on offshore islands and a few protected mainland sites.\n\nThe Brothers Island population of tuatara is genetically distinct from other populations. Conservation efforts include predator-free sanctuaries and translocation programmes.\n\nGenetic analyses have revealed that tuatara populations on different islands have become genetically distinct. The smallest island populations show markedly lower genetic diversity, with some alleles becoming fixed.\n\nThe graph below shows the genetic diversity (measured as heterozygosity) across different tuatara populations.\n\nDiscuss what factors may cause allele frequencies in the tuatara gene pool to change, using the information provided above.\n\nIn your answer, include discussion of:\n- how the gene pool of the tuatara could be affected by migration between habitats AND by genetic drift\n- how natural selection and mate selection may have influenced the two distinct phenotypes of larger olive-green and smaller darker-coloured tuatara.",
       "marks": 8,
       "gradeLevel": "excellence",
       "topics": [
@@ -82,6 +94,18 @@
         "genetic-drift"
       ],
       "answerType": "text",
+      "graph": {
+        "type": "bar",
+        "title": "Genetic Diversity (Heterozygosity) of Tuatara Populations",
+        "xLabel": "Population",
+        "yLabel": "Heterozygosity Index",
+        "data": [
+          { "label": "Northern islands (large pop.)", "value": 0.68 },
+          { "label": "Cook Strait (medium pop.)", "value": 0.52 },
+          { "label": "Brothers Island (small pop.)", "value": 0.21 },
+          { "label": "Mainland sanctuary", "value": 0.45 }
+        ]
+      },
       "expectedAnswer": "Allele frequency: how common an allele is in a population. Gene pool: all the alleles present in a population. Genetic drift: random changes in allele frequency, more significant in small populations. Migration (gene flow) introduces new alleles, increasing genetic diversity.",
       "markingGuide": "Achieved (A3-A4): Describes allele frequency; gene pool; genetic drift; natural selection; identify any ONE selection pressure (predation, temperature, food supply, habitat); population bottleneck; founder effect. Merit (M5-M6): Explains migration; genetic drift (must have idea of allele frequency increasing/fixed OR decreasing/lost) (accept founder or bottleneck effect explained as an example of genetic drift); effect of migration/genetic drift on small isolated populations; natural selection/mate selection (must have idea of allele frequency increasing/fixed OR decreasing/lost); why larger olive-green tuatara might be more successful in warm food-rich habitats; why smaller darker tuatara might be more successful in cooler exposed habitats. Excellence (E7-E8): Provides detailed discussion of how migration and genetic drift changed allele frequencies in the tuatara gene pool; the selection pressures that drive natural selection, in reference to the tuatara, and how it led to the different phenotypes seen across New Zealand populations."
     },

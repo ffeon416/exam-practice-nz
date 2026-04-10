@@ -89,7 +89,7 @@
     {
       "id": "e25-q2a",
       "number": "2(a)",
-      "text": "A heat pump system consists of a compressor, two fans, and a control light.\n\nThe circuit has a 230 V supply. The compressor is 920 ohm and the control light. The two fan resistors are each 460 ohm.\n\nInitially the compressor and light are on, and the fans are off.\n\nCalculate the current in the light.",
+      "text": "A heat pump system consists of a compressor, two fans, and a control light.\n\nThe circuit components are summarised in the table below. Initially the compressor and light are on, and the fans are off.\n\nCalculate the current in the light.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -98,6 +98,20 @@
         "current"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "table",
+        "title": "Heat Pump Circuit Components",
+        "data": {
+          "headers": ["Component", "Resistance (Ω)", "Status"],
+          "rows": [
+            ["Supply voltage", "—", "230 V"],
+            ["Compressor", "920", "ON"],
+            ["Control light", "920", "ON"],
+            ["Fan 1", "460", "OFF"],
+            ["Fan 2", "460", "OFF"]
+          ]
+        }
+      },
       "expectedAnswer": "I = V/R = 230/920 = 0.25 A.",
       "markingGuide": "Achieved: Correct."
     },

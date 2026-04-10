@@ -19,7 +19,39 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Correctly sets up two-way table with Drama/No Drama vs Community Service/No Community Service. P(Drama only) = 0.45 - 0.10 = 0.30. Table values: Both = 0.10, Drama only = 0.30, Community Service only = 0.20, Neither = 0.30. Merit: All values correct with clear working shown."
+      "markingGuide": "Achievement: Correctly sets up two-way table with Drama/No Drama vs Community Service/No Community Service. P(Drama only) = 0.45 - 0.10 = 0.30. Table values: Both = 0.10, Drama only = 0.30, Community Service only = 0.20, Neither = 0.30. Merit: All values correct with clear working shown.",
+      "graph": {
+        "type": "table",
+        "title": "Two-Way Table — Drama Club and Community Service",
+        "data": {
+          "headers": [
+            "",
+            "Community Service",
+            "No Community Service",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Drama Club",
+              "10%",
+              "35%",
+              "45%"
+            ],
+            [
+              "No Drama Club",
+              "20%",
+              "35%",
+              "55%"
+            ],
+            [
+              "Total",
+              "30%",
+              "70%",
+              "100%"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-24-q1b",
@@ -84,7 +116,33 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Risk for break group = 48/150 = 0.347 (34.7%). Risk for no-break group = 32/150 = 0.253 (25.3%)."
+      "markingGuide": "Achievement: Risk for break group = 48/150 = 0.347 (34.7%). Risk for no-break group = 32/150 = 0.253 (25.3%).",
+      "graph": {
+        "type": "table",
+        "title": "Study Breaks and Test Performance",
+        "data": {
+          "headers": [
+            "",
+            "Scored above 70%",
+            "Scored 70% or below",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Regular breaks",
+              "48",
+              "102",
+              "150"
+            ],
+            [
+              "No regular breaks",
+              "32",
+              "118",
+              "150"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-24-q3b",

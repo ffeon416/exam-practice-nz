@@ -84,7 +84,7 @@
     {
       "id": "l3ct25-q2aii",
       "number": "2(a)(ii)",
-      "text": "Iron, Fe, can form two different ions, Fe2+ and Fe3+. Their ionic radii are:\n\nFe2+: 92 pm\nFe3+: 79 pm\n\nExplain why the radius of Fe2+ is larger than Fe3+.",
+      "text": "Iron, Fe, can form two different ions, Fe2+ and Fe3+. Their ionic radii are compared in the graph below.\n\nExplain why the radius of Fe2+ is larger than Fe3+.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -93,6 +93,16 @@
         "atomic-structure"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "bar",
+        "title": "Ionic Radii of Iron Ions",
+        "xLabel": "Ion",
+        "yLabel": "Ionic Radius (pm)",
+        "data": [
+          { "label": "Fe²⁺", "value": 92 },
+          { "label": "Fe³⁺", "value": 79 }
+        ]
+      },
       "expectedAnswer": "Both have the same nuclear charge (29 protons). Fe2+ has more electrons (28) than Fe3+ (27), so there is greater electron-electron repulsion in Fe2+, leading to a larger radius.",
       "markingGuide": "Achievement: Identifies same nuclear charge but different electrons. Merit: Explains repulsion difference."
     },

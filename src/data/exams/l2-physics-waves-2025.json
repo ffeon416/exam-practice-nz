@@ -218,7 +218,7 @@
     {
       "id": "w25-q3c",
       "number": "3(c)",
-      "text": "Communication satellites orbit at 600 km altitude. The wavelength of the signal is 0.030 m.\n\nHow many radio waves reach the Earth in 3 hours?",
+      "text": "Communication satellites orbit at 600 km altitude. The wavelength of the signal is 0.030 m.\n\nThe table below shows key values for the satellite signal.\n\nHow many radio waves reach the Earth in 3 hours?",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -227,6 +227,19 @@
         "frequency"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "table",
+        "title": "Satellite Signal Data",
+        "data": {
+          "headers": ["Quantity", "Value"],
+          "rows": [
+            ["Altitude", "600 km"],
+            ["Wavelength (λ)", "0.030 m"],
+            ["Speed of EM waves", "3.0 × 10⁸ m s⁻¹"],
+            ["Duration", "3 hours"]
+          ]
+        }
+      },
       "expectedAnswer": "f = v/lambda = 3.0 x 10^8 / 0.030 = 1.0 x 10^10 Hz. 3 hours = 10800 s. Number = 1.0 x 10^10 x 10800 = 1.08 x 10^14.",
       "markingGuide": "Achieved: Correct frequency. Merit: Correct answer."
     },

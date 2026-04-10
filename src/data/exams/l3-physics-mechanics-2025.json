@@ -179,7 +179,7 @@
     {
       "id": "91524-25-q3c",
       "number": "3(c)",
-      "text": "After the ball is released, calculate the time for it to reach a point 2.80 cm before its next stationary position.\n\nA reference circle may be used.",
+      "text": "After the ball is released, calculate the time for it to reach a point 2.80 cm before its next stationary position.\n\nThe displacement–time graph for the pendulum is shown below. A reference circle may be used.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -188,6 +188,16 @@
         "reference-circle"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "line",
+        "title": "Displacement–Time Graph for Pendulum (SHM)",
+        "xLabel": "Time (s)",
+        "yLabel": "Displacement (m)",
+        "xValues": [0, 0.286, 0.572, 0.858, 1.144, 1.430, 1.716, 2.002, 2.288],
+        "series": [
+          { "name": "Displacement", "values": [0.109, 0.077, 0.0, -0.077, -0.109, -0.077, 0.0, 0.077, 0.109] }
+        ]
+      },
       "expectedAnswer": "Next stationary position is at x = -0.109 m. 2.80 cm before = -0.109 + 0.028 = -0.081 m. x = A cos(omega t). -0.081 = 0.109 cos(2.75 t). cos(2.75t) = -0.7431. 2.75t = arccos(-0.7431) = 2.407 rad. t = 2.407/2.75 = 0.876 s.",
       "markingGuide": "Achievement: Correct displacement. Merit: One error. Excellence: t = 0.876 s."
     },

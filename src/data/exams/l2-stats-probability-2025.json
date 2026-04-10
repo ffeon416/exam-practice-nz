@@ -71,7 +71,33 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Risk of failing (daily short practice) = 48/120 = 0.35 (35%). Risk of failing (weekly long practice) = 75/120 = 0.55 (55%)."
+      "markingGuide": "Achievement: Risk of failing (daily short practice) = 48/120 = 0.35 (35%). Risk of failing (weekly long practice) = 75/120 = 0.55 (55%).",
+      "graph": {
+        "type": "table",
+        "title": "Language Learning Approaches",
+        "data": {
+          "headers": [
+            "",
+            "Passed",
+            "Failed",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Daily short sessions",
+              "72",
+              "48",
+              "120"
+            ],
+            [
+              "Weekly intensive",
+              "45",
+              "75",
+              "120"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "st267-25-q3b",

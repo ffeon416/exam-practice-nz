@@ -19,7 +19,39 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (55 - 48)/6 = 1.167. P(Z > 1.167) ≈ 0.1217. (ii) z₁ = (40 - 48)/6 = -1.333, z₂ = (58 - 48)/6 = 1.667. P(-1.333 < Z < 1.667) = P(Z<1.667) - P(Z<-1.333). Merit: (iii) P(X > 36) per battery: z = (36 - 48)/6 = -2.0, P(Z > -2.0) = 0.9772. P(all 6 > 36) = 0.9772⁶ = 0.8708."
+      "markingGuide": "Achievement: (i) z = (55 - 48)/6 = 1.167. P(Z > 1.167) ≈ 0.1217. (ii) z₁ = (40 - 48)/6 = -1.333, z₂ = (58 - 48)/6 = 1.667. P(-1.333 < Z < 1.667) = P(Z<1.667) - P(Z<-1.333). Merit: (iii) P(X > 36) per battery: z = (36 - 48)/6 = -2.0, P(Z > -2.0) = 0.9772. P(all 6 > 36) = 0.9772⁶ = 0.8708.",
+      "graph": {
+        "type": "histogram",
+        "title": "Normal Distribution — Battery Lifetime (mean=46mo, sd=6mo)",
+        "xLabel": "Lifetime (months)",
+        "yLabel": "Relative Frequency",
+        "data": [
+          {
+            "label": "28–34",
+            "value": 2
+          },
+          {
+            "label": "34–40",
+            "value": 14
+          },
+          {
+            "label": "40–46",
+            "value": 34
+          },
+          {
+            "label": "46–52",
+            "value": 34
+          },
+          {
+            "label": "52–58",
+            "value": 14
+          },
+          {
+            "label": "58–64",
+            "value": 2
+          }
+        ]
+      }
     },
     {
       "id": "st586-25-q1b",
@@ -45,7 +77,59 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) In 2 hours, λ = 10. P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126. (ii) In 15 min, λ = 5/4 = 1.25. P(X = 0) = e⁻¹·²⁵ = 0.2865. Merit: (iii) In any 15-minute window, λ = 1.25. All operators busy means 4 or more calls. P(X ≥ 4) = 1 - P(X ≤ 3). Using Poisson with λ=1.25."
+      "markingGuide": "Achievement: (i) In 2 hours, λ = 10. P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126. (ii) In 15 min, λ = 5/4 = 1.25. P(X = 0) = e⁻¹·²⁵ = 0.2865. Merit: (iii) In any 15-minute window, λ = 1.25. All operators busy means 4 or more calls. P(X ≥ 4) = 1 - P(X ≤ 3). Using Poisson with λ=1.25.",
+      "graph": {
+        "type": "bar",
+        "title": "Poisson Distribution — Calls per Hour (mean=5)",
+        "xLabel": "Number of Calls",
+        "yLabel": "Probability (%)",
+        "data": [
+          {
+            "label": "0",
+            "value": 0.7
+          },
+          {
+            "label": "1",
+            "value": 3.4
+          },
+          {
+            "label": "2",
+            "value": 8.4
+          },
+          {
+            "label": "3",
+            "value": 14
+          },
+          {
+            "label": "4",
+            "value": 17.5
+          },
+          {
+            "label": "5",
+            "value": 17.5
+          },
+          {
+            "label": "6",
+            "value": 14.6
+          },
+          {
+            "label": "7",
+            "value": 10.4
+          },
+          {
+            "label": "8",
+            "value": 6.5
+          },
+          {
+            "label": "9",
+            "value": 3.6
+          },
+          {
+            "label": "10+",
+            "value": 3.4
+          }
+        ]
+      }
     },
     {
       "id": "st586-25-q2b",

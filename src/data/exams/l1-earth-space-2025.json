@@ -22,11 +22,21 @@
     {
       "id": "92046-25-q1b",
       "number": "1(b)",
-      "text": "The table below shows average monthly temperatures for Christchurch for the year 2024.\n\n| Month | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| Avg temp (°C) | 18 | 17 | 15 | 12 | 9 | 6 | 5 | 7 | 10 | 12 | 15 | 17 |\n\nExplain the differences in average monthly temperatures for Christchurch throughout the year.\n\nInclude in your answer:\n- why the Earth experiences seasons (include length of orbit and axial tilt)\n- a comparison of the differences in the amount of solar radiation throughout the year\n- why the temperature changes throughout the year.",
+      "text": "The graph below shows average monthly temperatures for Christchurch for the year 2024.\n\nExplain the differences in average monthly temperatures for Christchurch throughout the year.\n\nInclude in your answer:\n- why the Earth experiences seasons (include length of orbit and axial tilt)\n- a comparison of the differences in the amount of solar radiation throughout the year\n- why the temperature changes throughout the year.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": ["earth-space", "seasons"],
       "answerType": "text",
+      "graph": {
+        "type": "line",
+        "title": "Average Monthly Temperatures — Christchurch 2024",
+        "xLabel": "Month",
+        "yLabel": "Average Temperature (°C)",
+        "xValues": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "series": [
+          { "name": "Temperature", "values": [18, 17, 15, 12, 9, 6, 5, 7, 10, 12, 15, 17] }
+        ]
+      },
       "expectedAnswer": "The Earth is on a tilt of 23.5 degrees relative to its orbital plane.",
       "markingGuide": "Achievement: States the tilt and orbit of the Earth, and explains the relationship between seasons. Merit: Explains why the Southern Hemisphere experiences the differences in temperature through comparing solar radiation intensity at different times of year. Excellence: Discusses why the temperature changes throughout the year by linking tilt, orbit, solar radiation intensity (angle of incidence) and seasonal temperature changes comprehensively."
     },

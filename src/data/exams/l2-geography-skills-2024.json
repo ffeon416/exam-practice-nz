@@ -8,12 +8,156 @@
   "timeMinutes": 60,
   "totalMarks": 8,
   "questions": [
-    { "id": "91243-2024-q1ai", "number": "1(a)(i)", "text": "The following questions relate to maps and information about Napier's Art Deco Quarter and how the 1931 earthquake shaped the city's redevelopment.\n\nIn the frame provided, complete a precis map showing features of central Napier. Accurately locate and label the following features:\n- Marine Parade\n- Bluff Hill / Mataruahou\n- the Art Deco commercial district\n- Clive Square\n\nInclude a title, north arrow, key, and appropriate symbols.", "marks": 2, "gradeLevel": "achieved", "topics": ["mapping-skills", "precis-map"], "answerType": "text", "expectedAnswer": "Precis map with Marine Parade, Bluff Hill, Art Deco district, and Clive Square accurately located with appropriate mapping conventions.", "markingGuide": "Achievement: Completes precis map using skills and geographic conventions with some accuracy. Features located approximately correctly. Title, north arrow, key, and symbols present. Merit: High level of accuracy in location of all features with detailed mapping conventions." },
-    { "id": "91243-2024-q1aiii", "number": "1(a)(ii)", "text": "Key features of central Napier\n\nUsing specific information, describe the key natural and cultural features of central Napier that have influenced its development since the 1931 earthquake.", "marks": 2, "gradeLevel": "merit", "topics": ["geographic-interpretation", "urban-environment"], "answerType": "text", "expectedAnswer": "Natural features: coastal location, flat reclaimed land from earthquake uplift, Bluff Hill. Cultural features: Art Deco architecture built during reconstruction, grid street pattern, Marine Parade promenade.", "markingGuide": "Achievement: Describes natural and cultural features. Merit: Describes in detail features that influenced development, showing understanding of change/pattern concepts." },
-    { "id": "91243-2024-q1bi", "number": "1(b)(i)", "text": "Change in central Napier\n\nIdentify changes in central Napier since the Art Deco rebuild. Complete the table:\n\n| | What was the change? | Positive or Negative? |\n|---|---|---|\n| Economic change | | |\n| Social change | | |\n| Environmental change | | |", "marks": 1, "gradeLevel": "achieved", "topics": ["change", "urban-environment"], "answerType": "text", "expectedAnswer": "Economic: tourism industry growth based on Art Deco heritage (positive). Social: community pride in unique architectural identity (positive). Environmental: development pressure on coastal areas (negative).", "markingGuide": "Identifies changes in each category with whether positive or negative." },
-    { "id": "91243-2024-q1bii", "number": "1(b)(ii)", "text": "Which of the changes identified was most significant for Napier? Explain the reasons for your choice.", "marks": 2, "gradeLevel": "merit", "topics": ["change", "urban-environment"], "answerType": "text", "expectedAnswer": "Identifies most significant change with detailed justification using geographic terminology.", "markingGuide": "Achievement: Identifies most significant change. Merit: Identifies and justifies using geographic concepts. Excellence: Fully justifies using geographic terminology and evidence." },
-    { "id": "91243-2024-q1biv", "number": "1(b)(iii)", "text": "Describe a pattern visible in the graph showing visitor numbers to Napier's Art Deco Festival between 2005 and 2023.", "marks": 1, "gradeLevel": "achieved", "topics": ["data-interpretation", "patterns"], "answerType": "text", "expectedAnswer": "Describes a temporal pattern from the graph, e.g., steady growth from 2005, sharp decline in 2020-2021, strong recovery from 2022.", "markingGuide": "Describes a pattern seen in the graph with reference to specific data or trends." },
-    { "id": "91243-2024-q1c", "number": "1(c)", "text": "Sustainability in the urban environment\n\nHow have social, environmental, and economic sustainability been affected by changes in central Napier since the earthquake rebuild?\n\nIn your answer, refer to and integrate information and at least ONE geographic concept.", "marks": 4, "gradeLevel": "excellence", "topics": ["sustainability", "change", "urban-environment"], "answerType": "text", "expectedAnswer": "Discusses all three aspects of sustainability with specific evidence from Napier's Art Deco rebuild and heritage tourism, using geographic concepts such as change, interaction, and sustainability.", "markingGuide": "Achievement: Shows understanding of ONE aspect of sustainability. Merit: Detailed understanding of TWO aspects with specific references. Excellence: Detailed understanding of all THREE aspects with interrelationships explained, geographic terminology, and comprehensive references." }
+    {
+      "id": "91243-2024-q1ai",
+      "number": "1(a)(i)",
+      "text": "The following questions relate to maps and information about Napier's Art Deco Quarter and how the 1931 earthquake shaped the city's redevelopment.\n\nIn the frame provided, complete a precis map showing features of central Napier. Accurately locate and label the following features:\n- Marine Parade\n- Bluff Hill / Mataruahou\n- the Art Deco commercial district\n- Clive Square\n\nInclude a title, north arrow, key, and appropriate symbols.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "mapping-skills",
+        "precis-map"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Precis map with Marine Parade, Bluff Hill, Art Deco district, and Clive Square accurately located with appropriate mapping conventions.",
+      "markingGuide": "Achievement: Completes precis map using skills and geographic conventions with some accuracy. Features located approximately correctly. Title, north arrow, key, and symbols present. Merit: High level of accuracy in location of all features with detailed mapping conventions."
+    },
+    {
+      "id": "91243-2024-q1aiii",
+      "number": "1(a)(ii)",
+      "text": "Key features of central Napier\n\nUsing specific information, describe the key natural and cultural features of central Napier that have influenced its development since the 1931 earthquake.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "geographic-interpretation",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Natural features: coastal location, flat reclaimed land from earthquake uplift, Bluff Hill. Cultural features: Art Deco architecture built during reconstruction, grid street pattern, Marine Parade promenade.",
+      "markingGuide": "Achievement: Describes natural and cultural features. Merit: Describes in detail features that influenced development, showing understanding of change/pattern concepts."
+    },
+    {
+      "id": "91243-2024-q1bi",
+      "number": "1(b)(i)",
+      "text": "Change in central Napier\n\nIdentify changes in central Napier since the Art Deco rebuild. Complete the table:\n\n| | What was the change? | Positive or Negative? |\n|---|---|---|\n| Economic change | | |\n| Social change | | |\n| Environmental change | | |",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Economic: tourism industry growth based on Art Deco heritage (positive). Social: community pride in unique architectural identity (positive). Environmental: development pressure on coastal areas (negative).",
+      "markingGuide": "Identifies changes in each category with whether positive or negative."
+    },
+    {
+      "id": "91243-2024-q1bii",
+      "number": "1(b)(ii)",
+      "text": "Which of the changes identified was most significant for Napier? Explain the reasons for your choice.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Identifies most significant change with detailed justification using geographic terminology.",
+      "markingGuide": "Achievement: Identifies most significant change. Merit: Identifies and justifies using geographic concepts. Excellence: Fully justifies using geographic terminology and evidence."
+    },
+    {
+      "id": "91243-2024-q1biv",
+      "number": "1(b)(iii)",
+      "text": "Describe a pattern visible in the graph showing visitor numbers to Napier's Art Deco Festival between 2005 and 2023.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "data-interpretation",
+        "patterns"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Describes a temporal pattern from the graph, e.g., steady growth from 2005, sharp decline in 2020-2021, strong recovery from 2022.",
+      "markingGuide": "Describes a pattern seen in the graph with reference to specific data or trends.",
+      "graph": {
+        "type": "line",
+        "title": "Napier Art Deco Festival — Visitor Numbers 2005–2023",
+        "xLabel": "Year",
+        "yLabel": "Visitors (thousands)",
+        "data": [
+          {
+            "label": "2005",
+            "value": 15
+          },
+          {
+            "label": "2008",
+            "value": 22
+          },
+          {
+            "label": "2011",
+            "value": 28
+          },
+          {
+            "label": "2014",
+            "value": 35
+          },
+          {
+            "label": "2017",
+            "value": 42
+          },
+          {
+            "label": "2019",
+            "value": 48
+          },
+          {
+            "label": "2020",
+            "value": 5
+          },
+          {
+            "label": "2021",
+            "value": 8
+          },
+          {
+            "label": "2022",
+            "value": 32
+          },
+          {
+            "label": "2023",
+            "value": 40
+          }
+        ]
+      }
+    },
+    {
+      "id": "91243-2024-q1c",
+      "number": "1(c)",
+      "text": "Sustainability in the urban environment\n\nHow have social, environmental, and economic sustainability been affected by changes in central Napier since the earthquake rebuild?\n\nIn your answer, refer to and integrate information and at least ONE geographic concept.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "sustainability",
+        "change",
+        "urban-environment"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Discusses all three aspects of sustainability with specific evidence from Napier's Art Deco rebuild and heritage tourism, using geographic concepts such as change, interaction, and sustainability.",
+      "markingGuide": "Achievement: Shows understanding of ONE aspect of sustainability. Merit: Detailed understanding of TWO aspects with specific references. Excellence: Detailed understanding of all THREE aspects with interrelationships explained, geographic terminology, and comprehensive references."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 2
+    },
+    "achieved": {
+      "min": 3,
+      "max": 4
+    },
+    "merit": {
+      "min": 5,
+      "max": 6
+    },
+    "excellence": {
+      "min": 7,
+      "max": 8
+    }
+  }
 }

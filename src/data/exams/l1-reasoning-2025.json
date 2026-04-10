@@ -13,7 +13,10 @@
       "text": "A cuboid has dimensions (2x + 3), (3x – 1), and 5x. Find the total surface area of this cuboid, given that x = 4.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["measurement", "algebraic-expressions"],
+      "topics": [
+        "measurement",
+        "algebraic-expressions"
+      ],
       "answerType": "working",
       "expectedAnswer": "1870 units²",
       "markingGuide": "Substitute x = 4: dimensions are 11, 11, 20. SA = 2(11×11) + 2(11×20) + 2(11×20) = 2(121) + 2(220) + 2(220) = 242 + 440 + 440 = 1122. Hmm let me recheck with correct dims: (2(4)+3)=11, (3(4)-1)=11, 5(4)=20. SA = 2(11×11 + 11×20 + 11×20) = 2(121 + 220 + 220) = 2(561) = 1122. Award Achieved for correct surface area = 1122."
@@ -24,7 +27,10 @@
       "text": "Two straight lines have equations: 3x – y = 5 and x + 3y = 15. They intersect at point R. Find the coordinates of point R using an algebraic method. Clearly show all steps.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["simultaneous-equations", "linear-graphs"],
+      "topics": [
+        "simultaneous-equations",
+        "linear-graphs"
+      ],
       "answerType": "working",
       "expectedAnswer": "R = (3, 4)",
       "markingGuide": "From eq 1: y = 3x – 5. Sub into eq 2: x + 3(3x – 5) = 15. x + 9x – 15 = 15. 10x = 30. x = 3. y = 3(3) – 5 = 4. R = (3, 4). Achieved = eliminate one variable. Merit = correct coordinates with algebraic method."
@@ -35,7 +41,11 @@
       "text": "Rectangle ABCD has width AB = 40 cm and length AD = 1.2 m. Point T lies on side BC. Angle ATB = 30°. Find the perimeter of triangle ATD.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["trigonometry", "pythagoras", "measurement"],
+      "topics": [
+        "trigonometry",
+        "pythagoras",
+        "measurement"
+      ],
       "answerType": "working",
       "expectedAnswer": "≈ 323.5 cm",
       "markingGuide": "AD = 1.2 m = 120 cm. AB = 40 cm. Find BT: tan(30°) = AB/BT is wrong; angle ATB = 30° and T is on BC. In triangle ABT right-angled at B: tan(30°) = AB/BT → BT = 40/tan(30°) = 40/0.5774 = 69.28 cm. AT = 40/sin(30°) = 80 cm. BC = AD = 120 cm, so TC = 120 – 69.28 = 50.72 cm. TD = √(40² + 50.72²) = √(1600 + 2572.5) = √4172.5 = 64.60 cm. Perimeter = AT + TD + AD = 80 + 64.60 + 120 = 264.60 cm. Accept reasonable rounding. Achieved = finding one side length. Merit = correct perimeter with working."
@@ -46,10 +56,38 @@
       "text": "The relationship between x and y values in a sequence: x = 1 → y = 8, x = 2 → y = 20, x = 3 → y = 56, x = 4 → y = 164, x = 5 → y = 488. Find an equation that represents y for any given x-value. Show working.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["sequences-patterns", "exponential-graphs", "exponents-indices"],
+      "topics": [
+        "sequences-patterns",
+        "exponential-graphs",
+        "exponents-indices"
+      ],
       "answerType": "working",
       "expectedAnswer": "y = 2 × 3^x + 2",
-      "markingGuide": "Subtract 2 from each y: 6, 18, 54, 162, 486. These are 6, 18, 54, 162, 486 — each multiplied by 3. This is 6 × 3^(x-1) = 2 × 3^x. So y = 2 × 3^x + 2. Check: x=1: 6+2=8 ✓, x=2: 18+2=20 ✓, x=3: 54+2=56 ✓. Achieved = identifies base 3 multiplier. Excellence = fully correct equation with working."
+      "markingGuide": "Subtract 2 from each y: 6, 18, 54, 162, 486. These are 6, 18, 54, 162, 486 — each multiplied by 3. This is 6 × 3^(x-1) = 2 × 3^x. So y = 2 × 3^x + 2. Check: x=1: 6+2=8 ✓, x=2: 18+2=20 ✓, x=3: 54+2=56 ✓. Achieved = identifies base 3 multiplier. Excellence = fully correct equation with working.",
+      "graph": {
+        "type": "table",
+        "title": "Sequence Values",
+        "data": {
+          "headers": [
+            "x",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "rows": [
+            [
+              "y",
+              "8",
+              "20",
+              "56",
+              "164",
+              "488"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l1r25-q1dii",
@@ -57,7 +95,10 @@
       "text": "The graph of y could be drawn for all values of x. Identify THREE different features of the graph of y, using your equation found in part (d)(i).",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["exponential-graphs", "graph-features"],
+      "topics": [
+        "exponential-graphs",
+        "graph-features"
+      ],
       "answerType": "working",
       "expectedAnswer": "E.g. exponential shape, y-intercept at (0, 4), horizontal asymptote at y = 2",
       "markingGuide": "Using y = 2×3^x + 2: (1) y-intercept at (0, 2×1+2) = (0, 4). (2) Horizontal asymptote at y = 2 as x → –∞. (3) Exponential growth as x → +∞. (4) No x-intercepts (always > 2). (5) Always increasing. Achieved = one feature. Merit = two features. Excellence = at least two features with justification."
@@ -68,7 +109,9 @@
       "text": "Triangle PQR has angle P = 3x, angle Q = (2x + 10)°, and angle R = (x + 20)°. Find the value of x.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["geometry-angles"],
+      "topics": [
+        "geometry-angles"
+      ],
       "answerType": "working",
       "expectedAnswer": "x = 25",
       "markingGuide": "Angles sum to 180°: 3x + (2x + 10) + (x + 20) = 180. 6x + 30 = 180. 6x = 150. x = 25. Award Achieved for x = 25."
@@ -79,7 +122,10 @@
       "text": "Triangle EFG lies flat with a right angle at E. Point H is directly above E (vertical line HE). HF = 12 cm. Angle HFE = 25°, angle EFG = 55°. Find the size of angle HGE.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["trigonometry", "geometry-angles"],
+      "topics": [
+        "trigonometry",
+        "geometry-angles"
+      ],
       "answerType": "working",
       "expectedAnswer": "≈ 20.5°",
       "markingGuide": "In triangle HEF: HE = 12 × sin 25° = 5.071 cm; EF = 12 × cos 25° = 10.876 cm. In triangle EFG (right-angled at E, angle EFG = 55°): EG = EF × tan 55° = 10.876 × 1.4281 = 15.531 cm. In triangle HEG: tan(angle HGE) = HE/EG = 5.071/15.531 = 0.3264. Angle = 18.08°. Accept ≈ 18.1°. Achieved = finding HE or EF. Excellence = correct angle with full working."
@@ -90,7 +136,10 @@
       "text": "Factorise AND solve the equation: 12x² = 1 + x. Give your answer(s) as simplified fractions.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["quadratic-equations", "algebraic-expressions"],
+      "topics": [
+        "quadratic-equations",
+        "algebraic-expressions"
+      ],
       "answerType": "working",
       "expectedAnswer": "x = 1/3 or x = –1/4",
       "markingGuide": "12x² – x – 1 = 0. Factorise: (3x – 1)(4x + 1) = 0. x = 1/3 or x = –1/4. Achieved = correct rearrangement. Merit = correct factorisation AND both solutions."
@@ -101,7 +150,10 @@
       "text": "A pool is dug in the ground. The top section is rectangular: 15 m wide and 10 m deep. Below this, the pool widens symmetrically by 15 m on each side, making the bottom 45 m wide and 5 m deep. The pool is 40 m long.\n\n1 m³ of earth weighs 800 kg. One truck can carry 25 tonnes per load.\n\nCalculate the number of truck trips required to remove all the earth. Show full working.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["measurement", "numerical-reasoning"],
+      "topics": [
+        "measurement",
+        "numerical-reasoning"
+      ],
       "answerType": "working",
       "expectedAnswer": "Must round UP to whole number of trips",
       "markingGuide": "Top section: 15 × 10 × 40 = 6000 m³. Bottom section is trapezoidal: area = ½(15 + 45) × 5 = 150 m². Volume = 150 × 40 = 6000 m³. Total = 12000 m³. Weight = 12000 × 800 = 9,600,000 kg = 9600 tonnes. Trips = 9600/25 = 384 trips. Achieved = one volume correct. Merit = total volume correct. Excellence = correct trips with rounding justified."
@@ -112,7 +164,9 @@
       "text": "A straight line passes through points (–2, 7) and (6, 3). Find the equation of this line.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["linear-graphs"],
+      "topics": [
+        "linear-graphs"
+      ],
       "answerType": "working",
       "expectedAnswer": "y = –0.5x + 6 (or equivalent)",
       "markingGuide": "Gradient: (3–7)/(6–(–2)) = –4/8 = –0.5. y – 7 = –0.5(x + 2). y = –0.5x – 1 + 7 = –0.5x + 6. Achieved = correct equation."
@@ -123,7 +177,10 @@
       "text": "A parabola has vertex at (2, 9) and passes through (–1, 0) and (5, 0). Find its equation. Justify your working.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["quadratic-graphs", "graph-features"],
+      "topics": [
+        "quadratic-graphs",
+        "graph-features"
+      ],
       "answerType": "working",
       "expectedAnswer": "y = –(x – 2)² + 9 or y = –(x + 1)(x – 5)",
       "markingGuide": "Using vertex form: y = a(x – 2)² + 9. Substitute (5, 0): 0 = a(9) + 9. a = –1. So y = –(x – 2)² + 9. Or using intercept form: y = a(x + 1)(x – 5). Substitute (2, 9): 9 = a(3)(–3) = –9a. a = –1. Achieved: equation with incorrect a-value. Merit: correct equation with justification."
@@ -134,7 +191,10 @@
       "text": "A quarter of a circle has radius p and centre C at the bottom-left corner. The arc runs from point A (directly above C) to point B (directly right of C). Calculate how much longer the arc AB is than the straight line AB. Give your answer in terms of p.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["measurement", "pythagoras"],
+      "topics": [
+        "measurement",
+        "pythagoras"
+      ],
       "answerType": "working",
       "expectedAnswer": "πp/2 – p√2 (approximately 0.157p)",
       "markingGuide": "AB (straight line) = √(p² + p²) = p√2. Arc AB = (1/4)(2πp) = πp/2. Difference = πp/2 – p√2 = p(π/2 – √2). Achieved = correct AB or arc length. Merit = correct difference with working."
@@ -145,7 +205,11 @@
       "text": "A right-angled triangle has two short sides x/3 cm and 2x cm. The area of the triangle is 48 cm². Find the value of x.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["pythagoras", "quadratic-equations", "measurement"],
+      "topics": [
+        "pythagoras",
+        "quadratic-equations",
+        "measurement"
+      ],
       "answerType": "working",
       "expectedAnswer": "x = 12",
       "markingGuide": "Area = ½ × (x/3) × 2x = x²/3 = 48. x² = 144. x = 12 (taking positive root). Achieved = correct area formula setup. Excellence = x = 12 with full working."
@@ -153,9 +217,21 @@
   ],
   "totalMarks": 44,
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 12 },
-    "achieved": { "min": 13, "max": 25 },
-    "merit": { "min": 26, "max": 34 },
-    "excellence": { "min": 35, "max": 44 }
+    "notAchieved": {
+      "min": 0,
+      "max": 12
+    },
+    "achieved": {
+      "min": 13,
+      "max": 25
+    },
+    "merit": {
+      "min": 26,
+      "max": 34
+    },
+    "excellence": {
+      "min": 35,
+      "max": 44
+    }
   }
 }

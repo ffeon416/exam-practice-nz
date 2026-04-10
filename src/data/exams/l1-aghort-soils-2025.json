@@ -33,11 +33,25 @@
     {
       "id": "91930-25-q1c",
       "number": "1(c)",
-      "text": "Justify why soil tests should be carried out regularly as part of managing soil health.\n\nIn your answer consider:\n- chemical and biological soil properties\n- how regular monitoring can guide management decisions to improve plant growth.",
+      "text": "The table below shows soil test results from a kiwifruit orchard over three years.\n\nJustify why soil tests should be carried out regularly as part of managing soil health.\n\nIn your answer consider:\n- chemical and biological soil properties\n- how regular monitoring can guide management decisions to improve plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": ["soil-properties", "soil-management", "primary-production"],
       "answerType": "text",
+      "graph": {
+        "type": "table",
+        "title": "Kiwifruit Orchard Soil Test Results (2022–2024)",
+        "data": {
+          "headers": ["Property", "2022", "2023", "2024", "Optimal Range"],
+          "rows": [
+            ["pH", "5.4", "5.6", "5.8", "5.8–6.5"],
+            ["Nitrogen (kg/ha)", "120", "95", "80", "100–150"],
+            ["Phosphorus (Olsen P)", "32", "28", "22", "25–35"],
+            ["Organic matter (%)", "3.8", "4.2", "4.5", "4.0–6.0"],
+            ["Earthworm count (/m²)", "85", "110", "140", "100+"]
+          ]
+        }
+      },
       "expectedAnswer": "Justify by explaining that soil tests provide baseline and trend data about nutrient levels and pH.",
       "markingGuide": "Achieved: Describes why soil tests should be carried out. Merit: Explains why soil tests should be carried out and relates this to management decisions. Excellence: Justifies why regular soil testing is essential, giving detailed reasons.\n\nSoil tests reveal the current nutrient status, pH, and organic matter content. Regular testing (annually or before each planting season) allows growers to track trends — e.g. whether pH is gradually dropping or whether nitrogen levels are declining. This data guides targeted management decisions such as applying specific fertilisers, adjusting lime rates, or increasing organic matter inputs. Without regular testing, growers may over-apply fertiliser (wasting money and risking nutrient leaching into waterways) or under-apply (leading to nutrient deficiency and poor plant growth). Regular testing demonstrates responsible soil stewardship (manaakitanga) by ensuring inputs match the soil's actual needs."
     },

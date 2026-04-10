@@ -60,7 +60,33 @@
       ],
       "answerType": "number",
       "expectedAnswer": "90",
-      "markingGuide": "Read from the data table. The number of trees in 2014 is 90. Accept 80–100."
+      "markingGuide": "Read from the data table. The number of trees in 2014 is 90. Accept 80–100.",
+      "graph": {
+        "type": "line",
+        "title": "Native Trees Alive on Reserve",
+        "xLabel": "Year",
+        "yLabel": "Number of Trees",
+        "xValues": [
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+        ],
+        "series": [
+          {
+            "name": "Trees",
+            "values": [
+              30,
+              55,
+              90,
+              150,
+              170
+            ],
+            "color": "#22c55e"
+          }
+        ]
+      }
     },
     {
       "id": "caan24-q1e",
@@ -74,7 +100,39 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Yes — some trees are quite short (0.6–1.0 m), which suggests they were planted more recently",
-      "markingGuide": "Student must say yes AND refer to specific heights from the data. Trees below about 1.2 m are likely more recently planted since established nursery kauri are typically 1.2–2.0 m. Accept reference to heights below the median or in the 0.6–1.0 m range as evidence of younger plantings."
+      "markingGuide": "Student must say yes AND refer to specific heights from the data. Trees below about 1.2 m are likely more recently planted since established nursery kauri are typically 1.2–2.0 m. Accept reference to heights below the median or in the 0.6–1.0 m range as evidence of younger plantings.",
+      "graph": {
+        "type": "histogram",
+        "title": "Heights of 25 Young Kauri Trees",
+        "xLabel": "Height (m)",
+        "yLabel": "Frequency",
+        "data": [
+          {
+            "label": "0.5–0.8",
+            "value": 3
+          },
+          {
+            "label": "0.8–1.1",
+            "value": 4
+          },
+          {
+            "label": "1.1–1.4",
+            "value": 5
+          },
+          {
+            "label": "1.4–1.7",
+            "value": 7
+          },
+          {
+            "label": "1.7–2.0",
+            "value": 4
+          },
+          {
+            "label": "2.0–2.2",
+            "value": 2
+          }
+        ]
+      }
     },
     {
       "id": "caan24-q1f",
@@ -87,7 +145,13 @@
         "estimation"
       ],
       "answerType": "multi-choice",
-      "options": ["A", "B", "C", "D", "E"],
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
       "expectedAnswer": "B",
       "markingGuide": "Student must identify the correct letter. Taupō is approximately 150 km south of Hamilton. Accept B."
     },
@@ -262,7 +326,31 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Reducing shower time saves more water",
-      "markingGuide": "Student must compare both ideas using table data. Idea 1 (shower time): Saving per person = 80 - 40 = 40 litres/day. For 4 people = 160 litres/day. Idea 2 (washing machine): Running every 2 days saves 120/2 = 60 litres/day. Shower reduction (160 L) saves more than washing machine (60 L). Accept answer with correct calculations shown."
+      "markingGuide": "Student must compare both ideas using table data. Idea 1 (shower time): Saving per person = 80 - 40 = 40 litres/day. For 4 people = 160 litres/day. Idea 2 (washing machine): Running every 2 days saves 120/2 = 60 litres/day. Shower reduction (160 L) saves more than washing machine (60 L). Accept answer with correct calculations shown.",
+      "graph": {
+        "type": "table",
+        "title": "Estimated Water Use",
+        "data": {
+          "headers": [
+            "Activity",
+            "Water (litres)"
+          ],
+          "rows": [
+            [
+              "Shower (8 min)",
+              "80"
+            ],
+            [
+              "Shower (4 min)",
+              "40"
+            ],
+            [
+              "Washing machine (1 cycle)",
+              "120"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "caan24-q3f",
@@ -282,7 +370,63 @@
         "Spring (Sep, Oct, Nov)"
       ],
       "expectedAnswer": "Summer (Dec, Jan, Feb)",
-      "markingGuide": "From the data, calculate seasonal totals: Summer = 185 + 190 + 165 = 540, Autumn = 145 + 120 + 95 = 360, Winter = 80 + 90 + 110 = 280, Spring = 135 + 155 + 175 = 465. Summer has the highest total. Accept Summer."
+      "markingGuide": "From the data, calculate seasonal totals: Summer = 185 + 190 + 165 = 540, Autumn = 145 + 120 + 95 = 360, Winter = 80 + 90 + 110 = 280, Spring = 135 + 155 + 175 = 465. Summer has the highest total. Accept Summer.",
+      "graph": {
+        "type": "bar",
+        "title": "Average Monthly Sunshine Hours — Dunedin",
+        "xLabel": "Month",
+        "yLabel": "Hours",
+        "data": [
+          {
+            "label": "Jan",
+            "value": 190
+          },
+          {
+            "label": "Feb",
+            "value": 165
+          },
+          {
+            "label": "Mar",
+            "value": 145
+          },
+          {
+            "label": "Apr",
+            "value": 120
+          },
+          {
+            "label": "May",
+            "value": 95
+          },
+          {
+            "label": "Jun",
+            "value": 80
+          },
+          {
+            "label": "Jul",
+            "value": 90
+          },
+          {
+            "label": "Aug",
+            "value": 110
+          },
+          {
+            "label": "Sep",
+            "value": 135
+          },
+          {
+            "label": "Oct",
+            "value": 155
+          },
+          {
+            "label": "Nov",
+            "value": 175
+          },
+          {
+            "label": "Dec",
+            "value": 185
+          }
+        ]
+      }
     },
     {
       "id": "caan24-q4a",
@@ -296,7 +440,35 @@
       ],
       "answerType": "number",
       "expectedAnswer": "40000",
-      "markingGuide": "From the data: 2022 attendance = 65,000, 2015 attendance = 25,000. Difference = 65,000 - 25,000 = 40,000. Accept 40,000."
+      "markingGuide": "From the data: 2022 attendance = 65,000, 2015 attendance = 25,000. Difference = 65,000 - 25,000 = 40,000. Accept 40,000.",
+      "graph": {
+        "type": "bar",
+        "title": "Pasifika Festival Attendance",
+        "xLabel": "Year",
+        "yLabel": "Attendance",
+        "data": [
+          {
+            "label": "2015",
+            "value": 25000
+          },
+          {
+            "label": "2016",
+            "value": 35000
+          },
+          {
+            "label": "2017",
+            "value": 45000
+          },
+          {
+            "label": "2018",
+            "value": 50000
+          },
+          {
+            "label": "2022",
+            "value": 65000
+          }
+        ]
+      }
     },
     {
       "id": "caan24-q4b",
@@ -337,7 +509,33 @@
       ],
       "answerType": "text",
       "expectedAnswer": "2/12 or 1/6",
-      "markingGuide": "Count East teams: 2 out of 12 total. Probability = 2/12 = 1/6. Accept 2/12, 1/6, or equivalent."
+      "markingGuide": "Count East teams: 2 out of 12 total. Probability = 2/12 = 1/6. Accept 2/12, 1/6, or equivalent.",
+      "graph": {
+        "type": "pie",
+        "title": "Fun Run Teams by Zone",
+        "data": [
+          {
+            "label": "North",
+            "value": 5,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "South",
+            "value": 4,
+            "color": "#ef4444"
+          },
+          {
+            "label": "East",
+            "value": 2,
+            "color": "#22c55e"
+          },
+          {
+            "label": "West",
+            "value": 1,
+            "color": "#f59e0b"
+          }
+        ]
+      }
     },
     {
       "id": "caan24-q4e",

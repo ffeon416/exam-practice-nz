@@ -14,7 +14,9 @@
       "text": "Which of the following is an asset?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["financial-statements-l1"],
+      "topics": [
+        "financial-statements-l1"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Bank loan",
@@ -31,7 +33,9 @@
       "text": "The accounting equation is: Assets = ?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["accounting-equation"],
+      "topics": [
+        "accounting-equation"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Revenue - Expenses",
@@ -48,7 +52,10 @@
       "text": "Explain the difference between a cash sale and a credit sale. Give an example of each.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["financial-statements-l1", "transactions-l1"],
+      "topics": [
+        "financial-statements-l1",
+        "transactions-l1"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for explaining the difference: A cash sale is when payment is received at the time of the sale (immediate exchange of goods/services for money). A credit sale is when goods/services are provided now but payment is received later (the customer owes money to the business).\n\n1 mark for giving an example of each: Cash sale — e.g. 'A customer buys a coffee at a cafe in Ponsonby and pays $5.50 with their EFTPOS card immediately.' Credit sale — e.g. 'A building supplies company in Christchurch delivers $2,000 of timber to a builder with 30-day payment terms.' Accept any reasonable NZ business examples."
     },
@@ -58,7 +65,9 @@
       "text": "Which financial statement shows whether a business has made a profit or a loss?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["financial-statements-l1"],
+      "topics": [
+        "financial-statements-l1"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Statement of Financial Position (Balance Sheet)",
@@ -75,10 +84,44 @@
       "text": "A shop sold 150 items at $12 each and 80 items at $25 each during one week.\n\nCalculate the total revenue for the week.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["financial-statements-l1"],
+      "topics": [
+        "financial-statements-l1"
+      ],
       "answerType": "number",
       "expectedAnswer": "3800",
-      "markingGuide": "1 mark for correct working: 150 × $12 = $1,800 and 80 × $25 = $2,000. 1 mark for correct answer: $1,800 + $2,000 = $3,800. Accept 3800 or $3,800."
+      "markingGuide": "1 mark for correct working: 150 × $12 = $1,800 and 80 × $25 = $2,000. 1 mark for correct answer: $1,800 + $2,000 = $3,800. Accept 3800 or $3,800.",
+      "graph": {
+        "type": "table",
+        "title": "Weekly Sales Data",
+        "data": {
+          "headers": [
+            "Product",
+            "Units Sold",
+            "Price per Unit ($)",
+            "Revenue ($)"
+          ],
+          "rows": [
+            [
+              "Product A",
+              "150",
+              "12.00",
+              "?"
+            ],
+            [
+              "Product B",
+              "80",
+              "25.00",
+              "?"
+            ],
+            [
+              "Total",
+              "230",
+              "",
+              "?"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "acfn-q6",
@@ -86,7 +129,9 @@
       "text": "Explain why it is important for a small business owner to keep accurate financial records. Give TWO reasons.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["financial-statements-l1"],
+      "topics": [
+        "financial-statements-l1"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark per valid reason (2 required). Possible reasons: (1) To know whether the business is making a profit or loss, so the owner can make informed decisions about pricing, costs, and growth. (2) To meet legal requirements — NZ businesses must keep records for IRD (Inland Revenue) for tax purposes (income tax, GST returns). (3) To manage cash flow — knowing when money is coming in and going out helps avoid running out of cash. (4) To apply for bank loans or attract investors — lenders require financial statements to assess the business's viability. (5) To track expenses and identify areas where costs can be reduced. (6) To prepare accurate GST returns and avoid penalties from IRD."
     },
@@ -96,7 +141,9 @@
       "text": "A business has assets of $45,000 and liabilities of $18,000.\n\nCalculate the owner's equity.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["accounting-equation"],
+      "topics": [
+        "accounting-equation"
+      ],
       "answerType": "number",
       "expectedAnswer": "27000",
       "markingGuide": "1 mark for showing/applying the accounting equation: Assets = Liabilities + Owner's Equity, therefore Owner's Equity = Assets - Liabilities. 1 mark for correct answer: $45,000 - $18,000 = $27,000. Accept 27000 or $27,000."
@@ -107,7 +154,9 @@
       "text": "GST in New Zealand is currently charged at what rate?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["gst-calculations"],
+      "topics": [
+        "gst-calculations"
+      ],
       "answerType": "multi-choice",
       "options": [
         "10%",
@@ -124,7 +173,9 @@
       "text": "Explain what GST is and how it affects the price consumers pay for goods and services.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["gst-calculations"],
+      "topics": [
+        "gst-calculations"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for explaining what GST is: Goods and Services Tax is a consumption tax of 15% that is added to the price of most goods and services sold in New Zealand. It is collected by businesses on behalf of the government (IRD). Businesses registered for GST charge GST on sales (output tax) and can claim back GST on business purchases (input tax).\n\n1 mark for explaining the effect on consumers: GST increases the final price consumers pay. For example, if a product costs $100 before GST, the consumer pays $115 (100 × 1.15). Consumers bear the full cost of GST as it is included in the retail price. Some items are GST-exempt (e.g. financial services, residential rent)."
     },
@@ -134,15 +185,63 @@
       "text": "Sam runs a food truck in Auckland. In March, his revenue was $8,500. His expenses were:\n- Ingredients: $3,200\n- Fuel: $450\n- Market fees: $600\n- Insurance: $200\n- Phone: $80\n\nCalculate Sam's profit for March and explain whether you think this is a sustainable business. What advice would you give Sam to improve his financial position?",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["financial-statements-l1", "accounting-equation"],
+      "topics": [
+        "financial-statements-l1",
+        "accounting-equation"
+      ],
       "answerType": "working",
-      "markingGuide": "4 marks total.\n\n1 mark — Profit calculation: Total expenses = $3,200 + $450 + $600 + $200 + $80 = $4,530. Profit = Revenue - Expenses = $8,500 - $4,530 = $3,970 net profit for March.\n\n1 mark — Sustainability analysis: $3,970 profit per month = approximately $47,640 per year. This needs to cover Sam's personal living costs (rent, food, etc.). In Auckland, living costs are high. The profit margin is $3,970/$8,500 = 46.7%, which is reasonable for a food business. However, this does not account for the cost of the truck itself, maintenance, or quiet months.\n\n1 mark — Advice (at least TWO points): e.g. (1) Sam should track whether revenue is consistent across all months — food trucks may have seasonal variation (quieter in winter). (2) Sam could reduce his ingredient costs by finding cheaper suppliers or reducing waste. (3) Sam should set aside money for GST payments (he needs to register if revenue exceeds $60,000/year). (4) He should save for unexpected costs (truck breakdown, equipment replacement). (5) He could increase revenue by adding catering, using social media marketing, or attending more events.\n\n1 mark — Quality of financial reasoning: Links accounting concepts together. Discusses the difference between profit and cash flow, the importance of keeping records for IRD, or the need to separate business and personal finances. Shows understanding that profit on paper does not always mean the business is thriving."
+      "markingGuide": "4 marks total.\n\n1 mark — Profit calculation: Total expenses = $3,200 + $450 + $600 + $200 + $80 = $4,530. Profit = Revenue - Expenses = $8,500 - $4,530 = $3,970 net profit for March.\n\n1 mark — Sustainability analysis: $3,970 profit per month = approximately $47,640 per year. This needs to cover Sam's personal living costs (rent, food, etc.). In Auckland, living costs are high. The profit margin is $3,970/$8,500 = 46.7%, which is reasonable for a food business. However, this does not account for the cost of the truck itself, maintenance, or quiet months.\n\n1 mark — Advice (at least TWO points): e.g. (1) Sam should track whether revenue is consistent across all months — food trucks may have seasonal variation (quieter in winter). (2) Sam could reduce his ingredient costs by finding cheaper suppliers or reducing waste. (3) Sam should set aside money for GST payments (he needs to register if revenue exceeds $60,000/year). (4) He should save for unexpected costs (truck breakdown, equipment replacement). (5) He could increase revenue by adding catering, using social media marketing, or attending more events.\n\n1 mark — Quality of financial reasoning: Links accounting concepts together. Discusses the difference between profit and cash flow, the importance of keeping records for IRD, or the need to separate business and personal finances. Shows understanding that profit on paper does not always mean the business is thriving.",
+      "graph": {
+        "type": "bar",
+        "title": "Sam's Food Truck — March Expenses",
+        "xLabel": "Expense Category",
+        "yLabel": "Amount ($)",
+        "data": [
+          {
+            "label": "Ingredients",
+            "value": 3200,
+            "color": "#ef4444"
+          },
+          {
+            "label": "Market fees",
+            "value": 600,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Fuel",
+            "value": 450,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Insurance",
+            "value": 200,
+            "color": "#10b981"
+          },
+          {
+            "label": "Phone",
+            "value": 80,
+            "color": "#8b5cf6"
+          }
+        ]
+      }
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 7 },
-    "achieved": { "min": 8, "max": 14 },
-    "merit": { "min": 15, "max": 19 },
-    "excellence": { "min": 20, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 14
+    },
+    "merit": {
+      "min": 15,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
   }
 }

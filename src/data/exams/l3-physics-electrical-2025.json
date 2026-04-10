@@ -60,7 +60,7 @@
     {
       "id": "91526-25-q1ci",
       "number": "1(c)(i)",
-      "text": "Te Ariki investigates using a capacitor. The capacitor has capacitance 80.0 F, fully charged by a 4.80 V battery. It is discharged through a 5.00 ohm resistor for 2000 s.\n\nSketch a graph of current against time for 2000 s. Include initial current and current after one time constant. Show all calculations.",
+      "text": "Te Ariki investigates using a capacitor. The capacitor has capacitance 80.0 F, fully charged by a 4.80 V battery. It is discharged through a 5.00 ohm resistor for 2000 s.\n\nThe graph below shows the general shape of the current–time curve during discharge.\n\nSketch a graph of current against time for 2000 s. Include initial current and current after one time constant. Show all calculations.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -70,6 +70,16 @@
         "exponential-decay"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "line",
+        "title": "Capacitor Discharge: Current vs Time",
+        "xLabel": "Time (s)",
+        "yLabel": "Current (A)",
+        "xValues": [0, 100, 200, 400, 600, 800, 1000, 1200, 1600, 2000],
+        "series": [
+          { "name": "Current", "values": [0.960, 0.745, 0.578, 0.353, 0.215, 0.131, 0.080, 0.049, 0.018, 0.007] }
+        ]
+      },
       "expectedAnswer": "I_0 = V/R = 4.80/5.00 = 0.960 A. tau = RC = 80.0 x 5.00 = 400 s. At t = tau: I = 0.960 x e^-1 = 0.960 x 0.368 = 0.353 A. Graph shows exponential decay from 0.960 A through (400, 0.353).",
       "markingGuide": "Achievement: I_0 or tau correct. Merit: Both correct with graph shape. Excellence: Full graph with values."
     },

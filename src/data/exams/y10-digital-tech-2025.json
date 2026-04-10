@@ -14,7 +14,9 @@
       "text": "What does HTML stand for?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["web-development"],
+      "topics": [
+        "web-development"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Hyper Text Markup Language",
@@ -31,7 +33,9 @@
       "text": "Which HTML tag creates a paragraph?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["web-development"],
+      "topics": [
+        "web-development"
+      ],
       "answerType": "multi-choice",
       "options": [
         "<p>",
@@ -48,7 +52,9 @@
       "text": "What is an algorithm?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["computational-thinking"],
+      "topics": [
+        "computational-thinking"
+      ],
       "answerType": "multi-choice",
       "options": [
         "A type of computer virus",
@@ -65,7 +71,9 @@
       "text": "What is the binary number 1010 in decimal (base 10)?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["computational-thinking"],
+      "topics": [
+        "computational-thinking"
+      ],
       "answerType": "multi-choice",
       "options": [
         "8",
@@ -74,7 +82,43 @@
         "15"
       ],
       "expectedAnswer": "10",
-      "markingGuide": "The correct answer is 10. In binary, each digit represents a power of 2 from right to left: 1010 = (1×8) + (0×4) + (1×2) + (0×1) = 8 + 0 + 2 + 0 = 10."
+      "markingGuide": "The correct answer is 10. In binary, each digit represents a power of 2 from right to left: 1010 = (1×8) + (0×4) + (1×2) + (0×1) = 8 + 0 + 2 + 0 = 10.",
+      "graph": {
+        "type": "table",
+        "title": "Binary Place Values",
+        "data": {
+          "headers": [
+            "Position",
+            "4 (2^3)",
+            "3 (2^2)",
+            "2 (2^1)",
+            "1 (2^0)"
+          ],
+          "rows": [
+            [
+              "Place value",
+              "8",
+              "4",
+              "2",
+              "1"
+            ],
+            [
+              "Binary digits",
+              "1",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "Decimal value",
+              "8",
+              "0",
+              "2",
+              "0"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "y10dt-q5",
@@ -82,7 +126,9 @@
       "text": "Explain the difference between hardware and software. Give one example of each.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["digital-basics"],
+      "topics": [
+        "digital-basics"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for explaining the difference: Hardware is the physical components of a computer that you can touch (tangible), while software is the programs and instructions that tell the hardware what to do (intangible). 1 mark for giving one valid example of each. Hardware examples: keyboard, mouse, monitor, CPU, hard drive, RAM, printer. Software examples: Microsoft Word, Google Chrome, Windows, macOS, Scratch, Python."
     },
@@ -92,7 +138,9 @@
       "text": "Which of the following is the strongest password?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["digital-citizenship"],
+      "topics": [
+        "digital-citizenship"
+      ],
       "answerType": "multi-choice",
       "options": [
         "password123",
@@ -109,7 +157,9 @@
       "text": "Explain TWO things you should consider about your digital footprint when posting on social media.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["digital-citizenship"],
+      "topics": [
+        "digital-citizenship"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for each valid consideration (2 required). Possible answers: Permanence — once something is posted online, it can be very difficult to remove completely, even if you delete it (others may have screenshotted or shared it); Future impact — potential employers, universities, and scholarships may look at your social media, so inappropriate posts could affect your future opportunities; Privacy — sharing personal information (location, school, full name) can make you vulnerable to identity theft, stalking, or scams; Audience — what you post can be seen by a wider audience than you intend, including strangers; Impact on others — posts about other people (photos, comments) should respect their privacy and consent; Reputation — your online presence contributes to how others perceive you."
     },
@@ -119,7 +169,9 @@
       "text": "In a spreadsheet application, what character must a formula start with?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["digital-basics"],
+      "topics": [
+        "digital-basics"
+      ],
       "answerType": "multi-choice",
       "options": [
         "=",
@@ -136,7 +188,9 @@
       "text": "Describe what debugging means in programming and explain ONE strategy for finding errors in code.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["computational-thinking"],
+      "topics": [
+        "computational-thinking"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for describing debugging: Debugging is the process of finding and fixing errors (bugs) in a computer program that prevent it from working correctly. 1 mark for explaining a valid strategy: Trace through the code line by line to see where it stops working as expected; use print statements to display variable values at different points in the program; read error messages carefully as they often tell you the line number and type of error; test small sections of code separately to isolate the problem; use a rubber duck method — explain the code out loud step by step to identify where the logic breaks down; compare the code against the original plan or algorithm."
     },
@@ -146,15 +200,29 @@
       "text": "A local sports club wants a simple website. Describe THREE features the website should have and explain why each would be useful for the club.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["web-development"],
+      "topics": [
+        "web-development"
+      ],
       "answerType": "working",
       "markingGuide": "1 mark for each feature with a clear explanation of its usefulness (3 required). Possible features: A home page with information about the club (location, training times, contact details) — useful because new members can quickly find out how to join and where to go; A fixtures/results page — useful because members and supporters can check upcoming games and see how the team is performing; A contact or sign-up form — useful because people can register interest or ask questions without needing to visit in person; A photo/video gallery — useful because it builds community spirit and can be shared on social media to attract new members; A news or events section — useful because the club can announce upcoming tournaments, fundraisers, or social events; A members-only section — useful for sharing team sheets, training plans, or private club communications. Each feature must be distinct, clearly described, and have a specific reason why it benefits the club."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 4 },
-    "achieved": { "min": 5, "max": 9 },
-    "merit": { "min": 10, "max": 13 },
-    "excellence": { "min": 14, "max": 16 }
+    "notAchieved": {
+      "min": 0,
+      "max": 4
+    },
+    "achieved": {
+      "min": 5,
+      "max": 9
+    },
+    "merit": {
+      "min": 10,
+      "max": 13
+    },
+    "excellence": {
+      "min": 14,
+      "max": 16
+    }
   }
 }

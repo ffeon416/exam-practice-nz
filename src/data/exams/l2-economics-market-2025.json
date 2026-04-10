@@ -7,21 +7,312 @@
   "subject": "economics",
   "timeMinutes": 60,
   "totalMarks": 24,
-  "cutScores": { "notAchieved": { "min": 0, "max": 6 }, "achieved": { "min": 7, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } },
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
   "questions": [
-    { "id": "91222-2025-q1a", "number": "1(a)", "text": "In 2025, a slowdown in global trade reduced demand for New Zealand's exports, leading to job losses in the manufacturing sector.\n\nOn Graph One below, show the impact of reduced export demand on aggregate demand. Fully label all changes.", "marks": 3, "gradeLevel": "achieved", "topics": ["aggregate demand", "AS/AD model", "exports"], "answerType": "graph", "expectedAnswer": "AD shifts left (AD to AD1) due to decreased export receipts and consumer spending from higher unemployment.", "markingGuide": "Graph One correct — AD decreased to AD1, fully labelled." },
-    { "id": "91222-2025-q1b", "number": "1(b)", "text": "Explain the impact of reduced export demand on the price level. Refer to Graph One in your answer.", "marks": 3, "gradeLevel": "merit", "topics": ["aggregate demand", "price level", "exports"], "answerType": "text", "expectedAnswer": "Reduced export demand means fewer overseas buyers purchasing NZ goods, decreasing export receipts (X) and leading to job losses that reduce consumer spending (C). AD shifts left, moving the equilibrium to a lower price level (PL to PL1).", "markingGuide": "Explains decrease in AD due to decreased exports and consumer spending, with reference to Graph One showing lower price level." },
-    { "id": "91222-2025-q1c", "number": "1(c)", "text": "A fall in global oil prices has reduced energy costs for New Zealand businesses.\n\nOn Graph Two below, show the impact of decreasing energy costs on aggregate supply. Fully label all changes.", "marks": 3, "gradeLevel": "achieved", "topics": ["aggregate supply", "AS/AD model", "costs of production"], "answerType": "graph", "expectedAnswer": "AS shifts right (AS to AS1) due to decreased costs of production from lower energy prices.", "markingGuide": "Graph Two correct — AS increased to AS1, fully labelled." },
-    { "id": "91222-2025-q1d", "number": "1(d)", "text": "Explain the impact of decreasing energy costs on the price level. Refer to Graph Two in your answer.", "marks": 3, "gradeLevel": "merit", "topics": ["aggregate supply", "costs of production", "price level"], "answerType": "text", "expectedAnswer": "Decreasing energy costs reduce costs of production for businesses, increasing aggregate supply (AS shifts right). This moves the equilibrium to a lower price level (PL to PL1), reducing inflationary pressure.", "markingGuide": "Explains the increase in AS due to decreasing costs of production, with reference to Graph Two." },
-    { "id": "91222-2025-q1e", "number": "1(e)", "text": "Explain whether reduced export demand or decreasing energy costs will have a bigger effect on the price level in New Zealand. Refer to Graphs One and Two in your answer.", "marks": 4, "gradeLevel": "excellence", "topics": ["aggregate demand", "aggregate supply", "price level", "inflation"], "answerType": "text", "expectedAnswer": "Both factors push the price level down, but decreasing energy costs may have a wider impact because energy is used by virtually all businesses, reducing costs across the entire economy. The export demand reduction primarily affects exporting sectors and has flow-on effects.", "markingGuide": "Fully explains why one factor may have a comparatively larger impact on the price level, integrating changes on both graphs." },
-    { "id": "91222-2025-q2a", "number": "2(a)", "text": "New Zealand's inflation rate has fallen from 7.3% in 2022 to 4.7% in 2023 to 2.2% in 2024.\n\nUse these figures to explain the difference between disinflation and deflation.", "marks": 2, "gradeLevel": "achieved", "topics": ["disinflation", "deflation", "inflation"], "answerType": "text", "expectedAnswer": "Disinflation is a decrease in the rate of inflation (prices still rising but more slowly) — shown by the rate falling from 7.3% to 2.2%. Deflation is a decrease in the actual price level (negative inflation rate). The NZ figures show disinflation, not deflation, as prices are still rising.", "markingGuide": "Defines deflation and disinflation correctly, using the provided data to distinguish between them." },
-    { "id": "91222-2025-q2b", "number": "2(b)", "text": "Explain one reason why the fall in the inflation rate from 2022 to 2024 is positive for the New Zealand economy.", "marks": 2, "gradeLevel": "merit", "topics": ["disinflation", "economic benefits"], "answerType": "text", "expectedAnswer": "Lower inflation improves business planning because costs and revenues are more predictable. Firms can set prices and wages with greater certainty, encouraging investment and long-term contracts.", "markingGuide": "Identifies a reason why lower inflation is good — e.g., business confidence, purchasing power, investment certainty." },
-    { "id": "91222-2025-q2c", "number": "2(c)", "text": "In response to slowing inflation and economic activity, the Reserve Bank of New Zealand has been decreasing the Official Cash Rate (OCR), resulting in lower interest rates.\n\nExplain why decreasing interest rates may increase the velocity of circulation in New Zealand.", "marks": 2, "gradeLevel": "merit", "topics": ["interest rates", "velocity of circulation", "monetary policy"], "answerType": "text", "expectedAnswer": "Lower interest rates make borrowing cheaper and saving less rewarding. Households and businesses are incentivised to spend rather than save, meaning money circulates through the economy more quickly, increasing the velocity of circulation.", "markingGuide": "Links lower interest rates with increased borrowing/spending, leading to higher velocity of circulation." },
-    { "id": "91222-2025-q2d", "number": "2(d)", "text": "Using the quantity theory of money, explain how an increasing velocity of circulation will impact inflation in New Zealand.\n\nIn your answer:\n- state the quantity theory of money\n- explain how inflation will be impacted if the velocity of circulation increases but other variables remain constant\n- explain how inflation will be impacted if the velocity of circulation increases and the level of real GDP also increases.", "marks": 6, "gradeLevel": "excellence", "topics": ["quantity theory of money", "velocity of circulation", "inflation", "real GDP"], "answerType": "text", "expectedAnswer": "MV = PQ. If V increases and M and Q remain constant, P must increase proportionally — more rapid circulation of money pushes up prices. However, if both V and Q increase simultaneously, the effect on P depends on their relative magnitudes. If Q increases at the same rate as V, P remains stable; if V rises faster than Q, P will increase (inflation); if Q rises faster, P could decrease.", "markingGuide": "States MV=PQ. Explains V increase alone raises P. Then explains when both V and Q increase, the effect on P depends on relative magnitudes." },
-    { "id": "91222-2025-q3a", "number": "3(a)", "text": "What does CPI stand for?", "marks": 1, "gradeLevel": "achieved", "topics": ["CPI", "consumer price index"], "answerType": "text", "expectedAnswer": "Consumer Price Index.", "markingGuide": "Correctly identifies CPI." },
-    { "id": "91222-2025-q3b", "number": "3(b)", "text": "Explain how the CPI is used to calculate the rate of inflation in New Zealand.", "marks": 2, "gradeLevel": "achieved", "topics": ["CPI", "inflation measurement"], "answerType": "text", "expectedAnswer": "The CPI measures changes in the price of a weighted basket of goods and services purchased by a typical NZ household. The inflation rate is calculated as the percentage change in the CPI over a given period (usually quarterly or annually).", "markingGuide": "Explains weighted basket, compared over time, percentage change." },
-    { "id": "91222-2025-q3c", "number": "3(c)", "text": "Explain why the rate of inflation, as calculated by the CPI, does not affect all households equally.", "marks": 2, "gradeLevel": "merit", "topics": ["CPI", "inflation impact", "households"], "answerType": "text", "expectedAnswer": "The CPI basket reflects average spending patterns, but individual households spend differently. For example, a rural household spends more on petrol for commuting, while a city household spends more on rent. If petrol prices rise faster than rent, rural households experience higher effective inflation.", "markingGuide": "Identifies that households spend differently — CPI basket does not reflect individual spending patterns." },
-    { "id": "91222-2025-q3d", "number": "3(d)", "text": "Explain one reason why government expenditure might increase during a time of high inflation.", "marks": 2, "gradeLevel": "merit", "topics": ["inflation", "government expenditure", "fiscal policy"], "answerType": "text", "expectedAnswer": "High inflation increases the cost of government purchases — infrastructure projects, public servant salaries, and welfare payments all cost more. The government may also need to increase benefit payments to help low-income households cope with rising living costs.", "markingGuide": "Identifies that inflation increases the cost of government programmes or triggers higher welfare spending." },
-    { "id": "91222-2025-q3e", "number": "3(e)", "text": "Compare and contrast the impact of high inflation on renters and on property owners.", "marks": 4, "gradeLevel": "excellence", "topics": ["inflation", "housing", "inequality"], "answerType": "text", "expectedAnswer": "Renters are negatively affected because landlords raise rents in line with or above inflation, consuming a larger share of renters' incomes. Property owners may benefit because the nominal value of their property increases with inflation, building wealth. However, property owners with variable-rate mortgages face higher interest repayments if the RBNZ raises the OCR to combat inflation. Renters have no asset to appreciate, so inflation widens the wealth gap between owners and renters.", "markingGuide": "Compares and contrasts effects on both groups with specific examples." }
+    {
+      "id": "91222-2025-q1a",
+      "number": "1(a)",
+      "text": "In 2025, a slowdown in global trade reduced demand for New Zealand's exports, leading to job losses in the manufacturing sector.\n\nOn Graph One below, show the impact of reduced export demand on aggregate demand. Fully label all changes.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate demand",
+        "AS/AD model",
+        "exports"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "AD shifts left (AD to AD1) due to decreased export receipts and consumer spending from higher unemployment.",
+      "markingGuide": "Graph One correct — AD decreased to AD1, fully labelled."
+    },
+    {
+      "id": "91222-2025-q1b",
+      "number": "1(b)",
+      "text": "Explain the impact of reduced export demand on the price level. Refer to Graph One in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate demand",
+        "price level",
+        "exports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Reduced export demand means fewer overseas buyers purchasing NZ goods, decreasing export receipts (X) and leading to job losses that reduce consumer spending (C). AD shifts left, moving the equilibrium to a lower price level (PL to PL1).",
+      "markingGuide": "Explains decrease in AD due to decreased exports and consumer spending, with reference to Graph One showing lower price level."
+    },
+    {
+      "id": "91222-2025-q1c",
+      "number": "1(c)",
+      "text": "A fall in global oil prices has reduced energy costs for New Zealand businesses.\n\nOn Graph Two below, show the impact of decreasing energy costs on aggregate supply. Fully label all changes.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "aggregate supply",
+        "AS/AD model",
+        "costs of production"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "AS shifts right (AS to AS1) due to decreased costs of production from lower energy prices.",
+      "markingGuide": "Graph Two correct — AS increased to AS1, fully labelled."
+    },
+    {
+      "id": "91222-2025-q1d",
+      "number": "1(d)",
+      "text": "Explain the impact of decreasing energy costs on the price level. Refer to Graph Two in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "aggregate supply",
+        "costs of production",
+        "price level"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Decreasing energy costs reduce costs of production for businesses, increasing aggregate supply (AS shifts right). This moves the equilibrium to a lower price level (PL to PL1), reducing inflationary pressure.",
+      "markingGuide": "Explains the increase in AS due to decreasing costs of production, with reference to Graph Two."
+    },
+    {
+      "id": "91222-2025-q1e",
+      "number": "1(e)",
+      "text": "Explain whether reduced export demand or decreasing energy costs will have a bigger effect on the price level in New Zealand. Refer to Graphs One and Two in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "aggregate demand",
+        "aggregate supply",
+        "price level",
+        "inflation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Both factors push the price level down, but decreasing energy costs may have a wider impact because energy is used by virtually all businesses, reducing costs across the entire economy. The export demand reduction primarily affects exporting sectors and has flow-on effects.",
+      "markingGuide": "Fully explains why one factor may have a comparatively larger impact on the price level, integrating changes on both graphs."
+    },
+    {
+      "id": "91222-2025-q2a",
+      "number": "2(a)",
+      "text": "New Zealand's inflation rate has fallen from 7.3% in 2022 to 4.7% in 2023 to 2.2% in 2024.\n\nUse these figures to explain the difference between disinflation and deflation.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "disinflation",
+        "deflation",
+        "inflation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Disinflation is a decrease in the rate of inflation (prices still rising but more slowly) — shown by the rate falling from 7.3% to 2.2%. Deflation is a decrease in the actual price level (negative inflation rate). The NZ figures show disinflation, not deflation, as prices are still rising.",
+      "markingGuide": "Defines deflation and disinflation correctly, using the provided data to distinguish between them.",
+      "graph": {
+        "type": "line",
+        "title": "NZ Inflation Rate — Disinflation Trend",
+        "xLabel": "Year",
+        "yLabel": "Inflation Rate (%)",
+        "data": [
+          {
+            "label": "2020",
+            "value": 1.7
+          },
+          {
+            "label": "2021",
+            "value": 3.9
+          },
+          {
+            "label": "2022",
+            "value": 7.3
+          },
+          {
+            "label": "2023",
+            "value": 4.7
+          },
+          {
+            "label": "2024",
+            "value": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "91222-2025-q2b",
+      "number": "2(b)",
+      "text": "Explain one reason why the fall in the inflation rate from 2022 to 2024 is positive for the New Zealand economy.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "disinflation",
+        "economic benefits"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Lower inflation improves business planning because costs and revenues are more predictable. Firms can set prices and wages with greater certainty, encouraging investment and long-term contracts.",
+      "markingGuide": "Identifies a reason why lower inflation is good — e.g., business confidence, purchasing power, investment certainty."
+    },
+    {
+      "id": "91222-2025-q2c",
+      "number": "2(c)",
+      "text": "In response to slowing inflation and economic activity, the Reserve Bank of New Zealand has been decreasing the Official Cash Rate (OCR), resulting in lower interest rates.\n\nExplain why decreasing interest rates may increase the velocity of circulation in New Zealand.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "interest rates",
+        "velocity of circulation",
+        "monetary policy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Lower interest rates make borrowing cheaper and saving less rewarding. Households and businesses are incentivised to spend rather than save, meaning money circulates through the economy more quickly, increasing the velocity of circulation.",
+      "markingGuide": "Links lower interest rates with increased borrowing/spending, leading to higher velocity of circulation."
+    },
+    {
+      "id": "91222-2025-q2d",
+      "number": "2(d)",
+      "text": "Using the quantity theory of money, explain how an increasing velocity of circulation will impact inflation in New Zealand.\n\nIn your answer:\n- state the quantity theory of money\n- explain how inflation will be impacted if the velocity of circulation increases but other variables remain constant\n- explain how inflation will be impacted if the velocity of circulation increases and the level of real GDP also increases.",
+      "marks": 6,
+      "gradeLevel": "excellence",
+      "topics": [
+        "quantity theory of money",
+        "velocity of circulation",
+        "inflation",
+        "real GDP"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "MV = PQ. If V increases and M and Q remain constant, P must increase proportionally — more rapid circulation of money pushes up prices. However, if both V and Q increase simultaneously, the effect on P depends on their relative magnitudes. If Q increases at the same rate as V, P remains stable; if V rises faster than Q, P will increase (inflation); if Q rises faster, P could decrease.",
+      "markingGuide": "States MV=PQ. Explains V increase alone raises P. Then explains when both V and Q increase, the effect on P depends on relative magnitudes."
+    },
+    {
+      "id": "91222-2025-q3a",
+      "number": "3(a)",
+      "text": "What does CPI stand for?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "CPI",
+        "consumer price index"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Consumer Price Index.",
+      "markingGuide": "Correctly identifies CPI."
+    },
+    {
+      "id": "91222-2025-q3b",
+      "number": "3(b)",
+      "text": "Explain how the CPI is used to calculate the rate of inflation in New Zealand.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "CPI",
+        "inflation measurement"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The CPI measures changes in the price of a weighted basket of goods and services purchased by a typical NZ household. The inflation rate is calculated as the percentage change in the CPI over a given period (usually quarterly or annually).",
+      "markingGuide": "Explains weighted basket, compared over time, percentage change.",
+      "graph": {
+        "type": "pie",
+        "title": "NZ CPI Basket — Approximate Group Weights",
+        "data": [
+          {
+            "label": "Housing & utilities",
+            "value": 29,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Food",
+            "value": 19,
+            "color": "#10b981"
+          },
+          {
+            "label": "Transport",
+            "value": 12,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Recreation & culture",
+            "value": 8,
+            "color": "#8b5cf6"
+          },
+          {
+            "label": "Household contents",
+            "value": 7,
+            "color": "#ec4899"
+          },
+          {
+            "label": "Clothing",
+            "value": 4,
+            "color": "#6366f1"
+          },
+          {
+            "label": "Health",
+            "value": 5,
+            "color": "#ef4444"
+          },
+          {
+            "label": "Education",
+            "value": 3,
+            "color": "#14b8a6"
+          },
+          {
+            "label": "Other",
+            "value": 13,
+            "color": "#6b7280"
+          }
+        ]
+      }
+    },
+    {
+      "id": "91222-2025-q3c",
+      "number": "3(c)",
+      "text": "Explain why the rate of inflation, as calculated by the CPI, does not affect all households equally.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "CPI",
+        "inflation impact",
+        "households"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The CPI basket reflects average spending patterns, but individual households spend differently. For example, a rural household spends more on petrol for commuting, while a city household spends more on rent. If petrol prices rise faster than rent, rural households experience higher effective inflation.",
+      "markingGuide": "Identifies that households spend differently — CPI basket does not reflect individual spending patterns."
+    },
+    {
+      "id": "91222-2025-q3d",
+      "number": "3(d)",
+      "text": "Explain one reason why government expenditure might increase during a time of high inflation.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "inflation",
+        "government expenditure",
+        "fiscal policy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "High inflation increases the cost of government purchases — infrastructure projects, public servant salaries, and welfare payments all cost more. The government may also need to increase benefit payments to help low-income households cope with rising living costs.",
+      "markingGuide": "Identifies that inflation increases the cost of government programmes or triggers higher welfare spending."
+    },
+    {
+      "id": "91222-2025-q3e",
+      "number": "3(e)",
+      "text": "Compare and contrast the impact of high inflation on renters and on property owners.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "inflation",
+        "housing",
+        "inequality"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Renters are negatively affected because landlords raise rents in line with or above inflation, consuming a larger share of renters' incomes. Property owners may benefit because the nominal value of their property increases with inflation, building wealth. However, property owners with variable-rate mortgages face higher interest repayments if the RBNZ raises the OCR to combat inflation. Renters have no asset to appreciate, so inflation widens the wealth gap between owners and renters.",
+      "markingGuide": "Compares and contrasts effects on both groups with specific examples."
+    }
   ]
 }

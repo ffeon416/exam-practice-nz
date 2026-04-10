@@ -6,6 +6,7 @@ import { getExam } from "@/data/exams";
 import type { Exam, Question } from "@/lib/types";
 import Timer from "@/components/Timer";
 import TopicTag from "@/components/TopicTag";
+import Graph from "@/components/Graph";
 
 export default function ExamPage({
   params,
@@ -191,7 +192,10 @@ export default function ExamPage({
           </div>
         </div>
 
-        {/* Diagram image from NZQA paper */}
+        {/* Graph */}
+        {question.graph && <Graph data={question.graph} />}
+
+        {/* Diagram image */}
         {question.image && (
           <div className="mb-4 rounded-lg overflow-hidden border border-slate-700 bg-white p-2">
             <img

@@ -45,7 +45,13 @@
         "unit-conversion"
       ],
       "answerType": "multi-choice",
-      "options": ["A", "B", "C", "D", "E"],
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
       "expectedAnswer": "C",
       "markingGuide": "1200 m in 12 min, so 3600 m at same rate = 3600/1200 x 12 = 3 x 12 = 36 minutes. The correct answer is C."
     },
@@ -101,7 +107,40 @@
       ],
       "answerType": "working",
       "expectedAnswer": "No — Rewa has 18 kg of gear (too heavy for Medium at 16 kg max) and needs 65 L of space (Medium only has 55 L). She needs Large.",
-      "markingGuide": "Student must compare Rewa's needs against the table. Weight 18 kg exceeds Medium's max load (16 kg). Volume 65 L exceeds Medium's volume (55 L). Large (70 L, 20 kg) fits both requirements. Accept answers that correctly use data from the table."
+      "markingGuide": "Student must compare Rewa's needs against the table. Weight 18 kg exceeds Medium's max load (16 kg). Volume 65 L exceeds Medium's volume (55 L). Large (70 L, 20 kg) fits both requirements. Accept answers that correctly use data from the table.",
+      "graph": {
+        "type": "table",
+        "title": "Tramping Pack Sizes",
+        "data": {
+          "headers": [
+            "Size",
+            "Volume (L)",
+            "Max Load (kg)"
+          ],
+          "rows": [
+            [
+              "Small",
+              "40",
+              "12"
+            ],
+            [
+              "Medium",
+              "55",
+              "16"
+            ],
+            [
+              "Large",
+              "70",
+              "20"
+            ],
+            [
+              "X-Large",
+              "85",
+              "24"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "caa25-q2b",
@@ -127,7 +166,13 @@
         "data-interpretation"
       ],
       "answerType": "multi-choice",
-      "options": ["(i) High", "(ii) Medium-High", "(iii) Medium", "(iv) Low", "(v) Very Low"],
+      "options": [
+        "(i) High",
+        "(ii) Medium-High",
+        "(iii) Medium",
+        "(iv) Low",
+        "(v) Very Low"
+      ],
       "expectedAnswer": "(iii) Medium",
       "markingGuide": "Student reads the guide to find the setting for cooking chicken through. The correct answer is (iii) Medium."
     },
@@ -143,7 +188,39 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Partially true — Board C is lightest and most expensive, and shortest. Board B is heaviest and cheapest, and longest.",
-      "markingGuide": "Student must compare data from two boards and use specific numbers (weight, length, and/or price) to support or refute the claim. Accept any correct comparison with supporting numbers."
+      "markingGuide": "Student must compare data from two boards and use specific numbers (weight, length, and/or price) to support or refute the claim. Accept any correct comparison with supporting numbers.",
+      "graph": {
+        "type": "table",
+        "title": "Surfboard Specifications",
+        "data": {
+          "headers": [
+            "Board",
+            "Weight (kg)",
+            "Length",
+            "Price ($)"
+          ],
+          "rows": [
+            [
+              "A",
+              "3.2",
+              "6'2\"",
+              "480"
+            ],
+            [
+              "B",
+              "4.5",
+              "7'0\"",
+              "390"
+            ],
+            [
+              "C",
+              "2.8",
+              "6'0\"",
+              "620"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "caa25-q2e",
@@ -170,7 +247,63 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Yes — visits peak in winter months (Jun-Aug: 350, 480, 420) and are lowest in summer (Dec-Feb: 70, 80, 60)",
-      "markingGuide": "Student must refer to specific data to support their answer. They should identify that cold months (Jun-Aug) show much higher visitor numbers and warm months (Dec-Feb) show lower numbers, using approximate figures."
+      "markingGuide": "Student must refer to specific data to support their answer. They should identify that cold months (Jun-Aug) show much higher visitor numbers and warm months (Dec-Feb) show lower numbers, using approximate figures.",
+      "graph": {
+        "type": "bar",
+        "title": "Monthly Ski Field Visitors",
+        "xLabel": "Month",
+        "yLabel": "Visitors",
+        "data": [
+          {
+            "label": "Jan",
+            "value": 80
+          },
+          {
+            "label": "Feb",
+            "value": 60
+          },
+          {
+            "label": "Mar",
+            "value": 40
+          },
+          {
+            "label": "Apr",
+            "value": 30
+          },
+          {
+            "label": "May",
+            "value": 120
+          },
+          {
+            "label": "Jun",
+            "value": 350
+          },
+          {
+            "label": "Jul",
+            "value": 480
+          },
+          {
+            "label": "Aug",
+            "value": 420
+          },
+          {
+            "label": "Sep",
+            "value": 200
+          },
+          {
+            "label": "Oct",
+            "value": 90
+          },
+          {
+            "label": "Nov",
+            "value": 50
+          },
+          {
+            "label": "Dec",
+            "value": 70
+          }
+        ]
+      }
     },
     {
       "id": "caa25-q3a",
@@ -225,7 +358,31 @@
       ],
       "answerType": "working",
       "expectedAnswer": "The 2 kg bag — $0.28 per 100 g vs $0.35 and $0.44",
-      "markingGuide": "Student must calculate the price per 100 g for at least two bags and identify the 2 kg bag as cheapest. 2 kg = $0.28/100 g, 1 kg = $0.35/100 g, 500 g = $0.44/100 g."
+      "markingGuide": "Student must calculate the price per 100 g for at least two bags and identify the 2 kg bag as cheapest. 2 kg = $0.28/100 g, 1 kg = $0.35/100 g, 500 g = $0.44/100 g.",
+      "graph": {
+        "type": "table",
+        "title": "Flour Prices",
+        "data": {
+          "headers": [
+            "Bag Size",
+            "Price ($)"
+          ],
+          "rows": [
+            [
+              "2 kg",
+              "5.60"
+            ],
+            [
+              "1 kg",
+              "3.50"
+            ],
+            [
+              "500 g",
+              "2.20"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "caa25-q3e",
@@ -237,7 +394,11 @@
         "spatial-reasoning"
       ],
       "answerType": "multi-choice",
-      "options": ["(i)", "(ii)", "(iii)"],
+      "options": [
+        "(i)",
+        "(ii)",
+        "(iii)"
+      ],
       "expectedAnswer": "(i)",
       "markingGuide": "Student must identify which net folds correctly. The correct answer is (i)."
     },
@@ -264,7 +425,12 @@
         "fractions"
       ],
       "answerType": "multi-choice",
-      "options": ["(i)", "(ii)", "(iii)", "(iv)"],
+      "options": [
+        "(i)",
+        "(ii)",
+        "(iii)",
+        "(iv)"
+      ],
       "expectedAnswer": "(iii)",
       "markingGuide": "Count beats: (i) 2x2 + 1 = 5, (ii) 4 + 2x0.5 = 5, (iii) 3x1 + 2x0.5 = 4, (iv) 2 + 3 + 1 = 6. The correct answer is (iii)."
     },
@@ -278,7 +444,13 @@
         "symmetry"
       ],
       "answerType": "multi-choice",
-      "options": ["(i) Main curved line", "(ii) Border panels", "(iii) Background shading", "(iv) Outer border", "(v) Central tendril"],
+      "options": [
+        "(i) Main curved line",
+        "(ii) Border panels",
+        "(iii) Background shading",
+        "(iv) Outer border",
+        "(v) Central tendril"
+      ],
       "expectedAnswer": "(ii) Border panels and (iv) Outer border",
       "markingGuide": "Student must identify the TWO parts with mirror symmetry. The border panels and outer border are symmetrical. Both must be selected for the mark."
     },
@@ -308,7 +480,33 @@
       ],
       "answerType": "number",
       "expectedAnswer": "30",
-      "markingGuide": "60 out of 200 = 60/200 = 0.30 = 30%. Award mark for 30%."
+      "markingGuide": "60 out of 200 = 60/200 = 0.30 = 30%. Award mark for 30%.",
+      "graph": {
+        "type": "pie",
+        "title": "Class Library Books by Genre",
+        "data": [
+          {
+            "label": "Fiction",
+            "value": 60,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Non-fiction",
+            "value": 50,
+            "color": "#22c55e"
+          },
+          {
+            "label": "Graphic novels",
+            "value": 40,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Other",
+            "value": 50,
+            "color": "#8b5cf6"
+          }
+        ]
+      }
     },
     {
       "id": "caa25-q4e",
@@ -322,7 +520,35 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Yes — Platform C pays $1.20 per sale, which is more than all others",
-      "markingGuide": "Student must use numbers from the table to support or refute the statement. They need to compare Platform C's rate ($1.20) with at least one other platform and make a clear conclusion."
+      "markingGuide": "Student must use numbers from the table to support or refute the statement. They need to compare Platform C's rate ($1.20) with at least one other platform and make a clear conclusion.",
+      "graph": {
+        "type": "bar",
+        "title": "Artist Earnings per Sale by Platform",
+        "xLabel": "Platform",
+        "yLabel": "Earnings ($)",
+        "data": [
+          {
+            "label": "A",
+            "value": 0.85
+          },
+          {
+            "label": "B",
+            "value": 0.6
+          },
+          {
+            "label": "C",
+            "value": 1.2
+          },
+          {
+            "label": "D",
+            "value": 0.45
+          },
+          {
+            "label": "E",
+            "value": 0.95
+          }
+        ]
+      }
     },
     {
       "id": "caa25-q4f",
@@ -336,9 +562,53 @@
         "percentages"
       ],
       "answerType": "multi-choice",
-      "options": ["(i) Over 3/5 of 15-24 year olds use streaming", "(ii) More than 1/4 of 55-64 year olds use streaming", "(iii) Exactly 1/2 of 15-24 year olds watch on TV", "(iv) About 9/20 of 55-64 year olds watch on TV", "(v) Less than 10% of 55-64 year olds go to live events"],
+      "options": [
+        "(i) Over 3/5 of 15-24 year olds use streaming",
+        "(ii) More than 1/4 of 55-64 year olds use streaming",
+        "(iii) Exactly 1/2 of 15-24 year olds watch on TV",
+        "(iv) About 9/20 of 55-64 year olds watch on TV",
+        "(v) Less than 10% of 55-64 year olds go to live events"
+      ],
       "expectedAnswer": "(i) and (iv)",
-      "markingGuide": "Check each: (i) 65% > 60% (3/5) — TRUE. (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE. (iii) 15% is not 50% — FALSE. (iv) 45% = 9/20 — TRUE. (v) 12% > 10% — FALSE. Both (i) and (iv) must be selected."
+      "markingGuide": "Check each: (i) 65% > 60% (3/5) — TRUE. (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE. (iii) 15% is not 50% — FALSE. (iv) 45% = 9/20 — TRUE. (v) 12% > 10% — FALSE. Both (i) and (iv) must be selected.",
+      "graph": {
+        "type": "bar",
+        "title": "How People Watch Sport — by Age Group",
+        "xLabel": "Method",
+        "yLabel": "Percentage (%)",
+        "data": [
+          {
+            "label": "Streaming (15-24)",
+            "value": 65,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "TV (15-24)",
+            "value": 15,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Live (15-24)",
+            "value": 8,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Streaming (55-64)",
+            "value": 20,
+            "color": "#ef4444"
+          },
+          {
+            "label": "TV (55-64)",
+            "value": 45,
+            "color": "#ef4444"
+          },
+          {
+            "label": "Live (55-64)",
+            "value": 12,
+            "color": "#ef4444"
+          }
+        ]
+      }
     },
     {
       "id": "caa25-q5a",
@@ -377,7 +647,14 @@
         "spatial-reasoning"
       ],
       "answerType": "multi-choice",
-      "options": ["A", "B", "C", "D", "E", "F"],
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
       "expectedAnswer": "C",
       "markingGuide": "43.5° S, 172.6° E is near Christchurch in Canterbury. The correct answer is C."
     },
@@ -408,7 +685,33 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Yes — fish (50%) + squid (25%) = 75%, which is three quarters of the diet",
-      "markingGuide": "Student must read autumn/winter percentages and add them: fish 50% + squid 25% = 75%. This is well over half, so fish and squid are the clear majority of the diet. Accept either agree or disagree if justified with specific percentages."
+      "markingGuide": "Student must read autumn/winter percentages and add them: fish 50% + squid 25% = 75%. This is well over half, so fish and squid are the clear majority of the diet. Accept either agree or disagree if justified with specific percentages.",
+      "graph": {
+        "type": "pie",
+        "title": "Seal Diet — Autumn/Winter",
+        "data": [
+          {
+            "label": "Fish",
+            "value": 50,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Squid",
+            "value": 25,
+            "color": "#8b5cf6"
+          },
+          {
+            "label": "Crustaceans",
+            "value": 15,
+            "color": "#ef4444"
+          },
+          {
+            "label": "Other",
+            "value": 10,
+            "color": "#6b7280"
+          }
+        ]
+      }
     },
     {
       "id": "caa25-q5f",

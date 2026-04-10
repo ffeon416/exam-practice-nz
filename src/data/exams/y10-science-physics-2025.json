@@ -64,6 +64,18 @@
       "gradeLevel": "achieved",
       "topics": ["electricity-y10"],
       "answerType": "number",
+      "graph": {
+        "type": "table",
+        "title": "Circuit Measurements",
+        "data": {
+          "headers": ["Quantity", "Value", "Unit"],
+          "rows": [
+            ["Voltage (V)", "12", "V"],
+            ["Current (I)", "3", "A"],
+            ["Resistance (R)", "?", "Ω"]
+          ]
+        }
+      },
       "expectedAnswer": "4",
       "markingGuide": "The answer is 4 ohms (Ω). Using Ohm's Law: V = I × R, so R = V ÷ I = 12 ÷ 3 = 4 Ω. Exam tip: Remember Ohm's Law — Voltage = Current × Resistance. You can rearrange this to find any of the three values: R = V/I, I = V/R."
     },
@@ -90,11 +102,21 @@
     {
       "id": "y10phys-q8",
       "number": "8",
-      "text": "A cyclist is riding along a flat road at a constant speed of 8 m/s. They then accelerate uniformly for 5 seconds until they reach a speed of 13 m/s.\n\n(a) Calculate the cyclist's acceleration.\n(b) The total mass of the cyclist and bike is 80 kg. Calculate the net force required to produce this acceleration.",
+      "text": "A cyclist is riding along a flat road at a constant speed of 8 m/s. They then accelerate uniformly for 5 seconds until they reach a speed of 13 m/s.\n\nThe velocity-time graph for this journey is shown below.\n\n(a) Calculate the cyclist's acceleration.\n(b) The total mass of the cyclist and bike is 80 kg. Calculate the net force required to produce this acceleration.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": ["forces-motion-y10"],
       "answerType": "working",
+      "graph": {
+        "type": "line",
+        "title": "Velocity–Time Graph for Cyclist",
+        "xLabel": "Time (s)",
+        "yLabel": "Velocity (m/s)",
+        "xValues": [0, 3, 3, 8],
+        "series": [
+          { "name": "Velocity", "values": [8, 8, 8, 13] }
+        ]
+      },
       "expectedAnswer": "1",
       "markingGuide": "1 mark (a): Acceleration = change in speed ÷ time = (13 - 8) ÷ 5 = 5 ÷ 5 = 1 m/s². Must show working or clearly state the formula. 1 mark (b): Using Newton's Second Law, F = m × a = 80 × 1 = 80 N. Must show working. 1 mark: Correct units throughout (m/s² for acceleration, N for force) and clear logical presentation of working. Exam tip: Always write the formula first, then substitute the values, then calculate. This way you get marks for method even if your arithmetic is wrong."
     },

@@ -20,7 +20,56 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Forecast rate ~21.4 litres/year. Recent growth was ~6 litres/year (2018-2023), so forecast seems high...",
-      "markingGuide": "Valid evaluation should include: Forecast growth = (900 - 750) ÷ 7 = 21.4 litres/year. Compare with historical: 2014-2023 grew by 70 litres over 9 years ≈ 7.8 litres/year. The forecast rate is nearly 3× the historical rate — may be too optimistic. However, EV adoption and heat pump uptake could accelerate growth. COVID may have temporarily boosted home use. Achieved = describes trend. Merit = justifies with numerical evidence."
+      "markingGuide": "Valid evaluation should include: Forecast growth = (900 - 750) ÷ 7 = 21.4 litres/year. Compare with historical: 2014-2023 grew by 70 litres over 9 years ≈ 7.8 litres/year. The forecast rate is nearly 3× the historical rate — may be too optimistic. However, EV adoption and heat pump uptake could accelerate growth. COVID may have temporarily boosted home use. Achieved = describes trend. Merit = justifies with numerical evidence.",
+      "graph": {
+        "type": "line",
+        "title": "NZ Average Monthly Household Water Usage",
+        "xLabel": "Year",
+        "yLabel": "Litres per Month",
+        "xValues": [
+          2014,
+          2016,
+          2018,
+          2020,
+          2022,
+          2023,
+          2026,
+          2028,
+          2030
+        ],
+        "series": [
+          {
+            "name": "Actual",
+            "values": [
+              680,
+              695,
+              720,
+              730,
+              742,
+              750,
+              null,
+              null,
+              null
+            ],
+            "color": "#3b82f6"
+          },
+          {
+            "name": "Forecast",
+            "values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              750,
+              800,
+              850,
+              900
+            ],
+            "color": "#ef4444"
+          }
+        ]
+      }
     },
     {
       "id": "l1s24-q1b",
@@ -34,7 +83,45 @@
       ],
       "answerType": "working",
       "expectedAnswer": "AquaSave: cheaper unlimited, carry-over, can share. PureFlow: more litres per tier, annual check.",
-      "markingGuide": "AquaSave advantages: Cheaper entry and unlimited plans. Unused power carries over. Can share within household. Disadvantages: Lower litres allowances per tier. No extras. PureFlow advantages: Higher litres in mid-tier (500 vs 400). Free annual hot water check. Disadvantages: More expensive. No carry-over or sharing. Achieved = one advantage from each. Merit = two advantages each. Excellence = comprehensive comparison."
+      "markingGuide": "AquaSave advantages: Cheaper entry and unlimited plans. Unused power carries over. Can share within household. Disadvantages: Lower litres allowances per tier. No extras. PureFlow advantages: Higher litres in mid-tier (500 vs 400). Free annual hot water check. Disadvantages: More expensive. No carry-over or sharing. Achieved = one advantage from each. Merit = two advantages each. Excellence = comprehensive comparison.",
+      "graph": {
+        "type": "table",
+        "title": "Water Provider Plans Comparison",
+        "data": {
+          "headers": [
+            "Plan",
+            "AquaSave",
+            "PureFlow"
+          ],
+          "rows": [
+            [
+              "Basic",
+              "$95/mo (15,000 L)",
+              "$110/mo (18,000 L)"
+            ],
+            [
+              "Standard",
+              "$130/mo (25,000 L)",
+              "$145/mo (30,000 L)"
+            ],
+            [
+              "Unlimited",
+              "$175/mo",
+              "$190/mo + free check"
+            ],
+            [
+              "Carry-over",
+              "Yes",
+              "No"
+            ],
+            [
+              "Share",
+              "Yes",
+              "No"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l1s24-q1c",
@@ -62,7 +149,115 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Moderate negative trend — higher rent doesn't guarantee short commute due to wide spread",
-      "markingGuide": "The scatter plot shows a moderate negative trend — suburbs with higher rents tend to have shorter commutes. This partially supports the claim. However, there is wide vertical spread at each rent level. Other factors (transport options, work location) also matter. Correlation doesn't prove causation. Achieved = uses negative trend. Merit = describes strength and discusses limitations."
+      "markingGuide": "The scatter plot shows a moderate negative trend — suburbs with higher rents tend to have shorter commutes. This partially supports the claim. However, there is wide vertical spread at each rent level. Other factors (transport options, work location) also matter. Correlation doesn't prove causation. Achieved = uses negative trend. Merit = describes strength and discusses limitations.",
+      "graph": {
+        "type": "scatter",
+        "title": "Weekly Grocery Cost vs Exercise Hours by Suburb",
+        "xLabel": "Weekly Grocery Cost ($)",
+        "yLabel": "Weekly Exercise (minutes)",
+        "data": [
+          [
+            150,
+            280
+          ],
+          [
+            165,
+            240
+          ],
+          [
+            180,
+            220
+          ],
+          [
+            190,
+            195
+          ],
+          [
+            200,
+            210
+          ],
+          [
+            210,
+            180
+          ],
+          [
+            220,
+            160
+          ],
+          [
+            230,
+            190
+          ],
+          [
+            240,
+            145
+          ],
+          [
+            250,
+            130
+          ],
+          [
+            260,
+            170
+          ],
+          [
+            270,
+            120
+          ],
+          [
+            280,
+            155
+          ],
+          [
+            285,
+            100
+          ],
+          [
+            295,
+            140
+          ],
+          [
+            175,
+            260
+          ],
+          [
+            195,
+            230
+          ],
+          [
+            215,
+            200
+          ],
+          [
+            235,
+            175
+          ],
+          [
+            255,
+            150
+          ],
+          [
+            265,
+            140
+          ],
+          [
+            275,
+            160
+          ],
+          [
+            290,
+            110
+          ],
+          [
+            160,
+            250
+          ],
+          [
+            205,
+            185
+          ]
+        ]
+      }
     },
     {
       "id": "l1s24-q2b",
@@ -76,7 +271,55 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Large range ($330), mean ($210) pulled up by Auckland, right-skewed distribution",
-      "markingGuide": "Features: Range is large (650 - 320 = $330/week). Auckland ($650) is an outlier — pulls the mean up. Distribution is right-skewed (most regions below the average). The top 3 regions (Auckland, Wellington, Queenstown) are spread apart. Achieved = one feature. Merit = two features with evidence."
+      "markingGuide": "Features: Range is large (650 - 320 = $330/week). Auckland ($650) is an outlier — pulls the mean up. Distribution is right-skewed (most regions below the average). The top 3 regions (Auckland, Wellington, Queenstown) are spread apart. Achieved = one feature. Merit = two features with evidence.",
+      "graph": {
+        "type": "bar",
+        "title": "Average Weekly Grocery Spending by Region",
+        "xLabel": "Region",
+        "yLabel": "Weekly Spend ($)",
+        "data": [
+          {
+            "label": "Auckland",
+            "value": 280
+          },
+          {
+            "label": "Wellington",
+            "value": 250
+          },
+          {
+            "label": "Queenstown",
+            "value": 235
+          },
+          {
+            "label": "Canterbury",
+            "value": 210
+          },
+          {
+            "label": "Bay of Plenty",
+            "value": 195
+          },
+          {
+            "label": "Waikato",
+            "value": 185
+          },
+          {
+            "label": "Otago",
+            "value": 175
+          },
+          {
+            "label": "Hawke's Bay",
+            "value": 165
+          },
+          {
+            "label": "Manawatu",
+            "value": 160
+          },
+          {
+            "label": "Gisborne",
+            "value": 145
+          }
+        ]
+      }
     },
     {
       "id": "l1s24-q2c",

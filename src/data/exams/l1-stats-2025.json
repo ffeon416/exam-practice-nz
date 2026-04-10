@@ -19,7 +19,34 @@
       ],
       "answerType": "working",
       "expectedAnswer": "5.26%",
-      "markingGuide": "From the data, 5 out of 95 Brand B running shoes cost more than $400. 5 ÷ 95 = 0.0526 = 5.26%. Award Achieved for correct percentage with working shown."
+      "markingGuide": "From the data, 5 out of 95 Brand B running shoes cost more than $400. 5 ÷ 95 = 0.0526 = 5.26%. Award Achieved for correct percentage with working shown.",
+      "graph": {
+        "type": "box-plot",
+        "title": "Running Shoe Prices — Brand A vs Brand B",
+        "xLabel": "Price ($)",
+        "data": [
+          {
+            "label": "Brand A",
+            "value": [
+              30,
+              60,
+              90,
+              130,
+              450
+            ]
+          },
+          {
+            "label": "Brand B",
+            "value": [
+              70,
+              140,
+              185,
+              240,
+              600
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "l1s25-q1b",
@@ -60,7 +87,49 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Increasing trend ($500M to $750M), seasonal peaks in Q4 (Christmas)",
-      "markingGuide": "Trend: Long-term upward from ~$500M (2012) to ~$750M (2024). Repeating: Q4 peaks (Christmas). Unusual: COVID dip in 2020, supply chain spike in 2021. Achieved = one feature. Merit = two features with evidence."
+      "markingGuide": "Trend: Long-term upward from ~$500M (2012) to ~$750M (2024). Repeating: Q4 peaks (Christmas). Unusual: COVID dip in 2020, supply chain spike in 2021. Achieved = one feature. Merit = two features with evidence.",
+      "graph": {
+        "type": "line",
+        "title": "NZ Quarterly Sportswear Spending (2012–2024)",
+        "xLabel": "Year",
+        "yLabel": "Spending ($M)",
+        "xValues": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "series": [
+          {
+            "name": "Spending",
+            "values": [
+              500,
+              520,
+              540,
+              560,
+              580,
+              600,
+              620,
+              650,
+              580,
+              700,
+              720,
+              740,
+              750
+            ],
+            "color": "#3b82f6"
+          }
+        ]
+      }
     },
     {
       "id": "l1s25-q1e",
@@ -88,7 +157,115 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Positive trend — bigger pair of shoess cost more. Two clusters: budget (32-43\") and premium (50-75\")",
-      "markingGuide": "Features: Positive relationship (larger = more expensive). Two apparent clusters (budget vs premium). Wide price variation at each size. Award Achieved for two features."
+      "markingGuide": "Features: Positive relationship (larger = more expensive). Two apparent clusters (budget vs premium). Wide price variation at each size. Award Achieved for two features.",
+      "graph": {
+        "type": "scatter",
+        "title": "Running Shoe Price vs Cushioning Level",
+        "xLabel": "Cushioning Level (1-10)",
+        "yLabel": "Price ($)",
+        "data": [
+          [
+            3,
+            180
+          ],
+          [
+            3,
+            210
+          ],
+          [
+            4,
+            250
+          ],
+          [
+            4,
+            280
+          ],
+          [
+            4,
+            320
+          ],
+          [
+            5,
+            350
+          ],
+          [
+            5,
+            380
+          ],
+          [
+            5,
+            410
+          ],
+          [
+            5,
+            290
+          ],
+          [
+            7,
+            800
+          ],
+          [
+            7,
+            950
+          ],
+          [
+            8,
+            1100
+          ],
+          [
+            8,
+            1250
+          ],
+          [
+            8,
+            900
+          ],
+          [
+            9,
+            1300
+          ],
+          [
+            9,
+            1500
+          ],
+          [
+            9,
+            1100
+          ],
+          [
+            10,
+            1600
+          ],
+          [
+            10,
+            1800
+          ],
+          [
+            10,
+            1400
+          ],
+          [
+            3,
+            150
+          ],
+          [
+            4,
+            300
+          ],
+          [
+            7,
+            850
+          ],
+          [
+            8,
+            1050
+          ],
+          [
+            9,
+            1350
+          ]
+        ]
+      }
     },
     {
       "id": "l1s25-q2b",
@@ -157,7 +334,43 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Running 24%, but Gym (21%) and Swimming (18%) close — not highly confident",
-      "markingGuide": "Running is most preferred at 24%. However, Gym (21%) is very close. Range across top three is only 6 percentage points. Large sample (2400) helps but small differences mean a different sample could change rankings. Achieved = identifies Running. Merit = discusses confidence."
+      "markingGuide": "Running is most preferred at 24%. However, Gym (21%) is very close. Range across top three is only 6 percentage points. Large sample (2400) helps but small differences mean a different sample could change rankings. Achieved = identifies Running. Merit = discusses confidence.",
+      "graph": {
+        "type": "pie",
+        "title": "Preferred Exercise Type",
+        "data": [
+          {
+            "label": "Running",
+            "value": 24,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Gym",
+            "value": 21,
+            "color": "#ef4444"
+          },
+          {
+            "label": "Swimming",
+            "value": 18,
+            "color": "#22c55e"
+          },
+          {
+            "label": "Team sports",
+            "value": 16,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Walking",
+            "value": 12,
+            "color": "#8b5cf6"
+          },
+          {
+            "label": "Other",
+            "value": 9,
+            "color": "#6b7280"
+          }
+        ]
+      }
     },
     {
       "id": "l1s25-q3c",
@@ -171,7 +384,39 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Younger prefer running, older prefer lower-impact. Mia likely running or gym.",
-      "markingGuide": "Differences: Younger people prefer running, older prefer lower-impact activities (swimming, walking). In the 25-35 bracket, running and gym are tied. For Mia (34): in the 25-35 bracket, either running or gym. Achieved = one comparison. Merit = two comparisons AND recommendation."
+      "markingGuide": "Differences: Younger people prefer running, older prefer lower-impact activities (swimming, walking). In the 25-35 bracket, running and gym are tied. For Mia (34): in the 25-35 bracket, either running or gym. Achieved = one comparison. Merit = two comparisons AND recommendation.",
+      "graph": {
+        "type": "table",
+        "title": "Most Popular Exercise by Age Group",
+        "data": {
+          "headers": [
+            "Age Group",
+            "Most Popular"
+          ],
+          "rows": [
+            [
+              "Under 25",
+              "Running"
+            ],
+            [
+              "25–35",
+              "Running & Gym (tied)"
+            ],
+            [
+              "36–45",
+              "Gym"
+            ],
+            [
+              "46–55",
+              "Swimming"
+            ],
+            [
+              "56+",
+              "Walking"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l1s25-q3d",

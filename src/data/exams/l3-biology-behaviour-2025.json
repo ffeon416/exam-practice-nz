@@ -26,7 +26,7 @@
     {
       "id": "l3bb25-q2",
       "number": "Question 2",
-      "text": "QUESTION TWO: Weka navigation\n\nThe weka (Gallirallus australis) is a ground-dwelling rail found across much of New Zealand. Weka are known for their seasonal movements between food sources — they travel considerable distances to reach food sources such as invertebrates and fallen fruit. They use the landmarks and magnetic fields reference and combine this with knowledge of the landscape to navigate.\n\nWeka have been observed to maintain consistent daily activity patterns even when housed in windowless aviaries with constant artificial lighting.\n\nResearchers investigated weka navigation by fitting groups of weka with either clear lenses (control), frosted lenses (blocking detailed vision), or small magnets (disrupting magnetic field perception). The birds were released 60 km from their home forest. Clear-lens weka returned fastest. Frosted-lens weka took longer but most still arrived. Magnet-fitted weka were significantly slower and some failed to return, particularly on overcast days.\n\nDiscuss the behaviour of weka during navigation on clear days and overcast days, using the information above.\n\nIn your answer, include discussion of:\n- a description of diurnal circadian rhythm, linked to the weka's ability to use the Sun as a compass\n- the environmental cues weka use to navigate home on clear days and overcast days\n- the navigation performance of the different experimental groups compared to the control\n- why some weka can still navigate during overcast conditions when the Sun is not visible.",
+      "text": "QUESTION TWO: Weka navigation\n\nThe weka (Gallirallus australis) is a ground-dwelling rail found across much of New Zealand. Weka are known for their seasonal movements between food sources — they travel considerable distances to reach food sources such as invertebrates and fallen fruit. They use the landmarks and magnetic fields reference and combine this with knowledge of the landscape to navigate.\n\nWeka have been observed to maintain consistent daily activity patterns even when housed in windowless aviaries with constant artificial lighting.\n\nResearchers investigated weka navigation by fitting groups of weka with either clear lenses (control), frosted lenses (blocking detailed vision), or small magnets (disrupting magnetic field perception). The birds were released 60 km from their home forest. The results are summarised in the graph below.\n\nDiscuss the behaviour of weka during navigation on clear days and overcast days, using the information above.\n\nIn your answer, include discussion of:\n- a description of diurnal circadian rhythm, linked to the weka's ability to use the Sun as a compass\n- the environmental cues weka use to navigate home on clear days and overcast days\n- the navigation performance of the different experimental groups compared to the control\n- why some weka can still navigate during overcast conditions when the Sun is not visible.",
       "marks": 8,
       "gradeLevel": "multi",
       "topics": [
@@ -36,6 +36,20 @@
         "biological-clocks"
       ],
       "answerType": "text",
+      "graph": {
+        "type": "bar",
+        "title": "Weka Navigation — Percentage Returned Within 14 Days",
+        "xLabel": "Experimental Group",
+        "yLabel": "% Returned",
+        "data": [
+          { "label": "Control (clear day)", "value": 95 },
+          { "label": "Control (overcast)", "value": 85 },
+          { "label": "Frosted lens (clear)", "value": 75 },
+          { "label": "Frosted lens (overcast)", "value": 60 },
+          { "label": "Magnet (clear day)", "value": 55 },
+          { "label": "Magnet (overcast)", "value": 25 }
+        ]
+      },
       "expectedAnswer": "Describe diurnal organism, circadian rhythm with internal biological clock, Sun compass navigation, landmarks, magnetic field detection. Weka use multiple redundant cues for homing.",
       "markingGuide": "Achievement: Describe diurnal organism/behaviour; circadian rhythm (includes internal biological clock); landmarks used by weka for homing; sun compass used for homing; Earth's magnetic field used for homing; olfactory/scent cues used for homing; navigation on clear days; navigation on overcast days. Merit: Explain why weka's circadian rhythm is closely linked to its sun compass; environmental cues for homing on clear days; environmental cues for homing on overcast days; navigation of control group; navigation of frosted-lens group; navigation of magnet-fitted group; why weka navigate during overcast conditions. Excellence: Provides detailed discussion of circadian rhythm and how weka use environmental cues on clear and overcast days to navigate home; weka navigation across the different experimental groups and why some weka still navigate on overcast days. The circadian rhythm is closely linked to sun compass; Sun's position changes throughout the day and weka constantly adjust navigation using their internal clock. On overcast days they use magnetic field detection, landmarks, and olfactory cues. Frosted-lens weka could still detect light direction and use magnetic fields. Magnet-fitted weka lost magnetic cues and on overcast days also lost sun compass, explaining their poor performance. Weka use redundant navigation systems so losing one cue does not necessarily prevent homing. N1=ONE at A, N2=TWO at A, A3=THREE at A, A4=FOUR at A, M5=TWO at M, M6=THREE at M, E7=ONE at E, E8=TWO at E."
     },

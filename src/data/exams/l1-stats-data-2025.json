@@ -14,7 +14,9 @@
       "text": "What is the median of the following data set?\n\n3, 5, 7, 8, 12",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["measures-centre"],
+      "topics": [
+        "measures-centre"
+      ],
       "answerType": "multi-choice",
       "options": [
         "5",
@@ -31,7 +33,9 @@
       "text": "Which type of graph is best for showing the distribution of continuous numerical data?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["data-display"],
+      "topics": [
+        "data-display"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Bar graph",
@@ -48,7 +52,9 @@
       "text": "Calculate the mean of the following data set:\n\n14, 18, 22, 16, 25",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["measures-centre"],
+      "topics": [
+        "measures-centre"
+      ],
       "answerType": "number",
       "expectedAnswer": "19",
       "markingGuide": "1 mark for showing correct working: Mean = (14 + 18 + 22 + 16 + 25) ÷ 5 = 95 ÷ 5. 1 mark for the correct answer: 19. The mean is calculated by adding all values together and dividing by the number of values. Exam tip: Always show your working — if you make a calculation error but your method is correct, you can still earn a mark for working."
@@ -59,7 +65,9 @@
       "text": "What information does a box-and-whisker plot (box plot) display?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["data-display"],
+      "topics": [
+        "data-display"
+      ],
       "answerType": "multi-choice",
       "options": [
         "The frequency of each category in the data",
@@ -76,7 +84,9 @@
       "text": "Explain the difference between a sample and a population. Why do statisticians use samples?",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["sampling-stats"],
+      "topics": [
+        "sampling-stats"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for explaining the difference: A population is the entire group that you are interested in studying (e.g. all Year 11 students in New Zealand). A sample is a smaller subset of the population that is selected for study (e.g. 200 Year 11 students from schools across NZ). 1 mark for explaining why samples are used: It is often impractical, too expensive, or too time-consuming to collect data from every member of a population. A well-chosen sample can provide reliable estimates about the population. For example, surveying all 60,000+ Year 11 students in NZ would be logistically impossible, but a representative sample of a few hundred can give useful information. Exam tip: A good sample should be representative of the population — this means it should reflect the diversity of the population (e.g. different regions, genders, ethnicities). Random sampling helps achieve this."
     },
@@ -86,7 +96,9 @@
       "text": "A fair coin is flipped once. What is the probability of getting heads?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["probability-l1"],
+      "topics": [
+        "probability-l1"
+      ],
       "answerType": "multi-choice",
       "options": [
         "1/4",
@@ -103,10 +115,33 @@
       "text": "A bag contains 3 red marbles, 5 blue marbles, and 2 green marbles. If one marble is picked at random, what is the probability of picking a blue marble? Express your answer as a fraction in its simplest form.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["probability-l1"],
+      "topics": [
+        "probability-l1"
+      ],
       "answerType": "number",
       "expectedAnswer": "1/2",
-      "markingGuide": "1 mark for correct working: Total marbles = 3 + 5 + 2 = 10. Number of blue marbles = 5. Probability = 5/10. 1 mark for simplifying to the correct answer: 5/10 = 1/2. The probability of picking a blue marble is 1/2. Exam tip: Always simplify fractions in your final answer unless told otherwise. You can also express probabilities as decimals (0.5) or percentages (50%), but fractions are standard for probability questions."
+      "markingGuide": "1 mark for correct working: Total marbles = 3 + 5 + 2 = 10. Number of blue marbles = 5. Probability = 5/10. 1 mark for simplifying to the correct answer: 5/10 = 1/2. The probability of picking a blue marble is 1/2. Exam tip: Always simplify fractions in your final answer unless told otherwise. You can also express probabilities as decimals (0.5) or percentages (50%), but fractions are standard for probability questions.",
+      "graph": {
+        "type": "pie",
+        "title": "Marbles in the Bag",
+        "data": [
+          {
+            "label": "Red",
+            "value": 3,
+            "color": "#ef4444"
+          },
+          {
+            "label": "Blue",
+            "value": 5,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Green",
+            "value": 2,
+            "color": "#22c55e"
+          }
+        ]
+      }
     },
     {
       "id": "l1sd-q8",
@@ -114,7 +149,10 @@
       "text": "A survey found that 68% of New Zealand teenagers use social media daily. Explain ONE reason why this statistic might not accurately represent ALL New Zealand teenagers.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["sampling-stats", "statistical-literacy"],
+      "topics": [
+        "sampling-stats",
+        "statistical-literacy"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for identifying a valid reason. 1 mark for explaining it clearly with supporting detail. Possible reasons include:\n\n- Sampling bias: The survey may have been conducted online, which would over-represent teenagers who already use the internet and social media, leading to a higher percentage than the true figure.\n\n- Non-representative sample: The survey might have only sampled teenagers from urban areas (e.g. Auckland, Wellington) and missed those in rural or remote communities who may have less internet access.\n\n- Sample size: If the sample was too small, the results may not be reliable — a survey of 50 students at one school cannot represent all NZ teenagers.\n\n- Self-selection bias: If teenagers chose to participate (voluntary response), those with strong opinions about social media may have been more likely to respond.\n\n- Question wording: The definition of 'use' might be unclear — does checking notifications count, or does it mean active posting? Different interpretations would affect results.\n\n- Age range: The term 'teenagers' covers 13–19, and social media habits vary significantly across this range.\n\nExam tip: When evaluating statistics, always consider who was surveyed, how they were selected, sample size, and how the question was worded."
     },
@@ -124,7 +162,9 @@
       "text": "What type of data is 'favourite colour'?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["data-types"],
+      "topics": [
+        "data-types"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Numerical discrete",
@@ -141,15 +181,75 @@
       "text": "A student surveyed 30 classmates about their daily screen time (in hours). The results were displayed in a dot plot showing most values clustered between 2 and 5 hours, with a few values at 8, 9, and 10 hours.\n\n(a) Describe the distribution of this data, referring to shape, centre, spread, and any unusual features.\n(b) What conclusions could the student make about screen time?\n(c) What are the limitations of this survey?",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["data-display", "sampling-stats", "statistical-literacy"],
+      "topics": [
+        "data-display",
+        "sampling-stats",
+        "statistical-literacy"
+      ],
       "answerType": "working",
-      "markingGuide": "1 mark for describing the distribution:\n- Shape: The distribution is right-skewed (positively skewed) because most values are clustered at the lower end (2–5 hours) with a tail extending to the right (8–10 hours).\n- Centre: The centre (median) would be approximately 3–4 hours.\n- Spread: The range is approximately 8 hours (from about 2 to 10). The majority of values are within a 3-hour spread (2–5).\n- Unusual features: The values at 8–10 hours could be considered outliers as they are separated from the main cluster of data.\n\n1 mark for reasonable conclusions:\n- Most students in the class spend between 2 and 5 hours per day on screens.\n- A typical (median) daily screen time is around 3–4 hours.\n- A small number of students have much higher screen time (8–10 hours), which may indicate heavy gaming or streaming habits.\n- The data suggests that excessive screen time (8+ hours) is not common in this class but does occur.\n\n1 mark for identifying limitations:\n- The sample of 30 classmates from one class is small and may not represent all NZ teenagers.\n- Students may under-report or over-report their screen time (social desirability bias or inaccurate recall).\n- The survey only covers one class in one school — different schools, regions, or socioeconomic groups may have different patterns.\n- 'Screen time' is not clearly defined — does it include school-related use, or only leisure?\n- The data is from one day and may not represent typical daily habits.\n\n1 mark for overall quality — uses correct statistical vocabulary (skewed, outlier, median, range, distribution), links evidence to conclusions, and demonstrates understanding of statistical concepts.\n\nExam tip: When describing distributions, always address shape, centre, spread, and unusual features (SOCS). Use the data to support your statements."
+      "markingGuide": "1 mark for describing the distribution:\n- Shape: The distribution is right-skewed (positively skewed) because most values are clustered at the lower end (2–5 hours) with a tail extending to the right (8–10 hours).\n- Centre: The centre (median) would be approximately 3–4 hours.\n- Spread: The range is approximately 8 hours (from about 2 to 10). The majority of values are within a 3-hour spread (2–5).\n- Unusual features: The values at 8–10 hours could be considered outliers as they are separated from the main cluster of data.\n\n1 mark for reasonable conclusions:\n- Most students in the class spend between 2 and 5 hours per day on screens.\n- A typical (median) daily screen time is around 3–4 hours.\n- A small number of students have much higher screen time (8–10 hours), which may indicate heavy gaming or streaming habits.\n- The data suggests that excessive screen time (8+ hours) is not common in this class but does occur.\n\n1 mark for identifying limitations:\n- The sample of 30 classmates from one class is small and may not represent all NZ teenagers.\n- Students may under-report or over-report their screen time (social desirability bias or inaccurate recall).\n- The survey only covers one class in one school — different schools, regions, or socioeconomic groups may have different patterns.\n- 'Screen time' is not clearly defined — does it include school-related use, or only leisure?\n- The data is from one day and may not represent typical daily habits.\n\n1 mark for overall quality — uses correct statistical vocabulary (skewed, outlier, median, range, distribution), links evidence to conclusions, and demonstrates understanding of statistical concepts.\n\nExam tip: When describing distributions, always address shape, centre, spread, and unusual features (SOCS). Use the data to support your statements.",
+      "graph": {
+        "type": "histogram",
+        "title": "Daily Screen Time of 30 Students",
+        "xLabel": "Screen Time (hours)",
+        "yLabel": "Number of Students",
+        "data": [
+          {
+            "label": "1–2",
+            "value": 3
+          },
+          {
+            "label": "2–3",
+            "value": 7
+          },
+          {
+            "label": "3–4",
+            "value": 8
+          },
+          {
+            "label": "4–5",
+            "value": 6
+          },
+          {
+            "label": "5–6",
+            "value": 3
+          },
+          {
+            "label": "6–7",
+            "value": 0
+          },
+          {
+            "label": "7–8",
+            "value": 1
+          },
+          {
+            "label": "8–9",
+            "value": 1
+          },
+          {
+            "label": "9–10",
+            "value": 1
+          }
+        ]
+      }
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 13 },
-    "merit": { "min": 14, "max": 18 },
-    "excellence": { "min": 19, "max": 22 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 22
+    }
   }
 }

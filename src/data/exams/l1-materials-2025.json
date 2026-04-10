@@ -100,11 +100,22 @@
     {
       "id": "l1m25-q2c",
       "number": "2(c)",
-      "text": "Table 1 shows the density and tensile strength of materials used for bicycle frames.\n\n| Material | Density (g/cm³) | Tensile strength |\n|---|---|---|\n| Pure iron | 7.87 | Low |\n| Steel (iron-carbon alloy) | 7.75 | High |\n| Titanium alloy | 4.50 | Very high |\n\nA bicycle frame needs to be: strong enough to support the rider's weight; light enough for the rider to pedal efficiently; durable enough to last many years.\n\nUsing the information in Table 1 and your knowledge of structure and bonding of materials, discuss why a titanium alloy would be preferred over both pure iron and steel as the material used for bicycle frames.",
+      "text": "The graph below compares the density of materials used for bicycle frames.\n\nA bicycle frame needs to be: strong enough to support the rider's weight; light enough for the rider to pedal efficiently; durable enough to last many years.\n\nUsing the information in the graph and Table 1, and your knowledge of structure and bonding of materials, discuss why a titanium alloy would be preferred over both pure iron and steel as the material used for bicycle frames.\n\nTable 1:\n| Material | Density (g/cm³) | Tensile strength |\n|---|---|---|\n| Pure iron | 7.87 | Low |\n| Steel (iron-carbon alloy) | 7.75 | High |\n| Titanium alloy | 4.50 | Very high |",
       "marks": 2,
       "gradeLevel": "excellence",
       "topics": ["materials", "physical-properties", "bonding"],
       "answerType": "working",
+      "graph": {
+        "type": "bar",
+        "title": "Density of Bicycle Frame Materials",
+        "xLabel": "Material",
+        "yLabel": "Density (g/cm³)",
+        "data": [
+          { "label": "Pure iron", "value": 7.87 },
+          { "label": "Steel", "value": 7.75 },
+          { "label": "Titanium alloy", "value": 4.50 }
+        ]
+      },
       "expectedAnswer": "The titanium alloy has very high tensile strength (strongest) and the lowest density (4.50 g/cm³)...",
       "markingGuide": "Achievement: Explains density OR tensile strength of one material in terms of structure. Merit: Identifies that the titanium alloy has the highest strength-to-weight ratio. Excellence: Justifies behaviour of the titanium alloy when used as a bicycle frame in comparison to pure iron and steel."
     },

@@ -8,10 +8,174 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    { "id": "l3ac25-q1a", "number": "1(a)", "text": "Waka Wonders is a Rotorua-based manufacturer of handcrafted wooden toys. Each toy sells for $45. Variable costs per toy: native timber $12, paint and finish $4, labour $9. Total fixed costs: $84,000 per year.\n\nCalculate the contribution margin per toy and the break-even point in units. Show all working.", "marks": 4, "gradeLevel": "achieved", "topics": ["break-even analysis", "contribution margin", "fixed costs"], "answerType": "working", "expectedAnswer": "Contribution per toy = $45 - ($12 + $4 + $9) = $45 - $25 = $20. Break-even units = $84,000 / $20 = 4,200 toys.", "markingGuide": "Correct calculation identifying relevant cost components." },
-    { "id": "l3ac25-q1b", "number": "1(b)", "text": "Waka Wonders has a target profit of $60,000 for the year.\n\n(i) Calculate the number of toys that must be sold to achieve this target profit.\n(ii) If maximum production capacity is 6,000 toys per year, calculate the margin of safety at this capacity.\n(iii) What is the minimum selling price per toy (to the nearest dollar) needed to achieve the target profit at a sales volume of 5,500 toys?", "marks": 6, "gradeLevel": "merit", "topics": ["CVP analysis", "profit calculation", "target profit"], "answerType": "working", "expectedAnswer": "(i) Required units = ($84,000 + $60,000) / $20 = $144,000 / $20 = 7,200 toys. Problem: this exceeds capacity. (ii) At 6,000 toys: profit = (6,000 × $20) - $84,000 = $120,000 - $84,000 = $36,000. Break-even = 4,200. Margin of safety = 6,000 - 4,200 = 1,800 toys = 30%. (iii) At 5,500 toys: need (P - $25) × 5,500 = $84,000 + $60,000 = $144,000. P - $25 = $26.18. P = $52 (rounded up).", "markingGuide": "Show calculations with proper cost and revenue analysis, noting capacity constraint." },
-    { "id": "l3ac25-q2a", "number": "2(a)", "text": "Waka Wonders is considering whether to: (A) Keep all production in-house and invest $25,000 in new CNC carving equipment (increasing fixed costs but reducing variable timber cost to $8 per toy), or (B) Outsource the carving to a local workshop at $15 per toy (replacing timber and labour variable costs of $21, but adding a $15 outsourcing cost per toy plus $12,000 in quality inspection fixed costs).\n\nFor each option, calculate the new break-even point and the profit at a sales volume of 5,500 toys.", "marks": 7, "gradeLevel": "merit", "topics": ["margin of safety", "risk analysis", "production planning"], "answerType": "working", "expectedAnswer": "Option A: Variable cost = $8 + $4 + $9 = $21. Contribution = $24. Fixed costs = $84,000 + $25,000 = $109,000. BEP = 4,542 toys. Profit at 5,500 = (5,500 × $24) - $109,000 = $23,000. Option B: Variable cost = $15 + $4 = $19. Contribution = $26. Fixed costs = $84,000 + $12,000 = $96,000. BEP = 3,693 toys. Profit at 5,500 = (5,500 × $26) - $96,000 = $47,000.", "markingGuide": "Calculate and interpret margin of safety for both options in business context." },
-    { "id": "l3ac25-q2b", "number": "2(b)", "text": "Based on your CVP analysis, recommend which option Waka Wonders should choose. In your answer, consider: the profit impact, the risk profile (margin of safety), quality control implications, and the strategic importance of keeping the handcrafted identity. Justify your recommendation with quantitative evidence.", "marks": 7, "gradeLevel": "excellence", "topics": ["CVP analysis", "cost control", "strategic planning"], "answerType": "text", "expectedAnswer": "Option B generates significantly more profit ($47,000 vs $23,000) and has a larger margin of safety (1,807 toys vs 958 toys). However, outsourcing means losing direct control over the handcrafted quality that defines the brand. Risks: dependency on one workshop, potential inconsistency, loss of the 'handmade in Rotorua' story. Recommendation: Option A is strategically better despite lower profit, because the handcrafted identity is central to the premium price. The CNC equipment still allows 'handcrafted' claims while improving consistency. The $24,000 profit difference may be offset by the brand premium that justifies the $45 price point.", "markingGuide": "Justify recommendations with quantitative CVP analysis and qualitative strategic considerations." }
+    {
+      "id": "l3ac25-q1a",
+      "number": "1(a)",
+      "text": "Waka Wonders is a Rotorua-based manufacturer of handcrafted wooden toys. Each toy sells for $45. Variable costs per toy: native timber $12, paint and finish $4, labour $9. Total fixed costs: $84,000 per year.\n\nCalculate the contribution margin per toy and the break-even point in units. Show all working.",
+      "marks": 4,
+      "gradeLevel": "achieved",
+      "topics": [
+        "break-even analysis",
+        "contribution margin",
+        "fixed costs"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Contribution per toy = $45 - ($12 + $4 + $9) = $45 - $25 = $20. Break-even units = $84,000 / $20 = 4,200 toys.",
+      "markingGuide": "Correct calculation identifying relevant cost components.",
+      "graph": {
+        "type": "table",
+        "title": "Waka Wonders — Cost Structure per Toy",
+        "data": {
+          "headers": [
+            "Item",
+            "Amount ($)",
+            "Type"
+          ],
+          "rows": [
+            [
+              "Selling price",
+              "45.00",
+              "Revenue"
+            ],
+            [
+              "Native timber",
+              "12.00",
+              "Variable"
+            ],
+            [
+              "Paint & finish",
+              "4.00",
+              "Variable"
+            ],
+            [
+              "Labour",
+              "9.00",
+              "Variable"
+            ],
+            [
+              "Total variable cost",
+              "25.00",
+              "Variable"
+            ],
+            [
+              "Contribution margin",
+              "20.00",
+              "Margin"
+            ],
+            [
+              "Annual fixed costs",
+              "84,000",
+              "Fixed"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l3ac25-q1b",
+      "number": "1(b)",
+      "text": "Waka Wonders has a target profit of $60,000 for the year.\n\n(i) Calculate the number of toys that must be sold to achieve this target profit.\n(ii) If maximum production capacity is 6,000 toys per year, calculate the margin of safety at this capacity.\n(iii) What is the minimum selling price per toy (to the nearest dollar) needed to achieve the target profit at a sales volume of 5,500 toys?",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "CVP analysis",
+        "profit calculation",
+        "target profit"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(i) Required units = ($84,000 + $60,000) / $20 = $144,000 / $20 = 7,200 toys. Problem: this exceeds capacity. (ii) At 6,000 toys: profit = (6,000 × $20) - $84,000 = $120,000 - $84,000 = $36,000. Break-even = 4,200. Margin of safety = 6,000 - 4,200 = 1,800 toys = 30%. (iii) At 5,500 toys: need (P - $25) × 5,500 = $84,000 + $60,000 = $144,000. P - $25 = $26.18. P = $52 (rounded up).",
+      "markingGuide": "Show calculations with proper cost and revenue analysis, noting capacity constraint."
+    },
+    {
+      "id": "l3ac25-q2a",
+      "number": "2(a)",
+      "text": "Waka Wonders is considering whether to: (A) Keep all production in-house and invest $25,000 in new CNC carving equipment (increasing fixed costs but reducing variable timber cost to $8 per toy), or (B) Outsource the carving to a local workshop at $15 per toy (replacing timber and labour variable costs of $21, but adding a $15 outsourcing cost per toy plus $12,000 in quality inspection fixed costs).\n\nFor each option, calculate the new break-even point and the profit at a sales volume of 5,500 toys.",
+      "marks": 7,
+      "gradeLevel": "merit",
+      "topics": [
+        "margin of safety",
+        "risk analysis",
+        "production planning"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Option A: Variable cost = $8 + $4 + $9 = $21. Contribution = $24. Fixed costs = $84,000 + $25,000 = $109,000. BEP = 4,542 toys. Profit at 5,500 = (5,500 × $24) - $109,000 = $23,000. Option B: Variable cost = $15 + $4 = $19. Contribution = $26. Fixed costs = $84,000 + $12,000 = $96,000. BEP = 3,693 toys. Profit at 5,500 = (5,500 × $26) - $96,000 = $47,000.",
+      "markingGuide": "Calculate and interpret margin of safety for both options in business context.",
+      "graph": {
+        "type": "table",
+        "title": "In-House (Option A) vs Outsource (Option B)",
+        "data": {
+          "headers": [
+            "Metric",
+            "Option A: CNC In-House",
+            "Option B: Outsource"
+          ],
+          "rows": [
+            [
+              "Variable cost per toy",
+              "$21",
+              "$19"
+            ],
+            [
+              "Contribution per toy",
+              "$24",
+              "$26"
+            ],
+            [
+              "Additional fixed costs",
+              "$25,000",
+              "$12,000"
+            ],
+            [
+              "Total fixed costs",
+              "$109,000",
+              "$96,000"
+            ],
+            [
+              "Break-even (units)",
+              "?",
+              "?"
+            ],
+            [
+              "Profit at 5,500 toys",
+              "?",
+              "?"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l3ac25-q2b",
+      "number": "2(b)",
+      "text": "Based on your CVP analysis, recommend which option Waka Wonders should choose. In your answer, consider: the profit impact, the risk profile (margin of safety), quality control implications, and the strategic importance of keeping the handcrafted identity. Justify your recommendation with quantitative evidence.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "CVP analysis",
+        "cost control",
+        "strategic planning"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Option B generates significantly more profit ($47,000 vs $23,000) and has a larger margin of safety (1,807 toys vs 958 toys). However, outsourcing means losing direct control over the handcrafted quality that defines the brand. Risks: dependency on one workshop, potential inconsistency, loss of the 'handmade in Rotorua' story. Recommendation: Option A is strategically better despite lower profit, because the handcrafted identity is central to the premium price. The CNC equipment still allows 'handcrafted' claims while improving consistency. The $24,000 profit difference may be offset by the brand premium that justifies the $45 price point.",
+      "markingGuide": "Justify recommendations with quantitative CVP analysis and qualitative strategic considerations."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
 }

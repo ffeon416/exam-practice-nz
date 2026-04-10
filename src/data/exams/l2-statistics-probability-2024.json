@@ -62,7 +62,39 @@
       ],
       "answerType": "working",
       "expectedAnswer": "P(Digital AND Endorsement) = 48/250 = 0.192",
-      "markingGuide": "Achieved: Correctly calculates 48/250 = 0.192 (or 24/125). Must show the fraction or calculation, not just the answer."
+      "markingGuide": "Achieved: Correctly calculates 48/250 = 0.192 (or 24/125). Must show the fraction or calculation, not just the answer.",
+      "graph": {
+        "type": "table",
+        "title": "Revision Method and Endorsement",
+        "data": {
+          "headers": [
+            "",
+            "Endorsement",
+            "No Endorsement",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Online learning",
+              "45",
+              "55",
+              "100"
+            ],
+            [
+              "Textbook study",
+              "60",
+              "90",
+              "150"
+            ],
+            [
+              "Total",
+              "105",
+              "145",
+              "250"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "stat267-24-q2b",

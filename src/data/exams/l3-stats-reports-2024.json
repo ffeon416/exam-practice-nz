@@ -73,7 +73,25 @@
         "evaluating-claims"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Current CI = ($25.50, $30.50). Previous CI = ($14.50, $21.50). Merit: Since the two confidence intervals do not overlap ($25 < $29), there is evidence of a statistically significant increase in average weekly streaming spending. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny."
+      "markingGuide": "Achievement: Current CI = ($25.50, $30.50). Previous CI = ($14.50, $21.50). Merit: Since the two confidence intervals do not overlap ($25 < $29), there is evidence of a statistically significant increase in average weekly streaming spending. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny.",
+      "graph": {
+        "type": "bar",
+        "title": "Average Weekly Streaming Spending — NZ Households",
+        "xLabel": "Survey Period",
+        "yLabel": "Spending ($)",
+        "data": [
+          {
+            "label": "3 Years Ago",
+            "value": 18,
+            "color": "#6b7280"
+          },
+          {
+            "label": "Current",
+            "value": 28,
+            "color": "#3b82f6"
+          }
+        ]
+      }
     },
     {
       "id": "st584-24-q3b",

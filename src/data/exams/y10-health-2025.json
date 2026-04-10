@@ -14,7 +14,9 @@
       "text": "The hauora model (Mason Durie's Te Whare Tapa Whā) describes well-being as having four dimensions. What are the four dimensions of hauora?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["hauora"],
+      "topics": [
+        "hauora"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual)",
@@ -31,7 +33,9 @@
       "text": "Which dimension of hauora is about feeling connected to family and community?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["hauora"],
+      "topics": [
+        "hauora"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Taha tinana",
@@ -48,7 +52,9 @@
       "text": "Explain how TWO dimensions of hauora are connected. Use an example from a teenager's life.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["hauora"],
+      "topics": [
+        "hauora"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for identifying two dimensions and explaining a valid connection. 1 mark for a relevant, specific example from a teenager's life. For example: Taha tinana and Taha hinengaro are connected — when a teenager exercises regularly (physical), they may feel less stressed and more confident (mental/emotional). Or: Taha whānau and Taha wairua — when a teenager feels supported by their family (social), they may feel a stronger sense of purpose and identity (spiritual)."
     },
@@ -58,7 +64,9 @@
       "text": "Which nutrient provides the most energy per gram?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["nutrition-health"],
+      "topics": [
+        "nutrition-health"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Carbohydrates",
@@ -67,7 +75,35 @@
         "Vitamins"
       ],
       "expectedAnswer": "Fat",
-      "markingGuide": "The correct answer is Fat. Fat provides approximately 37 kJ (9 calories) per gram, compared to carbohydrates and protein which each provide about 17 kJ (4 calories) per gram. Vitamins do not provide energy."
+      "markingGuide": "The correct answer is Fat. Fat provides approximately 37 kJ (9 calories) per gram, compared to carbohydrates and protein which each provide about 17 kJ (4 calories) per gram. Vitamins do not provide energy.",
+      "graph": {
+        "type": "bar",
+        "title": "Energy Content per Gram of Macronutrients",
+        "xLabel": "Nutrient",
+        "yLabel": "Energy (kJ per gram)",
+        "data": [
+          {
+            "label": "Fat",
+            "value": 37,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Carbohydrates",
+            "value": 17,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "Protein",
+            "value": 17,
+            "color": "#10b981"
+          },
+          {
+            "label": "Alcohol",
+            "value": 29,
+            "color": "#ef4444"
+          }
+        ]
+      }
     },
     {
       "id": "y10h1-q5",
@@ -75,7 +111,9 @@
       "text": "What is the legal drinking age in New Zealand?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["drugs-alcohol"],
+      "topics": [
+        "drugs-alcohol"
+      ],
       "answerType": "multi-choice",
       "options": [
         "16",
@@ -92,7 +130,9 @@
       "text": "Describe TWO strategies a teenager could use to resist peer pressure to drink alcohol.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["drugs-alcohol"],
+      "topics": [
+        "drugs-alcohol"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for each valid strategy (2 required). Possible strategies include: saying 'no thanks' assertively and offering an alternative reason (e.g. 'I'm driving' or 'I have training tomorrow'); removing themselves from the situation by leaving the party or calling a parent; having a non-alcoholic drink in hand so they are not offered alcohol; choosing friends who respect their decision not to drink; planning ahead with a trusted friend to support each other; using humour to deflect pressure. Each strategy must be clearly described, not just named."
     },
@@ -102,7 +142,9 @@
       "text": "What does it mean to be resilient in terms of mental health?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["mental-health-y10"],
+      "topics": [
+        "mental-health-y10"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Never feeling sad or anxious",
@@ -119,7 +161,10 @@
       "text": "Explain why physical activity is important for mental well-being. Give a specific example.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["mental-health-y10", "hauora"],
+      "topics": [
+        "mental-health-y10",
+        "hauora"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for explaining the link between physical activity and mental well-being (e.g. exercise releases endorphins which improve mood; physical activity reduces stress hormones like cortisol; being active can improve sleep which supports mental health; exercise provides a distraction from worries). 1 mark for a specific, relevant example (e.g. 'A teenager who goes for a run after a stressful day at school may feel calmer and more able to focus on homework' or 'Playing in a sports team helps a young person feel a sense of belonging, which supports taha whānau and taha hinengaro')."
     },
@@ -129,7 +174,9 @@
       "text": "Which of the following best describes consent in a relationship?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["relationships-health"],
+      "topics": [
+        "relationships-health"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Saying yes once means you have agreed for all future situations",
@@ -146,15 +193,30 @@
       "text": "A friend tells you they are being cyberbullied. Using the hauora model (Te Whare Tapa Whā), explain how cyberbullying could affect all four dimensions of their well-being, and suggest ONE action they could take.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["hauora", "mental-health-y10"],
+      "topics": [
+        "hauora",
+        "mental-health-y10"
+      ],
       "answerType": "working",
       "markingGuide": "Up to 2 marks for explaining effects on all four dimensions: Taha tinana (physical) — stress may cause headaches, poor sleep, loss of appetite, or feeling physically unwell; Taha hinengaro (mental/emotional) — may feel anxious, depressed, scared, angry, or lose confidence and self-esteem; Taha whānau (social/family) — may withdraw from friends and family, feel isolated, or not want to go to school; Taha wairua (spiritual) — may lose sense of self-worth, purpose, or identity, and feel hopeless about the future. Must address at least 3 dimensions clearly for 1 mark, all 4 for 2 marks. 1 mark for suggesting a practical action (e.g. talk to a trusted adult such as a parent, teacher, or school counsellor; block the person online; report the bullying to the platform; contact Netsafe or a helpline like 1737)."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 10 },
-    "merit": { "min": 11, "max": 14 },
-    "excellence": { "min": 15, "max": 18 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 10
+    },
+    "merit": {
+      "min": 11,
+      "max": 14
+    },
+    "excellence": {
+      "min": 15,
+      "max": 18
+    }
   }
 }

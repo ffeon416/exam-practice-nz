@@ -81,7 +81,7 @@
     {
       "id": "l2rx25-q1biii",
       "number": "1(b)(iii)",
-      "text": "Compare the pH and conductivity of hydrochloric acid, HCl, and nitrous acid, HNO2.\n\n| | Nitric Acid, HCl | Sulfurous Acid, HNO2 |\n|---|---|---|\n| Acid Strength | Strong | Weak |\n| pH | 1.0 | 3.8 |\n| Concentration | 0.10 mol L-1 | 0.10 mol L-1 |\n\nIn your answer, include:\n- definitions for strong and weak acids\n- an explanation of the pH for each solution and relevant equations\n- a definition of conductivity\n- an explanation for the conductivity of each solution.",
+      "text": "Compare the pH and conductivity of hydrochloric acid, HCl, and nitrous acid, HNO2.\n\nThe data for each acid is shown in the table below.\n\nIn your answer, include:\n- definitions for strong and weak acids\n- an explanation of the pH for each solution and relevant equations\n- a definition of conductivity\n- an explanation for the conductivity of each solution.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -91,6 +91,18 @@
         "strong-weak"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "table",
+        "title": "Comparison of Hydrochloric Acid and Nitrous Acid",
+        "data": {
+          "headers": ["Property", "HCl", "HNO₂"],
+          "rows": [
+            ["Acid Strength", "Strong", "Weak"],
+            ["pH", "1.0", "3.8"],
+            ["Concentration", "0.10 mol L⁻¹", "0.10 mol L⁻¹"]
+          ]
+        }
+      },
       "expectedAnswer": "Strong acids dissociate completely; weak acids dissociate partially. HCl has lower pH because all molecules donate protons. HNO2 has higher pH because only some molecules donate protons. HCl has greater conductivity due to more ions in solution.",
       "markingGuide": "Achievement: Identifies dissociation difference OR defines pH OR defines conductivity. Merit: Explains pH and conductivity for both solutions. Excellence: Justifies both properties with equations."
     },
@@ -184,7 +196,7 @@
     {
       "id": "l2rx25-q2ciii",
       "number": "2(c)(iii)",
-      "text": "The pH of 0.10 mol L-1 solutions of these three compounds is below.\n\n| Solution | Ba(OH)2 | BaCl2 | Ca(CH3CH2COO)2 |\n|---|---|---|---|\n| pH | 13.2 | 7 | 8.5 |\n\nDiscuss the differences in their pH.\n\nIn your answer:\n- give a definition for acids and bases\n- explain how proton transfer is linked to pH\n- discuss any ability for these compounds to transfer protons.",
+      "text": "The pH of 0.10 mol L-1 solutions of these three compounds is shown in the graph below.\n\nDiscuss the differences in their pH.\n\nIn your answer:\n- give a definition for acids and bases\n- explain how proton transfer is linked to pH\n- discuss any ability for these compounds to transfer protons.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -193,6 +205,17 @@
         "proton-transfer"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "bar",
+        "title": "pH of 0.10 mol L⁻¹ Solutions",
+        "xLabel": "Solution",
+        "yLabel": "pH",
+        "data": [
+          { "label": "Ba(OH)₂", "value": 13.2 },
+          { "label": "BaCl₂", "value": 7.0 },
+          { "label": "Ca(CH₃CH₂COO)₂", "value": 8.5 }
+        ]
+      },
       "expectedAnswer": "Acids donate protons; bases accept protons. Ba(OH)2 is strongly basic (OH- accepts protons). BaCl2 is neutral (neither ion transfers protons). Ca(CH3CH2COO)2 is mildly basic (propanoate accepts a proton from water, producing OH-).",
       "markingGuide": "Achievement: Recognises the nature of TWO solutions OR defines acid and base. Merit: Explains how calcium propanoate acts as a basic salt. Excellence: Fully discusses all three."
     },
@@ -256,7 +279,7 @@
     {
       "id": "l2rx25-q3biii",
       "number": "3(b)(iii)",
-      "text": "The reaction is set up under new conditions, with different temperatures.\n\n| | Condition 1 | Condition 2 |\n|---|---|---|\n| Temperature | 250 degrees C | 650 degrees C |\n| Kc | 62 | 0.035 |\n| [PF5] | 0.15 mol L-1 | 0.18 mol L-1 |\n| [F2] | 0.11 mol L-1 | 0.14 mol L-1 |\n\nUse the Kc values to explain which set of conditions would increase production of PF5.",
+      "text": "The reaction is set up under new conditions, with different temperatures. The data is shown in the table below.\n\nUse the Kc values to explain which set of conditions would increase production of PF5.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -264,6 +287,19 @@
         "Kc"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "table",
+        "title": "Equilibrium Conditions for PF₅ Production",
+        "data": {
+          "headers": ["Property", "Condition 1", "Condition 2"],
+          "rows": [
+            ["Temperature", "250 °C", "650 °C"],
+            ["Kc", "62", "0.035"],
+            ["[PF₅] (mol L⁻¹)", "0.15", "0.18"],
+            ["[F₂] (mol L⁻¹)", "0.11", "0.14"]
+          ]
+        }
+      },
       "expectedAnswer": "Condition 1 would be better because Kc = 62 (much greater than 1) means products are strongly favoured at this temperature.",
       "markingGuide": "Achievement: Identifies Condition 1. Merit: Explains why Condition 1 is better."
     },

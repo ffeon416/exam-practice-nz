@@ -121,11 +121,28 @@
     {
       "id": "ep25-q3ci",
       "number": "3(c)(i)",
-      "text": "Hana records that the water temperature rises from 18 °C to 40 °C over the 8 minutes.\n\nCalculate Hana's value for the specific heat capacity of water from her results.\n\nIn your answer, you should:\n- consider the electrical energy is 38 400 J\n- use the temperature change of 22 °C\n- calculate Hana's value for the specific heat capacity of water.\n\nInclude the correct unit in your final answer.",
+      "text": "Hana records that the water temperature rises from 18 °C to 40 °C over the 8 minutes.\n\nHer experimental measurements are shown in the table below.\n\nCalculate Hana's value for the specific heat capacity of water from her results.\n\nIn your answer, you should:\n- consider the electrical energy is 38 400 J\n- use the temperature change of 22 °C\n- calculate Hana's value for the specific heat capacity of water.\n\nInclude the correct unit in your final answer.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": ["energy", "energy-transfer"],
       "answerType": "working",
+      "graph": {
+        "type": "table",
+        "title": "Hana's Experimental Measurements",
+        "data": {
+          "headers": ["Measurement", "Value"],
+          "rows": [
+            ["Mass of water", "0.400 kg"],
+            ["Voltage", "20 V"],
+            ["Current", "4.0 A"],
+            ["Heating time", "480 s (8 min)"],
+            ["Initial temperature", "18 °C"],
+            ["Final temperature", "40 °C"],
+            ["Temperature change (ΔT)", "22 °C"],
+            ["Electrical energy supplied", "38 400 J"]
+          ]
+        }
+      },
       "expectedAnswer": "c = E/(mΔT) = 38 400 / (0.400 × 22) = 38 400 / 8.8 = 4364 J kg⁻¹ °C⁻¹",
       "markingGuide": "Achieved: Selects correct equation. Has ΔT as 22 °C. Merit: Calculates a value for c with a minor error OR correct answer but incorrect unit. Excellence: Correct calculation (c ≈ 4360 J kg⁻¹ °C⁻¹) with correct unit."
     },

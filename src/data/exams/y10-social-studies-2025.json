@@ -14,9 +14,16 @@
       "text": "In what year was the Treaty of Waitangi signed?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["treaty-of-waitangi"],
+      "topics": [
+        "treaty-of-waitangi"
+      ],
       "answerType": "multi-choice",
-      "options": ["1769", "1840", "1893", "1907"],
+      "options": [
+        "1769",
+        "1840",
+        "1893",
+        "1907"
+      ],
       "expectedAnswer": "1840",
       "markingGuide": "The correct answer is 1840. The Treaty of Waitangi was signed on 6 February 1840 at Waitangi in the Bay of Islands. It was signed between representatives of the British Crown and various Māori chiefs. 1769 was Captain Cook's arrival, 1893 was women's suffrage, and 1907 was when NZ became a Dominion."
     },
@@ -26,7 +33,9 @@
       "text": "A key difference between the English and Te Reo Māori versions of the Treaty of Waitangi is that the English version used the word 'sovereignty' while the Te Reo Māori version used 'kāwanatanga'. What is the significance of this difference?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["treaty-of-waitangi"],
+      "topics": [
+        "treaty-of-waitangi"
+      ],
       "answerType": "multi-choice",
       "options": [
         "There is no significant difference — both words mean the same thing",
@@ -43,7 +52,9 @@
       "text": "Explain ONE reason why the Treaty of Waitangi is still important in New Zealand today. Give a specific example to support your answer.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["treaty-of-waitangi"],
+      "topics": [
+        "treaty-of-waitangi"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for identifying a reason the Treaty remains important. 1 mark for providing a relevant, specific example.\n\nPossible reasons and examples:\n• Treaty settlements — The Waitangi Tribunal investigates claims by Māori that the Crown has breached the Treaty. Example: Ngāi Tahu received a $170 million settlement in 1998 for land wrongly taken in the South Island.\n• Partnership between Māori and the Crown — The Treaty establishes a relationship of partnership. Example: Co-governance arrangements such as those for the Waikato River (Te Awa Tupua / Whanganui River was granted legal personhood in 2017).\n• Land rights and resource management — Article 2 guarantees Māori possession of their lands, forests, and fisheries. Example: The Māori Fisheries Settlement (Sealord deal) recognised Māori fishing rights.\n• Cultural recognition — The Treaty supports the protection of Māori language and culture. Example: Te reo Māori is an official language of New Zealand; Māori Television was established to support language revitalisation.\n• Legal framework — Treaty principles are referenced in many NZ laws. Example: The Resource Management Act requires consideration of Treaty principles in resource consent decisions."
     },
@@ -53,9 +64,16 @@
       "text": "What type of government does New Zealand have?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["nz-government"],
+      "topics": [
+        "nz-government"
+      ],
       "answerType": "multi-choice",
-      "options": ["Constitutional monarchy with parliamentary democracy", "Republic", "Federal republic", "Dictatorship"],
+      "options": [
+        "Constitutional monarchy with parliamentary democracy",
+        "Republic",
+        "Federal republic",
+        "Dictatorship"
+      ],
       "expectedAnswer": "Constitutional monarchy with parliamentary democracy",
       "markingGuide": "The correct answer is Constitutional monarchy with parliamentary democracy. New Zealand's head of state is the King (currently King Charles III), represented in NZ by the Governor-General. The government is run by Parliament, led by the Prime Minister. NZ is not a republic (it has a monarch), not a federal republic (it has a unitary system with no states), and not a dictatorship (it has free elections)."
     },
@@ -65,7 +83,9 @@
       "text": "New Zealand uses the MMP (Mixed Member Proportional) voting system. Under MMP, each voter gets:",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["nz-government"],
+      "topics": [
+        "nz-government"
+      ],
       "answerType": "multi-choice",
       "options": [
         "One vote for a local MP only",
@@ -74,7 +94,48 @@
         "One vote for the Prime Minister directly"
       ],
       "expectedAnswer": "Two votes — one for a local MP (electorate vote) and one for a political party (party vote)",
-      "markingGuide": "The correct answer is two votes. Under MMP, introduced in New Zealand in 1996, each voter casts two votes: an electorate vote for a local Member of Parliament, and a party vote for the political party they support. The party vote determines the overall proportion of seats each party receives in Parliament. A party generally needs 5% of the party vote or one electorate seat to gain representation in Parliament."
+      "markingGuide": "The correct answer is two votes. Under MMP, introduced in New Zealand in 1996, each voter casts two votes: an electorate vote for a local Member of Parliament, and a party vote for the political party they support. The party vote determines the overall proportion of seats each party receives in Parliament. A party generally needs 5% of the party vote or one electorate seat to gain representation in Parliament.",
+      "graph": {
+        "type": "pie",
+        "title": "2023 NZ General Election — Party Vote Results",
+        "data": [
+          {
+            "label": "National",
+            "value": 38.1,
+            "color": "#1e3a8a"
+          },
+          {
+            "label": "Labour",
+            "value": 26.9,
+            "color": "#dc2626"
+          },
+          {
+            "label": "ACT",
+            "value": 8.6,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Green",
+            "value": 11.6,
+            "color": "#16a34a"
+          },
+          {
+            "label": "NZ First",
+            "value": 6.1,
+            "color": "#1f2937"
+          },
+          {
+            "label": "Te Pati Maori",
+            "value": 3.1,
+            "color": "#7c2d12"
+          },
+          {
+            "label": "Other",
+            "value": 5.6,
+            "color": "#6b7280"
+          }
+        ]
+      }
     },
     {
       "id": "y10ss1-q6",
@@ -82,7 +143,9 @@
       "text": "Explain how a citizen can participate in democracy in New Zealand beyond just voting in general elections. Give TWO specific examples.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["nz-government"],
+      "topics": [
+        "nz-government"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for each valid example of democratic participation (beyond voting in general elections), with brief explanation.\n\nPossible examples:\n• Making submissions on bills — Citizens can submit their views to select committees when new laws are being considered. Example: submitting on the Smokefree Environments Bill.\n• Joining a political party — Members can influence party policy, select candidates, and campaign.\n• Protesting or petitioning — Citizens have the right to peaceful protest. Example: the 2004 Foreshore and Seabed hīkoi to Parliament; signing or creating petitions to Parliament.\n• Contacting their local MP — Writing to or meeting with their Member of Parliament about issues that concern them.\n• Standing for local government — Running as a candidate in local body elections (city/district council, regional council, community boards).\n• Voting in local body elections — Council elections, DHB elections, referendums.\n• Joining community boards or advisory panels — Participating in local decision-making bodies.\n• Participating in public consultation — Councils must consult on Long Term Plans and Annual Plans.\n• Jury service — Contributing to the justice system when called.\n• Volunteering for community organisations — Contributing to civil society."
     },
@@ -92,7 +155,9 @@
       "text": "When the price of a product goes up, and nothing else changes, what usually happens to the quantity demanded by consumers?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["economics-basics"],
+      "topics": [
+        "economics-basics"
+      ],
       "answerType": "multi-choice",
       "options": [
         "Quantity demanded increases",
@@ -109,7 +174,9 @@
       "text": "Housing affordability is a significant social issue in New Zealand. Explain how the housing crisis affects young New Zealanders. Use specific examples in your answer.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": ["social-issues-nz"],
+      "topics": [
+        "social-issues-nz"
+      ],
       "answerType": "text",
       "markingGuide": "1 mark for explaining a clear impact on young New Zealanders. 1 mark for using specific, relevant examples.\n\nPossible points:\n• Difficulty entering the housing market — Median house prices in cities like Auckland and Tauranga are many times the average income, making it very hard for young people to save a deposit. First-home buyers are increasingly locked out.\n• Rising rents — High demand and limited supply push rents up, meaning young renters spend a large proportion of their income on housing, leaving less for other needs (food, education, savings).\n• Overcrowding — Some young people and families live in overcrowded conditions, which affects health and wellbeing. This disproportionately affects Māori and Pasifika communities.\n• Homelessness — NZ has one of the highest homelessness rates in the OECD. Young people may experience couch-surfing or living in cars.\n• Impact on education — Students in unstable housing may move schools frequently, affecting their learning and social connections.\n• Mental health — Housing stress contributes to anxiety and depression among young people.\n• Geographic displacement — Young people may have to move away from their communities and whānau to find affordable housing, weakening social connections.\n• Government responses — KiwiBuild programme, First Home Grants, and public housing initiatives attempt to address these issues but have had mixed results."
     },
@@ -119,7 +186,9 @@
       "text": "Which of the following BEST describes globalisation?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": ["globalisation"],
+      "topics": [
+        "globalisation"
+      ],
       "answerType": "multi-choice",
       "options": [
         "When a country refuses to trade with other nations",
@@ -136,15 +205,29 @@
       "text": "New Zealand aims to be Predator Free by 2050 — removing possums, rats, and stoats from the country to protect native wildlife.\n\nDiscuss the social, economic, and environmental reasons for this goal. In your answer, consider different perspectives, such as those of conservationists, farmers, local communities, and iwi (Māori tribes).",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["social-issues-nz"],
+      "topics": [
+        "social-issues-nz"
+      ],
       "answerType": "working",
       "markingGuide": "4 marks total. Award marks across the following criteria:\n\n1 mark — Environmental reasons:\n• Introduced predators kill approximately 25 million native birds each year in NZ.\n• Species such as kiwi, kākāpō, and whio (blue duck) are critically endangered due to predation.\n• NZ's native species evolved without mammalian predators and have no natural defences.\n• Predators also threaten native insects (such as wētā) and reptiles (such as tuatara).\n• Ecosystem health: removing predators allows native forests and ecosystems to regenerate.\n\n1 mark — Economic reasons:\n• Possums damage pasture and spread bovine tuberculosis (TB) to cattle and deer, costing the farming industry millions annually.\n• Rats damage crops and stored food.\n• Conservation tourism is a major industry — healthy native ecosystems attract international visitors (e.g. Zealandia in Wellington, Tiritiri Matangi Island).\n• Investment in pest control creates jobs and supports innovation in NZ-developed trapping and biotechnology.\n\n1 mark — Social/cultural perspectives:\n• For iwi and Māori, native species like kiwi and kererū have deep cultural and spiritual significance (taonga species). Protecting them fulfils kaitiakitanga (guardianship) responsibilities.\n• Local communities benefit from predator-free zones through improved biodiversity in their backyards and local reserves.\n• Community trapping groups (e.g. Predator Free Wellington, Predator Free Miramar) bring people together and build social connections.\n• Urban and rural communities may have different views on methods used (e.g. 1080 poison drops are controversial in some rural areas).\n\n1 mark — Considering multiple perspectives / critical thinking:\n• Conservationists strongly support the goal and advocate for increased funding and use of all available tools.\n• Some farmers support predator control (reduces TB risk, protects lambs) but may oppose certain methods like 1080 aerial drops due to concerns about dogs, water, and deer.\n• Some communities debate whether eradication is achievable or whether ongoing control is more realistic.\n• Animal welfare groups may raise concerns about the methods used to kill predators.\n• Iwi may want greater involvement in decision-making about pest control on ancestral lands.\n• The scale and cost of the project (estimated billions of dollars) raises questions about resource allocation.\n\nExcellence-level answers will discuss at least three perspectives with specific NZ examples and show understanding of the complexity of the issue."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 16 },
-    "excellence": { "min": 17, "max": 20 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 16
+    },
+    "excellence": {
+      "min": 17,
+      "max": 20
+    }
   }
 }

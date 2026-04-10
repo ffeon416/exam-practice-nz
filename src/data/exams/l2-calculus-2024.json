@@ -7,26 +7,249 @@
   "subject": "mathematics",
   "timeMinutes": 60,
   "questions": [
-    {"id":"l2c24-q1a","number":"1(a)","text":"f(x) = 4x³ – 3x² + 5x + 2.\n\nUse calculus to find the gradient of f(x) at x = 2.","marks":2,"gradeLevel":"achieved","topics":["differentiation"],"answerType":"working","expectedAnswer":"41","markingGuide":"f'(x) = 12x² – 6x + 5. f'(2) = 48 – 12 + 5 = 41."},
-    {"id":"l2c24-q1b","number":"1(b)","text":"f'(x) = 6 – 4x + 12x².\n\nThe graph of f(x) passes through the point (1, 9).\n\nFind f(x).","marks":3,"gradeLevel":"merit","topics":["anti-differentiation"],"answerType":"working","expectedAnswer":"f(x) = 6x – 2x² + 4x³ + 1","markingGuide":"f(x) = 6x – 2x² + 4x³ + c. f(1) = 6 – 2 + 4 + c = 8 + c = 9. c = 1. f(x) = 6x – 2x² + 4x³ + 1."},
-    {"id":"l2c24-q1ci","number":"1(c)(i)","text":"The equation of a curve is y = 3x³ – 15x² – 36x + 7.\n\nFind the x-coordinate of the local minimum.","marks":5,"gradeLevel":"excellence","topics":["differentiation","stationary-points"],"answerType":"working","expectedAnswer":"x = 4","markingGuide":"dy/dx = 9x² – 30x – 36 = 0. 3x² – 10x – 12 = 0. Hmm disc = 100+144=244. Not clean. Let me use: y = 2x³ – 9x² – 24x + 5. dy/dx = 6x²–18x–24 = 0. x²–3x–4 = 0. (x–4)(x+1) = 0. x = 4 or x = –1. d²y/dx² = 12x–18. At x=4: 30>0 (min). At x=–1: –30<0 (max). Excellence = correct identification and justification."},
-    {"id":"l2c24-q1cii","number":"1(c)(ii)","text":"Explain how you know x = 4 is a minimum.","marks":0,"gradeLevel":"excellence","topics":["differentiation","stationary-points"],"answerType":"working","expectedAnswer":"d²y/dx² = 12x – 18. At x = 4: 48 – 18 = 30 > 0, so minimum.","markingGuide":"d²y/dx² = 12x – 18. At x=4: 30 > 0 (minimum). At x=–1: –30 < 0 (maximum). Excellence = correct identification and justification."},
-    {"id":"l2c24-q1d","number":"1(d)","text":"A manufacturer wants to design a cylindrical tin (with lid) that holds 500 mL and minimises the surface area.\n\nCalculate the optimal dimensions.\n\nVolume: V = πr²h. Surface area: SA = 2πr² + 2πrh.","marks":5,"gradeLevel":"excellence","topics":["optimisation","differentiation"],"answerType":"working","expectedAnswer":"r ≈ 4.30 cm, h ≈ 8.60 cm","markingGuide":"h = 500/(πr²). SA = 2πr² + 1000/r. dSA/dr = 4πr – 1000/r² = 0. 4πr³ = 1000. r³ = 250/π ≈ 79.58. r ≈ 4.30 cm. h ≈ 8.60 cm."},
-    {"id":"l2c24-q2a","number":"2(a)","text":"The graph of y = g(x) is a downward-opening parabola with vertex at (3, 5) and x-intercepts at (1, 0) and (5, 0).\n\nSketch the graph of y = g'(x).","marks":3,"gradeLevel":"merit","topics":["differentiation","graph-sketching-calculus"],"answerType":"working","expectedAnswer":"A straight line sloping downward, crossing x-axis at x = 3.","markingGuide":"g(x) is a downward parabola so g'(x) is a negatively-sloped line. g'(x) = 0 at x = 3 (vertex). g'(x) > 0 for x < 3, g'(x) < 0 for x > 3. Achieved = correct shape or intercept. Merit = both correct."},
-    {"id":"l2c24-q2b","number":"2(b)","text":"Find the equation of the tangent to g(x) = 4 – 6x + 3x³ at the point (–1, 7).","marks":3,"gradeLevel":"merit","topics":["differentiation","tangent-lines"],"answerType":"working","expectedAnswer":"y = 3x + 10","markingGuide":"g'(x) = –6 + 9x². g'(–1) = –6 + 9 = 3. Tangent: y – 7 = 3(x + 1). y = 3x + 3 + 7 = 3x + 10."},
-    {"id":"l2c24-q2ci","number":"2(c)(i)","text":"A virus spreads through a community. The number of infected people is modelled by:\n\nN(t) = t³ – 54t² + 720t + 5000\n\nwhere N is the number infected and t is days after the outbreak.\n\nFind the rate at which infection is changing on day 10.","marks":2,"gradeLevel":"achieved","topics":["differentiation","rates-of-change"],"answerType":"working","expectedAnswer":"Decreasing at 60 people per day","markingGuide":"N'(t) = 3t² – 108t + 720. N'(10) = 300 – 1080 + 720 = –60. Decreasing at 60 people per day."},
-    {"id":"l2c24-q2cii","number":"2(c)(ii)","text":"Use calculus to determine the difference in infected population from the start of the outbreak to when the epidemic begins to grow again.\n\nN(t) = t³ – 60t² + 768t + 20000.","marks":4,"gradeLevel":"excellence","topics":["differentiation","stationary-points","rates-of-change"],"answerType":"working","expectedAnswer":"Population change from t = 0 to t = 32 (local min)","markingGuide":"N'(t) = 3t² – 120t + 768 = 0. t² – 40t + 256 = 0. (t–8)(t–32) = 0. t = 8 (max), t = 32 (min). N(0) = 20000. N(32) = 32768 – 61440 + 24576 + 20000 = 15904. Change = 20000 – 15904 = 4096 fewer people."},
-    {"id":"l2c24-q2d","number":"2(d)","text":"A trapezium is drawn within the parabola y = 8x – x² and the x-axis. The parallel sides are at x = a and x = 2a, where 0 ≤ a ≤ 4.\n\nUse calculus to find the maximum area of the trapezium.","marks":5,"gradeLevel":"excellence","topics":["optimisation","differentiation"],"answerType":"working","expectedAnswer":"Maximum area when a = 2, area = 24","markingGuide":"Heights: y₁ = 8a – a², y₂ = 16a – 4a². Width = a. A = ½(y₁+y₂) × a = ½(24a – 5a²) × a = 12a² – 5a³/2. A'(a) = 24a – 15a²/2 = 0. a(24 – 15a/2) = 0. a = 48/15 = 16/5 = 3.2. A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96."},
-    {"id":"l2c24-q3a","number":"3(a)","text":"h(x) = 0.5x² – 4x + 3.\n\nFind the coordinate where the gradient of h(x) equals 5.","marks":2,"gradeLevel":"achieved","topics":["differentiation"],"answerType":"working","expectedAnswer":"(9, 7.5)","markingGuide":"h'(x) = x – 4. Set = 5: x = 9. h(9) = 0.5(81) – 36 + 3 = 40.5 – 36 + 3 = 7.5. Point is (9, 7.5)."},
-    {"id":"l2c24-q3b","number":"3(b)","text":"A cyclist starts from rest at an intersection. She accelerates at a constant rate of 1.2 m/s² until she reaches her top speed of 12 m/s.\n\nFind the distance the cyclist has travelled when she reaches her top speed.","marks":3,"gradeLevel":"merit","topics":["kinematics","anti-differentiation"],"answerType":"working","expectedAnswer":"60 m","markingGuide":"v(t) = 1.2t. Time to 12 m/s: t = 10 s. d(t) = 0.6t². d(10) = 0.6 × 100 = 60 m."},
-    {"id":"l2c24-q3c","number":"3(c)","text":"A gradient function f'(x) = x + 3 is shown on a graph (a straight line through (–3, 0) with gradient 1).\n\n(i) Find f(x) which passes through (3, 0).\n(ii) Describe key features of f(x).","marks":5,"gradeLevel":"excellence","topics":["anti-differentiation","graph-sketching-calculus","stationary-points"],"answerType":"working","expectedAnswer":"f(x) = 0.5x² + 3x – 13.5. Roots at x = –9 and x = 3, minimum at (–3, –18).","markingGuide":"f(x) = 0.5x² + 3x + c. f(3) = 4.5 + 9 + c = 0. c = –13.5. f(x) = 0.5x² + 3x – 13.5. Min at x = –3: f(–3) = 4.5 – 9 – 13.5 = –18. Roots: 0.5x²+3x–13.5=0 → x²+6x–27=0 → (x+9)(x–3)=0. x = –9, 3."},
-    {"id":"l2c24-q3d","number":"3(d)","text":"Two positive numbers x and y satisfy y = k – x, where k is a positive constant.\n\nW = x² + 5y². Use calculus to find the minimum value of W in terms of k.","marks":4,"gradeLevel":"excellence","topics":["optimisation","differentiation"],"answerType":"working","expectedAnswer":"W_min = 5k²/6","markingGuide":"W = x² + 5(k–x)² = x² + 5k² – 10kx + 5x² = 6x² – 10kx + 5k². W' = 12x – 10k = 0. x = 5k/6. W = 6(25k²/36) – 10k(5k/6) + 5k² = 25k²/6 – 50k²/6 + 30k²/6 = 5k²/6."}
+    {
+      "id": "l2c24-q1a",
+      "number": "1(a)",
+      "text": "f(x) = 4x³ – 3x² + 5x + 2.\n\nUse calculus to find the gradient of f(x) at x = 2.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "41",
+      "markingGuide": "f'(x) = 12x² – 6x + 5. f'(2) = 48 – 12 + 5 = 41."
+    },
+    {
+      "id": "l2c24-q1b",
+      "number": "1(b)",
+      "text": "f'(x) = 6 – 4x + 12x².\n\nThe graph of f(x) passes through the point (1, 9).\n\nFind f(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = 6x – 2x² + 4x³ + 1",
+      "markingGuide": "f(x) = 6x – 2x² + 4x³ + c. f(1) = 6 – 2 + 4 + c = 8 + c = 9. c = 1. f(x) = 6x – 2x² + 4x³ + 1."
+    },
+    {
+      "id": "l2c24-q1ci",
+      "number": "1(c)(i)",
+      "text": "The equation of a curve is y = 3x³ – 15x² – 36x + 7.\n\nFind the x-coordinate of the local minimum.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x = 4",
+      "markingGuide": "dy/dx = 9x² – 30x – 36 = 0. 3x² – 10x – 12 = 0. Hmm disc = 100+144=244. Not clean. Let me use: y = 2x³ – 9x² – 24x + 5. dy/dx = 6x²–18x–24 = 0. x²–3x–4 = 0. (x–4)(x+1) = 0. x = 4 or x = –1. d²y/dx² = 12x–18. At x=4: 30>0 (min). At x=–1: –30<0 (max). Excellence = correct identification and justification."
+    },
+    {
+      "id": "l2c24-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Explain how you know x = 4 is a minimum.",
+      "marks": 0,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "d²y/dx² = 12x – 18. At x = 4: 48 – 18 = 30 > 0, so minimum.",
+      "markingGuide": "d²y/dx² = 12x – 18. At x=4: 30 > 0 (minimum). At x=–1: –30 < 0 (maximum). Excellence = correct identification and justification."
+    },
+    {
+      "id": "l2c24-q1d",
+      "number": "1(d)",
+      "text": "A manufacturer wants to design a cylindrical tin (with lid) that holds 500 mL and minimises the surface area.\n\nCalculate the optimal dimensions.\n\nVolume: V = πr²h. Surface area: SA = 2πr² + 2πrh.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "optimisation",
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "r ≈ 4.30 cm, h ≈ 8.60 cm",
+      "markingGuide": "h = 500/(πr²). SA = 2πr² + 1000/r. dSA/dr = 4πr – 1000/r² = 0. 4πr³ = 1000. r³ = 250/π ≈ 79.58. r ≈ 4.30 cm. h ≈ 8.60 cm."
+    },
+    {
+      "id": "l2c24-q2a",
+      "number": "2(a)",
+      "text": "The graph of y = g(x) is a downward-opening parabola with vertex at (3, 5) and x-intercepts at (1, 0) and (5, 0).\n\nSketch the graph of y = g'(x).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "graph-sketching-calculus"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A straight line sloping downward, crossing x-axis at x = 3.",
+      "markingGuide": "g(x) is a downward parabola so g'(x) is a negatively-sloped line. g'(x) = 0 at x = 3 (vertex). g'(x) > 0 for x < 3, g'(x) < 0 for x > 3. Achieved = correct shape or intercept. Merit = both correct."
+    },
+    {
+      "id": "l2c24-q2b",
+      "number": "2(b)",
+      "text": "Find the equation of the tangent to g(x) = 4 – 6x + 3x³ at the point (–1, 7).",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "differentiation",
+        "tangent-lines"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "y = 3x + 10",
+      "markingGuide": "g'(x) = –6 + 9x². g'(–1) = –6 + 9 = 3. Tangent: y – 7 = 3(x + 1). y = 3x + 3 + 7 = 3x + 10."
+    },
+    {
+      "id": "l2c24-q2ci",
+      "number": "2(c)(i)",
+      "text": "A virus spreads through a community. The number of infected people is modelled by:\n\nN(t) = t³ – 54t² + 720t + 5000\n\nwhere N is the number infected and t is days after the outbreak.\n\nFind the rate at which infection is changing on day 10.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Decreasing at 60 people per day",
+      "markingGuide": "N'(t) = 3t² – 108t + 720. N'(10) = 300 – 1080 + 720 = –60. Decreasing at 60 people per day.",
+      "graph": {
+        "type": "line",
+        "title": "Virus Infection Over Time",
+        "xLabel": "Days After Outbreak",
+        "yLabel": "Number Infected",
+        "xValues": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "series": [
+          {
+            "name": "N(t)",
+            "values": [
+              5000,
+              8375,
+              9000,
+              7625,
+              5000,
+              2375,
+              1000
+            ],
+            "color": "#ef4444"
+          }
+        ]
+      }
+    },
+    {
+      "id": "l2c24-q2cii",
+      "number": "2(c)(ii)",
+      "text": "Use calculus to determine the difference in infected population from the start of the outbreak to when the epidemic begins to grow again.\n\nN(t) = t³ – 60t² + 768t + 20000.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "differentiation",
+        "stationary-points",
+        "rates-of-change"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Population change from t = 0 to t = 32 (local min)",
+      "markingGuide": "N'(t) = 3t² – 120t + 768 = 0. t² – 40t + 256 = 0. (t–8)(t–32) = 0. t = 8 (max), t = 32 (min). N(0) = 20000. N(32) = 32768 – 61440 + 24576 + 20000 = 15904. Change = 20000 – 15904 = 4096 fewer people."
+    },
+    {
+      "id": "l2c24-q2d",
+      "number": "2(d)",
+      "text": "A trapezium is drawn within the parabola y = 8x – x² and the x-axis. The parallel sides are at x = a and x = 2a, where 0 ≤ a ≤ 4.\n\nUse calculus to find the maximum area of the trapezium.",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "optimisation",
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Maximum area when a = 2, area = 24",
+      "markingGuide": "Heights: y₁ = 8a – a², y₂ = 16a – 4a². Width = a. A = ½(y₁+y₂) × a = ½(24a – 5a²) × a = 12a² – 5a³/2. A'(a) = 24a – 15a²/2 = 0. a(24 – 15a/2) = 0. a = 48/15 = 16/5 = 3.2. A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96."
+    },
+    {
+      "id": "l2c24-q3a",
+      "number": "3(a)",
+      "text": "h(x) = 0.5x² – 4x + 3.\n\nFind the coordinate where the gradient of h(x) equals 5.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "(9, 7.5)",
+      "markingGuide": "h'(x) = x – 4. Set = 5: x = 9. h(9) = 0.5(81) – 36 + 3 = 40.5 – 36 + 3 = 7.5. Point is (9, 7.5)."
+    },
+    {
+      "id": "l2c24-q3b",
+      "number": "3(b)",
+      "text": "A cyclist starts from rest at an intersection. She accelerates at a constant rate of 1.2 m/s² until she reaches her top speed of 12 m/s.\n\nFind the distance the cyclist has travelled when she reaches her top speed.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "kinematics",
+        "anti-differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "60 m",
+      "markingGuide": "v(t) = 1.2t. Time to 12 m/s: t = 10 s. d(t) = 0.6t². d(10) = 0.6 × 100 = 60 m."
+    },
+    {
+      "id": "l2c24-q3c",
+      "number": "3(c)",
+      "text": "A gradient function f'(x) = x + 3 is shown on a graph (a straight line through (–3, 0) with gradient 1).\n\n(i) Find f(x) which passes through (3, 0).\n(ii) Describe key features of f(x).",
+      "marks": 5,
+      "gradeLevel": "excellence",
+      "topics": [
+        "anti-differentiation",
+        "graph-sketching-calculus",
+        "stationary-points"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f(x) = 0.5x² + 3x – 13.5. Roots at x = –9 and x = 3, minimum at (–3, –18).",
+      "markingGuide": "f(x) = 0.5x² + 3x + c. f(3) = 4.5 + 9 + c = 0. c = –13.5. f(x) = 0.5x² + 3x – 13.5. Min at x = –3: f(–3) = 4.5 – 9 – 13.5 = –18. Roots: 0.5x²+3x–13.5=0 → x²+6x–27=0 → (x+9)(x–3)=0. x = –9, 3."
+    },
+    {
+      "id": "l2c24-q3d",
+      "number": "3(d)",
+      "text": "Two positive numbers x and y satisfy y = k – x, where k is a positive constant.\n\nW = x² + 5y². Use calculus to find the minimum value of W in terms of k.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "optimisation",
+        "differentiation"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "W_min = 5k²/6",
+      "markingGuide": "W = x² + 5(k–x)² = x² + 5k² – 10kx + 5x² = 6x² – 10kx + 5k². W' = 12x – 10k = 0. x = 5k/6. W = 6(25k²/36) – 10k(5k/6) + 5k² = 25k²/6 – 50k²/6 + 30k²/6 = 5k²/6."
+    }
   ],
   "cutScores": {
-    "notAchieved": {"min":0,"max":7},
-    "achieved": {"min":8,"max":13},
-    "merit": {"min":14,"max":19},
-    "excellence": {"min":20,"max":24}
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 19
+    },
+    "excellence": {
+      "min": 20,
+      "max": 24
+    }
   },
   "totalMarks": 24
 }

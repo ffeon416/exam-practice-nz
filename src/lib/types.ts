@@ -20,6 +20,17 @@ export interface Exam {
   cutScores?: CutScores;
 }
 
+export interface GraphData {
+  type: "bar" | "line" | "pie" | "scatter" | "box-plot" | "histogram" | "table";
+  title?: string;
+  xLabel?: string;
+  yLabel?: string;
+  data: Array<{ label: string; value: number; color?: string }> | number[][] | { headers: string[]; rows: string[][] };
+  xValues?: number[];
+  yValues?: number[];
+  series?: Array<{ name: string; values: number[]; color?: string }>;
+}
+
 export interface Question {
   id: string;
   number: string;
@@ -32,6 +43,7 @@ export interface Question {
   expectedAnswer?: string;
   markingGuide: string;
   image?: string;
+  graph?: GraphData;
 }
 
 // ── AI marking response ──

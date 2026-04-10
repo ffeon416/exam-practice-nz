@@ -7,22 +7,328 @@
   "subject": "economics",
   "timeMinutes": 60,
   "totalMarks": 24,
-  "cutScores": { "notAchieved": { "min": 0, "max": 6 }, "achieved": { "min": 7, "max": 12 }, "merit": { "min": 13, "max": 18 }, "excellence": { "min": 19, "max": 24 } },
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
   "questions": [
-    { "id": "91223-2025-q1a", "number": "1(a)", "text": "Explain why New Zealand exports some food products (such as butter) and imports others (such as olive oil).", "marks": 2, "gradeLevel": "achieved", "topics": ["comparative advantage", "trade", "specialisation"], "answerType": "text", "expectedAnswer": "NZ has a comparative advantage in dairy production due to its pasture-based farming systems and temperate climate. NZ cannot efficiently produce olive oil because the climate in most regions is unsuitable for large-scale olive growing. By specialising and trading, both NZ and Mediterranean countries benefit from lower costs and greater variety.", "markingGuide": "Identifies comparative advantage and explains why NZ exports some products and imports others." },
-    { "id": "91223-2025-q1b", "number": "1(b)", "text": "On Graph One, which shows NZ and a Southeast Asian country's domestic supply and demand for rice, label the:\n- trade price (Pt)\n- amounts of exports and imports in each country (X and M).", "marks": 3, "gradeLevel": "achieved", "topics": ["two-country model", "trade price", "exports", "imports"], "answerType": "graph", "expectedAnswer": "Trade price (Pt) between the two domestic prices. The Southeast Asian country exports rice (X) and NZ imports it (M).", "markingGuide": "Pt correctly placed between domestic prices. X and M correctly identified." },
-    { "id": "91223-2025-q1c", "number": "1(c)", "text": "Explain the impact of importing rice on the quantity purchased and total spending on rice by New Zealand consumers. Refer to Graph One in your answer.", "marks": 3, "gradeLevel": "merit", "topics": ["two-country model", "consumer spending", "imports"], "answerType": "text", "expectedAnswer": "Trade lowers the price of rice in NZ to Pt (below the domestic price PNZ). At the lower price, NZ consumers demand a higher quantity. Total spending may increase or remain similar — the lower price per kilogram is offset by the higher quantity purchased.", "markingGuide": "Explains the effect on consumer spending with reference to the graph — lower price but higher quantity." },
-    { "id": "91223-2025-q1d", "number": "1(d)", "text": "Compare and contrast the impact of a new free trade agreement on NZ producers of different agricultural products.", "marks": 4, "gradeLevel": "excellence", "topics": ["free trade agreements", "producers"], "answerType": "text", "expectedAnswer": "NZ producers of goods that compete with imports (e.g., vegetables, grains) are negatively affected because cheaper imports reduce demand for their higher-priced domestic products. NZ producers of goods NZ exports (e.g., dairy, lamb) benefit because the FTA reduces tariffs in the partner country, making NZ exports cheaper and more competitive overseas. The FTA creates winners and losers within NZ agriculture.", "markingGuide": "Contrasts effects on different producers — some benefit from export access, others lose from import competition." },
-    { "id": "91223-2025-q2a", "number": "2(a)", "text": "Explain why the world price in the price taker model is shown as a horizontal line.", "marks": 2, "gradeLevel": "achieved", "topics": ["price taker model", "world price"], "answerType": "text", "expectedAnswer": "NZ is a small producer relative to the world market, so it cannot influence the world price. Whether NZ produces more or less, the world price remains unchanged. This is shown as a horizontal (perfectly elastic) supply line at the world price.", "markingGuide": "Identifies that NZ is too small to influence the world price." },
-    { "id": "91223-2025-q2b", "number": "2(b)", "text": "Favourable growing conditions in 2025 produced a bumper harvest of sauvignon blanc grapes, increasing the supply of wine available for export.\n\nOn Graph Two, show the effect of the improved harvest on wine exports by labelling:\n- the new supply curve S2025\n- the new level of wine exports as X1.", "marks": 3, "gradeLevel": "achieved", "topics": ["price taker model", "supply shift", "exports"], "answerType": "graph", "expectedAnswer": "S2025 shifts right of S2024 due to improved harvest (increased supply). X1 is larger than X because more wine is available for export at the unchanged world price.", "markingGuide": "New supply curve S2025 to right of S2024. X1 correctly labelled showing increased exports." },
-    { "id": "91223-2025-q2c", "number": "2(c)", "text": "Explain how the improved harvest impacts New Zealand consumers' spending on wine. Refer to Graph Two in your answer.", "marks": 2, "gradeLevel": "merit", "topics": ["price taker model", "consumer spending"], "answerType": "text", "expectedAnswer": "The world price (Pw) is unchanged because NZ is a price taker. NZ consumers face the same price and therefore demand the same quantity. Consumer spending on wine remains unchanged despite the supply increase.", "markingGuide": "Explains that consumer spending is unchanged because the world price and quantity demanded are the same." },
-    { "id": "91223-2025-q2d", "number": "2(d)", "text": "Explain the impact of the improved harvest on the current account balance. Refer to Graph Two in your answer.", "marks": 2, "gradeLevel": "merit", "topics": ["current account", "exports", "balance of trade"], "answerType": "text", "expectedAnswer": "The improved harvest increases export volume (X to X1) at the same world price, so total export receipts increase. This improves the trade balance and moves the current account toward surplus.", "markingGuide": "Explains that increased exports improve the current account balance." },
-    { "id": "91223-2025-q2e", "number": "2(e)", "text": "Compare and contrast the impact of the improved harvest on vineyard owners and on seasonal workers who pick grapes. Refer to Graph Two in your answer.", "marks": 4, "gradeLevel": "excellence", "topics": ["producers", "workers", "income distribution"], "answerType": "text", "expectedAnswer": "Vineyard owners benefit from increased revenue (higher export volume at the same world price) and potentially higher profits. Seasonal workers benefit from increased demand for their labour (more grapes to pick), potentially higher wages or more hours. However, vineyard owners may face increased costs (more workers, bottling, transport) which could limit profit gains. Workers may face only temporary employment benefits during the harvest season.", "markingGuide": "Compares effects on vineyard owners (revenue/profit) vs workers (employment/wages) with specific examples." },
-    { "id": "91223-2025-q3a", "number": "3(a)", "text": "Apart from Australia and China, name one of the top five countries New Zealand:\n\nExports to: ___\nImports from: ___", "marks": 2, "gradeLevel": "achieved", "topics": ["trading partners"], "answerType": "text", "expectedAnswer": "Exports to: USA, Japan, or South Korea. Imports from: USA, Japan, or South Korea.", "markingGuide": "One correct for each of exports and imports." },
-    { "id": "91223-2025-q3bi", "number": "3(b)(i)", "text": "On Graph Three, show the effect of increased exports to Japan on the NZD/JPY exchange rate.", "marks": 2, "gradeLevel": "achieved", "topics": ["exchange rate", "exports", "demand for currency"], "answerType": "graph", "expectedAnswer": "Demand for NZD (DNZ$) shifts right as Japanese importers need NZD to pay for NZ exports. Exchange rate appreciates.", "markingGuide": "Graph Three correct — DNZ$ shifts right, exchange rate increases." },
-    { "id": "91223-2025-q3bii", "number": "3(b)(ii)", "text": "Explain how an increase in exports affects the NZ$ exchange rate. Refer to Graph Three in your answer.", "marks": 2, "gradeLevel": "merit", "topics": ["exchange rate", "appreciation", "exports"], "answerType": "text", "expectedAnswer": "Increased exports mean Japanese buyers need more NZD to pay for NZ goods. This increases demand for NZD on the foreign exchange market, shifting DNZ$ right. The exchange rate appreciates from E to E1.", "markingGuide": "Explains why demand for NZD increases, leading to appreciation." },
-    { "id": "91223-2025-q3ci", "number": "3(c)(i)", "text": "On Graph Four, show the effect of increased imports from Japan on the NZD/JPY exchange rate.", "marks": 2, "gradeLevel": "achieved", "topics": ["exchange rate", "imports", "supply of currency"], "answerType": "graph", "expectedAnswer": "Supply of NZD (SNZ$) shifts right as NZ importers sell NZD to buy JPY to pay for imports. Exchange rate depreciates.", "markingGuide": "Graph Four correct — SNZ$ shifts right, exchange rate decreases." },
-    { "id": "91223-2025-q3cii", "number": "3(c)(ii)", "text": "Explain how an increase in imports affects the NZ$ exchange rate. Refer to Graph Four in your answer.", "marks": 2, "gradeLevel": "merit", "topics": ["exchange rate", "depreciation", "imports"], "answerType": "text", "expectedAnswer": "Increased imports mean NZ buyers need more JPY, so they sell NZD on the foreign exchange market. This increases the supply of NZD, shifting SNZ$ right. The exchange rate depreciates from E to E1.", "markingGuide": "Explains why supply of NZD increases, leading to depreciation." },
-    { "id": "91223-2025-q3d", "number": "3(d)", "text": "Compare and contrast the impact of a depreciation of the NZ$ on New Zealand students studying in Japan and on New Zealand retailers importing electronics from Japan.", "marks": 4, "gradeLevel": "excellence", "topics": ["depreciation", "students", "importers", "exchange rate"], "answerType": "text", "expectedAnswer": "NZ students in Japan are negatively affected because each NZD buys fewer JPY, making tuition, rent, and living costs more expensive. NZ retailers importing electronics are also negatively affected because they must pay more NZD for the same JPY-priced goods, increasing their costs and potentially retail prices. Both groups are harmed by depreciation, but students face immediate personal financial pressure, while retailers can choose to absorb costs or pass them on to consumers.", "markingGuide": "Explains how both groups are negatively affected. Contrasts the effects and assesses which faces greater impact." }
+    {
+      "id": "91223-2025-q1a",
+      "number": "1(a)",
+      "text": "Explain why New Zealand exports some food products (such as butter) and imports others (such as olive oil).",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "comparative advantage",
+        "trade",
+        "specialisation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ has a comparative advantage in dairy production due to its pasture-based farming systems and temperate climate. NZ cannot efficiently produce olive oil because the climate in most regions is unsuitable for large-scale olive growing. By specialising and trading, both NZ and Mediterranean countries benefit from lower costs and greater variety.",
+      "markingGuide": "Identifies comparative advantage and explains why NZ exports some products and imports others.",
+      "graph": {
+        "type": "table",
+        "title": "Selected NZ Trade Flows — Food Products",
+        "data": {
+          "headers": [
+            "Product",
+            "NZ Exports ($ millions)",
+            "NZ Imports ($ millions)",
+            "Trade Balance"
+          ],
+          "rows": [
+            [
+              "Butter",
+              "3,200",
+              "12",
+              "Surplus"
+            ],
+            [
+              "Cheese",
+              "1,850",
+              "45",
+              "Surplus"
+            ],
+            [
+              "Olive oil",
+              "2",
+              "85",
+              "Deficit"
+            ],
+            [
+              "Rice",
+              "0",
+              "120",
+              "Deficit"
+            ],
+            [
+              "Wine",
+              "2,100",
+              "180",
+              "Surplus"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "91223-2025-q1b",
+      "number": "1(b)",
+      "text": "On Graph One, which shows NZ and a Southeast Asian country's domestic supply and demand for rice, label the:\n- trade price (Pt)\n- amounts of exports and imports in each country (X and M).",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "two-country model",
+        "trade price",
+        "exports",
+        "imports"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "Trade price (Pt) between the two domestic prices. The Southeast Asian country exports rice (X) and NZ imports it (M).",
+      "markingGuide": "Pt correctly placed between domestic prices. X and M correctly identified."
+    },
+    {
+      "id": "91223-2025-q1c",
+      "number": "1(c)",
+      "text": "Explain the impact of importing rice on the quantity purchased and total spending on rice by New Zealand consumers. Refer to Graph One in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "two-country model",
+        "consumer spending",
+        "imports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Trade lowers the price of rice in NZ to Pt (below the domestic price PNZ). At the lower price, NZ consumers demand a higher quantity. Total spending may increase or remain similar — the lower price per kilogram is offset by the higher quantity purchased.",
+      "markingGuide": "Explains the effect on consumer spending with reference to the graph — lower price but higher quantity."
+    },
+    {
+      "id": "91223-2025-q1d",
+      "number": "1(d)",
+      "text": "Compare and contrast the impact of a new free trade agreement on NZ producers of different agricultural products.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "free trade agreements",
+        "producers"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ producers of goods that compete with imports (e.g., vegetables, grains) are negatively affected because cheaper imports reduce demand for their higher-priced domestic products. NZ producers of goods NZ exports (e.g., dairy, lamb) benefit because the FTA reduces tariffs in the partner country, making NZ exports cheaper and more competitive overseas. The FTA creates winners and losers within NZ agriculture.",
+      "markingGuide": "Contrasts effects on different producers — some benefit from export access, others lose from import competition."
+    },
+    {
+      "id": "91223-2025-q2a",
+      "number": "2(a)",
+      "text": "Explain why the world price in the price taker model is shown as a horizontal line.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "price taker model",
+        "world price"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ is a small producer relative to the world market, so it cannot influence the world price. Whether NZ produces more or less, the world price remains unchanged. This is shown as a horizontal (perfectly elastic) supply line at the world price.",
+      "markingGuide": "Identifies that NZ is too small to influence the world price."
+    },
+    {
+      "id": "91223-2025-q2b",
+      "number": "2(b)",
+      "text": "Favourable growing conditions in 2025 produced a bumper harvest of sauvignon blanc grapes, increasing the supply of wine available for export.\n\nOn Graph Two, show the effect of the improved harvest on wine exports by labelling:\n- the new supply curve S2025\n- the new level of wine exports as X1.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "price taker model",
+        "supply shift",
+        "exports"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "S2025 shifts right of S2024 due to improved harvest (increased supply). X1 is larger than X because more wine is available for export at the unchanged world price.",
+      "markingGuide": "New supply curve S2025 to right of S2024. X1 correctly labelled showing increased exports."
+    },
+    {
+      "id": "91223-2025-q2c",
+      "number": "2(c)",
+      "text": "Explain how the improved harvest impacts New Zealand consumers' spending on wine. Refer to Graph Two in your answer.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "price taker model",
+        "consumer spending"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The world price (Pw) is unchanged because NZ is a price taker. NZ consumers face the same price and therefore demand the same quantity. Consumer spending on wine remains unchanged despite the supply increase.",
+      "markingGuide": "Explains that consumer spending is unchanged because the world price and quantity demanded are the same."
+    },
+    {
+      "id": "91223-2025-q2d",
+      "number": "2(d)",
+      "text": "Explain the impact of the improved harvest on the current account balance. Refer to Graph Two in your answer.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "current account",
+        "exports",
+        "balance of trade"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The improved harvest increases export volume (X to X1) at the same world price, so total export receipts increase. This improves the trade balance and moves the current account toward surplus.",
+      "markingGuide": "Explains that increased exports improve the current account balance."
+    },
+    {
+      "id": "91223-2025-q2e",
+      "number": "2(e)",
+      "text": "Compare and contrast the impact of the improved harvest on vineyard owners and on seasonal workers who pick grapes. Refer to Graph Two in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "producers",
+        "workers",
+        "income distribution"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Vineyard owners benefit from increased revenue (higher export volume at the same world price) and potentially higher profits. Seasonal workers benefit from increased demand for their labour (more grapes to pick), potentially higher wages or more hours. However, vineyard owners may face increased costs (more workers, bottling, transport) which could limit profit gains. Workers may face only temporary employment benefits during the harvest season.",
+      "markingGuide": "Compares effects on vineyard owners (revenue/profit) vs workers (employment/wages) with specific examples."
+    },
+    {
+      "id": "91223-2025-q3a",
+      "number": "3(a)",
+      "text": "Apart from Australia and China, name one of the top five countries New Zealand:\n\nExports to: ___\nImports from: ___",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "trading partners"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Exports to: USA, Japan, or South Korea. Imports from: USA, Japan, or South Korea.",
+      "markingGuide": "One correct for each of exports and imports.",
+      "graph": {
+        "type": "table",
+        "title": "NZ Top 5 Export and Import Partners (2024)",
+        "data": {
+          "headers": [
+            "Rank",
+            "Exports To",
+            "Imports From"
+          ],
+          "rows": [
+            [
+              "1",
+              "China",
+              "China"
+            ],
+            [
+              "2",
+              "Australia",
+              "Australia"
+            ],
+            [
+              "3",
+              "USA",
+              "USA"
+            ],
+            [
+              "4",
+              "Japan",
+              "Japan"
+            ],
+            [
+              "5",
+              "South Korea",
+              "South Korea"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "91223-2025-q3bi",
+      "number": "3(b)(i)",
+      "text": "On Graph Three, show the effect of increased exports to Japan on the NZD/JPY exchange rate.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "exchange rate",
+        "exports",
+        "demand for currency"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "Demand for NZD (DNZ$) shifts right as Japanese importers need NZD to pay for NZ exports. Exchange rate appreciates.",
+      "markingGuide": "Graph Three correct — DNZ$ shifts right, exchange rate increases."
+    },
+    {
+      "id": "91223-2025-q3bii",
+      "number": "3(b)(ii)",
+      "text": "Explain how an increase in exports affects the NZ$ exchange rate. Refer to Graph Three in your answer.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "exchange rate",
+        "appreciation",
+        "exports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increased exports mean Japanese buyers need more NZD to pay for NZ goods. This increases demand for NZD on the foreign exchange market, shifting DNZ$ right. The exchange rate appreciates from E to E1.",
+      "markingGuide": "Explains why demand for NZD increases, leading to appreciation."
+    },
+    {
+      "id": "91223-2025-q3ci",
+      "number": "3(c)(i)",
+      "text": "On Graph Four, show the effect of increased imports from Japan on the NZD/JPY exchange rate.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "exchange rate",
+        "imports",
+        "supply of currency"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "Supply of NZD (SNZ$) shifts right as NZ importers sell NZD to buy JPY to pay for imports. Exchange rate depreciates.",
+      "markingGuide": "Graph Four correct — SNZ$ shifts right, exchange rate decreases."
+    },
+    {
+      "id": "91223-2025-q3cii",
+      "number": "3(c)(ii)",
+      "text": "Explain how an increase in imports affects the NZ$ exchange rate. Refer to Graph Four in your answer.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "exchange rate",
+        "depreciation",
+        "imports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increased imports mean NZ buyers need more JPY, so they sell NZD on the foreign exchange market. This increases the supply of NZD, shifting SNZ$ right. The exchange rate depreciates from E to E1.",
+      "markingGuide": "Explains why supply of NZD increases, leading to depreciation."
+    },
+    {
+      "id": "91223-2025-q3d",
+      "number": "3(d)",
+      "text": "Compare and contrast the impact of a depreciation of the NZ$ on New Zealand students studying in Japan and on New Zealand retailers importing electronics from Japan.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "depreciation",
+        "students",
+        "importers",
+        "exchange rate"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ students in Japan are negatively affected because each NZD buys fewer JPY, making tuition, rent, and living costs more expensive. NZ retailers importing electronics are also negatively affected because they must pay more NZD for the same JPY-priced goods, increasing their costs and potentially retail prices. Both groups are harmed by depreciation, but students face immediate personal financial pressure, while retailers can choose to absorb costs or pass them on to consumers.",
+      "markingGuide": "Explains how both groups are negatively affected. Contrasts the effects and assesses which faces greater impact."
+    }
   ]
 }

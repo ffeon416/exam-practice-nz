@@ -111,11 +111,22 @@
     {
       "id": "y10chem-q10",
       "number": "10",
-      "text": "A student carries out an experiment to investigate the reaction between magnesium ribbon and hydrochloric acid at different concentrations. They measure the time taken for the magnesium to completely dissolve.\n\nTheir results are shown below:\n• 0.5 mol/L acid: 120 seconds\n• 1.0 mol/L acid: 60 seconds\n• 2.0 mol/L acid: 30 seconds\n\n(a) Describe the pattern shown in the results.\n(b) Explain, using particle theory, why increasing the concentration of acid speeds up the reaction.\n(c) Write the word equation for this reaction.",
+      "text": "A student carries out an experiment to investigate the reaction between magnesium ribbon and hydrochloric acid at different concentrations. They measure the time taken for the magnesium to completely dissolve.\n\nTheir results are shown in the graph below.\n\n(a) Describe the pattern shown in the results.\n(b) Explain, using particle theory, why increasing the concentration of acid speeds up the reaction.\n(c) Write the word equation for this reaction.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": ["chemical-reactions-y10", "acids-bases"],
       "answerType": "working",
+      "graph": {
+        "type": "bar",
+        "title": "Time for Magnesium to Dissolve at Different Acid Concentrations",
+        "xLabel": "Concentration of HCl (mol/L)",
+        "yLabel": "Time to dissolve (seconds)",
+        "data": [
+          { "label": "0.5", "value": 120 },
+          { "label": "1.0", "value": 60 },
+          { "label": "2.0", "value": 30 }
+        ]
+      },
       "markingGuide": "1 mark (a): As the concentration of acid increases, the time taken for the magnesium to dissolve decreases (the reaction is faster). When the concentration doubles, the time roughly halves — there is an inverse relationship between concentration and time. 1 mark (b): At higher concentrations, there are more acid particles (H⁺ ions) in the same volume of solution. This means there are more frequent collisions between the acid particles and the magnesium atoms. More collisions per second means the reaction happens faster. 1 mark (b continued): Quality of explanation — uses scientific vocabulary correctly (particles, collisions, concentration, rate of reaction); may mention that the particles must collide with enough energy to react (collision theory). 1 mark (c): magnesium + hydrochloric acid → magnesium chloride + hydrogen. Accept: Mg + HCl → MgCl₂ + H₂ if the student writes the symbol equation instead. Exam tip: When explaining rates of reaction, always link back to particle theory and collisions. More particles = more collisions = faster reaction."
     }
   ],

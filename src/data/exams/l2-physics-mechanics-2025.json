@@ -160,7 +160,7 @@
     {
       "id": "m25-q3b",
       "number": "3(b)",
-      "text": "During a sprint, the 72.0 kg player accelerates from rest to 8.20 m s-1 in 4.50 s.\n\nCalculate the average power produced.",
+      "text": "During a sprint, the 72.0 kg player accelerates from rest to 8.20 m s-1 in 4.50 s.\n\nThe velocity–time graph for this sprint is shown below.\n\nCalculate the average power produced.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -169,6 +169,16 @@
         "energy"
       ],
       "answerType": "working",
+      "graph": {
+        "type": "line",
+        "title": "Velocity–Time Graph for Sprint",
+        "xLabel": "Time (s)",
+        "yLabel": "Velocity (m s⁻¹)",
+        "xValues": [0, 1, 2, 3, 4, 4.5],
+        "series": [
+          { "name": "Velocity", "values": [0, 1.82, 3.64, 5.47, 7.29, 8.20] }
+        ]
+      },
       "expectedAnswer": "Ek = 1/2 mv^2 = 0.5 x 72.0 x 8.20^2 = 2421 J. P = W/t = 2421/4.50 = 538 W.",
       "markingGuide": "Achieved: Ek found. Merit: P = 538 W."
     },

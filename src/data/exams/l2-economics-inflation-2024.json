@@ -7,21 +7,267 @@
   "subject": "economics",
   "timeMinutes": 60,
   "totalMarks": 24,
-  "cutScores": { "notAchieved": { "min": 0, "max": 6 }, "achieved": { "min": 7, "max": 12 }, "merit": { "min": 13, "max": 18 }, "excellence": { "min": 19, "max": 24 } },
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  },
   "questions": [
-    { "id": "91223-2024-q1a", "number": "1(a)", "text": "New Zealand exports honey to many countries. A rise in global demand for mānuka honey has increased the world price.\n\nOn Graph One below, show the impact of the higher world price of honey on New Zealand's exports. Label the new level of exports as X1.", "marks": 3, "gradeLevel": "achieved", "topics": ["price taker model", "exports", "world price"], "answerType": "graph", "expectedAnswer": "Draw a new higher world price line (Pw1) above Pw. At the higher price, NZ producers supply more and NZ consumers demand less, increasing the quantity available for export (X1 > X).", "markingGuide": "New Pw1 shown above Pw. X1 labelled correctly showing increased exports." },
-    { "id": "91223-2024-q1b", "number": "1(b)", "text": "Referring to Graph One, explain how the higher world price of honey affects the quantity of exports from New Zealand.", "marks": 3, "gradeLevel": "merit", "topics": ["price taker model", "exports", "world price"], "answerType": "text", "expectedAnswer": "At the higher world price (Pw1), NZ honey producers supply more honey (movement along SNZ to a higher quantity supplied) because production is more profitable. NZ consumers demand less honey domestically (movement along DNZ to a lower quantity demanded) because the domestic price has risen. The gap between quantity supplied and quantity demanded widens, so exports increase.", "markingGuide": "Explains that higher Pw increases quantity supplied and decreases quantity demanded domestically, increasing exports." },
-    { "id": "91223-2024-q1c", "number": "1(c)", "text": "Referring to Graph One, explain how the higher world price of honey affects the amount of export receipts New Zealand receives.", "marks": 2, "gradeLevel": "merit", "topics": ["export receipts", "world price", "price taker model"], "answerType": "text", "expectedAnswer": "Export receipts = price × quantity of exports. Both the price (higher Pw1) and the quantity of exports (X1 > X) have increased. Therefore, total export receipts rise.", "markingGuide": "Explains that both price and quantity of exports increase, raising total export receipts." },
-    { "id": "91223-2024-q1d", "number": "1(d)", "text": "Compare and contrast the impact of the higher world price of honey on New Zealand beekeepers and New Zealand consumers of honey products. Refer to Graph One in your answer.", "marks": 4, "gradeLevel": "excellence", "topics": ["price taker model", "producers", "consumers", "world price"], "answerType": "text", "expectedAnswer": "NZ beekeepers benefit from higher domestic prices, increasing their revenue and profits. Some beekeepers may expand operations. NZ consumers are worse off because they pay a higher price for honey, reducing their purchasing power. Some consumers may switch to cheaper alternatives such as sugar or imported jam. The contrasting impacts show a redistribution — producers gain at the expense of consumers.", "markingGuide": "Compares and contrasts impacts on both groups with reference to Graph One — producers gain, consumers lose." },
-    { "id": "91223-2024-q2a", "number": "2(a)", "text": "New Zealand trades significantly with both Australia and South Korea. Explain one possible reason why New Zealand's two-way trade with Australia is much larger than with South Korea.", "marks": 2, "gradeLevel": "achieved", "topics": ["two-way trade", "trading partners"], "answerType": "text", "expectedAnswer": "NZ has a close economic relationship with Australia through CER (Closer Economic Relations), which removes most trade barriers. Australia is also geographically close, reducing transport costs and delivery times.", "markingGuide": "Identifies a valid reason — e.g., CER agreement, geographic proximity, cultural ties, complementary economies." },
-    { "id": "91223-2024-q2b", "number": "2(b)", "text": "On Graph Two, which shows NZ and a trading partner's domestic supply and demand for wine, label the:\n- trade price (Pt)\n- amounts of exports and imports in each country (X and M).", "marks": 3, "gradeLevel": "achieved", "topics": ["two-country model", "trade price", "exports", "imports"], "answerType": "graph", "expectedAnswer": "Trade price (Pt) drawn between the domestic prices in both countries. NZ exports wine (X) because NZ domestic price is lower. The trading partner imports wine (M).", "markingGuide": "Pt correctly placed between domestic prices. X and M correctly labelled in respective countries." },
-    { "id": "91223-2024-q2ci", "number": "2(c)(i)", "text": "Referring to Graph Two, explain the impact of exporting wine on revenue gained by New Zealand winemakers.", "marks": 2, "gradeLevel": "merit", "topics": ["two-country model", "export revenue", "producers"], "answerType": "text", "expectedAnswer": "NZ winemakers benefit because the trade price (Pt) is higher than the original NZ domestic price. They sell a larger quantity at a higher price, significantly increasing their total revenue.", "markingGuide": "Explains that higher trade price increases producer revenue with reference to Graph Two." },
-    { "id": "91223-2024-q2cii", "number": "2(c)(ii)", "text": "Referring to Graph Two, explain the impact of exporting wine on the current account balance.", "marks": 2, "gradeLevel": "merit", "topics": ["current account", "exports", "balance of trade"], "answerType": "text", "expectedAnswer": "Exporting wine earns export receipts for NZ (foreign currency flows in). This improves the trade balance (a component of the current account) and moves the current account toward surplus.", "markingGuide": "Explains that exports generate receipts that improve the current account balance." },
-    { "id": "91223-2024-q2d", "number": "2(d)", "text": "Explain how the export of wine may impact resource allocation between the New Zealand wine industry and other horticultural industries.", "marks": 3, "gradeLevel": "excellence", "topics": ["resource allocation", "opportunity cost", "trade"], "answerType": "text", "expectedAnswer": "Increased demand for wine exports means more resources (land, labour, capital) are allocated toward viticulture. This diverts resources away from other horticultural industries such as apple orchards or vegetable farming. The opportunity cost of expanding vineyards is the reduced output in other sectors. Resource prices (e.g., rural land, seasonal workers' wages) may also rise.", "markingGuide": "Explains reallocation of resources towards wine and away from other industries, with reference to opportunity cost." },
-    { "id": "91223-2024-q3a", "number": "3(a)", "text": "Identify one country that New Zealand has a free trade agreement with.", "marks": 1, "gradeLevel": "achieved", "topics": ["free trade agreements"], "answerType": "text", "expectedAnswer": "Any valid country, e.g., Australia, China, Singapore, South Korea, United Kingdom.", "markingGuide": "Names a valid FTA partner country." },
-    { "id": "91223-2024-q3b", "number": "3(b)", "text": "Explain how a tariff imposed by another country on New Zealand lamb exports protects that country's domestic lamb producers.", "marks": 2, "gradeLevel": "merit", "topics": ["tariffs", "trade protection", "lamb"], "answerType": "text", "expectedAnswer": "A tariff increases the price of NZ lamb imports in the other country, making them more expensive relative to domestically produced lamb. Local consumers are more likely to buy the cheaper domestic product, protecting local lamb producers from international competition.", "markingGuide": "Explains that the tariff raises the import price, protecting domestic producers from cheaper NZ competition." },
-    { "id": "91223-2024-q3c", "number": "3(c)", "text": "New Zealand is negotiating improved terms under an existing free trade agreement with a major trading partner. If successful, it could lead to a significant increase in NZ exports.\n\nOn Graph Three below, show the impact on the exchange rate of a large increase in exports to this country.", "marks": 3, "gradeLevel": "achieved", "topics": ["exchange rate", "exports", "demand and supply of currency"], "answerType": "graph", "expectedAnswer": "Demand for NZD (DNZ$) shifts right as the trading partner needs to buy NZD to pay for increased NZ exports. Exchange rate appreciates.", "markingGuide": "DNZ$ shifts right, exchange rate increases (appreciates). New equilibrium correctly labelled." },
-    { "id": "91223-2024-q3d", "number": "3(d)", "text": "Explain the impact on the exchange rate of a large increase in New Zealand's exports. Refer to Graph Three in your answer.", "marks": 3, "gradeLevel": "merit", "topics": ["exchange rate", "appreciation", "exports"], "answerType": "text", "expectedAnswer": "Increased NZ exports mean overseas buyers need to buy more NZD to pay for NZ goods. This increases demand for NZD, shifting the demand curve right on Graph Three. The exchange rate rises (NZD appreciates) from E to E1.", "markingGuide": "Explains increased demand for NZD due to exports, leading to appreciation, with reference to Graph Three." },
-    { "id": "91223-2024-q3e", "number": "3(e)", "text": "The appreciation of the NZD will impact businesses that trade with the partner country.\n\nBusiness A imports furniture to sell in New Zealand.\nBusiness B is a NZ education provider offering courses to students from the partner country.\n\nCompare and contrast the impact of the exchange rate appreciation on Business A and Business B.", "marks": 4, "gradeLevel": "excellence", "topics": ["exchange rate", "importers", "education exports", "appreciation"], "answerType": "text", "expectedAnswer": "NZD appreciation means each NZD buys more foreign currency. Business A (importer) benefits because imported furniture costs less in NZD terms, improving profit margins or enabling lower retail prices. Business B is negatively affected because courses become more expensive in the partner country's currency, making NZ less attractive compared to other study destinations. A benefits through lower input costs, while B faces reduced demand.", "markingGuide": "Compares and contrasts impact on both businesses — A benefits from cheaper imports, B is harmed by reduced competitiveness." }
+    {
+      "id": "91223-2024-q1a",
+      "number": "1(a)",
+      "text": "New Zealand exports honey to many countries. A rise in global demand for mānuka honey has increased the world price.\n\nOn Graph One below, show the impact of the higher world price of honey on New Zealand's exports. Label the new level of exports as X1.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "price taker model",
+        "exports",
+        "world price"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "Draw a new higher world price line (Pw1) above Pw. At the higher price, NZ producers supply more and NZ consumers demand less, increasing the quantity available for export (X1 > X).",
+      "markingGuide": "New Pw1 shown above Pw. X1 labelled correctly showing increased exports."
+    },
+    {
+      "id": "91223-2024-q1b",
+      "number": "1(b)",
+      "text": "Referring to Graph One, explain how the higher world price of honey affects the quantity of exports from New Zealand.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "price taker model",
+        "exports",
+        "world price"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "At the higher world price (Pw1), NZ honey producers supply more honey (movement along SNZ to a higher quantity supplied) because production is more profitable. NZ consumers demand less honey domestically (movement along DNZ to a lower quantity demanded) because the domestic price has risen. The gap between quantity supplied and quantity demanded widens, so exports increase.",
+      "markingGuide": "Explains that higher Pw increases quantity supplied and decreases quantity demanded domestically, increasing exports."
+    },
+    {
+      "id": "91223-2024-q1c",
+      "number": "1(c)",
+      "text": "Referring to Graph One, explain how the higher world price of honey affects the amount of export receipts New Zealand receives.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "export receipts",
+        "world price",
+        "price taker model"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Export receipts = price × quantity of exports. Both the price (higher Pw1) and the quantity of exports (X1 > X) have increased. Therefore, total export receipts rise.",
+      "markingGuide": "Explains that both price and quantity of exports increase, raising total export receipts."
+    },
+    {
+      "id": "91223-2024-q1d",
+      "number": "1(d)",
+      "text": "Compare and contrast the impact of the higher world price of honey on New Zealand beekeepers and New Zealand consumers of honey products. Refer to Graph One in your answer.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "price taker model",
+        "producers",
+        "consumers",
+        "world price"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ beekeepers benefit from higher domestic prices, increasing their revenue and profits. Some beekeepers may expand operations. NZ consumers are worse off because they pay a higher price for honey, reducing their purchasing power. Some consumers may switch to cheaper alternatives such as sugar or imported jam. The contrasting impacts show a redistribution — producers gain at the expense of consumers.",
+      "markingGuide": "Compares and contrasts impacts on both groups with reference to Graph One — producers gain, consumers lose."
+    },
+    {
+      "id": "91223-2024-q2a",
+      "number": "2(a)",
+      "text": "New Zealand trades significantly with both Australia and South Korea. Explain one possible reason why New Zealand's two-way trade with Australia is much larger than with South Korea.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "two-way trade",
+        "trading partners"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ has a close economic relationship with Australia through CER (Closer Economic Relations), which removes most trade barriers. Australia is also geographically close, reducing transport costs and delivery times.",
+      "markingGuide": "Identifies a valid reason — e.g., CER agreement, geographic proximity, cultural ties, complementary economies.",
+      "graph": {
+        "type": "bar",
+        "title": "NZ Two-Way Trade by Partner (2023, $ billions)",
+        "xLabel": "Country",
+        "yLabel": "Trade Value ($ billions)",
+        "data": [
+          {
+            "label": "Australia",
+            "value": 16.2,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "China",
+            "value": 15.8,
+            "color": "#ef4444"
+          },
+          {
+            "label": "USA",
+            "value": 9.4,
+            "color": "#10b981"
+          },
+          {
+            "label": "Japan",
+            "value": 5.1,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "South Korea",
+            "value": 3.8,
+            "color": "#8b5cf6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "91223-2024-q2b",
+      "number": "2(b)",
+      "text": "On Graph Two, which shows NZ and a trading partner's domestic supply and demand for wine, label the:\n- trade price (Pt)\n- amounts of exports and imports in each country (X and M).",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "two-country model",
+        "trade price",
+        "exports",
+        "imports"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "Trade price (Pt) drawn between the domestic prices in both countries. NZ exports wine (X) because NZ domestic price is lower. The trading partner imports wine (M).",
+      "markingGuide": "Pt correctly placed between domestic prices. X and M correctly labelled in respective countries."
+    },
+    {
+      "id": "91223-2024-q2ci",
+      "number": "2(c)(i)",
+      "text": "Referring to Graph Two, explain the impact of exporting wine on revenue gained by New Zealand winemakers.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "two-country model",
+        "export revenue",
+        "producers"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZ winemakers benefit because the trade price (Pt) is higher than the original NZ domestic price. They sell a larger quantity at a higher price, significantly increasing their total revenue.",
+      "markingGuide": "Explains that higher trade price increases producer revenue with reference to Graph Two."
+    },
+    {
+      "id": "91223-2024-q2cii",
+      "number": "2(c)(ii)",
+      "text": "Referring to Graph Two, explain the impact of exporting wine on the current account balance.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "current account",
+        "exports",
+        "balance of trade"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Exporting wine earns export receipts for NZ (foreign currency flows in). This improves the trade balance (a component of the current account) and moves the current account toward surplus.",
+      "markingGuide": "Explains that exports generate receipts that improve the current account balance."
+    },
+    {
+      "id": "91223-2024-q2d",
+      "number": "2(d)",
+      "text": "Explain how the export of wine may impact resource allocation between the New Zealand wine industry and other horticultural industries.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "resource allocation",
+        "opportunity cost",
+        "trade"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increased demand for wine exports means more resources (land, labour, capital) are allocated toward viticulture. This diverts resources away from other horticultural industries such as apple orchards or vegetable farming. The opportunity cost of expanding vineyards is the reduced output in other sectors. Resource prices (e.g., rural land, seasonal workers' wages) may also rise.",
+      "markingGuide": "Explains reallocation of resources towards wine and away from other industries, with reference to opportunity cost."
+    },
+    {
+      "id": "91223-2024-q3a",
+      "number": "3(a)",
+      "text": "Identify one country that New Zealand has a free trade agreement with.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "free trade agreements"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Any valid country, e.g., Australia, China, Singapore, South Korea, United Kingdom.",
+      "markingGuide": "Names a valid FTA partner country."
+    },
+    {
+      "id": "91223-2024-q3b",
+      "number": "3(b)",
+      "text": "Explain how a tariff imposed by another country on New Zealand lamb exports protects that country's domestic lamb producers.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "tariffs",
+        "trade protection",
+        "lamb"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "A tariff increases the price of NZ lamb imports in the other country, making them more expensive relative to domestically produced lamb. Local consumers are more likely to buy the cheaper domestic product, protecting local lamb producers from international competition.",
+      "markingGuide": "Explains that the tariff raises the import price, protecting domestic producers from cheaper NZ competition."
+    },
+    {
+      "id": "91223-2024-q3c",
+      "number": "3(c)",
+      "text": "New Zealand is negotiating improved terms under an existing free trade agreement with a major trading partner. If successful, it could lead to a significant increase in NZ exports.\n\nOn Graph Three below, show the impact on the exchange rate of a large increase in exports to this country.",
+      "marks": 3,
+      "gradeLevel": "achieved",
+      "topics": [
+        "exchange rate",
+        "exports",
+        "demand and supply of currency"
+      ],
+      "answerType": "graph",
+      "expectedAnswer": "Demand for NZD (DNZ$) shifts right as the trading partner needs to buy NZD to pay for increased NZ exports. Exchange rate appreciates.",
+      "markingGuide": "DNZ$ shifts right, exchange rate increases (appreciates). New equilibrium correctly labelled."
+    },
+    {
+      "id": "91223-2024-q3d",
+      "number": "3(d)",
+      "text": "Explain the impact on the exchange rate of a large increase in New Zealand's exports. Refer to Graph Three in your answer.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "exchange rate",
+        "appreciation",
+        "exports"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Increased NZ exports mean overseas buyers need to buy more NZD to pay for NZ goods. This increases demand for NZD, shifting the demand curve right on Graph Three. The exchange rate rises (NZD appreciates) from E to E1.",
+      "markingGuide": "Explains increased demand for NZD due to exports, leading to appreciation, with reference to Graph Three."
+    },
+    {
+      "id": "91223-2024-q3e",
+      "number": "3(e)",
+      "text": "The appreciation of the NZD will impact businesses that trade with the partner country.\n\nBusiness A imports furniture to sell in New Zealand.\nBusiness B is a NZ education provider offering courses to students from the partner country.\n\nCompare and contrast the impact of the exchange rate appreciation on Business A and Business B.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "exchange rate",
+        "importers",
+        "education exports",
+        "appreciation"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "NZD appreciation means each NZD buys more foreign currency. Business A (importer) benefits because imported furniture costs less in NZD terms, improving profit margins or enabling lower retail prices. Business B is negatively affected because courses become more expensive in the partner country's currency, making NZ less attractive compared to other study destinations. A benefits through lower input costs, while B faces reduced demand.",
+      "markingGuide": "Compares and contrasts impact on both businesses — A benefits from cheaper imports, B is harmed by reduced competitiveness."
+    }
   ]
 }

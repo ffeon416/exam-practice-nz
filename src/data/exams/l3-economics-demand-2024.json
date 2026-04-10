@@ -8,10 +8,148 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    { "id": "l3ed24-q1a", "number": "1(a)", "text": "Tūī Trail Running is a small New Zealand sports nutrition company based in Dunedin. They sell their energy gel packs at $4 each. After a global shortage of key ingredients, production costs rose and Tūī raised its price to $5.50.\n\nUsing a demand and supply diagram, analyse the impact of the price increase on Tūī's sales volume. In your answer, explain the concept of price elasticity of demand and how it applies to sports nutrition products.", "marks": 5, "gradeLevel": "achieved", "topics": ["demand elasticity", "price elasticity", "consumer response"], "answerType": "text", "expectedAnswer": "Price elasticity of demand measures the responsiveness of quantity demanded to a change in price. PED = %ΔQd / %ΔP. Sports nutrition gels likely have relatively elastic demand because many substitutes exist (other gel brands, energy bars, home-made alternatives). The 37.5% price increase would cause a proportionally larger decrease in quantity demanded.", "markingGuide": "Clear explanation of elasticity concept with diagram and application to sports nutrition market." },
-    { "id": "l3ed24-q1b", "number": "1(b)", "text": "Explain the determinants of demand elasticity that are relevant to the sports nutrition market. In your answer, discuss why the elasticity might differ between competitive trail runners and casual recreational users.", "marks": 6, "gradeLevel": "merit", "topics": ["elasticity determinants", "market characteristics", "consumer behaviour"], "answerType": "text", "expectedAnswer": "Determinants: (1) Substitutes — many alternative gel brands available, making demand more elastic. (2) Necessity vs luxury — for casual users gels are a luxury, so demand is more elastic. (3) Proportion of income — $5.50 is a small share of income, making demand less elastic. (4) Time — in the short run, loyal athletes may continue purchasing (less elastic), but in the long run they may switch brands (more elastic). Competitive runners view gels as more of a necessity, facing fewer perceived substitutes due to brand loyalty and proven performance, making their demand less elastic than casual users.", "markingGuide": "Identify and explain multiple elasticity determinants with application to competitive vs casual consumers." },
-    { "id": "l3ed24-q2a", "number": "2(a)", "text": "The government has announced a sugar tax of 20 cents per litre on sugary soft drinks, effective across New Zealand. Using a demand and supply model, analyse how this tax will affect the market for sugary soft drinks (currently untaxed) and the market for bottled water (already competitively priced).", "marks": 6, "gradeLevel": "merit", "topics": ["market equilibrium", "demand shifts", "price adjustments"], "answerType": "text", "expectedAnswer": "In the sugary drinks market, the tax shifts the supply curve left (increasing cost to producers), raising the equilibrium price and reducing quantity demanded. Consumers face higher prices and some switch away. In the bottled water market, the tax is not applied — but cross-price effects shift demand for water rightward as some soft drink consumers switch to water, raising the price and quantity of water sold.", "markingGuide": "Analyse both markets with diagrams, showing tax incidence and cross-price effects." },
-    { "id": "l3ed24-q2b", "number": "2(b)", "text": "Evaluate the likely effectiveness of the sugar tax in reducing sugar consumption and improving health outcomes in New Zealand. In your answer, consider the elasticity of demand for different consumer groups, potential unintended consequences, and whether alternative policies might achieve the goal more effectively.", "marks": 7, "gradeLevel": "excellence", "topics": ["demand analysis", "market dynamics", "policy implications"], "answerType": "text", "expectedAnswer": "Effectiveness depends on elasticity: heavy consumers of sugary drinks may have inelastic demand due to habit and addiction, reducing effectiveness. Moderate consumers with elastic demand will switch to alternatives, achieving the health goal. Unintended consequences: (1) regressive impact on low-income families who spend proportionally more on soft drinks, (2) substitution to equally unhealthy alternatives not covered by the tax, (3) reduced revenue for NZ soft drink manufacturers. Alternative policies: targeted health education, advertising restrictions on sugary products, subsidies on healthy alternatives. Conclusion: the sugar tax alone is unlikely to be sufficient; a comprehensive public health approach is needed.", "markingGuide": "Sophisticated application of demand theory to evaluate policy, considering multiple consumer groups and alternative approaches." }
+    {
+      "id": "l3ed24-q1a",
+      "number": "1(a)",
+      "text": "Tūī Trail Running is a small New Zealand sports nutrition company based in Dunedin. They sell their energy gel packs at $4 each. After a global shortage of key ingredients, production costs rose and Tūī raised its price to $5.50.\n\nUsing a demand and supply diagram, analyse the impact of the price increase on Tūī's sales volume. In your answer, explain the concept of price elasticity of demand and how it applies to sports nutrition products.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "demand elasticity",
+        "price elasticity",
+        "consumer response"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Price elasticity of demand measures the responsiveness of quantity demanded to a change in price. PED = %ΔQd / %ΔP. Sports nutrition gels likely have relatively elastic demand because many substitutes exist (other gel brands, energy bars, home-made alternatives). The 37.5% price increase would cause a proportionally larger decrease in quantity demanded.",
+      "markingGuide": "Clear explanation of elasticity concept with diagram and application to sports nutrition market.",
+      "graph": {
+        "type": "table",
+        "title": "Tui Trail Running — Energy Gel Sales Data",
+        "data": {
+          "headers": [
+            "Period",
+            "Price per Gel",
+            "Weekly Units Sold",
+            "Weekly Revenue"
+          ],
+          "rows": [
+            [
+              "Before price rise",
+              "$4.00",
+              "280",
+              "$1,120"
+            ],
+            [
+              "After price rise",
+              "$5.50",
+              "165",
+              "$908"
+            ],
+            [
+              "Change",
+              "+37.5%",
+              "-41.1%",
+              "-18.9%"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l3ed24-q1b",
+      "number": "1(b)",
+      "text": "Explain the determinants of demand elasticity that are relevant to the sports nutrition market. In your answer, discuss why the elasticity might differ between competitive trail runners and casual recreational users.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "elasticity determinants",
+        "market characteristics",
+        "consumer behaviour"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Determinants: (1) Substitutes — many alternative gel brands available, making demand more elastic. (2) Necessity vs luxury — for casual users gels are a luxury, so demand is more elastic. (3) Proportion of income — $5.50 is a small share of income, making demand less elastic. (4) Time — in the short run, loyal athletes may continue purchasing (less elastic), but in the long run they may switch brands (more elastic). Competitive runners view gels as more of a necessity, facing fewer perceived substitutes due to brand loyalty and proven performance, making their demand less elastic than casual users.",
+      "markingGuide": "Identify and explain multiple elasticity determinants with application to competitive vs casual consumers."
+    },
+    {
+      "id": "l3ed24-q2a",
+      "number": "2(a)",
+      "text": "The government has announced a sugar tax of 20 cents per litre on sugary soft drinks, effective across New Zealand. Using a demand and supply model, analyse how this tax will affect the market for sugary soft drinks (currently untaxed) and the market for bottled water (already competitively priced).",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "market equilibrium",
+        "demand shifts",
+        "price adjustments"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "In the sugary drinks market, the tax shifts the supply curve left (increasing cost to producers), raising the equilibrium price and reducing quantity demanded. Consumers face higher prices and some switch away. In the bottled water market, the tax is not applied — but cross-price effects shift demand for water rightward as some soft drink consumers switch to water, raising the price and quantity of water sold.",
+      "markingGuide": "Analyse both markets with diagrams, showing tax incidence and cross-price effects.",
+      "graph": {
+        "type": "bar",
+        "title": "Average Weekly Sugary Drink Consumption by Age Group (litres)",
+        "xLabel": "Age Group",
+        "yLabel": "Litres per week",
+        "data": [
+          {
+            "label": "5–14",
+            "value": 1.8,
+            "color": "#ef4444"
+          },
+          {
+            "label": "15–24",
+            "value": 3.2,
+            "color": "#f59e0b"
+          },
+          {
+            "label": "25–44",
+            "value": 2.4,
+            "color": "#3b82f6"
+          },
+          {
+            "label": "45–64",
+            "value": 1.6,
+            "color": "#10b981"
+          },
+          {
+            "label": "65+",
+            "value": 0.9,
+            "color": "#8b5cf6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "l3ed24-q2b",
+      "number": "2(b)",
+      "text": "Evaluate the likely effectiveness of the sugar tax in reducing sugar consumption and improving health outcomes in New Zealand. In your answer, consider the elasticity of demand for different consumer groups, potential unintended consequences, and whether alternative policies might achieve the goal more effectively.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "demand analysis",
+        "market dynamics",
+        "policy implications"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Effectiveness depends on elasticity: heavy consumers of sugary drinks may have inelastic demand due to habit and addiction, reducing effectiveness. Moderate consumers with elastic demand will switch to alternatives, achieving the health goal. Unintended consequences: (1) regressive impact on low-income families who spend proportionally more on soft drinks, (2) substitution to equally unhealthy alternatives not covered by the tax, (3) reduced revenue for NZ soft drink manufacturers. Alternative policies: targeted health education, advertising restrictions on sugary products, subsidies on healthy alternatives. Conclusion: the sugar tax alone is unlikely to be sufficient; a comprehensive public health approach is needed.",
+      "markingGuide": "Sophisticated application of demand theory to evaluate policy, considering multiple consumer groups and alternative approaches."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
 }

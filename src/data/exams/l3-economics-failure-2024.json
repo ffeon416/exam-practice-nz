@@ -8,10 +8,145 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    { "id": "l3ef24-q1a", "number": "1(a)", "text": "Tasman Timber Ltd operates large-scale pine forestry in the central North Island. Forestry operations can cause soil erosion, sediment runoff into rivers, and loss of native biodiversity when native bush is cleared for plantation forests.\n\nDefine market failure and explain how large-scale forestry in New Zealand is an example of a negative externality. Use a diagram showing the divergence between private and social costs.", "marks": 5, "gradeLevel": "achieved", "topics": ["market failure", "externalities", "public goods"], "answerType": "text", "expectedAnswer": "Market failure occurs when the free market allocates resources inefficiently — the market outcome does not maximise social welfare. Forestry creates negative externalities: the social cost (including environmental damage from erosion, sediment in waterways, biodiversity loss) exceeds the private cost to forestry companies. On a diagram, the MSC (marginal social cost) curve lies above the MPC (marginal private cost) curve. The free market produces at Q_market (where MPC = MPB) but the socially optimal output is Q_optimal (where MSC = MSB), which is lower.", "markingGuide": "Clear definition with diagram showing negative externality and overproduction." },
-    { "id": "l3ef24-q1b", "number": "1(b)", "text": "Explain the economic consequences of the negative externalities from large-scale forestry for New Zealand. In your answer, discuss the impacts on different stakeholders including forestry companies, local communities, and the tourism sector.", "marks": 6, "gradeLevel": "merit", "topics": ["externalities", "social cost", "private cost"], "answerType": "text", "expectedAnswer": "Forestry companies bear only private costs (land, planting, harvesting, transport) and do not pay for environmental damage, leading to overproduction relative to the social optimum. Local communities bear costs through degraded waterways (reduced fishing, swimming, water quality), increased flood risk from deforestation, and dust and noise. The tourism sector may face reputational damage if NZ's 'clean green' image is undermined by visible environmental degradation. Deadweight loss exists because the market produces more forestry than is socially optimal.", "markingGuide": "Explain positive and negative consequences for multiple stakeholders with reference to externality framework." },
-    { "id": "l3ef24-q2a", "number": "2(a)", "text": "The New Zealand government is considering three policies to address environmental damage from forestry:\n(A) A levy on harvested timber per cubic metre\n(B) Regulations requiring all forestry companies to maintain native vegetation buffers along waterways\n(C) A voluntary environmental certification scheme with tax incentives for compliant firms\n\nAnalyse the likely effectiveness of each policy in correcting the market failure.", "marks": 6, "gradeLevel": "merit", "topics": ["government intervention", "policy tools", "efficiency"], "answerType": "text", "expectedAnswer": "Levy: Internalises the externality by making forestry companies pay for environmental damage. Efficient — companies reduce environmentally damaging practices where cheapest. Generates government revenue for restoration. But difficult to set the correct levy rate. Regulation: Simple to implement, guarantees environmental protection along waterways. But inefficient — same requirements regardless of local conditions; some areas may need wider buffers than others. Certification: Voluntary, so least disruptive. Tax incentives encourage participation. But may not achieve sufficient uptake; firms most responsible for damage may opt out.", "markingGuide": "Evaluate effectiveness of three different policy approaches with advantages and disadvantages." },
-    { "id": "l3ef24-q2b", "number": "2(b)", "text": "Recommend which policy the government should adopt, taking into account efficiency, equity, and New Zealand's position as a major timber exporter. Justify your recommendation with economic reasoning, considering potential trade-offs and unintended consequences.", "marks": 7, "gradeLevel": "excellence", "topics": ["market failure", "policy analysis", "trade-offs"], "answerType": "text", "expectedAnswer": "Recommend the timber levy combined with mandatory waterway buffers because: (1) Efficiency — the levy encourages cost-effective environmental improvements while buffers guarantee minimum protection for waterways; (2) Equity — all forestry companies pay, not just volunteers; revenue can fund community restoration projects; (3) Export competitiveness — the levy can be set at a level that internalises the externality without making NZ timber uncompetitive. Trade-offs: (a) higher costs may reduce forestry employment in regional NZ, (b) small forestry operators may be disproportionately affected, (c) if the levy is too high, companies may shift operations overseas. The government should phase in the levy gradually and use revenue to support affected communities.", "markingGuide": "Sophisticated analysis of market failure and optimal policy with justified reasoning and consideration of complexities." }
+    {
+      "id": "l3ef24-q1a",
+      "number": "1(a)",
+      "text": "Tasman Timber Ltd operates large-scale pine forestry in the central North Island. Forestry operations can cause soil erosion, sediment runoff into rivers, and loss of native biodiversity when native bush is cleared for plantation forests.\n\nDefine market failure and explain how large-scale forestry in New Zealand is an example of a negative externality. Use a diagram showing the divergence between private and social costs.",
+      "marks": 5,
+      "gradeLevel": "achieved",
+      "topics": [
+        "market failure",
+        "externalities",
+        "public goods"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Market failure occurs when the free market allocates resources inefficiently — the market outcome does not maximise social welfare. Forestry creates negative externalities: the social cost (including environmental damage from erosion, sediment in waterways, biodiversity loss) exceeds the private cost to forestry companies. On a diagram, the MSC (marginal social cost) curve lies above the MPC (marginal private cost) curve. The free market produces at Q_market (where MPC = MPB) but the socially optimal output is Q_optimal (where MSC = MSB), which is lower.",
+      "markingGuide": "Clear definition with diagram showing negative externality and overproduction.",
+      "graph": {
+        "type": "table",
+        "title": "Tasman Timber — Private Costs vs Social Costs per Hectare",
+        "data": {
+          "headers": [
+            "Cost Category",
+            "Private Cost ($)",
+            "External Cost ($)",
+            "Social Cost ($)"
+          ],
+          "rows": [
+            [
+              "Land & planting",
+              "2,800",
+              "0",
+              "2,800"
+            ],
+            [
+              "Maintenance",
+              "400",
+              "0",
+              "400"
+            ],
+            [
+              "Harvesting",
+              "3,500",
+              "0",
+              "3,500"
+            ],
+            [
+              "Transport",
+              "1,200",
+              "0",
+              "1,200"
+            ],
+            [
+              "Soil erosion",
+              "0",
+              "1,800",
+              "1,800"
+            ],
+            [
+              "Waterway damage",
+              "0",
+              "2,200",
+              "2,200"
+            ],
+            [
+              "Biodiversity loss",
+              "0",
+              "1,500",
+              "1,500"
+            ],
+            [
+              "Total",
+              "7,900",
+              "5,500",
+              "13,400"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "l3ef24-q1b",
+      "number": "1(b)",
+      "text": "Explain the economic consequences of the negative externalities from large-scale forestry for New Zealand. In your answer, discuss the impacts on different stakeholders including forestry companies, local communities, and the tourism sector.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "externalities",
+        "social cost",
+        "private cost"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Forestry companies bear only private costs (land, planting, harvesting, transport) and do not pay for environmental damage, leading to overproduction relative to the social optimum. Local communities bear costs through degraded waterways (reduced fishing, swimming, water quality), increased flood risk from deforestation, and dust and noise. The tourism sector may face reputational damage if NZ's 'clean green' image is undermined by visible environmental degradation. Deadweight loss exists because the market produces more forestry than is socially optimal.",
+      "markingGuide": "Explain positive and negative consequences for multiple stakeholders with reference to externality framework."
+    },
+    {
+      "id": "l3ef24-q2a",
+      "number": "2(a)",
+      "text": "The New Zealand government is considering three policies to address environmental damage from forestry:\n(A) A levy on harvested timber per cubic metre\n(B) Regulations requiring all forestry companies to maintain native vegetation buffers along waterways\n(C) A voluntary environmental certification scheme with tax incentives for compliant firms\n\nAnalyse the likely effectiveness of each policy in correcting the market failure.",
+      "marks": 6,
+      "gradeLevel": "merit",
+      "topics": [
+        "government intervention",
+        "policy tools",
+        "efficiency"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Levy: Internalises the externality by making forestry companies pay for environmental damage. Efficient — companies reduce environmentally damaging practices where cheapest. Generates government revenue for restoration. But difficult to set the correct levy rate. Regulation: Simple to implement, guarantees environmental protection along waterways. But inefficient — same requirements regardless of local conditions; some areas may need wider buffers than others. Certification: Voluntary, so least disruptive. Tax incentives encourage participation. But may not achieve sufficient uptake; firms most responsible for damage may opt out.",
+      "markingGuide": "Evaluate effectiveness of three different policy approaches with advantages and disadvantages."
+    },
+    {
+      "id": "l3ef24-q2b",
+      "number": "2(b)",
+      "text": "Recommend which policy the government should adopt, taking into account efficiency, equity, and New Zealand's position as a major timber exporter. Justify your recommendation with economic reasoning, considering potential trade-offs and unintended consequences.",
+      "marks": 7,
+      "gradeLevel": "excellence",
+      "topics": [
+        "market failure",
+        "policy analysis",
+        "trade-offs"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Recommend the timber levy combined with mandatory waterway buffers because: (1) Efficiency — the levy encourages cost-effective environmental improvements while buffers guarantee minimum protection for waterways; (2) Equity — all forestry companies pay, not just volunteers; revenue can fund community restoration projects; (3) Export competitiveness — the levy can be set at a level that internalises the externality without making NZ timber uncompetitive. Trade-offs: (a) higher costs may reduce forestry employment in regional NZ, (b) small forestry operators may be disproportionately affected, (c) if the levy is too high, companies may shift operations overseas. The government should phase in the levy gradually and use revenue to support affected communities.",
+      "markingGuide": "Sophisticated analysis of market failure and optimal policy with justified reasoning and consideration of complexities."
+    }
   ],
-  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
+  "cutScores": {
+    "notAchieved": {
+      "min": 0,
+      "max": 7
+    },
+    "achieved": {
+      "min": 8,
+      "max": 13
+    },
+    "merit": {
+      "min": 14,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
+  }
 }

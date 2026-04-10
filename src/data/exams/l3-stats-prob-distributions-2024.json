@@ -19,7 +19,39 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (105 - 95)/12 = 0.833. P(Z > 0.833) = 1 - P(Z < 0.833) ≈ 0.2023. (ii) z₁ = (80 - 95)/12 = -1.250, z₂ = (110 - 95)/12 = 1.250. P(-1.250 < Z < 1.250) = P(Z < 1.250) - P(Z < -1.250)."
+      "markingGuide": "Achievement: (i) z = (105 - 95)/12 = 0.833. P(Z > 0.833) = 1 - P(Z < 0.833) ≈ 0.2023. (ii) z₁ = (80 - 95)/12 = -1.250, z₂ = (110 - 95)/12 = 1.250. P(-1.250 < Z < 1.250) = P(Z < 1.250) - P(Z < -1.250).",
+      "graph": {
+        "type": "histogram",
+        "title": "Normal Distribution — Kiwifruit Weights (mean=95g, sd=12g)",
+        "xLabel": "Weight (g)",
+        "yLabel": "Relative Frequency",
+        "data": [
+          {
+            "label": "59–71",
+            "value": 2
+          },
+          {
+            "label": "71–83",
+            "value": 14
+          },
+          {
+            "label": "83–95",
+            "value": 34
+          },
+          {
+            "label": "95–107",
+            "value": 34
+          },
+          {
+            "label": "107–119",
+            "value": 14
+          },
+          {
+            "label": "119–131",
+            "value": 2
+          }
+        ]
+      }
     },
     {
       "id": "st586-24-q1b",
