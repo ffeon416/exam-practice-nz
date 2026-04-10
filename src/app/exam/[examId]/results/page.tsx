@@ -395,7 +395,7 @@ export default function ResultsPage({
                       : full
                       ? "bg-green-600/20 text-green-400 border border-green-700/30 hover:bg-green-600/30"
                       : partial
-                      ? "bg-yellow-600/20 text-yellow-400 border border-yellow-700/30 hover:bg-yellow-600/30"
+                      ? "bg-orange-600/25 text-orange-300 border border-orange-600/40 hover:bg-orange-600/35"
                       : selfMarked && answered
                       ? "bg-blue-600/20 text-blue-400 border border-blue-700/30 hover:bg-blue-600/30"
                       : selfMarked && !answered
