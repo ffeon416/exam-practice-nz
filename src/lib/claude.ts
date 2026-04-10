@@ -41,24 +41,36 @@ export async function markAnswer(
   examTip: string;
   topicsToReview: string[];
 }> {
-  const prompt = `You are an experienced NCEA Mathematics examiner. Mark the following student answer against the official NZQA marking schedule. Be fair but rigorous — award marks only when the criteria are clearly met.
+  const prompt = `You are a friendly NCEA examiner marking a student's exam answer. Be GENEROUS and FAIR — students explain things differently from textbooks but their answers can still be 100% correct.
+
+CRITICAL MARKING RULES:
+1. If the student arrives at the correct answer using valid working, give FULL marks — even if their wording, format, or steps are completely different from the marking guide.
+2. Accept abbreviated working (e.g. "3x6=18" is just as valid as "1 nest × 3 chicks × 6 years = 18").
+3. Accept any answer within an acceptable range for estimation questions.
+4. Accept correct answers stated in any order or format.
+5. Spelling, grammar, and punctuation don't affect marks unless the question is specifically about language.
+6. If the final answer is correct AND there's any sign of valid working, award full marks.
+7. Only deduct marks if the working is genuinely wrong, missing, or the final answer is wrong.
+8. When in doubt, give the student the benefit of the doubt — if you can see they understood, mark it correct.
 
 QUESTION: ${questionText}
 
 MARKS AVAILABLE: ${marks}
 GRADE LEVEL: ${gradeLevel}
-OFFICIAL MARKING GUIDE: ${markingGuide}
+MARKING GUIDE (for reference — students may express the answer differently): ${markingGuide}
 
 STUDENT'S ANSWER: ${studentAnswer || "(No answer provided)"}
 
+Mark this answer generously. Focus on whether the student got the right answer with valid reasoning, not on whether their wording matches the guide exactly.
+
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
-  "marksAwarded": <number 0 to ${marks}>,
+  "marksAwarded": <number 0 to ${marks} — be generous, full marks if answer is correct>,
   "grade": "<not-achieved|achieved|merit|excellence>",
-  "feedback": "<specific feedback on what was correct and what was missing — refer to specific parts of the student's answer>",
-  "correctApproach": "<step-by-step correct solution showing full working>",
-  "examTip": "<one practical exam technique tip for this type of question>",
-  "topicsToReview": [<array of topic slugs the student should review, e.g. "linear-equations", "trigonometry">]
+  "feedback": "<encouraging feedback. If correct, say so clearly and praise their working. If wrong, explain what went wrong gently>",
+  "correctApproach": "<step-by-step correct solution>",
+  "examTip": "<one practical exam technique tip>",
+  "topicsToReview": [<topic slugs only if the student got the question wrong>]
 }`;
 
   const text = await chatCompletion(prompt);
