@@ -12,6 +12,7 @@ export default function Graph({ data }: { data: GraphData }) {
   if (data.type === "scatter") return <ScatterPlot data={data} />;
   if (data.type === "box-plot") return <BoxPlot data={data} />;
   if (data.type === "histogram") return <Histogram data={data} />;
+  if (data.type === "number-line") return <NumberLine data={data} />;
   return null;
 }
 
@@ -327,6 +328,59 @@ function Histogram({ data }: { data: GraphData }) {
         })}
         {data.xLabel && <text x={W / 2} y={H - 2} fill="#71717a" fontSize="9" textAnchor="middle">{data.xLabel}</text>}
         {data.yLabel && <text x="8" y={H / 2} fill="#71717a" fontSize="9" textAnchor="middle" transform={`rotate(-90,8,${H / 2})`}>{data.yLabel}</text>}
+      </svg>
+    </div>
+  );
+}
+
+function NumberLine({ data }: { data: GraphData }) {
+  const items = data.data as Array<{ label: string; value: number; color?: string }>;
+  if (!Array.isArray(items) || items.length === 0) return null;
+
+  const allVals = items.map((d) => d.value);
+  const minVal = Math.min(...allVals, 0);
+  const maxVal = Math.max(...allVals);
+  const range = maxVal - minVal || 1;
+
+  const W = 400, H = 90;
+  const pad = { l: 30, r: 30 };
+  const lineW = W - pad.l - pad.r;
+  const lineY = 35;
+
+  function toX(v: number) { return pad.l + ((v - minVal) / range) * lineW; }
+
+  return (
+    <div className="my-3 bg-zinc-900/50 border border-zinc-800/50 rounded-lg p-4">
+      {data.title && <p className="text-xs text-zinc-400 mb-3 font-medium">{data.title}</p>}
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" shapeRendering="geometricPrecision">
+        {/* Main line */}
+        <line x1={pad.l} y1={lineY} x2={W - pad.r} y2={lineY} stroke="#52525b" strokeWidth="2" />
+        {/* End caps */}
+        <line x1={pad.l} y1={lineY - 8} x2={pad.l} y2={lineY + 8} stroke="#52525b" strokeWidth="2" />
+        <line x1={W - pad.r} y1={lineY - 8} x2={W - pad.r} y2={lineY + 8} stroke="#52525b" strokeWidth="2" />
+        {/* Start/end labels */}
+        {data.xLabel && (
+          <>
+            <text x={pad.l} y={lineY + 22} fill="#a1a1aa" fontSize="9" textAnchor="middle">{data.xLabel.split("||")[0]}</text>
+            <text x={W - pad.r} y={lineY + 22} fill="#a1a1aa" fontSize="9" textAnchor="middle">{data.xLabel.split("||")[1] || ""}</text>
+          </>
+        )}
+        {/* Arrows/markers */}
+        {items.map((item, i) => {
+          const x = toX(item.value);
+          return (
+            <g key={i}>
+              {/* Tick mark */}
+              <line x1={x} y1={lineY - 6} x2={x} y2={lineY + 6} stroke="#a1a1aa" strokeWidth="1.5" />
+              {/* Arrow pointing down to tick */}
+              <polygon points={`${x},${lineY - 8} ${x - 4},${lineY - 16} ${x + 4},${lineY - 16}`} fill={item.color || "#6366f1"} />
+              {/* Label above arrow */}
+              <text x={x} y={lineY - 20} fill="#d4d4d8" fontSize="11" fontWeight="bold" textAnchor="middle">
+                {item.label}
+              </text>
+            </g>
+          );
+        })}
       </svg>
     </div>
   );

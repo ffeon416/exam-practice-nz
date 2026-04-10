@@ -21,29 +21,15 @@
       "expectedAnswer": "5",
       "markingGuide": "The timeline runs from 300 million years ago to today. 60 million years ago is 60/300 = 20% from the right end (today). With 5 arrows evenly spaced, arrow 5 is closest to 'Today'. Accept arrow 5.",
       "graph": {
-        "type": "line",
-        "title": "Timeline: 300 Million Years Ago to Today",
-        "xLabel": "Arrow",
-        "yLabel": "Million years ago",
-        "xValues": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "series": [
-          {
-            "name": "Million years ago",
-            "values": [
-              240,
-              180,
-              120,
-              60,
-              0
-            ],
-            "color": "#22c55e"
-          }
+        "type": "number-line",
+        "title": "Timeline (million years ago)",
+        "xLabel": "300 mya||Today",
+        "data": [
+          { "label": "1", "value": 250 },
+          { "label": "2", "value": 200 },
+          { "label": "3", "value": 150 },
+          { "label": "4", "value": 100 },
+          { "label": "5", "value": 50 }
         ]
       }
     },

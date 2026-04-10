@@ -21,7 +21,7 @@ export interface Exam {
 }
 
 export interface GraphData {
-  type: "bar" | "line" | "pie" | "scatter" | "box-plot" | "histogram" | "table";
+  type: "bar" | "line" | "pie" | "scatter" | "box-plot" | "histogram" | "table" | "number-line";
   title?: string;
   xLabel?: string;
   yLabel?: string;
