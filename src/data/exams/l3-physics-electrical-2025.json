@@ -60,7 +60,7 @@
     {
       "id": "91526-25-q1ci",
       "number": "1(c)(i)",
-      "text": "Te Ariki investigates using a capacitor. The capacitor has capacitance 80.0 F, fully charged by a 4.80 V battery. It is discharged through a 5.00 ohm resistor for 2000 s.\n\nThe graph below shows the general shape of the current–time curve during discharge.\n\nSketch a graph of current against time for 2000 s. Include initial current and current after one time constant. Show all calculations.",
+      "text": "Te Ariki investigates using a capacitor. The capacitor has capacitance 80.0 F, fully charged by a 4.80 V battery. It is discharged through a 5.00 ohm resistor for 2000 s.\n\nThe graph above shows the general shape of the current–time curve during discharge.\n\nSketch a graph of current against time for 2000 s. Include initial current and current after one time constant. Show all calculations.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [

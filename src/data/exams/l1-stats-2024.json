@@ -10,7 +10,7 @@
     {
       "id": "l1s24-q1a",
       "number": "1(a)",
-      "text": "The graph below shows the average monthly household water usage across New Zealand from 2014 to 2023, with a forecast extending to 2030.\n\nThe forecast predicts average monthly water usage will increase significantly by 2030. Evaluate whether this forecast is valid. Support your evaluation with calculations and evidence from the graph.",
+      "text": "The graph above shows the average monthly household water usage across New Zealand from 2014 to 2023, with a forecast extending to 2030.\n\nThe forecast predicts average monthly water usage will increase significantly by 2030. Evaluate whether this forecast is valid. Support your evaluation with calculations and evidence from the graph.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -74,7 +74,7 @@
     {
       "id": "l1s24-q1b",
       "number": "1(b)",
-      "text": "Two water providers offer different plans, shown in the table below.\n\nIdentify advantages and disadvantages of each provider's plans.",
+      "text": "Two water providers offer different plans, shown in the table above.\n\nIdentify advantages and disadvantages of each provider's plans.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -140,7 +140,7 @@
     {
       "id": "l1s24-q2a",
       "number": "2(a)",
-      "text": "The scatter plot below shows the relationship between weekly grocery spending ($) and weekly exercise time (minutes) for different NZ suburbs.\n\nA claim is made that \"spending more on groceries means people exercise less.\" Evaluate this claim using the data in the scatter plot.",
+      "text": "The scatter plot above shows the relationship between weekly grocery spending ($) and weekly exercise time (minutes) for different NZ suburbs.\n\nA claim is made that \"spending more on groceries means people exercise less.\" Evaluate this claim using the data in the scatter plot.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -262,7 +262,7 @@
     {
       "id": "l1s24-q2b",
       "number": "2(b)",
-      "text": "The bar chart below shows average weekly grocery spending across NZ regions in 2023.\n\nCompare features of the grocery spending data. Discuss at least TWO features.",
+      "text": "The bar chart above shows average weekly grocery spending across NZ regions in 2023.\n\nCompare features of the grocery spending data. Discuss at least TWO features.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -324,7 +324,7 @@
     {
       "id": "l1s24-q2c",
       "number": "2(c)",
-      "text": "The table below compares grocery-related data for New Zealand and Australia.\n\nNZ has faster-rising grocery costs than Australia. Using the data, identify and explain factors that could account for this. Support with numerical evidence.",
+      "text": "The table above compares grocery-related data for New Zealand and Australia.\n\nNZ has faster-rising grocery costs than Australia. Using the data, identify and explain factors that could account for this. Support with numerical evidence.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

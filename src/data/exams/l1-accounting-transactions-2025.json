@@ -124,7 +124,7 @@
     {
       "id": "actr-q8",
       "number": "8",
-      "text": "The table below shows the GST figures for a GST-registered business over a two-month period.\n\nHow much GST does the business owe to the IRD for this period? Show your working.",
+      "text": "The table above shows the GST figures for a GST-registered business over a two-month period.\n\nHow much GST does the business owe to the IRD for this period? Show your working.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -174,7 +174,7 @@
     {
       "id": "actr-q10",
       "number": "10",
-      "text": "Tina runs a small clothing boutique in Napier. She is GST-registered. The table below shows her transactions for April.\n\nFor each transaction, determine: (a) the GST component, (b) the net amount (excluding GST), and (c) whether the GST is input tax or output tax.\n\nThen calculate the GST Tina owes to (or is owed by) the IRD for April.",
+      "text": "Tina runs a small clothing boutique in Napier. She is GST-registered. The table above shows her transactions for April.\n\nFor each transaction, determine: (a) the GST component, (b) the net amount (excluding GST), and (c) whether the GST is input tax or output tax.\n\nThen calculate the GST Tina owes to (or is owed by) the IRD for April.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

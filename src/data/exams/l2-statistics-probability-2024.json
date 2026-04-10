@@ -76,7 +76,7 @@
     {
       "id": "stat267-24-q2a",
       "number": "2(a)",
-      "text": "The two-way table below shows results from a survey of 250 Year 12 students about their preferred revision method and whether they achieved an endorsement in their last set of internal assessments.\n\nCalculate the probability that a randomly selected student from this survey uses online learning AND achieved an endorsement.",
+      "text": "The two-way table above shows results from a survey of 250 Year 12 students about their preferred revision method and whether they achieved an endorsement in their last set of internal assessments.\n\nCalculate the probability that a randomly selected student from this survey uses online learning AND achieved an endorsement.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [

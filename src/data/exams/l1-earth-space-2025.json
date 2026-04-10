@@ -11,7 +11,7 @@
     {
       "id": "92046-25-q1a",
       "number": "1(a)",
-      "text": "The Earth orbits the Sun once every 365.25 days. The Earth's axis is tilted at 23.5° relative to the plane of its orbit.\n\nIn the table below, identify which season occurs in the Southern Hemisphere at each position of the Earth in its orbit.\n\n| Position | Earth's tilt relative to Sun | Southern Hemisphere season |\n|---|---|---|\n| A | Southern Hemisphere tilted towards Sun | |\n| B | Neither hemisphere tilted towards Sun (equinox) | |\n| C | Southern Hemisphere tilted away from Sun | |\n| D | Neither hemisphere tilted towards Sun (equinox) | |",
+      "text": "The Earth orbits the Sun once every 365.25 days. The Earth's axis is tilted at 23.5° relative to the plane of its orbit.\n\nIn the table above, identify which season occurs in the Southern Hemisphere at each position of the Earth in its orbit.\n\n| Position | Earth's tilt relative to Sun | Southern Hemisphere season |\n|---|---|---|\n| A | Southern Hemisphere tilted towards Sun | |\n| B | Neither hemisphere tilted towards Sun (equinox) | |\n| C | Southern Hemisphere tilted away from Sun | |\n| D | Neither hemisphere tilted towards Sun (equinox) | |",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -58,7 +58,7 @@
     {
       "id": "92046-25-q1b",
       "number": "1(b)",
-      "text": "The graph below shows average monthly temperatures for Christchurch for the year 2024.\n\nExplain the differences in average monthly temperatures for Christchurch throughout the year.\n\nInclude in your answer:\n- why the Earth experiences seasons (include length of orbit and axial tilt)\n- a comparison of the differences in the amount of solar radiation throughout the year\n- why the temperature changes throughout the year.",
+      "text": "The graph above shows average monthly temperatures for Christchurch for the year 2024.\n\nExplain the differences in average monthly temperatures for Christchurch throughout the year.\n\nInclude in your answer:\n- why the Earth experiences seasons (include length of orbit and axial tilt)\n- a comparison of the differences in the amount of solar radiation throughout the year\n- why the temperature changes throughout the year.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -111,7 +111,7 @@
     {
       "id": "92046-25-q1c",
       "number": "1(c)",
-      "text": "Christchurch experiences changes in daylength throughout the year. The table below shows sunrise and sunset times for a summer day and a winter day.\n\nUsing the data in the table, discuss why this happens.\n\nInclude in your answer:\n- why the Earth experiences day and night\n- how the height of the Sun changes throughout the year\n- why the daylength changes throughout the year.",
+      "text": "Christchurch experiences changes in daylength throughout the year. The table above shows sunrise and sunset times for a summer day and a winter day.\n\nUsing the data in the table, discuss why this happens.\n\nInclude in your answer:\n- why the Earth experiences day and night\n- how the height of the Sun changes throughout the year\n- why the daylength changes throughout the year.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -149,7 +149,7 @@
     {
       "id": "92046-25-q2a",
       "number": "2(a)",
-      "text": "The Moon takes approximately 29.5 days to complete one cycle of phases as seen from Earth.\n\nComplete the table below to describe or name the Moon phase at each position.\n\n| Position relative to Earth and Sun | Moon phase name |\n|---|---|\n| Moon between Earth and Sun | |\n| Moon 90° ahead of Earth–Sun line (first quarter) | |\n| Moon on opposite side of Earth from Sun | |\n| Moon 90° behind Earth–Sun line (third quarter) | |",
+      "text": "The Moon takes approximately 29.5 days to complete one cycle of phases as seen from Earth.\n\nComplete the table above to describe or name the Moon phase at each position.\n\n| Position relative to Earth and Sun | Moon phase name |\n|---|---|\n| Moon between Earth and Sun | |\n| Moon 90° ahead of Earth–Sun line (first quarter) | |\n| Moon on opposite side of Earth from Sun | |\n| Moon 90° behind Earth–Sun line (third quarter) | |",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [

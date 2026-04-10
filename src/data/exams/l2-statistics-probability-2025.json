@@ -65,7 +65,7 @@
     {
       "id": "stat267-25-q2a",
       "number": "2(a)",
-      "text": "A prize draw at a community fair costs $5 per ticket. The table below shows the prize structure and probabilities.\n\nCalculate the expected value of the net gain (winnings minus cost) for a single prize draw ticket.",
+      "text": "A prize draw at a community fair costs $5 per ticket. The table above shows the prize structure and probabilities.\n\nCalculate the expected value of the net gain (winnings minus cost) for a single prize draw ticket.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -125,7 +125,7 @@
     {
       "id": "stat267-25-q3a",
       "number": "3(a)",
-      "text": "The two-way table below shows survey results from 180 adults about exercise habits and energy levels during the morning.\n\nCalculate the probability that a randomly selected person has high energy, given that they exercise regularly.",
+      "text": "The two-way table above shows survey results from 180 adults about exercise habits and energy levels during the morning.\n\nCalculate the probability that a randomly selected person has high energy, given that they exercise regularly.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
