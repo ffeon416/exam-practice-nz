@@ -95,8 +95,8 @@
         "collisions"
       ],
       "answerType": "working",
-      "expectedAnswer": "Taking neighbourhood cat's direction as positive: p_before = p_after. -5.0(1.4) + 6.0(v) = 11.0(0.20). -7.0 + 6.0v = 2.2. 6.0v = 9.2. v = 1.53 m s-1. v = 1.8 m s-1.",
-      "markingGuide": "Achieved: Any relevant momentum calculated. Merit: Two momenta found. Excellence: Correct v = 1.8 m s-1."
+      "expectedAnswer": "Taking neighbourhood cat's direction as positive: p_before = p_after. -5.0(1.4) + 6.0(v) = 11.0(0.20). -7.0 + 6.0v = 2.2. 6.0v = 9.2. v = 1.53 m s-1.",
+      "markingGuide": "Achieved: Any relevant momentum calculated. Merit: Two momenta found. Excellence: Correct v = 1.53 m s-1."
     },
     {
       "id": "m24-q2a",
@@ -116,7 +116,7 @@
     {
       "id": "m24-q2b",
       "number": "2(b)",
-      "text": "Calculate the spring constant for one spring.\n\n(Mass = 0.15 kg, compression = 0.012 m, 3 springs)",
+      "text": "Calculate the spring constant for one spring.\n\n(Mass = 0.15 kg, compression = 0.012 m, 4 springs)",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -124,8 +124,8 @@
         "hookes-law"
       ],
       "answerType": "working",
-      "expectedAnswer": "F = mg = 0.15 x 9.8 = 1.47 N. System k = F/x = 1.47/0.012 = 122.5 N/m. One spring: k = 122.5/3 = 40.8 N m-1.",
-      "markingGuide": "Achieved: System k. Merit: One spring k = 40.8 N m-1."
+      "expectedAnswer": "F = mg = 0.15 x 9.8 = 1.47 N. System k = F/x = 1.47/0.012 = 122.5 N/m. One spring: k = 122.5/4 = 30.6 N m-1.",
+      "markingGuide": "Achieved: System k. Merit: One spring k = 30.6 N m-1."
     },
     {
       "id": "m24-q2c",
@@ -169,7 +169,7 @@
         "moments"
       ],
       "answerType": "working",
-      "expectedAnswer": "Taking torques about wire B: Anti-clockwise torques = Fw(chilli) x 0.30 + Fw(rack) x 0.25 + Fw(pepper) x 0.44 = 0.040x9.8x0.30 + 0.35x9.8x0.25 + 0.45x9.8x0.44 = 0.1176 + 0.8575 + 1.9404 = 2.9155 Nm. This equals wire A x 0.50. FA = 2.9155/0.50 = 5.83 N. FB = total weight - FA = (0.040+0.35+0.45)x9.8 - 5.83 = 8.232 - 5.83 = 2.40 N. FA = 5.83 N exceeds 6.0 N limit, so the rack will fall.",
+      "expectedAnswer": "Taking torques about wire B: Anti-clockwise torques = Fw(chilli) x 0.30 + Fw(rack) x 0.25 + Fw(pepper) x 0.44 = 0.040x9.8x0.30 + 0.35x9.8x0.25 + 0.45x9.8x0.44 = 0.1176 + 0.8575 + 1.9404 = 2.9155 Nm. This equals wire A x 0.50. FA = 2.9155/0.50 = 5.83 N. FB = total weight - FA = (0.040+0.35+0.45)x9.8 - 5.83 = 8.232 - 5.83 = 2.40 N. Both FA = 5.83 N and FB = 2.40 N are below the 6.0 N limit, so the wires can hold the shelf.",
       "markingGuide": "Achieved: One torque correct. Merit: One tension correct. Excellence: Full answer with conclusion."
     },
     {

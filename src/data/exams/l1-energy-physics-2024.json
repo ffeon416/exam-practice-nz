@@ -139,7 +139,7 @@
     {
       "id": "ep24-q2e",
       "number": "2(e)",
-      "text": "Without the cosy, the hot chocolate cools from 60 °C to 35 °C over two hours.\n\nShow that the average rate of thermal energy loss from the hot chocolate over the two hours is approximately 1.3 W.\n\n(Specific heat capacity of milk = 3900 J kg⁻¹ °C⁻¹, Mass of hot chocolate = 0.350 kg)",
+      "text": "Without the cosy, the hot chocolate cools from 60 °C to 35 °C over two hours.\n\nShow that the average rate of thermal energy loss from the hot chocolate over the two hours is approximately 4.7 W.\n\n(Specific heat capacity of milk = 3900 J kg⁻¹ °C⁻¹, Mass of hot chocolate = 0.350 kg)",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -149,7 +149,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "E = 34 125 J, P = 4.7 W",
-      "markingGuide": "ΔT = 60 − 35 = 25 °C. E = mcΔT = 0.350 × 3900 × 25 = 34 125 J. t = 2 × 60 × 60 = 7200 s. P = E/t = 34 125 / 7200 = 4.74 W. Note: The question says approximately 1.3 W — this uses a different mass or SHC. Using the given values: P ≈ 4.7 W. Accept either 1.3 W (if question value adjusted) or 4.7 W with correct working. Achieved: Correct change in temperature. OR attempts formula. Merit: Correct value for thermal energy lost. Excellence: Correct value for thermal energy lost and correct value for power with units."
+      "markingGuide": "ΔT = 60 − 35 = 25 °C. E = mcΔT = 0.350 × 3900 × 25 = 34 125 J. t = 2 × 60 × 60 = 7200 s. P = E/t = 34 125 / 7200 = 4.74 W ≈ 4.7 W. Achieved: Correct change in temperature. OR attempts formula. Merit: Correct value for thermal energy lost. Excellence: Correct value for thermal energy lost and correct value for power with units."
     },
     {
       "id": "ep24-q3a",

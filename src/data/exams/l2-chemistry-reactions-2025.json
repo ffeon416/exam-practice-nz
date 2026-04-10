@@ -61,7 +61,7 @@
         "pH-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "pH = -log10[H3O+] = -log10(0.35) = 0.456",
+      "expectedAnswer": "pH = -log10[H3O+] = -log10(0.45) = 0.347",
       "markingGuide": "Achievement: Correct value."
     },
     {
@@ -168,7 +168,7 @@
     {
       "id": "l2rx25-q2ci",
       "number": "2(c)(i)",
-      "text": "Calcium hydroxide, Ba(OH)2, barium chloride, BaCl2, and barium ethanoate, Ba(CH3COO)2, are soluble calcium compounds.\n\nWrite an equation to show the complete dissociation of each of these compounds in water.",
+      "text": "Barium hydroxide, Ba(OH)2, barium chloride, BaCl2, and barium ethanoate, Ba(CH3COO)2, are soluble barium compounds.\n\nWrite an equation to show the complete dissociation of each of these compounds in water.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -176,7 +176,7 @@
         "dissociation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Ba(OH)2(s) -> Ca2+(aq) + 2OH-(aq)\nBaCl2(s) -> Ca2+(aq) + 2Br-(aq)\nCa(CH3CH2COO)2(s) -> Ca2+(aq) + 2CH3CH2COO-(aq)",
+      "expectedAnswer": "Ba(OH)2(s) -> Ba2+(aq) + 2OH-(aq)\nBaCl2(s) -> Ba2+(aq) + 2Cl-(aq)\nBa(CH3COO)2(s) -> Ba2+(aq) + 2CH3COO-(aq)",
       "markingGuide": "Achievement: Two correct equations."
     },
     {
@@ -320,7 +320,7 @@
     {
       "id": "l2rx25-q3c",
       "number": "3(c)",
-      "text": "Fluorine gas, F2(g), can also be used to produce chlorine trifluoride, ClF3(g), a semiconductor manufacturing gas.\n\n3F2(g) + N2(g) <=> 2ClF3(g)\n\nThe formation of ClF3(g) is favoured when the temperature is decreased.\n\nExplain why this reaction is performed at 95 degrees C instead of a lower temperature (for example, 25 degrees C).\n\nIn your answer:\n- identify whether the forward reaction is exothermic or endothermic\n- explain any disadvantages of a higher temperature using equilibrium concepts\n- explain any advantages of using a higher temperature using collision theory and rate of reaction principles.",
+      "text": "Fluorine gas, F2(g), can also be used to produce chlorine trifluoride, ClF3(g), a semiconductor manufacturing gas.\n\n3F2(g) + Cl2(g) <=> 2ClF3(g)\n\nThe formation of ClF3(g) is favoured when the temperature is decreased.\n\nExplain why this reaction is performed at 95 degrees C instead of a lower temperature (for example, 25 degrees C).\n\nIn your answer:\n- identify whether the forward reaction is exothermic or endothermic\n- explain any disadvantages of a higher temperature using equilibrium concepts\n- explain any advantages of using a higher temperature using collision theory and rate of reaction principles.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

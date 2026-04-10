@@ -19,7 +19,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Two-way table: Arts & Technology = 120, Arts only = 120, Technology only = 210, Neither = 150. P(Arts or Technology) = (240 + 330 - 120)/600 = 450/600 = 0.75. Using addition rule: P(S ∪ H) = P(S) + P(H) - P(S ∩ H) = 0.40 + 0.55 - 0.20 = 0.75."
+      "markingGuide": "Achievement: Two-way table: Arts & Technology = 100, Arts only = 100, Technology only = 175, Neither = 125. P(Arts or Technology) = (200 + 275 - 100)/500 = 375/500 = 0.75. Using addition rule: P(A ∪ T) = P(A) + P(T) - P(A ∩ T) = 0.40 + 0.55 - 0.20 = 0.75."
     },
     {
       "id": "st267-25-q1b",
@@ -32,7 +32,7 @@
         "independence"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) P(Technology | Arts) = 120/240 = 0.50. (ii) For independence: P(Technology) = 0.55, P(Technology | Arts) = 0.50. Since P(Technology | Arts) ≠ P(Technology), the events are NOT independent. Students who take Arts are slightly less likely to also take Technology than students in general. Alternatively: P(S) × P(H) = 0.40 × 0.55 = 0.22, but P(S ∩ H) = 0.20 ≠ 0.22."
+      "markingGuide": "Merit: (i) P(Technology | Arts) = 100/200 = 0.50. (ii) For independence: P(Technology) = 275/500 = 0.55, P(Technology | Arts) = 0.50. Since P(Technology | Arts) ≠ P(Technology), the events are NOT independent. Students who take Arts are slightly less likely to also take Technology than students in general. Alternatively: P(A) × P(T) = 0.40 × 0.55 = 0.22, but P(A ∩ T) = 100/500 = 0.20 ≠ 0.22."
     },
     {
       "id": "st267-25-q2a",
@@ -45,7 +45,7 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6). Basketball on branch: Training (0.8), Library (0.2). No basketball branch: Library (0.6), Mate's house (0.25), Home (0.15). All branches correctly labelled with probabilities."
+      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6). Basketball on branch: Training (0.8), Library (0.2). No basketball branch: Library (0.6), Gym (0.25), Home (0.15). All branches correctly labelled with probabilities."
     },
     {
       "id": "st267-25-q2b",
@@ -71,7 +71,7 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Risk of failing (daily short practice) = 48/120 = 0.35 (35%). Risk of failing (weekly long practice) = 75/120 = 0.55 (55%).",
+      "markingGuide": "Achievement: Risk of failing (daily short practice) = 48/120 = 0.40 (40%). Risk of failing (weekly long practice) = 75/120 = 0.625 (62.5%).",
       "graph": {
         "type": "table",
         "title": "Language Learning Approaches",
@@ -110,7 +110,7 @@
         "risk-interpretation"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: Relative risk = 0.55/0.35 = 1.571. Students who practised in weekly long sessions were about 1.57 times as likely to fail the language assessment compared to students who practised in daily short sessions. This suggests that daily short practice sessions are a more effective approach than weekly long sessions for passing music exams."
+      "markingGuide": "Merit: Relative risk = 0.625/0.40 = 1.5625. Students who practised in weekly long sessions were about 1.56 times as likely to fail the language assessment compared to students who practised in daily short sessions. This suggests that daily short practice sessions are a more effective approach than weekly long sessions for passing language assessments."
     },
     {
       "id": "st267-25-q3c",

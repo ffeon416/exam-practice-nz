@@ -52,8 +52,8 @@
         "force"
       ],
       "answerType": "working",
-      "expectedAnswer": "E = F/Q = 6.40 x 10^-4 / 3.20 x 10^-10 = 2.0 x 10^6 V/m. V = Ed = 2.0 x 10^6 x 2.0 x 10^-3 = 3000 V.",
-      "markingGuide": "Achieved: E calculated. Merit: Correct voltage."
+      "expectedAnswer": "E = F/Q = 6.40 x 10^-4 / 3.20 x 10^-10 = 2.0 x 10^6 V/m. V = Ed = 2.0 x 10^6 x 2.0 x 10^-3 = 4000 V.",
+      "markingGuide": "Achieved: E calculated. Merit: Correct voltage = 4000 V."
     },
     {
       "id": "e25-q1c",
@@ -158,7 +158,7 @@
         "current"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compressor I = 230/26.5 = 8.68 A. Light I = 230/920 = 0.25 A. Fans I = 230/920 = 0.25 A. Total I = 9.18 A. Q = It = 9.18 x 240 = 2203 C. (Accept rounding variations.)",
+      "expectedAnswer": "Compressor I = 230/26.5 = 8.68 A. Light I = 230/920 = 0.25 A. Fan 1 I = 230/460 = 0.50 A. Fan 2 I = 230/460 = 0.50 A. Total I = 9.93 A. Q = It = 9.93 x 240 = 2383 C. (Accept rounding variations.)",
       "markingGuide": "Achieved: Any correct sub-calculation. Merit: Correct."
     },
     {

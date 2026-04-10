@@ -11,7 +11,7 @@
     {
       "id": "st586-25-q1a",
       "number": "1a",
-      "text": "The lifetime of a particular model of smartphone battery is normally distributed with a mean of 46 months and a standard deviation of 6 months.\n\n(i) Find the probability that a randomly selected battery lasts more than 55 months.\n(ii) Find the probability that a randomly selected battery lasts between 40 and 58 months.\n(iii) In a batch of 6 batteries, find the probability that all 5 last more than 36 months. Assume battery lifetimes are independent.",
+      "text": "The lifetime of a particular model of smartphone battery is normally distributed with a mean of 46 months and a standard deviation of 6 months.\n\n(i) Find the probability that a randomly selected battery lasts more than 55 months.\n(ii) Find the probability that a randomly selected battery lasts between 40 and 58 months.\n(iii) In a batch of 6 batteries, find the probability that all 6 last more than 36 months. Assume battery lifetimes are independent.",
       "marks": 5,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,7 +19,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (55 - 48)/6 = 1.167. P(Z > 1.167) ≈ 0.1217. (ii) z₁ = (40 - 48)/6 = -1.333, z₂ = (58 - 48)/6 = 1.667. P(-1.333 < Z < 1.667) = P(Z<1.667) - P(Z<-1.333). Merit: (iii) P(X > 36) per battery: z = (36 - 48)/6 = -2.0, P(Z > -2.0) = 0.9772. P(all 6 > 36) = 0.9772⁶ = 0.8708.",
+      "markingGuide": "Achievement: (i) z = (55 - 46)/6 = 1.50. P(Z > 1.50) ≈ 0.0668. (ii) z₁ = (40 - 46)/6 = -1.00, z₂ = (58 - 46)/6 = 2.00. P(-1.00 < Z < 2.00) = P(Z<2.00) - P(Z<-1.00) = 0.9772 - 0.1587 = 0.8186. Merit: (iii) P(X > 36) per battery: z = (36 - 46)/6 = -1.667, P(Z > -1.667) = 0.9525. P(all 6 > 36) = 0.9525⁶ = 0.7458.",
       "graph": {
         "type": "histogram",
         "title": "Normal Distribution — Battery Lifetime (mean=46mo, sd=6mo)",
@@ -64,7 +64,7 @@
         "normal-distribution-l3"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: Need P(X < g) = 0.03. z for 3rd percentile = -1.881. g = 48 + (-1.881)(6) = 48 - 11.29 = 36.71 months. The warranty should cover up to 36 months."
+      "markingGuide": "Merit: Need P(X < g) = 0.03. z for 3rd percentile = -1.881. g = 46 + (-1.881)(6) = 46 - 11.29 = 34.71 months. The warranty should cover up to 34 months."
     },
     {
       "id": "st586-25-q2a",
@@ -142,7 +142,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) Mean = 1/λ = 1/5 hours = 12 minutes. (ii) λ = 5 per hour. P(T > 1/4) = e^(-5 × 1/4) = e^(-1.25) = 0.2865. Merit: (iii) The memoryless property means that if 10 minutes have already passed without a call, the probability of waiting at least another 15 minutes is the same as waiting 15 minutes from the start."
+      "markingGuide": "Achievement: (i) Mean = 1/λ = 1/5 hours = 12 minutes. (ii) λ = 5 per hour. 20 minutes = 1/3 hour. P(T > 1/3) = e^(-5 × 1/3) = e^(-1.667) = 0.1889. Merit: (iii) The memoryless property means that if 10 minutes have already passed without a call, the probability of waiting at least another 20 minutes is the same as waiting 20 minutes from the start."
     },
     {
       "id": "st586-25-q3",

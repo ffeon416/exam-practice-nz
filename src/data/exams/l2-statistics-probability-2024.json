@@ -19,8 +19,8 @@
         "conditional-probability"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(positive) = P(Condition and +) + P(No Condition and +) = 0.05 × 0.90 + 0.95 × 0.15 = 0.045 + 0.1425 = 0.1875",
-      "markingGuide": "Achieved: Correctly sets up probability tree with condition (0.05/0.95) and screening result branches. Calculates P(positive) = 0.05 × 0.90 + 0.95 × 0.15 = 0.1875. Merit: Shows clear working with all probabilities labelled on the tree. Excellence: Full solution with clearly communicated reasoning.",
+      "expectedAnswer": "P(positive) = P(Condition and +) + P(No Condition and +) = 0.06 × 0.88 + 0.94 × 0.14 = 0.0528 + 0.1316 = 0.1844",
+      "markingGuide": "Achieved: Correctly sets up probability tree with condition (0.06/0.94) and screening result branches. Calculates P(positive) = 0.06 × 0.88 + 0.94 × 0.14 = 0.1844. Merit: Shows clear working with all probabilities labelled on the tree. Excellence: Full solution with clearly communicated reasoning.",
       "graph": {
         "type": "table",
         "title": "Food Allergy Screening Data",
@@ -56,8 +56,8 @@
         "probability-trees"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(Condition|+) = P(Condition and +) / P(+) = 0.045 / 0.1875 = 0.24",
-      "markingGuide": "Achieved: Identifies this as a conditional probability problem. Merit: Correctly applies Bayes' theorem or reads from tree: P(Condition|+) = 0.045/0.1875 = 0.24. Must show the formula or clear reasoning from the tree. Excellence: Provides correct answer with clear communication about why the probability is surprisingly low despite the test's reasonable accuracy, linking to the base rate of the condition."
+      "expectedAnswer": "P(Condition|+) = P(Condition and +) / P(+) = 0.0528 / 0.1844 = 0.286",
+      "markingGuide": "Achieved: Identifies this as a conditional probability problem. Merit: Correctly applies Bayes' theorem or reads from tree: P(Condition|+) = 0.0528/0.1844 = 0.286 (approximately 28.6%). Must show the formula or clear reasoning from the tree. Excellence: Provides correct answer with clear communication about why the probability is surprisingly low despite the test's reasonable accuracy, linking to the base rate of the condition."
     },
     {
       "id": "stat267-24-q1c",
@@ -70,8 +70,8 @@
         "conditional-probability"
       ],
       "answerType": "text",
-      "expectedAnswer": "The claim is misleading. While the test correctly identifies 88% of people WITH the condition, a positive result only means about a 24% chance of actually having the condition. This is because the condition is relatively uncommon (6%), so most positive results come from the large number of people without the condition who receive false positives. The spokesperson is confusing P(+|Condition) = 0.90 with P(Condition|+) = 0.24. Confirmatory testing should be done before treatment.",
-      "markingGuide": "Achieved: States the claim is not entirely correct. Merit: Explains that the probability of having the condition given a positive test is only about 24%, using their calculation. Excellence: Clearly explains the base rate fallacy — that because the condition is uncommon, the false positives from the 96% without the condition overwhelm the true positives. Distinguishes between P(+|Condition) and P(Condition|+) in context."
+      "expectedAnswer": "The claim is misleading. While the test correctly identifies 88% of people WITH the condition, a positive result only means about a 29% chance of actually having the condition. This is because the condition is relatively uncommon (6%), so most positive results come from the large number of people without the condition who receive false positives. The spokesperson is confusing P(+|Condition) = 0.88 with P(Condition|+) = 0.286. Confirmatory testing should be done before treatment.",
+      "markingGuide": "Achieved: States the claim is not entirely correct. Merit: Explains that the probability of having the condition given a positive test is only about 29%, using their calculation. Excellence: Clearly explains the base rate fallacy — that because the condition is uncommon, the false positives from the 94% without the condition overwhelm the true positives. Distinguishes between P(+|Condition) and P(Condition|+) in context."
     },
     {
       "id": "stat267-24-q2a",
@@ -84,8 +84,8 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(Digital AND Endorsement) = 48/250 = 0.192",
-      "markingGuide": "Achieved: Correctly calculates 48/250 = 0.192 (or 24/125). Must show the fraction or calculation, not just the answer.",
+      "expectedAnswer": "P(Online AND Endorsement) = 45/250 = 0.18",
+      "markingGuide": "Achieved: Correctly calculates 45/250 = 0.18 (or 9/50). Must show the fraction or calculation, not just the answer.",
       "graph": {
         "type": "table",
         "title": "Revision Method and Endorsement",
@@ -130,7 +130,7 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(Digital) = 100/250 = 0.4, P(Endorsement) = 111/250 = 0.444. If independent, P(Digital AND Endorsement) = 0.4 × 0.444 = 0.1776. Actual P(Digital AND Endorsement) = 48/250 = 0.192. Since 0.192 ≠ 0.1776, the events are NOT independent.",
+      "expectedAnswer": "P(Online) = 100/250 = 0.4, P(Endorsement) = 105/250 = 0.42. If independent, P(Online AND Endorsement) = 0.4 × 0.42 = 0.168. Actual P(Online AND Endorsement) = 45/250 = 0.18. Since 0.18 ≠ 0.168, the events are NOT independent.",
       "markingGuide": "Achieved: Calculates at least two of the required probabilities. Merit: Correctly compares P(A and B) with P(A) × P(B), or compares P(A|B) with P(A). Concludes they are not independent with correct justification. Excellence: Clear, well-communicated solution with all working shown and a contextual conclusion."
     },
     {
@@ -144,8 +144,8 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "expectedAnswer": "Risk for online learning = 48/100 = 0.48. Risk for textbook study = 63/150 = 0.42. Relative risk = 0.48/0.42 = 1.143. Students who use online learning are 1.14 times as likely to achieve an endorsement compared to students who use textbook study.",
-      "markingGuide": "Achieved: Calculates at least one of the risk values correctly. Merit: Correctly calculates relative risk = 1.143 and interprets in context (online learning students are about 1.14 times as likely to achieve an endorsement). Excellence: Adds a caveat that this is an observational study so we cannot conclude online learning causes better results."
+      "expectedAnswer": "Risk for online learning = 45/100 = 0.45. Risk for textbook study = 60/150 = 0.40. Relative risk = 0.45/0.40 = 1.125. Students who use online learning are 1.13 times as likely to achieve an endorsement compared to students who use textbook study.",
+      "markingGuide": "Achieved: Calculates at least one of the risk values correctly. Merit: Correctly calculates relative risk = 1.125 and interprets in context (online learning students are about 1.13 times as likely to achieve an endorsement). Excellence: Adds a caveat that this is an observational study so we cannot conclude online learning causes better results."
     }
   ],
   "cutScores": {

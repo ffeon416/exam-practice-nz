@@ -19,13 +19,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "SbCl4-: P central with 4 bonding pairs and 0 lone pairs -> tetrahedral. AsCl5: P central with 5 bonding pairs -> trigonal bipyramidal.",
+      "expectedAnswer": "SbCl4-: Sb central with 4 bonding pairs and 1 lone pair -> see-saw (or disphenoidal). AsCl5: As central with 5 bonding pairs -> trigonal bipyramidal.",
       "markingGuide": "Achievement: Two correct entries."
     },
     {
       "id": "l3ct25-q1bi",
       "number": "1(b)(i)",
-      "text": "The Lewis structure and shape for phosphorus trichloride, AsCl3, are shown (trigonal pyramidal with one lone pair).\n\nIdentify and explain the polarity of AsCl3.",
+      "text": "The Lewis structure and shape for arsenic trichloride, AsCl3, are shown (trigonal pyramidal with one lone pair).\n\nIdentify and explain the polarity of AsCl3.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -34,7 +34,7 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "AsCl3 is polar. The P-Cl bonds are polar and the trigonal pyramidal shape means the dipoles do not cancel due to asymmetry caused by the lone pair.",
+      "expectedAnswer": "AsCl3 is polar. The As-Cl bonds are polar and the trigonal pyramidal shape means the dipoles do not cancel due to asymmetry caused by the lone pair.",
       "markingGuide": "Achievement: Identifies AsCl3 as polar. Merit: Explains using bond polarity and asymmetric arrangement."
     },
     {

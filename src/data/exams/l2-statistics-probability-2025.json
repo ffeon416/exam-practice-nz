@@ -19,8 +19,8 @@
         "probability-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(drink) = P(hot and drink) + P(cold and drink) = 0.55 × 0.40 + 0.45 × 0.25 = 0.22 + 0.1125 = 0.3325",
-      "markingGuide": "Achieved: Draws tree diagram with correct branches (hot 0.55/cold 0.45, then drink/no drink for each). Calculates P(drink) = 0.3325. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram.",
+      "expectedAnswer": "P(muffin) = P(coffee and muffin) + P(tea and muffin) = 0.60 × 0.35 + 0.40 × 0.20 = 0.21 + 0.08 = 0.29",
+      "markingGuide": "Achieved: Draws tree diagram with correct branches (coffee 0.60/tea 0.40, then muffin/no muffin for each). Calculates P(muffin) = 0.29. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram.",
       "graph": {
         "type": "table",
         "title": "Cafe Orders Probability Data",
@@ -59,8 +59,8 @@
         "probability-trees"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(hot|drink) = P(hot and drink) / P(drink) = 0.22 / 0.3325 = 0.6617 (or 44/66.5 ≈ 0.662)",
-      "markingGuide": "Achieved: Identifies the need for conditional probability. Merit: Correctly applies P(hot|drink) = P(hot and drink)/P(drink) = 0.22/0.3325 = 0.662 (or 88/133). Excellence: Shows clear reasoning with formula stated, all values identified from the tree."
+      "expectedAnswer": "P(coffee|muffin) = P(coffee and muffin) / P(muffin) = 0.21 / 0.29 = 0.7241 (or 21/29 ≈ 0.724)",
+      "markingGuide": "Achieved: Identifies the need for conditional probability. Merit: Correctly applies P(coffee|muffin) = P(coffee and muffin)/P(muffin) = 0.21/0.29 = 0.724 (or 21/29). Excellence: Shows clear reasoning with formula stated, all values identified from the tree."
     },
     {
       "id": "stat267-25-q2a",
@@ -133,7 +133,7 @@
         "two-way-tables"
       ],
       "answerType": "working",
-      "expectedAnswer": "P(high energy | eats exercise) = 63/90 = 0.70",
+      "expectedAnswer": "P(high energy | exercises regularly) = 63/90 = 0.70",
       "markingGuide": "Achieved: Correctly identifies the conditional probability and calculates 63/90 = 0.70 (or 7/10).",
       "graph": {
         "type": "table",
@@ -171,7 +171,7 @@
     {
       "id": "stat267-25-q3b",
       "number": "3(b)",
-      "text": "A fitness company claims: 'Eating exercise boosts your energy — our research shows 70% of exercise eaters have high energy compared to only 27% of exercise skippers.'\n\nEvaluate this claim. In your answer, discuss:\n• the validity of the comparison\n• whether the data supports a causal claim\n• what other factors might explain the difference.",
+      "text": "A fitness company claims: 'Regular exercise boosts your energy — our research shows 70% of regular exercisers have high energy compared to only 27% of those who rarely exercise.'\n\nEvaluate this claim. In your answer, discuss:\n• the validity of the comparison\n• whether the data supports a causal claim\n• what other factors might explain the difference.",
       "marks": 2,
       "gradeLevel": "excellence",
       "topics": [
@@ -179,7 +179,7 @@
         "statistical-reasoning"
       ],
       "answerType": "text",
-      "expectedAnswer": "The comparison is valid — there is a clear difference (70% vs 26.7%). However, the claim of causation is not justified from this observational survey data. Correlation does not imply causation. Confounding variables could explain the difference: people who eat exercise regularly may also have healthier overall lifestyles, better sleep habits, less stress, different occupations, or different ages. A randomised controlled experiment would be needed to establish causation. The fitness company also has a financial interest in promoting exercise eating.",
+      "expectedAnswer": "The comparison is valid — there is a clear difference (70% vs 26.7%). However, the claim of causation is not justified from this observational survey data. Correlation does not imply causation. Confounding variables could explain the difference: people who exercise regularly may also have healthier overall lifestyles, better sleep habits, less stress, different occupations, or different ages. A randomised controlled experiment would be needed to establish causation. The fitness company also has a financial interest in promoting exercise.",
       "markingGuide": "Achieved: Notes there is a difference in proportions between the two groups. Merit: Correctly identifies that this is observational data so causation cannot be concluded, and suggests at least one confounding variable. Excellence: Thoroughly discusses the limitation of observational studies, provides multiple plausible confounding variables in context, mentions the company's commercial interest, and explains what type of study design would be needed to establish causation."
     }
   ],

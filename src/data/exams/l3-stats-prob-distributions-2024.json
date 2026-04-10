@@ -64,7 +64,7 @@
         "inverse-normal"
       ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) Bottom 20% excluded. z for 20th percentile = -0.842. Weight = 185 + (-0.842)(22) = 185 - 18.52 = 166.5 g. Apples must weigh at least 166.5 g. (ii) 20% of kiwifruit would be rejected."
+      "markingGuide": "Merit: (i) Bottom 20% excluded. z for 20th percentile = -0.842. Weight = 95 + (-0.842)(12) = 95 - 10.1 = 84.9 g. Kiwifruit must weigh at least 84.9 g. (ii) 20% of kiwifruit would be rejected."
     },
     {
       "id": "st586-24-q2a",
@@ -90,7 +90,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) λ = 1/25. P(X ≤ 15) = 1 - e^(-15/25) = 1 - e^(-0.6) = 1 - 0.5488 = 0.4512. Merit: (ii) By the memoryless property of the exponential distribution, P(X > 30 | X > 15) = P(X > 15) = e^(-15/25) = e^(-0.6) = 0.5488. The probability of waiting another 20 years is the same regardless of how long we've already waited. This is the key property of the exponential distribution."
+      "markingGuide": "Achievement: (i) λ = 1/30. P(X ≤ 20) = 1 - e^(-20/30) = 1 - e^(-0.667) = 1 - 0.5134 = 0.4866. Merit: (ii) By the memoryless property of the exponential distribution, P(X > 40 | X > 20) = P(X > 20) = e^(-20/30) = e^(-0.667) = 0.5134. The probability of waiting another 20 years is the same regardless of how long we've already waited. This is the key property of the exponential distribution."
     },
     {
       "id": "st586-24-q3a",
@@ -103,12 +103,12 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) ∫₀⁶ kx(6-x) dx = 1. ∫₀⁶ k(6x - x²) dx = k[3x² - x³/3]₀⁶ = k(108 - 72) = k(36) = 1. So k = 1/36. Merit: (ii) E(X) = ∫₀⁶ x · (1/36)x(6-x) dx = (1/36)∫₀⁶ (6x² - x³) dx = (1/36)[2x³ - x⁴/4]₀⁶ = (1/36)(432 - 324) = 108/36 = 3. (iii) P(X > 4) = ∫₄⁶ (1/36)x(6-x) dx = (1/36)[3x² - x³/3]₄⁶ = (1/36)[(108 - 72) - (48 - 64/3)] = (1/36)[36 - 26.667] = 9.333/36 = 7/27 ≈ 0.2593."
+      "markingGuide": "Achievement: (i) ∫₀⁶ kx(8-x) dx = 1. ∫₀⁶ k(8x - x²) dx = k[4x² - x³/3]₀⁶ = k(144 - 72) = 72k = 1. So k = 1/72. Merit: (ii) E(X) = ∫₀⁶ x · (1/72)x(8-x) dx = (1/72)∫₀⁶ (8x² - x³) dx = (1/72)[8x³/3 - x⁴/4]₀⁶ = (1/72)(576 - 324) = 252/72 = 3.5. (iii) P(X > 4) = ∫₄⁶ (1/72)x(8-x) dx = (1/72)[4x² - x³/3]₄⁶ = (1/72)[(144 - 72) - (64 - 64/3)] = (1/72)[72 - 42.667] = 29.333/72 ≈ 0.4074."
     },
     {
       "id": "st586-24-q3b",
       "number": "3b",
-      "text": "The volume of milk in bottles is normally distributed with a mean of 510 mL and a standard deviation of 8 mL. Cartons are labelled as containing 500 mL of juice.\n\n(i) Find the probability that a randomly selected carton contains less than the labelled volume.\n(ii) The manufacturer wants no more than 2% of cartons to be underfilled. To what value should the mean volume be set, assuming the standard deviation stays at 8 mL?",
+      "text": "The volume of milk in bottles is normally distributed with a mean of 510 mL and a standard deviation of 8 mL. Bottles are labelled as containing 500 mL of milk.\n\n(i) Find the probability that a randomly selected carton contains less than the labelled volume.\n(ii) The manufacturer wants no more than 2% of cartons to be underfilled. To what value should the mean volume be set, assuming the standard deviation stays at 8 mL?",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [

@@ -67,8 +67,8 @@
         "kinematics"
       ],
       "answerType": "working",
-      "expectedAnswer": "vx = 22.0 cos 38.0 = 17.34 m/s. vy = 22.0 sin 38.0 = 13.54 m/s. Time to 40 m: t = 40.0/17.34 = 2.308 s. Height at 2.308 s: h = 13.54 x 2.308 - 0.5 x 9.8 x 2.308^2 = 31.25 - 26.11 = 5.14 m. 5.14 m > 3.00 m, so the ball clears the crossbar.",
-      "markingGuide": "Achieved: One component calculated. Merit: One error in correct method. Excellence: Correct with conclusion."
+      "expectedAnswer": "vx = 20.0 cos 38.0 = 15.76 m/s. vy = 20.0 sin 38.0 = 12.31 m/s. Time to 40 m: t = 40.0/15.76 = 2.538 s. Height at 2.538 s: h = 12.31 x 2.538 - 0.5 x 9.81 x 2.538^2 = 31.24 - 31.57 = -0.33 m. The ball does NOT clear the crossbar — it has already come back down below ground level at 40 m.",
+      "markingGuide": "Achieved: One component calculated. Merit: One error in correct method. Excellence: Correct calculation showing the ball does NOT clear the crossbar, with conclusion and all working shown."
     },
     {
       "id": "m25-q1d",
