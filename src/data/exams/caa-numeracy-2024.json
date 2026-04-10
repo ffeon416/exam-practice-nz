@@ -500,7 +500,7 @@
     {
       "id": "caan24-q4b",
       "number": "4(b)",
-      "text": "Pasifika Festival organisers think attendance will reach 85,000 by 2026.\n\nUsing the attendance data from the chart above, do you agree or disagree? Explain your answer using the data.",
+      "text": "Pasifika Festival organisers think attendance will reach 85,000 by 2026.\n\nUsing the attendance data from the chart below, do you agree or disagree? Explain your answer using the data.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -509,7 +509,35 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Agree — attendance has been increasing steadily and 85,000 follows the trend",
-      "markingGuide": "Student should reference specific data.\n\nAgree: attendance has been growing by about 5,000–10,000 each year, so 85,000 by 2026 is reasonable.\n\nDisagree: growth may slow down;.\n\nthere was no data for 2020–2021.\n\nAccept either position if supported by evidence from the data."
+      "markingGuide": "Student should reference specific data.\n\nAgree: attendance has been growing by about 5,000–10,000 each year, so 85,000 by 2026 is reasonable.\n\nDisagree: growth may slow down;.\n\nthere was no data for 2020–2021.\n\nAccept either position if supported by evidence from the data.",
+      "graph": {
+        "type": "bar",
+        "title": "Pasifika Festival Attendance",
+        "xLabel": "Year",
+        "yLabel": "Attendance",
+        "data": [
+          {
+            "label": "2015",
+            "value": 25000
+          },
+          {
+            "label": "2016",
+            "value": 35000
+          },
+          {
+            "label": "2017",
+            "value": 45000
+          },
+          {
+            "label": "2018",
+            "value": 50000
+          },
+          {
+            "label": "2022",
+            "value": 65000
+          }
+        ]
+      }
     },
     {
       "id": "caan24-q4c",

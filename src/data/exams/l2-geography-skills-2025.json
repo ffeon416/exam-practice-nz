@@ -113,7 +113,7 @@
     {
       "id": "91243-2025-q1bii",
       "number": "1(b)(ii)",
-      "text": "Select ONE example from the table above. Explain why this change is significant for people and/or the environment.",
+      "text": "Select ONE example from the table below. Explain why this change is significant for people and/or the environment.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -122,7 +122,39 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Explains significance of one change with specific examples and geographic concepts.",
-      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains significance.\n\nFor Merit:\n- Explains in detail with specific examples.\n\nFor Excellence:\n- Comprehensive explanation with insight."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Explains significance.\n\nFor Merit:\n- Explains in detail with specific examples.\n\nFor Excellence:\n- Comprehensive explanation with insight.",
+      "graph": {
+        "type": "table",
+        "title": "Key Events in Singapore's Development",
+        "data": {
+          "headers": [
+            "Event",
+            "Year"
+          ],
+          "rows": [
+            [
+              "British colonial founding",
+              "1819"
+            ],
+            [
+              "Housing Development Board established",
+              "1960"
+            ],
+            [
+              "Independence from Malaysia",
+              "1965"
+            ],
+            [
+              "Changi Airport opens",
+              "1981"
+            ],
+            [
+              "Marina Bay Sands completed",
+              "2010"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "91243-2025-q1c",

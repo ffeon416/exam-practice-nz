@@ -154,7 +154,7 @@
     {
       "id": "l2rx25-q2bi",
       "number": "2(b)(i)",
-      "text": "Pāua use enzymes to help form their shells. Enzymes are biomolecules that act as catalysts for specific reactions.\n\nThe graph shows the change in the mass of the pāua shell over time without the use of an enzyme.\n\nAdd a second line to the graph to predict the change in mass over time when using the enzyme.",
+      "text": "Pāua use enzymes to help form their shells. Enzymes are biomolecules that act as catalysts for specific reactions.\n\nThe graph below shows the change in the mass of the pāua shell over time without the use of an enzyme.\n\nDescribe how the curve would change if the enzyme were present. Explain your answer using your knowledge of how enzymes work as catalysts.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -163,7 +163,37 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Second line shows faster rate (above first line), reaching the same final mass sooner.",
-      "markingGuide": "Achievement: Second line shows faster rate."
+      "markingGuide": "Achievement: Second line shows faster rate.",
+      "graph": {
+        "type": "line",
+        "title": "Pāua shell mass over time (without enzyme)",
+        "xLabel": "Time (days)",
+        "yLabel": "Shell mass (g)",
+        "xValues": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "series": [
+          {
+            "name": "Without enzyme",
+            "values": [
+              10,
+              11,
+              12.5,
+              14,
+              15,
+              15.5,
+              16
+            ],
+            "color": "#3b82f6"
+          }
+        ]
+      }
     },
     {
       "id": "l2rx25-q2bii",

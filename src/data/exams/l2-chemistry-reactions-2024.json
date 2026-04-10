@@ -10,7 +10,7 @@
     {
       "id": "l2rx24-q1ai",
       "number": "1(a)(i)",
-      "text": "Iron refining in New Zealand uses iron ore containing iron(III) oxide, Fe2O3. One step of the extraction involves the reaction of iron(III) oxide with carbon monoxide:\n\nFe2O3(s) + 3CO(g) -> 2Fe(l) + 3CO2(g)\n\nThe graph below shows the mass of iron(III) oxide, Fe2O3, as it reacts with 0.5 mol L-1 CO. The graph has two sections: Section A (steep decline) and Section B (curve levelling off).\n\nAdd a second line to the graph to predict the rate of decline in mass of iron(III) oxide if 2.0 mol L-1 CO were used instead.\n\nAssume both reactions started with the same mass of ore.",
+      "text": "Iron refining in New Zealand uses iron ore containing iron(III) oxide, Fe2O3. One step of the extraction involves the reaction of iron(III) oxide with carbon monoxide:\n\nFe2O3(s) + 3CO(g) → 2Fe(l) + 3CO2(g)\n\nThe graph below shows the mass of iron(III) oxide, Fe2O3, as it reacts with 0.5 mol L⁻¹ CO over time.\n\nDescribe how the rate of decline would change if 2.0 mol L⁻¹ CO were used instead. Explain your answer using collision theory.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,7 +19,41 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Added line should have a steeper gradient, and begin and end at the same mass of Fe2O3.",
-      "markingGuide": "Achievement: Correct second line (steeper gradient, same start and end mass)."
+      "markingGuide": "Achievement: Correct second line (steeper gradient, same start and end mass).",
+      "graph": {
+        "type": "line",
+        "title": "Mass of Fe₂O₃ vs Time (0.5 mol L⁻¹ CO)",
+        "xLabel": "Time (s)",
+        "yLabel": "Mass of Fe₂O₃ (g)",
+        "xValues": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          100,
+          120,
+          140,
+          160
+        ],
+        "series": [
+          {
+            "name": "0.5 mol L⁻¹ CO",
+            "values": [
+              50,
+              38,
+              28,
+              20,
+              14,
+              10,
+              7,
+              5,
+              4
+            ],
+            "color": "#3b82f6"
+          }
+        ]
+      }
     },
     {
       "id": "l2rx24-q1aii",

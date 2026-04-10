@@ -228,7 +228,7 @@
     {
       "id": "91523-24-q3di",
       "number": "3(d)(i)",
-      "text": "The students listen to another ambulance that approaches and passes without stopping. The graph shows frequency vs position.\n\nExplain what may be happening in Section A (approaching).",
+      "text": "The students listen to another ambulance that approaches and passes without stopping. The graph below shows the observed frequency at different positions of the ambulance (negative = approaching, 0 = passing, positive = moving away).\n\nExplain what is happening in Section A (the approaching part of the graph) using your knowledge of the Doppler effect.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -238,7 +238,41 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The graph shows increasing frequency as the ambulance approaches. This indicates the ambulance is accelerating — as it gets closer and faster, wave fronts bunch up more, increasing the apparent frequency.",
-      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Increasing frequency.\n\nFor Merit:\n- Justify with acceleration."
+      "markingGuide": "WHAT YOU NEED TO INCLUDE:\n\nFor Achievement:\n- Increasing frequency.\n\nFor Merit:\n- Justify with acceleration.",
+      "graph": {
+        "type": "line",
+        "title": "Observed frequency vs position (ambulance approaching and leaving)",
+        "xLabel": "Position (m)",
+        "yLabel": "Frequency (Hz)",
+        "xValues": [
+          -100,
+          -75,
+          -50,
+          -25,
+          0,
+          25,
+          50,
+          75,
+          100
+        ],
+        "series": [
+          {
+            "name": "Frequency",
+            "values": [
+              820,
+              830,
+              845,
+              870,
+              900,
+              760,
+              740,
+              730,
+              725
+            ],
+            "color": "#3b82f6"
+          }
+        ]
+      }
     },
     {
       "id": "91523-24-q3dii",
