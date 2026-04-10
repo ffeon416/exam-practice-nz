@@ -10,7 +10,7 @@
     {
       "id": "l2rx25-q1ai",
       "number": "1(a)(i)",
-      "text": "Acid rain occurs due to nitrogen dioxide in the atmosphere dissolving into rainwater and forming nitrous acid.\n\nOne step of this process is shown below:\n\nHNO2(aq) + H2O(l) <=> NO2-(aq) + H3O+(aq)    Kc = 4.50 x 10^-4\n\nWrite the equilibrium constant expression for this reaction.",
+      "text": "Acid rain occurs due to nitrogen dioxide in the atmosphere dissolving into rainwater and forming nitrous acid.\n\nOne step of this process is shown below:\n\nHNO2(aq) + H2O(l) <=> NO2-(aq) + H3O+(aq)    Kc = 1.50 x 10^-2\n\nWrite the equilibrium constant expression for this reaction.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -168,7 +168,7 @@
     {
       "id": "l2rx25-q2ci",
       "number": "2(c)(i)",
-      "text": "Barium hydroxide, Ba(OH)2, barium chloride, BaCl2, and barium ethanoate, Ba(CH3COO)2, are soluble barium compounds.\n\nWrite an equation to show the complete dissociation of each of these compounds in water.",
+      "text": "Barium hydroxide, Ba(OH)2, barium chloride, BaCl2, and barium propanoate, Ba(CH3CH2COO)2, are soluble barium compounds.\n\nWrite an equation to show the complete dissociation of each of these compounds in water.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -176,13 +176,13 @@
         "dissociation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Ba(OH)2(s) -> Ba2+(aq) + 2OH-(aq)\nBaCl2(s) -> Ba2+(aq) + 2Cl-(aq)\nBa(CH3COO)2(s) -> Ba2+(aq) + 2CH3COO-(aq)",
+      "expectedAnswer": "Ba(OH)2(s) -> Ba2+(aq) + 2OH-(aq)\nBaCl2(s) -> Ba2+(aq) + 2Cl-(aq)\nBa(CH3CH2COO)2(s) -> Ba2+(aq) + 2CH3CH2COO-(aq)",
       "markingGuide": "Achievement: Two correct equations."
     },
     {
       "id": "l2rx25-q2cii",
       "number": "2(c)(ii)",
-      "text": "Calcium propanoate will react further once dissolved.\n\nWrite an equation for the reaction of propanoate, CH3CH2COO-.",
+      "text": "Barium propanoate will react further once dissolved.\n\nWrite an equation for the reaction of the propanoate ion, CH3CH2COO-, with water.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -213,11 +213,11 @@
         "data": [
           { "label": "Ba(OH)₂", "value": 13.2 },
           { "label": "BaCl₂", "value": 7.0 },
-          { "label": "Ca(CH₃CH₂COO)₂", "value": 8.5 }
+          { "label": "Ba(CH₃CH₂COO)₂", "value": 8.5 }
         ]
       },
-      "expectedAnswer": "Acids donate protons; bases accept protons. Ba(OH)2 is strongly basic (OH- accepts protons). BaCl2 is neutral (neither ion transfers protons). Ca(CH3CH2COO)2 is mildly basic (propanoate accepts a proton from water, producing OH-).",
-      "markingGuide": "Achievement: Recognises the nature of TWO solutions OR defines acid and base. Merit: Explains how calcium propanoate acts as a basic salt. Excellence: Fully discusses all three."
+      "expectedAnswer": "Acids donate protons; bases accept protons. Ba(OH)2 is strongly basic (OH- accepts protons). BaCl2 is neutral (neither Ba2+ nor Cl- transfers protons). Ba(CH3CH2COO)2 is mildly basic (propanoate is the conjugate base of a weak acid and accepts a proton from water, producing OH-).",
+      "markingGuide": "Achievement: Recognises the nature of TWO solutions OR defines acid and base. Merit: Explains how barium propanoate acts as a basic salt. Excellence: Fully discusses all three."
     },
     {
       "id": "l2rx25-q3ai",

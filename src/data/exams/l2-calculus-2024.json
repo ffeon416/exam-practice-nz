@@ -159,7 +159,7 @@
         "rates-of-change"
       ],
       "answerType": "working",
-      "expectedAnswer": "Population change from t = 0 to t = 32 (local min)",
+      "expectedAnswer": "4096 fewer people (N(0) = 20000, N(32) = 15904, so population drops by 4096 before growing again)",
       "markingGuide": "N'(t) = 3t² – 120t + 768 = 0. t² – 40t + 256 = 0. (t–8)(t–32) = 0. t = 8 (max), t = 32 (min). N(0) = 20000. N(32) = 32768 – 61440 + 24576 + 20000 = 15904. Change = 20000 – 15904 = 4096 fewer people."
     },
     {
@@ -173,8 +173,8 @@
         "differentiation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Maximum area when a = 2, area = 24",
-      "markingGuide": "Heights: y₁ = 8a – a², y₂ = 16a – 4a². Width = a. A = ½(y₁+y₂) × a = ½(24a – 5a²) × a = 12a² – 5a³/2. A'(a) = 24a – 15a²/2 = 0. a(24 – 15a/2) = 0. a = 48/15 = 16/5 = 3.2. A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96."
+      "expectedAnswer": "Maximum area when a = 3.2 (= 16/5), area ≈ 40.96",
+      "markingGuide": "Heights at x = a and x = 2a: y₁ = 8a – a², y₂ = 16a – 4a². Width of trapezium = 2a – a = a. Area A = ½(y₁ + y₂) × a = ½(24a – 5a²) × a = 12a² – (5/2)a³. A'(a) = 24a – (15/2)a² = a(24 – 15a/2) = 0. Reject a = 0. Then 24 = 15a/2, so a = 48/15 = 16/5 = 3.2 (within 0 ≤ a ≤ 4). A(3.2) = 12(10.24) – 2.5(32.768) = 122.88 – 81.92 = 40.96. Check A''(a) = 24 – 15a; at a = 3.2, A'' = 24 – 48 = –24 < 0, confirming a maximum. Maximum area ≈ 40.96. Excellence = correct maximum with calculus working and verification."
     },
     {
       "id": "l2c24-q3a",
@@ -236,20 +236,20 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
       "max": 13
     },
-    "merit": {
+    "achieved": {
       "min": 14,
-      "max": 19
+      "max": 25
+    },
+    "merit": {
+      "min": 26,
+      "max": 36
     },
     "excellence": {
-      "min": 20,
-      "max": 24
+      "min": 37,
+      "max": 46
     }
   },
-  "totalMarks": 24
+  "totalMarks": 46
 }

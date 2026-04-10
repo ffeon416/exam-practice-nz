@@ -17,7 +17,7 @@
       "topics": ["natural-processes", "annotated-diagram", "natural-features"],
       "answerType": "text",
       "expectedAnswer": "Draw annotated map/diagram of a named NZ environment explaining how interacting natural processes shape one natural feature.",
-      "markingGuide": "Achievement (N1-N2): Relevant natural feature identified with some supporting evidence. Partially analyses how processes interact to shape the feature. Merit (A3-A4): Includes some supporting case study evidence with some detail. Partially analyses the operation and interaction of processes to shape natural features. Excellence (M5-M6): Includes some detailed supporting evidence. Analyses the operation and interaction of processes to shape natural features of a NZ geographic environment."
+      "markingGuide": "Not Achieved (N1-N2): Relevant natural feature identified with limited evidence. Does not adequately analyse processes. Achievement (A3-A4): Includes some supporting case study evidence with some detail. Partially analyses the operation and interaction of processes to shape natural features. Merit (M5-M6): Includes detailed supporting evidence. Analyses in detail the operation and interaction of processes to shape natural features of a NZ geographic environment. Excellence (E7-E8): Insightful analysis with comprehensive, integrated supporting case study evidence, drawing conclusions about how processes shape the feature."
     },
     {
       "id": "91426-2025-q1b",
@@ -28,7 +28,7 @@
       "topics": ["natural-processes", "case-study", "natural-features"],
       "answerType": "text",
       "expectedAnswer": "Analyses how interacting natural processes shape a second, different natural feature in the same NZ environment.",
-      "markingGuide": "Achievement (N1-N2): Describes natural processes and environment but provides little or no evidence. Merit (A3-A4): Includes some supporting case study evidence with some detail. Analyses the operation and interaction of processes. Excellence (M5-E8): Includes detailed supporting evidence. Analyses the operation and interaction of processes with insight, drawing conclusions. Integrates comprehensive evidence throughout. At E7-E8, analyses with insight the operation within a named NZ environment, drawing conclusions about natural features."
+      "markingGuide": "Not Achieved (N1-N2): Describes natural processes and environment but provides little or no evidence. Achievement (A3-A4): Includes some supporting case study evidence with some detail. Partially analyses the operation and interaction of processes. Merit (M5-M6): Analyses in detail the operation and interaction of processes with detailed supporting case study evidence. Excellence (E7-E8): Analyses with insight the operation and interaction of processes within a named NZ environment, drawing conclusions about natural features. Integrates comprehensive evidence throughout."
     }
   ],
   "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }

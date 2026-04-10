@@ -11,7 +11,7 @@
     {
       "id": "st267-25-q1a",
       "number": "1a",
-      "text": "At a school of 500 students, the following information is known:\n• 200 students take an Arts subject\n• 275 students take a Technology subject\n• 100 students take both a Arts and a Technology subject\n\n(i) Complete a two-way table to display this information.\n(ii) Find the probability that a randomly selected student takes a Arts subject or a Technology subject (or both).",
+      "text": "At a school of 500 students, the following information is known:\n• 200 students take an Arts subject\n• 275 students take a Technology subject\n• 100 students take both an Arts and a Technology subject\n\n(i) Complete a two-way table to display this information.\n(ii) Find the probability that a randomly selected student takes an Arts subject or a Technology subject (or both).",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -24,7 +24,7 @@
     {
       "id": "st267-25-q1b",
       "number": "1b",
-      "text": "Using the information from Question 1a:\n(i) Find the probability that a student takes a Technology subject, given that they take a Arts subject.\n(ii) Determine whether taking a Arts subject and taking a Technology subject are independent events. Justify your answer.",
+      "text": "Using the information from Question 1a:\n(i) Find the probability that a student takes a Technology subject, given that they take an Arts subject.\n(ii) Determine whether taking an Arts subject and taking a Technology subject are independent events. Justify your answer.",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [

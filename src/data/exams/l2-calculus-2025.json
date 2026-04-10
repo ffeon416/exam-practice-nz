@@ -23,7 +23,7 @@
     {
       "id": "l2c25-q1b",
       "number": "1(b)",
-      "text": "For f(x) = x³/3 – 2x² + 3x + 1, find the equation of the tangent to the curve at x = 3.",
+      "text": "For f(x) = x³/3 – x² + 4x – 2, find the equation of the tangent to the curve at x = 3.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -31,13 +31,13 @@
         "tangent-lines"
       ],
       "answerType": "working",
-      "expectedAnswer": "y = 6x – 17",
-      "markingGuide": "f'(x) = x² – 4x + 3. f'(3) = 9 – 12 + 3 = 0. Wait, that's zero. Let me use x=4: f'(4) = 16–16+3 = 3. f(4) = 64/3–32+12+1 = 64/3–19 = (64–57)/3 = 7/3. Not clean. Use f(x) = x³/3 – x² + 4x – 2. f'(x) = x²–2x+4. f'(3) = 9–6+4=7. f(3) = 9–9+12–2=10. Tangent: y–10=7(x–3). y=7x–11."
+      "expectedAnswer": "y = 7x – 11",
+      "markingGuide": "f'(x) = x² – 2x + 4. f'(3) = 9 – 6 + 4 = 7 (gradient of tangent). f(3) = 27/3 – 9 + 12 – 2 = 9 – 9 + 12 – 2 = 10. Tangent: y – 10 = 7(x – 3), so y = 7x – 21 + 10 = 7x – 11. Merit = correct tangent equation with full working."
     },
     {
       "id": "l2c25-q1c",
       "number": "1(c)",
-      "text": "The gradient function is f'(x) = 3x² – 8x – 20.\n\nFind f(x) given that the y-value of the local minimum is –48.",
+      "text": "The gradient function is f'(x) = 3x² – 6x – 24.\n\nFind f(x) given that the y-value of the local minimum is –48.",
       "marks": 5,
       "gradeLevel": "excellence",
       "topics": [
@@ -45,13 +45,13 @@
         "stationary-points"
       ],
       "answerType": "working",
-      "expectedAnswer": "f(x) = x³ – 4x² – 20x + 12",
-      "markingGuide": "f(x) = x³ – 4x² – 20x + c. f'(x) = 0: 3x²–8x–20 = 0. Hmm disc=64+240=304. Not clean. Use f'(x) = 3x²–6x–24. f(x) = x³–3x²–24x+c. 3(x²–2x–8)=0. 3(x–4)(x+2)=0. x=4 or x=–2. f''(x)=6x–6. f''(4)=18>0 (min). f(4)=64–48–96+c=–80+c=–48. c=32. f(x) = x³–3x²–24x+32."
+      "expectedAnswer": "f(x) = x³ – 3x² – 24x + 32",
+      "markingGuide": "Antidifferentiate: f(x) = x³ – 3x² – 24x + c. Stationary points: f'(x) = 3x² – 6x – 24 = 3(x² – 2x – 8) = 3(x – 4)(x + 2) = 0, so x = 4 or x = –2. f''(x) = 6x – 6. f''(4) = 18 > 0 so x = 4 is a local minimum. f(4) = 64 – 48 – 96 + c = –80 + c. Set = –48: c = 32. Therefore f(x) = x³ – 3x² – 24x + 32. Excellence = correct full working including constant."
     },
     {
       "id": "l2c25-q1d",
       "number": "1(d)",
-      "text": "A bus moves at a constant speed of 6 m/s past a stop. A car, starting from rest at the bus stop, accelerates at 0.5 m/s² to catch the bus.\n\nAt the moment the car leaves, the bus is 200 m ahead.\n\nFind the distance from the bus stop when the car catches the bus.",
+      "text": "A bus moves at a constant speed of 5 m/s past a stop. A car, starting from rest at the bus stop, accelerates at 0.5 m/s² to catch the bus.\n\nAt the moment the car leaves, the bus is 200 m ahead.\n\nFind the distance from the bus stop when the car catches the bus.",
       "marks": 5,
       "gradeLevel": "excellence",
       "topics": [
@@ -60,8 +60,8 @@
         "anti-differentiation"
       ],
       "answerType": "working",
-      "expectedAnswer": "800 m from bus stop (at t = 40 s)",
-      "markingGuide": "Bus: s_B = 6t + 200. Car: v = 0.5t, s_C = 0.25t². Set equal: 0.25t² = 6t + 200. t² – 24t – 800 = 0. (t–40)(t+20)=0. t=40. s = 0.25 × 1600 = 400. Hmm: check bus: 6(40)+200=440. Car: 0.25(1600)=400. 400≠440. Not equal. Let me redo: 0.25t²=6t+200. t²=24t+800. t²–24t–800=0. t=(24±√(576+3200))/2=(24±√3776)/2=(24±61.45)/2. t=42.73. Not clean. Use bus speed 5, gap 200: 0.25t²=5t+200. t²–20t–800=0. (t–40)(t+20)=0. t=40! s=0.25(1600)=400. Bus: 5(40)+200=400 ✓."
+      "expectedAnswer": "400 m from bus stop (at t = 40 s)",
+      "markingGuide": "Let t = time after car starts. Bus position: s_B(t) = 5t + 200 (head start of 200 m). Car velocity: v(t) = 0.5t. Integrate: s_C(t) = 0.25t². They meet when s_C = s_B: 0.25t² = 5t + 200, i.e. t² – 20t – 800 = 0. Factorise: (t – 40)(t + 20) = 0. Since t > 0, t = 40 s. Distance: s_C(40) = 0.25 × 1600 = 400 m. Check: bus = 5(40) + 200 = 400 m ✓. Achieved = integration. Merit = correct equation. Excellence = complete solution."
     },
     {
       "id": "l2c25-q2a",
@@ -93,7 +93,7 @@
     {
       "id": "l2c25-q2ci",
       "number": "2(c)(i)",
-      "text": "The temperature of a cooling loaf of bread is modelled by:\n\nT(t) = 3t²/100 – 3t + 60\n\nwhere T is °C and t is minutes.\n\nShow that the rate of change of temperature is –1.8 °C/min when t = 20.",
+      "text": "The temperature of a cooling loaf of bread is modelled by:\n\nT(t) = t²/20 – 3t + 60\n\nwhere T is °C and t is minutes.\n\nShow that the rate of change of temperature is –1 °C/min when t = 20.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -101,8 +101,8 @@
         "rates-of-change"
       ],
       "answerType": "working",
-      "expectedAnswer": "T'(20) = –1.8 °C per minute",
-      "markingGuide": "T'(t) = 6t/100 – 3 = 0.06t – 3. T'(20) = 1.2 – 3 = –1.8. Confirmed.",
+      "expectedAnswer": "T'(20) = –1 °C per minute",
+      "markingGuide": "T'(t) = 2t/20 – 3 = t/10 – 3. T'(20) = 20/10 – 3 = 2 – 3 = –1. Confirmed.",
       "graph": {
         "type": "line",
         "title": "Bread Cooling Temperature",
@@ -121,11 +121,11 @@
             "name": "T(t)",
             "values": [
               60,
-              42,
-              30,
-              24,
-              24,
-              30
+              35,
+              20,
+              15,
+              20,
+              35
             ],
             "color": "#f59e0b"
           }
@@ -144,8 +144,8 @@
         "rates-of-change"
       ],
       "answerType": "working",
-      "expectedAnswer": "The loaf cools at a constant decreasing rate (T''(t)=0.06>0), so the most rapid cooling is at t=0.",
-      "markingGuide": "T'(t) = 0.06t – 3. This is always increasing (T''=0.06>0). The most negative rate of change is at t=0 where T'(0) = –3. So the loaf cools most rapidly at the instant it is removed."
+      "expectedAnswer": "The loaf cools most rapidly at t = 0 (rate of change is –3 °C/min, the most negative value since T'(t) is strictly increasing).",
+      "markingGuide": "T'(t) = t/10 – 3. T''(t) = 1/10 = 0.1 > 0 for all t, so T'(t) is strictly increasing. The minimum (most negative) rate of change therefore occurs at the earliest time, t = 0, where T'(0) = –3 °C/min. So the loaf cools most rapidly at the instant it is taken out of the oven. Excellence = correct reasoning using second derivative and boundary argument."
     },
     {
       "id": "l2c25-q2di",
@@ -158,8 +158,8 @@
         "stationary-points"
       ],
       "answerType": "working",
-      "expectedAnswer": "x = –1/3",
-      "markingGuide": "a=–1: f(1) = –1+b+c+5 = 0 → b+c = –4 ...(1). f'(x) = –3x²+2bx+c. f'(–1) = –3–2b+c = 0 ...(2). From (1): c=–4–b. Sub into (2): –3–2b+(–4–b) = 0 → –7–3b=0 → b=–7/3. c=–4+7/3=–5/3. f'(x) = –3x²–14x/3–5/3. Set=0: 9x²+14x+5=0. (9x+5)(x+1)=0. x=–5/9 or x=–1. Other stationary point at x=–5/9."
+      "expectedAnswer": "x = –5/9",
+      "markingGuide": "a = –1, so f(x) = –x³ + bx² + cx + 5. f(1) = –1 + b + c + 5 = 0 → b + c = –4 …(1). f'(x) = –3x² + 2bx + c. f'(–1) = –3 – 2b + c = 0 …(2). From (1): c = –4 – b. Substitute into (2): –3 – 2b + (–4 – b) = 0 → –7 – 3b = 0 → b = –7/3, and c = –4 + 7/3 = –5/3. So f'(x) = –3x² – (14/3)x – 5/3. Set f'(x) = 0 and multiply by –3: 9x² + 14x + 5 = 0 → (9x + 5)(x + 1) = 0. So x = –1 (the given stationary point) or x = –5/9. The other stationary point is at x = –5/9."
     },
     {
       "id": "l2c25-q2dii",
@@ -172,8 +172,8 @@
         "stationary-points"
       ],
       "answerType": "working",
-      "expectedAnswer": "Local minimum",
-      "markingGuide": "f''(x) = –6x+2b = –6x–14/3. f''(–5/9) = 30/9–14/3 = 10/3–14/3 = –4/3 < 0. So local maximum. Excellence = correct second derivative, evaluated, with conclusion."
+      "expectedAnswer": "Local maximum",
+      "markingGuide": "f''(x) = –6x + 2b = –6x – 14/3. At x = –5/9: f''(–5/9) = –6(–5/9) – 14/3 = 30/9 – 14/3 = 10/3 – 14/3 = –4/3 < 0. Since f''(–5/9) < 0, the stationary point at x = –5/9 is a local maximum. Excellence = correct second derivative, evaluated, with conclusion."
     },
     {
       "id": "l2c25-q3a",
@@ -213,8 +213,8 @@
         "optimisation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Maximum volume ≈ 1.28 m³",
-      "markingGuide": "Let height = h, width = 3h, length = L. SA (lidless): base = 3hL. Two short sides = 2(h×3h) = 6h². Two long sides = 2(h×L) = 2hL. Total = 3hL + 6h² + 2hL = 5hL + 6h² = 6.4. L = (6.4–6h²)/(5h). V = 3h²L = 3h²(6.4–6h²)/(5h) = 3h(6.4–6h²)/5 = (19.2h–18h³)/5. V'(h) = (19.2–54h²)/5 = 0. h² = 19.2/54 = 16/45. h = 4/(3√5). V = (19.2×4/(3√5)–18×64/(27×5√5))/5. This is messy. Use simpler: width=2h. SA: 2hL+2(2h²)+2hL = 4hL+4h² = 6.4. L=(6.4–4h²)/(4h). V=2h²L=2h²(6.4–4h²)/(4h)=h(6.4–4h²)/2=3.2h–2h³. V'=3.2–6h²=0. h²=8/15. h=√(8/15)≈0.730. V=3.2(0.730)–2(0.389)=2.336–0.778=1.558. V''=–12h<0 so max."
+      "expectedAnswer": "Maximum volume ≈ 1.53 m³ (at h ≈ 0.596 m)",
+      "markingGuide": "Let height = h, width = 3h, length = L. Lidless surface area = base + 4 walls = 3hL + 2(3h·h) + 2(L·h) = 5hL + 6h² = 6.4, so L = (6.4 – 6h²)/(5h). Volume V = 3h²L = 3h²(6.4 – 6h²)/(5h) = (3h/5)(6.4 – 6h²) = (19.2h – 18h³)/5. dV/dh = (19.2 – 54h²)/5 = 0, so h² = 19.2/54 = 16/45 and h = 4/(3√5) ≈ 0.5963 m. Then L ≈ 1.431 m. V ≈ (19.2(0.5963) – 18(0.5963)³)/5 ≈ (11.449 – 3.816)/5 ≈ 1.527 m³. Confirm maximum: d²V/dh² = –108h/5 < 0 for h > 0. Excellence = correct maximum volume with proof."
     },
     {
       "id": "l2c25-q3d",

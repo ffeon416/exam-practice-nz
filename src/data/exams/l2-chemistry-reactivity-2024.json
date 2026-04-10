@@ -19,13 +19,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "NCl3: Lewis structure shows P with three Cl atoms bonded and one lone pair. Shape: trigonal pyramidal. CO2: Lewis structure shows O=C=O with two double bonds and no lone pairs on C. Shape: linear.",
+      "expectedAnswer": "NCl3: Lewis structure shows N with three Cl atoms bonded and one lone pair on N. Shape: trigonal pyramidal. CO2: Lewis structure shows O=C=O with two double bonds and no lone pairs on C. Shape: linear.",
       "markingGuide": "Achievement: Draws a correct Lewis structure OR identifies the correct shape and bond angles. Merit: Links lone pairs and bonding regions to geometry. Excellence: Explains bond angles and shapes by referring to electron repulsion including lone pairs."
     },
     {
       "id": "l2cr24-q1b",
       "number": "1(b)",
-      "text": "Compare and contrast the shapes and bond angles of aluminium trichloride, AlCl3, and phosphorus trichloride, PCl3.\n\nAlCl3: B central atom with 3 F atoms (trigonal planar)\nPCl3: N central atom with 3 F atoms and one lone pair\n\nCompare and contrast the shapes and bond angles of these molecules.",
+      "text": "Compare and contrast the shapes and bond angles of aluminium trichloride, AlCl3, and phosphorus trichloride, PCl3.\n\nAlCl3: Al central atom with 3 Cl atoms and no lone pairs on the central atom (trigonal planar).\nPCl3: P central atom with 3 Cl atoms and one lone pair on P.\n\nCompare and contrast the shapes and bond angles of these molecules.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -34,7 +34,7 @@
         "electron-repulsion"
       ],
       "answerType": "working",
-      "expectedAnswer": "AlCl3 is trigonal planar with bond angles of 120 degrees. PCl3 is trigonal pyramidal with bond angles of approximately 107 degrees due to the lone pair on nitrogen compressing the bond angles.",
+      "expectedAnswer": "AlCl3 is trigonal planar with bond angles of 120 degrees, as the Al central atom has three bonding pairs and no lone pairs, so the three regions of electron density repel equally. PCl3 is trigonal pyramidal with bond angles of approximately 107 degrees; the lone pair on phosphorus repels the bonding pairs more strongly, compressing the Cl-P-Cl bond angles below the ideal tetrahedral 109.5 degrees.",
       "markingGuide": "Achievement: Identifies the correct shape of ONE molecule. Merit: Links lone pairs to shape for ONE molecule. Excellence: Explains both shapes with reference to electron repulsion."
     },
     {
@@ -73,7 +73,7 @@
     {
       "id": "l2cr24-q1di",
       "number": "1(d)(i)",
-      "text": "Propanamine, CH3CH2CH2NH2, is used in the production of herbicides and pharmaceuticals.\n\nAlthough hydrogen cyanide, HCN, is highly poisonous, it can be used to produce propanamine, as shown:\n\nHCN(g) + 2H2(g) -> CH3NH2(g)    then further reaction gives CH3CH2NH2\n\nFor the reaction: 2HCN(g) + 5H2(g) -> CH3CH2NH2(g) + NH3(g)    DH = -318 kJ mol-1\n\nCalculate the mass of propanamine formed when 2650 kJ of energy is released.\nM(CH3CH2CH2NH2) = 59.1 g mol-1",
+      "text": "Ethanamine, CH3CH2NH2, is used in the production of herbicides and pharmaceuticals.\n\nAlthough hydrogen cyanide, HCN, is highly poisonous, it can be used to produce ethanamine, as shown:\n\n2HCN(g) + 5H2(g) -> CH3CH2NH2(g) + NH3(g)    DH = -318 kJ mol-1\n\nCalculate the mass of ethanamine formed when 2650 kJ of energy is released.\nM(CH3CH2NH2) = 45.1 g mol-1",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -82,7 +82,7 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(CH3CH2NH2) = 2130/284 = 7.500 mol\nm = n x M = 7.500 x 45.1 = 338.25 g (338 g, 3 s.f.)",
+      "expectedAnswer": "n(CH3CH2NH2) = 2650 / 318 = 8.333 mol (1 mol of ethanamine is formed per 318 kJ released)\nm = n x M = 8.333 x 45.1 = 375.8 g (376 g, 3 s.f.)",
       "markingGuide": "Achievement: One step correct. Merit: Correct answer for one part. Excellence: Correct answer with units."
     },
     {
@@ -111,7 +111,7 @@
         "properties"
       ],
       "answerType": "working",
-      "expectedAnswer": "SiO2: covalent network, atoms, strong covalent bonds. SCl2: molecular, molecules, weak intermolecular forces. NaCl: ionic, ions, strong ionic bonds. Cu: metallic, cations/atoms, metallic bonds.",
+      "expectedAnswer": "SiO2: covalent network, atoms, strong covalent bonds. SCl2: molecular, molecules, weak intermolecular forces. NaCl: ionic, ions, strong ionic bonds. Ag: metallic, metal cations in a sea of delocalised electrons, metallic bonds.",
       "markingGuide": "Achievement: Two rows correct. Merit: Full table correct.",
       "graph": {
         "type": "table",
@@ -176,7 +176,7 @@
     {
       "id": "l2cr24-q2c",
       "number": "2(c)",
-      "text": "Explain why phosphorus tribromide, SCl2, does not dissolve in water, but potassium bromide, NaCl, does.\n\nIn your answer:\n- link to their structure and bonding\n- include the type of solvent that SCl2 will dissolve in, and why\n- include a diagram to support your answer for NaCl.",
+      "text": "Explain why sulfur dichloride, SCl2, does not dissolve in water, but sodium chloride, NaCl, does.\n\nIn your answer:\n- link to their structure and bonding\n- include the type of solvent that SCl2 will dissolve in, and why\n- include a diagram to support your answer for NaCl.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -185,13 +185,13 @@
         "polarity"
       ],
       "answerType": "working",
-      "expectedAnswer": "SCl2 is a non-polar molecular substance. Water is polar. Like dissolves like, so SCl2 would dissolve in a non-polar solvent. NaCl is ionic; water molecules surround the K+ and Br- ions, overcoming the ionic bonds.",
+      "expectedAnswer": "SCl2 is a polar molecular substance but has only weak dipole-dipole and dispersion forces; although SCl2 is slightly polar it does not form hydrogen bonds, so it does not dissolve well in water and instead dissolves better in non-polar or low-polarity solvents (like dissolves like). NaCl is ionic; the polar water molecules surround the Na+ and Cl- ions (the partially negative O ends of water attract Na+, and the partially positive H ends attract Cl-), overcoming the ionic bonds and dissolving the solid.",
       "markingGuide": "Achievement: Identifies SCl2 as non-polar OR identifies attractions needed. Merit: Links forces to solubility for ONE solute. Excellence: Full explanation for both."
     },
     {
       "id": "l2cr24-q3ai",
       "number": "3(a)(i)",
-      "text": "Bottled gas supply in New Zealand is a 60% ethane, C2H6, and 40% ethane, C2H6, mix.\n\nEnergy released by 1.50 kg of ethane combustion:\nC2H6(g) + 5O2(g) -> 3CO2(g) + 4H2O(g)    DH = -1561 kJ mol-1\nM(C2H6) = 44.1 g mol-1\n\nCalculate the energy released by 1.50 kg of ethane.",
+      "text": "Bottled gas (LPG) supply in New Zealand is a mix of ethane, C2H6, and propane, C3H8.\n\nEnergy released by ethane combustion:\n2C2H6(g) + 7O2(g) -> 4CO2(g) + 6H2O(g)    DH = -3122 kJ mol-1 (i.e. -1561 kJ per mole of C2H6)\nM(C2H6) = 30.1 g mol-1\n\nCalculate the energy released by 1.50 kg of ethane.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -200,13 +200,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(ethane) = 1000/44.1 = 22.676 mol\nEnergy = 22.676 x 2044 = 46,349 kJ\n46,300 kJ released (3 s.f.)",
+      "expectedAnswer": "n(ethane) = 1500 / 30.1 = 49.83 mol\nEnergy = 49.83 x 1561 = 77,800 kJ released (3 s.f.)",
       "markingGuide": "Achievement: One step correct. Merit: Correct answer."
     },
     {
       "id": "l2cr24-q3aii",
       "number": "3(a)(ii)",
-      "text": "Energy released by 1.50 kg of propane combustion:\n2C3H8(g) + 13O2(g) -> 8CO2(g) + 10H2O(g)    DH = -2044 kJ mol-1\nM(C3H8) = 58.1 g mol-1\n\nCalculate the energy released by 1.50 kg of propane.",
+      "text": "Energy released by propane combustion:\nC3H8(g) + 5O2(g) -> 3CO2(g) + 4H2O(g)    DH = -2220 kJ mol-1\nM(C3H8) = 44.1 g mol-1\n\nCalculate the energy released by 1.50 kg of propane.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -215,7 +215,7 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(propane) = 1000/58.1 = 17.212 mol\nEnergy = 17.212 x (-2877/2) = -24,759 kJ\n24,800 kJ released (3 s.f.)",
+      "expectedAnswer": "n(propane) = 1500 / 44.1 = 34.01 mol\nEnergy = 34.01 x 2220 = 75,500 kJ released (3 s.f.)",
       "markingGuide": "Achievement: One step correct. Merit: Correct answer."
     },
     {
@@ -229,13 +229,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Difference = 46,300 - 24,800 = 21,500 kJ more released from ethane per kg.",
+      "expectedAnswer": "Difference = 77,800 - 75,500 = 2,300 kJ. Ethane releases about 2,300 kJ more energy per 1.50 kg compared to propane.",
       "markingGuide": "Excellence: Correct calculation with units."
     },
     {
       "id": "l2cr24-q3b",
       "number": "3(b)",
-      "text": "The reaction of a ethane fuel cell is shown below. Methane reacts with oxygen to produce carbon dioxide and water.\n\nC2H6(g) + 2O2(g) -> CO2(g) + 2H2O(g)    DH = -1561 kJ mol-1\n\nBond energies: C-H = 413 kJ mol-1, O=O = 498 kJ mol-1, C=O = 805 kJ mol-1\n\nUse the bond energies listed and the change in enthalpy (-1561 kJ mol-1) to calculate the average bond energy of the O-H bond.",
+      "text": "The reaction of a methane fuel cell is shown below. Methane reacts with oxygen to produce carbon dioxide and water.\n\nCH4(g) + 2O2(g) -> CO2(g) + 2H2O(g)    DH = -802 kJ mol-1\n\nBond energies: C-H = 413 kJ mol-1, O=O = 498 kJ mol-1, C=O = 805 kJ mol-1\n\nUse the bond energies listed and the change in enthalpy (-802 kJ mol-1) to calculate the average bond energy of the O-H bond.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -244,7 +244,7 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Bonds broken: 4 x C-H = 4 x 413 = 1652, 2 x O=O = 2 x 498 = 996. Total broken = 2648.\nBonds formed: 2 x C=O = 2 x 805 = 1610, 4 x O-H = 4x.\nDH = broken - formed: -802 = 2648 - (1610 + 4x). 4x = 2648 + 802 - 1610 = 1840. x = 460 kJ mol-1.",
+      "expectedAnswer": "Bonds broken: 4 x C-H = 4 x 413 = 1652 kJ; 2 x O=O = 2 x 498 = 996 kJ. Total broken = 2648 kJ.\nBonds formed in products: 2 x C=O (in CO2) = 2 x 805 = 1610 kJ; 4 x O-H (in 2 H2O) = 4x.\nDH = bonds broken - bonds formed: -802 = 2648 - (1610 + 4x). Rearranging: 4x = 2648 + 802 - 1610 = 1840. x = 460 kJ mol-1. Average O-H bond energy = 460 kJ mol-1.",
       "markingGuide": "Achievement: Correctly calculates total bonds broken OR formed. Merit: Correct process with minor error. Excellence: Correct answer with units."
     },
     {

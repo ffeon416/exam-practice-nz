@@ -11,7 +11,7 @@
     {
       "id": "st267-24-q1a",
       "number": "1a",
-      "text": "A survey found that 45% of Year 12 students at a school participate in a drama club, and 30% play a community service. 10% of students do both.\n\n(i) Draw a two-way table to display this information.\n(ii) Find the probability that a randomly selected Year 12 student participates in a drama club but does NOT play a community service.",
+      "text": "A survey found that 45% of Year 12 students at a school participate in a drama club, and 30% do community service. 10% of students do both.\n\n(i) Draw a two-way table to display this information.\n(ii) Find the probability that a randomly selected Year 12 student participates in a drama club but does NOT do community service.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -69,7 +69,7 @@
     {
       "id": "st267-24-q2a",
       "number": "2a",
-      "text": "A school health screening tests students for iron deficiency. The test has the following properties:\n• 5% of students have iron deficiency.\n• If an employee has iron deficiency, the test gives a positive result 90% of the time.\n• If an employee does not have iron deficiency, the test gives a positive result 8% of the time (false positive).\n\nDraw a probability tree diagram to represent this situation. Use a population of 5,000 students to help with your calculations.",
+      "text": "A school health screening tests students for iron deficiency. The test has the following properties:\n• 5% of students have iron deficiency.\n• If a student has iron deficiency, the test gives a positive result 90% of the time.\n• If a student does not have iron deficiency, the test gives a positive result 8% of the time (false positive).\n\nDraw a probability tree diagram to represent this situation. Use a population of 5,000 students to help with your calculations.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -105,7 +105,7 @@
     {
       "id": "st267-24-q2b",
       "number": "2b",
-      "text": "Using your tree diagram from Question 2a, calculate:\n(i) The probability that a randomly selected employee tests positive.\n(ii) The probability that an employee actually has iron deficiency, given that they tested positive.",
+      "text": "Using your tree diagram from Question 2a, calculate:\n(i) The probability that a randomly selected student tests positive.\n(ii) The probability that a student actually has iron deficiency, given that they tested positive.",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
@@ -118,7 +118,7 @@
     {
       "id": "st267-24-q2c",
       "number": "2c",
-      "text": "Discuss what the answer to Question 2b(ii) means for an employee who receives a positive test result. Explain why the result might be surprising and what implications this has for workplace wellness screening.",
+      "text": "Discuss what the answer to Question 2b(ii) means for a student who receives a positive test result. Explain why the result might be surprising and what implications this has for school health screening programmes.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

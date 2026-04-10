@@ -10,7 +10,7 @@
     {
       "id": "l3co24-q1ai",
       "number": "1(a)(i)",
-      "text": "2-chloropentane exists as enantiomers (optical isomers).\n\nCH3-CH2-CHBr-CH3\n\nDraw the enantiomers of 2-chloropentane in the box below.",
+      "text": "2-bromobutane exists as enantiomers (optical isomers).\n\nCH3-CH2-CHBr-CH3\n\nDraw the enantiomers of 2-bromobutane in the box below.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,13 +19,13 @@
         "enantiomers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Two 3D structural drawings showing the four different groups (CH3, C2H5, H, Br) arranged as non-superimposable mirror images around the chiral C2.",
+      "expectedAnswer": "Two 3D structural drawings of 2-bromobutane showing the four different groups (CH3, CH2CH3, H, Br) arranged around the chiral C2 as non-superimposable mirror images of one another.",
       "markingGuide": "Achievement: Recognises tetrahedral arrangement and identifies asymmetric C."
     },
     {
       "id": "l3co24-q1aii",
       "number": "1(a)(ii)",
-      "text": "Explain why 2-chloropentane can exist as enantiomers.",
+      "text": "Explain why 2-bromobutane can exist as enantiomers.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -34,13 +34,13 @@
         "chirality"
       ],
       "answerType": "working",
-      "expectedAnswer": "2-chloropentane has a chiral centre (asymmetric carbon) at C2, with four different groups attached. This allows non-superimposable mirror images.",
+      "expectedAnswer": "2-bromobutane has a chiral centre (asymmetric / stereocentre carbon) at C2, which is bonded to four different groups (-CH3, -CH2CH3, -H, -Br). This means the molecule and its mirror image are non-superimposable — they are enantiomers.",
       "markingGuide": "Achievement: Identifies asymmetric C. Merit: Draws TWO correct 3D structures AND explains."
     },
     {
       "id": "l3co24-q1aiii",
       "number": "1(a)(iii)",
-      "text": "Devise a reaction scheme to convert 2-chloropentane into pentanamide.\n\nCH3-CH2-CH2-C(=O)-NH2   (pentanamide)\n\nFor each step include:\n- the reagents\n- the structural formula of the organic product after each step.",
+      "text": "Devise a reaction scheme to convert 2-bromobutane into butanamide.\n\nCH3-CH2-CH2-C(=O)-NH2   (butanamide)\n\nFor each step include:\n- the reagents\n- the structural formula of the organic product after each step.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -49,7 +49,7 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Step 1: 2-chloropentane + KOH(alc)/heat -> pent-1-ene (elimination). Step 2: pent-1-ene + H2O/H+ -> pentan-1-ol (addition). Step 3: pentan-1-ol + Cr2O72-/H+ excess -> pentanoic acid (oxidation). Step 4: pentanoic acid + SOCl2 -> pentanoyl chloride. Step 5: pentanoyl chloride + conc NH3 -> pentanamide.",
+      "expectedAnswer": "Step 1: 2-bromobutane + KOH(alc)/heat -> but-1-ene (elimination, Hofmann minor product). Step 2: but-1-ene + H2O/H+ (or HBr then OH-) via anti-Markovnikov route to give butan-1-ol. Step 3: butan-1-ol + Cr2O72-/H+ with heat and excess oxidising agent -> butanoic acid (oxidation). Step 4: butanoic acid + SOCl2 -> butanoyl chloride. Step 5: butanoyl chloride + concentrated NH3 -> butanamide.",
       "markingGuide": "Achievement: ONE correct conversion. Merit: THREE correct conversions. Excellence: Complete scheme."
     },
     {
@@ -64,7 +64,7 @@
         "polyester"
       ],
       "answerType": "working",
-      "expectedAnswer": "Three repeating units showing: -[O-CH2-C(=O)]3- with ester linkages formed between the -OH and -COOH groups.",
+      "expectedAnswer": "Three repeating units showing: -[O-CH(CH3)-C(=O)]3- with ester linkages formed between the -OH and -COOH groups of adjacent lactic acid monomers (each unit carries a -CH3 branch on the carbon between the ester oxygens).",
       "markingGuide": "Achievement: Draws polymer with ester linkages. Merit: Correctly draws THREE repeating units."
     },
     {
@@ -139,7 +139,7 @@
         "structural-formulae"
       ],
       "answerType": "working",
-      "expectedAnswer": "A: CH3-CH2-O-C(=O)-CH2-CH2-CH3 (methyl pentanoate is an ester). B: heptan-4-one. C: 3-chlorobutanal. D: structural formula.",
+      "expectedAnswer": "A (methyl pentanoate): CH3-O-C(=O)-CH2-CH2-CH2-CH3. B (CH3CH2C(=O)CH2CH2CH3): hexan-3-one. C (CH3-CH(Cl)-C(=O)H): 2-chloropropanal. D (4-hydroxyhexanoyl chloride): Cl-C(=O)-CH2-CH2-CH(OH)-CH2-CH3.",
       "markingGuide": "Achievement: THREE correct. Merit: ALL correct.",
       "graph": {
         "type": "table",
@@ -193,7 +193,7 @@
     {
       "id": "l3co24-q2b",
       "number": "2(b)",
-      "text": "Complete the flowchart by drawing structural formulae for Compounds A, B, C, D, and E, and identifying Reagents 1, 2, 3, and 4.\n\nStarting material: pentan-2-ol (CH3-CH(OH)-CH2-CH3)\n-> conc. H2SO4, heat -> Compound A\nCompound A + H2O/H+ -> Compound B\nCompound A + Reagent 2 -> Compound D\nCompound D + Reagent 3 -> CH3-CH2-CH2-CH2-NH2\nCH3-CH2-CH2-CH2-NH2 + H2SO4(aq) -> Compound E\nCompound B + Reagent 1 -> Compound C",
+      "text": "Complete the flowchart by drawing structural formulae for Compounds A, B, C, D, and E, and identifying Reagents 1, 2, 3, and 4.\n\nStarting material: butan-2-ol (CH3-CH(OH)-CH2-CH3)\n-> conc. H2SO4, heat -> Compound A\nCompound A + H2O/H+ -> Compound B\nCompound A + Reagent 2 -> Compound D\nCompound D + Reagent 3 -> CH3-CH2-CH2-CH2-NH2\nCH3-CH2-CH2-CH2-NH2 + H2SO4(aq) -> Compound E\nCompound B + Reagent 1 -> Compound C",
       "marks": 8,
       "gradeLevel": "excellence",
       "topics": [
@@ -202,13 +202,13 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound A: but-2-ene (via elimination/dehydration). The scheme then continues through addition, substitution, and other reactions.",
+      "expectedAnswer": "Compound A: but-2-ene (from elimination of butan-2-ol with conc. H2SO4 and heat). Compound B: butan-2-ol (addition of H2O to but-2-ene, Markovnikov). Compound C: butan-2-one (oxidation of the secondary alcohol butan-2-ol with acidified dichromate — Reagent 1 = Cr2O72-/H+). Compound D: 1-bromobutane or 2-bromobutane formed by addition of HBr to but-2-ene (Reagent 2 = HBr). Reagent 3 = excess NH3 in ethanol (substitution to give butan-1-amine). Compound E: butan-1-aminium hydrogensulfate (salt from CH3CH2CH2CH2NH2 + H2SO4).",
       "markingGuide": "Achievement: FIVE correct entries. Merit: SEVEN correct. Excellence: ALL correct."
     },
     {
       "id": "l3co24-q2ci",
       "number": "2(c)(i)",
-      "text": "Six organic compounds are given in a table.\n\n1: CH3-CH2-CH2-CH2-CH2OH\n2: CH3-CH2-CH2-CH2-C(=O)H\n3: CH3=CH-CH2-CH2-C(=O)H\n4: CH3-CH=CH-C(=O)(Cl)\n5: CH3-CH2-CH2-CH2-C(=O)(Cl)\n6: CH3=CH-C(=O)-CH2-CH3\n\nChoose the appropriate organic compounds to match observations from chemical tests.\n\n- Heating with acidified potassium dichromate causes orange to green change. Heating with Tollens' reagent does not produce a silver mirror.\n- Heating with Fehling's reagent forms an orange-red solid. Mixing with potassium permanganate causes purple to decolourise and a brown solid to form.\n- Mixing with bromine water results in steamy fumes, and the solution changes from orange to colourless.",
+      "text": "Six organic compounds are given in a table.\n\n1: CH3-CH2-CH2-CH2-CH2OH\n2: CH3-CH2-CH2-CH2-C(=O)H\n3: H2C=CH-CH2-CH2-C(=O)H\n4: CH3-CH=CH-C(=O)(Cl)\n5: CH3-CH2-CH2-CH2-C(=O)(Cl)\n6: H2C=CH-C(=O)-CH2-CH3\n\nChoose the appropriate organic compounds to match observations from chemical tests.\n\n- Heating with acidified potassium dichromate causes orange to green change. Heating with Tollens' reagent does not produce a silver mirror.\n- Heating with Fehling's reagent forms an orange-red solid. Mixing with potassium permanganate causes purple to decolourise and a brown solid to form.\n- Mixing with water results in steamy fumes, and bromine water changes from orange to colourless.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -238,7 +238,7 @@
     {
       "id": "l3co24-q3ai",
       "number": "3(a)(i)",
-      "text": "A student prepared a pure sample of ethyl methanoate in the laboratory:\n\nStep 1: Add mmethanoic acid, ethanol, and concentrated H2SO4.\nStep 2: Heat under reflux for 30 minutes.\nStep 3: Add sodium carbonate until bubbling stops.\nStep 4: Add water and separate layers.\nStep 5: Add drying agent.\nStep 6: Distil the organic layer.\n\nDescribe the function of the concentrated H2SO4 in step 1.",
+      "text": "A student prepared a pure sample of ethyl methanoate in the laboratory:\n\nStep 1: Add methanoic acid, ethanol, and concentrated H2SO4.\nStep 2: Heat under reflux for 30 minutes.\nStep 3: Add sodium carbonate until bubbling stops.\nStep 4: Add water and separate layers.\nStep 5: Add drying agent.\nStep 6: Distil the organic layer.\n\nDescribe the function of the concentrated H2SO4 in step 1.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -283,7 +283,7 @@
     {
       "id": "l3co24-q3aiv",
       "number": "3(a)(iv)",
-      "text": "Explain how distillation was used in step 6 to purify the ethyl methanoate from the organic layer.\n\nRefer to relevant boiling points:\nEthanoic acid: 118 degrees C\nMethanol: 64.7 degrees C\nMethyl ethanoate: 57.1 degrees C",
+      "text": "Explain how distillation was used in step 6 to purify the ethyl methanoate from the organic layer.\n\nRefer to relevant boiling points:\nMethanoic acid: 101 degrees C\nEthanol: 78.4 degrees C\nEthyl methanoate: 54.3 degrees C",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -292,13 +292,13 @@
         "distillation"
       ],
       "answerType": "working",
-      "expectedAnswer": "The mixture is heated carefully. Methyl ethanoate (bp 57.1 degrees C) distils first as it has the lowest boiling point. Collect the fraction between 55-59 degrees C.",
+      "expectedAnswer": "The mixture is heated carefully in a distillation apparatus. Ethyl methanoate has the lowest boiling point (54.3 degrees C), so it vaporises first and is condensed and collected, leaving behind the higher-boiling ethanol (78.4 degrees C) and methanoic acid (101 degrees C). Collect the fraction at approximately 53-56 degrees C.",
       "markingGuide": "Achievement: Recognises boiling point determines separation. Merit: References boiling points. Excellence: Full explanation."
     },
     {
       "id": "l3co24-q3bi",
       "number": "3(b)(i)",
-      "text": "Consider Compounds A, B, and C:\n\nCompound A: CH3-CH(Cl)-CHO\nCompound B: CH3-CH(OH)-CH2-NH2\nCompound C: H2N-CH2-C(=O)-CH3\n\nChoose the ONE compound that has ALL the following properties:\n- cannot exist as enantiomers\n- forms a silver mirror when heated with Tollens' reagent\n- turns damp red litmus paper blue.\n\nExplain your choice.",
+      "text": "Consider Compounds A, B, and C:\n\nCompound A: CH3-CH(Cl)-CHO\nCompound B: CH3-CH(OH)-CH2-NH2\nCompound C: H2N-CH2-CH2-CHO\n\nChoose the ONE compound that has ALL the following properties:\n- cannot exist as enantiomers\n- forms a silver mirror when heated with Tollens' reagent\n- turns damp red litmus paper blue.\n\nExplain your choice.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -307,13 +307,13 @@
         "chemical-tests"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound C. It has no asymmetric carbon, contains an amine group (turns litmus blue)... but wait, it has a ketone not aldehyde, so it would NOT give silver mirror with Tollens'. Let me reconsider. The answer should be a compound with aldehyde + amine + no chiral centre. None of these perfectly match all three simultaneously. The intent is for students to evaluate each property against each compound.",
+      "expectedAnswer": "Compound C (H2N-CH2-CH2-CHO, 3-aminopropanal). It does not exist as enantiomers because none of its carbons are bonded to four different groups (no chiral centre). It has an aldehyde (-CHO) group, so it forms a silver mirror when warmed with Tollens' reagent. It has a primary amine (-NH2), which is a weak base, so it turns damp red litmus blue. Compound A is eliminated because it has a chiral carbon (C2 bonded to Cl, CHO, H, CH3) and no amine group. Compound B is eliminated because it has a chiral carbon and no aldehyde (no silver mirror).",
       "markingGuide": "Achievement: Chooses correct compound. Merit: Explains choice with TWO properties. Excellence: Full explanation with all three properties."
     },
     {
       "id": "l3co24-q3bii",
       "number": "3(b)(ii)",
-      "text": "Draw the structural formula for the constitutional isomer of C3H5ClO that has the following properties:\n- exists as enantiomers (optical isomers)\n- branched carbon chain\n- produces steamy fumes upon addition of water.",
+      "text": "Draw the structural formula for the constitutional isomer of C5H9ClO that has the following properties:\n- exists as enantiomers (optical isomers)\n- branched carbon chain\n- produces steamy fumes upon addition of water.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -322,7 +322,7 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "A branched acyl bromide or similar structure with an asymmetric carbon atom and a reactive C-Br or C(=O)Br group.",
+      "expectedAnswer": "2-methylbutanoyl chloride, CH3-CH2-CH(CH3)-C(=O)Cl. This has a branched carbon chain (methyl branch on C2), an acyl chloride group (C(=O)Cl) which produces steamy fumes of HCl when water is added, and a chiral centre at C2 (bonded to CH3, CH2CH3, H, and COCl), so it exists as a pair of enantiomers. Formula C5H9ClO.",
       "markingGuide": "Achievement: Draws a branched chain or acyl halide. Merit: Correct structural formula."
     },
     {

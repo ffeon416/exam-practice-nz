@@ -10,7 +10,7 @@
     {
       "id": "l2cr25-q1a",
       "number": "1(a)",
-      "text": "Sodium fluoride, NaF, is used as a dietary supplement. In analytical chemistry, it is often reacted with calcium chloride, BaCl2, as shown below.\n\n2NaF(aq) + BaCl2(aq) -> CaF2(s) + 2NaCl(aq)\n\nWhen calcium chloride, BaCl2, is added to 63.0 g of potassium iodide, NaF, 72.4 kJ of energy is released.\n\nCalculate the DrH for the above reaction.\n\nM(NaF) = 166.0 g mol-1",
+      "text": "Sodium fluoride, NaF, is used as a dietary supplement. In analytical chemistry, it is often reacted with barium chloride, BaCl2, as shown below.\n\n2NaF(aq) + BaCl2(aq) -> BaF2(s) + 2NaCl(aq)\n\nWhen excess barium chloride, BaCl2, is added to 63.0 g of sodium fluoride, NaF, 72.4 kJ of energy is released.\n\nCalculate the DrH for the above reaction.\n\nM(NaF) = 42.0 g mol-1",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -19,7 +19,7 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(NaF) = 83.0 / 166.0 = 0.500 mol. The equation uses 2 mol NaF, so n(reaction) = 0.500/2 = 0.250 mol. DrH = -94.6 / 0.250 = -378 kJ mol-1",
+      "expectedAnswer": "n(NaF) = 63.0 / 42.0 = 1.500 mol. The equation uses 2 mol NaF per mole of reaction, so n(reaction) = 1.500 / 2 = 0.750 mol. DrH = -72.4 / 0.750 = -96.5 kJ mol-1",
       "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit and negative sign."
     },
     {
@@ -58,7 +58,7 @@
           }
         ]
       },
-      "expectedAnswer": "3D Covalent Network (2730): Boron nitride (BN). Ionic (681): Potassium iodide (NaF). Metallic (232): Zinc (Zn). Molecular (0): Water (H2O).",
+      "expectedAnswer": "3D Covalent Network (2730): Boron nitride (BN). Ionic (681): Potassium iodide (KI). Metallic (232): Zinc (Zn). Molecular (0): Water (H2O).",
       "markingGuide": "Achieved: THREE of four correct."
     },
     {
@@ -80,7 +80,7 @@
     {
       "id": "l2cr25-q1c",
       "number": "1(c)",
-      "text": "Boron nitride, BN, and copper, Cu, are both used in technology, but their properties are very different.\n\nSilicon carbide is extremely hard and used as an abrasive. Copper is malleable and ductile, and is used to craft fine jewellery and wiring.\n\nExplain how the structure and bonding of each substance results in these properties.\n\nBoron nitride, BN, hardness:\n\nCopper, Ag, malleable and ductile:",
+      "text": "Boron nitride, BN, and copper, Cu, are both used in technology, but their properties are very different.\n\nBoron nitride is extremely hard and used as an abrasive. Copper is malleable and ductile, and is used to craft fine jewellery and wiring.\n\nExplain how the structure and bonding of each substance results in these properties.\n\nBoron nitride, BN, hardness:\n\nCopper, Cu, malleable and ductile:",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -91,7 +91,7 @@
         "metallic-bonding"
       ],
       "answerType": "text",
-      "expectedAnswer": "SiC is very hard due to strong directional covalent bonds in a 3D network. Copper has non-directional metallic bonds allowing layers to slide.",
+      "expectedAnswer": "Boron nitride (in its cubic form) is a 3D covalent network in which every B atom is covalently bonded to 4 N atoms (and vice versa). The strong, directional covalent bonds throughout the entire structure make it very hard. Copper is a metallic solid with a 3D lattice of Cu cations surrounded by delocalised electrons; the non-directional metallic bonds allow layers of cations to slide past each other when a force is applied, without breaking the electrostatic attraction, making copper malleable and ductile.",
       "markingGuide": "Achieved: Recognises that bonding type influences properties. Merit: Links bonding and structure of ONE solid to properties. Excellence: Explains both solids."
     },
     {
@@ -172,7 +172,7 @@
     {
       "id": "l2cr25-q2bi",
       "number": "2(b)(i)",
-      "text": "All three of the compounds given below contain polar bonds, but only two of them are polar molecules.\n\n| Methanol | Carbon tetrachloride | Hydrogen fluoride |\n|---|---|---|\n| H-C(H)(H)-OH | Cl-Si(Cl)(Cl)-Cl | H-F |\n\nDefine what makes a chemical bond polar, and give an example from one of the above compounds.",
+      "text": "All three of the compounds given below contain polar bonds, but only two of them are polar molecules.\n\n| Methanol | Carbon tetrachloride | Hydrogen fluoride |\n|---|---|---|\n| H-C(H)(H)-OH | Cl-C(Cl)(Cl)-Cl | H-F |\n\nDefine what makes a chemical bond polar, and give an example from one of the above compounds.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -181,7 +181,7 @@
         "electronegativity"
       ],
       "answerType": "text",
-      "expectedAnswer": "A polar bond is a covalent bond with a dipole, due to atoms having different electronegativities. Example: O-H bond in ethanol.",
+      "expectedAnswer": "A polar bond is a covalent bond with a permanent dipole, arising because the two atoms have different electronegativities and so share the bonding electrons unequally. Example: the O-H bond in methanol — O is much more electronegative than H, so the bonding electrons spend more time closer to O, giving O a partial negative charge and H a partial positive charge.",
       "markingGuide": "Achieved: Basic definition and example."
     },
     {
@@ -201,7 +201,7 @@
         "Hydrogen fluoride"
       ],
       "expectedAnswer": "Carbon tetrachloride",
-      "markingGuide": "Achieved: Correctly selects silicon tetrachloride."
+      "markingGuide": "Achieved: Correctly selects carbon tetrachloride."
     },
     {
       "id": "l2cr25-q2biii",
@@ -215,13 +215,13 @@
         "molecular-shape"
       ],
       "answerType": "text",
-      "expectedAnswer": "Carbon tetrachloride has four polar Si-Cl bonds arranged symmetrically (tetrahedrally) around the central Si atom. Because the bonds are all equally polar and symmetrically arranged, the dipoles cancel and the molecule is non-polar overall.",
+      "expectedAnswer": "Carbon tetrachloride has four polar C-Cl bonds arranged symmetrically (tetrahedrally) around the central C atom. Because the four bonds are all equally polar and symmetrically arranged, the individual bond dipoles cancel out exactly, so the molecule has no net dipole moment and is non-polar overall.",
       "markingGuide": "Achieved: Identifies symmetry. Merit: Links symmetry to dipole cancellation. Excellence: Full explanation."
     },
     {
       "id": "l2cr25-q2c",
       "number": "2(c)",
-      "text": "Predict the solubility of the following combinations.\n\n| Solute and solvent | Soluble? | Insoluble? |\n|---|---|---|\n| Carbon tetrachloride, CCl4, in water | | |\n| Calcium chloride, BaCl2, in octane, C8H18 | | |\n| Iodine, I2, in octane, C8H18 | | |",
+      "text": "Predict the solubility of the following combinations.\n\n| Solute and solvent | Soluble? | Insoluble? |\n|---|---|---|\n| Carbon tetrachloride, CCl4, in water | | |\n| Barium chloride, BaCl2, in octane, C8H18 | | |\n| Iodine, I2, in octane, C8H18 | | |",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -236,7 +236,7 @@
     {
       "id": "l2cr25-q2d",
       "number": "2(d)",
-      "text": "What makes potassium iodide, NaF, soluble in water, but iodine, I2, insoluble in water.\n\nIn your answer:\n- refer to the structure and bonding of each substance\n- explain how the substance interacts with water molecules\n- include a diagram showing the dissolving of NaF in water.",
+      "text": "What makes potassium iodide, KI, soluble in water, but iodine, I2, insoluble in water?\n\nIn your answer:\n- refer to the structure and bonding of each substance\n- explain how the substance interacts with water molecules\n- include a diagram showing the dissolving of KI in water.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -246,7 +246,7 @@
         "ionic-bonding"
       ],
       "answerType": "text",
-      "expectedAnswer": "NaF is ionic; water's partial charges attract the K+ and I- ions, overcoming the ionic bonds. S8 is non-polar molecular, so water molecules cannot form strong enough attractions to overcome existing bonds.",
+      "expectedAnswer": "KI is ionic — it has a 3D lattice of K+ and I- ions held together by strong ionic bonds. Polar water molecules attract the ions: the partial negative O ends of water attract K+ and the partial positive H ends attract I-. These ion-dipole attractions are strong enough to overcome the ionic lattice, so KI dissolves. I2 is a non-polar molecular solid held together by weak dispersion forces. Water molecules form stronger hydrogen bonds with each other than they can form with I2, so I2 does not dissolve in water and remains insoluble.",
       "markingGuide": "Achieved: Identifies attractions needed. Merit: Links forces to solubility for ONE compound. Excellence: Explains both with diagram."
     },
     {
@@ -268,7 +268,7 @@
     {
       "id": "l2cr25-q3bi",
       "number": "3(b)(i)",
-      "text": "When ethanol, C2H5OH, is combusted with oxygen, O2, carbon dioxide, CO2, and water, H2O, are produced.\n\n2C2H5OH(l) + 3O2(g) -> 2CO2(g) + 4H2O(l)    DrH = -1371 kJ mol-1\n\nCalculate the mass of ethanol that must react to release 18 500 kJ of energy.\n\nM(C2H5OH) = 32.0 g mol-1",
+      "text": "When ethanol, C2H5OH, is combusted with oxygen, O2, carbon dioxide, CO2, and water, H2O, are produced.\n\nC2H5OH(l) + 3O2(g) -> 2CO2(g) + 3H2O(l)    DrH = -1371 kJ mol-1\n\nCalculate the mass of ethanol that must react to release 18 500 kJ of energy.\n\nM(C2H5OH) = 46.1 g mol-1",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -277,13 +277,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(reaction) = 21800 / 1452 = 15.01. n(C2H5OH) = 15.01 x 2 = 30.02 mol. m = 30.02 x 32.0 = 961 g",
+      "expectedAnswer": "n(C2H5OH) = 18 500 / 1371 = 13.49 mol. m = n x M = 13.49 x 46.1 = 622 g (3 s.f.)",
       "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit."
     },
     {
       "id": "l2cr25-q3bii",
       "number": "3(b)(ii)",
-      "text": "Calculate the energy change when 168 g of calcium oxide, CaO, is produced.\n\n2Mg(s) + O2(g) -> 2CaO(s)    DrH = -1270 kJ mol-1\n\nM(CaO) = 40.3 g mol-1",
+      "text": "Calculate the energy change when 168 g of calcium oxide, CaO, is produced.\n\n2Ca(s) + O2(g) -> 2CaO(s)    DrH = -1270 kJ mol-1\n\nM(CaO) = 56.1 g mol-1",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -292,7 +292,7 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(CaO) = 204 / 40.3 = 5.062 mol. Energy = 5.062 x (-1204 / 2) = -3047 kJ",
+      "expectedAnswer": "n(CaO) = 168 / 56.1 = 2.995 mol. The equation produces 2 mol CaO per -1270 kJ, so energy per mole of CaO = -1270 / 2 = -635 kJ mol-1. Energy change = 2.995 x (-635) = -1902 kJ (1902 kJ of energy released).",
       "markingGuide": "Achieved: One step correct. Merit: Correct answer with unit."
     },
     {
@@ -307,13 +307,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "NO2: bent (with lone pair on S). SF2: bent (with two lone pairs on O). BF3: trigonal planar (no lone pairs).",
+      "expectedAnswer": "NO2: bent (the central N has one unpaired electron / single electron plus two bonding regions to oxygen, giving a bent shape). SF2: bent (the central S atom has two bonding pairs and two lone pairs, giving a bent shape). BF3: trigonal planar (the central B atom has three bonding pairs and no lone pairs).",
       "markingGuide": "Achieved: TWO correct Lewis structures with shapes."
     },
     {
       "id": "l2cr25-q3d",
       "number": "3(d)",
-      "text": "Compare the shapes and bond angles of germane (GeH4) and arsine (AsH3).\n\n| | Silane | Phosphine |\n|---|---|---|\n| Shape | tetrahedral GeH4 | trigonal pyramidal AsH3 |\n| Bond angle | 109.5 degrees | 107 degrees |\n\nCompare the two shapes and explain the factors that contribute to:\n- arrangement around the central atom\n- molecular shape.",
+      "text": "Compare the shapes and bond angles of germane (GeH4) and arsine (AsH3).\n\n| | Germane (GeH4) | Arsine (AsH3) |\n|---|---|---|\n| Shape | tetrahedral | trigonal pyramidal |\n| Bond angle | 109.5 degrees | 92 degrees |\n\nCompare the two shapes and explain the factors that contribute to:\n- arrangement around the central atom\n- molecular shape.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -322,7 +322,7 @@
         "electron-repulsion"
       ],
       "answerType": "text",
-      "expectedAnswer": "In germane, there are four bonding regions around Si, all bonding, giving tetrahedral shape at 109.5 degrees. In arsine, there are four electron density regions (3 bonding + 1 lone pair) giving tetrahedral arrangement but trigonal pyramidal shape. The lone pair compresses bond angles slightly.",
+      "expectedAnswer": "In germane (GeH4), the central Ge atom has four bonding regions and no lone pairs, so the four Ge-H bonding pairs repel one another equally and arrange themselves tetrahedrally at 109.5 degrees. In arsine (AsH3), the central As atom has four regions of electron density (three As-H bonding pairs plus one lone pair), giving an overall tetrahedral arrangement of electron density but a trigonal pyramidal molecular shape (ignoring the lone pair). The lone pair repels the bonding pairs more strongly than bonding pairs repel each other, compressing the H-As-H bond angles below 109.5 degrees.",
       "markingGuide": "Achieved: Identifies correct electron regions. Merit: Links electron regions and lone pairs to shape for ONE compound. Excellence: Fully explains both."
     }
   ],
