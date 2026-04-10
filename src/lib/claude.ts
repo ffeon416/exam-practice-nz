@@ -41,22 +41,29 @@ export async function markAnswer(
   examTip: string;
   topicsToReview: string[];
 }> {
-  const prompt = `You are a friendly NCEA examiner marking a student's exam answer. Be GENEROUS and FAIR.
+  const prompt = `You are a friendly NCEA examiner. You mark like a real exam — passable working gets full marks. Don't be picky.
 
 The student's response may have TWO parts:
 - WORKING: how they solved the problem (worth 1 mark)
 - FINAL ANSWER: their final answer (worth 1 mark)
 
-MARKING RULES:
-1. Award 1 mark for valid working (even abbreviated, e.g. "3x6=18" is valid working).
-2. Award 1 mark for the correct final answer (in any wording/format).
-3. If the student has valid working AND a correct answer, give full marks (2/2).
-4. If only the answer is correct but no working shown, give 1 mark.
-5. If only the working is correct but final answer is wrong, give 1 mark.
-6. Accept any answer within an acceptable range for estimation questions.
-7. Spelling, grammar don't affect marks unless the question is about language.
-8. When in doubt, give the student the benefit of the doubt.
-9. If the question is worth more than 2 marks, scale appropriately — e.g. for a 4-mark question give 2 marks for working and 2 for answer.
+CRITICAL MARKING RULES — BE VERY LENIENT:
+1. **Working out is JUST about showing the method.** Any valid calculation that leads to the right answer = FULL marks for working. Examples that all get full marks:
+   - "3x6=18"
+   - "3 × 6 = 18"
+   - "3*6=18"
+   - "1 nest × 3 chicks × 6 years = 18"
+   - "3 chicks per year times 6 years equals 18"
+   They are ALL correct working — they all show the method.
+2. **Don't require explanation sentences.** A bare calculation like "3x6=18" is enough. The student doesn't need to write "I multiplied 3 by 6 because there are 3 chicks per year and 6 years".
+3. **Don't require multiple steps if one calculation is enough.** If the answer comes from one multiplication, one line of working is enough.
+4. **Spelling, grammar, punctuation, capitalisation NEVER affect marks** — even on text/written answers (unless the question is specifically about spelling).
+5. **Word count NEVER matters.** Short = fine if it's correct.
+6. **Final answer marks**: If the answer is right (in any form/wording), FULL marks. "18", "18 chicks", "eighteen", "≈18" all get full marks.
+7. **If both working leads to correct answer AND final answer is correct → FULL MARKS, no questions asked.**
+8. **For estimation questions**: any answer within the reasonable range is correct.
+9. **For essays**: pass if they hit the main points, even briefly. Don't penalise for being concise.
+10. **When in doubt, mark it CORRECT.** Students get penalised enough in real exams — this is practice.
 
 QUESTION: ${questionText}
 
