@@ -425,27 +425,37 @@ export default function ResultsPage({
                   <p className="text-sm text-slate-300 whitespace-pre-wrap">{qq.text.replace(/\[Diagram:[^\]]+\]/g, "").trim()}</p>
                 </div>
 
-                {/* Your answer */}
+                {/* Your working */}
+                {answers[`${qq.id}_working`] && (
+                  <div>
+                    <p className="text-xs text-slate-400 mb-1">Your working</p>
+                    <p className="text-sm text-white bg-slate-900 border border-slate-700 rounded p-2.5 whitespace-pre-wrap">
+                      {answers[`${qq.id}_working`]}
+                    </p>
+                  </div>
+                )}
+
+                {/* Your final answer */}
                 <div>
-                  <p className="text-xs text-slate-400 mb-1">Your answer</p>
+                  <p className="text-xs text-slate-400 mb-1">Your final answer</p>
                   <p className="text-sm text-white bg-slate-900 border border-slate-700 rounded p-2.5 whitespace-pre-wrap">
                     {myAns || "(No answer)"}
                   </p>
                 </div>
 
-                {/* Correct answer */}
+                {/* Correct working */}
                 <div>
-                  <p className="text-xs text-green-400 mb-1">Correct answer</p>
-                  <p className="text-sm text-white bg-green-950/30 border border-green-800/30 rounded p-2.5 whitespace-pre-wrap">
-                    {qq.expectedAnswer ?? rr.correctApproach}
+                  <p className="text-xs text-blue-400 mb-1">Correct working</p>
+                  <p className="text-sm text-slate-200 bg-blue-950/20 border border-blue-900/30 rounded p-2.5 whitespace-pre-wrap">
+                    {qq.markingGuide}
                   </p>
                 </div>
 
-                {/* Full breakdown */}
+                {/* Correct final answer */}
                 <div>
-                  <p className="text-xs text-amber-400 mb-1">How to solve it</p>
-                  <p className="text-sm text-slate-300 bg-amber-950/15 border border-amber-900/20 rounded p-2.5 whitespace-pre-wrap">
-                    {qq.markingGuide}
+                  <p className="text-xs text-green-400 mb-1">Correct final answer</p>
+                  <p className="text-sm text-white bg-green-950/30 border border-green-800/30 rounded p-2.5 whitespace-pre-wrap font-medium">
+                    {qq.expectedAnswer ?? "(See working above)"}
                   </p>
                 </div>
               </div>
@@ -633,9 +643,19 @@ export default function ResultsPage({
         </div>
       </div>
 
-      {/* Your answer */}
+      {/* Your working */}
+      {answers[`${q.id}_working`] && (
+        <div className="bg-card border border-card-border rounded-lg p-4 mb-4">
+          <h4 className="text-xs font-medium text-slate-400 mb-2 uppercase">Your Working</h4>
+          <p className="text-sm text-white bg-slate-900 rounded p-3 whitespace-pre-wrap">
+            {answers[`${q.id}_working`]}
+          </p>
+        </div>
+      )}
+
+      {/* Your final answer */}
       <div className="bg-card border border-card-border rounded-lg p-4 mb-4">
-        <h4 className="text-xs font-medium text-slate-400 mb-2 uppercase">Your Answer</h4>
+        <h4 className="text-xs font-medium text-slate-400 mb-2 uppercase">Your Final Answer</h4>
         <p
           className={`text-sm whitespace-pre-wrap rounded p-3 ${
             !hasAnswer
@@ -649,26 +669,28 @@ export default function ResultsPage({
         </p>
       </div>
 
-      {/* Correct answer */}
-      {r && (
-        <div className="bg-green-950/20 border border-green-900/30 rounded-lg p-4 mb-4">
-          <h4 className="text-xs font-medium text-green-400 mb-2 uppercase">
-            {selfMarked ? "Correct Answer" : isFullMarks ? "Your approach was correct" : "How to Get Full Marks"}
-          </h4>
-          <p className="text-slate-300 text-sm whitespace-pre-wrap">
-            {r.correctApproach}
-          </p>
-        </div>
-      )}
+      {/* Correct working */}
+      <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-4 mb-4">
+        <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Correct Working</h4>
+        <p className="text-slate-300 text-sm whitespace-pre-wrap">
+          {q.markingGuide}
+        </p>
+      </div>
 
-      {/* Marking guide */}
-      {r && (
+      {/* Correct final answer */}
+      <div className="bg-green-950/20 border border-green-900/30 rounded-lg p-4 mb-4">
+        <h4 className="text-xs font-medium text-green-400 mb-2 uppercase">Correct Final Answer</h4>
+        <p className="text-white text-sm whitespace-pre-wrap font-medium">
+          {q.expectedAnswer ?? "(See working above)"}
+        </p>
+      </div>
+
+      {/* Feedback */}
+      {r && !isFullMarks && (
         <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4 mb-4">
-          <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">
-            {selfMarked ? "Marking Guide" : isFullMarks ? "Exam Tip" : "What Went Wrong"}
-          </h4>
+          <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Feedback</h4>
           <p className="text-slate-300 text-sm whitespace-pre-wrap">
-            {selfMarked ? r.examTip : isFullMarks ? r.examTip : r.feedback}
+            {selfMarked ? r.examTip : r.feedback}
           </p>
         </div>
       )}
