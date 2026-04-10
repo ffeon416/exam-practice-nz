@@ -11,7 +11,7 @@
     {
       "id": "l3ac25-q1a",
       "number": "1(a)",
-      "text": "Waka Wonders is a Rotorua-based manufacturer of handcrafted wooden toys. Each toy sells for $45. Variable costs per toy: native timber $12, paint and finish $4, labour $9. Total fixed costs: $84,000 per year.\n\nCalculate the contribution margin per toy and the break-even point in units. Show all working.",
+      "text": "Waka Wonders is a Rotorua-based manufacturer of handcrafted wooden toys. The table below shows their cost and pricing structure.\n\nCalculate: (a) the contribution margin per toy, (b) the break-even point in units, and (c) the profit if 5,000 toys are sold. Show all working.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -89,7 +89,7 @@
     {
       "id": "l3ac25-q2a",
       "number": "2(a)",
-      "text": "Waka Wonders is considering whether to: (A) Keep all production in-house and invest $25,000 in new CNC carving equipment (increasing fixed costs but reducing variable timber cost to $8 per toy), or (B) Outsource the carving to a local workshop at $15 per toy (replacing timber and labour variable costs of $21, but adding a $15 outsourcing cost per toy plus $12,000 in quality inspection fixed costs).\n\nFor each option, calculate the new break-even point and the profit at a sales volume of 5,500 toys.",
+      "text": "Waka Wonders is considering two production options. The table below shows the details of each option.\n\nFor each option, calculate the break-even point and the profit at an estimated demand of 5,000 toys. Recommend which option Waka Wonders should choose and justify your answer.",
       "marks": 7,
       "gradeLevel": "merit",
       "topics": [

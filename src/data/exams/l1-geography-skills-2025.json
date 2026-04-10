@@ -106,7 +106,7 @@
     {
       "id": "l1gs-q5",
       "number": "5",
-      "text": "Study the following data about rainfall in four New Zealand cities:\n\n| City | Average Annual Rainfall (mm) |\n|------|-----------------------------|\n| Auckland | 1,240 |\n| Wellington | 1,249 |\n| Christchurch | 618 |\n| Hokitika | 2,879 |\n\nDescribe the spatial pattern shown in this data. Suggest ONE reason for the differences.",
+      "text": "The bar chart below shows the average annual rainfall for four New Zealand cities.\n\nDescribe the spatial pattern shown in this data. Suggest ONE reason for the differences.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -181,7 +181,7 @@
     {
       "id": "l1gs-q8",
       "number": "8",
-      "text": "A bar graph shows the population of five Waikato towns:\n- Hamilton: 178,500\n- Cambridge: 21,300\n- Te Awamutu: 12,800\n- Matamata: 8,200\n- Morrinsville: 7,900\n\nDescribe the spatial pattern of population distribution shown. Suggest ONE geographic reason why Hamilton has a much larger population than the other towns.",
+      "text": "The bar graph below shows the population of five Waikato towns.\n\nDescribe the spatial pattern of population distribution shown. Suggest ONE geographic reason why Hamilton has a much larger population than the other towns.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -241,7 +241,7 @@
     {
       "id": "l1gs-q10",
       "number": "10",
-      "text": "Study this information about Queenstown and Gore, two towns in the Otago/Southland region:\n\n| Feature | Queenstown | Gore |\n|---------|-----------|------|\n| Population (2023) | 47,400 | 12,600 |\n| Tourism spend (annual) | $2.4 billion | $45 million |\n| Median house price | $1,450,000 | $385,000 |\n| Distance from nearest airport | 8 km (international) | 65 km (Invercargill) |\n| Main industries | Tourism, hospitality | Agriculture, meat processing |\n\nCompare the geographic characteristics of these two towns. Use the data to explain why they have developed differently. Consider physical and human geographic factors in your answer.",
+      "text": "The table below shows key statistics comparing Queenstown and Gore, two towns in the Otago/Southland region.\n\nCompare the geographic characteristics of these two towns. Use the data to explain why they have developed differently. Consider physical and human geographic factors in your answer.",
       "marks": 10,
       "gradeLevel": "excellence",
       "topics": [

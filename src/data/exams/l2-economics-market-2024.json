@@ -174,15 +174,15 @@
     {
       "id": "91222-2024-q3a",
       "number": "3(a)",
-      "text": "Define inflation.",
+      "text": "The graph below shows New Zealand's annual inflation rate from 2018 to 2024.\n\nDefine inflation, and identify the year in which NZ experienced the highest inflation rate.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "inflation"
       ],
       "answerType": "text",
-      "expectedAnswer": "Inflation is a sustained increase in the general price level of goods and services over time.",
-      "markingGuide": "Correct definition — must include 'sustained' and 'general price level'.",
+      "expectedAnswer": "Inflation is a sustained increase in the general price level of goods and services over time. The highest rate was in 2022.",
+      "markingGuide": "Correct definition — must include 'sustained' and 'general price level'. Identifies 2022 as the year with highest inflation from the graph.",
       "graph": {
         "type": "line",
         "title": "NZ Annual Inflation Rate 2018–2024",
@@ -253,7 +253,7 @@
     {
       "id": "91222-2024-q3d",
       "number": "3(d)",
-      "text": "New Zealand's annual inflation rate of 4.7% in 2023 was higher than Singapore's 3.1% and Canada's 3.9%.\n\nCompare and contrast the impact of New Zealand's higher inflation rate on New Zealand importers and exporters trading with Singapore and Canada.",
+      "text": "The chart below compares annual inflation rates in 2023 for New Zealand, Singapore, and Canada.\n\nCompare and contrast the impact of New Zealand's higher inflation rate on New Zealand importers and exporters trading with Singapore and Canada.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

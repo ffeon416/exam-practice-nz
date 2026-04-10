@@ -22,7 +22,7 @@
       "markingGuide": "Achievement: Correctly sets up two-way table with Drama/No Drama vs Community Service/No Community Service. P(Drama only) = 0.45 - 0.10 = 0.30. Table values: Both = 0.10, Drama only = 0.30, Community Service only = 0.20, Neither = 0.30. Merit: All values correct with clear working shown.",
       "graph": {
         "type": "table",
-        "title": "Two-Way Table — Drama Club and Community Service",
+        "title": "Given Information",
         "data": {
           "headers": [
             "",
@@ -34,19 +34,19 @@
             [
               "Drama Club",
               "10%",
-              "35%",
+              "?",
               "45%"
             ],
             [
               "No Drama Club",
-              "20%",
-              "35%",
-              "55%"
+              "?",
+              "?",
+              "?"
             ],
             [
               "Total",
               "30%",
-              "70%",
+              "?",
               "100%"
             ]
           ]
@@ -80,28 +80,23 @@
       "markingGuide": "Achievement: Correct tree with branches: High Cholesterol (0.04) / Normal (0.96), then Test+ / Test- for each. Using 5,000: High Chol = 200, Normal = 4,800. High Chol & Test+ = 184, High Chol & Test- = 16, Normal & Test+ = 288, Normal & Test- = 4,512.",
       "graph": {
         "type": "table",
-        "title": "Iron Deficiency Screening Data",
+        "title": "Iron Deficiency Screening Rates",
         "data": {
           "headers": [
             "",
-            "Has iron deficiency (5%)",
-            "No iron deficiency (95%)"
+            "Test Positive",
+            "Test Negative"
           ],
           "rows": [
             [
-              "Population (of 5,000)",
-              "250",
-              "4,750"
+              "Has iron deficiency (5% of population)",
+              "90% (sensitivity)",
+              "10%"
             ],
             [
-              "Test positive",
-              "225 (90% of 250)",
-              "380 (8% of 4,750)"
-            ],
-            [
-              "Test negative",
-              "25 (10% of 250)",
-              "4,370 (92% of 4,750)"
+              "No iron deficiency (95% of population)",
+              "8% (false positive)",
+              "92%"
             ]
           ]
         }
@@ -118,45 +113,7 @@
         "probability-trees"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: P(Test+) = (184 + 288)/5000 = 472/5000 = 0.0944. Merit: P(High Chol | Test+) = 184/472 = 0.32102 (approximately 39.0%). Working must show conditional probability calculation clearly. Common error: confusing P(Test+ | High Chol) with P(High Chol | Test+).",
-      "graph": {
-        "type": "table",
-        "title": "Probability Tree Summary",
-        "data": {
-          "headers": [
-            "Branch",
-            "Probability",
-            "Outcome",
-            "Joint Probability"
-          ],
-          "rows": [
-            [
-              "Iron deficient",
-              "0.05",
-              "Test +",
-              "0.05 x 0.90 = 0.045"
-            ],
-            [
-              "Iron deficient",
-              "0.05",
-              "Test -",
-              "0.05 x 0.10 = 0.005"
-            ],
-            [
-              "Not iron deficient",
-              "0.95",
-              "Test +",
-              "0.95 x 0.08 = 0.076"
-            ],
-            [
-              "Not iron deficient",
-              "0.95",
-              "Test -",
-              "0.95 x 0.92 = 0.874"
-            ]
-          ]
-        }
-      }
+      "markingGuide": "Achievement: P(Test+) = (184 + 288)/5000 = 472/5000 = 0.0944. Merit: P(High Chol | Test+) = 184/472 = 0.32102 (approximately 39.0%). Working must show conditional probability calculation clearly. Common error: confusing P(Test+ | High Chol) with P(High Chol | Test+)."
     },
     {
       "id": "st267-24-q2c",
@@ -174,7 +131,7 @@
     {
       "id": "st267-24-q3a",
       "number": "3a",
-      "text": "A study investigated whether taking regular short breaks during study improves test performance. The results are shown below:\n\n| | Scored above 70% | Scored 70% or below | Total |\n|---|---|---|---|\n| Regular breaks | 48 | 102 | 150 |\n| No regular breaks | 32 | 118 | 150 |\n\nCalculate the risk of scoring above 75% for each group.",
+      "text": "A study investigated whether taking regular short breaks during study improves test performance. The results are shown in the table below.\n\nCalculate the risk of scoring above 70% for each group.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [

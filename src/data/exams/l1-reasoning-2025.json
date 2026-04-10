@@ -53,7 +53,7 @@
     {
       "id": "l1r25-q1di",
       "number": "1(d)(i)",
-      "text": "The relationship between x and y values in a sequence: x = 1 → y = 8, x = 2 → y = 20, x = 3 → y = 56, x = 4 → y = 164, x = 5 → y = 488. Find an equation that represents y for any given x-value. Show working.",
+      "text": "The table below shows the relationship between x and y values in a sequence.\n\nFind an equation that represents y for any given x-value. Show your working.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

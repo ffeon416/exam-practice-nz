@@ -10,7 +10,7 @@
     {
       "id": "l1s24-q1a",
       "number": "1(a)",
-      "text": "A graph shows the average monthly household water usage across New Zealand from 2014 to 2023, with a forecast extending to 2030. Key data points: 2014 ≈ 680 litres, 2018 ≈ 720 litres, 2023 = 750 litres, 2030 forecast = 900 litres. The trend shows gradual increase.\n\nThe forecast predicts NZ average monthly power use will increase from 750 litres (2023) to 900 litres (2030). Evaluate whether this forecast is valid. Support your evaluation with calculations and evidence.",
+      "text": "The graph below shows the average monthly household water usage across New Zealand from 2014 to 2023, with a forecast extending to 2030.\n\nThe forecast predicts average monthly water usage will increase significantly by 2030. Evaluate whether this forecast is valid. Support your evaluation with calculations and evidence from the graph.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -74,7 +74,7 @@
     {
       "id": "l1s24-q1b",
       "number": "1(b)",
-      "text": "Two power companies offer different plans:\n\nAquaSave Plans: $95/month (15,000 L), $130/month (25,000 L), $175/month (unlimited). Unused water credits carry over. Can share across household.\n\nPureFlow Plans: $110/month (18,000 L), $145/month (30,000 L), $190/month (unlimited + free plumbing check). No carry-over. Cannot share.\n\nIdentify advantages and disadvantages of each provider's plans.",
+      "text": "Two water providers offer different plans, shown in the table below.\n\nIdentify advantages and disadvantages of each provider's plans.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -140,7 +140,7 @@
     {
       "id": "l1s24-q2a",
       "number": "2(a)",
-      "text": "A scatter plot shows the relationship between weekly grocery cost ($ per week, x-axis) and weekly exercise hours (minutes, y-axis) for different NZ suburbs. The plot shows a moderate negative trend — suburbs with higher grocery spending tend to have more exercise hours. Some expensive suburbs show a wide range of commute times.\n\nA claim is made that 'paying more spending more on groceries means more exercise.' Evaluate this claim using the data.",
+      "text": "The scatter plot below shows the relationship between weekly grocery spending ($) and weekly exercise time (minutes) for different NZ suburbs.\n\nA claim is made that \"spending more on groceries means people exercise less.\" Evaluate this claim using the data in the scatter plot.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -148,8 +148,8 @@
         "statistical-reasoning"
       ],
       "answerType": "text",
-      "expectedAnswer": "Moderate negative trend — higher rent doesn't guarantee short commute due to wide spread",
-      "markingGuide": "The scatter plot shows a moderate negative trend — suburbs with higher rents tend to have shorter commutes. This partially supports the claim. However, there is wide vertical spread at each rent level. Other factors (transport options, work location) also matter. Correlation doesn't prove causation. Achieved = uses negative trend. Merit = describes strength and discusses limitations.",
+      "expectedAnswer": "Moderate negative trend — higher grocery spending tends to correspond with less exercise time, but there is wide spread",
+      "markingGuide": "The scatter plot shows a moderate negative trend — suburbs with higher grocery spending tend to have lower exercise times. This partially supports the claim. However, there is wide vertical spread at each spending level. Other factors (suburb demographics, access to facilities) also matter. Correlation does not prove causation. Achieved = uses negative trend. Merit = describes strength and discusses limitations.",
       "graph": {
         "type": "scatter",
         "title": "Weekly Grocery Cost vs Exercise Hours by Suburb",
@@ -262,7 +262,7 @@
     {
       "id": "l1s24-q2b",
       "number": "2(b)",
-      "text": "Data shows average weekly grocery spending across NZ regions in 2023. Key data: NZ average = $210/week. Auckland is highest at $280. Gisborne is lowest at $145. The top 3 regions have a gap of $80 between them.\n\nCompare features of the NZ rent data. Discuss at least TWO features.",
+      "text": "The bar chart below shows average weekly grocery spending across NZ regions in 2023.\n\nCompare features of the grocery spending data. Discuss at least TWO features.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -270,8 +270,8 @@
         "statistical-reasoning"
       ],
       "answerType": "text",
-      "expectedAnswer": "Large range ($330), mean ($210) pulled up by Auckland, right-skewed distribution",
-      "markingGuide": "Features: Range is large (650 - 320 = $330/week). Auckland ($650) is an outlier — pulls the mean up. Distribution is right-skewed (most regions below the average). The top 3 regions (Auckland, Wellington, Queenstown) are spread apart. Achieved = one feature. Merit = two features with evidence.",
+      "expectedAnswer": "Large range ($135), Auckland highest ($280), Gisborne lowest ($145), distribution appears right-skewed",
+      "markingGuide": "Features: Range is large (280 - 145 = $135/week). Auckland ($280) is highest and pulls the mean up. Distribution is right-skewed (more regions are below the average). Gap between top 3 regions and the rest. Achieved = one feature. Merit = two features with evidence.",
       "graph": {
         "type": "bar",
         "title": "Average Weekly Grocery Spending by Region",
@@ -324,7 +324,7 @@
     {
       "id": "l1s24-q2c",
       "number": "2(c)",
-      "text": "Comparison data for NZ and Australia:\n\nPopulation: NZ ~5.1M, Australia ~26M\nGym membership rate: NZ 64.5%, Australia 66%\nAverage weekly groceries: NZ $210, Australia $240\nGrocery increase 2020-2023: NZ +18%, Australia +12%\nProportion buying organic: NZ 35.5%, Australia 34%\n\nNZ has faster-rising grocery costs than Australia. Using the data, identify and explain factors that could account for this. Support with numerical evidence.",
+      "text": "The table below compares grocery-related data for New Zealand and Australia.\n\nNZ has faster-rising grocery costs than Australia. Using the data, identify and explain factors that could account for this. Support with numerical evidence.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -333,8 +333,46 @@
         "statistical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "Similar ownership rates but NZ rents rose faster (18% vs 12%). Smaller population but similar rental proportion.",
-      "markingGuide": "Key factors: (1) NZ rents rose 18% vs Australia's 12% despite similar homeownership rates (64.5% vs 66%). (2) NZ has 5.1M people vs 26M — smaller market may be more volatile. (3) Similar proportions renting (35.5% vs 34%) but NZ may have tighter housing supply relative to demand. Achieved = one factor. Merit = one factor with numbers. Excellence = two+ factors with evidence."
+      "expectedAnswer": "NZ grocery costs rose 18% vs Australia 12%. NZ smaller population (5.1M vs 26M) may mean less competition and more volatile prices.",
+      "markingGuide": "Key factors: (1) NZ grocery costs rose 18% vs Australia 12% — a 6 percentage point difference. (2) NZ has 5.1M people vs 26M — smaller market may mean less competition and higher transport costs. (3) Similar organic buying rates (35.5% vs 34%) suggest similar consumer preferences, so the difference is likely supply-side. Achieved = one factor. Merit = one factor with numbers. Excellence = two+ factors with evidence.",
+      "graph": {
+        "type": "table",
+        "title": "NZ vs Australia Grocery Comparison",
+        "data": {
+          "headers": [
+            "Measure",
+            "New Zealand",
+            "Australia"
+          ],
+          "rows": [
+            [
+              "Population",
+              "~5.1 million",
+              "~26 million"
+            ],
+            [
+              "Average weekly groceries",
+              "$210",
+              "$240"
+            ],
+            [
+              "Grocery cost increase (2020-2023)",
+              "+18%",
+              "+12%"
+            ],
+            [
+              "Proportion buying organic",
+              "35.5%",
+              "34%"
+            ],
+            [
+              "Gym membership rate",
+              "64.5%",
+              "66%"
+            ]
+          ]
+        }
+      }
     }
   ],
   "totalMarks": 22,

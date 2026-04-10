@@ -10,7 +10,7 @@
     {
       "id": "l1s25-q1a",
       "number": "1(a)",
-      "text": "Box-and-whisker plots compare the price of two brands of running shoes from an NZ sports retailer website.\n\nBrand A: Min $30, LQ $60, Median $90, Mean $108, UQ $130, Max $450, n = 80\nBrand B: Min $70, LQ $140, Median $185, Mean $205, UQ $240, Max $600, n = 95\n\nWhat percentage of Brand B running shoes cost more than $400?",
+      "text": "The box-and-whisker plots below compare the prices of two brands of running shoes from an NZ sports retailer website. Brand A has n = 80 shoes and Brand B has n = 95 shoes.\n\nWhat percentage of Brand B running shoes cost more than $400?",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -78,7 +78,7 @@
     {
       "id": "l1s25-q1d",
       "number": "1(d)",
-      "text": "A time series graph shows quarterly NZ spending on sportswear from 2012 to 2024. Spending ranges from about $400M to $900M, with a general upward trend and seasonal peaks in Q4 (Christmas).\n\nWhat trends, repeating patterns, and unusual features do you notice? Support with evidence. Give at least two reasons.",
+      "text": "The time series graph below shows quarterly NZ spending on sportswear from 2012 to 2024.\n\nWhat trends, repeating patterns, and unusual features do you notice? Support with evidence from the graph. Give at least two reasons.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -148,7 +148,7 @@
     {
       "id": "l1s25-q2a",
       "number": "2(a)",
-      "text": "A scatter plot shows price ($) vs cushioning level (1-10) for 90 pairs of running shoes. There is a positive trend — larger pair of shoess tend to cost more. There appear to be two clusters: level 3-5 (budget) and level 7-10 (premium).\n\nDescribe and interpret TWO different features of the relationship.",
+      "text": "The scatter plot below shows the relationship between cushioning level (1-10) and price ($) for 25 pairs of running shoes.\n\nDescribe and interpret TWO different features of the relationship shown in the scatter plot.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -156,8 +156,8 @@
         "statistical-reasoning"
       ],
       "answerType": "text",
-      "expectedAnswer": "Positive trend — bigger pair of shoess cost more. Two clusters: budget (32-43\") and premium (50-75\")",
-      "markingGuide": "Features: Positive relationship (larger = more expensive). Two apparent clusters (budget vs premium). Wide price variation at each size. Award Achieved for two features.",
+      "expectedAnswer": "Positive trend — shoes with higher cushioning cost more. Two clusters: budget (levels 3-5) and premium (levels 7-10)",
+      "markingGuide": "Features: Positive relationship (higher cushioning = more expensive). Two apparent clusters (budget levels 3-5, premium levels 7-10). Wide price variation at each cushioning level. Award Achieved for two features.",
       "graph": {
         "type": "scatter",
         "title": "Running Shoe Price vs Cushioning Level",
@@ -270,7 +270,7 @@
     {
       "id": "l1s25-q2b",
       "number": "2(b)",
-      "text": "Tama wants a 55-inch pair of shoes. Using the scatter plot with trend line, what price should he expect? How confident can you be in this prediction?",
+      "text": "Tama wants running shoes with a cushioning level of 8. Using the scatter plot, what price should he expect to pay? How confident can you be in this prediction?",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -278,26 +278,58 @@
         "statistical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "About $1200 from trend line. Moderate confidence — reasonable spread at 55 inches",
-      "markingGuide": "Reading from trend line: approximately $1200 for 55 inches. Confidence: Moderate — 55\" is in the premium cluster with reasonable data density, but there's still spread ($800-$1800 range). Achieved = reasonable price reading. Merit = price AND justified confidence."
+      "expectedAnswer": "About $1000-$1250 from the scatter plot. Moderate confidence — there is reasonable data at level 8 but prices range from $900 to $1250",
+      "markingGuide": "Reading from scatter plot: approximately $1000-$1250 for cushioning level 8. Confidence: Moderate — level 8 has 3 data points ranging from $900 to $1250, showing some spread. Achieved = reasonable price reading. Merit = price AND justified confidence."
     },
     {
       "id": "l1s25-q2c",
       "number": "2(c)",
-      "text": "Three retailers sell the same pair of shoes model:\n\nSportZone: $950 (excl. GST), delivery $15, offers: free delivery over $1200 incl GST, 10% off if buying 2+.\npair of shoes World: $1150 (incl. GST), delivery $8, offers: 'No GST' deal (divide by 1.15), loyalty card gives 5% off.\nFactory Outlet: $820 (excl. GST), delivery free if collecting from warehouse, otherwise $25.\n\nGST rate is 15%. Ricky wants one pair of shoes. Which retailer should he choose? Show all calculations.",
+      "text": "Three retailers sell the same running shoe model. The table below shows their pricing.\n\nGST rate is 15%. Ricky wants one pair of shoes. Which retailer should he choose? Show all calculations.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
         "numerical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "Factory Outlet collecting: $943. pair of shoes World with loyalty: $1196.75. Mega: $1257.",
-      "markingGuide": "Mega: $1080 × 1.15 = $1242 + $15 delivery = $1257 (over $1200 but delivery included? No — $1242 > $1200 so free delivery). Total = $1242. pair of shoes World: $1250 / 1.15 = $1086.96 (no GST deal) + $8 = $1094.96. Or with loyalty: $1250 × 0.95 + $8 = $1195.50. Factory Outlet: $950 × 1.15 = $943 (collecting). Or + $25 = $1117.50. Best = Factory Outlet collecting at $943. Achieved = one correct calc. Excellence = comprehensive comparison."
+      "expectedAnswer": "Factory Outlet collecting: $943. SportZone: $1107.25. Shoe World with loyalty: $1100.50.",
+      "markingGuide": "SportZone: $950 x 1.15 = $1092.50 + $15 delivery = $1107.50. Shoe World: $1150 / 1.15 = $1000 (no GST deal) + $8 = $1008. Or with loyalty: $1150 x 0.95 + $8 = $1100.50. Factory Outlet: $820 x 1.15 = $943 (collecting). Or + $25 = $968. Best = Factory Outlet collecting at $943. Achieved = one correct calc. Excellence = comprehensive comparison.",
+      "graph": {
+        "type": "table",
+        "title": "Retailer Pricing for Running Shoes",
+        "data": {
+          "headers": [
+            "Retailer",
+            "Price",
+            "Delivery",
+            "Special Offers"
+          ],
+          "rows": [
+            [
+              "SportZone",
+              "$950 (excl. GST)",
+              "$15 (free over $1200 incl. GST)",
+              "10% off when buying 2+"
+            ],
+            [
+              "Shoe World",
+              "$1150 (incl. GST)",
+              "$8",
+              "\"No GST\" deal (divide by 1.15), 5% loyalty card"
+            ],
+            [
+              "Factory Outlet",
+              "$820 (excl. GST)",
+              "Free collection, otherwise $25",
+              "None"
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "l1s25-q2d",
       "number": "2(d)",
-      "text": "Ricky's current pair of shoes is level 5 but he wants to upgrade. Larger pair of shoess cost more (from the scatter plot data). Using available data, recommend the best purchasing option for Ricky.",
+      "text": "Ricky currently has running shoes with cushioning level 5 but wants to upgrade to a higher cushioning level. Using the scatter plot data and the retailer pricing, recommend the best purchasing option for Ricky.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -305,8 +337,8 @@
         "statistical-reasoning"
       ],
       "answerType": "text",
-      "expectedAnswer": "Consider Factory Outlet for best base price, but factor in travel costs to warehouse",
-      "markingGuide": "Key points: Larger pair of shoess cost more (scatter plot). Factory Outlet has lowest base price but requires collection. If Ricky lives far from warehouse, delivery cost matters. Buying from pair of shoes World with loyalty card may be better if he already has one. Achieved = one relevant point. Merit = points from multiple sources."
+      "expectedAnswer": "Consider Factory Outlet for best base price, but factor in travel costs to warehouse if not collecting",
+      "markingGuide": "Key points: Higher cushioning shoes cost more (scatter plot shows level 7-10 range $800-$1800). Factory Outlet has lowest base price but requires collection. If Ricky lives far from warehouse, delivery cost matters. Shoe World with loyalty card may be better if he already has one. Achieved = one relevant point. Merit = points from multiple sources."
     },
     {
       "id": "l1s25-q3a",
@@ -325,7 +357,7 @@
     {
       "id": "l1s25-q3b",
       "number": "3(b)",
-      "text": "Survey results on preferred exercise type: Running 24%, Gym 21%, Swimming 18%, Team sports 16%, Walking 12%, Other 9%.\n\nWhich exercise is the most preferred? Discuss how confident you would be in concluding this is genuinely the most popular.",
+      "text": "The pie chart below shows the preferred exercise types from the survey of 2400 NZ adults.\n\nWhich exercise is the most preferred? Discuss how confident you would be in concluding this is genuinely the most popular.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -375,7 +407,7 @@
     {
       "id": "l1s25-q3c",
       "number": "3(c)",
-      "text": "Exercise preference by age group:\nUnder 25: Running most popular\n25–35: Running and Gym tied\n36–45: Gym most popular\n46–55: Swimming most popular\n56+: Walking most popular\n\nDiscuss two similarities or differences by age. Suggest what exercise Mia (age 34) might prefer.",
+      "text": "The table below shows the most popular exercise type for different age groups.\n\nDiscuss two similarities or differences in exercise preference by age. Suggest what exercise Mia (age 34) might prefer.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [

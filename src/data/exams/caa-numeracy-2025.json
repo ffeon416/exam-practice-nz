@@ -98,7 +98,7 @@
     {
       "id": "caa25-q2a",
       "number": "2(a)",
-      "text": "Tramping packs come in different sizes.\n\nSize chart — Maximum load and volume:\n• Small: Volume 40 L, Max load 12 kg\n• Medium: Volume 55 L, Max load 16 kg\n• Large: Volume 70 L, Max load 20 kg\n• X-Large: Volume 85 L, Max load 24 kg\n\nRewa has 18 kg of gear and needs at least 65 litres of space.\n\nRewa thinks a Medium pack will be best. Do you agree? Use measurements from the table to explain your answer.",
+      "text": "Tramping packs come in different sizes. The table below shows the volume and maximum load for each size.\n\nRewa has 18 kg of gear and needs at least 65 litres of space.\n\nRewa thinks a Medium pack will be best. Do you agree? Use measurements from the table to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -179,7 +179,7 @@
     {
       "id": "caa25-q2d",
       "number": "2(d)",
-      "text": "Three different surfboards have these specifications:\n\nBoard A: Weight 3.2 kg, Length 6'2\", Price $480\nBoard B: Weight 4.5 kg, Length 7'0\", Price $390\nBoard C: Weight 2.8 kg, Length 6'0\", Price $620\n\nIs it true to say 'Lighter boards cost more, but are shorter than heavier boards'? Use numbers from any two boards to explain your answer.",
+      "text": "The table below shows the specifications for three different surfboards.\n\nIs it true to say \"Lighter boards cost more, but are shorter than heavier boards\"? Use numbers from the table for any two boards to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -238,7 +238,7 @@
     {
       "id": "caa25-q2f",
       "number": "2(f)",
-      "text": "A chart shows the number of visitors to a ski field each month during 2023 and 2024.\n\nVisitors per month: Jan = 80, Feb = 60, Mar = 40, Apr = 30, May = 120, Jun = 350, Jul = 480, Aug = 420, Sep = 200, Oct = 90, Nov = 50, Dec = 70.\n\nNote: June, July, and August are winter (ski season). December, January, and February are summer.\n\n'More people visit the ski field in cold months than warm months.'\n\nDo you agree? Use information from the data to explain your answer.",
+      "text": "The chart below shows the number of visitors to a ski field each month during the year.\n\nNote: June, July, and August are winter (ski season). December, January, and February are summer.\n\n\"More people visit the ski field in cold months than warm months.\"\n\nDo you agree? Use information from the chart to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -349,7 +349,7 @@
     {
       "id": "caa25-q3d",
       "number": "3(d)",
-      "text": "A 2 kg bag of flour costs $5.60, a 1 kg bag of the same flour costs $3.50, and a 500 g bag of the same flour costs $2.20.\n\nWhich bag of flour is the cheapest per 100 grams? Use the weights and prices to explain your answer.",
+      "text": "The table below shows the prices for different sizes of the same brand of flour.\n\nWhich bag of flour is the cheapest per 100 grams? Use the weights and prices from the table to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -471,7 +471,7 @@
     {
       "id": "caa25-q4d",
       "number": "4(d)",
-      "text": "A class library has 200 books of different genres:\n\n| Genre | Count |\n|-------|-------|\n| Fiction | 60 |\n| Non-fiction | 50 |\n| Graphic novels | 40 |\n| Other | 50 |\n\nIf one book is picked at random, what is the probability that it will be a fiction book? Write your answer as a percentage.",
+      "text": "A class library has 200 books. The pie chart below shows the number of books in each genre.\n\nIf one book is picked at random, what is the probability that it will be a fiction book? Write your answer as a percentage.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -511,7 +511,7 @@
     {
       "id": "caa25-q4e",
       "number": "4(e)",
-      "text": "The table below shows how much an artist earns per sale on different online platforms:\n\nPlatform A: $0.85 per sale\nPlatform B: $0.60 per sale\nPlatform C: $1.20 per sale\nPlatform D: $0.45 per sale\nPlatform E: $0.95 per sale\n\n'Platform C gives artists the best deal.'\n\nDo you agree? Use numbers from the table to explain your answer.",
+      "text": "The chart below shows how much an artist earns per sale on different online platforms.\n\n\"Platform C gives artists the best deal.\"\n\nDo you agree? Use numbers from the chart to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -553,7 +553,7 @@
     {
       "id": "caa25-q4f",
       "number": "4(f)",
-      "text": "A survey compares how people in two age groups watch sport.\n\nAge 15-24: Streaming 65%, TV 15%, Live at venue 8%, Radio 7%, Other 5%\nAge 55-64: Streaming 20%, TV 45%, Live at venue 12%, Radio 18%, Other 5%\n\nFrom the list below, tick the TWO statements that are true.\n\n(i) Over 3/5 of 15-24 year olds use streaming.\n(ii) More than 1/4 of 55-64 year olds use streaming.\n(iii) Exactly 1/2 of 15-24 year olds watch on TV.\n(iv) About 9/20 of 55-64 year olds watch on TV.\n(v) Less than 10% of 55-64 year olds go to live events.",
+      "text": "The table below compares how people in two age groups watch sport.\n\nFrom the list below, tick the TWO statements that are true.\n\n(i) Over 3/5 of 15-24 year olds use streaming.\n(ii) More than 1/4 of 55-64 year olds use streaming.\n(iii) Exactly 1/2 of 15-24 year olds watch on TV.\n(iv) About 9/20 of 55-64 year olds watch on TV.\n(v) Less than 10% of 55-64 year olds go to live events.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -572,42 +572,42 @@
       "expectedAnswer": "(i) and (iv)",
       "markingGuide": "Check each: (i) 65% > 60% (3/5) — TRUE. (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE. (iii) 15% is not 50% — FALSE. (iv) 45% = 9/20 — TRUE. (v) 12% > 10% — FALSE. Both (i) and (iv) must be selected.",
       "graph": {
-        "type": "bar",
+        "type": "table",
         "title": "How People Watch Sport — by Age Group",
-        "xLabel": "Method",
-        "yLabel": "Percentage (%)",
-        "data": [
-          {
-            "label": "Streaming (15-24)",
-            "value": 65,
-            "color": "#3b82f6"
-          },
-          {
-            "label": "TV (15-24)",
-            "value": 15,
-            "color": "#3b82f6"
-          },
-          {
-            "label": "Live (15-24)",
-            "value": 8,
-            "color": "#3b82f6"
-          },
-          {
-            "label": "Streaming (55-64)",
-            "value": 20,
-            "color": "#ef4444"
-          },
-          {
-            "label": "TV (55-64)",
-            "value": 45,
-            "color": "#ef4444"
-          },
-          {
-            "label": "Live (55-64)",
-            "value": 12,
-            "color": "#ef4444"
-          }
-        ]
+        "data": {
+          "headers": [
+            "Method",
+            "15-24 (%)",
+            "55-64 (%)"
+          ],
+          "rows": [
+            [
+              "Streaming",
+              "65",
+              "20"
+            ],
+            [
+              "TV",
+              "15",
+              "45"
+            ],
+            [
+              "Live at venue",
+              "8",
+              "12"
+            ],
+            [
+              "Radio",
+              "7",
+              "18"
+            ],
+            [
+              "Other",
+              "5",
+              "5"
+            ]
+          ]
+        }
       }
     },
     {
@@ -661,7 +661,7 @@
     {
       "id": "caa25-q5d",
       "number": "5(d)",
-      "text": "Whales are excellent divers. A number line shows depth from 0 metres (sea level) to 600 metres. A sperm whale typically dives to about 2/3 of this maximum depth.\n\nEstimate the depth the sperm whale would dive to.",
+      "text": "Whales are excellent divers. The scale below shows ocean depth from 0 metres (sea level) to 600 metres. A sperm whale typically dives to about 2/3 of this maximum depth.\n\nEstimate the depth the sperm whale would dive to.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -672,45 +672,32 @@
       "expectedAnswer": "400",
       "markingGuide": "2/3 of 600 = 400 metres. Accept 380-420 metres.",
       "graph": {
-        "type": "bar",
-        "title": "Ocean Depth Number Line",
-        "xLabel": "Depth markers",
-        "yLabel": "Depth (metres)",
-        "data": [
+        "type": "line",
+        "title": "Ocean Depth Scale",
+        "xLabel": "Depth (metres)",
+        "yLabel": "",
+        "xValues": [
+          0,
+          100,
+          200,
+          300,
+          400,
+          500,
+          600
+        ],
+        "series": [
           {
-            "label": "0m (Sea level)",
-            "value": 0,
-            "color": "#3b82f6"
-          },
-          {
-            "label": "100m",
-            "value": 100,
-            "color": "#3b82f6"
-          },
-          {
-            "label": "200m",
-            "value": 200,
-            "color": "#2563eb"
-          },
-          {
-            "label": "300m",
-            "value": 300,
-            "color": "#1d4ed8"
-          },
-          {
-            "label": "400m",
-            "value": 400,
+            "name": "Depth markers",
+            "values": [
+              0,
+              100,
+              200,
+              300,
+              400,
+              500,
+              600
+            ],
             "color": "#1e40af"
-          },
-          {
-            "label": "500m",
-            "value": 500,
-            "color": "#1e3a8a"
-          },
-          {
-            "label": "600m",
-            "value": 600,
-            "color": "#172554"
           }
         ]
       }
@@ -718,7 +705,7 @@
     {
       "id": "caa25-q5e",
       "number": "5(e)",
-      "text": "A chart shows what seals eat at different times of the year.\n\nAutumn/Winter diet: Fish 50%, Squid 25%, Crustaceans 15%, Other 10%.\nSpring/Summer diet: Fish 30%, Squid 15%, Crustaceans 30%, Other 25%.\n\n'In autumn and winter, seals eat mostly fish and squid.'\n\nDo you agree? Use percentages from the data to explain your answer.",
+      "text": "The pie chart below shows what seals eat during autumn and winter.\n\n\"In autumn and winter, seals eat mostly fish and squid.\"\n\nDo you agree? Use percentages from the chart to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -759,7 +746,7 @@
     {
       "id": "caa25-q5f",
       "number": "5(f)",
-      "text": "Researchers tracked seabirds from Banks Peninsula. The furthest seabird was spotted at a location that, using the map scale, is 5 scale-bar lengths from Banks Peninsula. Each scale-bar length represents 8 km.\n\nEstimate the distance from Banks Peninsula to where the furthest seabird was spotted.",
+      "text": "Researchers tracked seabirds from Banks Peninsula. The map below has a scale bar where each unit represents 8 km. The furthest seabird was spotted at a location that is 5 scale-bar lengths from Banks Peninsula.\n\nEstimate the distance from Banks Peninsula to where the furthest seabird was spotted.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -771,24 +758,16 @@
       "markingGuide": "5 x 8 km = 40 km. Accept 35-45 km.",
       "graph": {
         "type": "table",
-        "title": "Map Scale Reference",
+        "title": "Map Scale",
         "data": {
           "headers": [
-            "Scale bar lengths from Banks Peninsula",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
+            "Scale bar",
+            "Distance"
           ],
           "rows": [
             [
-              "Distance (km)",
-              "8",
-              "16",
-              "24",
-              "32",
-              "40"
+              "1 unit",
+              "8 km"
             ]
           ]
         }

@@ -124,7 +124,7 @@
       "expectedAnswer": "AD = C + I + G + (X - M). Purchasing the vans from overseas increases imports (M). Since imports are subtracted in the AD formula, an increase in M decreases AD in the short term.",
       "markingGuide": "States the AD formula and explains how increased imports decrease AD.",
       "graph": {
-        "type": "pie",
+        "type": "bar",
         "title": "Components of NZ Aggregate Demand (approximate shares)",
         "data": [
           {
@@ -147,7 +147,9 @@
             "value": -2,
             "color": "#ef4444"
           }
-        ]
+        ],
+        "xLabel": "Component",
+        "yLabel": "% of GDP"
       }
     },
     {

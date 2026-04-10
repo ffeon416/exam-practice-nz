@@ -124,7 +124,7 @@
     {
       "id": "actr-q8",
       "number": "8",
-      "text": "A GST-registered business had the following for the two-month GST period:\n- GST collected on sales (output tax): $2,700\n- GST paid on purchases (input tax): $1,850\n\nHow much GST does the business owe to IRD?",
+      "text": "The table below shows the GST figures for a GST-registered business over a two-month period.\n\nHow much GST does the business owe to the IRD for this period? Show your working.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -174,7 +174,7 @@
     {
       "id": "actr-q10",
       "number": "10",
-      "text": "Tina runs a small clothing boutique in Napier. She is GST-registered. During April, the following transactions occurred:\n\n1. April 3: Sold clothing to a customer for $345 cash (GST inclusive)\n2. April 8: Purchased stock from a supplier on credit for $1,150 + GST\n3. April 15: A customer returned a faulty item. Tina issued a credit note for $92 (GST inclusive)\n4. April 22: Paid the electricity bill of $180 + GST by internet banking\n\nFor each transaction, identify the source document involved and explain the accounting entries (which accounts are debited and credited). Calculate the GST-exclusive amounts where applicable.",
+      "text": "Tina runs a small clothing boutique in Napier. She is GST-registered. The table below shows her transactions for April.\n\nFor each transaction, determine: (a) the GST component, (b) the net amount (excluding GST), and (c) whether the GST is input tax or output tax.\n\nThen calculate the GST Tina owes to (or is owed by) the IRD for April.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [

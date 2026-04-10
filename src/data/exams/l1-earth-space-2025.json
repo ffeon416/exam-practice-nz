@@ -111,7 +111,7 @@
     {
       "id": "92046-25-q1c",
       "number": "1(c)",
-      "text": "Christchurch experiences changes in daylength throughout the year. In summer, the days are longer; in winter, the days are shorter.\n\n| | Summer day | Winter day |\n|---|---|---|\n| Time of sunrise | 5:48 a.m. | 8:02 a.m. |\n| Time of sunset | 9:04 p.m. | 5:02 p.m. |\n\nUsing the data above, discuss why this happens.\n\nInclude in your answer:\n- why the Earth experiences day and night\n- how the height of the Sun changes throughout the year\n- why the daylength changes throughout the year.",
+      "text": "Christchurch experiences changes in daylength throughout the year. The table below shows sunrise and sunset times for a summer day and a winter day.\n\nUsing the data in the table, discuss why this happens.\n\nInclude in your answer:\n- why the Earth experiences day and night\n- how the height of the Sun changes throughout the year\n- why the daylength changes throughout the year.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -121,7 +121,30 @@
       ],
       "answerType": "text",
       "expectedAnswer": "The Earth spins once on its axis every 24 hours, creating day and night.",
-      "markingGuide": "Achievement: Describes why we have day and night (Earth's rotation), and describes the height of the Sun for the seasons. Merit: Explains the differences in daylength between summer and winter by linking tilt and Sun height. Excellence: Discusses why daylength changes throughout the year, comprehensively linking Earth's rotation, axial tilt, Sun height, and the resulting differences in sunrise/sunset times."
+      "markingGuide": "Achievement: Describes why we have day and night (Earth's rotation), and describes the height of the Sun for the seasons. Merit: Explains the differences in daylength between summer and winter by linking tilt and Sun height. Excellence: Discusses why daylength changes throughout the year, comprehensively linking Earth's rotation, axial tilt, Sun height, and the resulting differences in sunrise/sunset times.",
+      "graph": {
+        "type": "table",
+        "title": "Christchurch Sunrise and Sunset Times",
+        "data": {
+          "headers": [
+            "",
+            "Summer day",
+            "Winter day"
+          ],
+          "rows": [
+            [
+              "Time of sunrise",
+              "5:48 a.m.",
+              "8:02 a.m."
+            ],
+            [
+              "Time of sunset",
+              "9:04 p.m.",
+              "5:02 p.m."
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "92046-25-q2a",

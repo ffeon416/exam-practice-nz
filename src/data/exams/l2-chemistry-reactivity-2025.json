@@ -25,7 +25,7 @@
     {
       "id": "l2cr25-q1bi",
       "number": "1(b)(i)",
-      "text": "Identify which substance below matches the information provided in the table and graph.\n\nZinc (Zn)    Water (H2O)    Boron nitride (BN)    Potassium iodide (NaF)\n\n| Solid type | Melting point | Substance |\n|---|---|---|\n| 3D Covalent Network | 2730 | |\n| Ionic | 681 | |\n| Metallic | 232 | |\n| Molecular | 0 | |",
+      "text": "Using the information in the table and graph below, identify which substance matches the data provided.\n\nChoose from: Zinc (Zn), Water (H2O), Boron nitride (BN), Potassium iodide (KI)",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -40,10 +40,22 @@
         "xLabel": "Solid Type",
         "yLabel": "Melting Point (°C)",
         "data": [
-          { "label": "3D Covalent Network", "value": 2730 },
-          { "label": "Ionic", "value": 681 },
-          { "label": "Metallic", "value": 232 },
-          { "label": "Molecular", "value": 0 }
+          {
+            "label": "3D Covalent Network",
+            "value": 2730
+          },
+          {
+            "label": "Ionic",
+            "value": 681
+          },
+          {
+            "label": "Metallic",
+            "value": 232
+          },
+          {
+            "label": "Molecular",
+            "value": 0
+          }
         ]
       },
       "expectedAnswer": "3D Covalent Network (2730): Boron nitride (BN). Ionic (681): Potassium iodide (NaF). Metallic (232): Zinc (Zn). Molecular (0): Water (H2O).",

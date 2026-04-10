@@ -11,7 +11,7 @@
     {
       "id": "caan24-q1a",
       "number": "1(a)",
-      "text": "Tuatara have lived in Aotearoa New Zealand for around 60 million years. The earliest ferns found in New Zealand date back roughly 300 million years.\n\nA timeline runs from 300 million years ago (earliest ferns) to 0 (today), with five arrows labelled 1 to 5 at equal intervals.\n\nWhich arrow best shows 60 million years ago on this timeline?",
+      "text": "Tuatara have lived in Aotearoa New Zealand for around 60 million years. The earliest ferns found in New Zealand date back roughly 300 million years.\n\nThe timeline below runs from 300 million years ago (earliest ferns) to today, with five arrows labelled 1 to 5 at equal intervals.\n\nWhich arrow best shows 60 million years ago on this timeline?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -21,28 +21,30 @@
       "expectedAnswer": "5",
       "markingGuide": "The timeline runs from 300 million years ago to today. 60 million years ago is 60/300 = 20% from the right end (today). With 5 arrows evenly spaced, arrow 5 is closest to 'Today'. Accept arrow 5.",
       "graph": {
-        "type": "table",
+        "type": "line",
         "title": "Timeline: 300 Million Years Ago to Today",
-        "data": {
-          "headers": [
-            "Position",
-            "Arrow 1",
-            "Arrow 2",
-            "Arrow 3",
-            "Arrow 4",
-            "Arrow 5"
-          ],
-          "rows": [
-            [
-              "Million years ago",
-              "240",
-              "180",
-              "120",
-              "60",
-              "0 (Today)"
-            ]
-          ]
-        }
+        "xLabel": "Arrow",
+        "yLabel": "Million years ago",
+        "xValues": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "series": [
+          {
+            "name": "Million years ago",
+            "values": [
+              240,
+              180,
+              120,
+              60,
+              0
+            ],
+            "color": "#22c55e"
+          }
+        ]
       }
     },
     {
@@ -76,7 +78,7 @@
     {
       "id": "caan24-q1d",
       "number": "1(d)",
-      "text": "In 2010, a conservation group planted 30 native trees on a reserve. They recorded how many trees were alive each year.\n\nYear: 2010 = 30 trees, 2012 = 55 trees, 2014 = 90 trees, 2016 = 150 trees, 2018 = 170 trees.\n\nAbout how many trees were alive in 2014?",
+      "text": "In 2010, a conservation group planted native trees on a reserve. The graph below shows how many trees were alive each year.\n\nAbout how many trees were alive in 2014?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -115,7 +117,7 @@
     {
       "id": "caan24-q1e",
       "number": "1(e)",
-      "text": "Volunteers measured the heights of 25 young kauri trees at a nursery. The median height was 1.4 m.\n\nThe heights in metres were: 0.6, 0.7, 0.8, 0.9, 0.9, 1.0, 1.0, 1.1, 1.2, 1.2, 1.3, 1.3, 1.4, 1.5, 1.5, 1.5, 1.6, 1.6, 1.7, 1.7, 1.8, 1.8, 1.9, 2.0, 2.1.\n\nDoes the data suggest some of these trees were recently planted? Explain your answer using numbers from the data.",
+      "text": "Volunteers measured the heights of 25 young kauri trees at a nursery. The histogram below shows the distribution of tree heights. The median height was 1.4 m.\n\nDoes the data suggest some of these trees were recently planted? Explain your answer using information from the histogram.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -340,7 +342,7 @@
     {
       "id": "caan24-q3e",
       "number": "3(e)",
-      "text": "Mere's whanau want to save water. There are four people in Mere's whanau.\n\nMere has two ideas for saving water:\n• Reducing daily shower time from 8 minutes to 4 minutes per person.\n• Running the washing machine once every two days rather than every day.\n\nEstimated water use: Shower (8 min) = 80 litres, Shower (4 min) = 40 litres, Washing machine (one cycle) = 120 litres.\n\nWhich of Mere's two ideas would save the most water? Explain your answer using information from the table.",
+      "text": "Mere's whanau want to save water. There are four people in Mere's whanau.\n\nMere has two ideas for saving water:\n• Reducing daily shower time from 8 minutes to 4 minutes per person.\n• Running the washing machine once every two days rather than every day.\n\nUse the table below to work out which of Mere's two ideas would save the most water. Explain your answer using information from the table.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -379,7 +381,7 @@
     {
       "id": "caan24-q3f",
       "number": "3(f)",
-      "text": "A chart shows the average sunshine hours for each month of the year in Dunedin.\n\nMonthly sunshine hours: Jan = 190, Feb = 165, Mar = 145, Apr = 120, May = 95, Jun = 80, Jul = 90, Aug = 110, Sep = 135, Oct = 155, Nov = 175, Dec = 185.\n\nWhich season has the highest average sunshine? Use information from the data.\n\nTick the correct answer.",
+      "text": "The chart below shows the average sunshine hours for each month of the year in Dunedin.\n\nWhich season has the highest average sunshine? Use information from the chart.\n\nTick the correct answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -455,7 +457,7 @@
     {
       "id": "caan24-q4a",
       "number": "4(a)",
-      "text": "Pasifika Festival is a cultural event held every year in Auckland. The table shows approximate attendance figures.\n\nYear: 2015 = 25,000, 2016 = 35,000, 2017 = 45,000, 2018 = 50,000, 2022 = 65,000.\n\n(There was no 2020 or 2021 event due to COVID-19.)\n\nAbout how many more people attended Pasifika Festival in 2022 than in 2015?",
+      "text": "Pasifika Festival is a cultural event held every year in Auckland. The chart below shows approximate attendance figures.\n\n(There was no event in 2020 or 2021 due to COVID-19.)\n\nAbout how many more people attended Pasifika Festival in 2022 than in 2015?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -497,7 +499,7 @@
     {
       "id": "caan24-q4b",
       "number": "4(b)",
-      "text": "Pasifika Festival organisers think attendance will reach 85,000 by 2026.\n\nDo you agree or disagree? Explain your answer using the attendance data:\n\nYear: 2015 = 25,000, 2016 = 35,000, 2017 = 45,000, 2018 = 50,000, 2022 = 65,000.",
+      "text": "Pasifika Festival organisers think attendance will reach 85,000 by 2026.\n\nUsing the attendance data from the chart above, do you agree or disagree? Explain your answer using the data.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -525,7 +527,7 @@
     {
       "id": "caan24-q4d",
       "number": "4(d)",
-      "text": "A school fun run has 12 competing teams from different zones:\n\nNorth (N): 5 teams, South (S): 4 teams, East (E): 2 teams, West (W): 1 team.\n\nEach team has the same chance of winning. What is the probability that a team from the East zone wins?\n\nGive your answer as a fraction.",
+      "text": "A school fun run has 12 competing teams from different zones. The pie chart below shows how many teams come from each zone.\n\nEach team has the same chance of winning. What is the probability that a team from the East zone wins?\n\nGive your answer as a fraction.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -564,7 +566,7 @@
     {
       "id": "caan24-q4e",
       "number": "4(e)",
-      "text": "Here is part of a morning timetable for the rugby and netball events at a school sports day.\n\nRugby: games start at 9:00, each game is 25 minutes with a 5-minute break between games.\nNetball: games start at 9:00, each game is 15 minutes with a 5-minute break between games.\n\nHow much longer, in minutes, is each rugby game compared to each netball game?",
+      "text": "The timetable below shows the schedule for rugby and netball games at a school sports day.\n\nHow much longer, in minutes, is each rugby game compared to each netball game?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [

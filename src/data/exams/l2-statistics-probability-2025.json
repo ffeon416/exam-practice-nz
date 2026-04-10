@@ -65,7 +65,7 @@
     {
       "id": "stat267-25-q2a",
       "number": "2(a)",
-      "text": "A prize draw at a community fair costs $5 per ticket. The prize draw has the following prize structure:\n• 55% chance of winning nothing ($0)\n• 25% chance of winning $3\n• 12% chance of winning $10\n• 6% chance of winning $25\n• 2% chance of winning $100\n\nCalculate the expected value of the net gain (winnings minus cost) for a single prize draw ticket.",
+      "text": "A prize draw at a community fair costs $5 per ticket. The table below shows the prize structure and probabilities.\n\nCalculate the expected value of the net gain (winnings minus cost) for a single prize draw ticket.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -125,7 +125,7 @@
     {
       "id": "stat267-25-q3a",
       "number": "3(a)",
-      "text": "A two-way table shows survey results from 180 adults about exercise habits and energy levels during the morning.\n\n|                       | High energy | Low energy | Total |\n|-----------------------|------------|-----------|-------|\n| Exercises regularly  | 63         | 27        | 90    |\n| Rarely exercises | 24         | 66        | 90    |\n| Total                 | 87         | 93        | 180   |\n\nCalculate the probability that a randomly selected person has high energy, given that they eat exercise daily.",
+      "text": "The two-way table below shows survey results from 180 adults about exercise habits and energy levels during the morning.\n\nCalculate the probability that a randomly selected person has high energy, given that they exercise regularly.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
