@@ -59,13 +59,13 @@
         "statistical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "Brand B is more expensive — median $175 vs Brand A $85",
-      "markingGuide": "Centre: Brand B median ($175) much higher than Brand A ($85). Shift: Brand A UQ ($120) < Brand B LQ ($130), meaning no overlap in IQR. Spread: Brand B has larger range ($590 vs $455) and IQR ($100 vs $65). Shape: Both right-skewed (mean > median). Conclusion: No IQR overlap strongly supports Brand B being more expensive. Achieved = one feature. Merit = two features. Excellence = comprehensive comparison."
+      "expectedAnswer": "Brand B is more expensive — median $185 vs Brand A median $90",
+      "markingGuide": "Centre: Brand B median ($185) much higher than Brand A ($90). Shift: Brand A UQ ($130) < Brand B LQ ($140), meaning no overlap in IQRs. Spread: Brand B has larger range ($530 vs $420) and larger IQR ($100 vs $70). Shape: Both right-skewed (long upper whisker). Conclusion: No IQR overlap strongly supports Brand B being more expensive. Achieved = one feature. Merit = two features. Excellence = comprehensive comparison with numerical evidence."
     },
     {
       "id": "l1s25-q1c",
       "number": "1(c)",
-      "text": "Give at least one justified reason why the headphone price data may not be reliable for comparing the two brands.",
+      "text": "Give at least one justified reason why the running shoe price data may not be reliable for comparing the two brands.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -291,8 +291,8 @@
         "numerical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "Factory Outlet collecting: $943. SportZone: $1107.25. Shoe World with loyalty: $1100.50.",
-      "markingGuide": "SportZone: $950 x 1.15 = $1092.50 + $15 delivery = $1107.50. Shoe World: $1150 / 1.15 = $1000 (no GST deal) + $8 = $1008. Or with loyalty: $1150 x 0.95 + $8 = $1100.50. Factory Outlet: $820 x 1.15 = $943 (collecting). Or + $25 = $968. Best = Factory Outlet collecting at $943. Achieved = one correct calc. Excellence = comprehensive comparison.",
+      "expectedAnswer": "Factory Outlet (collecting) at $943 is cheapest. SportZone: $1107.50. Shoe World (No GST deal): $1008.",
+      "markingGuide": "SportZone: $950 × 1.15 = $1092.50 + $15 delivery = $1107.50 (no free delivery because it is below $1200). Shoe World with No GST deal: $1150 ÷ 1.15 = $1000 + $8 delivery = $1008. (With 5% loyalty instead: $1150 × 0.95 + $8 = $1100.50.) Factory Outlet collecting: $820 × 1.15 = $943. With delivery: $820 × 1.15 + $25 = $968. Cheapest overall = Factory Outlet collecting at $943. Achieved = one correct calculation. Merit = two correct retailer totals. Excellence = comprehensive comparison of all three with correct conclusion.",
       "graph": {
         "type": "table",
         "title": "Retailer Pricing for Running Shoes",

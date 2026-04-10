@@ -10,7 +10,7 @@
     {
       "id": "l2rx24-q1ai",
       "number": "1(a)(i)",
-      "text": "Aluminium refining in New Zealand uses bauxite containing aluminium oxide, Al2O3. One step of the extraction involves the reaction of aluminium oxide with carbon monoxide:\n\nAl2O3(s) + 3CO(g) -> 2Fe(l) + 3CO2(g)\n\nThe graph below shows the mass of aluminium oxide, Al2O3, as it reacts with 0.5 mol L-1 CO. The graph has two sections: Section A (steep decline) and Section B (curve levelling off).\n\nAdd a second line to the graph to predict the rate of decline in mass of aluminium oxide if 2.0 mol L-1 CO were used instead.\n\nAssume both reactions started with the same mass of ore.",
+      "text": "Iron refining in New Zealand uses iron ore containing iron(III) oxide, Fe2O3. One step of the extraction involves the reaction of iron(III) oxide with carbon monoxide:\n\nFe2O3(s) + 3CO(g) -> 2Fe(l) + 3CO2(g)\n\nThe graph below shows the mass of iron(III) oxide, Fe2O3, as it reacts with 0.5 mol L-1 CO. The graph has two sections: Section A (steep decline) and Section B (curve levelling off).\n\nAdd a second line to the graph to predict the rate of decline in mass of iron(III) oxide if 2.0 mol L-1 CO were used instead.\n\nAssume both reactions started with the same mass of ore.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -18,13 +18,13 @@
         "collision-theory"
       ],
       "answerType": "working",
-      "expectedAnswer": "Added line should have a steeper gradient, and begin and end at the same mass of Al2O3.",
+      "expectedAnswer": "Added line should have a steeper gradient, and begin and end at the same mass of Fe2O3.",
       "markingGuide": "Achievement: Correct second line (steeper gradient, same start and end mass)."
     },
     {
       "id": "l2rx24-q1aii",
       "number": "1(a)(ii)",
-      "text": "With reference to the line you have drawn, explain the effect that this change in concentration of CO from 0.5 mol L-1 to 2.0 mol L-1 would have on the rate of this reaction.\n\nIn your answer you should include reference to:\n- mass of Al2O3\n- each section of the line\n- collision theory.",
+      "text": "With reference to the line you have drawn, explain the effect that this change in concentration of CO from 0.5 mol L-1 to 2.0 mol L-1 would have on the rate of this reaction.\n\nIn your answer you should include reference to:\n- mass of Fe2O3\n- each section of the line\n- collision theory.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -33,7 +33,7 @@
         "concentration"
       ],
       "answerType": "working",
-      "expectedAnswer": "The added line shows a steeper decline in mass of Al2O3 due to the higher concentration of CO, meaning more frequent successful collisions.",
+      "expectedAnswer": "The added line shows a steeper decline in mass of Fe2O3 due to the higher concentration of CO, meaning more frequent successful collisions.",
       "markingGuide": "Achievement: States that the same mass of Al2O3 is used OR correctly identifies that higher concentration increases rate. Merit: Correctly links increased concentration to increased frequency of successful collisions. Excellence: Full comparison including sections A and B."
     },
     {
@@ -47,7 +47,7 @@
         "pH-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "[H3O+] = (1 x 10^-14) / 0.4 = 2.5 x 10^-14 mol L-1",
+      "expectedAnswer": "[H3O+] = (1 x 10^-14) / 0.5 = 2.0 x 10^-14 mol L-1",
       "markingGuide": "Achievement: Correctly calculates [H3O+]."
     },
     {
@@ -61,13 +61,13 @@
         "pH-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "pH = -log(2.5 x 10^-14) = 13.6",
+      "expectedAnswer": "pH = -log(2.0 x 10^-14) = 13.7",
       "markingGuide": "Achievement: Incorrectly calculates pH using [OH-]. Merit: Correct pH."
     },
     {
       "id": "l2rx24-q1c",
       "number": "1(c)",
-      "text": "Using the principles of collision and particle theories, explain why using a catalyst would help to increase the rate of production of iron from aluminium oxide.\n\nYou should include an energy profile diagram to support your answer.",
+      "text": "Using the principles of collision and particle theories, explain why using a catalyst would help to increase the rate of production of iron from iron(III) oxide.\n\nYou should include an energy profile diagram to support your answer.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -104,7 +104,7 @@
         "Kc-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Kc = [NH3]^2 / ([N2][H2]^3)\n0.620 = (0.400)^2 / ([N2] x (0.200)^3)\n0.620 = 0.160 / (0.00800 x [N2])\n[N2] = 0.160 / (0.00800 x 0.620) = 40.0 mol L-1",
+      "expectedAnswer": "Kc = [NH3]^2 / ([N2][H2]^3)\n0.620 = (0.500)^2 / ([N2] x (0.250)^3)\n0.620 = 0.250 / ([N2] x 0.015625)\n[N2] = 0.250 / (0.015625 x 0.620) = 25.8 mol L-1",
       "markingGuide": "Achievement: Correct substitution. Merit: Correct value."
     },
     {
@@ -118,7 +118,7 @@
         "Kc-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Qc = [NH3]^2 / ([N2][H2]^3) = (0.480)^2 / ((0.650) x (0.580)^3) = 0.2304 / 0.12680 = 1.82\nThis value is not equal to Kc (0.620), so the system is not at equilibrium.",
+      "expectedAnswer": "Qc = [NH3]^2 / ([N2][H2]^3) = (0.520)^2 / ((0.700) x (0.620)^3) = 0.2704 / (0.700 x 0.2383) = 0.2704 / 0.1668 = 1.62\nThis value (1.62) is not equal to Kc (0.620), so the system is not at equilibrium. Since Qc > Kc, the reverse reaction will be favoured.",
       "markingGuide": "Achievement: States the calculated value is not the same as Kc. Merit: States the value is greater than Kc and therefore the reaction proceeds in reverse."
     },
     {
@@ -145,7 +145,7 @@
         "le-chateliers-principle"
       ],
       "answerType": "working",
-      "expectedAnswer": "Adding ammonia: Forward is favoured. Adding NaOH: Forward is favoured (NaOH reacts with CO2, removing a reactant).",
+      "expectedAnswer": "Adding ammonia: forward reaction is favoured (an increase in a reactant shifts the equilibrium toward products). Adding NaOH: reverse reaction is favoured — NaOH reacts with the CO2 reactant (2NaOH + CO2 -> Na2CO3 + H2O), lowering [CO2], and the system responds by shifting backwards to replace the lost CO2.",
       "markingGuide": "Achievement: One correct answer. Merit: Correct answer linked to a reason. Excellence: Justification for both shifts."
     },
     {

@@ -36,23 +36,23 @@
     {
       "id": "l2c24-q1ci",
       "number": "1(c)(i)",
-      "text": "The equation of a curve is y = 3x³ – 15x² – 36x + 7.\n\nFind the x-coordinate of the local minimum.",
-      "marks": 5,
-      "gradeLevel": "excellence",
+      "text": "The equation of a curve is y = 2x³ – 9x² – 24x + 5.\n\nFind the x-coordinate of the local minimum.",
+      "marks": 3,
+      "gradeLevel": "merit",
       "topics": [
         "differentiation",
         "stationary-points"
       ],
       "answerType": "working",
       "expectedAnswer": "x = 4",
-      "markingGuide": "dy/dx = 9x² – 30x – 36 = 0. 3x² – 10x – 12 = 0. Hmm disc = 100+144=244. Not clean. Let me use: y = 2x³ – 9x² – 24x + 5. dy/dx = 6x²–18x–24 = 0. x²–3x–4 = 0. (x–4)(x+1) = 0. x = 4 or x = –1. d²y/dx² = 12x–18. At x=4: 30>0 (min). At x=–1: –30<0 (max). Excellence = correct identification and justification."
+      "markingGuide": "dy/dx = 6x² – 18x – 24 = 6(x² – 3x – 4) = 6(x – 4)(x + 1). Set dy/dx = 0: x = 4 or x = –1. d²y/dx² = 12x – 18. At x = 4: 12(4) – 18 = 30 > 0, so x = 4 is a local minimum. (At x = –1: 12(–1) – 18 = –30 < 0, so x = –1 is a local maximum.) Merit = correct identification with justification."
     },
     {
       "id": "l2c24-q1cii",
       "number": "1(c)(ii)",
       "text": "Explain how you know x = 4 is a minimum.",
-      "marks": 0,
-      "gradeLevel": "excellence",
+      "marks": 2,
+      "gradeLevel": "merit",
       "topics": [
         "differentiation",
         "stationary-points"

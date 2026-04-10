@@ -120,11 +120,16 @@ function LineChart({ data }: { data: GraphData }) {
   function toX(v: number) { return pad.l + ((v - minX) / rangeX) * plotW; }
   function toY(v: number) { return pad.t + plotH - ((v - minY) / rangeY) * plotH; }
 
-  // Generate 5-6 nice y-axis tick values
-  const tickCount = 5;
+  // Generate y-axis tick values — many ticks so students can read exact values
+  const tickCount = 10;
   const yTicks: number[] = [];
   for (let i = 0; i <= tickCount; i++) {
     yTicks.push(minY + (rangeY * i) / tickCount);
+  }
+  // Minor ticks (between major ticks) for even more precision
+  const minorTicks: number[] = [];
+  for (let i = 0; i < tickCount * 2; i++) {
+    if (i % 2 === 1) minorTicks.push(minY + (rangeY * i) / (tickCount * 2));
   }
 
   return (
@@ -135,13 +140,21 @@ function LineChart({ data }: { data: GraphData }) {
         <line x1={pad.l} y1={pad.t} x2={pad.l} y2={pad.t + plotH} stroke="#52525b" strokeWidth="1" />
         {/* X axis */}
         <line x1={pad.l} y1={pad.t + plotH} x2={W - pad.r} y2={pad.t + plotH} stroke="#52525b" strokeWidth="1" />
-        {/* Y grid lines and labels */}
+        {/* Minor Y grid lines (no labels) */}
+        {minorTicks.map((tickVal, i) => {
+          const y = pad.t + plotH - ((tickVal - minY) / rangeY) * plotH;
+          return (
+            <line key={`min-${i}`} x1={pad.l} y1={y} x2={W - pad.r} y2={y} stroke="#27272a" strokeWidth="0.3" />
+          );
+        })}
+        {/* Major Y grid lines and labels */}
         {yTicks.map((tickVal, i) => {
           const y = pad.t + plotH - ((tickVal - minY) / rangeY) * plotH;
           return (
             <g key={i}>
-              <line x1={pad.l} y1={y} x2={W - pad.r} y2={y} stroke="#27272a" strokeWidth="0.5" strokeDasharray="2,2" />
-              <text x={pad.l - 6} y={y + 3} fill="#a1a1aa" fontSize="10" textAnchor="end">
+              <line x1={pad.l} y1={y} x2={W - pad.r} y2={y} stroke="#3f3f46" strokeWidth="0.6" />
+              <line x1={pad.l - 3} y1={y} x2={pad.l} y2={y} stroke="#71717a" strokeWidth="1" />
+              <text x={pad.l - 6} y={y + 3} fill="#a1a1aa" fontSize="9" textAnchor="end">
                 {Number.isInteger(tickVal) ? tickVal : tickVal.toFixed(1)}
               </text>
             </g>

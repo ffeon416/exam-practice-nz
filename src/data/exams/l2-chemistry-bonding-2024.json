@@ -62,7 +62,7 @@
         "intermolecular-forces"
       ],
       "answerType": "working",
-      "expectedAnswer": "Mix each unknown solvent in a test tube with water. Hexane (alkane) is non-polar and immiscible with water, forming a separate layer. Methanol and pentan-1-ol are both miscible/partially miscible due to their polar hydroxyl groups forming hydrogen bonds with water. Distinguish ethanol from pentan-1-ol by measuring boiling points: ethanol boils at 65 degrees C, pentan-1-ol at 117 degrees C, because pentan-1-ol has a longer carbon chain producing stronger London dispersion forces.",
+      "expectedAnswer": "Mix each unknown solvent in a test tube with water. Heptane (alkane) is non-polar and immiscible with water, forming a separate layer. Ethanol is miscible with water and pentan-1-ol is only partially miscible, as their polar hydroxyl groups can form hydrogen bonds with water. Distinguish ethanol from pentan-1-ol by measuring boiling points: ethanol boils at about 78 degrees C, pentan-1-ol at about 138 degrees C, because pentan-1-ol has a longer carbon chain producing stronger London dispersion forces.",
       "markingGuide": "Achievement: Identifies ethanol or pentan-1-ol as miscible/soluble OR identifies heptane as an alkane. Merit: Correctly identifies heptane as non-soluble AND provides method to distinguish between the two alcohols. Excellence: Explains how all three can be distinguished, with reference to solubility, molecular structure, and carbon chain effects."
     },
     {
@@ -76,13 +76,13 @@
         "polymers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Three repeating units showing the C-C backbone (no double bonds) with H atoms: -[CH2-CH2]3-",
+      "expectedAnswer": "Three repeating units showing the C-C backbone with a methyl branch on alternating carbons: -[CH2-CH(CH3)]3-",
       "markingGuide": "Achievement: Identifies polymer is orientated correctly (C-C saturated backbone). Merit: Labels saturated (C-C) or monomer is unsaturated (C=C)."
     },
     {
       "id": "l2cb24-q1cii",
       "number": "1(c)(ii)",
-      "text": "Plastics made from PP are durable and resistant to chemical attack.\n\nExplain why the monomer ethene is more reactive than the polymer PP.\n\nIn your answer you should:\n- explain the term 'addition polymerisation'\n- explain the difference in structure, and link it to chemical reactivity\n- relate how this difference is important for the uses of the polymer.",
+      "text": "Plastics made from PP are durable and resistant to chemical attack.\n\nExplain why the monomer propene is more reactive than the polymer PP.\n\nIn your answer you should:\n- explain the term 'addition polymerisation'\n- explain the difference in structure, and link it to chemical reactivity\n- relate how this difference is important for the uses of the polymer.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -97,7 +97,7 @@
     {
       "id": "l2cb24-q2ai",
       "number": "2(a)(i)-(ii)",
-      "text": "An incomplete reaction scheme starting with 2-bromopentane, Compound A, is shown.\n\nCompound A (2-bromopentane) undergoes Reaction type W with Reagent 1 to form Compound B (an alkene) and Compound C (a different alkene isomer). Compound B reacts with H2O/H+ and heat to form Compound D (an alcohol). Compound B also forms Compound E (a secondary alcohol on C2 of butane). Compound C reacts with MnO4-/H+ in Reaction type X to form Compound F. Compound F reacts with Cr2O72-/H+ and heat to form Compound H. Compound H reacts with KOH in Reaction type Z to form Compound J (a potassium salt of a carboxylic acid).\n\n(i) Draw the structural formulae of Compounds C, D, E, and H.\n(ii) Complete the Reagents 1 and 2.",
+      "text": "An incomplete reaction scheme starting with 2-bromopentane, Compound A, is shown.\n\nCompound A (2-bromopentane) undergoes Reaction type W with Reagent 1 to form Compound B (an alkene) and Compound C (a different alkene isomer). Compound B reacts with H2O/H+ and heat to form Compound D (an alcohol). Compound B also forms Compound E (a secondary alcohol on C2 of pentane). Compound C reacts with MnO4-/H+ in Reaction type X to form Compound F. Compound F reacts with Cr2O72-/H+ and heat to form Compound H. Compound H reacts with KOH in Reaction type Z to form Compound J (a potassium salt of a carboxylic acid).\n\n(i) Draw the structural formulae of Compounds C, D, E, and H.\n(ii) Complete the Reagents 1 and 2.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -106,7 +106,7 @@
         "structures"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound C: but-1-ene (H2C=CH-CH2-CH3). Compound D: pentan-1-ol or butan-2-ol depending on Markovnikov addition. Compound E: butan-2-ol. Compound H: butanoic acid. Reagent 1: KOH(alc)/heat (elimination). Reagent 2: H2O/H+.",
+      "expectedAnswer": "Compound C: pent-1-ene (H2C=CH-CH2-CH2-CH3). Compound D: pentan-2-ol (Markovnikov addition of H2O to pent-2-ene) or pentan-1-ol / pentan-2-ol from pent-1-ene. Compound E: pentan-2-ol. Compound H: pentanoic acid. Reagent 1: KOH(alc)/heat (elimination). Reagent 2: H2O/H+.",
       "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct."
     },
     {
@@ -169,7 +169,7 @@
     {
       "id": "l2cb24-q2ci",
       "number": "2(c)(i)",
-      "text": "When Compound B (pent-2-ene) reacts with hydrogen chloride, HCl, without heat, two products are formed in differing amounts.\n\nCompound B: CH3-CH=CH-CH3 (pent-2-ene)\n\nDiscuss the reaction of Compound B with hydrogen chloride.\nIn your answer you should:\n- name and explain this type of reaction\n- draw the structures of both products, in the appropriate box for the major and minor products\n- justify your choice of major and minor products.",
+      "text": "When Compound B (pent-1-ene) reacts with hydrogen chloride, HCl, without heat, two products are formed in differing amounts.\n\nCompound B: H2C=CH-CH2-CH2-CH3 (pent-1-ene)\n\nDiscuss the reaction of Compound B with hydrogen chloride.\nIn your answer you should:\n- name and explain this type of reaction\n- draw the structures of both products, in the appropriate box for the major and minor products\n- justify your choice of major and minor products.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -178,7 +178,7 @@
         "markovnikovs-rule"
       ],
       "answerType": "working",
-      "expectedAnswer": "This is an addition reaction. The HCl adds across the C=C double bond. According to Markovnikov's rule, the H adds to the carbon with more H atoms, and the Cl adds to the more substituted carbon. Major product: 2-bromopentane (Cl on C2). Minor product: 3-chlorobutane (Cl on C3).",
+      "expectedAnswer": "This is an addition reaction. The HCl adds across the C=C double bond. According to Markovnikov's rule, the H adds to the carbon with more H atoms (C1 of pent-1-ene, which has 2 H), and the Cl adds to the more substituted carbon (C2, which has 1 H). Major product: 2-chloropentane (Cl on C2). Minor product: 1-chloropentane (Cl on C1).",
       "markingGuide": "Achievement: Correct structure for one product OR identifies the haloalkane is formed. Merit: Explains major/minor and identifies both structures. Excellence: Explanation of addition reaction, options for major/minor products, and why they are produced in this situation."
     },
     {
@@ -193,7 +193,7 @@
         "symmetry"
       ],
       "answerType": "working",
-      "expectedAnswer": "With Br2, both atoms that add across the double bond are the same (both Br), so both possible orientations give the same product: 2,3-dibromobutane. There is only ONE product, not two. With HCl, the two atoms (H and Cl) are different, so which atom ends up on which carbon matters, producing two different products (major and minor). The symmetry of the Br2 molecule means Markovnikov's rule does not apply.",
+      "expectedAnswer": "With Br2, both atoms that add across the double bond are the same (both Br), so both possible orientations give the same product: 1,2-dibromopentane. There is only ONE product, not two. With HCl, the two atoms (H and Cl) are different, so which atom ends up on which carbon matters, producing two different products (major and minor). The symmetry of the Br2 molecule means Markovnikov's rule does not apply.",
       "markingGuide": "Achievement: Identifies symmetry as a factor OR identifies both structures are the same. Merit: Links symmetry and asymmetry of reactions. Excellence: Full explanation including why only one product for Br2 and two for HCl."
     },
     {
@@ -208,7 +208,7 @@
         "structures"
       ],
       "answerType": "working",
-      "expectedAnswer": "K: pent-2-ene. L: structure of 4-methylhexanoic acid (CH3CH2CH(CH3)CH2COOH). M: heptan-3-ol. N: structure of bromopropene (H2C=CHBr).",
+      "expectedAnswer": "K: pent-2-ene. L: structure of 4-methylhexanoic acid (CH3CH2CH(CH3)CH2CH2COOH). M: heptan-3-ol. N: structure of 3-bromoprop-1-ene (H2C=CH-CH2Br).",
       "markingGuide": "Achievement: Any combination of two correct, structures or names. Merit: All FOUR correct.",
       "graph": {
         "type": "table",
@@ -255,7 +255,7 @@
         "isomers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Primary alcohol isomers of C7H16O: hexan-1-ol, 2-methylpentan-1-ol, 3-methylpentan-1-ol, 4-methylpentan-1-ol, 2,2-dimethylpentan-1-ol, 2,3-dimethylpentan-1-ol, 3,3-dimethylpentan-1-ol. There are multiple primary alcohol isomers.",
+      "expectedAnswer": "Primary alcohol isomers of C7H16O include: heptan-1-ol, 2-methylhexan-1-ol, 3-methylhexan-1-ol, 4-methylhexan-1-ol, 5-methylhexan-1-ol, 2-ethylpentan-1-ol, 2,2-dimethylpentan-1-ol, 2,3-dimethylpentan-1-ol, 2,4-dimethylpentan-1-ol, 3,3-dimethylpentan-1-ol, 3,4-dimethylpentan-1-ol, 4,4-dimethylpentan-1-ol, 2,2,3-trimethylbutan-1-ol.",
       "markingGuide": "Achievement: TWO correct primary alcohol isomer structures drawn. Merit: THREE correct primary alcohol isomer structures drawn. Excellence: All correct primary alcohol isomer structures drawn."
     },
     {
@@ -270,7 +270,7 @@
         "multi-step-synthesis"
       ],
       "answerType": "working",
-      "expectedAnswer": "Step 1: Elimination with concentrated H2SO4 and heat, produces an alkene with functional group C=C. Step 2: If needed, hydrogenation or further manipulation to obtain the specific hept-3-ene isomer.",
+      "expectedAnswer": "Step 1: Substitution — react heptan-3-ol with concentrated HBr (or HCl) to convert the alcohol into 3-bromoheptane (a secondary haloalkane). Product functional group: haloalkane. Step 2: Elimination — heat 3-bromoheptane with KOH(alc) to give hept-2-ene and hept-3-ene (the hept-3-ene is the required alkene product).",
       "markingGuide": "Achievement: 2/4 correct for Step 1 OR both correct for Step 2. Merit: Any 4/6 correct. Excellence: 6/6 correct."
     },
     {
@@ -285,7 +285,7 @@
         "zaitsevs-rule"
       ],
       "answerType": "working",
-      "expectedAnswer": "An elimination reaction results in the formation of a C=C double bond by removing a small molecule (H2O in acid-catalysed dehydration). When the OH is on C3 of heptane, the double bond can form between C2-C3 (hex-2-ene) or C3-C4 (hept-3-ene). If the carbon atoms on either side of the C bearing the OH have the same number of hydrogen atoms available for elimination, the products form in equal amounts because there is equal probability of H being removed from either side.",
+      "expectedAnswer": "An elimination reaction results in the formation of a C=C double bond by removing a small molecule (HBr when using KOH(alc) with a haloalkane). When the Br (or OH) is on C3 of heptane, the double bond can form between C2-C3 (hept-2-ene) or C3-C4 (hept-3-ene). Because C2 and C4 each carry the same number of hydrogen atoms available for elimination, the products form in approximately equal amounts — there is an equal probability of H being removed from either adjacent carbon, so neither alkene is favoured as the major product.",
       "markingGuide": "Achievement: Partial explanation of an elimination reaction OR states that in an elimination reaction a double bond could form in either direction. Merit: Explains what determines major/minor products. Excellence: Explanation of elimination reaction, options for products, what determines a majority/minority and why they are produced in equal amounts for this situation."
     },
     {
