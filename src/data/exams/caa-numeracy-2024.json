@@ -59,8 +59,8 @@
         "multiplication"
       ],
       "answerType": "working",
-      "expectedAnswer": "12-48 tui chicks",
-      "markingGuide": "Student must show calculations. Reasonable approaches: (1) Mid-range nests = 1.5, mid-range chicks = 3, 6 years x 1.5 x 3 = 27. (2) Using minimum: 1 nest x 2 chicks x 6 years = 12. (3) Using maximum: 2 nests x 4 chicks x 6 years = 48. Accept any answer between 12 and 48 with clear working showing nests per year, chicks per nest, and number of years."
+      "expectedAnswer": "18 chicks (1 nest × 3 chicks × 6 years)",
+      "markingGuide": "This is an estimation question — accept any reasonable answer between 12 and 48 with clear working. Common correct approaches: (1) 1 nest × 3 chicks (mid of 2–4) × 6 years = 18. (2) Minimum: 1 × 2 × 6 = 12. (3) Maximum: 2 × 4 × 6 = 48. (4) Mid-range nests: 1.5 × 3 × 6 = 27. Student must show their working — nests per year × chicks per nest × number of years."
     },
     {
       "id": "caan24-q1d",
