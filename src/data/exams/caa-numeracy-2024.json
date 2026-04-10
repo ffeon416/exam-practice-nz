@@ -74,8 +74,8 @@
         "rates"
       ],
       "answerType": "number",
-      "expectedAnswer": "23",
-      "markingGuide": "From the graph: 2012 ≈ 35 trees, 2018 ≈ 175 trees. Increase = 175 - 35 = 140 trees over 6 years. Average per year = 140 ÷ 6 ≈ 23.3 trees. Accept any answer between 22 and 25.",
+      "expectedAnswer": "20",
+      "markingGuide": "Read from the graph: 2012 = 40 trees, 2018 = 160 trees. Increase = 160 - 40 = 120 trees over 6 years. Average per year = 120 ÷ 6 = 20 trees. Accept 20.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -92,11 +92,11 @@
           {
             "name": "Trees",
             "values": [
-              18,
-              35,
-              78,
-              126,
-              175
+              20,
+              40,
+              80,
+              120,
+              160
             ],
             "color": "#22c55e"
           }
