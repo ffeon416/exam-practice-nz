@@ -80,21 +80,16 @@
     {
       "id": "y10ss1-q5",
       "number": "5",
-      "text": "New Zealand uses the MMP (Mixed Member Proportional) voting system. Under MMP, each voter gets:",
+      "text": "The pie chart below shows the 2023 New Zealand General Election party vote results. The National, ACT, and NZ First parties formed a coalition government after the election.\n\nUsing the chart, calculate the total percentage of the party vote won by the three coalition parties combined.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
-        "nz-government"
+        "nz-government",
+        "percentages"
       ],
-      "answerType": "multi-choice",
-      "options": [
-        "One vote for a local MP only",
-        "Two votes — one for a local MP (electorate vote) and one for a political party (party vote)",
-        "Three votes — one for each level of government",
-        "One vote for the Prime Minister directly"
-      ],
-      "expectedAnswer": "Two votes — one for a local MP (electorate vote) and one for a political party (party vote)",
-      "markingGuide": "The correct answer is two votes. Under MMP, introduced in New Zealand in 1996, each voter casts two votes: an electorate vote for a local Member of Parliament, and a party vote for the political party they support. The party vote determines the overall proportion of seats each party receives in Parliament. A party generally needs 5% of the party vote or one electorate seat to gain representation in Parliament.",
+      "answerType": "number",
+      "expectedAnswer": "52.8",
+      "markingGuide": "From the chart: National 38.1% + ACT 8.6% + NZ First 6.1% = 52.8%. Accept 52.8 or 52.8%. Minor rounding differences (52–53%) acceptable.",
       "graph": {
         "type": "pie",
         "title": "2023 NZ General Election — Party Vote Results",

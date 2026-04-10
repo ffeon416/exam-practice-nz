@@ -61,21 +61,16 @@
     {
       "id": "y10h1-q4",
       "number": "4",
-      "text": "Which nutrient provides the most energy per gram?",
+      "text": "The chart below shows the energy content (in kilojoules) per gram of different macronutrients.\n\nA snack contains 10 g of fat and 20 g of carbohydrates. Using the values from the chart, calculate the total energy in the snack, in kilojoules.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
-        "nutrition-health"
+        "nutrition-health",
+        "multiplication"
       ],
-      "answerType": "multi-choice",
-      "options": [
-        "Carbohydrates",
-        "Protein",
-        "Fat",
-        "Vitamins"
-      ],
-      "expectedAnswer": "Fat",
-      "markingGuide": "The correct answer is Fat. Fat provides approximately 37 kJ (9 calories) per gram, compared to carbohydrates and protein which each provide about 17 kJ (4 calories) per gram. Vitamins do not provide energy.",
+      "answerType": "number",
+      "expectedAnswer": "710",
+      "markingGuide": "From the chart: Fat = 37 kJ/g, Carbohydrates = 17 kJ/g. Fat energy = 10 × 37 = 370 kJ. Carbohydrate energy = 20 × 17 = 340 kJ. Total = 370 + 340 = 710 kJ. Accept 710.",
       "graph": {
         "type": "bar",
         "title": "Energy Content per Gram of Macronutrients",

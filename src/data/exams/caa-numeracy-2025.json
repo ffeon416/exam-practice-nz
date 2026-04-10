@@ -238,16 +238,17 @@
     {
       "id": "caa25-q2f",
       "number": "2(f)",
-      "text": "The chart below shows the number of visitors to a ski field each month during the year.\n\nNote: June, July, and August are winter (ski season). December, January, and February are summer.\n\n\"More people visit the ski field in cold months than warm months.\"\n\nDo you agree? Use information from the chart to explain your answer.",
+      "text": "The chart below shows the number of visitors to a ski field each month during the year.\n\nNote: June, July, and August are winter (ski season). December, January, and February are summer.\n\nHow many more total visitors came during the three winter months (Jun, Jul, Aug) than during the three summer months (Dec, Jan, Feb)?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "graph-reading",
-        "data-interpretation"
+        "addition",
+        "subtraction"
       ],
-      "answerType": "working",
-      "expectedAnswer": "Yes — visits peak in winter months (Jun-Aug: 350, 480, 420) and are lowest in summer (Dec-Feb: 70, 80, 60)",
-      "markingGuide": "Student must refer to specific data to support their answer. They should identify that cold months (Jun-Aug) show much higher visitor numbers and warm months (Dec-Feb) show lower numbers, using approximate figures.",
+      "answerType": "number",
+      "expectedAnswer": "1040",
+      "markingGuide": "Winter total = Jun 350 + Jul 480 + Aug 420 = 1250. Summer total = Dec 70 + Jan 80 + Feb 60 = 210. Difference = 1250 - 210 = 1040 more visitors in winter. Accept 1040.",
       "graph": {
         "type": "bar",
         "title": "Monthly Ski Field Visitors",
@@ -511,16 +512,17 @@
     {
       "id": "caa25-q4e",
       "number": "4(e)",
-      "text": "The chart below shows how much an artist earns per sale on different online platforms.\n\n\"Platform C gives artists the best deal.\"\n\nDo you agree? Use numbers from the chart to explain your answer.",
+      "text": "The chart below shows how much an artist earns per sale on different online platforms.\n\nAn artist makes 200 sales on the platform that pays the MOST per sale and 200 sales on the platform that pays the LEAST per sale. What is the total earned across both platforms, in dollars?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "data-interpretation",
-        "tables"
+        "multiplication",
+        "addition"
       ],
-      "answerType": "working",
-      "expectedAnswer": "Yes — Platform C pays $1.20 per sale, which is more than all others",
-      "markingGuide": "Student must use numbers from the table to support or refute the statement. They need to compare Platform C's rate ($1.20) with at least one other platform and make a clear conclusion.",
+      "answerType": "number",
+      "expectedAnswer": "330",
+      "markingGuide": "Highest = Platform C at $1.20. Lowest = Platform D at $0.45. Earnings: 200 × $1.20 = $240. 200 × $0.45 = $90. Total = $240 + $90 = $330. Accept 330 or $330.",
       "graph": {
         "type": "bar",
         "title": "Artist Earnings per Sale by Platform",
@@ -661,16 +663,17 @@
     {
       "id": "caa25-q5d",
       "number": "5(d)",
-      "text": "Whales are excellent divers. The scale below shows ocean depth from 0 metres (sea level) to 600 metres. A sperm whale typically dives to about 2/3 of this maximum depth.\n\nEstimate the depth the sperm whale would dive to.",
+      "text": "Whales are excellent divers. The scale below shows ocean depth from 0 metres (sea level) to 600 metres. A sperm whale typically dives to about 2/3 of the maximum depth shown. A beaked whale can dive all the way down to the maximum depth shown.\n\nHow much deeper, in metres, does the beaked whale dive than the sperm whale?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
-        "estimation",
+        "fractions",
+        "subtraction",
         "graph-reading"
       ],
       "answerType": "number",
-      "expectedAnswer": "400",
-      "markingGuide": "2/3 of 600 = 400 metres. Accept 380-420 metres.",
+      "expectedAnswer": "200",
+      "markingGuide": "Maximum depth from scale = 600 m. Sperm whale depth = 2/3 × 600 = 400 m. Beaked whale depth = 600 m. Difference = 600 - 400 = 200 m. Accept 200.",
       "graph": {
         "type": "line",
         "title": "Ocean Depth Scale",
@@ -746,16 +749,17 @@
     {
       "id": "caa25-q5f",
       "number": "5(f)",
-      "text": "Researchers tracked seabirds from Banks Peninsula. The map below has a scale bar where each unit represents 8 km. The furthest seabird was spotted at a location that is 5 scale-bar lengths from Banks Peninsula.\n\nEstimate the distance from Banks Peninsula to where the furthest seabird was spotted.",
+      "text": "Researchers tracked seabirds from Banks Peninsula. The map below has a scale bar where each unit represents 8 km. The furthest seabird was spotted at a location that is 5 scale-bar lengths from Banks Peninsula. A seabird flies there and back in one day.\n\nIf the seabird's average flying speed is 40 km/h, how many hours does the round trip take?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
-        "estimation",
-        "graph-reading"
+        "rates",
+        "graph-reading",
+        "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "40",
-      "markingGuide": "5 x 8 km = 40 km. Accept 35-45 km.",
+      "expectedAnswer": "2",
+      "markingGuide": "One-way distance = 5 × 8 km = 40 km. Round trip = 40 × 2 = 80 km. Time = distance / speed = 80 / 40 = 2 hours. Accept 2.",
       "graph": {
         "type": "table",
         "title": "Map Scale",

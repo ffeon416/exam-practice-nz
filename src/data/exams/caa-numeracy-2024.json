@@ -65,15 +65,16 @@
     {
       "id": "caan24-q1d",
       "number": "1(d)",
-      "text": "In 2010, a conservation group planted native trees on a reserve. The graph below shows how many trees were alive each year.\n\nAbout how many trees were alive in 2014?",
+      "text": "In 2010, a conservation group planted native trees on a reserve. The graph below shows how many trees were alive each year.\n\nCalculate the percentage increase in the number of trees from 2010 to 2018.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
-        "graph-reading"
+        "graph-reading",
+        "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "100",
-      "markingGuide": "Trace from 2014 on the x-axis up to the line, then across to the y-axis. The number of trees in 2014 is 100. Accept 95-105.",
+      "expectedAnswer": "800",
+      "markingGuide": "In 2010 there were 20 trees; in 2018 there were 180 trees. Increase = 180 - 20 = 160. Percentage increase = (160 / 20) × 100 = 800%. Accept 800 or 800%.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -368,22 +369,16 @@
     {
       "id": "caan24-q3f",
       "number": "3(f)",
-      "text": "The chart below shows the average sunshine hours for each month of the year in Dunedin.\n\nWhich season has the highest average sunshine? Use information from the chart.\n\nTick the correct answer.",
+      "text": "The chart below shows the average sunshine hours for each month of the year in Dunedin.\n\nCalculate the average monthly sunshine hours across the three summer months (Dec, Jan, Feb).",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "graph-reading",
-        "data-interpretation"
+        "averages"
       ],
-      "answerType": "multi-choice",
-      "options": [
-        "Summer (Dec, Jan, Feb)",
-        "Autumn (Mar, Apr, May)",
-        "Winter (Jun, Jul, Aug)",
-        "Spring (Sep, Oct, Nov)"
-      ],
-      "expectedAnswer": "Summer (Dec, Jan, Feb)",
-      "markingGuide": "From the data, calculate seasonal totals: Summer = 185 + 190 + 165 = 540, Autumn = 145 + 120 + 95 = 360, Winter = 80 + 90 + 110 = 280, Spring = 135 + 155 + 175 = 465. Summer has the highest total. Accept Summer.",
+      "answerType": "number",
+      "expectedAnswer": "180",
+      "markingGuide": "From the chart: Dec = 185, Jan = 190, Feb = 165. Sum = 185 + 190 + 165 = 540. Average = 540 / 3 = 180 hours. Accept 180.",
       "graph": {
         "type": "bar",
         "title": "Average Monthly Sunshine Hours — Dunedin",
@@ -553,16 +548,16 @@
     {
       "id": "caan24-q4e",
       "number": "4(e)",
-      "text": "The timetable below shows the schedule for rugby and netball games at a school sports day.\n\nHow much longer, in minutes, is each rugby game compared to each netball game?",
+      "text": "The timetable below shows the schedule for rugby and netball games at a school sports day.\n\nBy the time all the morning rugby games have finished (not counting breaks), how many total minutes of rugby game time have been played?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "timetables",
-        "subtraction"
+        "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "10",
-      "markingGuide": "Rugby games are 25 minutes each. Netball games are 15 minutes each. Difference: 25 - 15 = 10 minutes.",
+      "expectedAnswer": "75",
+      "markingGuide": "There are 3 rugby games shown in the timetable (Game 1, Game 2, Game 3), each lasting 25 minutes (9:00-9:25, 9:30-9:55, 10:00-10:25). Total rugby time = 3 × 25 = 75 minutes.",
       "graph": {
         "type": "table",
         "title": "School Sports Day Morning Timetable",

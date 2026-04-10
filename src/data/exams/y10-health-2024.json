@@ -137,15 +137,15 @@
     {
       "id": "y10h2-q7",
       "number": "7",
-      "text": "Explain TWO reasons why obesity is a significant health issue in New Zealand. Include at least one reference to hauora in your answer.",
+      "text": "The chart below shows adult obesity rates by ethnicity in New Zealand.\n\n(a) Calculate the difference in obesity rates between the group with the HIGHEST rate and the group with the LOWEST rate.\n(b) Explain TWO reasons why obesity is a significant health issue in New Zealand. Include at least one reference to hauora in your answer.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
         "community-health",
         "hauora"
       ],
-      "answerType": "text",
-      "markingGuide": "1 mark for each valid reason (2 required), with at least one hauora reference. For example: Obesity increases the risk of serious health conditions such as type 2 diabetes, heart disease, and some cancers — this affects taha tinana (physical well-being); Obesity can lead to low self-esteem, anxiety, and depression, especially in young people who may experience bullying — this affects taha hinengaro (mental/emotional well-being); NZ has one of the highest rates of childhood obesity in the OECD, putting pressure on the health system; Obesity is linked to socioeconomic factors — families in lower-income areas may have less access to healthy food and sports facilities, which is a community health issue.",
+      "answerType": "working",
+      "markingGuide": "(a) Partial credit within the marks below: Highest = Pacific Peoples 64%, Lowest = Asian 16%. Difference = 64 - 16 = 48 percentage points. 1 mark for each valid reason in (b) (2 required), with at least one hauora reference. At least one mark must include the correct calculation in (a). For example: Obesity increases the risk of serious health conditions such as type 2 diabetes, heart disease, and some cancers — this affects taha tinana (physical well-being); Obesity can lead to low self-esteem, anxiety, and depression, especially in young people who may experience bullying — this affects taha hinengaro (mental/emotional well-being); NZ has one of the highest rates of childhood obesity in the OECD, putting pressure on the health system; Obesity is linked to socioeconomic factors — families in lower-income areas may have less access to healthy food and sports facilities, which is a community health issue.",
       "graph": {
         "type": "bar",
         "title": "NZ Adult Obesity Rates by Ethnicity (2023)",

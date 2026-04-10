@@ -80,21 +80,16 @@
     {
       "id": "y10ss2-q5",
       "number": "5",
-      "text": "New Zealand is often described as a multicultural society. Which of the following statements about New Zealand's cultural diversity is MOST accurate?",
+      "text": "The chart below shows New Zealand's population by ethnicity from the 2023 Census (people could identify with more than one group, so totals exceed 100%).\n\nIf a town in New Zealand has 5,000 residents and the same ethnic proportions as the national figures, approximately how many residents would identify as Māori?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
-        "cultural-diversity-nz"
+        "cultural-diversity-nz",
+        "percentages"
       ],
-      "answerType": "multi-choice",
-      "options": [
-        "New Zealand's population is almost entirely of European descent",
-        "New Zealand has significant Māori, Pacific, Asian, and European populations, among others",
-        "Most immigrants to New Zealand come from Australia",
-        "New Zealand does not accept immigrants from other countries"
-      ],
-      "expectedAnswer": "New Zealand has significant Māori, Pacific, Asian, and European populations, among others",
-      "markingGuide": "The correct answer reflects NZ's diverse population. According to recent census data, NZ's ethnic makeup includes NZ European/Pākehā (approximately 70%), Māori (approximately 17%), Asian (approximately 16%), and Pacific Peoples (approximately 8%), with many people identifying with multiple ethnicities. NZ has significant immigration from countries including China, India, the Philippines, South Africa, and the United Kingdom. Auckland is one of the most ethnically diverse cities in the world.",
+      "answerType": "number",
+      "expectedAnswer": "850",
+      "markingGuide": "From the chart, 17% of New Zealanders identify as Māori. 17% of 5,000 = 0.17 × 5,000 = 850 residents. Accept 850. (Note: in the 2023 Census people could identify with more than one ethnicity, so totals exceed 100%.)",
       "graph": {
         "type": "pie",
         "title": "NZ Population by Ethnicity (2023 Census, multiple responses)",
