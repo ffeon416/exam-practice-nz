@@ -238,13 +238,15 @@ export default function ExamPage({
           </label>
           {question.answerType === "multi-choice" && question.options ? (
             (() => {
-              const isMultiSelect = /tick.*two|select.*two|choose.*two/i.test(question.text);
+              const isMultiSelect = /tick.*two|select.*two|choose.*two|tick the two|select the two|two answers|TWO answers/i.test(question.text);
               const selected = (answers[question.id] ?? "").split(" and ").filter(Boolean);
 
               return (
                 <div className="space-y-2">
                   {isMultiSelect && (
-                    <p className="text-xs text-indigo-400 mb-1">Select two answers</p>
+                    <div className="mb-3 px-3 py-2 rounded-lg bg-indigo-500/10 border border-indigo-500/30">
+                      <p className="text-sm text-indigo-300 font-medium">⚠ Select TWO answers ({selected.length}/2 selected)</p>
+                    </div>
                   )}
                   {question.options.map((opt) => {
                     const isSelected = isMultiSelect
