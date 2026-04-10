@@ -233,18 +233,17 @@ function LineChart({ data }: { data: GraphData }) {
           const color = s.color || COLORS[si % COLORS.length];
           return (
             <g key={si}>
-              <polyline points={points} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+              <polyline points={points} fill="none" stroke={color} strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round" />
               {xVals.map((x, i) => {
                 const cx = toX(x);
                 const cy = toY(s.values[i]);
-                const v = s.values[i];
-                const labelAbove = i === 0 || s.values[i] >= (s.values[i - 1] || 0);
                 return (
                   <g key={i}>
+                    {/* Crosshair lines from dot to axes for easier reading */}
+                    <line x1={cx} y1={cy} x2={cx} y2={pad.t + plotH} stroke={color} strokeWidth="0.8" strokeDasharray="3,3" opacity="0.5" />
+                    <line x1={pad.l} y1={cy} x2={cx} y2={cy} stroke={color} strokeWidth="0.8" strokeDasharray="3,3" opacity="0.5" />
+                    {/* Visible dot */}
                     <circle cx={cx} cy={cy} r="6" fill={color} stroke="white" strokeWidth="2.5" />
-                    {/* Value label with white background for readability */}
-                    <rect x={cx - 18} y={cy - (labelAbove ? 24 : -10)} width="36" height="16" rx="3" fill="white" stroke={color} strokeWidth="1" />
-                    <text x={cx} y={cy - (labelAbove ? 12 : -22)} fill="#18181b" fontSize="12" fontWeight="700" textAnchor="middle">{v}</text>
                   </g>
                 );
               })}
