@@ -445,16 +445,16 @@ export default function ResultsPage({
 
                 {/* Correct working */}
                 <div>
-                  <p className="text-xs text-blue-400 mb-1">Correct working</p>
+                  <p className="text-xs text-blue-400 mb-1 font-semibold uppercase tracking-wide">Correct working</p>
                   <p className="text-sm text-slate-200 bg-blue-950/20 border border-blue-900/30 rounded p-2.5 whitespace-pre-wrap">
-                    {qq.markingGuide}
+                    {qq.markingGuide.replace(/\n*Final answer:.*$/i, "").trim()}
                   </p>
                 </div>
 
                 {/* Correct final answer */}
                 <div>
-                  <p className="text-xs text-green-400 mb-1">Correct final answer</p>
-                  <p className="text-sm text-white bg-green-950/30 border border-green-800/30 rounded p-2.5 whitespace-pre-wrap font-medium">
+                  <p className="text-xs text-green-400 mb-1 font-semibold uppercase tracking-wide">Correct final answer</p>
+                  <p className="text-base text-white bg-green-950/40 border border-green-700/40 rounded p-3 whitespace-pre-wrap font-bold">
                     {qq.expectedAnswer ?? "(See working above)"}
                   </p>
                 </div>
@@ -671,16 +671,16 @@ export default function ResultsPage({
 
       {/* Correct working */}
       <div className="bg-blue-950/20 border border-blue-900/30 rounded-lg p-4 mb-4">
-        <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Correct Working</h4>
-        <p className="text-slate-300 text-sm whitespace-pre-wrap">
-          {q.markingGuide}
+        <h4 className="text-xs font-semibold text-blue-400 mb-2 uppercase tracking-wide">Correct Working</h4>
+        <p className="text-slate-200 text-sm whitespace-pre-wrap">
+          {q.markingGuide.replace(/\n*Final answer:.*$/i, "").trim()}
         </p>
       </div>
 
       {/* Correct final answer */}
-      <div className="bg-green-950/20 border border-green-900/30 rounded-lg p-4 mb-4">
-        <h4 className="text-xs font-medium text-green-400 mb-2 uppercase">Correct Final Answer</h4>
-        <p className="text-white text-sm whitespace-pre-wrap font-medium">
+      <div className="bg-green-950/30 border border-green-700/40 rounded-lg p-4 mb-4">
+        <h4 className="text-xs font-semibold text-green-400 mb-2 uppercase tracking-wide">Correct Final Answer</h4>
+        <p className="text-white text-base whitespace-pre-wrap font-bold">
           {q.expectedAnswer ?? "(See working above)"}
         </p>
       </div>
