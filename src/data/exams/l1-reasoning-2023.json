@@ -15,7 +15,7 @@
       "gradeLevel": "achieved",
       "topics": ["measurement"],
       "answerType": "working",
-      "expectedAnswer": "K = 3.774 (3 d.p.)",
+      "expectedAnswer": "K = 3.771 (3 d.p.)",
       "markingGuide": "Evaluate inside the square root first: 4.5 × 0.7854 = 3.5343. Then 3.5343 / 9.81 = 0.36027. Square root: √0.36027 = 0.60023. Multiply by 2π: K = 2π × 0.60023 = 3.7710. Accept rounding to 3.771 or 3.77. Award Achieved for correct answer with or without working shown."
     },
     {
@@ -59,8 +59,8 @@
       "gradeLevel": "merit",
       "topics": ["trigonometry", "geometry-angles"],
       "answerType": "working",
-      "expectedAnswer": "Bearing of N from P is approximately 307° (accept with rounding)",
-      "markingGuide": "Find angle MPN: tan(MPN) = MN/MP = 120/90 = 4/3. Angle MPN = arctan(4/3) = 53.13°. P is east of M, N is north of M. From P looking north, N is north-west. Bearing = 360° – 53.13° = 306.87°. Achieved = correct angle MPN with working. Merit = correct bearing of N from P with clear trigonometric working."
+      "expectedAnswer": "Bearing of N from P is approximately 323° (accept 323.13° with rounding)",
+      "markingGuide": "Find angle MPN: tan(MPN) = MN/MP = 120/90 = 4/3. Angle MPN = arctan(4/3) = 53.13°. P is due east of M, so from P, M is due west (bearing 270°). N is due north of M, so from P, line PN is the line PM rotated 53.13° towards the north. Bearing of N from P = 270° + 53.13° = 323.13°. Achieved = correct angle MPN with working. Merit = correct bearing of N from P with clear trigonometric working."
     },
     {
       "id": "l1r23-q1ciii",
@@ -76,24 +76,24 @@
     {
       "id": "l1r23-q2ai",
       "number": "2(a)(i)",
-      "text": "A regular hexagon has side length 80 cm. Z is the midpoint of one side, adjacent to vertex A. Show that the angle ZAB (where B is the next vertex along from A) equals 60°.",
+      "text": "A regular hexagon ABCDEF has side length 80 cm. O is the centre of the hexagon. Show that the angle OAB (where B is the next vertex along from A) equals 60°.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": ["geometry-angles"],
       "answerType": "working",
-      "expectedAnswer": "v = 60°",
-      "markingGuide": "Interior angle of a regular hexagon = (6 – 2) × 180° / 6 = 720° / 6 = 120°. Z is the midpoint of the side adjacent to A. The line from Z to A bisects the interior angle at A (by symmetry). Therefore angle ZAB = 120° / 2 = 60°. Award Achieved for clear working showing how 60° is obtained."
+      "expectedAnswer": "Angle OAB = 60°",
+      "markingGuide": "The interior angle of a regular hexagon = (6 − 2) × 180° / 6 = 720° / 6 = 120°. By symmetry, the line OA from the centre O to vertex A bisects the interior angle at A. Therefore angle OAB = 120° / 2 = 60°. Award Achieved for clear working showing how 60° is obtained."
     },
     {
       "id": "l1r23-q2aii",
       "number": "2(a)(ii)",
-      "text": "In right-angled triangle ZAX (where X is the foot of the perpendicular from Z to line AB), AZ = 80 cm and angle ZAX = 60°. Find the lengths XZ and AX.",
+      "text": "In a regular hexagon with side length 80 cm, the distance from the centre O to each vertex equals the side length, so OA = 80 cm. Let X be the midpoint of side AB, so OX is perpendicular to AB. In right-angled triangle OAX, OA = 80 cm and angle OAX = 60°. Find the lengths OX (the apothem) and AX.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": ["trigonometry"],
       "answerType": "working",
-      "expectedAnswer": "XZ = 69.28 cm, AX = 40 cm",
-      "markingGuide": "Using right-angled triangle ZAX with hypotenuse AZ = 80 cm and angle ZAX = 60°. XZ (opposite): sin 60° = XZ/80, so XZ = 80 × sin 60° = 80 × 0.8660 = 69.28 cm. AX (adjacent): cos 60° = AX/80, so AX = 80 × cos 60° = 80 × 0.5 = 40 cm. Achieved = one correct length. Merit = both lengths correct with clear trigonometric working."
+      "expectedAnswer": "OX = 69.28 cm, AX = 40 cm",
+      "markingGuide": "Using right-angled triangle OAX with hypotenuse OA = 80 cm and angle OAX = 60°. OX (opposite): sin 60° = OX/80, so OX = 80 × sin 60° = 80 × 0.8660 = 69.28 cm. AX (adjacent): cos 60° = AX/80, so AX = 80 × cos 60° = 80 × 0.5 = 40 cm. Achieved = one correct length. Merit = both lengths correct with clear trigonometric working."
     }
   ],
   "totalMarks": 24,

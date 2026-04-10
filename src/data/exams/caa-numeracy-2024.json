@@ -628,8 +628,8 @@
         "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "10",
-      "markingGuide": "Formation A: 4 rows of 10. Formation B: 5 rows of 8. Same total of 40 performers. The 5th row needs 8 people, but they must come from the existing 4 rows. Each original row loses 2 people (from 10 to 8), giving 4 x 2 = 8 people. But we need 8 for the new row plus 2 more adjustments. Actually: we can keep 8 in each of the first 4 rows (keeping 32 in place) and move 2 from each of those rows into the 5th row = 8 moved. But 5th row needs 8 and we only moved 8. Total moved: 8. Wait — the 5th row also needs 2 more to reach 8. We moved 2 from each of 4 rows = 8. That fills the 5th row exactly. Minimum = 8. However with different row structure: 4 rows of 10 → 5 rows of 8. Take 2 from each row (8 total move to new row). Actually 10 people must change: the 5th row of 8 = 8 changes, plus the 4 original rows lose 2 each = 8, but those same 8 form the new row. So minimum is 8. Accept 8 or 10 with reasoning."
+      "expectedAnswer": "8",
+      "markingGuide": "Formation A has 4 rows of 10 (40 performers). Formation B has 5 rows of 8 (40 performers). Keep 8 performers in each of the original 4 rows (32 stay in place). Move 2 performers out of each of those 4 rows to form the new 5th row: 4 × 2 = 8 performers moved. This creates a 5th row of exactly 8. Minimum number of performers that need to change rows = 8."
     }
   ]
 }

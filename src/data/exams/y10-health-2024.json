@@ -6,7 +6,7 @@
   "year": 2024,
   "subject": "health",
   "timeMinutes": 40,
-  "totalMarks": 18,
+  "totalMarks": 16,
   "questions": [
     {
       "id": "y10h2-q1",
@@ -230,19 +230,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 5
+      "max": 4
     },
     "achieved": {
-      "min": 6,
-      "max": 10
+      "min": 5,
+      "max": 9
     },
     "merit": {
-      "min": 11,
-      "max": 14
+      "min": 10,
+      "max": 12
     },
     "excellence": {
-      "min": 15,
-      "max": 18
+      "min": 13,
+      "max": 16
     }
   }
 }

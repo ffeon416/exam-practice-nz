@@ -19,8 +19,8 @@
         "numerical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "Forecast rate ~21.4 litres/year. Recent growth was ~6 litres/year (2018-2023), so forecast seems high...",
-      "markingGuide": "Valid evaluation should include: Forecast growth = (900 - 750) ÷ 7 = 21.4 litres/year. Compare with historical: 2014-2023 grew by 70 litres over 9 years ≈ 7.8 litres/year. The forecast rate is nearly 3× the historical rate — may be too optimistic. However, EV adoption and heat pump uptake could accelerate growth. COVID may have temporarily boosted home use. Achieved = describes trend. Merit = justifies with numerical evidence.",
+      "expectedAnswer": "Forecast rate ≈ 21.4 L/year. Historical growth was ≈ 7.8 L/year (2014–2023), so the forecast rate is nearly 3× the historical rate and appears unrealistically high.",
+      "markingGuide": "Valid evaluation should include: Forecast growth = (900 – 750) ÷ 7 = 21.43 litres/year. Historical: 2014–2023 grew from 680 to 750 (70 litres over 9 years ≈ 7.78 litres/year). The forecast rate is nearly 3× the historical rate — likely too optimistic. Possible reasons the forecast could still be reasonable: population growth, hotter summers increasing garden irrigation, or new appliances. Achieved = describes trend. Merit = justifies with numerical evidence comparing forecast and historical rates.",
       "graph": {
         "type": "line",
         "title": "NZ Average Monthly Household Water Usage",
@@ -82,8 +82,8 @@
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "AquaSave: cheaper unlimited, carry-over, can share. PureFlow: more litres per tier, annual check.",
-      "markingGuide": "AquaSave advantages: Cheaper entry and unlimited plans. Unused power carries over. Can share within household. Disadvantages: Lower litres allowances per tier. No extras. PureFlow advantages: Higher litres in mid-tier (500 vs 400). Free annual hot water check. Disadvantages: More expensive. No carry-over or sharing. Achieved = one advantage from each. Merit = two advantages each. Excellence = comprehensive comparison.",
+      "expectedAnswer": "AquaSave: cheaper at every tier, carry-over of unused allowance, can share within household. PureFlow: higher litre allowances per tier, free annual hot water check.",
+      "markingGuide": "AquaSave advantages: Cheaper at every tier (Basic $95 vs $110, Standard $130 vs $145, Unlimited $175 vs $190). Unused allowance carries over. Can share within household. Disadvantages: Lower litres allowance per tier (Basic 15,000 vs 18,000; Standard 25,000 vs 30,000). PureFlow advantages: Higher litre allowances (Basic 18,000 L vs 15,000 L; Standard 30,000 L vs 25,000 L). Free annual hot water check on Unlimited. Disadvantages: More expensive at every tier. No carry-over or sharing. Achieved = one advantage from each. Merit = two advantages each. Excellence = comprehensive comparison using numbers from the table.",
       "graph": {
         "type": "table",
         "title": "Water Provider Plans Comparison",
@@ -126,7 +126,7 @@
     {
       "id": "l1s24-q1c",
       "number": "1(c)",
-      "text": "The Tupou family is moving to NZ from Samoa. There are two parents and three children. In Tonga they used about 20,000 L/month. They want a plan that covers their usage and allows garden irrigation.\n\nRecommend either a AquaSave or PureFlow plan. Provide clear reasoning. State any assumptions.",
+      "text": "The Tupou family is moving to NZ from Samoa. There are two parents and three children. In Samoa they used about 20,000 L/month. They want a plan that covers their usage and allows garden irrigation.\n\nRecommend either an AquaSave or PureFlow plan. Provide clear reasoning. State any assumptions.",
       "marks": 5,
       "gradeLevel": "excellence",
       "topics": [
@@ -134,8 +134,8 @@
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "PureFlow $175 plan (500 litres) suits their usage. Or AquaSave unlimited if usage may increase.",
-      "markingGuide": "Consider: 500 litres usage. Family of 5. Moving from Samoa — may need time to adjust to NZ climate (more heating). PureFlow $175: 500 litres matches current usage exactly. AquaSave $160: only 400 litres (not enough). AquaSave unlimited $210 gives buffer. Assumptions: Usage may increase in NZ (colder climate). Family is in one household. Budget considerations. Achieved = recommendation with one reason. Merit = reasoning on usage AND cost. Excellence = comprehensive with assumptions."
+      "expectedAnswer": "AquaSave Standard ($130/mo, 25,000 L) covers 20,000 L current usage with some buffer; AquaSave Unlimited ($175/mo) is safer if garden irrigation significantly raises usage.",
+      "markingGuide": "Family of 5 currently uses 20,000 L/mo. AquaSave Basic (15,000 L) is not enough. AquaSave Standard ($130, 25,000 L) covers current usage with a 5,000 L buffer. PureFlow Standard ($145, 30,000 L) gives more room but costs $15/mo more. If garden irrigation is significant, an Unlimited plan (AquaSave $175 or PureFlow $190) may be safer. Assumptions to state: whether garden irrigation is a major monthly draw; whether carry-over and sharing matter; climate change (Samoa vs NZ) may reduce or increase usage. Achieved = recommendation with one reason. Merit = reasoning on usage AND cost using numbers from the table. Excellence = comprehensive recommendation with assumptions and numerical comparison of at least two plans."
     },
     {
       "id": "l1s24-q2a",

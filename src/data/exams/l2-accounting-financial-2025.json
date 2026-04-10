@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "accounting",
   "timeMinutes": 60,
-  "totalMarks": 24,
+  "totalMarks": 28,
   "questions": [
     {
       "id": "l2af25-q1a",
@@ -157,19 +157,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 7
+      "max": 8
     },
     "achieved": {
-      "min": 8,
-      "max": 13
+      "min": 9,
+      "max": 15
     },
     "merit": {
-      "min": 14,
-      "max": 18
+      "min": 16,
+      "max": 21
     },
     "excellence": {
-      "min": 19,
-      "max": 24
+      "min": 22,
+      "max": 28
     }
   }
 }

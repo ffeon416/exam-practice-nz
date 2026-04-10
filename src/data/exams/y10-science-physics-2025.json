@@ -166,24 +166,24 @@
         "yLabel": "Velocity (m/s)",
         "xValues": [
           0,
-          3,
-          3,
-          8
+          5,
+          10,
+          15
         ],
         "series": [
           {
             "name": "Velocity",
             "values": [
-              8,
-              8,
-              8,
-              13
+              0,
+              10,
+              10,
+              0
             ]
           }
         ]
       },
-      "expectedAnswer": "1",
-      "markingGuide": "1 mark (a): Acceleration = change in speed ÷ time = (13 - 8) ÷ 5 = 5 ÷ 5 = 1 m/s². Must show working or clearly state the formula. 1 mark (b): Using Newton's Second Law, F = m × a = 80 × 1 = 80 N. Must show working. 1 mark: Correct units throughout (m/s² for acceleration, N for force) and clear logical presentation of working. Exam tip: Always write the formula first, then substitute the values, then calculate. This way you get marks for method even if your arithmetic is wrong."
+      "expectedAnswer": "100",
+      "markingGuide": "1 mark (a): Phase 1 (0–5 s): cyclist accelerates from 0 to 10 m/s (speeding up at a constant rate). Phase 2 (5–10 s): cyclist travels at a constant velocity of 10 m/s. Phase 3 (10–15 s): cyclist decelerates from 10 m/s to 0 (slowing to a stop). 1 mark (b): Acceleration = change in velocity ÷ time = (10 − 0) ÷ 5 = 2 m/s². Must show working and include units. 1 mark (c): Total distance = area under the velocity-time graph = area of trapezium = ½ × (sum of parallel sides) × height = ½ × (5 + 15) × 10 = 100 m. (Or split into triangle + rectangle + triangle: 25 + 50 + 25 = 100 m.) Exam tip: On a velocity-time graph, the gradient gives acceleration and the area under the line gives distance travelled."
     },
     {
       "id": "y10phys-q9",

@@ -6,7 +6,7 @@
   "year": 2024,
   "subject": "english",
   "timeMinutes": 50,
-  "totalMarks": 8,
+  "totalMarks": 64,
   "questions": [
     {
       "id": "eng98-24-q1",
@@ -14,7 +14,11 @@
       "text": "Analyse how the world of the text shaped the choices available to one or more characters.\n\n\"World of the text\" may refer to physical places as well as social, cultural, and historical contexts.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the text's world constrains or enables character choices. Show awareness of deliberate crafting. Include specific and relevant details from the text(s). Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how setting and context shape agency. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between the text's world and character decision-making, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -24,7 +28,11 @@
       "text": "Analyse how a recurring image or motif deepened your understanding of a central theme.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a recurring image or motif connects to a central theme. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how repetition builds thematic meaning across the text. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the recurring element accumulates significance and reinforces theme, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -34,7 +42,11 @@
       "text": "Analyse how the way the story was told influenced your interpretation of its events.\n\n\"The way the story was told\" may refer to narrative perspective, order, pacing, or other structural choices.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how narrative method influences interpretation. Show awareness of deliberate crafting. Include specific details from the text(s). Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how storytelling choices shape what the reader understands and when. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how narrative method controls and enriches interpretation, making judgments about how effects and meanings relate to the text's purpose."
     },
@@ -44,7 +56,11 @@
       "text": "Analyse how a character's determination in the face of difficulty conveyed an important message.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a character's determination conveys a message. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the character's resilience functions as a vehicle for meaning. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how determination and adversity combine to deliver a message, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -54,7 +70,11 @@
       "text": "Analyse how a pivotal moment shifted your understanding of one or more ideas in the text.\n\n\"Ideas\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a pivotal moment shifts understanding of ideas. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the pivotal moment reframes earlier events or ideas. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the pivotal moment illuminates ideas, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -64,7 +84,11 @@
       "text": "Analyse how the author's use of figurative language enriched the meaning of the text.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how figurative language (metaphor, simile, personification, etc.) enriches meaning. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how figurative language creates layers of meaning beyond the literal. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how figurative language deepens and complicates the text's meanings, making judgments about effects, meanings, and the text's purpose."
     },
@@ -74,7 +98,11 @@
       "text": "Analyse how the text encouraged you to empathise with someone whose experience differs from your own.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the text builds empathy for a character or person with a different experience. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the author creates understanding across difference. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the text fosters empathy and broadens perspective, making judgments about how effects and meanings relate to the text's purpose and broader contexts."
     },
@@ -84,15 +112,31 @@
       "text": "Analyse how the author's intentions were made clear through the development of a central character.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how character development reveals the author's intentions. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of the connection between character arc and authorial purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the central character embodies the author's deeper purpose, making judgments about how effects and meanings relate to the purpose of the text(s)."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 16
+    },
+    "achieved": {
+      "min": 17,
+      "max": 32
+    },
+    "merit": {
+      "min": 33,
+      "max": 48
+    },
+    "excellence": {
+      "min": 49,
+      "max": 64
+    }
   }
 }

@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "digital-tech",
   "timeMinutes": 35,
-  "totalMarks": 16,
+  "totalMarks": 15,
   "questions": [
     {
       "id": "y10dt-q1",
@@ -214,15 +214,15 @@
     },
     "achieved": {
       "min": 5,
-      "max": 9
+      "max": 8
     },
     "merit": {
-      "min": 10,
-      "max": 13
+      "min": 9,
+      "max": 12
     },
     "excellence": {
-      "min": 14,
-      "max": 16
+      "min": 13,
+      "max": 15
     }
   }
 }

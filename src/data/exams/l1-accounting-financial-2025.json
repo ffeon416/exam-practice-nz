@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "accounting",
   "timeMinutes": 50,
-  "totalMarks": 24,
+  "totalMarks": 18,
   "questions": [
     {
       "id": "acfn-q1",
@@ -229,19 +229,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 7
+      "max": 5
     },
     "achieved": {
-      "min": 8,
-      "max": 14
+      "min": 6,
+      "max": 10
     },
     "merit": {
-      "min": 15,
-      "max": 19
+      "min": 11,
+      "max": 14
     },
     "excellence": {
-      "min": 20,
-      "max": 24
+      "min": 15,
+      "max": 18
     }
   }
 }

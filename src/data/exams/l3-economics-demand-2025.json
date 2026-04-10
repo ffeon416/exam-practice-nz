@@ -11,7 +11,7 @@
     {
       "id": "l3ed25-q1a",
       "number": "1(a)",
-      "text": "Kea Solar Ltd installs residential solar panel systems across New Zealand. In 2025, the government ended a subsidy programme that previously covered up to $4,000 of each installation's cost.\n\nUsing a demand diagram, explain the impact of removing the subsidy on the demand for solar installations. Calculate the price elasticity of demand if the effective price increase of $4,000 (on a $20,000 system) caused an 18% fall in installations.",
+      "text": "Kea Solar Ltd installs residential solar panel systems across New Zealand. In 2025, the government ended a subsidy programme that previously covered up to $4,000 of each installation's cost.\n\nUsing a demand diagram, explain the impact of removing the subsidy on the demand for solar installations. Calculate the price elasticity of demand if the effective price increase from $16,000 to $20,000 (a 25% increase) caused an 18% fall in installations.",
       "marks": 5,
       "gradeLevel": "achieved",
       "topics": [
@@ -20,7 +20,7 @@
         "consumer responsiveness"
       ],
       "answerType": "text",
-      "expectedAnswer": "Removing the subsidy effectively increases the price to consumers by $4,000 (a 20% increase on a $20,000 system). Demand curve does not shift — this is a movement along the demand curve. PED = %ΔQd / %ΔP = -18% / 20% = -0.9. Demand is relatively inelastic (|PED| < 1), meaning quantity demanded is somewhat responsive but less than proportional to price changes.",
+      "expectedAnswer": "Removing the subsidy effectively increases the price to consumers from $16,000 to $20,000 (a 25% increase). Demand curve does not shift — this is a movement along the demand curve. PED = %ΔQd / %ΔP = -18% / 25% = -0.72. Demand is relatively inelastic (|PED| < 1), meaning quantity demanded is less than proportionally responsive to price changes.",
       "markingGuide": "Clear explanation of elasticity measure and interpretation with correct calculation.",
       "graph": {
         "type": "table",
@@ -55,7 +55,7 @@
               "PED calculation",
               "",
               "",
-              "-18% / +20% = -0.9"
+              "-18% / +25% = -0.72"
             ]
           ]
         }

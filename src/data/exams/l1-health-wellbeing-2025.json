@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "health",
   "timeMinutes": 45,
-  "totalMarks": 20,
+  "totalMarks": 16,
   "questions": [
     {
       "id": "l1hw-q1",
@@ -206,19 +206,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 5
+      "max": 4
     },
     "achieved": {
-      "min": 6,
-      "max": 11
+      "min": 5,
+      "max": 9
     },
     "merit": {
-      "min": 12,
-      "max": 16
+      "min": 10,
+      "max": 13
     },
     "excellence": {
-      "min": 17,
-      "max": 20
+      "min": 14,
+      "max": 16
     }
   }
 }

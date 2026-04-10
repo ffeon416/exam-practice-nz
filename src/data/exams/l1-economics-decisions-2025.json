@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "economics",
   "timeMinutes": 50,
-  "totalMarks": 22,
+  "totalMarks": 17,
   "questions": [
     {
       "id": "ecde-q1",
@@ -302,19 +302,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 6
+      "max": 5
     },
     "achieved": {
-      "min": 7,
-      "max": 13
+      "min": 6,
+      "max": 10
     },
     "merit": {
-      "min": 14,
-      "max": 18
+      "min": 11,
+      "max": 14
     },
     "excellence": {
-      "min": 19,
-      "max": 22
+      "min": 15,
+      "max": 17
     }
   }
 }

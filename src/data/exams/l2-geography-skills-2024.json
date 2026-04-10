@@ -6,7 +6,7 @@
   "year": 2024,
   "subject": "geography",
   "timeMinutes": 60,
-  "totalMarks": 8,
+  "totalMarks": 12,
   "questions": [
     {
       "id": "91243-2024-q1ai",
@@ -178,19 +178,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 2
+      "max": 3
     },
     "achieved": {
-      "min": 3,
-      "max": 4
-    },
-    "merit": {
-      "min": 5,
+      "min": 4,
       "max": 6
     },
-    "excellence": {
+    "merit": {
       "min": 7,
-      "max": 8
+      "max": 9
+    },
+    "excellence": {
+      "min": 10,
+      "max": 12
     }
   }
 }

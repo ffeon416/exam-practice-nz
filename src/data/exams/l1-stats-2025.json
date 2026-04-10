@@ -10,7 +10,7 @@
     {
       "id": "l1s25-q1a",
       "number": "1(a)",
-      "text": "The box-and-whisker plots below compare the prices of two brands of running shoes from an NZ sports retailer website. Brand A has n = 80 shoes and Brand B has n = 95 shoes.\n\nWhat percentage of Brand B running shoes cost more than $400?",
+      "text": "The box-and-whisker plots below compare the prices of two brands of running shoes from an NZ sports retailer website. Brand A has n = 80 shoes and Brand B has n = 95 shoes.\n\nApproximately what percentage of Brand B running shoes cost more than $240?",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -18,8 +18,8 @@
         "numerical-reasoning"
       ],
       "answerType": "working",
-      "expectedAnswer": "5.26%",
-      "markingGuide": "From the data, 5 out of 95 Brand B running shoes cost more than $400. 5 ÷ 95 = 0.0526 = 5.26%. Award Achieved for correct percentage with working shown.",
+      "expectedAnswer": "25%",
+      "markingGuide": "From the box plot, Brand B upper quartile is $240. By definition, 25% of values lie above the upper quartile. So approximately 25% of Brand B shoes cost more than $240. That is about 0.25 × 95 ≈ 24 shoes. Award Achieved for 25% with reference to the upper quartile.",
       "graph": {
         "type": "box-plot",
         "title": "Running Shoe Prices — Brand A vs Brand B",

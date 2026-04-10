@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "english",
   "timeMinutes": 60,
-  "totalMarks": 8,
+  "totalMarks": 32,
   "questions": [
     {
       "id": "eng25-25-q1",
@@ -14,7 +14,11 @@
       "text": "Drawing on examples and details from ONE or more text(s) you have studied, along with your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. These aspects may include, but are not limited to: character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 1: Discuss how an aspect of the setting deepened your understanding of a key idea in the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["studied-text", "ideas-themes", "personal-response"],
+      "topics": [
+        "studied-text",
+        "ideas-themes",
+        "personal-response"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Show understanding of specific aspects of the studied text by describing those aspects, explaining how they create engagement with or viewpoints on the text as prompted by the question, and including relevant details from the text for support. Merit (5-6): Show convincing understanding by explaining how aspects work together to shape engagement with or viewpoints on the text as prompted by the question, supported by relevant details. Excellence (7-8): Show perceptive understanding by discussing how aspects of the text have been used to shape engagement, viewpoints, or meaning as prompted by the question, with awareness of the creator's purpose or broader contexts (such as human experience, society, and the wider world), supported by well-chosen details."
     },
@@ -24,7 +28,11 @@
       "text": "Drawing on examples and details from ONE or more text(s) you have studied, along with your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. These aspects may include, but are not limited to: character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 2: Discuss how a character's journey helped you understand something about the wider world.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["studied-text", "character-analysis", "personal-response"],
+      "topics": [
+        "studied-text",
+        "character-analysis",
+        "personal-response"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Show understanding of specific aspects of the studied text by describing those aspects, explaining how they create engagement with or viewpoints on the text as prompted by the question, and including relevant details from the text for support. Merit (5-6): Show convincing understanding by explaining how aspects work together to shape engagement with or viewpoints on the text as prompted by the question, supported by relevant details. Excellence (7-8): Show perceptive understanding by discussing how aspects of the text have been used to shape engagement, viewpoints, or meaning as prompted by the question, with awareness of the creator's purpose or broader contexts (such as human experience, society, and the wider world), supported by well-chosen details."
     },
@@ -34,7 +42,11 @@
       "text": "Drawing on examples and details from ONE or more text(s) you have studied, along with your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. These aspects may include, but are not limited to: character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 3: Discuss how a moment of tension or turning point shaped your response to the text.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["studied-text", "conflict-tension", "personal-response"],
+      "topics": [
+        "studied-text",
+        "conflict-tension",
+        "personal-response"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Show understanding of specific aspects of the studied text by describing those aspects, explaining how they create engagement with or viewpoints on the text as prompted by the question, and including relevant details from the text for support. Merit (5-6): Show convincing understanding by explaining how aspects work together to shape engagement with or viewpoints on the text as prompted by the question, supported by relevant details. Excellence (7-8): Show perceptive understanding by discussing how aspects of the text have been used to shape engagement, viewpoints, or meaning as prompted by the question, with awareness of the creator's purpose or broader contexts (such as human experience, society, and the wider world), supported by well-chosen details."
     },
@@ -44,15 +56,31 @@
       "text": "Drawing on examples and details from ONE or more text(s) you have studied, along with your own knowledge and experiences, write a response to ONE of the following questions. Discuss at least TWO specific aspects of the studied text(s) in your response. These aspects may include, but are not limited to: character, ideas, setting, plot, style, purposes, language features or techniques, and structure.\n\nQuestion 4: Discuss how the author's use of structure or style helped you appreciate a significant theme.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["studied-text", "language-techniques", "ideas-themes"],
+      "topics": [
+        "studied-text",
+        "language-techniques",
+        "ideas-themes"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Show understanding of specific aspects of the studied text by describing those aspects, explaining how they create engagement with or viewpoints on the text as prompted by the question, and including relevant details from the text for support. Merit (5-6): Show convincing understanding by explaining how aspects work together to shape engagement with or viewpoints on the text as prompted by the question, supported by relevant details. Excellence (7-8): Show perceptive understanding by discussing how aspects of the text have been used to shape engagement, viewpoints, or meaning as prompted by the question, with awareness of the creator's purpose or broader contexts (such as human experience, society, and the wider world), supported by well-chosen details."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 8
+    },
+    "achieved": {
+      "min": 9,
+      "max": 16
+    },
+    "merit": {
+      "min": 17,
+      "max": 24
+    },
+    "excellence": {
+      "min": 25,
+      "max": 32
+    }
   }
 }

@@ -75,12 +75,12 @@
       ],
       "answerType": "working",
       "expectedAnswer": "≈ 135.0°",
-      "markingGuide": "Side = 52/4 = 13 cm. Half diagonal = 10/2 = 5 cm. Diagonals bisect at right angles. Other half-diagonal = √(13² – 5²) = √(169 – 25) = √144 = 12. The half of the SMALLER angle: sin(α/2) = 5/13, α/2 = 22.62°, α = 45.24°. Wait: cos(half of larger angle) = 5/13. Half angle = 67.38°. Larger angle = 134.76° ≈ 135°. Merit: Correct angle with clear trigonometric working."
+      "markingGuide": "Side = 52/4 = 13 cm. Half diagonal = 10/2 = 5 cm. Diagonals bisect at right angles. Other half-diagonal = √(13² – 5²) = √(169 – 25) = √144 = 12 cm, so the other diagonal is 24 cm. In the right triangle formed by half-diagonals and a side, the half of the smaller angle satisfies sin(α/2) = 5/13, so α/2 = 22.62° and the smaller angle α = 45.24°. The larger interior angle = 180° – 45.24° = 134.76° ≈ 135°. Merit: Correct angle with clear trigonometric working."
     },
     {
       "id": "l1r24-q2b",
       "number": "2(b)",
-      "text": "A rectangle has vertices A (top-left), B (top-right), D (bottom-left), E (bottom-right). A diagonal line from F on the left side to B at the top-right makes angle FBE = 35° with the bottom side. FD = 4 m along the bottom, DE = 20 m.\n\nFind the height of the rectangle.",
+      "text": "A rectangular building has base DE = 20 m along the ground, with vertical side EB of unknown height h. A surveyor stands at D and sights the top corner B. The angle of elevation from D to B is 35°.\n\nFind the height h of the building.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -88,8 +88,8 @@
         "measurement"
       ],
       "answerType": "working",
-      "expectedAnswer": "Height = DE × tan(35°) ≈ 14.00 m",
-      "markingGuide": "Using trigonometry in triangle with angle 35° at B: tan(35°) = height / DE. Height = 20 × tan(35°) = 20 × 0.7002 = 14.00 m. Achieved: Setting up a trigonometric ratio correctly. Merit: Correct height found."
+      "expectedAnswer": "h ≈ 14.00 m",
+      "markingGuide": "Using right-angled triangle DEB with the right angle at E, DE = 20 m (adjacent) and angle BDE = 35°. tan(35°) = h / DE. h = 20 × tan(35°) = 20 × 0.7002 = 14.00 m. Achieved: Setting up a trigonometric ratio correctly. Merit: Correct height found."
     },
     {
       "id": "l1r24-q2ci",
@@ -108,7 +108,7 @@
     {
       "id": "l1r24-q2cii",
       "number": "2(c)(ii)",
-      "text": "Given that the volume of the prism is 1108.544 m³, find the value of k. The cross-section is a trapezium with parallel sides 8k and 4k, height 2k√3, and the prism has depth 12k.",
+      "text": "Given that the volume of the prism is 1995.33 m³, find the value of k. The cross-section is a trapezium with parallel sides 8k and 4k, height 2k√3, and the prism has depth 12k.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -117,7 +117,7 @@
       ],
       "answerType": "working",
       "expectedAnswer": "k = 2",
-      "markingGuide": "Area of trapezium = ½(8k + 4k) × 2k√3 = ½ × 12k × 2k√3 = 12k²√3. Volume = area × depth = 12k²√3 × 12k = 144k³√3. Set equal: 144k³√3 = 1108.544. k³ = 1108.544 / (144 × 1.7321) = 1108.544 / 249.42 = 4.445... Hmm: 144√3 = 249.415. 249.415 × 8 = 1995.3. Not matching. Let me recalculate: Area of trapezium = ½(8k+4k)(2k√3) = 12k²√3. Volume = 12k²√3 × 12k = 144k³√3. For k=2: 144(8)(1.7321) = 1995.3. That doesn't equal 1108.544. Let me use a different volume. For k=2: volume = 144(8)(√3) = 1152√3 = 1995.3. Using volume = 1995.3, k=2. Actually let me recompute with consistent numbers. With area = ½(8k+4k)(2k√3) = ½(12k)(2k√3) = 12k²√3. Volume = 12k²√3 × 12k = 144k³√3. k=2: 144(8)(1.732) = 1995.26. So volume should be 1995.26. Excellence: Correct value k = 2 with clear algebraic working."
+      "markingGuide": "Area of trapezium = ½(8k + 4k) × 2k√3 = ½ × 12k × 2k√3 = 12k²√3. Volume = area × depth = 12k²√3 × 12k = 144k³√3. Set equal: 144k³√3 = 1995.33. k³ = 1995.33 / (144√3) = 1995.33 / 249.415 = 8. k = ∛8 = 2. Achieved: Correct expression for the area of the trapezium. Merit: Correct expression for volume in terms of k. Excellence: Correct value k = 2 with clear algebraic working."
     },
     {
       "id": "l1r24-q3a",

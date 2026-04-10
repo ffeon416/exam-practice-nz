@@ -6,7 +6,7 @@
   "year": 2024,
   "subject": "english",
   "timeMinutes": 50,
-  "totalMarks": 8,
+  "totalMarks": 64,
   "questions": [
     {
       "id": "eng99-24-q1",
@@ -14,7 +14,11 @@
       "text": "Analyse how the pacing of the text was used to build suspense or anticipation.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how pacing (e.g. editing rhythm, slow motion, montage, long takes) builds suspense or anticipation. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how pacing choices serve the director's or creator's purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how pacing creates tension and meaning, making judgments about how effects relate to the text's purpose and wider contexts."
     },
@@ -24,7 +28,11 @@
       "text": "Analyse how colour or lighting was used to deepen your understanding of a key idea.\n\n\"Idea\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how colour or lighting choices deepen understanding of a key idea. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how colour or lighting works to develop meaning beyond the surface level. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how colour or lighting creates layered meaning, making judgments about how visual effects relate to the text's purpose."
     },
@@ -34,7 +42,11 @@
       "text": "Analyse how an act of sacrifice or selflessness helped communicate the text's central message.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how an act of sacrifice or selflessness communicates the text's central message. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the sacrifice serves the director's or creator's broader purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the act of sacrifice functions thematically, making judgments about how effects and meanings relate to the purpose of the text(s) and wider contexts."
     },
@@ -44,7 +56,11 @@
       "text": "Analyse how dialogue or spoken language revealed the values or beliefs of one or more characters.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how dialogue or spoken language reveals character values or beliefs. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how what characters say (and how they say it) communicates their inner world. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how dialogue functions as a tool for character and thematic development, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -54,7 +70,11 @@
       "text": "Analyse how a character's transformation over the course of the text shaped your understanding of a theme.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a character's transformation shapes understanding of a theme. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how character change serves thematic development. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between character transformation and theme, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -64,7 +84,11 @@
       "text": "Analyse how contrasting scenes or sequences helped you appreciate an important idea.\n\n\"Idea\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how contrasting scenes or sequences develop an important idea. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how contrast between scenes builds meaning. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the function of contrast in developing ideas, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -74,7 +98,11 @@
       "text": "Analyse how the way a character was introduced shaped your initial impressions and how those impressions changed.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a character's introduction shapes and then shifts audience impressions. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how initial presentation and later development work together. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how character introduction and development manipulate audience response, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -84,15 +112,31 @@
       "text": "Analyse how recurring images or motifs helped develop the meaning of the text.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how recurring images or motifs develop meaning. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how repetition of visual or oral elements builds thematic depth. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how recurring images or motifs function as a unifying thread, making judgments about how effects and meanings relate to the purpose of the text(s) and wider contexts."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 16
+    },
+    "achieved": {
+      "min": 17,
+      "max": 32
+    },
+    "merit": {
+      "min": 33,
+      "max": 48
+    },
+    "excellence": {
+      "min": 49,
+      "max": 64
+    }
   }
 }

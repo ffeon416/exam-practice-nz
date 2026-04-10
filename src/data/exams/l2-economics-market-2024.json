@@ -6,23 +6,23 @@
   "year": 2024,
   "subject": "economics",
   "timeMinutes": 60,
-  "totalMarks": 24,
+  "totalMarks": 38,
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 7
+      "max": 11
     },
     "achieved": {
-      "min": 8,
-      "max": 13
+      "min": 12,
+      "max": 21
     },
     "merit": {
-      "min": 14,
-      "max": 18
+      "min": 22,
+      "max": 28
     },
     "excellence": {
-      "min": 19,
-      "max": 24
+      "min": 29,
+      "max": 38
     }
   },
   "questions": [

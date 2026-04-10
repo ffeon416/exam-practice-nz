@@ -6,7 +6,7 @@
   "year": 2024,
   "subject": "social-studies",
   "timeMinutes": 45,
-  "totalMarks": 20,
+  "totalMarks": 16,
   "questions": [
     {
       "id": "y10ss2-q1",
@@ -206,19 +206,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 6
+      "max": 5
     },
     "achieved": {
-      "min": 7,
-      "max": 12
+      "min": 6,
+      "max": 10
     },
     "merit": {
-      "min": 13,
-      "max": 16
+      "min": 11,
+      "max": 13
     },
     "excellence": {
-      "min": 17,
-      "max": 20
+      "min": 14,
+      "max": 16
     }
   }
 }

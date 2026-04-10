@@ -6,7 +6,7 @@
   "year": 2023,
   "subject": "english",
   "timeMinutes": 50,
-  "totalMarks": 8,
+  "totalMarks": 64,
   "questions": [
     {
       "id": "eng98-23-q1",
@@ -14,7 +14,11 @@
       "text": "Analyse how an unfamiliar or hostile environment revealed the true nature of one or more characters.\n\n\"Environment\" may refer to physical places as well as social and historical contexts.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how an unfamiliar or hostile environment reveals character. Show awareness of deliberate crafting. Include specific details from the text(s). Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the environment strips away pretence and exposes authentic character traits. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between environment and character revelation, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -24,7 +28,11 @@
       "text": "Analyse how a character's mistakes led you to a deeper understanding of a theme.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a character's mistakes contribute to understanding a theme. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how errors and consequences serve the author's thematic purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the character's mistakes function as a vehicle for thematic exploration, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -34,7 +42,11 @@
       "text": "Analyse how the author used contrasting perspectives to challenge the reader's assumptions.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how contrasting perspectives challenge the reader's assumptions. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the author uses multiple viewpoints to unsettle or broaden understanding. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how contrasting perspectives function to reshape reader thinking, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -44,7 +56,11 @@
       "text": "Analyse how the author's distinctive voice contributed to your engagement with the text.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the author's voice (tone, diction, style) creates engagement. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how specific aspects of voice deepen the reader's connection to the text. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how voice creates intimacy, authority, or emotional resonance, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -54,7 +70,11 @@
       "text": "Analyse how the narrative structure shaped the way you understood a significant event.\n\n\"Structure\" may refer to the order, organisation, or conventions of a text.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how narrative structure shapes understanding of an event. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how structural choices control the reader's experience of the event. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between structure and the reader's understanding, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -64,7 +84,11 @@
       "text": "Analyse how rising tension throughout the text led to a moment of resolution or revelation.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how tension builds and resolves. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the author constructs and releases tension for effect. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between tension and resolution, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -74,7 +98,11 @@
       "text": "Analyse how the text's exploration of a universal human experience made it meaningful to you.\n\n\"Universal human experience\" refers to feelings, situations, or ideas that people across cultures and times can relate to.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a universal experience gives the text meaning. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of what makes the text's exploration of this experience resonant. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the text connects the specific to the universal, making judgments about how effects and meanings relate to the purpose of the text(s) and wider contexts."
     },
@@ -84,15 +112,31 @@
       "text": "Analyse how a bond between characters helped you understand a different way of seeing the world.\n\nWrite an essay on at least ONE written text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["written-text", "language-features", "close-reading"],
+      "topics": [
+        "written-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a bond between characters opens up a different worldview. Show awareness of deliberate crafting. Include specific and relevant details. Merit (5-6): Convincingly address the question, presenting a reasoned discussion of how the relationship serves as a window into alternative perspectives. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the bond between characters broadens understanding, making judgments about how effects and meanings relate to the purpose of the text(s)."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 16
+    },
+    "achieved": {
+      "min": 17,
+      "max": 32
+    },
+    "merit": {
+      "min": 33,
+      "max": 48
+    },
+    "excellence": {
+      "min": 49,
+      "max": 64
+    }
   }
 }

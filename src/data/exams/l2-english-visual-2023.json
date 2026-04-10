@@ -6,7 +6,7 @@
   "year": 2023,
   "subject": "english",
   "timeMinutes": 50,
-  "totalMarks": 8,
+  "totalMarks": 64,
   "questions": [
     {
       "id": "eng99-23-q1",
@@ -14,7 +14,11 @@
       "text": "Analyse how the opening sequence established the mood and drew you into the world of the text.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the opening sequence creates mood and engages the viewer. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the opening uses visual and oral techniques to establish tone and draw the audience in. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the opening sequence functions as a carefully crafted introduction, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -24,7 +28,11 @@
       "text": "Analyse how a moment of silence or stillness created a powerful effect on the audience.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how silence or stillness creates a powerful effect (e.g. builds tension, reveals emotion, forces reflection). Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the absence of sound or movement serves a deeper purpose. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the significance of silence or stillness, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -34,7 +42,11 @@
       "text": "Analyse how visual techniques were used to show a character's inner world.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how visual techniques (cinematography, colour, lighting, framing, mise-en-scene) reveal a character's thoughts or emotions. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how visual choices externalise internal states. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how visual techniques create a nuanced portrayal of a character's psychology, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -44,7 +56,11 @@
       "text": "Analyse how a conflict between two characters revealed something important about human nature.\n\n\"Human nature\" may refer to qualities, instincts, or behaviours common to people.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a conflict between characters reveals something about human nature. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the conflict serves to illuminate human qualities or behaviours. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the conflict functions as a lens for understanding human nature, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -54,7 +70,11 @@
       "text": "Analyse how the use of music or sound design shaped your emotional response to a key scene.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how music or sound design shapes emotional response. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how sonic elements manipulate audience feelings and enhance meaning. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how music or sound design creates emotional depth and reinforces the text's themes, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -64,7 +84,11 @@
       "text": "Analyse how the physical environment of the text reflected or contrasted with the characters' situations.\n\n\"Physical environment\" refers to the locations, landscapes, or spaces shown in the text.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the physical environment mirrors or contrasts with characters' situations. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how environment and character are connected through visual/oral techniques. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about the relationship between environment and character experience, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -74,7 +98,11 @@
       "text": "Analyse how the ending of the text left you with something to think about.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how the ending provokes thought or leaves a lasting impression. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the ending is designed to linger with the audience and reinforce key ideas. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the ending creates resonance and invites reflection, making judgments about how effects and meanings relate to the purpose of the text(s)."
     },
@@ -84,15 +112,31 @@
       "text": "Analyse how a power imbalance between characters was used to explore an idea about society.\n\n\"Idea\" may refer to character, theme, or setting.\n\nWrite an essay on at least ONE visual or oral text that you have studied, in response to this question. Support the points you make with specific details from the text(s). You should aim to write a concise essay of no more than 4-5 pages.",
       "marks": 8,
       "gradeLevel": "achieved",
-      "topics": ["visual-text", "language-features", "close-reading"],
+      "topics": [
+        "visual-text",
+        "language-features",
+        "close-reading"
+      ],
       "answerType": "working",
       "markingGuide": "Achieved (3-4): Present a structured response using essay conventions and analysis-related terminology. Address how a power imbalance explores an idea about society. Show awareness of deliberate crafting. Include specific details. Merit (5-6): Convincingly address the question, showing clear understanding of how the power imbalance functions thematically. Weave a range of specific details. Excellence (7-8): Develop an insightful or original argument about how the power imbalance illuminates social ideas, making judgments about how effects and meanings relate to the purpose of the text(s)."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
+    "notAchieved": {
+      "min": 0,
+      "max": 16
+    },
+    "achieved": {
+      "min": 17,
+      "max": 32
+    },
+    "merit": {
+      "min": 33,
+      "max": 48
+    },
+    "excellence": {
+      "min": 49,
+      "max": 64
+    }
   }
 }

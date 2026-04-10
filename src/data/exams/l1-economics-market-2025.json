@@ -6,7 +6,7 @@
   "year": 2025,
   "subject": "economics",
   "timeMinutes": 50,
-  "totalMarks": 22,
+  "totalMarks": 16,
   "questions": [
     {
       "id": "ecmk-q1",
@@ -289,19 +289,19 @@
   "cutScores": {
     "notAchieved": {
       "min": 0,
-      "max": 6
+      "max": 4
     },
     "achieved": {
-      "min": 7,
-      "max": 13
+      "min": 5,
+      "max": 9
     },
     "merit": {
-      "min": 14,
-      "max": 18
+      "min": 10,
+      "max": 13
     },
     "excellence": {
-      "min": 19,
-      "max": 22
+      "min": 14,
+      "max": 16
     }
   }
 }

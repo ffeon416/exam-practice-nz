@@ -91,44 +91,82 @@ function LineChart({ data }: { data: GraphData }) {
   if (!series || !xVals || series.length === 0) return null;
 
   const allVals = series.flatMap((s) => s.values);
-  const minY = Math.min(...allVals);
-  const maxY = Math.max(...allVals);
+  const dataMaxY = Math.max(...allVals);
+  const dataMinY = Math.min(...allVals);
+
+  // Use nice round numbers for y-axis: start at 0 (or below), end at next round number above max
+  function niceCeil(v: number): number {
+    if (v <= 0) return 0;
+    const mag = Math.pow(10, Math.floor(Math.log10(v)));
+    const norm = v / mag;
+    if (norm <= 1) return 1 * mag;
+    if (norm <= 2) return 2 * mag;
+    if (norm <= 5) return 5 * mag;
+    return 10 * mag;
+  }
+  const minY = dataMinY < 0 ? -niceCeil(-dataMinY) : 0;
+  const maxY = niceCeil(dataMaxY);
   const minX = Math.min(...xVals);
   const maxX = Math.max(...xVals);
   const rangeY = maxY - minY || 1;
   const rangeX = maxX - minX || 1;
 
-  const W = 360;
-  const H = 200;
-  const pad = { l: 45, r: 20, t: 20, b: 35 };
+  const W = 380;
+  const H = 220;
+  const pad = { l: 50, r: 25, t: 25, b: 40 };
   const plotW = W - pad.l - pad.r;
   const plotH = H - pad.t - pad.b;
 
   function toX(v: number) { return pad.l + ((v - minX) / rangeX) * plotW; }
   function toY(v: number) { return pad.t + plotH - ((v - minY) / rangeY) * plotH; }
 
+  // Generate 5-6 nice y-axis tick values
+  const tickCount = 5;
+  const yTicks: number[] = [];
+  for (let i = 0; i <= tickCount; i++) {
+    yTicks.push(minY + (rangeY * i) / tickCount);
+  }
+
   return (
     <div className="my-3 bg-zinc-900/50 border border-zinc-800/50 rounded-lg p-4">
       {data.title && <p className="text-xs text-zinc-400 mb-3 font-medium">{data.title}</p>}
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" shapeRendering="geometricPrecision">
-        {/* Grid lines */}
-        {[0, 0.25, 0.5, 0.75, 1].map((f) => (
-          <g key={f}>
-            <line x1={pad.l} y1={pad.t + plotH * (1 - f)} x2={W - pad.r} y2={pad.t + plotH * (1 - f)} stroke="#27272a" strokeWidth="0.5" />
-            <text x={pad.l - 5} y={pad.t + plotH * (1 - f) + 4} fill="#71717a" fontSize="9" textAnchor="end">
-              {Math.round(minY + rangeY * f)}
-            </text>
-          </g>
+        {/* Y axis */}
+        <line x1={pad.l} y1={pad.t} x2={pad.l} y2={pad.t + plotH} stroke="#52525b" strokeWidth="1" />
+        {/* X axis */}
+        <line x1={pad.l} y1={pad.t + plotH} x2={W - pad.r} y2={pad.t + plotH} stroke="#52525b" strokeWidth="1" />
+        {/* Y grid lines and labels */}
+        {yTicks.map((tickVal, i) => {
+          const y = pad.t + plotH - ((tickVal - minY) / rangeY) * plotH;
+          return (
+            <g key={i}>
+              <line x1={pad.l} y1={y} x2={W - pad.r} y2={y} stroke="#27272a" strokeWidth="0.5" strokeDasharray="2,2" />
+              <text x={pad.l - 6} y={y + 3} fill="#a1a1aa" fontSize="10" textAnchor="end">
+                {Number.isInteger(tickVal) ? tickVal : tickVal.toFixed(1)}
+              </text>
+            </g>
+          );
+        })}
+        {/* Vertical grid lines at each x value */}
+        {xVals.map((v) => (
+          <line key={`vg-${v}`} x1={toX(v)} y1={pad.t} x2={toX(v)} y2={pad.t + plotH} stroke="#27272a" strokeWidth="0.5" strokeDasharray="2,2" />
         ))}
-        {/* X labels */}
-        {xVals.filter((_, i) => i % Math.ceil(xVals.length / 6) === 0 || i === xVals.length - 1).map((v) => (
-          <text key={v} x={toX(v)} y={H - pad.b + 15} fill="#71717a" fontSize="9" textAnchor="middle">{v}</text>
+        {/* X labels — show all data points */}
+        {xVals.map((v) => (
+          <text key={v} x={toX(v)} y={H - pad.b + 15} fill="#a1a1aa" fontSize="10" textAnchor="middle">{v}</text>
         ))}
         {/* Lines */}
         {series.map((s, si) => {
           const points = xVals.map((x, i) => `${toX(x)},${toY(s.values[i])}`).join(" ");
+          const color = s.color || COLORS[si % COLORS.length];
           return (
-            <polyline key={si} points={points} fill="none" stroke={s.color || COLORS[si % COLORS.length]} strokeWidth="2" strokeLinejoin="round" />
+            <g key={si}>
+              <polyline points={points} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
+              {/* Data point markers */}
+              {xVals.map((x, i) => (
+                <circle key={i} cx={toX(x)} cy={toY(s.values[i])} r="3.5" fill={color} stroke="#18181b" strokeWidth="1.5" />
+              ))}
+            </g>
           );
         })}
         {/* Axes labels */}
