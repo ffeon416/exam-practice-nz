@@ -26,7 +26,8 @@
       "gradeLevel": "achieved",
       "topics": ["genetics", "genetic-variation"],
       "answerType": "working",
-      "expectedAnswer": "A mutation is a permanent change in the base sequence of a DNA strand."
+      "expectedAnswer": "A mutation is a permanent change in the base sequence of a DNA strand.",
+      "markingGuide": "Achievement: States that a mutation is a change (or permanent change) in the DNA/base sequence. Accept answers referring to a change in the gene or genetic code."
     },
     {
       "id": "l1g25-q1bii",
