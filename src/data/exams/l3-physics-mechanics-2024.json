@@ -210,7 +210,7 @@
         "angular-frequency"
       ],
       "answerType": "working",
-      "expectedAnswer": "omega = 2 pi / T = 2 pi / 0.950 = 6.614 rad/s. x = A cos(omega t) = 0.0350 cos(6.614 x 1.30) = 0.0350 cos(8.598) = 0.0350 x (-0.6550) = -0.0229 m.",
+      "expectedAnswer": "omega = 2 pi / T = 2 pi / 0.950 = 6.614 rad s-1. x = A cos(omega t) = 0.0350 cos(6.614 x 1.30) = 0.0350 cos(8.598 rad) = 0.0350 x (-0.680) = -0.0238 m.",
       "markingGuide": "Achievement: omega correct. Merit: Minor mistake. Excellence: x = -0.0229 m."
     },
     {

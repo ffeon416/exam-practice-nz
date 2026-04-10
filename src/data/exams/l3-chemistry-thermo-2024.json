@@ -19,7 +19,7 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "IF5: Lewis structure shows Br central atom with 5 bonding pairs to F atoms and 1 lone pair. Shape: square pyramidal. BrF4-: I central atom with 4 bonding pairs and 2 lone pairs. Shape: square planar.",
+      "expectedAnswer": "IF5: Lewis structure shows I as the central atom with 5 bonding pairs to F atoms and 1 lone pair on I. Shape: square pyramidal. BrF4-: Br as the central atom with 4 bonding pairs to F atoms and 2 lone pairs on Br. Shape: square planar.",
       "markingGuide": "Achievement: TWO correct Lewis structures with shapes.",
       "graph": {
         "type": "table",
@@ -48,7 +48,7 @@
     {
       "id": "l3ct24-q1bi",
       "number": "1(b)(i)",
-      "text": "The reaction between boron trifluoride, BF3(g), and hydrogen, H2(g), is explosive:\n\n2BF3(g) + 3H2(g) -> 6HF(g) + N2(g)\n\nCalculate DrH for the reaction, given:\n\nN2H4(l) + 2F2(g) -> N2(g) + 4HF(g)   DrH = -1094 kJ mol-1\nBF3(g) + 3/2H2(g) -> NH3(g) + 3/2F2(g)   DrH = +260 kJ mol-1\nN2H4(l) + H2(g) -> 2NH3(g)   DrH = -188 kJ mol-1\n",
+      "text": "The formation of methane from its elements is represented by:\n\nC(s) + 2H2(g) -> CH4(g)\n\nCalculate DrH for this reaction using Hess's law, given the following standard enthalpies of combustion:\n\nC(s) + O2(g) -> CO2(g)   DrH = -394 kJ mol-1\nH2(g) + 1/2 O2(g) -> H2O(l)   DrH = -286 kJ mol-1\nCH4(g) + 2O2(g) -> CO2(g) + 2H2O(l)   DrH = -890 kJ mol-1",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -57,13 +57,13 @@
         "enthalpy"
       ],
       "answerType": "working",
-      "expectedAnswer": "Using Hess's law: manipulate and combine the given equations to get the target equation. DrH = -1866 kJ mol-1 (accept variations depending on manipulation).",
+      "expectedAnswer": "Using Hess's law: Target = (1) + 2 x (2) - (3). DrH = (-394) + 2(-286) - (-890) = -394 - 572 + 890 = -76 kJ mol-1.",
       "markingGuide": "Achievement: Recognises need to manipulate equations. Merit: Correct process with one error. Excellence: Correct answer with units."
     },
     {
       "id": "l3ct24-q1bii",
       "number": "1(b)(ii)",
-      "text": "Justify, in terms of the entropy changes of the system and the surroundings, why the reaction between BF3 and H2 is spontaneous.\n\n2BF3(g) + 3H2(g) -> 6HF(g) + N2(g)",
+      "text": "Justify, in terms of the entropy changes of the system and the surroundings, why the combustion of methane is spontaneous.\n\nCH4(g) + 2O2(g) -> CO2(g) + 2H2O(l)   DrH = -890 kJ mol-1",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
@@ -72,13 +72,13 @@
         "spontaneity"
       ],
       "answerType": "working",
-      "expectedAnswer": "The reaction is highly exothermic, so heat released to surroundings increases their entropy (positive dS_surr). The system goes from 5 moles of gas to 7 moles, increasing disorder (positive dS_sys). Both contributions make dS_total positive, so the reaction is spontaneous.",
+      "expectedAnswer": "The combustion is highly exothermic (DrH = -890 kJ mol-1), so a large amount of heat is released to the surroundings. This increases the entropy of the surroundings (DS_surr = -DrH / T is positive). The system changes from 3 mol of gas (1 CH4 + 2 O2) to 1 mol of gas (CO2) plus 2 mol of liquid water, so the system entropy decreases (DS_sys is negative and relatively small). However, the positive DS_surr is much larger in magnitude than the negative DS_sys, so the total entropy change DS_total = DS_sys + DS_surr is positive. Because DS_total > 0, the reaction is spontaneous.",
       "markingGuide": "Achievement: Recognises entropy is positive. Merit: Explains entropy for system and surroundings. Excellence: Fully justifies spontaneity."
     },
     {
       "id": "l3ct24-q2ai",
       "number": "2(a)(i)",
-      "text": "The table gives electron configurations of three elements.\n\nXenon, Xe: 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6\nXeypton, Xe: 1s2 2s2 2p6 3s2 3p6\nSelenium, Se: 1s2 2s2 2p6 3s2 3p4\n\nWhen considering the 3p4 part of the electron configuration of sulfur, what is represented by:\n3\np\n4",
+      "text": "The table gives electron configurations of three elements.\n\nKrypton, Kr: 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6\nArgon, Ar: 1s2 2s2 2p6 3s2 3p6\nSulfur, S: 1s2 2s2 2p6 3s2 3p4\n\nWhen considering the 3p4 part of the electron configuration of sulfur, what is represented by:\n3\np\n4",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -93,7 +93,7 @@
     {
       "id": "l3ct24-q2aii",
       "number": "2(a)(ii)",
-      "text": "Krrange Xe, Kr, and S in order of decreasing first ionisation energy. Justify your order using periodic trends.",
+      "text": "Arrange Kr, Ar, and S in order of decreasing first ionisation energy. Justify your order using periodic trends.",
       "marks": 5,
       "gradeLevel": "merit",
       "topics": [
@@ -102,7 +102,7 @@
         "periodic-trends"
       ],
       "answerType": "working",
-      "expectedAnswer": "Order: Kr > S > Xe (approximately). Kr has the highest IE because it has a full outer shell (stable configuration). S has a lower IE than Kr because it has fewer protons for the same shell. Xe has lower IE than Kr because it has more electron shells (greater shielding/distance).",
+      "expectedAnswer": "Order of decreasing first ionisation energy: Ar > Kr > S. Ar has the highest IE because it is a noble gas with a full n=3 outer shell (very stable electron configuration) and a relatively small atomic radius. Kr also has a full outer shell but its outer (4p) electrons are further from the nucleus and more shielded by additional inner shells, so less energy is required to remove an electron. S has the lowest IE of the three because it has only 6 electrons in its outer shell (3p4), which is a less stable configuration and the outer electron is more easily removed.",
       "markingGuide": "Achievement: Recognises one factor. Merit: Explains with two factors. Excellence: Justifies for all three."
     },
     {
@@ -117,7 +117,7 @@
         "polarity"
       ],
       "answerType": "working",
-      "expectedAnswer": "In trigonal planar, the 3 Cl-F dipoles cancel symmetrically. In T-shaped (with 2 lone pairs in equatorial positions), the dipoles do NOT cancel, giving a net dipole. Since BrF3 is polar, it must be T-shaped.",
+      "expectedAnswer": "In a trigonal planar arrangement, the three Br-F bond dipoles are arranged symmetrically at 120 degrees to one another and cancel, giving no net dipole (non-polar). In the T-shaped arrangement (with two lone pairs occupying equatorial positions of the trigonal bipyramidal electron geometry), the three Br-F dipoles do not cancel — the axial Br-F dipoles oppose each other but the equatorial Br-F dipole is unopposed — giving a net dipole moment. Because BrF3 is observed to be polar, its molecular shape must be T-shaped, not trigonal planar.",
       "markingGuide": "Achievement: Identifies polarity of each shape. Merit: Compares using dipole arrangement. Excellence: Full explanation with lone pair positions."
     },
     {
@@ -131,13 +131,13 @@
         "intermolecular-forces"
       ],
       "answerType": "working",
-      "expectedAnswer": "CH3NH2: Hydrogen bonding, permanent dipole-dipole, London dispersion forces. HCl: Permanent dipole-dipole, London dispersion forces. Butane: London dispersion forces only.",
+      "expectedAnswer": "Ethylamine, CH3CH2NH2: hydrogen bonding (via N-H), permanent dipole-dipole, London dispersion forces. Hydrogen bromide, HBr: permanent dipole-dipole and London dispersion forces (no hydrogen bonding — the H-Br bond is too weakly polar and Br is not N/O/F). Pentane, C5H12: London (dispersion) forces only.",
       "markingGuide": "Achievement: Two rows correct."
     },
     {
       "id": "l3ct24-q3aii",
       "number": "3(a)(ii)",
-      "text": "Explain the difference in the boiling points of ethylamine and hydrogen chloride.",
+      "text": "Explain the difference in the boiling points of ethylamine and hydrogen bromide.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -146,13 +146,13 @@
         "boiling-point"
       ],
       "answerType": "working",
-      "expectedAnswer": "Despite HCl being more polarisable, CH3NH2 has hydrogen bonding (H bonded to N) which is stronger than the dipole-dipole forces in HCl. However, HCl has a much lower bp because it lacks H-bonding and has weaker overall forces.",
+      "expectedAnswer": "Ethylamine (bp 17 degrees C) has a much higher boiling point than hydrogen bromide (bp -67 degrees C). Ethylamine molecules can form hydrogen bonds between the N-H of one molecule and the lone pair on N of another molecule, which are strong intermolecular forces requiring significant energy to overcome. HBr only has weaker permanent dipole-dipole attractions and London dispersion forces; it cannot hydrogen-bond because Br is not electronegative enough (and is not N, O, or F). The stronger hydrogen bonds in ethylamine mean more energy is needed to separate the molecules, giving a higher boiling point.",
       "markingGuide": "Achievement: Recognises H-bonding is stronger. Merit: Explains why ethylamine has higher bp."
     },
     {
       "id": "l3ct24-q3aiii",
       "number": "3(a)(iii)",
-      "text": "Explain why the boiling point of butane is higher than that of hydrogen chloride.",
+      "text": "Explain why the boiling point of pentane is higher than that of hydrogen bromide.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -161,13 +161,13 @@
         "boiling-point"
       ],
       "answerType": "working",
-      "expectedAnswer": "Butane has only London dispersion forces, but it has a much larger molecular size with more electrons, giving stronger LDF than the weaker forces in the smaller HCl molecule.",
+      "expectedAnswer": "Pentane (C5H12, bp 36 degrees C) has only London dispersion forces, whereas HBr (bp -67 degrees C) has both dipole-dipole and London dispersion forces. Despite HBr having dipole-dipole attraction in addition to dispersion forces, pentane's much larger electron cloud (more electrons, larger surface area) produces significantly stronger total London dispersion forces than the combined intermolecular forces of the small HBr molecule. Because pentane's overall intermolecular forces are stronger, more energy is needed to separate the molecules and it has a higher boiling point.",
       "markingGuide": "Achievement: Recognises size/electron cloud. Merit: Explains chain length gives stronger forces. Excellence: Compares all three."
     },
     {
       "id": "l3ct24-q3bi",
       "number": "3(b)(i)",
-      "text": "The enthalpy of combustion of ethanol, C2H5OH, was determined experimentally. The ethanol was combusted to heat water.\n\nData: initial water temp = 20.5 degrees C, final = 28.7 degrees C, initial mass of burner and ethanol = 58.2 g, final = 57.6 g.\n\nThe student calculated DcH(C2H5OH(l)) = -726 kJ mol-1.\nSpecific heat capacity of water = 4.18 J g-1 degC-1.\nM(C2H5OH) = 32.0 g mol-1\n\nCalculate the mass of the water in the beaker.",
+      "text": "The enthalpy of combustion of ethanol, C2H5OH, was determined experimentally. The ethanol was combusted to heat water.\n\nData: initial water temp = 20.5 degrees C, final = 28.7 degrees C, initial mass of burner and ethanol = 58.2 g, final = 57.6 g.\n\nThe student calculated DcH(C2H5OH(l)) = -726 kJ mol-1.\nSpecific heat capacity of water = 4.18 J g-1 degC-1.\nM(C2H5OH) = 46.1 g mol-1\n\nCalculate the mass of the water in the beaker.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -176,7 +176,7 @@
         "calorimetry"
       ],
       "answerType": "working",
-      "expectedAnswer": "Mass of ethanol burned = 61.4 - 60.9 = 0.500 g. n = 0.500/32.0 = 0.015625 mol. Energy = 0.015625 x 640 = 10.0 kJ = 10000 J. q = mcDT: 10000 = m x 4.18 x 8.5. m = 10000/35.53 = 281 g.",
+      "expectedAnswer": "Mass of ethanol burned = 58.2 - 57.6 = 0.600 g. n(ethanol) = 0.600 / 46.1 = 0.01302 mol. Energy released = n x DcH = 0.01302 x 726 = 9.45 kJ = 9450 J. Temperature change DT = 28.7 - 20.5 = 8.2 degrees C. Using q = mcDT: 9450 = m x 4.18 x 8.2. m = 9450 / (4.18 x 8.2) = 9450 / 34.28 = 276 g of water.",
       "markingGuide": "Achievement: One step correct. Merit: Correct process with one error. Excellence: Correct mass."
     },
     {

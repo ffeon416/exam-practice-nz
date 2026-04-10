@@ -337,7 +337,7 @@
         "chemical-tests"
       ],
       "answerType": "working",
-      "expectedAnswer": "The compound must have a C=C double bond (for cis-trans), a straight chain, and a secondary alcohol (oxidises to ketone which does not react with Benedict's).",
+      "expectedAnswer": "An example is 1-bromopent-3-en-2-ol: BrCH2-CH(OH)-CH=CH-CH3. Formula C5H9BrO. It is a straight chain, has a C=C double bond with two different groups on each sp2 carbon (so it shows cis-trans isomerism), and the -OH is on a secondary carbon (C2), so acidified dichromate oxidises it to a ketone (1-bromopent-3-en-2-one). Ketones do not react with Benedict's reagent, matching the observation. Orange to green colour change confirms the oxidation by dichromate.",
       "markingGuide": "Achievement: Draws a C=C bond or secondary alcohol. Merit: Correct formula for one part. Excellence: Correct formulae for both (ii) and (iii)."
     }
   ],

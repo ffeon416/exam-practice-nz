@@ -11,7 +11,7 @@
     {
       "id": "stat584-25-q1a",
       "number": "1(a)",
-      "text": "A report from a polling company states: 'Our latest poll of 1,100 randomly selected Auckland residents shows that 41% support a congestion charges, with a margin of error of ±3.0%. This is a notable shift from our previous poll six months ago, which showed support at 48%.'\n\nCalculate a confidence interval for the current level of support for a congestion charges. Based on the two polls, can we be confident that support has actually decreased? Justify your answer using the margins of error.",
+      "text": "A report from a polling company states: 'Our latest poll of 1,100 randomly selected Auckland residents shows that 41% support a congestion charge, with a margin of error of ±3.0%. This is a notable shift from our previous poll six months ago, which showed 48% support (same sample size and margin of error).'\n\nCalculate a confidence interval for the current level of support for a congestion charge. Based on the two polls, can we be confident that support has actually decreased? Justify your answer using the margins of error.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,7 +19,7 @@
         "confidence-intervals"
       ],
       "answerType": "working",
-      "expectedAnswer": "Current poll CI: 41% ± 3.0% = (38%, 44%). Previous poll: assuming similar margin of error ~±3.0%, CI would be (48.2%, 53.8%). Since the intervals do not overlap (44% < 48.2%), there is evidence of a real decrease in support.",
+      "expectedAnswer": "Current poll CI: 41% ± 3.0% = (38%, 44%). Previous poll CI: 48% ± 3.0% = (45%, 51%). Since the two intervals do not overlap (44% < 45%), there is evidence of a real decrease in support for the congestion charge.",
       "markingGuide": "Achieved: Calculates the confidence interval for the current poll correctly as (38%, 44%). Merit: Considers both confidence intervals and discusses whether they overlap to assess if the change is real. Excellence: Discusses the non-overlapping CIs as strong evidence of a real difference, notes that both polls have their own sampling variability, and considers that other factors may have influenced the change."
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": "stat584-25-q1c",
       "number": "1(c)",
-      "text": "A rival polling company conducted their own poll using an online panel of 7,000 volunteers who opted in to participate in surveys. Their poll showed 47% support for a congestion charges.\n\nThe rival company argues their poll is more accurate because their sample size is much larger. Evaluate this claim.",
+      "text": "A rival polling company conducted their own poll using an online panel of 7,000 volunteers who opted in to participate in surveys. Their poll showed 47% support for a congestion charge.\n\nThe rival company argues their poll is more accurate because their sample size is much larger. Evaluate this claim.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -48,8 +48,8 @@
         "sampling-bias"
       ],
       "answerType": "text",
-      "expectedAnswer": "The rival company's claim is not justified. While a larger sample size does reduce the margin of error (it would be roughly ±1.1% for n=8000), this only measures random sampling error. The fundamental problem is that an online panel of volunteers is not a random sample — it suffers from self-selection bias and coverage bias. A large biased sample does not give better estimates than a smaller random sample. The margin of error formula assumes random sampling, so the ±1.1% would be misleading — the actual uncertainty could be much larger due to systematic bias.",
-      "markingGuide": "Achieved: Notes that volunteer samples are not random. Merit: Explains that larger sample size reduces random error but does not fix bias, and identifies the self-selection problem. Excellence: Clearly distinguishes between random sampling error (reduced by larger n) and systematic bias (not reduced by larger n). Explains that the margin of error formula doesn't apply to non-random samples. Discusses why the 1,200-person random sample may actually be more reliable despite being smaller."
+      "expectedAnswer": "The rival company's claim is not justified. While a larger sample size does reduce the margin of error (it would be roughly ±1.2% for n = 7000), this only measures random sampling error. The fundamental problem is that an online panel of volunteers is not a random sample — it suffers from self-selection bias and coverage bias. A large biased sample does not give better estimates than a smaller random sample. The margin of error formula assumes random sampling, so the ±1.2% would be misleading — the actual uncertainty could be much larger due to systematic bias.",
+      "markingGuide": "Achieved: Notes that volunteer samples are not random. Merit: Explains that larger sample size reduces random error but does not fix bias, and identifies the self-selection problem. Excellence: Clearly distinguishes between random sampling error (reduced by larger n) and systematic bias (not reduced by larger n). Explains that the margin of error formula doesn't apply to non-random samples. Discusses why the 1,100-person random sample may actually be more reliable despite being smaller."
     },
     {
       "id": "stat584-25-q2a",

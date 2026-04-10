@@ -19,7 +19,7 @@
         "sampling-methods"
       ],
       "answerType": "text",
-      "expectedAnswer": "The margin of error of 4.1% means that we can be reasonably confident (95% confident) that the true proportion of all New Zealanders who believe electric vehicles should be subsidised lies within 4.0 percentage points of the sample estimate. That is, somewhere between 50.8% and 59.1%.",
+      "expectedAnswer": "The margin of error of 4.1% means that we can be reasonably confident (95% confident) that the true proportion of all New Zealanders who believe electric vehicles should be subsidised lies within 4.1 percentage points of the sample estimate. That is, approximately between 50.9% and 59.1%.",
       "markingGuide": "Achieved: States that the true proportion is likely within 4.1% of 55%, or gives the interval 50.8%–59.1%. Merit: Explains that this gives a confidence interval and relates it to the population parameter. Excellence: Explains the concept fully — connects to sampling variability, notes the 95% confidence level, and correctly interprets in context."
     },
     {
@@ -76,7 +76,7 @@
         "study-design"
       ],
       "answerType": "text",
-      "expectedAnswer": "1. Funding bias: The app company has a financial interest in positive results. This could lead to publication bias (only publishing favourable results), selective reporting of outcomes, or design choices that favour a positive finding.\n2. Lack of blinding: If participants knew which app they were using, this introduces the placebo effect — those using the real mindfulness programme may feel less anxietyed simply because they expect it to work. Those on the relaxation control may not engage as sincerely. This means the 25% reduction may not be entirely due to the mindfulness itself.",
+      "expectedAnswer": "1. Funding bias: The company that developed the mindfulness programme has a financial interest in positive results. This could lead to publication bias (only publishing favourable results), selective reporting of outcomes, or design choices that favour a positive finding.\n2. Lack of blinding: Because participants knew which group they were in, this introduces the placebo effect — those using the mindfulness programme may feel less anxious simply because they expect it to work, while those on the relaxation control may not engage as sincerely. This means the 25% reduction may not be entirely due to the mindfulness technique itself.",
       "markingGuide": "Achieved: Identifies one factor and gives a brief explanation. Merit: Discusses both factors clearly — explains how funding source creates potential bias and how lack of blinding introduces the placebo effect. Excellence: Provides detailed discussion of both factors, explains the direction of bias (both would tend to overstate the benefit), discusses what 'double-blind' means and why it matters, and considers the overall impact on the reliability of the 25% claim."
     },
     {
@@ -91,7 +91,7 @@
         "statistical-significance"
       ],
       "answerType": "text",
-      "expectedAnswer": "The university study provides stronger evidence because: (1) It used a double-blind design, eliminating placebo effects and observer bias. (2) It was independently funded, reducing potential funding bias. (3) It had a larger sample size (4,000 vs 1,500), giving it more statistical power to detect a real effect. (4) Despite the larger sample size and more rigorous design, the effect was smaller (8% vs 25%) and not statistically significant (p = 0.11 > 0.05). This suggests the true effect of the mindfulness programme on anxiety is smaller than the first study claimed, and may not be real. The larger, better-designed study finding a smaller, non-significant effect is more trustworthy than the smaller, potentially biased study finding a larger, significant effect.",
+      "expectedAnswer": "The university study provides stronger evidence because: (1) It used a double-blind design, eliminating placebo effects and observer bias. (2) It was independently funded, reducing potential funding bias. (3) It had a larger sample size (3,500 vs 1,800), giving it more statistical power to detect a real effect. (4) Despite the larger sample size and more rigorous design, the effect was smaller (8% vs 25%) and not statistically significant (p = 0.11 > 0.05). This suggests the true effect of the mindfulness programme on anxiety is smaller than the first study claimed, and may not be real. The larger, better-designed study finding a smaller, non-significant effect is more trustworthy than the smaller, potentially biased study finding a larger, significant effect.",
       "markingGuide": "Achieved: Identifies that the second study has better design features. Merit: Compares the studies on at least two dimensions (sample size, blinding, funding, significance) and concludes the second study is more reliable. Excellence: Provides a comprehensive comparison covering study design (double-blind vs not), sample size, independence of funding, the contradiction in results, and explains why the second study's non-significant finding with better methodology is more convincing than the first study's significant finding with poorer methodology. May also note that p = 0.11 is not far from 0.05 and discuss what this means."
     }
   ],

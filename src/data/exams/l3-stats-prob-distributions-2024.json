@@ -56,7 +56,7 @@
     {
       "id": "st586-24-q1b",
       "number": "1b",
-      "text": "A exporter wants to sell bags of kiwifruit that contain the heaviest 80% of kiwifruit from this orchard.\n\n(i) Find the minimum weight of kiwifruit that would be included in these bags.\n(ii) What percentage of kiwifruit would be rejected (too light) for the bags?",
+      "text": "An exporter wants to sell bags of kiwifruit that contain the heaviest 80% of kiwifruit from this orchard.\n\n(i) Find the minimum weight of kiwifruit that would be included in these bags.\n(ii) What percentage of kiwifruit would be rejected (too light) for the bags?",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
@@ -108,7 +108,7 @@
     {
       "id": "st586-24-q3b",
       "number": "3b",
-      "text": "The volume of milk in bottles is normally distributed with a mean of 510 mL and a standard deviation of 8 mL. Bottles are labelled as containing 500 mL of milk.\n\n(i) Find the probability that a randomly selected carton contains less than the labelled volume.\n(ii) The manufacturer wants no more than 2% of cartons to be underfilled. To what value should the mean volume be set, assuming the standard deviation stays at 8 mL?",
+      "text": "The volume of milk in bottles is normally distributed with a mean of 510 mL and a standard deviation of 8 mL. Bottles are labelled as containing 500 mL of milk.\n\n(i) Find the probability that a randomly selected bottle contains less than the labelled volume.\n(ii) The manufacturer wants no more than 2% of bottles to be underfilled. To what value should the mean volume be set, assuming the standard deviation stays at 8 mL?",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [

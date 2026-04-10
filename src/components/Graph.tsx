@@ -234,9 +234,20 @@ function LineChart({ data }: { data: GraphData }) {
           return (
             <g key={si}>
               <polyline points={points} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
-              {xVals.map((x, i) => (
-                <circle key={i} cx={toX(x)} cy={toY(s.values[i])} r="5" fill="white" stroke={color} strokeWidth="2.5" />
-              ))}
+              {xVals.map((x, i) => {
+                const cx = toX(x);
+                const cy = toY(s.values[i]);
+                const v = s.values[i];
+                const labelAbove = i === 0 || s.values[i] >= (s.values[i - 1] || 0);
+                return (
+                  <g key={i}>
+                    <circle cx={cx} cy={cy} r="6" fill={color} stroke="white" strokeWidth="2.5" />
+                    {/* Value label with white background for readability */}
+                    <rect x={cx - 18} y={cy - (labelAbove ? 24 : -10)} width="36" height="16" rx="3" fill="white" stroke={color} strokeWidth="1" />
+                    <text x={cx} y={cy - (labelAbove ? 12 : -22)} fill="#18181b" fontSize="12" fontWeight="700" textAnchor="middle">{v}</text>
+                  </g>
+                );
+              })}
             </g>
           );
         })}

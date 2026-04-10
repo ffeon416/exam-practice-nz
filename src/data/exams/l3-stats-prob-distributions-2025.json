@@ -69,7 +69,7 @@
     {
       "id": "st586-25-q2a",
       "number": "2a",
-      "text": "Calls to a IT help desk arrive at an average rate of 5 per hour, following a Poisson distribution.\n\n(i) Find the probability of receiving exactly 8 calls in a 2-hour period.\n(ii) Find the probability of receiving no calls in a 15-minute period.\n(iii) The service has 4 operators. Each call takes exactly 15 minutes. What is the probability that a call cannot be answered immediately (all operators are busy)?",
+      "text": "Calls to an IT help desk arrive at an average rate of 5 per hour, following a Poisson distribution.\n\n(i) Find the probability of receiving exactly 8 calls in a 2-hour period.\n(ii) Find the probability of receiving no calls in a 15-minute period.\n(iii) The service has 4 operators. Each call takes exactly 15 minutes. What is the probability that a call cannot be answered immediately (all operators are busy)?",
       "marks": 5,
       "gradeLevel": "merit",
       "topics": [
@@ -77,7 +77,7 @@
         "probability-distributions"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) In 2 hours, λ = 10. P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126. (ii) In 15 min, λ = 5/4 = 1.25. P(X = 0) = e⁻¹·²⁵ = 0.2865. Merit: (iii) In any 15-minute window, λ = 1.25. All operators busy means 4 or more calls. P(X ≥ 4) = 1 - P(X ≤ 3). Using Poisson with λ=1.25.",
+      "markingGuide": "Achievement: (i) In 2 hours, λ = 10. P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126. (ii) In 15 min, λ = 5/4 = 1.25. P(X = 0) = e⁻¹·²⁵ ≈ 0.2865. Merit: (iii) In any 15-minute window (the duration of a call), λ = 1.25. All 4 operators are busy when X ≥ 4. P(X ≥ 4) = 1 – P(X ≤ 3). With λ = 1.25: P(0) ≈ 0.2865, P(1) ≈ 0.3581, P(2) ≈ 0.2238, P(3) ≈ 0.0932. P(X ≤ 3) ≈ 0.9616. Therefore P(X ≥ 4) ≈ 0.0384, i.e. about 3.8% of calls cannot be answered immediately.",
       "graph": {
         "type": "bar",
         "title": "Poisson Distribution — Calls per Hour (mean=5)",

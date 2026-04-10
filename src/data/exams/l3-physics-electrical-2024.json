@@ -69,7 +69,7 @@
         "kirchhoffs-voltage-law"
       ],
       "answerType": "working",
-      "expectedAnswer": "Effective EMF = 60.0 - 48.0 = 13.5 V. Total R = 14.0 + 0.800 = 14.8 ohm. I = 12.0/14.8 = 0.811 A. V_terminal = 48.0 + (0.811 x 0.800) = 48.6 V.",
+      "expectedAnswer": "During charging, the charger drives current against the battery EMF. Net EMF around the loop = 60.0 - 48.0 = 12.0 V. Total resistance = 14.0 + 0.800 = 14.8 ohm. Circuit current I = 12.0 / 14.8 = 0.811 A. Terminal voltage across the battery = EMF_battery + I x r_internal = 48.0 + (0.811 x 0.800) = 48.6 V.",
       "markingGuide": "Achievement: One step correct. Merit: I correct. Excellence: V_terminal = 48.6 V."
     },
     {
@@ -135,7 +135,7 @@
     {
       "id": "91526-24-q2d",
       "number": "2(d)",
-      "text": "Liam connects a 0.500 H inductor and a lamp of resistance 2.50 ohm in series to a battery. The lamp takes some time to reach full brightness.\n\nCalculate the current through the lamp after 0.500 seconds.\n\nBegin by calculating the time constant.",
+      "text": "Liam connects a 0.500 H inductor and a lamp of resistance 2.50 ohm in series to a 48.0 V DC battery. The lamp takes some time to reach full brightness.\n\nCalculate the current through the lamp after 0.500 seconds.\n\nBegin by calculating the time constant.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -145,7 +145,7 @@
         "rl-circuit"
       ],
       "answerType": "working",
-      "expectedAnswer": "I_max = V/R = 48.0/2.50 = 19.2 A (using 48V supply). Actually, let me use a generic approach: tau = L/R = 0.500/2.50 = 0.200 s. 0.500 s = 2 tau. I = I_max(1 - 1/e^2) = I_max x 0.8647. If V = 13.5 V: I_max = 12.0/2.50 = 4.80 A. I = 4.80 x 0.8647 = 4.15 A.",
+      "expectedAnswer": "Time constant tau = L/R = 0.500 / 2.50 = 0.200 s. After t = 0.500 s, t/tau = 0.500/0.200 = 2.50, so I(t) = I_max x (1 - e^(-2.50)) = I_max x (1 - 0.0821) = 0.9179 x I_max. I_max = V/R = 48.0/2.50 = 19.2 A. I(0.500) = 0.9179 x 19.2 = 17.6 A.",
       "markingGuide": "Achievement: tau = 0.200 s OR I_max. Merit: Correct sub-calculations. Excellence: Correct I."
     },
     {

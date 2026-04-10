@@ -73,7 +73,7 @@
         "evaluating-claims"
       ],
       "answerType": "working",
-      "markingGuide": "Achievement: Current CI = ($25.50, $30.50). Previous CI = ($14.50, $21.50). Merit: Since the two confidence intervals do not overlap ($25 < $29), there is evidence of a statistically significant increase in average weekly streaming spending. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny.",
+      "markingGuide": "Achievement: Current CI = 28 ± 2.50 = ($25.50, $30.50). Previous CI = 18 ± 3.50 = ($14.50, $21.50). Merit: Since the two confidence intervals do not overlap (the lowest plausible current value, $25.50, is higher than the highest plausible previous value, $21.50), there is strong evidence of an increase in average weekly streaming spending. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny.",
       "graph": {
         "type": "bar",
         "title": "Average Weekly Streaming Spending — NZ Households",
@@ -96,7 +96,7 @@
     {
       "id": "st584-24-q3b",
       "number": "3b",
-      "text": "Explain why the margin of error for the current survey ($3) is smaller than for the previous survey ($4), despite both surveying 1,000 households. What factors affect the size of the margin of error?",
+      "text": "Explain why the margin of error for the current survey ($2.50) is smaller than for the previous survey ($3.50), despite both surveying 1,000 households. What factors affect the size of the margin of error?",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
