@@ -65,16 +65,17 @@
     {
       "id": "caan24-q1d",
       "number": "1(d)",
-      "text": "In 2010, a conservation group planted native trees on a reserve. The graph below shows how many trees were alive each year.\n\nCalculate the percentage increase in the number of trees from 2010 to 2018.",
+      "text": "In 2010, a conservation group planted native trees on a reserve. The graph below shows how many trees were alive each year.\n\nCalculate the average number of new trees added per year between 2012 and 2018.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "graph-reading",
-        "percentages"
+        "averages",
+        "rates"
       ],
       "answerType": "number",
-      "expectedAnswer": "800",
-      "markingGuide": "In 2010 there were 20 trees; in 2018 there were 180 trees. Increase = 180 - 20 = 160. Percentage increase = (160 / 20) × 100 = 800%. Accept 800 or 800%.",
+      "expectedAnswer": "23",
+      "markingGuide": "From the graph: 2012 ≈ 35 trees, 2018 ≈ 175 trees. Increase = 175 - 35 = 140 trees over 6 years. Average per year = 140 ÷ 6 ≈ 23.3 trees. Accept any answer between 22 and 25.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -91,11 +92,11 @@
           {
             "name": "Trees",
             "values": [
-              20,
-              60,
-              100,
-              140,
-              180
+              18,
+              35,
+              78,
+              126,
+              175
             ],
             "color": "#22c55e"
           }
