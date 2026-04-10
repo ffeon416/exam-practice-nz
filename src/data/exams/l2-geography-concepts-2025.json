@@ -14,13 +14,9 @@
       "text": "Explain how government and/or non-governmental organisations have taken or may take TWO actions or strategies to reduce differences in development in your case study communities, areas, or countries.\n\nYou may include diagrams and maps in your answer.\n\nAction/strategy one:\n\nHow it has or could reduce differences in development:",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "development",
-        "strategies",
-        "government"
-      ],
+      "topics": ["development", "strategies", "government"],
       "answerType": "text",
-      "expectedAnswer": "Explain one action/strategy by a government or NGO to reduce development differences, with case...",
+      "expectedAnswer": "Explain one action/strategy by a government or NGO to reduce development differences, with case study evidence.",
       "markingGuide": "Achievement: Explains one strategy for reducing differences in development with some supporting evidence. Merit: Explains in detail a strategy with detailed supporting case study evidence. Excellence: Fully explains with insight, using relevant geographic concepts and terminology, with integrated comprehensive case study evidence."
     },
     {
@@ -29,32 +25,16 @@
       "text": "Action/strategy two:\n\nHow it has or could reduce differences in development:",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "development",
-        "strategies",
-        "government"
-      ],
+      "topics": ["development", "strategies", "government"],
       "answerType": "text",
       "expectedAnswer": "Explain a second action/strategy to reduce development differences, with case study evidence.",
       "markingGuide": "Achievement: Explains one strategy for reducing differences in development with some supporting evidence. Merit: Explains in detail with detailed supporting case study evidence. Excellence: Fully explains with insight, using relevant geographic concepts and terminology, with integrated comprehensive case study evidence throughout."
     }
   ],
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 2
-    },
-    "achieved": {
-      "min": 3,
-      "max": 4
-    },
-    "merit": {
-      "min": 5,
-      "max": 6
-    },
-    "excellence": {
-      "min": 7,
-      "max": 8
-    }
+    "notAchieved": { "min": 0, "max": 2 },
+    "achieved": { "min": 3, "max": 4 },
+    "merit": { "min": 5, "max": 6 },
+    "excellence": { "min": 7, "max": 8 }
   }
 }

@@ -11,74 +11,104 @@
     {
       "id": "stat267-25-q1a",
       "number": "1(a)",
-      "text": "At a local cafe, 60% of customers order coffee and 40% order tea. Of those who order coffee, 30% also order food. Of those who order tea, 50% also order food.\n\nDraw a tree diagram showing all possible outcomes and their probabilities. Use the tree diagram to calculate the probability that a randomly selected customer orders food.",
+      "text": "At a campus cafe, 60% of customers order coffee and 40% order tea. Of those who order coffee, 35% also buy a muffin. Of those who order tea, 20% also buy a muffin.\n\nDraw a tree diagram showing all possible outcomes and their probabilities. Use the tree diagram to calculate the probability that a randomly selected student buys a muffin.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["probability-trees", "probability-calculations"],
+      "topics": [
+        "probability-trees",
+        "probability-calculations"
+      ],
       "answerType": "working",
-      "expectedAnswer": "P(food) = P(coffee and food) + P(tea and food) = 0.6 × 0.3 + 0.4 × 0.5 = 0.18 + 0.20 = 0.38",
-      "markingGuide": "Achieved: Draws tree diagram with correct branches (coffee 0.6/tea 0.4, then food/no food for each). Calculates P(food) = 0.38. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram."
+      "expectedAnswer": "P(drink) = P(hot and drink) + P(cold and drink) = 0.55 × 0.40 + 0.45 × 0.25 = 0.22 + 0.1125 = 0.3325",
+      "markingGuide": "Achieved: Draws tree diagram with correct branches (hot 0.55/cold 0.45, then drink/no drink for each). Calculates P(drink) = 0.3325. Merit: All probabilities correctly labelled on tree with clear working. Excellence: Fully communicated solution with tree diagram."
     },
     {
       "id": "stat267-25-q1b",
       "number": "1(b)",
-      "text": "Given that a customer ordered food, what is the probability that they ordered coffee? Show your working clearly.",
+      "text": "Given that a student bought a muffin, what is the probability that they ordered coffee? Show your working clearly.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["conditional-probability", "probability-trees"],
+      "topics": [
+        "conditional-probability",
+        "probability-trees"
+      ],
       "answerType": "working",
-      "expectedAnswer": "P(coffee|food) = P(coffee and food) / P(food) = 0.18 / 0.38 = 9/19 ≈ 0.474",
-      "markingGuide": "Achieved: Identifies the need for conditional probability. Merit: Correctly applies P(coffee|food) = P(coffee and food)/P(food) = 0.18/0.38 = 0.474 (or 9/19). Excellence: Shows clear reasoning with formula stated, all values identified from the tree."
+      "expectedAnswer": "P(hot|drink) = P(hot and drink) / P(drink) = 0.22 / 0.3325 = 0.6617 (or 44/66.5 ≈ 0.662)",
+      "markingGuide": "Achieved: Identifies the need for conditional probability. Merit: Correctly applies P(hot|drink) = P(hot and drink)/P(drink) = 0.22/0.3325 = 0.662 (or 88/133). Excellence: Shows clear reasoning with formula stated, all values identified from the tree."
     },
     {
       "id": "stat267-25-q2a",
       "number": "2(a)",
-      "text": "A spinner game at a school fair costs $2 to play. The spinner has the following outcomes:\n• 50% chance of winning nothing ($0)\n• 30% chance of winning $1\n• 15% chance of winning $5\n• 5% chance of winning $20\n\nCalculate the expected value of the net gain (winnings minus cost) for a single play of this game.",
+      "text": "A prize draw at a community fair costs $5 per ticket. The prize draw has the following prize structure:\n• 55% chance of winning nothing ($0)\n• 25% chance of winning $3\n• 12% chance of winning $10\n• 6% chance of winning $25\n• 2% chance of winning $100\n\nCalculate the expected value of the net gain (winnings minus cost) for a single prize draw ticket.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["expected-value", "probability-calculations"],
+      "topics": [
+        "expected-value",
+        "probability-calculations"
+      ],
       "answerType": "working",
-      "expectedAnswer": "Expected winnings = 0.50 × $0 + 0.30 × $1 + 0.15 × $5 + 0.05 × $20 = $0 + $0.30 + $0.75 + $1.00 = $2.05. Expected net gain = $2.05 - $2.00 = $0.05",
-      "markingGuide": "Achieved: Sets up the expected value calculation correctly with at least 3 of 4 terms. Merit: Correctly calculates expected winnings = $2.05 and net gain = $0.05. Excellence: Correctly calculates and interprets — on average a player gains 5 cents per game, so the game is approximately fair but very slightly favours the player."
+      "expectedAnswer": "Expected winnings = 0.55 × $0 + 0.25 × $3 + 0.12 × $10 + 0.06 × $25 + 0.02 × $100 = $0 + $0.75 + $1.20 + $1.50 + $2.00 = $5.45. Expected net gain = $5.45 - $5.00 = $0.45",
+      "markingGuide": "Achieved: Sets up the expected value calculation correctly with at least 3 of 5 terms. Merit: Correctly calculates expected winnings = $5.45 and net gain = $0.45. Excellence: Correctly calculates and interprets — on average a player gains 45 cents per ticket, so the prize draw slightly favours the player; the school would need to adjust prize amounts or cost to make it profitable as a fundraiser."
     },
     {
       "id": "stat267-25-q2b",
       "number": "2(b)",
-      "text": "The school wants to make a profit of at least $50 from this game. They expect 200 people to play.\n\nBy how much should they increase the cost per play so that their expected profit is at least $50? Show your working.",
+      "text": "The school wants to make a profit of at least $200 from the prize draw. They expect to sell 400 tickets.\n\nBy how much should they increase the cost per ticket so that their expected profit is at least $200? Show your working.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["expected-value", "probability-calculations"],
+      "topics": [
+        "expected-value",
+        "probability-calculations"
+      ],
       "answerType": "working",
-      "expectedAnswer": "Currently expected profit per play = -$0.05 (school loses 5c per player). For 200 plays, need profit ≥ $50, so profit per play ≥ $50/200 = $0.25. Current loss per play = $0.05. Need to increase cost by $0.05 + $0.25 = $0.30. New cost = $2.30.",
-      "markingGuide": "Achieved: Recognises that the school currently loses money per game and attempts to find the required increase. Merit: Correctly calculates that the cost needs to increase by $0.30 (to $2.30) so expected profit per play = $0.25, giving $50 over 200 plays. Excellence: Full solution with clear working and verification."
+      "expectedAnswer": "Currently expected loss per ticket = -$0.45 (school loses 45c per player). For 400 tickets, need profit ≥ $200, so profit per ticket ≥ $200/400 = $0.50. Current loss per ticket = $0.45. Need to increase cost by $0.45 + $0.50 = $0.95. New cost = $5.95, so the school should increase the ticket price by at least $0.95 to $5.95 (or round up to $6).",
+      "markingGuide": "Achieved: Recognises that the school currently loses money per ticket and attempts to find the required increase. Merit: Correctly calculates that the cost needs to increase by $0.95 (to $5.95) so expected profit per ticket = $0.50, giving $200 over 400 tickets. Excellence: Full solution with clear working and verification."
     },
     {
       "id": "stat267-25-q3a",
       "number": "3(a)",
-      "text": "A two-way table shows survey results from 150 adults about exercise frequency and sleep quality.\n\n|                    | Good sleep | Poor sleep | Total |\n|--------------------|-----------|-----------|-------|\n| Regular exercise   | 54        | 18        | 72    |\n| Irregular exercise | 30        | 48        | 78    |\n| Total              | 84        | 66        | 150   |\n\nCalculate the probability that a randomly selected person has good sleep, given that they exercise regularly.",
+      "text": "A two-way table shows survey results from 180 adults about exercise habits and energy levels during the morning.\n\n|                       | High energy | Low energy | Total |\n|-----------------------|------------|-----------|-------|\n| Exercises regularly  | 63         | 27        | 90    |\n| Rarely exercises | 24         | 66        | 90    |\n| Total                 | 87         | 93        | 180   |\n\nCalculate the probability that a randomly selected person has high energy, given that they eat exercise daily.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["conditional-probability", "two-way-tables"],
+      "topics": [
+        "conditional-probability",
+        "two-way-tables"
+      ],
       "answerType": "working",
-      "expectedAnswer": "P(good sleep | regular exercise) = 54/72 = 0.75",
-      "markingGuide": "Achieved: Correctly identifies the conditional probability and calculates 54/72 = 0.75 (or 3/4)."
+      "expectedAnswer": "P(high energy | eats exercise) = 63/90 = 0.70",
+      "markingGuide": "Achieved: Correctly identifies the conditional probability and calculates 63/90 = 0.70 (or 7/10)."
     },
     {
       "id": "stat267-25-q3b",
       "number": "3(b)",
-      "text": "A fitness company claims: 'Regular exercise causes better sleep — our data proves it since 75% of regular exercisers have good sleep compared to only 38% of irregular exercisers.'\n\nEvaluate this claim. In your answer, discuss:\n• the validity of the comparison\n• whether the data supports a causal claim\n• what other factors might explain the difference.",
+      "text": "A fitness company claims: 'Eating exercise boosts your energy — our research shows 70% of exercise eaters have high energy compared to only 27% of exercise skippers.'\n\nEvaluate this claim. In your answer, discuss:\n• the validity of the comparison\n• whether the data supports a causal claim\n• what other factors might explain the difference.",
       "marks": 2,
       "gradeLevel": "excellence",
-      "topics": ["risk-interpretation", "statistical-reasoning"],
+      "topics": [
+        "risk-interpretation",
+        "statistical-reasoning"
+      ],
       "answerType": "text",
-      "expectedAnswer": "The comparison is valid — there is a clear difference (75% vs 38.5%). However, the claim of causation is not justified from this observational survey data. Correlation does not imply causation. Confounding variables could explain the difference: people who exercise regularly may also have healthier diets, less stress, better routines, or different ages/occupations. A randomised controlled experiment would be needed to establish causation.",
-      "markingGuide": "Achieved: Notes there is a difference in proportions between the two groups. Merit: Correctly identifies that this is observational data so causation cannot be concluded, and suggests at least one confounding variable. Excellence: Thoroughly discusses the limitation of observational studies, provides multiple plausible confounding variables in context, and explains what type of study design would be needed to establish causation."
+      "expectedAnswer": "The comparison is valid — there is a clear difference (70% vs 26.7%). However, the claim of causation is not justified from this observational survey data. Correlation does not imply causation. Confounding variables could explain the difference: people who eat exercise regularly may also have healthier overall lifestyles, better sleep habits, less stress, different occupations, or different ages. A randomised controlled experiment would be needed to establish causation. The fitness company also has a financial interest in promoting exercise eating.",
+      "markingGuide": "Achieved: Notes there is a difference in proportions between the two groups. Merit: Correctly identifies that this is observational data so causation cannot be concluded, and suggests at least one confounding variable. Excellence: Thoroughly discusses the limitation of observational studies, provides multiple plausible confounding variables in context, mentions the company's commercial interest, and explains what type of study design would be needed to establish causation."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 11 },
-    "merit": { "min": 12, "max": 16 },
-    "excellence": { "min": 17, "max": 20 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 11
+    },
+    "merit": {
+      "min": 12,
+      "max": 16
+    },
+    "excellence": {
+      "min": 17,
+      "max": 20
+    }
   }
 }

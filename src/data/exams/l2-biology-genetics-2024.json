@@ -10,7 +10,7 @@
     {
       "id": "bg24-q1a",
       "number": "1(a)",
-      "text": "Some domestic cats exhibit a complete dominance pattern in coat colour. The allele for black fur (B) is dominant over the allele for brown fur (b). The gene for tail length is not linked and is located on a different chromosome from the coat colour gene. The allele for long tails (L) is dominant to the allele for short tails (l).\n\nA cat that is homozygous for both black fur and long tail is crossed with a cat that is homozygous for both brown fur and short tail.\n\nSpecify the genotype of individuals in the F1 generation produced by this cross.",
+      "text": "In certain breeds of domestic rabbit, ear length follows a complete dominance pattern. The allele for long ears (L) is dominant over the allele for short ears (l). A separate gene, located on a different chromosome, controls fur density. The allele for dense fur (D) is dominant to the allele for sparse fur (d).\n\nA rabbit that is homozygous for both long ears and dense fur is crossed with a rabbit that is homozygous for both short ears and sparse fur.\n\nState the genotype of the F1 offspring produced by this cross.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,13 +19,13 @@
         "dominance"
       ],
       "answerType": "text",
-      "expectedAnswer": "BbLl",
-      "markingGuide": "Achieved: Identifies F1 genotype as BbLl."
+      "expectedAnswer": "LlDd",
+      "markingGuide": "Achieved: Identifies F1 genotype as LlDd."
     },
     {
       "id": "bg24-q1b",
       "number": "1(b)",
-      "text": "Use the Punnett square below to show:\n- the F1 gametes resulting from the cross and\n- the possible genotypes within the F2 generation of cats.",
+      "text": "Construct a Punnett square to show:\n- the gametes produced by the F1 individuals and\n- all possible genotypes of the F2 generation of rabbits.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -34,13 +34,13 @@
         "punnett-square"
       ],
       "answerType": "text",
-      "expectedAnswer": "F1 gametes: BL, Bl, bL, bl.",
+      "expectedAnswer": "F1 gametes: LD, Ld, lD, ld.",
       "markingGuide": "Achieved: Punnett square completed with correct gametes for F2."
     },
     {
       "id": "bg24-q1c",
       "number": "1(c)",
-      "text": "Give the expected phenotype ratio resulting from this cross, indicating the phenotype each value represents.",
+      "text": "State the expected phenotype ratio from this F2 cross, identifying the phenotype that each value represents.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -49,13 +49,13 @@
         "phenotype-ratio"
       ],
       "answerType": "text",
-      "expectedAnswer": "9:3:3:1 — 9 Black long : 3 Black short : 3 Brown long : 1 Brown short.",
-      "markingGuide": "Achieved: Phenotype ratio (with correct appearance/description): 9 black long : 3 black short : 3 brown long : 1 brown short."
+      "expectedAnswer": "9:3:3:1 — 9 Long ears dense fur : 3 Long ears sparse fur : 3 Short ears dense fur : 1 Short ears sparse fur.",
+      "markingGuide": "Achieved: Phenotype ratio (with correct appearance/description): 9 long ears dense : 3 long ears sparse : 3 short ears dense : 1 short ears sparse."
     },
     {
       "id": "bg24-q1d",
       "number": "1(d)",
-      "text": "Some cats have fur colour that is an example of co-dominance AND sex linkage. In cats with orange fur, phaeomelanin (orange pigment) completely replaces eumelanin (black or brown pigment). This gene is located on the X chromosome. The orange fur allele is (F) and is co-dominant with non-orange (f). Males can typically only be orange or non-orange (black, brown, etc.).\n\nSex determination in cats is the same as humans.\n\nFemale cats can have orange fur, fur without any orange (black, brown, etc.), or have tortoiseshell fur, in which some parts of the fur are orange and others are non-orange.\n\nSome cat diseases are known to be sex-linked as well. Male cats have been found to be more susceptible to recessive, sex-linked diseases than female cats.\n\nEvaluate the inheritance patterns of cats to include complete dominance, co-dominance, and sex-linkage.\n\nIn your answer, refer to the examples above and include a discussion of:\n- the two patterns of dominance\n- why only female cats can have tortoiseshell fur colour\n- the similarities and differences of recessive and dominant sex-linked genes.",
+      "text": "In chickens, feather pattern is an example of co-dominance AND sex linkage. A gene located on the Z chromosome controls whether barred plumage (alternating light and dark bands on each feather) is present or absent. The barred allele (B) is co-dominant with the non-barred allele (b). Males can be barred, non-barred, or show partial barring if heterozygous. In birds, sex determination differs from mammals: males are ZZ and females are ZW.\n\nFemale chickens can be either barred or non-barred, but never partially barred, because they carry only one Z chromosome.\n\nSome avian conditions are known to be sex-linked. Female birds have been found to be more susceptible to recessive, sex-linked conditions than male birds.\n\nEvaluate the inheritance patterns in chickens, including complete dominance, co-dominance, and sex-linkage.\n\nIn your answer, refer to the examples above and include a discussion of:\n- the two patterns of dominance\n- why only male chickens can show partial barring\n- the similarities and differences of recessive and dominant sex-linked genes.",
       "marks": 5,
       "gradeLevel": "excellence",
       "topics": [
@@ -65,13 +65,13 @@
         "inheritance"
       ],
       "answerType": "text",
-      "expectedAnswer": "Complete dominance: one allele completely masks the other (e.g.",
-      "markingGuide": "Achieved (A3-A4): Describes complete dominance; co-dominance; sex-linked gene; genotype of male and/or female cat for tortoiseshell; that females have a homologous pair of sex chromosomes while males have XX and XY. Merit (M5-M6): Explains why female cats can have tortoiseshell-colour fur; why male cats can't have tortoiseshell (colour fur); only orange or non-orange; the difference between dominant and recessive sex-linked genes; why male cats are more likely to inherit a sex-linked disease. Excellence (E7-E8): Discusses the co-dominant and complete dominance inheritance patterns for fur colour in male and female cats; a dominant and recessive sex-linked genes, with reference to why males inherit recessive diseases more frequently than females."
+      "expectedAnswer": "Complete dominance: one allele completely masks the other (e.g. long ears over short ears in rabbits). Co-dominance: both alleles are expressed simultaneously in the heterozygote (e.g. partial barring in ZBZb males). Sex-linkage: gene located on a sex chromosome (Z in birds). Only males (ZZ) can carry two different alleles and show the co-dominant partial barring phenotype. Females (ZW) have only one Z, so they express whichever allele is present — barred or non-barred. Recessive sex-linked conditions appear more frequently in females (ZW) because they need only one copy of the recessive allele.",
+      "markingGuide": "Achieved (A3-A4): Describes complete dominance; co-dominance; sex-linked gene; genotype of male and/or female chicken for barring; that males have a homologous pair of sex chromosomes (ZZ) while females have ZW. Merit (M5-M6): Explains why male chickens can show partial barring; why female chickens cannot show partial barring (only barred or non-barred); the difference between dominant and recessive sex-linked genes; why female chickens are more likely to inherit a sex-linked condition. Excellence (E7-E8): Discusses the co-dominant and complete dominance inheritance patterns for plumage in male and female chickens; dominant and recessive sex-linked genes, with reference to why females inherit recessive conditions more frequently than males."
     },
     {
       "id": "bg24-q2",
       "number": "2",
-      "text": "The flightless takahe (Porphyrio hochstetteri) has special cultural, spiritual, and traditional significance to Ngai Tahu, the iwi from New Zealand's South Island. Ngai Tahu value takahe as a taonga (treasure), and they continue to act as kaitiaki (guardians) of the takahe, working alongside the Department of Conservation / Te Papa Atawhai (DOC).\n\nGenetic analyses and fossil records show that takahe were restricted to isolated areas in the north-western South Island at the height of the last ice age, approximately 29 000 - 19 000 years ago. As the climate warmed, takahe shifted their distribution, migrating to eastern and southern regions. The takahe in the north-west South Island became locally extinct. Pressures from hunting, introduced predators, habitat destruction, and competition for food led to their decline and an extreme genetic bottleneck.\n\nAfter being presumed extinct for nearly 50 years, the takahe was famously rediscovered in 1948. The rediscovery of the takahe led to New Zealand's longest-running, endangered species programme. For more than 70 years, measures to protect and increase numbers of takahe have included predator control, captive breeding, and island translocations (moving small populations of birds to offshore islands).\n\nOngoing genetic analyses have found that introduced island populations of takahe have significantly lower levels of genetic variation than the main Fiordland population. The island population also has significantly different gene frequencies, with some alleles becoming fixed (with no variability in the gene pools) on the island sanctuaries.\n\nDiscuss the decline in genetic diversity in the takahe, with reference to the information provided.\n\nIn your answer, include discussion of:\n- the terms population bottleneck, founder effect, and genetic drift\n- how the genetic diversity of the gene pools of the takahe have been impacted by these processes\n- why the reduced genetic diversity from island translocation is a problem for the takahe population and how this may be improved in the future.",
+      "text": "The kākāpō (Strigops habroptilus) is a large, flightless parrot endemic to Aotearoa New Zealand. It is regarded as a taonga species by Ngāi Tahu and holds deep cultural significance.\n\nFossil evidence and genetic analysis indicate that kākāpō were once widespread across both the North and South Islands. During the Pleistocene glaciations, habitat fragmentation split kākāpō populations into isolated alpine and lowland refugia. European colonisation brought habitat destruction, introduced mammalian predators such as cats, rats, and stoats, and hunting pressure that caused a catastrophic decline in kākāpō numbers.\n\nBy the 1990s, only around 50 kākāpō remained. An intensive recovery programme was established, involving predator control, supplementary feeding, and translocation to predator-free island sanctuaries such as Whenua Hou (Codfish Island) and Anchor Island.\n\nGenetic analyses have revealed that the surviving kākāpō population has very low genetic diversity. Some island populations established from small translocated groups show even lower variation, with certain alleles becoming fixed.\n\nDiscuss the decline in genetic diversity in the kākāpō, with reference to the information provided.\n\nIn your answer, include discussion of:\n- the terms population bottleneck, founder effect, and genetic drift\n- how the genetic diversity of the kākāpō gene pool has been affected by these processes\n- why the reduced genetic diversity from island translocations is a concern for the kākāpō population and how conservation efforts might address this in the future.",
       "marks": 8,
       "gradeLevel": "excellence",
       "topics": [
@@ -82,13 +82,13 @@
         "founder-effect"
       ],
       "answerType": "text",
-      "expectedAnswer": "Population bottleneck: a drastic reduction in population size reducing genetic variation.",
-      "markingGuide": "Achieved (A3-A4): Describes population bottleneck; founder effect; genetic drift; gene pool; genetic diversity; a problem arising from reduced genetic diversity/reduced phenotype/inability to adapt to changing environments; a method of improvement for the future. Merit (M5-M6): Explains how genetic diversity is impacted by population bottleneck; how genetic diversity is impacted by founder effect; how genetic diversity is impacted by genetic drift; why the island populations are suffering the consequences of reduced/less-variable gene pools and inbreeding; a possible (realistic) way to improve the situation in the future. Excellence (E7-E8): Discusses the impacts of at least TWO of the three processes (bottleneck, founder effect, genetic drift) on genetic diversity, making reference to the information provided about the takahe population; the problems arising due to reduced genetic diversity, and a possible way that conservation could halt the decline and improve genetic diversity in the future."
+      "expectedAnswer": "Population bottleneck: a drastic reduction in population size reducing genetic variation. Founder effect: a small group establishes a new population with only a subset of the original gene pool's alleles. Genetic drift: random changes in allele frequencies, more pronounced in small populations.",
+      "markingGuide": "Achieved (A3-A4): Describes population bottleneck; founder effect; genetic drift; gene pool; genetic diversity; a problem arising from reduced genetic diversity/reduced phenotype/inability to adapt to changing environments; a method of improvement for the future. Merit (M5-M6): Explains how genetic diversity is impacted by population bottleneck; how genetic diversity is impacted by founder effect; how genetic diversity is impacted by genetic drift; why the island populations are suffering the consequences of reduced/less-variable gene pools and inbreeding; a possible (realistic) way to improve the situation in the future. Excellence (E7-E8): Discusses the impacts of at least TWO of the three processes (bottleneck, founder effect, genetic drift) on genetic diversity, making reference to the information provided about the kākāpō population; the problems arising due to reduced genetic diversity, and a possible way that conservation could halt the decline and improve genetic diversity in the future."
     },
     {
       "id": "bg24-q3a",
       "number": "3(a)",
-      "text": "In 1907, Erwin Baur carried out research on the snapdragon plant, Antirrhinum majus, and studied the condition known as 'aurea', in which some plants produced golden leaves instead of green leaves. In this plant, the golden-leaf allele (G) is dominant to the green-leaf allele (g). When crossed with its own type (aurea x aurea), Baur observed a 2:1 phenotype ratio of golden:green-leafed plants, instead of the expected 3:1 ratio in the offspring.\n\nBy carrying out a number of test crosses, Baur concluded that all of the surviving golden-leafed plants were heterozygous. Homozygous dominant (GG) aurea plants lacked normal chlorophyll development and never survived.\n\nBaur is now recognised as the first scientist to discover lethal alleles in a plant, although they had already been recognised in animals, including humans.\n\nDescribe what is meant by the term lethal allele.",
+      "text": "In domestic mice, a coat-colour condition known as 'agouti' has been studied extensively. In these mice, the agouti coat-colour allele (A) is dominant to the non-agouti (black) allele (a). When agouti mice were crossed with each other (agouti x agouti), researchers observed a 2:1 phenotype ratio of agouti to black offspring, rather than the expected 3:1 ratio.\n\nThrough further test crosses, it was determined that all surviving agouti mice were heterozygous. Homozygous dominant (AA) embryos failed to develop and were reabsorbed before birth.\n\nThis is an example of lethal alleles in mammals.\n\nDescribe what is meant by the term lethal allele.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -96,13 +96,13 @@
         "lethal-alleles"
       ],
       "answerType": "text",
-      "expectedAnswer": "A lethal allele is a version of a gene that, in some conditions, may prevent development (i.e.",
+      "expectedAnswer": "A lethal allele is a version of a gene that, when present in a particular combination (e.g. homozygous dominant), prevents normal development or causes death of the organism before or shortly after birth.",
       "markingGuide": "Achieved: Describes a lethal allele correctly."
     },
     {
       "id": "bg24-q3b",
       "number": "3(b)",
-      "text": "In the space below, show the Punnett square for a test cross between a green-leaf plant and a surviving, golden-leaf plant.\n\nProvide the genotype ratio and phenotype ratio.",
+      "text": "Show the Punnett square for a test cross between a black mouse and a surviving agouti mouse.\n\nProvide the genotype ratio and phenotype ratio.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -111,14 +111,13 @@
         "lethal-alleles"
       ],
       "answerType": "text",
-      "image": "/images/exams/91157-2024-q3b.png",
-      "expectedAnswer": "Cross: Gg x gg.",
-      "markingGuide": "Achieved: Punnett square is correctly completed. Both ratios are correct. Genotype ratio 1:1 (Gg:gg). Phenotype ratio 1:1 (golden:green)."
+      "expectedAnswer": "Cross: Aa x aa. Genotype ratio 1:1 (Aa : aa). Phenotype ratio 1:1 (agouti : black).",
+      "markingGuide": "Achieved: Punnett square is correctly completed. Both ratios are correct. Genotype ratio 1:1 (Aa:aa). Phenotype ratio 1:1 (agouti:black)."
     },
     {
       "id": "bg24-q3c",
       "number": "3(c)",
-      "text": "This lethal allele gives a dominant, non-lethal phenotype in the heterozygote. However, we say that the lethality (ability to prevent survival) is recessive in the snapdragon, even though the colour phenotype is dominant.\n\nUsing the information provided, discuss why this snapdragon allele must be recessive for lethality and why dominant lethal alleles are rare but can be found in some adult populations, including humans.\n\nIn your answer, include discussion of:\n- the terms and meaning of dominant and recessive alleles\n- why the snapdragon's allele must be recessive for lethality and how the test cross shows this\n- why dominant lethal alleles are rarer than recessive ones, but can sometimes exist in adult organisms.",
+      "text": "The agouti allele produces a dominant, visible phenotype in the heterozygote. However, the lethality (ability to prevent survival) is considered recessive in these mice, even though the colour phenotype is dominant.\n\nUsing the information provided, discuss why this mouse allele must be recessive for lethality and why dominant lethal alleles are rare but can still be found in some adult populations, including humans.\n\nIn your answer, include discussion of:\n- the terms and meaning of dominant and recessive alleles\n- why the mouse's agouti allele must be recessive for lethality and how the test cross supports this\n- why dominant lethal alleles are rarer than recessive ones, but can sometimes persist in adult organisms.",
       "marks": 6,
       "gradeLevel": "excellence",
       "topics": [
@@ -127,8 +126,8 @@
         "dominance"
       ],
       "answerType": "text",
-      "expectedAnswer": "Dominant allele: always expressed when present, masks the recessive allele.",
-      "markingGuide": "Achieved (A3-A4): Describes BOTH dominant and recessive alleles; that heterozygous individuals do not die; that the lethality must come later in life. Merit (M5-M6): Explains how lethal alleles affect the expected ratios of individual phenotypes due to the affected individuals not surviving; how the test cross shows that the lethal allele must be recessive even though the colour is dominant; how a dominant lethal allele can exist in an adult; how a dominant lethal allele can be passed on, as it is expressed after reproduction has occurred. Excellence (E7-E8): Discusses the inheritance of leaf colour for the snapdragon, using Punnett squares/ratios to support the discussion of dominant and recessive lethal alleles; comparing the rarity of dominant lethal alleles to recessive alleles and their existence in adult organisms."
+      "expectedAnswer": "Dominant allele: always expressed when present, masks the recessive allele. Recessive allele: only expressed when homozygous. The lethality must be recessive because heterozygous Aa mice survive and show the agouti phenotype — only AA individuals die. If lethality were dominant, any mouse carrying even one A allele would not survive, and no agouti mice would exist.",
+      "markingGuide": "Achieved (A3-A4): Describes BOTH dominant and recessive alleles; that heterozygous individuals do not die; that the lethality must come later in development for dominant lethal alleles in humans. Merit (M5-M6): Explains how lethal alleles affect the expected ratios of individual phenotypes due to the affected individuals not surviving; how the test cross shows that the lethal allele must be recessive even though the colour is dominant; how a dominant lethal allele can exist in an adult; how a dominant lethal allele can be passed on, as it is expressed after reproduction has occurred. Excellence (E7-E8): Discusses the inheritance of coat colour for the mice, using Punnett squares/ratios to support the discussion of dominant and recessive lethal alleles; comparing the rarity of dominant lethal alleles to recessive alleles and their existence in adult organisms."
     }
   ],
   "totalMarks": 24,

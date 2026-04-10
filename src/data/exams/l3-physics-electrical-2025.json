@@ -1,223 +1,12 @@
 {
   "id": "l3-physics-electrical-2025",
-  "title": "Level 3 Physics — Electrical Systems (91526) — 2025",
+  "title": "Level 3 Physics \u2014 Electrical Systems (91526) \u2014 2025",
   "level": 3,
   "standard": "91526",
   "year": 2025,
   "subject": "physics",
   "timeMinutes": 0,
   "totalMarks": 24,
-  "questions": [
-    {
-      "id": "91526-25-q1a",
-      "number": "1(a)",
-      "text": "QUESTION ONE: DC CIRCUITS\n\nMereana has a caravan, which has a simple battery-powered circuit for the lighting with a total resistance of 6.00 Ω. The battery has an EMF of 12.6 V, and an internal resistance of 0.100 Ω.\n\nWhen the switch is closed, the current from the battery is 2.07 A.\n\nShow that the terminal voltage of the battery is 12.4 V.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "dc-circuits",
-        "emf",
-        "internal-resistance",
-        "terminal-voltage"
-      ],
-      "answerType": "working",
-      "image": "/images/exams/91526-2025-q1a-circuit.png",
-      "expectedAnswer": "V_T = 12.4 V",
-      "markingGuide": "Achievement: ONE of: 12.393 V, 12.42 V. Working: V_T = ε − Ir = 12.6 − 2.07 × 0.100 = 12.393 ≈ 12.4 V."
-    },
-    {
-      "id": "91526-25-q1b",
-      "number": "1(b)",
-      "text": "As the battery is used over time, its internal resistance will increase.\n\nExplain the effect that this will have on the terminal voltage of the battery.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "dc-circuits",
-        "internal-resistance",
-        "terminal-voltage"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "The EMF supplied to the circuit remains the same.",
-      "markingGuide": "Achievement: ONE of: terminal voltage decreases, lost volts increases, uses formula to show R_T increases so V_T decreases. Merit: Terminal voltage decreases because there is more voltage lost across the internal resistance."
-    },
-    {
-      "id": "91526-25-q1ci",
-      "number": "1(c)(i)",
-      "text": "Mereana is investigating using a capacitor to power her caravan. The capacitor has a capacitance of 90.0 F, and is fully charged by connecting it to a 4.20 V battery. Mereana discharges the capacitor for 2500 s through a 6.00 Ω resistor to model the caravan circuit.\n\nSketch a graph of current against time for 2500 s after the switch is closed.\n\nYour graph should include the initial current and the final current after one time constant.\n\nShow all calculations clearly.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "capacitors",
-        "discharge",
-        "time-constant",
-        "exponential-decay"
-      ],
-      "answerType": "working",
-      "image": "/images/exams/91526-2025-q1c-capacitor.png",
-      "expectedAnswer": "τ = RC = 540 s.",
-      "markingGuide": "Achievement: ONE of: I₀ = 0.7 A, τ = 540 s, graph correct shape at 0.700 A. I decreasing as Q decreases. Merit: Current lines constant and values of I plotted for t1 (τ = 0.26 A) and τ correct AND graph correct shape at 0.700 A. I decreasing. Excellence: Correct graph with values plotted for t1 (τ = 0.26 A) and τ correct AND graph shows correct exponential decay, passes through (540, 0.259)."
-    },
-    {
-      "id": "91526-25-q1cii",
-      "number": "1(c)(ii)",
-      "text": "Explain, using physics principles, why the graph has the shape you have drawn.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "capacitors",
-        "discharge",
-        "exponential-decay"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "As the capacitor discharges, the charge Q on its plates decreases.",
-      "markingGuide": "Achievement: ONE of: V decreases, I decreases, Q decreases. Merit: Links ΔQ to V to I decrease, explaining the exponential shape."
-    },
-    {
-      "id": "91526-25-q1d",
-      "number": "1(d)",
-      "text": "Mereana fully charges six 90.0 F capacitors individually with the 4.20 V battery. She connects three of them in series with an ammeter and a 6.00 Ω resistor (Circuit A), and three of them in parallel to an ammeter and a 6.00 Ω resistor (Circuit B), as shown below. Each circuit has its switch closed and the capacitors are discharged.\n\nFor each circuit, explain how the current varies over time compared to the single capacitor in series with a 6.00 Ω resistor, as in part (c).\n\nYou may use calculations to support your answer.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "capacitors",
-        "series-parallel",
-        "time-constant",
-        "discharge"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91526-2025-q1d-circuits.png",
-      "expectedAnswer": "Circuit A (series): Total C decreases (C_T = 30 F), τ = RC decreases (180 s).",
-      "markingGuide": "Achievement: ONE of: total capacitance decreased in series / increased in parallel, time constant decreases in series / increases in parallel, starting I is greater in series / same in parallel, I will decrease faster in series / decrease slower in parallel. Correctly links ΔC or time taken for I to change. C_T = 30 F, C_T = 270 F. Merit: Total capacitance decreases in series, increases in parallel AND time constant decreases in series, increases in parallel. OR starting I is greater in series, same in parallel. OR but I will decrease faster in series / slower in parallel. Explains that the initial current is higher for the series circuit because the initial voltage/charge is higher. Excellence: Total capacitance decreases for series and increases for parallel AND time constant decreases for series, increases for parallel AND starting I is greater for series, same for parallel AND but I will decrease faster for series, slower for parallel."
-    },
-    {
-      "id": "91526-25-q2a",
-      "number": "2(a)",
-      "text": "QUESTION TWO: INDUCTORS\n\nMereana finds an old coil and connects it to her caravan battery. The corresponding circuit diagram is shown. The coil can be modelled as an inductor with an inductance of 0.600 H, and a resistor with a resistance of 2.40 Ω.\n\nState the size of the induced EMF across the inductor when the switch is first closed.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "electromagnetic-induction",
-        "inductors",
-        "back-emf"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91526-2025-q2-inductor.png",
-      "expectedAnswer": "12.6 V",
-      "markingGuide": "Achievement: Correct answer (12.6 V). When the switch is first closed, the induced EMF equals the supply EMF as no current is flowing yet."
-    },
-    {
-      "id": "91526-25-q2b",
-      "number": "2(b)",
-      "text": "Calculate the size of the induced EMF across the inductor 0.240 s after the switch is closed.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "electromagnetic-induction",
-        "inductors",
-        "time-constant",
-        "rl-circuit"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "EMF = 4.66 V",
-      "markingGuide": "Achievement: ONE of: τ = L/R = 0.600/2.50 = 0.240 s, V = V_max × e⁻¹ = 4.824 V. Merit: 4.66 V. Working: τ = L/R = 0.600/2.50 = 0.240 s. 0.240 s = 1τ. So emf = 12.6 × 0.37 = 4.662 ≈ 4.66 V."
-    },
-    {
-      "id": "91526-25-q2c",
-      "number": "2(c)",
-      "text": "When the switch is opened, a small spark is observed where the switch breaks the circuit.\n\nExplain why the small spark is produced.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "electromagnetic-induction",
-        "inductors",
-        "lenzs-law",
-        "back-emf"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "When the switch is opened, the magnetic field through the inductor collapses.",
-      "markingGuide": "Achievement: An emf is induced across the inductor. Sudden decrease in current. The magnetic field collapse/decrease. Time constant decreases. R is large. Merit: Explains why an emf is induced across the inductor. OR explains why the current decreases rapidly (τ = L/R). Excellence: Explains why there is an induced emf AND τ small because R OR reference to Kirchhoff's Law."
-    },
-    {
-      "id": "91526-25-q2d",
-      "number": "2(d)",
-      "text": "Mereana knows that the maximum amount of energy is stored in an inductor when a steady current is flowing through it. She knows that if she replaces the inductor with the right capacitor, she can store an equal amount of energy.\n\nCalculate the capacitance required to store this energy when the capacitor is fully charged by the 12.6 V battery.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "inductors",
-        "capacitors",
-        "energy-storage"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "C = 0.096 F",
-      "markingGuide": "Achievement: ONE of: I = 5.04 A, I = 5.25 A, correct E stored in L with incorrect I. Merit: ONE of: E = 7.62 J, E = 8.27 J, correct method with incorrect energy stored, C = E/(½V²). Excellence: ONE of: C = 0.096 F, C = 0.104 F. Working: I = V/R = 12.6/(2.4 + 0.1) = 5.04 A. E_L = ½LI² = ½ × 0.600 × 5.04² = 7.62048 J. E_C = ½CV². 7.62048 = ½ × C × 12.6². C = 0.096 F."
-    },
-    {
-      "id": "91526-25-q3a",
-      "number": "3(a)",
-      "text": "QUESTION THREE: AC INDUCTORS AND CAPACITORS\n\nMereana takes the coil back to school, and connects it to a variable frequency AC supply. The 0.600 H coil (modelled as an ideal inductor and a resistor) is now connected in series with a 68.0 Ω resistor to the supply, set to 25.0 Hz and 9.00 V_rms as shown.\n\nShow that the reactance of the inductor is 94.2 Ω.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "ac-circuits",
-        "reactance",
-        "inductors"
-      ],
-      "answerType": "working",
-      "image": "/images/exams/91526-2025-q3-ac.png",
-      "expectedAnswer": "X_L = 94.2 Ω",
-      "markingGuide": "Achievement: ONE of: X_L = 2π × 25 × 0.6, X_L = 50π × 0.6. Working: X_L = ωL = 2π × 25.0 × 0.6 = 94.24778 ≈ 94.2 Ω."
-    },
-    {
-      "id": "91526-25-q3b",
-      "number": "3(b)",
-      "text": "Mereana notices that she can insert an iron nail inside the coil.\n\nExplain what effect this would have on the RMS voltage across the 68.0 Ω resistor.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "ac-circuits",
-        "inductors",
-        "reactance",
-        "impedance"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Inserting the iron nail increases the inductance L of the inductor.",
-      "markingGuide": "Achievement: ONE of: flux/B/L increases, X_L increases, V_L increases, Z increases, I decreases, V_R decreases. Merit: X_L increases, Z increases, V_L increases, I decreases, V_R decreases. Excellence: Complete chain of reasoning with links."
-    },
-    {
-      "id": "91526-25-q3c",
-      "number": "3(c)",
-      "text": "The nail is then removed from the coil and a 1.20 × 10⁻⁴ F capacitor is added to the circuit in series with the coil and the 68.0 Ω resistor. Mereana reduces the frequency and notices that the voltage across the 68.0 Ω resistor increases and reaches a maximum value at a particular frequency.\n\nExplain why the voltage across the 68.0 Ω resistor reaches a maximum value at one particular frequency.\n\nNo calculations are required.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "ac-circuits",
-        "resonance",
-        "impedance",
-        "reactance"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91526-2025-q3c-rlc.png",
-      "expectedAnswer": "At resonance: X_L = X_C (the voltages across the capacitor and inductor are equal and opposite,...",
-      "markingGuide": "Achievement: ONE of: resonance, X_L = X_C, V_L = V_C, V_S = V_R, Z = R, Z min, I max. Merit: Resonance AND most of the following: V_L = V_C or X_L = X_C, explains why X_L = X_C, V_S = V_R, Z = R, Z min, I max. Excellence: Explains resonance AND all the following: X_L = X_C opposite cancel out (formula), V_S = V_R, Z = R, Z min, I max."
-    },
-    {
-      "id": "91526-25-q3d",
-      "number": "3(d)",
-      "text": "The supply frequency of the circuit in part (c) is then further reduced.\n\nCalculate the RMS current in the circuit when the frequency of the supply is 16.0 Hz.\n\nA phasor diagram may assist your answer.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "ac-circuits",
-        "impedance",
-        "reactance",
-        "rlc-circuit"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "I_rms = 0.122 A",
-      "markingGuide": "Achievement: ONE of: X_L = 60.319 Ω, X_C = 82.8935 Ω, correct phasor diagram. Merit: ONE of: Z = 73.9 Ω, I = 0.126 A. Correct method but incorrect impedance. Excellence: I = 0.122 A. Working: X_C = 1/(ωC) = 1/(2π × 16.0 × 120 × 10⁻⁶) = 82.8935 Ω. X_L = ωL = 2π × 16.0 × 0.6 = 60.319 Ω. Z² = R² + (X_L − X_C)² = (68.0 + 2.4)² + (60.319 − 82.893)² = 73.9309 Ω. I_rms = V/Z = 9.00/73.9309 = 0.121735 ≈ 0.122 A."
-    }
-  ],
   "cutScores": {
     "notAchieved": {
       "min": 0,
@@ -235,5 +24,210 @@
       "min": 19,
       "max": 24
     }
-  }
+  },
+  "questions": [
+    {
+      "id": "91526-25-q1a",
+      "number": "1(a)",
+      "text": "QUESTION ONE: DC CIRCUITS\n\nTe Ariki has a solar-powered shed with a simple battery circuit for lighting with total resistance of 5.00 ohm. The battery has EMF of 13.2 V and internal resistance 0.150 ohm.\n\nWhen the switch is closed, the current is 2.56 A.\n\nShow that the terminal voltage is 12.8 V.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "dc-circuits",
+        "emf",
+        "internal-resistance",
+        "terminal-voltage"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "V_T = emf - Ir = 13.2 - 2.56 x 0.150 = 13.2 - 0.384 = 12.816 = 12.8 V.",
+      "markingGuide": "Achievement: Correct calculation."
+    },
+    {
+      "id": "91526-25-q1b",
+      "number": "1(b)",
+      "text": "As the battery is used, its internal resistance increases.\n\nExplain the effect on the terminal voltage.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "dc-circuits",
+        "internal-resistance",
+        "terminal-voltage"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The EMF stays the same. As internal resistance increases, more voltage is lost across it (V_lost = Ir increases). Therefore terminal voltage decreases.",
+      "markingGuide": "Achievement: Terminal voltage decreases. Merit: Explains why."
+    },
+    {
+      "id": "91526-25-q1ci",
+      "number": "1(c)(i)",
+      "text": "Te Ariki investigates using a capacitor. The capacitor has capacitance 80.0 F, fully charged by a 4.80 V battery. It is discharged through a 5.00 ohm resistor for 2000 s.\n\nSketch a graph of current against time for 2000 s. Include initial current and current after one time constant. Show all calculations.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "capacitors",
+        "discharge",
+        "time-constant",
+        "exponential-decay"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "I_0 = V/R = 4.80/5.00 = 0.960 A. tau = RC = 80.0 x 5.00 = 400 s. At t = tau: I = 0.960 x e^-1 = 0.960 x 0.368 = 0.353 A. Graph shows exponential decay from 0.960 A through (400, 0.353).",
+      "markingGuide": "Achievement: I_0 or tau correct. Merit: Both correct with graph shape. Excellence: Full graph with values."
+    },
+    {
+      "id": "91526-25-q1cii",
+      "number": "1(c)(ii)",
+      "text": "Explain, using physics principles, why the graph has this shape.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "capacitors",
+        "discharge",
+        "exponential-decay"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "As the capacitor discharges, charge Q decreases, so voltage V = Q/C decreases, so current I = V/R decreases. The rate of discharge slows because less charge means less driving voltage. This produces an exponential decay curve.",
+      "markingGuide": "Achievement: ONE link correct. Merit: Full chain of reasoning."
+    },
+    {
+      "id": "91526-25-q1d",
+      "number": "1(d)",
+      "text": "Te Ariki charges six 80.0 F capacitors with the 4.80 V battery. He connects three in series with a 5.00 ohm resistor (Circuit A), and three in parallel with a 5.00 ohm resistor (Circuit B).\n\nFor each circuit, explain how the current varies compared to the single capacitor in (c).",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "capacitors",
+        "series-parallel",
+        "time-constant",
+        "discharge"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Circuit A (series): C_T = 80/3 = 26.7 F, V_T = 3 x 4.80 = 14.4 V. tau = 26.7 x 5 = 133 s. I_0 = 14.4/5 = 2.88 A. Higher initial current, faster decay. Circuit B (parallel): C_T = 3 x 80 = 240 F, V_T = 4.80 V. tau = 240 x 5 = 1200 s. I_0 = 4.80/5 = 0.96 A. Same initial current, slower decay.",
+      "markingGuide": "Achievement: ONE correct change. Merit: Two correct with reasoning. Excellence: Full explanation for both circuits."
+    },
+    {
+      "id": "91526-25-q2a",
+      "number": "2(a)",
+      "text": "QUESTION TWO: INDUCTORS\n\nTe Ariki finds an old coil modelled as a 0.500 H inductor with 2.00 ohm resistance. He connects it to his battery.\n\nState the size of the induced EMF across the inductor when the switch is first closed.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "electromagnetic-induction",
+        "inductors",
+        "back-emf"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "13.2 V (equals the battery EMF when no current is flowing yet).",
+      "markingGuide": "Achievement: Correct."
+    },
+    {
+      "id": "91526-25-q2b",
+      "number": "2(b)",
+      "text": "Calculate the induced EMF across the inductor 0.250 s after the switch is closed.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "electromagnetic-induction",
+        "inductors",
+        "time-constant",
+        "rl-circuit"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "tau = L/R = 0.500/2.15 = 0.233 s (using total R including internal). 0.250 s is approximately 1.07 tau. EMF = V_max x e^(-t/tau) = 13.2 x e^(-1.07) = 13.2 x 0.343 = 4.53 V.",
+      "markingGuide": "Achievement: tau calculated. Merit: EMF correct."
+    },
+    {
+      "id": "91526-25-q2c",
+      "number": "2(c)",
+      "text": "When the switch is opened, a small spark is observed.\n\nExplain why the spark is produced.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "electromagnetic-induction",
+        "inductors",
+        "lenzs-law",
+        "back-emf"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "When the switch opens, the magnetic field through the inductor collapses rapidly. This rapid change in flux induces a large back-EMF (Faraday's law). The small air gap has very high resistance, making tau = L/R very small, so the change is extremely rapid. The large voltage can ionise the air and cause a spark.",
+      "markingGuide": "Achievement: An EMF is induced. Merit: Explains why current decreases rapidly. Excellence: Full explanation."
+    },
+    {
+      "id": "91526-25-q2d",
+      "number": "2(d)",
+      "text": "Te Ariki knows the maximum energy stored in an inductor is when steady current flows. He wants to find the capacitance that stores equal energy when fully charged by the 13.2 V battery.\n\nCalculate the required capacitance.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "inductors",
+        "capacitors",
+        "energy-storage"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "I_max = V/(R_total) = 13.2/(2.00 + 0.150) = 6.14 A. E_L = 1/2 LI^2 = 0.5 x 0.500 x 6.14^2 = 9.42 J. E_C = 1/2 CV^2. 9.42 = 0.5 x C x 13.2^2. C = 2 x 9.42 / 174.24 = 0.108 F.",
+      "markingGuide": "Achievement: I_max or one energy correct. Merit: Energy found. Excellence: C = 0.108 F."
+    },
+    {
+      "id": "91526-25-q3a",
+      "number": "3(a)",
+      "text": "QUESTION THREE: AC\n\nTe Ariki connects the 0.500 H coil in series with a 60.0 ohm resistor to a variable frequency AC supply set to 30.0 Hz and 10.0 V_rms.\n\nShow that the reactance of the inductor is 94.2 ohm.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "ac-circuits",
+        "reactance",
+        "inductors"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "X_L = 2 pi f L = 2 pi x 30.0 x 0.500 = 94.25 ohm = 94.2 ohm.",
+      "markingGuide": "Achievement: Correct calculation shown."
+    },
+    {
+      "id": "91526-25-q3b",
+      "number": "3(b)",
+      "text": "Te Ariki notices he can insert an iron nail inside the coil.\n\nExplain what effect this would have on the RMS voltage across the 60.0 ohm resistor.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "ac-circuits",
+        "inductors",
+        "reactance",
+        "impedance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Inserting the iron nail increases L, which increases X_L, which increases Z, which decreases I, which decreases V_R (since V_R = IR). So the voltage across the resistor decreases.",
+      "markingGuide": "Achievement: ONE step correct. Merit: Chain correct. Excellence: Full reasoning."
+    },
+    {
+      "id": "91526-25-q3c",
+      "number": "3(c)",
+      "text": "The nail is removed and a 1.50 x 10^-4 F capacitor is added in series. Te Ariki reduces the frequency and notices the voltage across the 60.0 ohm resistor increases to a maximum at one frequency.\n\nExplain why.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "ac-circuits",
+        "resonance",
+        "impedance",
+        "reactance"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "At resonance, X_L = X_C. The voltages across L and C are equal and opposite, so they cancel. Z = R (minimum), I = V/R (maximum), so V_R = V_supply (maximum). This occurs at one specific frequency where X_L = X_C.",
+      "markingGuide": "Achievement: ONE concept correct. Merit: Most concepts. Excellence: Full explanation."
+    },
+    {
+      "id": "91526-25-q3d",
+      "number": "3(d)",
+      "text": "The supply frequency is reduced to 18.0 Hz.\n\nCalculate the RMS current in the circuit.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "ac-circuits",
+        "impedance",
+        "reactance",
+        "rlc-circuit"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "X_L = 2 pi x 18.0 x 0.500 = 56.55 ohm. X_C = 1/(2 pi x 18.0 x 1.50 x 10^-4) = 58.95 ohm. R_total = 60.0 + 2.00 = 62.0 ohm. Z = sqrt(R^2 + (X_L - X_C)^2) = sqrt(62.0^2 + (56.55 - 58.95)^2) = sqrt(3844 + 5.76) = sqrt(3849.76) = 62.05 ohm. I = V/Z = 10.0/62.05 = 0.161 A.",
+      "markingGuide": "Achievement: One reactance correct. Merit: Z correct. Excellence: I = 0.161 A."
+    }
+  ]
 }

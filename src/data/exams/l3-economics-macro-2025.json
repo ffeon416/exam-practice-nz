@@ -8,83 +8,10 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {
-      "id": "l3em25-q1a",
-      "number": "1(a)",
-      "text": "Explain components and determinants of aggregate demand.",
-      "marks": 5,
-      "gradeLevel": "achieved",
-      "topics": [
-        "aggregate demand",
-        "spending components",
-        "consumption"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Aggregate demand: total spending on goods and services in economy.",
-      "markingGuide": "Identify components and explain what determines each."
-    },
-    {
-      "id": "l3em25-q1b",
-      "number": "1(b)",
-      "text": "Analyse shifts in aggregate supply and price impacts.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "aggregate supply shifts",
-        "production costs",
-        "inflation"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Supply shifts from technology, input costs, productivity changes.",
-      "markingGuide": "Explain mechanisms by which supply changes affect economy."
-    },
-    {
-      "id": "l3em25-q2a",
-      "number": "2(a)",
-      "text": "Analyse macroeconomic equilibrium and unemployment-inflation trade-off.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "macro equilibrium",
-        "Phillips curve",
-        "policy trade-offs"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Show equilibrium and analyse trade-offs in policy objectives.",
-      "markingGuide": "Evaluate competing macroeconomic objectives and constraints."
-    },
-    {
-      "id": "l3em25-q2b",
-      "number": "2(b)",
-      "text": "Comprehensive macroeconomic analysis with policy implications.",
-      "marks": 7,
-      "gradeLevel": "excellence",
-      "topics": [
-        "macro framework",
-        "policy design",
-        "economic performance"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Integrate macro analysis with policy design to achieve objectives.",
-      "markingGuide": "Sophisticated assessment of policy options and outcomes."
-    }
+    { "id": "l3em25-q1a", "number": "1(a)", "text": "New Zealand's economy slowed significantly in late 2024 and early 2025, with rising unemployment and weak consumer confidence. The RBNZ responded by cutting the OCR.\n\nExplain how a slowdown affects the components of aggregate demand. Use the AD formula (AD = C + I + G + (X - M)) to structure your answer.", "marks": 5, "gradeLevel": "achieved", "topics": ["aggregate demand", "spending components", "consumption"], "answerType": "text", "expectedAnswer": "C decreases: rising unemployment reduces household incomes, and lower confidence causes precautionary saving. I decreases: businesses postpone investment due to uncertainty and weak demand. G may increase (automatic stabilisers like unemployment benefits rise). X-M: imports may fall as spending decreases; exports depend on global conditions. Net effect: AD shifts significantly left.", "markingGuide": "Identify components and explain how each is affected during an economic slowdown." },
+    { "id": "l3em25-q1b", "number": "1(b)", "text": "Analyse how supply-side factors contributed to New Zealand's economic challenges. Consider the roles of housing costs, skills shortages, and infrastructure constraints.", "marks": 6, "gradeLevel": "merit", "topics": ["aggregate supply shifts", "production costs", "inflation"], "answerType": "text", "expectedAnswer": "High housing costs divert household spending from productive consumption and increase business costs (commercial rents, wage demands). Skills shortages in construction, healthcare, and technology sectors limit productive capacity and push up wages. Infrastructure constraints (transport bottlenecks, ageing pipes, electricity generation limits) reduce the economy's ability to grow. These supply-side constraints meant that even before the slowdown, productive capacity was limited. LRAS may also have been affected as underinvestment in education and infrastructure reduces future capacity.", "markingGuide": "Explain mechanisms by which supply-side factors constrain the economy." },
+    { "id": "l3em25-q2a", "number": "2(a)", "text": "Using an AD/AS diagram, analyse the trade-off between unemployment and inflation that the RBNZ faces when setting the OCR. Explain why reducing unemployment through monetary stimulus might conflict with the inflation target of 1-3%.", "marks": 6, "gradeLevel": "merit", "topics": ["macro equilibrium", "Phillips curve", "policy trade-offs"], "answerType": "text", "expectedAnswer": "Lowering the OCR stimulates AD, increasing output and employment (reducing unemployment) but also putting upward pressure on prices (increasing inflation). On an AD/AS diagram, shifting AD right moves equilibrium to higher output and higher price level. The Phillips curve relationship shows an inverse relationship between unemployment and inflation in the short run. If inflation is already at the top of the 1-3% band, further stimulus risks pushing it above target. The RBNZ must balance these competing objectives.", "markingGuide": "Evaluate competing macroeconomic objectives and constraints using AD/AS and Phillips curve." },
+    { "id": "l3em25-q2b", "number": "2(b)", "text": "The government is considering a large-scale housing construction programme building 10,000 new state houses over five years to address the housing shortage and stimulate the economy.\n\nEvaluate this fiscal policy approach. In your answer, consider: (1) the short-run impact on AD, (2) the long-run impact on AS, (3) how it should be funded, and (4) potential risks including crowding out.", "marks": 7, "gradeLevel": "excellence", "topics": ["macro framework", "policy design", "economic performance"], "answerType": "text", "expectedAnswer": "Short-run: G increases, shifting AD right, boosting output and employment in construction and related industries (multiplier effect). Long-run: more housing supply shifts LRAS right — reduced housing costs free up household spending, lower wage demands, and improve labour mobility. Funding: borrowing is appropriate during a slowdown (low opportunity cost, Keynesian stimulus), but adds to government debt; tax increases would be counterproductive. Crowding out: if funded by borrowing, interest rates may rise, reducing private investment — but less of a concern during a slowdown when private investment is already weak. Risks: construction cost overruns, misallocation if houses are built where demand is low, and time lags. Overall: well-targeted housing construction addresses both demand stimulus and a binding supply-side constraint.", "markingGuide": "Sophisticated assessment of fiscal policy covering short-run, long-run, funding, and risks." }
   ],
-  "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
-      "max": 13
-    },
-    "merit": {
-      "min": 14,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
 }

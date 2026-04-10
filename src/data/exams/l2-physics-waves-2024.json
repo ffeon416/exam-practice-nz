@@ -29,7 +29,7 @@
     {
       "id": "w24-q1a",
       "number": "1(a)",
-      "text": "A festival of light and sound has been organised in the local high school. The school entrance has a temporary water feature and guide ropes to direct visitors into the building.\n\nThe water feature looks like a long water tank with one shallow end and one deep end. Joe notices a series of waves moving along the water surface. They move from left to right.\n\nName the physics phenomenon that causes the changes in the waves shown in the diagram, as they move from left to right.",
+      "text": "A school science fair has a water wave demonstration. A long tank has one shallow end and one deep end. Waves move from left to right.\n\nName the physics phenomenon that causes changes in the waves as they move from deep to shallow water.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -38,13 +38,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Refraction.",
-      "markingGuide": "Achieved: Correct answer.",
-      "image": "/images/exams/91170-2024-q1.png"
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w24-q1b",
       "number": "1(b)",
-      "text": "The waves are generated at the left-hand end, at a rate of 6 waves in 8.0 seconds. The initial wavelength of the waves is 4.0 cm, and this reduces to 2.0 cm at the right-hand end.\n\nCalculate the final velocity of the waves just as they hit the wall on the right-hand end.",
+      "text": "Waves are generated at 8 waves in 10.0 seconds. The initial wavelength is 5.0 cm, reducing to 3.0 cm at the shallow end.\n\nCalculate the final velocity of the waves at the shallow end.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -54,13 +53,13 @@
         "wavelength"
       ],
       "answerType": "working",
-      "expectedAnswer": "v = 0.015 m s⁻¹",
-      "markingGuide": "f = 6/8 = 0.75 Hz. λ₁ = 0.04 m. Speed in deep = v₁ = fλ₁ = 0.75 × 0.04 = 0.03 m s⁻¹. Using v₂/v₁ = λ₂/λ₁: v₂/0.03 = 0.02/0.04. Speed in shallow = v₂ = 0.015 m s⁻¹. Achieved: Correct frequency. Merit: Correct answer."
+      "expectedAnswer": "f = 8/10 = 0.80 Hz. v_deep = f x lambda_deep = 0.80 x 0.050 = 0.040 m/s. v_shallow/v_deep = lambda_shallow/lambda_deep. v_shallow = 0.040 x 0.030/0.050 = 0.024 m/s.",
+      "markingGuide": "Achieved: Correct frequency. Merit: Correct velocity."
     },
     {
       "id": "w24-q1c",
       "number": "1(c)",
-      "text": "Describe and explain the phenomenon identified in part (a), as the wave moves from left to right.\n\nInclude a description of any changes to wavelength, velocity, amplitude, and frequency of the waves.",
+      "text": "Describe and explain the phenomenon identified in part (a), as the wave moves from deep to shallow water.\n\nInclude changes to wavelength, velocity, amplitude, and frequency.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -70,13 +69,13 @@
         "frequency"
       ],
       "answerType": "text",
-      "expectedAnswer": "The wave slows down as it enters shallow water.",
-      "markingGuide": "Achieved: Any TWO correct points. Merit: THREE correct points clearly linked. Excellence: Explanation including all FOUR bullet points."
+      "expectedAnswer": "The wave slows down as it enters shallow water. Wavelength decreases proportionally. Frequency remains constant (set by the source). Amplitude may increase slightly as energy is concentrated in a slower, shorter wave.",
+      "markingGuide": "Achieved: TWO correct points. Merit: THREE linked. Excellence: All FOUR."
     },
     {
       "id": "w24-q1di",
       "number": "1(d)(i)",
-      "text": "The guide ropes beyond the water feature consist of a less dense rope joined to a more dense rope. A student sends a pulse down the rope from the left along the less dense rope to the right.\n\nComplete the diagram to show both the transmitted and reflected pulse after the pulse hits the boundary between the ropes.\n\nYou should include labels that identify the transmitted pulse and the reflected pulse.",
+      "text": "A demonstration rope consists of a less dense rope joined to a more dense rope. A student sends a pulse from left to right along the less dense rope.\n\nComplete the diagram to show both the transmitted and reflected pulse after the pulse hits the boundary.\n\nLabel the transmitted and reflected pulses.",
       "marks": 2,
       "gradeLevel": "excellence",
       "topics": [
@@ -85,9 +84,8 @@
         "transmission"
       ],
       "answerType": "text",
-      "expectedAnswer": "Reflected pulse: opposite phase, smaller amplitude, further from boundary than transmitted pulse.",
-      "markingGuide": "Evidence: Reflected pulse has opposite phase. Transmitted pulse same phase. Both amplitudes smaller than incident. Reflected pulse further from boundary. Achieved: Any of the bullet points on diagram. OR stated reflected pulse is faster. Merit: THREE bullet points on diagram AND stated reflected pulse is faster. Excellence: Correct, fully labelled diagram with arrows AND correct comparison of velocities.",
-      "image": "/images/exams/91170-2024-q1d.png"
+      "expectedAnswer": "Reflected pulse: opposite phase (inverted), smaller amplitude, further from boundary. Transmitted pulse: same phase (upright), smaller amplitude, closer to boundary and slower.",
+      "markingGuide": "Achieved: Any correct feature. Merit: THREE features. Excellence: Fully correct diagram."
     },
     {
       "id": "w24-q1dii",
@@ -100,13 +98,13 @@
         "wave-speed"
       ],
       "answerType": "text",
-      "expectedAnswer": "The reflected pulse is faster than the transmitted pulse.",
+      "expectedAnswer": "The reflected pulse is faster than the transmitted pulse (it travels in the less dense rope).",
       "markingGuide": "Achieved: Correct comparison."
     },
     {
       "id": "w24-q2a",
       "number": "2(a)",
-      "text": "A room has been set up with mirrors and lenses to create different images. Anaru looks closely into a large curved mirror. His image is enlarged and upright.\n\nState the third property of the image.",
+      "text": "A room has curved mirrors. Hemi looks into a large curved mirror. His reflection is enlarged and upright.\n\nState the third property of the image.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -115,13 +113,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Virtual image.",
-      "markingGuide": "Achieved: Correct answer.",
-      "image": "/images/exams/91170-2024-q2.png"
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w24-q2b",
       "number": "2(b)",
-      "text": "Anaru is 1.5 m tall and is standing 0.90 m in front of the mirror, which has a focal length of 2.0 m.\n\nCalculate the height of the image.",
+      "text": "Hemi is 1.7 m tall and stands 0.80 m in front of the mirror, which has a focal length of 1.5 m.\n\nCalculate the height of the image.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -130,13 +127,13 @@
         "mirror-equation"
       ],
       "answerType": "working",
-      "expectedAnswer": "hᵢ = 2.7 m (accept without the negative sign)",
-      "markingGuide": "1/f = 1/dᵢ + 1/dₒ. 1/2 = 1/dᵢ + 1/0.9. dᵢ = −1.636 m. dᵢ/dₒ = hᵢ/hₒ → −1.636/0.9 = hᵢ/1.5 → hᵢ = −2.7 m. Accept without the negative. Achieved: Correct dᵢ. Merit: Correct answer."
+      "expectedAnswer": "1/f = 1/di + 1/do. 1/1.5 = 1/di + 1/0.80. di = -1.714 m. M = -di/do = 1.714/0.80 = 2.14. hi = 2.14 x 1.7 = 3.6 m.",
+      "markingGuide": "Achieved: Correct di. Merit: Correct hi."
     },
     {
       "id": "w24-q2ci",
       "number": "2(c)(i)",
-      "text": "Joe stands 4.0 m in front of the concave mirror with focal length 2.0 m.\n\nComplete the ray diagram below to locate the image.",
+      "text": "Hemi stands 3.0 m in front of a concave mirror with focal length 1.5 m.\n\nComplete a ray diagram to locate the image.",
       "marks": 2,
       "gradeLevel": "excellence",
       "topics": [
@@ -144,9 +141,8 @@
         "ray-diagrams"
       ],
       "answerType": "text",
-      "expectedAnswer": "Image is inverted, real, same size as object, located at dᵢ = 4.0 m (= 2f).",
-      "markingGuide": "dₒ = 4, dᵢ = 4. hₒ = 2, hᵢ = −2. Achieved: Correct nature of image: real, same size, and inverted. OR ONE correct ray drawn. Merit: Correct ray diagram (with arrows). Excellence: Correct ray diagram (with arrows) correctly locating image AND image described.",
-      "image": "/images/exams/91170-2024-q2ci.png"
+      "expectedAnswer": "Image is inverted, real, same size as object, located at di = 3.0 m (= 2f).",
+      "markingGuide": "Achieved: Correct image nature. Merit: Correct ray diagram. Excellence: Ray diagram with image described."
     },
     {
       "id": "w24-q2cii",
@@ -159,13 +155,13 @@
         "image-properties"
       ],
       "answerType": "text",
-      "expectedAnswer": "Inverted, real image, same size as object (hᵢ = hₒ), dᵢ = 2f.",
-      "markingGuide": "Achieved: Correct properties stated."
+      "expectedAnswer": "Inverted, real, same size as object.",
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w24-q2di",
       "number": "2(d)(i)",
-      "text": "A candle is set up in front of a convex lens. The image produced is projected onto the screen, and is inverted and diminished.\n\nState the property of the image that allows it to be projected on to a screen.",
+      "text": "A candle is placed in front of a convex lens. The image is inverted and diminished.\n\nState the property that allows the image to be projected on a screen.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -174,13 +170,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image is real.",
-      "markingGuide": "Achieved: Real image is produced. OR one correct ray drawn from an object. OR move the candle closer to the lens to enlarge the object (not within f).",
-      "image": "/images/exams/91170-2024-q2d.png"
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w24-q2dii",
       "number": "2(d)(ii)",
-      "text": "Complete a ray diagram on the axis below to show how the inverted and diminished image could be formed.",
+      "text": "Complete a ray diagram to show how the inverted and diminished image is formed.",
       "marks": 1,
       "gradeLevel": "excellence",
       "topics": [
@@ -188,14 +183,13 @@
         "ray-diagrams"
       ],
       "answerType": "text",
-      "expectedAnswer": "Object placed beyond 2F, two correct rays drawn, image between F and 2F on other side, inverted...",
-      "markingGuide": "Achieved: Real image is produced. OR one correct ray drawn. OR move candle closer to lens (not within f). Merit: TWO of: image is real, two rays with arrows, bring object closer. Excellence: All THREE: image is real, two rays with arrows and labels, bring object closer to lens (not within f).",
-      "image": "/images/exams/91170-2024-q2dii.png"
+      "expectedAnswer": "Object placed beyond 2F, two correct rays drawn, image between F and 2F on other side, inverted and diminished.",
+      "markingGuide": "Achieved: One correct ray. Merit: Two rays. Excellence: Complete diagram."
     },
     {
       "id": "w24-q2diii",
       "number": "2(d)(iii)",
-      "text": "The boys move the candle to produce a larger image, still able to be formed on a screen.\n\nExplain how the image size can be made larger and still formed on a screen.",
+      "text": "The students move the candle to produce a larger image, still able to be formed on a screen.\n\nExplain how the image size can be made larger.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -203,13 +197,13 @@
         "magnification"
       ],
       "answerType": "text",
-      "expectedAnswer": "Bring object closer to the lens (but not within f).",
-      "markingGuide": "Achieved: Bring object closer to the lens."
+      "expectedAnswer": "Move the candle closer to the lens (but keep it beyond F so the image remains real).",
+      "markingGuide": "Achieved: Bring object closer."
     },
     {
       "id": "w24-q3a",
       "number": "3(a)",
-      "text": "The final room is filled with a light display using fibre optics.\n\nA fibre optic cable is made from a glass core contained within a cladding (covering).\n\nState what the symbols n₁ and n₂ represent in the diagram above.",
+      "text": "The final display uses fibre optics. A fibre optic cable has a glass core within a cladding.\n\nState what n1 and n2 represent.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -217,13 +211,13 @@
         "refractive-index"
       ],
       "answerType": "text",
-      "expectedAnswer": "Refractive indices (of the mediums).",
-      "markingGuide": "Achieved: Correct answer."
+      "expectedAnswer": "Refractive indices (of the core and cladding materials).",
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w24-q3bi",
       "number": "3(b)(i)",
-      "text": "Name the phenomenon that allows light rays to be transmitted along the fibre optic cable.",
+      "text": "Name the phenomenon that allows light to be transmitted along the fibre optic cable.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -232,12 +226,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Total internal reflection.",
-      "markingGuide": "Achieved: Correct answer."
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w24-q3bii",
       "number": "3(b)(ii)",
-      "text": "State the conditions required for this phenomenon to occur within this fibre optic cable.",
+      "text": "State the conditions required for this phenomenon within the fibre optic cable.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -246,13 +240,13 @@
         "critical-angle"
       ],
       "answerType": "text",
-      "expectedAnswer": "The angle of incidence on the glass-cladding boundary must be greater than the critical angle",
-      "markingGuide": "Achieved: (i) OR either of the points from part (ii). Merit: Correct answer — (ii) must be in the context of glass and cladding."
+      "expectedAnswer": "The angle of incidence on the core-cladding boundary must be greater than the critical angle, and light must travel from the denser medium (core) to the less dense medium (cladding).",
+      "markingGuide": "Achieved: One condition. Merit: Both conditions in context."
     },
     {
       "id": "w24-q3ci",
       "number": "3(c)(i)",
-      "text": "A table has been set up with a single beam of light shining through a tank that is filled with oil. The light is moving from the oil into the air.\n\nAdd a labelled arrow to the diagram to show the refracted ray as light passes from oil to air.",
+      "text": "A beam of light shines through a tank filled with glycerine. The light moves from glycerine into air.\n\nAdd a labelled arrow to show the refracted ray.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -261,13 +255,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Ray bending away from normal in air, with label and arrow.",
-      "markingGuide": "Achieved: Ray bending away from normal in air. OR n₁ = 1.17. OR finds angle from incorrect n. Merit: TWO of: correct ray, correct angle, correct n. Excellence: Correct answer including refracted ray with label and arrow.",
-      "image": "/images/exams/91170-2024-q3c.png"
+      "markingGuide": "Achieved: Correct direction. Merit: Correct with angle."
     },
     {
       "id": "w24-q3cii",
       "number": "3(c)(ii)",
-      "text": "The angle of incidence on the oil-air boundary is 30°.\nThe refractive index of air is 1.00.\nThe velocity of light in air: v₁ = 3.00 × 10⁸ m s⁻¹\nand in oil: v₂ = 2.56 × 10⁸ m s⁻¹\n\nCalculate the angle of refraction in air.",
+      "text": "The angle of incidence on the glycerine-air boundary is 25 degrees.\nRefractive index of air = 1.00.\nSpeed of light in air: v1 = 3.00 x 10^8 m s-1\nSpeed in glycerine: v2 = 2.04 x 10^8 m s-1\n\nCalculate the angle of refraction in air.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -276,13 +269,13 @@
         "snells-law"
       ],
       "answerType": "working",
-      "expectedAnswer": "θ₂ = 35.8°",
-      "markingGuide": "n₁ = v₁/v₂ = 3.00 × 10⁸ / 2.56 × 10⁸ = 1.17. n₁ sin θ₁ = n₂ sin θ₂. 1.17 × sin 30 = 1 × sin θ₂. θ₂ = 35.8°. Achieved: Ray bending away from normal in air. OR n = 1.17. Merit: TWO of: correct ray, correct angle, correct n. Excellence: Correct answer including refracted ray with label and arrow."
+      "expectedAnswer": "n_glycerine = v_air/v_glycerine = 3.00e8/2.04e8 = 1.47. n1 sin theta1 = n2 sin theta2. 1.47 x sin 25 = 1.00 x sin theta2. sin theta2 = 0.621. theta2 = 38.4 degrees.",
+      "markingGuide": "Achieved: n found or correct direction. Merit: Two of three correct. Excellence: Correct angle."
     },
     {
       "id": "w24-q3d",
       "number": "3(d)",
-      "text": "As the people leave, they pass a signal generator set up with two loudspeakers lined up. The speakers are both sounding the same single frequency at the same volume.\n\nThe people walk past the speakers.\n\nDescribe and explain any changes to the sound experienced by the people as they walk past the speakers.\n\nYou may use a diagram to help explain your answer.",
+      "text": "As visitors leave, they pass two loudspeakers connected to the same signal generator, both producing the same frequency at the same volume.\n\nDescribe and explain changes to the sound experienced as people walk past.",
       "marks": 1,
       "gradeLevel": "excellence",
       "topics": [
@@ -292,9 +285,8 @@
         "destructive-interference"
       ],
       "answerType": "text",
-      "expectedAnswer": "Visitors hear alternating loud and soft sounds due to constructive and destructive interference,...",
-      "markingGuide": "Loud sounds due to constructive interference (crest + crest, path difference = whole wavelengths). Quiet zones due to destructive interference (crest + trough, path difference = odd half wavelengths). Achieved: ONE of: loud/constructive, soft/destructive, description of interference, interference linked to path difference, diagram with nodal/anti-nodal line. Merit: An explanation including at least THREE. Excellence: Comprehensive explanation of interference linked to path difference.",
-      "image": "/images/exams/91170-2024-q3d.png"
+      "expectedAnswer": "Visitors hear alternating loud and soft sounds due to constructive and destructive interference. Where path difference is a whole number of wavelengths, constructive interference occurs (loud). Where path difference is an odd number of half wavelengths, destructive interference occurs (soft).",
+      "markingGuide": "Achieved: ONE point. Merit: THREE points. Excellence: Full explanation with path difference."
     }
   ]
 }

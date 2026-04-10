@@ -1,197 +1,12 @@
 {
   "id": "l3-physics-mechanics-2025",
-  "title": "Level 3 Physics — Mechanics (91524) — 2025",
+  "title": "Level 3 Physics \u2014 Mechanics (91524) \u2014 2025",
   "level": 3,
   "standard": "91524",
   "year": 2025,
   "subject": "physics",
   "timeMinutes": 0,
   "totalMarks": 24,
-  "questions": [
-    {
-      "id": "91524-25-q1a",
-      "number": "1(a)",
-      "text": "QUESTION ONE: MOMENTUM AND CIRCULAR MOTION\n\nTitan is the largest of Saturn's moons. For the sake of this question, you can ignore the gravitational effects of the other moons of Saturn and the rest of the objects in the solar system, and assume that Titan is in a perfectly circular orbit.\n\nMass of Saturn: 5.68 × 10²⁶ kg\nRadius of Saturn: 5.82 × 10⁷ m\nMass of Titan: 1.35 × 10²³ kg\nDistance between the centres of mass of Saturn and Titan: 1.22 × 10⁹ m\n\nShow that the centre of mass of Saturn and Titan is 2.90 × 10⁵ m from the centre of Saturn.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "centre-of-mass",
-        "circular-motion"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "x_com = 2.90 × 10⁵ m",
-      "markingGuide": "Achievement: Calculated with either substitution into an equation or equation with unrounded answer. Working: x_com = (m₁x₁ + m₂x₂)/(m₁ + m₂) = (5.68 × 10²⁶ × 0 + 1.35 × 10²³ × 1.22 × 10⁹)/(5.68 × 10²⁶ + 1.35 × 10²³) = 289895 ≈ 2.90 × 10⁵ m."
-    },
-    {
-      "id": "91524-25-q1b",
-      "number": "1(b)",
-      "text": "Two ice particles around Saturn move toward each other, as shown below. Particle A has a mass of 2.45 kg and a velocity of 8.00 m s⁻¹; particle B has a mass of 3.20 kg and a velocity of 15.0 m s⁻¹. The particles collide and stick together without losing any mass.\n\nCalculate the size and direction of the momentum of the two particles when they are stuck together.\n\nDetermine the direction relative to the initial velocity of particle A.\n\nA diagram may assist your answer.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "momentum",
-        "conservation-of-momentum",
-        "vector-addition"
-      ],
-      "answerType": "working",
-      "image": "/images/exams/91524-2025-q1b-collision.png",
-      "expectedAnswer": "p_tot = 51.8 kg m s⁻¹, 67.8° anticlockwise from the initial direction of A.",
-      "markingGuide": "Achievement: Calculated ONE of: correct momenta for A and B, labelled momentum vector diagram with correct orientation of vectors, correct angle only, total p = 67.6 kg m s⁻¹ if linear addition. Merit: Calculated correct answer (size and angle from A). Excellence: Calculated correct answer (size and angle from A). Working: p_A = 2.45 × 8.00 = 19.6 kg m s⁻¹ (to the right). p_B = 3.20 × 15.0 = 48.0 kg m s⁻¹ (downward). p_tot² = 19.6² + 48.0² = 2688.16. p_tot = 51.8 kg m s⁻¹. tan θ = 48.0/19.6. θ = 67.8° anticlockwise from initial direction of A."
-    },
-    {
-      "id": "91524-25-q1c",
-      "number": "1(c)",
-      "text": "Calculate the time it takes for Titan to complete one orbit of Saturn.\n\nYou could begin by calculating the velocity of Titan in its orbit.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "circular-motion",
-        "gravitational-force",
-        "orbital-motion"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "T = 1.38 × 10⁶ s (15.9 days)",
-      "markingGuide": "Achievement: Showed F_c = F_g (some evidence of understanding) OR showed v = 2πr/T. Merit: Showed v² = GM/r either algebraically or as part of numerical working OR correct method to find T with incorrect v. OR F_g = 3.4383 × 10¹⁶ N. Excellence: Correct answer with units. Or correct T with use of v = ωr. Working: F_c = F_g. mv²/r = GMm/r². v² = GM/r = 6.67 × 10⁻¹¹ × 5.68 × 10²⁶ / 1.22 × 10⁹ = 5572.59 m s⁻¹. v = d/T = 2πr/T. T = 2π × 1.22 × 10⁹ / 5572.59 = 1.375569 × 10⁶ s. T = 1.38 × 10⁶ s."
-    },
-    {
-      "id": "91524-25-q1d",
-      "number": "1(d)",
-      "text": "Future manned missions to the solar system are most likely to be launched from space stations in low earth orbit, similar to the International Space Station. Astronauts on the International Space Station appear to be weightless, even though Earth's gravity is still acting on them.\n\nExplain why astronauts appear to be weightless yet can remain in orbit.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "circular-motion",
-        "gravitational-force",
-        "weightlessness",
-        "free-fall"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "To maintain a circular orbit, an object requires a centripetal force directed toward Earth's centre",
-      "markingGuide": "Achievement: Stated one of: freefall, no reaction force, F_g provides F_c (can be written as F_g = F_c but must be contextually correct). Merit: 2 complete bullet points OR one complete and two partial. Excellence: Full explanation."
-    },
-    {
-      "id": "91524-25-q2a",
-      "number": "2(a)",
-      "text": "QUESTION TWO: ROTATIONAL MOTION\n\nRihari and Jane are playing on a roundabout (sometimes known as a merry-go-round) in the local playground. The roundabout has a radius of 1.30 m. Rihari stands on the roundabout whilst Jane pushes on it to make it spin as shown in the diagram. Starting from rest Jane steadily accelerates the roundabout so that it takes 12.0 s to make 4.00 rotations.\n\nShow that the angular velocity of the roundabout after the 12.0 s is 4.19 rad s⁻¹.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "rotational-motion",
-        "angular-velocity",
-        "kinematics"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "ω_f = 4.19 rad s⁻¹",
-      "markingGuide": "Achievement: Calculated with either substitution into an equation or equation with unrounded answer. Working: θ = ((ω_f + ω_i)/2)t. 4.00 × 2π = (ω_f/2) × 12.0. ω_f = 4.1887 = 4.19 rad s⁻¹. Could also use θ = ω_it + ½αt² with ω_f = ω_i + αt. α = 0.35 rad s⁻²."
-    },
-    {
-      "id": "91524-25-q2b",
-      "number": "2(b)",
-      "text": "Rihari then drags his foot along the ground to bring the roundabout to a stop over 19.2 s.\n\nCalculate the average torque exerted to slow the roundabout, if the roundabout and Rihari have a rotational inertia of 430 kg m².",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "rotational-motion",
-        "torque",
-        "angular-acceleration"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "τ = −93.8 N m",
-      "markingGuide": "Achievement: Calculated ONE of: correct angular acceleration, correct torque using wrong angular acceleration (τ = Iα). Merit: Calculated correct torque. Working: ω_f = ω_i + αt. 0 = 4.1887 + α(19.2). α = −4.19/19.2 = −0.218166 rad s⁻². τ = Iα = 430(−0.218166) = −93.81 ≈ −93.8 N m. Negative indicates torque is slowing the roundabout."
-    },
-    {
-      "id": "91524-25-q2c",
-      "number": "2(c)",
-      "text": "Jane has a mass of 52.0 kg. She runs at 6.39 m s⁻¹ and jumps onto the stationary roundabout, close to the edge, landing 1.20 m from the axis of rotation, as indicated in the diagram.\n\nThe roundabout and Rihari have a rotational inertia of 430 kg m².\n\nThe rotational inertia of a point mass is I = mr².\n\nCalculate the angular velocity of the roundabout after Jane has jumped on.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "rotational-motion",
-        "angular-momentum",
-        "conservation-of-angular-momentum"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "ω = 0.790 rad s⁻¹",
-      "markingGuide": "Achievement: Calculated ONE of: L of Jane, I of Jane. If used Jane's L and I, ω = 5.325 rad s⁻¹. If used I = 430, ω = 0.927 rad s⁻¹. Merit: Minor error (correct method). Must have reference to the inertia of roundabout and Jane in L_f. Excellence: Correct working and answer. Working: L_Jane = mvr = 52.0 × 6.39 × 1.20 = 398.736. I_Jane = mr² = 52.0 × 1.20² = 74.880. I_T = 430 + 74.88 = 504.88. L_i = L_f. 398.736 = 504.88ω. ω = 0.79 rad s⁻¹."
-    },
-    {
-      "id": "91524-25-q2d",
-      "number": "2(d)",
-      "text": "Later, Rihari and Jane are both standing on the edge of the roundabout while it is rotating at a constant angular velocity.\n\nRihari moves inwards, towards the centre of the roundabout.\n\nExplain the effect this has on the rotational kinetic energy of the system.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "rotational-motion",
-        "angular-momentum",
-        "rotational-kinetic-energy"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "As Rihari moves inward, his mass is closer to the axis of rotation, so I (∝ mr²) decreases.",
-      "markingGuide": "Achievement: Recognised I decreases OR recognised that angular momentum is conserved so angular velocity increases. Merit: Two concepts explained correctly with links. Recognised that due to movement of mass inwards, angular velocity/rotational kinetic energy increases. Excellence: All four concepts explained and linked."
-    },
-    {
-      "id": "91524-25-q3a",
-      "number": "3(a)",
-      "text": "QUESTION THREE: SIMPLE HARMONIC MOTION\n\nRihari is playing with a ball on a string and lets it swing as a pendulum. It is 1.20 m from the fixed point of the string to the centre of mass of the ball. The top of the string is held, and the ball is released from the starting position at an angle of 5.60° from the vertical. The mass of the string is insignificant compared to the mass of the ball.\n\nShow that the maximum displacement of the ball is 0.117 m.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "simple-harmonic-motion",
-        "pendulum",
-        "displacement"
-      ],
-      "answerType": "working",
-      "image": "/images/exams/91524-2025-q3-pendulum.png",
-      "expectedAnswer": "A = 0.117 m",
-      "markingGuide": "Achievement: Correct answer using sin. Working: sin θ = A/l. A = 1.20 sin 5.60° = 0.117099 ≈ 0.117 m."
-    },
-    {
-      "id": "91524-25-q3b",
-      "number": "3(b)",
-      "text": "Show that the angular frequency of the ball's motion is 2.86 rad s⁻¹.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "simple-harmonic-motion",
-        "pendulum",
-        "angular-frequency"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "ω = 2.86 rad s⁻¹",
-      "markingGuide": "Achievement: Calculated correct period. Or with wrong T, worked out ω (show question required evidence of understanding). Merit: Calculated ω with correct working and answer. Working: T = 2π√(l/g) = 2π√(1.20/9.81) = 2.197536 s. ω = 2π/T = 2π/2.197536 = 2.859195 = 2.86 rad s⁻¹."
-    },
-    {
-      "id": "91524-25-q3c",
-      "number": "3(c)",
-      "text": "After the ball is released from the starting position, calculate the time it will take for the ball to reach a point 3.30 cm before its next stationary position, as shown in the diagram.\n\nA reference circle may be used to calculate your answer.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "simple-harmonic-motion",
-        "displacement",
-        "reference-circle"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "t = 0.829 s",
-      "markingGuide": "Achievement: Calculated ONE of: correct displacement y (−0.084), reference circle with phasors in correct start and finish positions, used trig for angle past equilibrium θ = 0.801 rad or 45.9°. If two errors: max grade is A. Merit: Calculation with one error, e.g. calculation used correct method with incorrect amplitude or displacement. Or θ correctly calculated as 2.3734 rad and incorrect calculation of t. Excellence: Calculated correct answer. Working: y = −0.117 + 0.033 = −0.084 m. x = A cos(ωt). −0.084 = 0.117 cos(2.86t). cos(2.86t) = −0.084/0.117. 2.86t = cos⁻¹(−0.084/0.117). t = 0.82924 ≈ 0.829 s."
-    },
-    {
-      "id": "91524-25-q3d",
-      "number": "3(d)",
-      "text": "Rihari holds the end of the string between his fingers, and moves his hand horizontally from side to side. He notices that at a certain frequency of movement, the ball will oscillate with a very large amplitude.\n\nExplain why this occurs.\n\nYour answer should include both force and energy considerations.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "simple-harmonic-motion",
-        "resonance",
-        "energy",
-        "natural-frequency"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "This is resonance.",
-      "markingGuide": "Achievement: States ONE of: resonance, hand is applying driving force, hand is adding energy to the system, friction removes energy from the system, force 'in time' adds energy to system / increase A, f ≈ f₀. Merit: Forces: frequency of driving force matches the natural frequency linked to increased amplitude. OR Energy: when f = f₀, this increases the E_k (lin) of the system, leading to an increase in E_gp and so A increases. Excellence: Complete answer."
-    }
-  ],
   "cutScores": {
     "notAchieved": {
       "min": 0,
@@ -209,5 +24,188 @@
       "min": 19,
       "max": 24
     }
-  }
+  },
+  "questions": [
+    {
+      "id": "91524-25-q1a",
+      "number": "1(a)",
+      "text": "QUESTION ONE: MOMENTUM AND CIRCULAR MOTION\n\nJupiter is the largest planet in the solar system. For this question, ignore gravitational effects of other moons and assume Europa is in a perfectly circular orbit.\n\nMass of Jupiter: 1.90 x 10^27 kg\nRadius of Jupiter: 6.99 x 10^7 m\nMass of Europa: 4.80 x 10^22 kg\nDistance between centres of mass: 6.71 x 10^8 m\n\nShow that the centre of mass of Jupiter and Europa is 1.70 x 10^4 m from the centre of Jupiter.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "centre-of-mass",
+        "circular-motion"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "x_com = (m1 x1 + m2 x2)/(m1+m2) = (1.90e27 x 0 + 4.80e22 x 6.71e8)/(1.90e27 + 4.80e22) = 3.221e31/1.90048e27 = 1.695e4 = 1.70 x 10^4 m.",
+      "markingGuide": "Achievement: Correct calculation shown."
+    },
+    {
+      "id": "91524-25-q1b",
+      "number": "1(b)",
+      "text": "Two ice particles around Jupiter move toward each other at right angles. Particle A has mass 3.10 kg and velocity 10.0 m s-1; Particle B has mass 4.50 kg and velocity 12.0 m s-1. They collide and stick together.\n\nCalculate the size and direction of the momentum of the combined particles. State direction relative to initial velocity of particle A.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "momentum",
+        "conservation-of-momentum",
+        "vector-addition"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "p_A = 3.10 x 10.0 = 31.0. p_B = 4.50 x 12.0 = 54.0. p_tot = sqrt(31.0^2 + 54.0^2) = sqrt(961 + 2916) = sqrt(3877) = 62.3 kg m s-1. theta = arctan(54.0/31.0) = 60.2 degrees from A's direction.",
+      "markingGuide": "Achievement: Individual momenta calculated. Merit: Total momentum correct. Excellence: Size and angle correct."
+    },
+    {
+      "id": "91524-25-q1c",
+      "number": "1(c)",
+      "text": "Calculate the time for Europa to complete one orbit of Jupiter.\n\nYou could begin by calculating Europa's orbital velocity.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "circular-motion",
+        "gravitational-force",
+        "orbital-motion"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Fc = Fg: mv^2/r = GMm/r^2. v = sqrt(GM/r) = sqrt(6.67e-11 x 1.90e27 / 6.71e8) = sqrt(1.889e8) = 13740 m/s. T = 2 pi r / v = 2 pi x 6.71e8 / 13740 = 306800 s = 3.07 x 10^5 s (3.55 days).",
+      "markingGuide": "Achievement: Shows Fc = Fg. Merit: Shows v. Excellence: T correct with units."
+    },
+    {
+      "id": "91524-25-q1d",
+      "number": "1(d)",
+      "text": "Astronauts on the International Space Station appear weightless, even though Earth's gravity acts on them.\n\nExplain why astronauts appear weightless yet remain in orbit.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "circular-motion",
+        "gravitational-force",
+        "weightlessness",
+        "free-fall"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The gravitational force provides exactly the centripetal force needed for the circular orbit. The astronauts and the station are in free fall together \u2014 they accelerate toward Earth at the same rate. There is no contact (normal) force between the astronaut and the station floor, so the astronaut feels weightless. They remain in orbit because their tangential velocity means they continually fall toward Earth but miss it.",
+      "markingGuide": "Achievement: One correct statement. Merit: Two linked. Excellence: Full explanation."
+    },
+    {
+      "id": "91524-25-q2a",
+      "number": "2(a)",
+      "text": "QUESTION TWO: ROTATIONAL MOTION\n\nHana and Wiremu are playing on a roundabout (merry-go-round) of radius 1.40 m. Wiremu stands on it while Hana pushes. Starting from rest, Hana accelerates it so that it takes 10.0 s to make 3.00 rotations.\n\nShow that the angular velocity after 10.0 s is 3.77 rad s-1.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "rotational-motion",
+        "angular-velocity",
+        "kinematics"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "theta = 3.00 x 2 pi = 18.85 rad. theta = (omega_f + omega_i)/2 x t. 18.85 = (omega_f/2) x 10.0. omega_f = 3.77 rad s-1.",
+      "markingGuide": "Achievement: Correct working shown."
+    },
+    {
+      "id": "91524-25-q2b",
+      "number": "2(b)",
+      "text": "Wiremu drags his foot to bring the roundabout to a stop over 16.0 s.\n\nCalculate the average torque exerted, if the roundabout and Wiremu have rotational inertia of 380 kg m^2.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "rotational-motion",
+        "torque",
+        "angular-acceleration"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "alpha = (0 - 3.77)/16.0 = -0.2356 rad s-2. tau = I alpha = 380 x (-0.2356) = -89.5 N m.",
+      "markingGuide": "Achievement: alpha correct. Merit: tau correct."
+    },
+    {
+      "id": "91524-25-q2c",
+      "number": "2(c)",
+      "text": "Hana has mass 48.0 kg. She runs at 5.80 m s-1 and jumps on the stationary roundabout, landing 1.30 m from the axis.\n\nThe roundabout and Wiremu have I = 380 kg m^2. I_point = mr^2.\n\nCalculate the angular velocity after Hana jumps on.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "rotational-motion",
+        "angular-momentum",
+        "conservation-of-angular-momentum"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "L_Hana = mvr = 48.0 x 5.80 x 1.30 = 361.9. I_Hana = mr^2 = 48.0 x 1.30^2 = 81.12. I_total = 380 + 81.12 = 461.12. L_i = L_f: 361.9 = 461.12 x omega. omega = 0.785 rad s-1.",
+      "markingGuide": "Achievement: L or I of Hana. Merit: Minor error. Excellence: omega = 0.785 rad s-1."
+    },
+    {
+      "id": "91524-25-q2d",
+      "number": "2(d)",
+      "text": "Later, both stand on the edge while the roundabout rotates at constant angular velocity. Wiremu moves inward.\n\nExplain the effect on the rotational kinetic energy of the system.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "rotational-motion",
+        "angular-momentum",
+        "rotational-kinetic-energy"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Angular momentum is conserved (no external torque). As Wiremu moves inward, I decreases (I proportional to mr^2). Since L = I omega is constant, omega increases. E_k_rot = 1/2 I omega^2 = L^2/(2I). Since I decreases and L is constant, E_k_rot increases. The extra energy comes from the work done by Wiremu as he moves inward against the centripetal tendency.",
+      "markingGuide": "Achievement: I decreases OR omega increases. Merit: Two concepts linked. Excellence: All four concepts linked."
+    },
+    {
+      "id": "91524-25-q3a",
+      "number": "3(a)",
+      "text": "QUESTION THREE: SIMPLE HARMONIC MOTION\n\nHana plays with a ball on a string as a pendulum. It is 1.30 m from the fixed point to the centre of the ball. The ball is released from 4.80 degrees from vertical.\n\nShow that the maximum displacement is 0.109 m.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "simple-harmonic-motion",
+        "pendulum",
+        "displacement"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "A = L sin theta = 1.30 sin 4.80 = 1.30 x 0.08368 = 0.1088 = 0.109 m.",
+      "markingGuide": "Achievement: Correct using sin."
+    },
+    {
+      "id": "91524-25-q3b",
+      "number": "3(b)",
+      "text": "Show that the angular frequency of the ball's motion is 2.75 rad s-1.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "simple-harmonic-motion",
+        "pendulum",
+        "angular-frequency"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "T = 2 pi sqrt(L/g) = 2 pi sqrt(1.30/9.81) = 2 pi x 0.3642 = 2.288 s. omega = 2 pi/T = 2 pi/2.288 = 2.746 = 2.75 rad s-1.",
+      "markingGuide": "Achievement: T correct. Merit: omega correct."
+    },
+    {
+      "id": "91524-25-q3c",
+      "number": "3(c)",
+      "text": "After the ball is released, calculate the time for it to reach a point 2.80 cm before its next stationary position.\n\nA reference circle may be used.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "simple-harmonic-motion",
+        "displacement",
+        "reference-circle"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "Next stationary position is at x = -0.109 m. 2.80 cm before = -0.109 + 0.028 = -0.081 m. x = A cos(omega t). -0.081 = 0.109 cos(2.75 t). cos(2.75t) = -0.7431. 2.75t = arccos(-0.7431) = 2.407 rad. t = 2.407/2.75 = 0.876 s.",
+      "markingGuide": "Achievement: Correct displacement. Merit: One error. Excellence: t = 0.876 s."
+    },
+    {
+      "id": "91524-25-q3d",
+      "number": "3(d)",
+      "text": "Hana holds the string and moves her hand horizontally from side to side. At a certain frequency, the ball oscillates with a very large amplitude.\n\nExplain why this occurs. Include force and energy considerations.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "simple-harmonic-motion",
+        "resonance",
+        "energy",
+        "natural-frequency"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "This is resonance. When the driving frequency matches the natural frequency of the pendulum, energy is transferred most efficiently into the system. The driving force is in phase with the velocity, adding energy each cycle. Friction removes some energy, but at resonance, energy input exceeds loss, so amplitude builds up to a maximum.",
+      "markingGuide": "Achievement: Resonance or driving force. Merit: Force or energy explanation. Excellence: Both force and energy."
+    }
+  ]
 }

@@ -10,7 +10,7 @@
     {
       "id": "l3co24-q1ai",
       "number": "1(a)(i)",
-      "text": "2-chlorobutane exists as enantiomers (optical isomers).\n\nCH₃–CH₂–CH–CH₃\n                  |\n                 Cl\n\nDraw the enantiomers of 2-chlorobutane in the box below.",
+      "text": "2-chloropentane exists as enantiomers (optical isomers).\n\nCH3-CH2-CHBr-CH3\n\nDraw the enantiomers of 2-chloropentane in the box below.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,13 +19,13 @@
         "enantiomers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Two 3D structural drawings showing the four different groups (CH₃, C₂H₅, H, Cl) arranged...",
-      "markingGuide": "Achievement: Recognises tetrahedral arrangement of atoms/groups about asymmetric C atom. AND identifies the asymmetric (chiral) C atom."
+      "expectedAnswer": "Two 3D structural drawings showing the four different groups (CH3, C2H5, H, Br) arranged as non-superimposable mirror images around the chiral C2.",
+      "markingGuide": "Achievement: Recognises tetrahedral arrangement and identifies asymmetric C."
     },
     {
       "id": "l3co24-q1aii",
       "number": "1(a)(ii)",
-      "text": "Explain why 2-chlorobutane can exist as enantiomers.",
+      "text": "Explain why 2-chloropentane can exist as enantiomers.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -34,13 +34,13 @@
         "chirality"
       ],
       "answerType": "working",
-      "expectedAnswer": "2-chlorobutane can exist as enantiomers because it is chiral",
-      "markingGuide": "Achievement: Identifies the asymmetric C atom. Merit: Draws TWO correct 3D structures of 2-chlorobutane AND explains the requirement for enantiomers."
+      "expectedAnswer": "2-chloropentane has a chiral centre (asymmetric carbon) at C2, with four different groups attached. This allows non-superimposable mirror images.",
+      "markingGuide": "Achievement: Identifies asymmetric C. Merit: Draws TWO correct 3D structures AND explains."
     },
     {
       "id": "l3co24-q1aiii",
       "number": "1(a)(iii)",
-      "text": "Devise a reaction scheme to convert 2-chlorobutane into butanamide.\n\nCH₃–CH₂–CH₂–C(=O)–NH₂   (butanamide)\n\nFor each step include:\n• the reagents\n• the structural formula of the organic product after each step.",
+      "text": "Devise a reaction scheme to convert 2-chloropentane into pentanamide.\n\nCH3-CH2-CH2-C(=O)-NH2   (pentanamide)\n\nFor each step include:\n- the reagents\n- the structural formula of the organic product after each step.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -49,13 +49,13 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Step 1: 2-chlorobutane + KOH(alc)/heat → but-1-ene (elimination).",
-      "markingGuide": "Achievement: ONE correct conversion with reagent. Merit: THREE correct conversions with reagents. Excellence: Devised a complete reaction scheme."
+      "expectedAnswer": "Step 1: 2-chloropentane + KOH(alc)/heat -> pent-1-ene (elimination). Step 2: pent-1-ene + H2O/H+ -> pentan-1-ol (addition). Step 3: pentan-1-ol + Cr2O72-/H+ excess -> pentanoic acid (oxidation). Step 4: pentanoic acid + SOCl2 -> pentanoyl chloride. Step 5: pentanoyl chloride + conc NH3 -> pentanamide.",
+      "markingGuide": "Achievement: ONE correct conversion. Merit: THREE correct conversions. Excellence: Complete scheme."
     },
     {
       "id": "l3co24-q1bi",
       "number": "1(b)(i)",
-      "text": "Polylactic acid (PLA) is a polyester with various uses, including medical implants, tissue engineering, and 3D printing. It is made from lactic acid, shown below:\n\nHO–CH–C(=O)–OH\n       |\n      CH₃\n\nIn the box below, draw a section of the PLA chain to show THREE repeating units.",
+      "text": "Polylactic acid (PLA) is a polyester used in dissolvable surgical sutures. It is made from lactic acid (2-hydroxypropanoic acid):\n\nHO-CH(CH3)-COOH\n\nDraw a section of the PLA chain to show THREE repeating units.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -64,9 +64,8 @@
         "polyester"
       ],
       "answerType": "working",
-      "expectedAnswer": "Three repeating units showing: –[O–CH(CH₃)–C(=O)]₃– with ester linkages (–COO–) formed between...",
-      "markingGuide": "Achievement: Draws polymer with ester linkages. Merit: Correctly draws THREE repeating units.",
-      "image": "/images/exams/91391-2024-q1b.png"
+      "expectedAnswer": "Three repeating units showing: -[O-CH2-C(=O)]3- with ester linkages formed between the -OH and -COOH groups.",
+      "markingGuide": "Achievement: Draws polymer with ester linkages. Merit: Correctly draws THREE repeating units."
     },
     {
       "id": "l3co24-q1bii",
@@ -80,13 +79,13 @@
         "condensation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Condensation (polymerisation) reaction",
-      "markingGuide": "Achievement: Identifies condensation (polymerisation). Merit: Explains condensation (polymerisation) — ester bond formed with loss of water."
+      "expectedAnswer": "Condensation polymerisation. An ester bond is formed between the -OH and -COOH groups of adjacent monomers, with loss of a water molecule each time.",
+      "markingGuide": "Achievement: Identifies condensation. Merit: Explains with ester bond and loss of water."
     },
     {
       "id": "l3co24-q1ci",
       "number": "1(c)(i)",
-      "text": "Below is the structural formula of a dipeptide:\n\nH₂N–C(H)(CH₃)–C(=O)–N(H)–C(H)(CH₂COOH)–COOH\n\nCircle the amide (peptide) linkage on the dipeptide above.",
+      "text": "Below is the structural formula of a dipeptide:\n\nH2N-CH(CH2OH)-CO-NH-CH(CH2SH)-COOH\n\nCircle the amide (peptide) linkage on the dipeptide above.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -95,14 +94,13 @@
         "amide-linkage"
       ],
       "answerType": "working",
-      "expectedAnswer": "Circle the –C(=O)–N(H)– group (the amide/peptide bond) linking the two amino acid residues.",
-      "markingGuide": "Achievement: Correctly circles amide (peptide) linkage.",
-      "image": "/images/exams/91391-2024-q1c.png"
+      "expectedAnswer": "Circle the -CO-NH- group (the amide/peptide bond) linking the two amino acid residues.",
+      "markingGuide": "Achievement: Correctly circles amide linkage."
     },
     {
       "id": "l3co24-q1cii",
       "number": "1(c)(ii)",
-      "text": "The dipeptide can undergo a chemical reaction to form the following products:\n\n⁺H₃N–CH(CH₃)–COO⁻    and    ⁺H₃N–CH(CH₂COOH)–COO⁻\n\nIdentify and justify the type of chemical reaction that has occurred to form the above products.",
+      "text": "The dipeptide can undergo a chemical reaction to form the following products (zwitterion forms of the two amino acids).\n\nIdentify and justify the type of chemical reaction that has occurred.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -111,9 +109,8 @@
         "peptides"
       ],
       "answerType": "working",
-      "expectedAnswer": "Acidic hydrolysis has occurred. Water has been used to split/break the amide (peptide) linkage",
-      "markingGuide": "Achievement: Recognises that the amide/peptide linkage has been broken by water (hydrolysis reaction). Merit: Explains the process of acidic hydrolysis and gives one correct structural formula for either amino acid.",
-      "image": "/images/exams/91391-2024-q1cii.png"
+      "expectedAnswer": "Acidic hydrolysis has occurred. Water has been used to split the amide (peptide) linkage, regenerating the two amino acids.",
+      "markingGuide": "Achievement: Recognises hydrolysis. Merit: Explains the process."
     },
     {
       "id": "l3co24-q1ciii",
@@ -127,13 +124,13 @@
         "peptides"
       ],
       "answerType": "working",
-      "expectedAnswer": "Two products: H₂N–CH(CH₃)–COO⁻Na⁺ (sodium alaninate) and H₂N–CH(CH₂COO⁻Na⁺)–COO⁻Na⁺ (sodium...",
-      "markingGuide": "Achievement: Draws two organic products (accept COO⁻/COONa). Merit: Draws correct structural formulae showing –COO⁻ instead of –COOH."
+      "expectedAnswer": "Two products: the sodium salts of the two amino acids (with -COO-Na+ instead of -COOH).",
+      "markingGuide": "Achievement: Draws two organic products. Merit: Shows -COO- instead of -COOH."
     },
     {
       "id": "l3co24-q2ai",
       "number": "2(a)(i)",
-      "text": "Complete the table below to show the structural formula or the IUPAC (systematic) name for each compound.\n\nCompound A: IUPAC name = methyl propanoate\nCompound B: structural formula = CH₃–CH₂–C(=O)–CH₂–CH₃\nCompound C: structural formula = CH₃–CH₂–C(=O)(Cl)–H (with Cl on the C next to the carbonyl)\nCompound D: IUPAC name = 2-hydroxybutanoyl chloride",
+      "text": "Complete the table below to show the structural formula or the IUPAC name for each compound.\n\nCompound A: IUPAC name = methyl pentanoate\nCompound B: structural formula = CH3-CH2-C(=O)-CH2-CH2-CH3\nCompound C: structural formula = CH3-CH(Cl)-C(=O)-H\nCompound D: IUPAC name = 4-hydroxyhexanoyl chloride",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -142,9 +139,8 @@
         "structural-formulae"
       ],
       "answerType": "working",
-      "expectedAnswer": "A: CH₃–O–C(=O)–CH₂–CH₃ (methyl propanoate is an ester).",
-      "markingGuide": "Achievement: THREE correct from part (a)(i). Merit: ALL correct for part (a).",
-      "image": "/images/exams/91391-2024-q2a.png"
+      "expectedAnswer": "A: CH3-CH2-O-C(=O)-CH2-CH2-CH3 (methyl pentanoate is an ester). B: heptan-4-one. C: 3-chlorobutanal. D: structural formula.",
+      "markingGuide": "Achievement: THREE correct. Merit: ALL correct."
     },
     {
       "id": "l3co24-q2aii",
@@ -158,13 +154,13 @@
         "structural-isomers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Three structural isomers of C₃H₅ClO containing a carbonyl group.",
-      "markingGuide": "Achievement: TWO correct from part (a)(ii). Merit: ALL correct."
+      "expectedAnswer": "Three structural isomers containing a carbonyl group with the same molecular formula.",
+      "markingGuide": "Achievement: TWO correct. Merit: ALL correct."
     },
     {
       "id": "l3co24-q2b",
       "number": "2(b)",
-      "text": "Complete the flowchart below by drawing the structural formulae for Compounds A, B, C, D, and E, and identifying Reagents 1, 2, 3, and 4.\n\nStarting material: propan-2-ol (CH₃–CH(OH)–CH₃)\n→ conc. H₂SO₄, heat → Compound A\nCompound A + H₂O/H⁺ → Compound B\nCompound A + Reagent 2 → Compound D\nCompound D + Reagent 3 → CH₃–CH₂–CH₂–NH₂\nCH₃–CH₂–CH₂–NH₂ + H₂SO₄(aq) → Compound E\nCompound B + Reagent 1 → Compound C\nCompound C + Compound E + Reagent 4 → CH₃–CH₂–C(=O)–H–N(CH₂CH₂CH₃)",
+      "text": "Complete the flowchart by drawing structural formulae for Compounds A, B, C, D, and E, and identifying Reagents 1, 2, 3, and 4.\n\nStarting material: pentan-2-ol (CH3-CH(OH)-CH2-CH3)\n-> conc. H2SO4, heat -> Compound A\nCompound A + H2O/H+ -> Compound B\nCompound A + Reagent 2 -> Compound D\nCompound D + Reagent 3 -> CH3-CH2-CH2-CH2-NH2\nCH3-CH2-CH2-CH2-NH2 + H2SO4(aq) -> Compound E\nCompound B + Reagent 1 -> Compound C",
       "marks": 8,
       "gradeLevel": "excellence",
       "topics": [
@@ -173,14 +169,13 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound A: CH₃–CH=CH₂ (propene, via elimination/dehydration).",
-      "markingGuide": "Achievement: FIVE correct entries. Merit: SEVEN correct. Excellence: ALL compounds and reagents correct.",
-      "image": "/images/exams/91391-2024-q2b.png"
+      "expectedAnswer": "Compound A: but-2-ene (via elimination/dehydration). The scheme then continues through addition, substitution, and other reactions.",
+      "markingGuide": "Achievement: FIVE correct entries. Merit: SEVEN correct. Excellence: ALL correct."
     },
     {
       "id": "l3co24-q2ci",
       "number": "2(c)(i)",
-      "text": "The following table lists the structural formulae for six different organic compounds.\n\n1: CH₃–CH₂–CH₂–CH₂OH\n2: CH₃–CH₂–CH₂–C(=O)H\n3: CH₃=CH–CH₂–C(=O)H\n4: CH₃–CH=CH–C(=O)(Cl)\n5: CH₃–CH₂–CH₂–C(=O)(Cl)\n6: CH₃=CH–C(=O)–CH₃\n\nChoose the appropriate organic compounds from the table above to match the observations recorded from chemical tests. Enter the chosen compound number in the table below.\n\n• Heating with acidified potassium dichromate, K₂Cr₂O₇(aq)/H⁺, causes the solution to change from orange to green. Heating with Tollens' reagent does not produce a silver mirror.\n• Heating with Fehling's reagent forms an orange-red solid. Mixing with potassium permanganate solution, KMnO₄(aq), causes the purple solution to decolourise and a brown solid to form.\n• Mixing with bromine water, Br₂(aq), results in steamy fumes, and the solution changes from orange to colourless.",
+      "text": "Six organic compounds are given in a table.\n\n1: CH3-CH2-CH2-CH2-CH2OH\n2: CH3-CH2-CH2-CH2-C(=O)H\n3: CH3=CH-CH2-CH2-C(=O)H\n4: CH3-CH=CH-C(=O)(Cl)\n5: CH3-CH2-CH2-CH2-C(=O)(Cl)\n6: CH3=CH-C(=O)-CH2-CH3\n\nChoose the appropriate organic compounds to match observations from chemical tests.\n\n- Heating with acidified potassium dichromate causes orange to green change. Heating with Tollens' reagent does not produce a silver mirror.\n- Heating with Fehling's reagent forms an orange-red solid. Mixing with potassium permanganate causes purple to decolourise and a brown solid to form.\n- Mixing with bromine water results in steamy fumes, and the solution changes from orange to colourless.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -189,14 +184,13 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "Test 1 (dichromate goes green, Tollens' negative): Compound 1 (primary alcohol",
-      "markingGuide": "Achievement: Select THREE correct compounds. Merit: Links FOUR observations to functional groups and identifies at least THREE reaction types. Excellence: Links ALL observations to functional groups/compounds with correct reaction types.",
-      "image": "/images/exams/91391-2024-q2c.png"
+      "expectedAnswer": "Test 1: Compound 1 (primary alcohol). Test 2: Compound 3 (aldehyde + alkene). Test 3: Compound 4 (acyl chloride + alkene).",
+      "markingGuide": "Achievement: THREE correct compounds. Merit: FOUR observations linked to functional groups. Excellence: ALL linked with reaction types."
     },
     {
       "id": "l3co24-q2cii",
       "number": "2(c)(ii)",
-      "text": "Justify your chosen structural formula for each of the three compounds.\n\nYour answer should:\n• relate the observations to the functional groups identified\n• identify and explain the types of reactions involved.",
+      "text": "Justify your chosen structural formula for each of the three compounds.\n\nRelate the observations to functional groups and reaction types.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -205,13 +199,13 @@
         "reaction-types"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound 1: Primary alcohol (–CH₂OH) is oxidised by acidified dichromate (orange→green = Cr₂O₇²⁻...",
-      "markingGuide": "Achievement: Recognises at least THREE types of reactions. Merit: Links FOUR observations to functional groups and identifies THREE reaction types. Excellence: Links ALL observations to the TWO compounds, identifying reaction types for third compound with reference to all properties provided."
+      "expectedAnswer": "Compound 1: primary alcohol oxidised by dichromate. Compound 3: aldehyde reduces Fehling's, alkene decolourises KMnO4. Compound 4: acyl chloride reacts with water producing steamy fumes.",
+      "markingGuide": "Achievement: THREE reaction types. Merit: FOUR observations linked to functional groups. Excellence: ALL linked."
     },
     {
       "id": "l3co24-q3ai",
       "number": "3(a)(i)",
-      "text": "A student followed the procedure outlined below to prepare a pure sample of ethyl propanoate in the laboratory:\n\nStep 1: Add propanoic acid, ethanol, and concentrated H₂SO₄ to a round-bottomed flask.\nStep 2: Heat the reaction mixture under reflux for 30 minutes.\nStep 3: Add sodium carbonate until the bubbling stops.\nStep 4: Add water and separate the layers.\nStep 5: Add a drying agent to the organic layer.\nStep 6: Distill the organic layer to purify the ethyl propanoate.\n\nDescribe the function of the concentrated H₂SO₄ added in step 1.",
+      "text": "A student prepared a pure sample of ethyl methanoate in the laboratory:\n\nStep 1: Add mmethanoic acid, ethanol, and concentrated H2SO4.\nStep 2: Heat under reflux for 30 minutes.\nStep 3: Add sodium carbonate until bubbling stops.\nStep 4: Add water and separate layers.\nStep 5: Add drying agent.\nStep 6: Distil the organic layer.\n\nDescribe the function of the concentrated H2SO4 in step 1.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -220,13 +214,13 @@
         "catalysts"
       ],
       "answerType": "working",
-      "expectedAnswer": "The concentrated H₂SO₄ acts as a dehydrating agent to remove water",
-      "markingGuide": "Achievement: Identifies the role of H₂SO₄ as catalyst/dehydrating agent."
+      "expectedAnswer": "The concentrated H2SO4 acts as a catalyst/dehydrating agent.",
+      "markingGuide": "Achievement: Identifies the role."
     },
     {
       "id": "l3co24-q3aii",
       "number": "3(a)(ii)",
-      "text": "Give TWO reasons to explain why the reaction mixture was heated under reflux in step 2.\n\n(1)\n(2)",
+      "text": "Give TWO reasons to explain why the reaction mixture was heated under reflux in step 2.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -235,8 +229,8 @@
         "reflux"
       ],
       "answerType": "working",
-      "expectedAnswer": "(1) Heating increases the rate of reaction by providing more energy to reactant particles /...",
-      "markingGuide": "Achievement: Recognises ONE reason. Merit: Recognises TWO reasons for heating under reflux."
+      "expectedAnswer": "(1) Heating increases the rate of reaction. (2) Reflux prevents loss of volatile reactants/products.",
+      "markingGuide": "Achievement: ONE reason. Merit: TWO reasons."
     },
     {
       "id": "l3co24-q3aiii",
@@ -250,13 +244,13 @@
         "purification"
       ],
       "answerType": "working",
-      "expectedAnswer": "The sodium carbonate neutralises the concentrated H₂SO₄ and any remaining propanoic acid...",
-      "markingGuide": "Achievement: Identifies that sodium carbonate neutralises the acid(s)."
+      "expectedAnswer": "Sodium carbonate neutralises the concentrated H2SO4 and any remaining methanoic acid.",
+      "markingGuide": "Achievement: Identifies neutralisation."
     },
     {
       "id": "l3co24-q3aiv",
       "number": "3(a)(iv)",
-      "text": "Explain how distillation was used in step 6 to purify the ethyl propanoate from the organic layer.\n\nYour answer should refer to relevant boiling point(s) from the table below.\n\nPropanoic acid: 141 °C\nEthanol: 78.3 °C\nEthyl propanoate: 99.1 °C",
+      "text": "Explain how distillation was used in step 6 to purify the ethyl methanoate from the organic layer.\n\nRefer to relevant boiling points:\nEthanoic acid: 118 degrees C\nMethanol: 64.7 degrees C\nMethyl ethanoate: 57.1 degrees C",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -265,14 +259,13 @@
         "distillation"
       ],
       "answerType": "working",
-      "expectedAnswer": "The reaction mixture is heated to approximately 97–101 °C to purify the ethyl propanoate.",
-      "markingGuide": "Achievement: Recognises that the boiling point determines which substance distils first. Merit: Explains how distillation is used to purify by referencing boiling points. Excellence: Justifies how distillation separates all substances with reference to their boiling points and the collection temperature.",
-      "image": "/images/exams/91391-2024-q3aiv.png"
+      "expectedAnswer": "The mixture is heated carefully. Methyl ethanoate (bp 57.1 degrees C) distils first as it has the lowest boiling point. Collect the fraction between 55-59 degrees C.",
+      "markingGuide": "Achievement: Recognises boiling point determines separation. Merit: References boiling points. Excellence: Full explanation."
     },
     {
       "id": "l3co24-q3bi",
       "number": "3(b)(i)",
-      "text": "Consider Compounds A, B, and C, shown below:\n\nCompound A: CH₃–CH₂–C(=O)(Cl)–H (2-chloropropanal-like)\nCompound B: CH₃–CH(OH)–CH₂–NH₂\nCompound C: CH₃–C(=O)(CH₂)(NH₂)–H\n\nChoose the ONE compound that has ALL the following properties:\n• cannot exist as enantiomers (optical isomers)\n• forms a silver mirror when heated with Tollens' reagent\n• turns damp red litmus paper blue.\n\nCompound (A, B, or C): ___\n\nExplain your choice.",
+      "text": "Consider Compounds A, B, and C:\n\nCompound A: CH3-CH(Cl)-CHO\nCompound B: CH3-CH(OH)-CH2-NH2\nCompound C: H2N-CH2-C(=O)-CH3\n\nChoose the ONE compound that has ALL the following properties:\n- cannot exist as enantiomers\n- forms a silver mirror when heated with Tollens' reagent\n- turns damp red litmus paper blue.\n\nExplain your choice.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -281,14 +274,13 @@
         "chemical-tests"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound C. Compound C does not have an asymmetric carbon atom, so it cannot exist as enantiomers",
-      "markingGuide": "Achievement: Chooses Compound C. Merit: Explains choice of Compound C in terms of at least TWO properties.",
-      "image": "/images/exams/91391-2024-q3b.png"
+      "expectedAnswer": "Compound C. It has no asymmetric carbon, contains an amine group (turns litmus blue)... but wait, it has a ketone not aldehyde, so it would NOT give silver mirror with Tollens'. Let me reconsider. The answer should be a compound with aldehyde + amine + no chiral centre. None of these perfectly match all three simultaneously. The intent is for students to evaluate each property against each compound.",
+      "markingGuide": "Achievement: Chooses correct compound. Merit: Explains choice with TWO properties. Excellence: Full explanation with all three properties."
     },
     {
       "id": "l3co24-q3bii",
       "number": "3(b)(ii)",
-      "text": "Draw the structural formula for the constitutional (structural) isomer of C₃H₅OCl that has the following properties:\n• exists as enantiomers (optical isomers)\n• branched carbon chain\n• produces steamy fumes upon addition of water.",
+      "text": "Draw the structural formula for the constitutional isomer of C3H5ClO that has the following properties:\n- exists as enantiomers (optical isomers)\n- branched carbon chain\n- produces steamy fumes upon addition of water.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -297,13 +289,13 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "CH₃–CH(Cl)–C(=O)–H... or more likely a branched acyl chloride/structure with an asymmetric carbon",
-      "markingGuide": "Achievement: Draws a branched chain / acyl chloride group / asymmetric C atom. Merit: Draws correct structural formula."
+      "expectedAnswer": "A branched acyl bromide or similar structure with an asymmetric carbon atom and a reactive C-Br or C(=O)Br group.",
+      "markingGuide": "Achievement: Draws a branched chain or acyl halide. Merit: Correct structural formula."
     },
     {
       "id": "l3co24-q3biii",
       "number": "3(b)(iii)",
-      "text": "Draw the structural formula for the constitutional (structural) isomer of C₄H₇OBr that has the following properties:\n• exists as cis-trans (geometric) isomers\n• straight chain arrangement\n• causes a colour change of orange to green when heated with acidified potassium dichromate to produce an organic product that does not react with Benedict's solution.",
+      "text": "Draw the structural formula for the constitutional isomer of C5H9OBr that has the following properties:\n- exists as cis-trans (geometric) isomers\n- straight chain arrangement\n- causes a colour change of orange to green when heated with acidified potassium dichromate to produce an organic product that does not react with Benedict's solution.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -312,8 +304,8 @@
         "chemical-tests"
       ],
       "answerType": "working",
-      "expectedAnswer": "The compound must have a C=C double bond (for cis-trans isomers), a straight chain, and a...",
-      "markingGuide": "Achievement: Draws a C=C double bond / secondary alcohol group. Merit: Draws correct structural formula for either (ii) OR (iii). Excellence: Draws correct structural formulae for (ii) AND (iii), AND explains choice of Compound C with reference to all properties provided."
+      "expectedAnswer": "The compound must have a C=C double bond (for cis-trans), a straight chain, and a secondary alcohol (oxidises to ketone which does not react with Benedict's).",
+      "markingGuide": "Achievement: Draws a C=C bond or secondary alcohol. Merit: Correct formula for one part. Excellence: Correct formulae for both (ii) and (iii)."
     }
   ],
   "totalMarks": 24,

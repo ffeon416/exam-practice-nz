@@ -11,68 +11,98 @@
     {
       "id": "st585-24-q1a",
       "number": "1a",
-      "text": "At a large school, 55% of students buy their lunch from the canteen. On any given day, each student independently decides whether to buy lunch.\n\nA group of 6 students is selected at random.\n\n(i) State why this situation can be modelled by a binomial distribution.\n(ii) Calculate the probability that exactly 4 of the 6 students buy their lunch from the canteen.",
+      "text": "At a large school, 55% of students cycle to school. On any given day, each student independently decides how to commute.\n\nA team of 8 students is selected at random.\n\n(i) State why this situation can be modelled by a binomial distribution.\n(ii) Calculate the probability that exactly 5 of the 8 students cycle to school.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["binomial-distribution", "probability-concepts-l3"],
+      "topics": [
+        "binomial-distribution",
+        "probability-concepts-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) Binomial because: fixed number of trials (n = 6), two outcomes (buy/don't buy), constant probability (p = 0.55), independent trials. (ii) P(X = 4) = C(6,4) × 0.55⁴ × 0.45² = 15 × 0.09150625 × 0.2025 = 15 × 0.018530 = 0.2780. Accept 0.278."
+      "markingGuide": "Achievement: (i) Binomial because: fixed number of trials (n = 8), two outcomes (cycle/don't cycle), constant probability (p = 0.55), independent trials. (ii) P(X = 5) = C(8,5) × 0.55⁵ × 0.45³ = 56 × 0.05033 × 0.09113 = 0.2568. Accept 0.257."
     },
     {
       "id": "st585-24-q1b",
       "number": "1b",
-      "text": "The school canteen manager wants to ensure there is enough food for at least 90% of the days. On a day when 200 students are at school, what is the expected number of students who buy lunch, and what is the standard deviation?",
+      "text": "The school bike rack has spaces for 160 bikes. On a typical day, 250 students are at work. What is the expected number of students who cycle, and what is the standard deviation?",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["binomial-distribution", "expected-value-l3"],
+      "topics": [
+        "binomial-distribution",
+        "expected-value-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: Expected value: E(X) = np = 200 × 0.55 = 110 students. Standard deviation: σ = √(np(1-p)) = √(200 × 0.55 × 0.45) = √(49.5) = 7.04 (accept 7.04 or 7.0)."
+      "markingGuide": "Achievement: Expected value: E(X) = np = 250 × 0.55 = 138 students. Standard deviation: σ = √(np(1-p)) = √(250 × 0.55 × 0.45) = √(61.9) = 7.87."
     },
     {
       "id": "st585-24-q1c",
       "number": "1c",
-      "text": "Using your answers from Question 1b and a normal approximation, estimate the number of lunches the canteen should prepare each day to be at least 90% confident of having enough. Assume the number of students buying lunch is approximately normally distributed.",
+      "text": "Using your answers from Question 1b and a normal approximation, estimate the probability that the car park will be full (more than 160 students cycle). Assume the number of students who cycle is approximately normally distributed.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["normal-distribution", "probability-concepts-l3"],
+      "topics": [
+        "normal-distribution",
+        "probability-concepts-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: Need P(X ≤ k) ≥ 0.90. Using normal approximation: X ~ N(110, 7.04²). The 90th percentile: z = 1.282. k = μ + zσ = 110 + 1.282 × 7.04 = 110 + 9.02 = 119.02. So the canteen should prepare at least 120 lunches (rounding up to a whole number). Must show clear working using the normal distribution."
+      "markingGuide": "Merit: Need P(X > 160). Using normal approximation: X ~ N(138, 7.87²). z = (160 - 138)/7.87 = 2.860. P(Z > 2.860) can be found from tables. Since z ≈ 2.9, P ≈ 0.003 approximately. Must show clear working using the normal distribution."
     },
     {
       "id": "st585-24-q2a",
       "number": "2a",
-      "text": "Events A and B are such that P(A) = 0.4, P(B) = 0.5, and P(A ∪ B) = 0.7.\n\n(i) Find P(A ∩ B).\n(ii) Find P(A | B).\n(iii) Are A and B independent? Justify your answer.",
+      "text": "Events X and Y are such that P(X) = 0.35, P(Y) = 0.5, and P(X ∪ Y) = 0.675.\n\n(i) Find P(X ∩ Y).\n(ii) Find P(X | Y).\n(iii) Are X and Y independent? Justify your answer.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["conditional-probability-l3", "probability-concepts-l3"],
+      "topics": [
+        "conditional-probability-l3",
+        "probability-concepts-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) P(A ∪ B) = P(A) + P(B) - P(A ∩ B), so 0.7 = 0.4 + 0.5 - P(A ∩ B), P(A ∩ B) = 0.2. (ii) P(A | B) = P(A ∩ B)/P(B) = 0.2/0.5 = 0.4. (iii) P(A | B) = 0.4 = P(A), so A and B ARE independent. Alternatively: P(A) × P(B) = 0.4 × 0.5 = 0.2 = P(A ∩ B)."
+      "markingGuide": "Achievement: (i) P(X ∪ Y) = P(X) + P(Y) - P(X ∩ Y), so 0.675 = 0.35 + 0.50 - P(X ∩ Y), P(X ∩ Y) = 0.175. (ii) P(X | Y) = P(X ∩ Y)/P(Y) = 0.175/0.50 = 0.35. (iii) P(X | Y) = 0.35 = P(X), so X and Y ARE independent. Alternatively: P(X) × P(Y) = 0.35 × 0.50 = 0.175 = P(X ∩ Y)."
     },
     {
       "id": "st585-24-q2b",
       "number": "2b",
-      "text": "Events C and D are mutually exclusive with P(C) = 0.3 and P(D) = 0.4.\n\n(i) Explain why mutually exclusive events with non-zero probabilities cannot be independent.\n(ii) Find P(C | D).",
+      "text": "Events R and S are mutually exclusive with P(R) = 0.25 and P(S) = 0.35.\n\n(i) Explain why mutually exclusive events with non-zero probabilities cannot be independent.\n(ii) Find P(R | S).",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["conditional-probability-l3", "probability-concepts-l3"],
+      "topics": [
+        "conditional-probability-l3",
+        "probability-concepts-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) If C and D are mutually exclusive, P(C ∩ D) = 0. For independence, we need P(C ∩ D) = P(C) × P(D) = 0.3 × 0.4 = 0.12. Since 0 ≠ 0.12, they cannot be independent. Intuitively: if one event occurs, the other definitely cannot, so knowing one occurred gives information about the other — the opposite of independence. (ii) P(C | D) = P(C ∩ D)/P(D) = 0/0.4 = 0."
+      "markingGuide": "Merit: (i) If R and S are mutually exclusive, P(R ∩ S) = 0. For independence, we need P(R ∩ S) = P(R) × P(S) = 0.25 × 0.35 = 0.0875. Since 0 ≠ 0.0875, they cannot be independent. Intuitively: if one event occurs, the other definitely cannot, so knowing one occurred gives information about the other. (ii) P(R | S) = P(R ∩ S)/P(S) = 0/0.35 = 0."
     },
     {
       "id": "st585-24-q3",
       "number": "3",
-      "text": "A taxi company finds that the number of bookings per hour follows a Poisson distribution with a mean of 8 bookings per hour.\n\n(i) Calculate the probability of receiving exactly 5 bookings in a given hour.\n(ii) Calculate the probability of receiving 3 or fewer bookings in a 30-minute period.\n(iii) The company has capacity to handle 12 bookings per hour. Find the probability that demand exceeds capacity in any given hour.",
+      "text": "A delivery service finds that the number of orders arriving per hour follows a Poisson distribution with a mean of 12 orders per hour.\n\n(i) Calculate the probability of receiving exactly 9 orders in a given hour.\n(ii) Calculate the probability of receiving 2 or fewer parcels in a 15-minute period.\n(iii) The company has capacity to process 16 orders per hour. Find the probability that demand exceeds capacity in any given hour.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["poisson-distribution", "probability-concepts-l3"],
+      "topics": [
+        "poisson-distribution",
+        "probability-concepts-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) P(X = 5) = e⁻⁸ × 8⁵/5! = 0.000335 × 32768/120 = 0.000335 × 273.07 = 0.0916. Merit: (ii) In 30 min, mean = 4. P(X ≤ 3) = P(0) + P(1) + P(2) + P(3) = e⁻⁴(1 + 4 + 8 + 10.667) = 0.01832 × 23.667 = 0.4335. Accept values from tables: P(X ≤ 3) = 0.4335. Excellence: (iii) P(X > 12) = 1 - P(X ≤ 12). Using Poisson tables or calculator with λ = 8: P(X ≤ 12) ≈ 0.9362, so P(X > 12) ≈ 0.0638 (about 6.4%). The company exceeds capacity about 1 in every 16 hours."
+      "markingGuide": "Achievement: (i) P(X = 9) = e⁻¹² × 12⁹/9! ≈ 0.0874 (from tables or calculator). Merit: (ii) In 15 min, λ = 3. P(X ≤ 2) = P(0) + P(1) + P(2) = e⁻³(1 + 3 + 4.5) = 0.0498 × 8.5 = 0.4232. Excellence: (iii) P(X > 16) = 1 - P(X ≤ 16). Using Poisson tables with λ = 12: P(X ≤ 16) ≈ 0.8987, so P(X > 16) ≈ 0.1013 (about 10%)."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

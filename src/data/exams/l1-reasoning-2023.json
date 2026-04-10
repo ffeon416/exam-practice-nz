@@ -10,134 +10,97 @@
     {
       "id": "l1r23-q1a",
       "number": "1(a)",
-      "text": "Calculate T = π × √(2.5 × 0.9659 / 9.81).",
+      "text": "Calculate K = 2π × √(4.5 × 0.7854 / 9.81).",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "measurement"
-      ],
+      "topics": ["measurement"],
       "answerType": "working",
-      "expectedAnswer": "T = 1.559 (3 d.p.)",
-      "markingGuide": "Evaluate the expression inside the square root first: 2.5 × 0.9659 = 2.41475. Then 2.41475 / 9.81 = 0.24615. Square root: √0.24615 = 0.49614. Multiply by π: T = π × 0.49614 = 1.5587. Accept rounding to 1.559 or 1.56. Award Achieved for correct answer with or without working shown. Accept ± minor rounding differences."
+      "expectedAnswer": "K = 3.774 (3 d.p.)",
+      "markingGuide": "Evaluate inside the square root first: 4.5 × 0.7854 = 3.5343. Then 3.5343 / 9.81 = 0.36027. Square root: √0.36027 = 0.60023. Multiply by 2π: K = 2π × 0.60023 = 3.7710. Accept rounding to 3.771 or 3.77. Award Achieved for correct answer with or without working shown."
     },
     {
       "id": "l1r23-q1bi",
       "number": "1(b)(i)",
-      "text": "[Diagram: A cylinder with radius 4.5 cm and height 15 cm. A label wraps around the curved surface only (not covering the circular top or bottom).]\n\n12 identical cylindrical tins each have radius 4.5 cm and height 15 cm. Each tin has a label that wraps around its curved surface (not covering the top or bottom). Find the total area of all 12 labels.",
+      "text": "A cylindrical jar has radius 4 cm and height 15 cm. A label covers only the curved surface of the jar (not the top or bottom). Find the total area of labels needed for 6 identical jars.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "measurement"
-      ],
+      "topics": ["measurement"],
       "answerType": "working",
-      "expectedAnswer": "5089.38 cm² (or 1620π cm²)",
-      "markingGuide": "The label wraps around the curved surface of the cylinder (not the top or bottom). Area of one label = circumference × height = 2πr × h = 2π × 4.5 × 15 = 135π = 424.115 cm². Total area of 12 labels = 12 × 424.115 = 5089.38 cm². Accept exact answer 1620π cm². Achieved = correct area of one label, OR total area with a minor error in working. Merit = correct total area of all 12 labels with clear working.",
-      "image": "/images/exams/91947-2023-q1b.png"
+      "expectedAnswer": "2261.95 cm² (or 720π cm²)",
+      "markingGuide": "Area of one label = circumference × height = 2π × 4 × 15 = 120π = 376.99 cm². Total area of 6 labels = 6 × 376.99 = 2261.95 cm². Accept exact answer 720π cm². Achieved = correct area of one label, OR total area with a minor error. Merit = correct total area of all 6 labels with clear working."
     },
     {
       "id": "l1r23-q1bii",
       "number": "1(b)(ii)",
-      "text": "[Diagram: A rectangular box containing 12 cylinders arranged in rows. Each cylinder has radius p and height 15. The box fits tightly around all 12 tins.]\n\nThe 12 tins are packed into a rectangular box. Each tin has radius p cm. The volume of one tin is 15πp². The volume of the box is 720p². Find the proportion of space inside the box that is empty, and show that it is independent of the radius p.",
+      "text": "The 6 jars are packed into a rectangular box, arranged 3 wide × 2 long × 1 high. Each jar has radius r cm and height 15 cm. The volume of one jar is 15πr². The volume of the box is 360r². Find the proportion of space inside the box that is empty, and show that it is independent of the radius r.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": [
-        "measurement",
-        "algebraic-expressions"
-      ],
+      "topics": ["measurement", "algebraic-expressions"],
       "answerType": "working",
       "expectedAnswer": "(4 – π) / 4",
-      "markingGuide": "Volume of 12 tins = 12 × 15πp² = 180πp². Volume of empty space = Volume of box – Volume of 12 tins = 720p² – 180πp² = 180p²(4 – π). Proportion of empty space = empty space / box volume = 180p²(4 – π) / 720p² = (4 – π) / 4. The p² terms cancel, so the proportion is independent of the radius p. Achieved = correctly states volume of 12 tins = 180πp² OR volume of box = 720p². Merit = correct expression for empty space volume = 180p²(4 – π), OR correct proportion with a minor error. Excellence = correct proportion (4 – π) / 4 with full working, clearly showing the p² cancels and the result is independent of the radius.",
-      "image": "/images/exams/91947-2023-q1b.png"
+      "markingGuide": "Volume of 6 jars = 6 × 15πr² = 90πr². Volume of empty space = 360r² – 90πr² = 90r²(4 – π). Proportion of empty space = 90r²(4 – π) / 360r² = (4 – π) / 4. The r² terms cancel, so the proportion is independent of the radius r. Achieved = correctly states volume of 6 jars = 90πr² OR volume of box = 360r². Merit = correct expression for empty space volume. Excellence = correct proportion (4 – π) / 4 with full working, clearly showing r² cancels."
     },
     {
       "id": "l1r23-q1ci",
       "number": "1(c)(i)",
-      "text": "[Diagram: Point P at the bottom. Point A is 70 km directly north (above) P. Point B is 140 km directly east (to the right) of A. Triangle PAB has a right angle at A.]\n\nTown A is 70 km due North of town P. Town B is 140 km due East of town A. Find the distance from P to B.",
+      "text": "Town P is 90 km due East of town M. Town N is 120 km due North of town M. There is a right angle at M.\n\nFind the distance from P to N.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "pythagoras"
-      ],
+      "topics": ["pythagoras"],
       "answerType": "working",
-      "expectedAnswer": "156.52 km (accept √24500 or 70√5)",
-      "markingGuide": "P is directly south of A (70 km), and B is directly east of A (140 km). Triangle PAB has a right angle at A. Using Pythagoras: PB² = PA² + AB² = 70² + 140² = 4900 + 19600 = 24500. PB = √24500 = 156.52 km. Accept equivalent exact forms such as 70√5. Award Achieved for correct distance with working shown.",
-      "image": "/images/exams/91947-2023-q1c.png"
+      "expectedAnswer": "150 km",
+      "markingGuide": "Triangle MPN has a right angle at M. Using Pythagoras: PN² = MP² + MN² = 90² + 120² = 8100 + 14400 = 22500. PN = √22500 = 150 km. Award Achieved for correct distance with working shown."
     },
     {
       "id": "l1r23-q1cii",
       "number": "1(c)(ii)",
-      "text": "The bearing of P from A is 120°. Find the bearing of town A from town B.",
+      "text": "Find the bearing of town N from town P.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "trigonometry",
-        "geometry-angles"
-      ],
+      "topics": ["trigonometry", "geometry-angles"],
       "answerType": "working",
-      "expectedAnswer": "Bearing of A from B is approximately 243° (accept with rounding)",
-      "markingGuide": "First find angle ABP using trigonometry in triangle PAB. tan(ABP) = PA / AB = 70 / 140 = 0.5. Angle ABP = arctan(0.5) = 26.57°. Since bearing of P from A is 120°, A is to the north-west of the line. The bearing of A from B requires finding the angle measured clockwise from north at B. Bearing of A from B = 270° – 26.57° = 243.43° (or equivalent valid method depending on diagram orientation). Achieved = correct angle ABP = 26.57° with working, OR correct bearing without working. Merit = correct bearing of A from B with clear trigonometric working shown.",
-      "image": "/images/exams/91947-2023-q1c.png"
+      "expectedAnswer": "Bearing of N from P is approximately 307° (accept with rounding)",
+      "markingGuide": "Find angle MPN: tan(MPN) = MN/MP = 120/90 = 4/3. Angle MPN = arctan(4/3) = 53.13°. P is east of M, N is north of M. From P looking north, N is north-west. Bearing = 360° – 53.13° = 306.87°. Achieved = correct angle MPN with working. Merit = correct bearing of N from P with clear trigonometric working."
     },
     {
       "id": "l1r23-q1ciii",
       "number": "1(c)(iii)",
-      "text": "Ship W travels from A to P at speed k km/h. Ship V travels from A to B. The total travel time for both ships combined is 4 hours. Distance AP = 70 km, distance AB = 140 km. Find an expression for the speed of ship V in terms of k.",
+      "text": "Car A travels from M to P at speed v km/h. Car B travels from M to N. The total travel time for both cars combined is 6 hours. Distance MP = 90 km, distance MN = 120 km. Find an expression for the speed of car B in terms of v.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "algebraic-expressions",
-        "linear-equations"
-      ],
+      "topics": ["algebraic-expressions", "linear-equations"],
       "answerType": "working",
-      "expectedAnswer": "Speed of V = 140k / (4k – 70)",
-      "markingGuide": "Time = Distance / Speed. Time for ship W = 70 / k hours. Time for ship V = 140 / S_V hours (where S_V is the speed of ship V). Total time: 70/k + 140/S_V = 4. Rearrange for S_V: 140/S_V = 4 – 70/k = (4k – 70) / k. Therefore S_V = 140k / (4k – 70). Achieved = correct expression for time of ship W (= 70/k) OR time of ship V (= 140/S_V). Merit = correctly forming the equation 70/k + 140/S_V = 4, OR correct S_V expression with a minor algebraic error. Excellence = correct expression S_V = 140k / (4k – 70) with full algebraic working shown."
+      "expectedAnswer": "Speed of B = 120v / (6v – 90)",
+      "markingGuide": "Time = Distance / Speed. Time for car A = 90/v hours. Time for car B = 120/S_B hours. Total: 90/v + 120/S_B = 6. Rearrange for S_B: 120/S_B = 6 – 90/v = (6v – 90)/v. Therefore S_B = 120v/(6v – 90). Achieved = correct expression for time of car A (= 90/v). Merit = correctly forming the equation 90/v + 120/S_B = 6. Excellence = correct expression S_B = 120v/(6v – 90) with full algebraic working."
     },
     {
       "id": "l1r23-q2ai",
       "number": "2(a)(i)",
-      "text": "[Diagram: A regular octagon with all sides = 120 cm. Vertex A is at the bottom-right. Z is the midpoint of the side adjacent to A. Line ZA is drawn. Angle ZAB = v is marked at vertex A, where B is the next vertex along.]\n\nA regular octagon has side length 120 cm. Show that the angle v (angle ZAB) equals 67.5°.",
+      "text": "A regular hexagon has side length 80 cm. Z is the midpoint of one side, adjacent to vertex A. Show that the angle ZAB (where B is the next vertex along from A) equals 60°.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "geometry-angles"
-      ],
+      "topics": ["geometry-angles"],
       "answerType": "working",
-      "expectedAnswer": "v = 67.5°",
-      "markingGuide": "Interior angle of a regular octagon = (n – 2) × 180° / n = (8 – 2) × 180° / 8 = 6 × 180° / 8 = 1080° / 8 = 135°. The angle ZAB is half of the interior angle (by symmetry, Z is the midpoint of one side and the line from Z to A bisects the interior angle at A). Therefore v = 135° / 2 = 67.5°. Award Achieved for clear and justified working that shows how 67.5° is obtained from the interior angle of the octagon.",
-      "image": "/images/exams/91947-2023-q2a.png"
+      "expectedAnswer": "v = 60°",
+      "markingGuide": "Interior angle of a regular hexagon = (6 – 2) × 180° / 6 = 720° / 6 = 120°. Z is the midpoint of the side adjacent to A. The line from Z to A bisects the interior angle at A (by symmetry). Therefore angle ZAB = 120° / 2 = 60°. Award Achieved for clear working showing how 60° is obtained."
     },
     {
       "id": "l1r23-q2aii",
       "number": "2(a)(ii)",
-      "text": "[Diagram: Right-angled triangle ZAX inside the octagon. AZ = 120 cm (hypotenuse, a side of the octagon). Angle ZAX = 67.5°. X is the foot of the perpendicular from Z to the line AB. XZ is vertical, AX is horizontal.]\n\nIn triangle ZAX, AZ = 120 cm and angle ZAX = 67.5°. Find the lengths XZ and AX.",
+      "text": "In right-angled triangle ZAX (where X is the foot of the perpendicular from Z to line AB), AZ = 80 cm and angle ZAX = 60°. Find the lengths XZ and AX.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "trigonometry"
-      ],
+      "topics": ["trigonometry"],
       "answerType": "working",
-      "expectedAnswer": "XZ = 110.87 cm, AX = 45.92 cm",
-      "markingGuide": "Using right-angled triangle ZAX with hypotenuse AZ = 120 cm (one side of the octagon) and angle ZAX = 67.5°. For XZ (opposite side): sin 67.5° = XZ / 120, so XZ = 120 × sin 67.5° = 120 × 0.9239 = 110.87 cm. For AX (adjacent side): cos 67.5° = AX / 120, so AX = 120 × cos 67.5° = 120 × 0.3827 = 45.92 cm. Achieved = one correct length (either XZ or AX) with working. Merit = both lengths correct with clear trigonometric working shown.",
-      "image": "/images/exams/91947-2023-q2a.png"
+      "expectedAnswer": "XZ = 69.28 cm, AX = 40 cm",
+      "markingGuide": "Using right-angled triangle ZAX with hypotenuse AZ = 80 cm and angle ZAX = 60°. XZ (opposite): sin 60° = XZ/80, so XZ = 80 × sin 60° = 80 × 0.8660 = 69.28 cm. AX (adjacent): cos 60° = AX/80, so AX = 80 × cos 60° = 80 × 0.5 = 40 cm. Achieved = one correct length. Merit = both lengths correct with clear trigonometric working."
     }
   ],
   "totalMarks": 24,
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 6
-    },
-    "achieved": {
-      "min": 7,
-      "max": 12
-    },
-    "merit": {
-      "min": 13,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
+    "notAchieved": { "min": 0, "max": 6 },
+    "achieved": { "min": 7, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
   }
 }

@@ -11,7 +11,7 @@
     {
       "id": "cs395-24-q1",
       "number": "1",
-      "text": "Answer ONE of the following questions with reference to one or more classical art works or buildings. You must answer using paragraphs. Support your answer with evidence from one or more classical art works or buildings. Aim for a concise answer of no more than 5-6 pages.\n\nQuestion 1: Discuss how and why mythical and/or historical imagery features in one or more classical art works.\n\nQuestion 2: Discuss the extent to which naturalism was effectively conveyed in one or more classical art works.\n\nQuestion 3: In what ways was the form of one or more classical art works impacted by its location and/or the social activities that were associated with it?\n\nQuestion 4: Discuss the extent to which the decoration techniques and/or design used to create one or more classical art works were typical of their time.",
+      "text": "Answer ONE of the following questions with reference to one or more classical art works or buildings. You must answer using paragraphs. Support your answer with evidence from one or more classical art works or buildings. Aim for a concise answer of no more than 5-6 pages.\n\nQuestion 1: Discuss how and why religious and/or civic subject matter appears in one or more classical art works.\n\nQuestion 2: Discuss the extent to which realism was effectively achieved in one or more classical art works.\n\nQuestion 3: In what ways was the purpose of one or more classical art works influenced by the setting in which they were displayed and/or the ceremonies they accompanied?\n\nQuestion 4: Discuss the extent to which the materials and methods used to produce one or more classical art works were characteristic of their era.",
       "marks": 8,
       "gradeLevel": "achieved",
       "topics": ["classical-art-works", "classical-architecture", "classical-analysis"],
@@ -19,10 +19,5 @@
       "markingGuide": "Achievement (3-4 marks): Analyse the significance by undertaking a methodical examination and interpretation of the features and effect(s) of the work(s) of art in their artistic and/or historical context. Discuss the work(s) of art in light of that examination, use primary-source evidence, and draw conclusions. The candidate shows a general understanding of the ways works of art reflect the social, political, religious, and/or artistic environment and draws general conclusions. May lack specific detail. Merit (5-6 marks): Analyse in-depth by providing an informed and coherent discussion of the features and effect(s). Integrate ideas, make comparisons, and draw conclusions supported by primary-source evidence. The candidate shows an in-depth understanding and draws well-supported conclusions. The response covers most aspects but treatment may be unbalanced. Excellence (7-8 marks): Analyse with perception by discussing with insight the features and effect(s). Give evidence of artistic influence, provide critical evaluation, show understanding of wider implications, and draw developed conclusions. The discussion is sophisticated and reveals an ability to synthesise information; insightful links to historical events and/or artistic developments clarify the wider implications. Modern art historical criticism may be cited."
     }
   ],
-  "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
 }

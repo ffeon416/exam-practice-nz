@@ -1,6 +1,6 @@
 {
   "id": "l2-physics-waves-2025",
-  "title": "Level 2 Physics — Waves (2025)",
+  "title": "Level 2 Physics \u2014 Waves (2025)",
   "level": 2,
   "standard": "91170",
   "year": 2025,
@@ -29,7 +29,7 @@
     {
       "id": "w25-q1a",
       "number": "1(a)",
-      "text": "Data projectors in classrooms use a concave lens as part of their projection system.\n\nOne such projector has an object which is 15 cm from a concave lens with focal length 10 cm.\n\nDraw and label the image in the diagram below.",
+      "text": "Document cameras in classrooms use a concave lens as part of their projection system.\n\nOne such camera has an object 12 cm from a concave lens with focal length 8 cm.\n\nDraw and label the image in the diagram below.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -38,14 +38,13 @@
         "concave-lens"
       ],
       "answerType": "text",
-      "expectedAnswer": "Image found between F and the lens, on the same side",
-      "markingGuide": "Achieved: Image found.",
-      "image": "/images/exams/91170-2025-q1a.png"
+      "expectedAnswer": "Image found between F and the lens, on the same side as the object. Virtual, upright, diminished.",
+      "markingGuide": "Achieved: Image found."
     },
     {
       "id": "w25-q1bi",
       "number": "1(b)(i)",
-      "text": "Calculate the magnification of the image.\n\n(Object distance = 15 cm, focal length = −10 cm for concave lens)",
+      "text": "Calculate the magnification of the image.\n\n(Object distance = 12 cm, focal length = -8 cm for concave lens)",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -54,8 +53,8 @@
         "lens-equation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Magnification = 0.4 times",
-      "markingGuide": "1/f = 1/dᵢ + 1/dₒ. 1/(−10) = 1/dᵢ + 1/15. dᵢ = −6 cm. Magnification = dᵢ/dₒ = 6/15 = 0.4 times. Achieved: Uses f = 10 to get dᵢ = 30. OR correctly identifies f = −10. OR correct description. Merit: Correct magnification. OR made one error overall and has correct description."
+      "expectedAnswer": "1/f = 1/di + 1/do. 1/(-8) = 1/di + 1/12. 1/di = -1/8 - 1/12 = -3/24 - 2/24 = -5/24. di = -4.8 cm. Magnification = di/do = 4.8/12 = 0.4 times.",
+      "markingGuide": "Achieved: Uses correct formula. Merit: Correct magnification = 0.4."
     },
     {
       "id": "w25-q1bii",
@@ -69,12 +68,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image will be virtual, upright, and diminished.",
-      "markingGuide": "Achieved: Correct description. Excellence: Correct magnification and description."
+      "markingGuide": "Achieved: Correct description."
     },
     {
       "id": "w25-q1c",
       "number": "1(c)",
-      "text": "In another projector, a convex lens is used, and a real image twice as big as the object is formed.\n\nComplete a ray diagram on the grid below to show how the real image that is twice as big as the object is formed.\n\nYou must show any calculations you used to decide where to place the object.\n\nMake the object 6 squares tall.",
+      "text": "In another camera lens assembly, a convex lens is used, and a real image three times as big as the object is formed.\n\nComplete a ray diagram on the grid below to show how the real image that is three times as big as the object is formed.\n\nYou must show any calculations you used to decide where to place the object.\n\nMake the object 4 squares tall.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -83,14 +82,13 @@
         "magnification"
       ],
       "answerType": "working",
-      "expectedAnswer": "dᵢ/dₒ = 2, so dᵢ = 2dₒ. Using 1/f: dₒ = 1.5f OR dₒ = 6 squares. hᵢ = 12 squares.",
-      "markingGuide": "dᵢ/dₒ = 2 → dᵢ = 2dₒ and hᵢ = 2hₒ. 1/f = 1/dᵢ + 1/dₒ → dₒ = 1.5f OR dₒ = 6 (squares). Achieved: States that dᵢ = 2dₒ. OR hᵢ = 2hₒ OR hᵢ = 12 (squares). Merit: Places object and image so that dᵢ = 2dₒ and hᵢ = 12. AND draws at least one correct ray from object. Excellence: Object and image placed correctly, of the correct size with two correct rays drawn and some evidence of a calculation. E.g. dₒ = 2dᵢ, etc.",
-      "image": "/images/exams/91170-2025-q1c.png"
+      "expectedAnswer": "di/do = 3, so di = 3do. Using 1/f = 1/di + 1/do: do = 4f/3. hI = 12 squares.",
+      "markingGuide": "Achieved: States di = 3do. Merit: Places object and image correctly. Excellence: Full diagram with calculations."
     },
     {
       "id": "w25-q1di",
       "number": "1(d)(i)",
-      "text": "An ultra-short-throw projector shortens the projection distance, and still produces high-quality images by using a concave mirror that reflects the light and focuses on the screen.\n\nComplete the ray diagram below to find and draw the image.",
+      "text": "An ultra-short-throw camera lens assembly uses a concave mirror to reflect and focus light on a screen.\n\nComplete the ray diagram to find and draw the image.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -99,9 +97,8 @@
         "concave-mirror"
       ],
       "answerType": "text",
-      "expectedAnswer": "Image located using two rays. Image is virtual, upright, and enlarged.",
-      "markingGuide": "Achieved: Correct diagram (2 rays). OR correct description. Merit: Correct diagram (2 rays) AND correct description.",
-      "image": "/images/exams/91170-2025-q1di.png"
+      "expectedAnswer": "Image located using two rays. Image is virtual, upright, and enlarged (object within F).",
+      "markingGuide": "Achieved: Correct diagram. Merit: Diagram AND description."
     },
     {
       "id": "w25-q1dii",
@@ -115,12 +112,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Image is virtual, upright, and enlarged.",
-      "markingGuide": "Achieved: Correct description."
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w25-q2a",
       "number": "2(a)",
-      "text": "A double-glazed window has two glass panes with a refractive index of 1.5, separated by an air gap. Matiu notices that a red laser shone through the window does not travel straight through.\n\nOn the diagram below, show the path of the ray of light as it crosses from one glass pane to the air.",
+      "text": "A laminated safety glass panel has two glass panes with a refractive index of 1.4, separated by an air gap. A student notices a red laser shone through doesn't travel straight.\n\nShow the path of the ray as it crosses from one glass pane to the air.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -128,14 +125,13 @@
         "refraction"
       ],
       "answerType": "text",
-      "expectedAnswer": "Draws arrow in the correct direction (away from the normal) with arrow head.",
-      "markingGuide": "Achieved: Draws arrow in the correct direction (away from normal) with arrow head.",
-      "image": "/images/exams/91170-2025-q2a.png"
+      "expectedAnswer": "Ray bends away from the normal when passing from glass (denser) to air (less dense).",
+      "markingGuide": "Achieved: Correct direction with arrow."
     },
     {
       "id": "w25-q2b",
       "number": "2(b)",
-      "text": "Explain what a refractive index of 1.5 means, in terms of the speed of light in the glass.",
+      "text": "Explain what a refractive index of 1.4 means, in terms of the speed of light in the glass.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -144,13 +140,13 @@
         "refractive-index"
       ],
       "answerType": "text",
-      "expectedAnswer": "The speed of light is 1.5 times slower in glass than in air.",
-      "markingGuide": "Achieved: The speed of light is slower in glass. OR the speed of light is faster in air than glass. Merit: n_air = 1.5 × v_glass. v_glass = (2/3) v_air. (Accept v_glass = 1/(1.5) × v_air. OR v_glass = 2 × 10⁸ m s⁻¹.) Quantitative answer."
+      "expectedAnswer": "The speed of light is 1.4 times slower in glass than in air. v_glass = 3.0 x 10^8 / 1.4 = 2.14 x 10^8 m s-1.",
+      "markingGuide": "Achieved: Light is slower in glass. Merit: Quantitative answer."
     },
     {
       "id": "w25-q2c",
       "number": "2(c)",
-      "text": "Red laser with wavelength 6.50 × 10⁻⁷ m enters a different window at an incident angle of 30°. The wavelength of the red light in the glass is 4.64 × 10⁻⁷ m.\n\nCalculate the angle of refraction as the red laser passes from air (n = 1.0) into the glass.",
+      "text": "Red laser with wavelength 6.30 x 10^-7 m enters a different window at an incident angle of 35 degrees. The wavelength in the glass is 4.50 x 10^-7 m.\n\nCalculate the angle of refraction as the laser passes from air (n = 1.0) into the glass.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -159,13 +155,13 @@
         "snells-law"
       ],
       "answerType": "working",
-      "expectedAnswer": "θ_glass = 20.9° ≈ 21°",
-      "markingGuide": "n_glass = λ_air/λ_glass = 6.50 × 10⁻⁷ / 4.64 × 10⁻⁷ = 1.40 (accept 1.4). n₁ sin θ₁ = n₂ sin θ₂. 1 × sin 30 = 1.40 × sin θ₂. 0.7138 = sin θ₂/0.5. θ_glass = 20.9° ≈ 21°. Achieved: Correct formula identified. OR n_glass = 1.4. OR correct λ_air/λ_glass ratio. Merit: Calculation with ONE error (e.g. θ_glass = 44.4). Excellence: Full calculation with correct angle."
+      "expectedAnswer": "n_glass = lambda_air/lambda_glass = 6.30e-7/4.50e-7 = 1.40. n1 sin theta1 = n2 sin theta2. 1.0 x sin 35 = 1.40 x sin theta2. sin theta2 = 0.5736/1.40 = 0.4097. theta2 = 24.2 degrees.",
+      "markingGuide": "Achieved: n_glass = 1.40. Merit: One error. Excellence: Correct angle."
     },
     {
       "id": "w25-q2di",
       "number": "2(d)(i)",
-      "text": "Matiu notices that if he keeps increasing the angle, the ray of light bounces off the inner surface of the glass, and none enters the air.\n\nName the phenomenon that is occurring.",
+      "text": "The student notices that increasing the angle causes total internal reflection.\n\nName the phenomenon.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -174,13 +170,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Total internal reflection (TIR).",
-      "markingGuide": "Achieved: Identifies TIR. OR ONE of the bullet points about the conditions of TIR.",
-      "image": "/images/exams/91170-2025-q2d.png"
+      "markingGuide": "Achieved: Identifies TIR."
     },
     {
       "id": "w25-q2dii",
       "number": "2(d)(ii)",
-      "text": "Describe the conditions needed for this phenomenon to occur.\n\nCalculations are not needed.",
+      "text": "Describe the conditions needed for this phenomenon.",
       "marks": 2,
       "gradeLevel": "excellence",
       "topics": [
@@ -189,13 +184,13 @@
         "critical-angle"
       ],
       "answerType": "text",
-      "expectedAnswer": "Light must travel from a medium of higher refractive index to lower",
-      "markingGuide": "Achieved: Identifies TIR. OR ONE of the bullet points about TIR conditions. Merit: Identifies TIR AND partial explanation. Excellence: Full explanation."
+      "expectedAnswer": "Light must travel from a medium of higher refractive index to lower refractive index. The angle of incidence must exceed the critical angle.",
+      "markingGuide": "Achieved: One condition. Merit: Partial. Excellence: Full explanation."
     },
     {
       "id": "w25-q3a",
       "number": "3(a)",
-      "text": "Wireless internet connections (Wi-Fi) work by sending information as electromagnetic waves through the air.\n\nWhat type of wave is an electromagnetic wave?",
+      "text": "Bluetooth connections work by sending information as electromagnetic waves.\n\nWhat type of wave is an electromagnetic wave?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -204,12 +199,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Transverse wave.",
-      "markingGuide": "Achieved: Correct answer."
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "w25-q3b",
       "number": "3(b)",
-      "text": "Wi-Fi interference can be an issue in a populated school environment. This occurs when two or more Wi-Fi access points are using the same channel or frequency, causing interference and reducing the reliability of the Wi-Fi.\n\nExplain how having two Wi-Fi access points emitting waves of the same frequency can cause both spots of strong Wi-Fi signal and spots of weak Wi-Fi signal.",
+      "text": "Bluetooth interference can occur when two devices are using the same frequency. This causes both spots of strong signal and weak signal.\n\nExplain how two Bluetooth sources emitting the same frequency can cause this.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -217,13 +212,13 @@
         "interference"
       ],
       "answerType": "text",
-      "expectedAnswer": "When two waves of the same frequency are in the same place, they interfere",
-      "markingGuide": "Achieved: Recognises interference. OR partial answer. Merit: Partial answer. Excellence: Full explanation in the context of signal strength, with path difference in terms of λ (could be correctly labelled diagram)."
+      "expectedAnswer": "When two waves of the same frequency overlap, they interfere. Constructive interference (waves in phase, path difference = whole wavelengths) produces strong signal. Destructive interference (waves out of phase, path difference = odd half wavelengths) produces weak signal.",
+      "markingGuide": "Achieved: Recognises interference. Merit: Partial explanation. Excellence: Full explanation with path difference."
     },
     {
       "id": "w25-q3c",
       "number": "3(c)",
-      "text": "Internet satellites orbit the Earth at a height of 550 km. The wavelength of the radio wave is 0.025 m.\n\nHow many radio waves reach the Earth in 2 hours?",
+      "text": "Communication satellites orbit at 600 km altitude. The wavelength of the signal is 0.030 m.\n\nHow many radio waves reach the Earth in 3 hours?",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -232,13 +227,13 @@
         "frequency"
       ],
       "answerType": "working",
-      "expectedAnswer": "8.6 × 10¹³ waves (accept 8.64 × 10¹³)",
-      "markingGuide": "f = v/λ = 3 × 10⁸ / 0.025 = 1.2 × 10¹⁰ Hz. Two hours = 2 × 60 × 60 = 7200 s. Number of radio waves = 1.2 × 10¹⁰ × 7200 = 8.64 × 10¹³. Achieved: Correct frequency. OR calculated t = 7200 s. Merit: Correct answer."
+      "expectedAnswer": "f = v/lambda = 3.0 x 10^8 / 0.030 = 1.0 x 10^10 Hz. 3 hours = 10800 s. Number = 1.0 x 10^10 x 10800 = 1.08 x 10^14.",
+      "markingGuide": "Achieved: Correct frequency. Merit: Correct answer."
     },
     {
       "id": "w25-q3di",
       "number": "3(d)(i)",
-      "text": "When Wi-Fi signals pass through walls, they slow down. The boundary between wall and air can be modelled by ropes of different densities joined together.\n\nThe diagram below models two pulses from two Wi-Fi points travelling towards each other. The speed in air is 2 squares per second, and the speed in the wall is 1 square per second.\n\nDescribe how the frequency of the Wi-Fi signal changes as it moves from air to wall.",
+      "text": "When signals pass through walls, they slow down. The boundary can be modelled by ropes of different densities.\n\nDescribe how the frequency of the signal changes as it moves from air to wall.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -247,14 +242,13 @@
         "wave-speed"
       ],
       "answerType": "text",
-      "expectedAnswer": "The frequency of the Wi-Fi signal does not change as it enters / leaves the wall from / to the air.",
-      "markingGuide": "Achieved: The frequency is unchanged. OR the correct position of one of the pulses after 3 s. Merit: Same frequency AND one resulting pulse form in the correct place.",
-      "image": "/images/exams/91170-2025-q3d.png"
+      "expectedAnswer": "The frequency does not change as the signal enters or leaves the wall.",
+      "markingGuide": "Achieved: Frequency unchanged. Merit: Frequency unchanged with justification."
     },
     {
       "id": "w25-q3dii",
       "number": "3(d)(ii)",
-      "text": "Assuming any pulse is half the height of the original after it transmits and reflects with the boundary, draw the result of the two pulses' interactions after 3 seconds.",
+      "text": "Assuming any pulse is half the height after transmission/reflection at the boundary, draw the result of two pulses' interactions after 3 seconds.",
       "marks": 2,
       "gradeLevel": "excellence",
       "topics": [
@@ -264,9 +258,8 @@
         "superposition"
       ],
       "answerType": "text",
-      "expectedAnswer": "Correct diagram showing pulses and frequency unchanged (allow for a minor error).",
-      "markingGuide": "Achieved: The frequency is unchanged. OR the correct position of one of the pulses after 3 s. Merit: Same frequency AND one resulting pulse form in the correct place. Excellence: Correct diagram showing pulses and frequency is unchanged (allow for a minor error).",
-      "image": "/images/exams/91170-2025-q3dii.png"
+      "expectedAnswer": "Correct diagram showing transmitted and reflected pulses at correct positions after 3 seconds, with correct amplitudes (half of original).",
+      "markingGuide": "Achieved: One pulse positioned correctly. Merit: Two pulses correct. Excellence: Full diagram."
     }
   ]
 }

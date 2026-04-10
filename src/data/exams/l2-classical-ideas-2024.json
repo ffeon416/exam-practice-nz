@@ -11,7 +11,7 @@
     {
       "id": "cs200-24-q1",
       "number": "1",
-      "text": "Answer ONE of the following questions with reference to a classical literary text. You must answer using paragraphs. Support your answer with evidence from a classical literary text. Aim for a concise answer of no more than 4-5 pages.\n\nQuestion 1: Explain how classical values were demonstrated by a hero.\n\nQuestion 2: In what ways was a relationship harmful to a character's goals?\n\nQuestion 3: Explain how a cultural tradition created conflict between characters.\n\nQuestion 4: Explain how the ideas and values demonstrated in a classical literary text have influenced a later culture.",
+      "text": "Answer ONE of the following questions with reference to a classical literary text. You must answer using paragraphs. Support your answer with evidence from a classical literary text. Aim for a concise answer of no more than 4-5 pages.\n\nQuestion 1: Explain how the actions of a hero revealed the values prized by a classical society.\n\nQuestion 2: In what ways did a personal bond between characters lead to unforeseen consequences?\n\nQuestion 3: Explain how a religious or social custom drove conflict within a classical text.\n\nQuestion 4: Explain how themes from a classical literary text remain relevant to audiences in later cultures.",
       "marks": 8,
       "gradeLevel": "achieved",
       "topics": ["classical-ideas-values", "classical-literary-texts", "classical-society"],
@@ -19,10 +19,5 @@
       "markingGuide": "Achievement (3-4 marks): Examine ideas and values of the ancient Greeks and/or Romans through classical literary texts. Use primary-source evidence and draw conclusions. The candidate provides a general examination at a basic level; specific evidence may be lacking, and conclusions may be simple. Merit (5-6 marks): Examine in-depth by giving an informed explanation using primary-source evidence of specific relevance to the context, explaining a range of aspects/factors, and drawing conclusions supported by primary-source evidence. Most parts include detail, but treatment may be unbalanced. Excellence (7-8 marks): Examine with perception by giving an explanation that shows insight into classical ideas and values, drawing developed conclusions. Features may include reasons for similarities and differences, themes and patterns, and cultural expectations and codes of behaviour. All parts include relevant, accurate, and consistently detailed evidence, and informed/relevant/developed conclusions are drawn."
     }
   ],
-  "cutScores": {
-    "notAchieved": { "min": 0, "max": 2 },
-    "achieved": { "min": 3, "max": 4 },
-    "merit": { "min": 5, "max": 6 },
-    "excellence": { "min": 7, "max": 8 }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
 }

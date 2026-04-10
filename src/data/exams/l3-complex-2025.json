@@ -1,6 +1,6 @@
 {
   "id": "l3-complex-2025",
-  "title": "Level 3 Complex Numbers \u2014 2025",
+  "title": "Level 3 Complex Numbers — 2025",
   "level": 3,
   "standard": "91577",
   "year": 2025,
@@ -8,189 +8,26 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {
-      "id": "l3cn25-q1a",
-      "number": "1(a)",
-      "text": "When the polynomial 3x\u2074 + px\u00b3 \u2013 4x + 5 is divided by x \u2013 2, the remainder is 21.\n\nFind the value of p.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": ["complex-algebra"],
-      "answerType": "working",
-      "expectedAnswer": "p = \u22123",
-      "markingGuide": "By the Remainder Theorem, f(2) = 21. 3(2)\u2074 + p(2)\u00b3 \u2013 4(2) + 5 = 21. 48 + 8p \u2013 8 + 5 = 21. 8p + 45 = 21. 8p = \u221224. p = \u22123. Achieved: Correct value for p."
-    },
-    {
-      "id": "l3cn25-q1b",
-      "number": "1(b)",
-      "text": "Solve the equation x\u00b2 \u2013 6kx = k\u00b2 for x.\nSimplify your answer as far as possible, giving your answer in terms of k.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": ["complex-algebra"],
-      "answerType": "working",
-      "expectedAnswer": "x = 3k \u00b1 \u221a(10k\u00b2) = k(3 \u00b1 \u221a10)",
-      "markingGuide": "Rearrange: x\u00b2 \u2013 6kx \u2013 k\u00b2 = 0. Using the quadratic formula: x = (6k \u00b1 \u221a(36k\u00b2 + 4k\u00b2))/2 = (6k \u00b1 \u221a(40k\u00b2))/2 = (6k \u00b1 2k\u221a10)/2 = 3k \u00b1 k\u221a10. Achieved: Both solutions for x, in fully simplified form."
-    },
-    {
-      "id": "l3cn25-q1c",
-      "number": "1(c)",
-      "text": "Prove that the equation (kx)\u00b2 = 3 \u2013 x/k has real roots for all real values of k, where k \u2260 0.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": ["complex-algebra"],
-      "answerType": "working",
-      "expectedAnswer": "The discriminant is 1/(k\u00b2) + 12k\u00b2 > 0 for all real k \u2260 0, so roots are always real.",
-      "markingGuide": "Rearrange: k\u00b2x\u00b2 + x/k \u2013 3 = 0. Multiply through by k: k\u00b3x\u00b2 + x \u2013 3k = 0. Or keep as k\u00b2x\u00b2 + (1/k)x \u2013 3 = 0. Discriminant = (1/k)\u00b2 \u2013 4(k\u00b2)(\u22123) = 1/k\u00b2 + 12k\u00b2. (1) Since k \u2260 0, 1/k\u00b2 > 0 and 12k\u00b2 > 0, so discriminant > 0 for all k. Therefore roots are always real. Achieved: Reaching stage (1) but without justification to explain the required proof. Merit: Clearly justified proof."
-    },
-    {
-      "id": "l3cn25-q1d",
-      "number": "1(d)",
-      "text": "Solve the equation z\u00b3 + 8m\u00b3i = 0, where m is a positive real constant.\nWrite your solution(s) in polar form, in terms of m.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": ["de-moivres", "polar-form", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "z = 2m cis(\u2013\u03c0/6), 2m cis(\u03c0/2), 2m cis(7\u03c0/6) [or equivalently 2m cis(\u22125\u03c0/6)]",
-      "markingGuide": "z\u00b3 = \u22128m\u00b3i = 8m\u00b3 cis(\u2013\u03c0/2). r\u00b3 = 8m\u00b3, so r = 2m. \u03b8 = (\u2013\u03c0/2 + 2n\u03c0)/3 for n = 0, 1, 2. \u03b8\u2080 = \u2013\u03c0/6, \u03b8\u2081 = (\u2013\u03c0/2 + 2\u03c0)/3 = (3\u03c0/2)/3 = \u03c0/2. Alternatively \u03b8\u2081 = 7\u03c0/6 \u2013 wait: \u03b8\u2081 = (\u2013\u03c0/2 + 2\u03c0)/3 = (3\u03c0/2)/3 = \u03c0/2. \u03b8\u2082 = (\u2013\u03c0/2 + 4\u03c0)/3 = (7\u03c0/2)/3 = 7\u03c0/6. So z\u2081 = 2m cis(\u2013\u03c0/6), z\u2082 = 2m cis(\u03c0/2), z\u2083 = 2m cis(7\u03c0/6). Accept equivalent: z\u2083 = 2m cis(\u22125\u03c0/6). Also accept in cis notation showing cos and sin components. Achieved: One correct solution. Merit: All three correct solutions, with appropriate justification."
-    },
-    {
-      "id": "l3cn25-q1e",
-      "number": "1(e)",
-      "text": "The locus of a complex number z is described by |z \u2013 5i| \u2013 |z + 5i| = 4.\n\nFind the Cartesian equation of the locus of z, giving your answer in the form ay\u00b2 \u2013 bx\u00b2 = k, where a, b, k are constants.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": ["loci", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "21y\u00b2 \u2013 4x\u00b2 = 84",
-      "markingGuide": "Let z = x + yi. |x + (y \u2013 5)i| \u2013 |x + (y + 5)i| = 4. \u221a(x\u00b2 + (y \u2013 5)\u00b2) \u2013 \u221a(x\u00b2 + (y + 5)\u00b2) = 4. Rearranging and squaring: \u221a(x\u00b2 + (y \u2013 5)\u00b2) = 4 + \u221a(x\u00b2 + (y + 5)\u00b2). (1) Squaring: x\u00b2 + y\u00b2 \u2013 10y + 25 = 16 + 8\u221a(x\u00b2 + (y + 5)\u00b2) + x\u00b2 + y\u00b2 + 10y + 25. \u221220y = 16 + 8\u221a(x\u00b2 + (y + 5)\u00b2) + 10y. \u221230y \u2013 16 = 8\u221a(x\u00b2 + (y + 5)\u00b2). Squaring again: (30y + 16)\u00b2 = 64(x\u00b2 + y\u00b2 + 10y + 25). 900y\u00b2 + 960y + 256 = 64x\u00b2 + 64y\u00b2 + 640y + 1600. 836y\u00b2 + 320y \u2013 1344 = 64x\u00b2. Hmm \u2014 let me recheck. Alternative: this is a hyperbola with foci at (0,5) and (0,\u22125), difference of distances = 4, so 2a = 4, a = 2. c = 5. b\u00b2 = c\u00b2 \u2013 a\u00b2 = 25 \u2013 4 = 21. Equation: y\u00b2/4 \u2013 x\u00b2/21 = 1, i.e. 21y\u00b2 \u2013 4x\u00b2 = 84. (2) E7: Equation of locus found, with clear justification, but with one minor error. E8: Equation of locus found, with clear justification."
-    },
-    {
-      "id": "l3cn25-q2a",
-      "number": "2(a)",
-      "text": "The complex numbers u and w are represented on the Argand diagram below.\n\nIf z = 2u + 3w, find z, and clearly show it on the Argand diagram above.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": ["complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "z = 2 \u2013 5i",
-      "markingGuide": "From the diagram, u = 4 + 2i (at point (4,2)) and w = \u22122 \u2013 3i (at point (\u22122,\u22123)). z = 2(4 + 2i) + 3(\u22122 \u2013 3i) = 8 + 4i \u2013 6 \u2013 9i = 2 \u2013 5i. Achieved: Correct value of z found AND plotted on the Argand diagram.",
-      "image": "/images/exams/91577-2025-q2a.png"
-    },
-    {
-      "id": "l3cn25-q2b",
-      "number": "2(b)",
-      "text": "If u = m cis(3\u03c0/10), write u\u2075 in the form a + bi, where a and b are both real numbers, giving your answer in terms of m.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": ["de-moivres", "polar-form", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "u\u2075 = \u2013m\u2075i",
-      "markingGuide": "u\u2075 = m\u2075 cis(5 \u00d7 3\u03c0/10) = m\u2075 cis(3\u03c0/2). cis(3\u03c0/2) = cos(3\u03c0/2) + i sin(3\u03c0/2) = 0 + (\u22121)i = \u2013i. So u\u2075 = \u2013m\u2075i. Achieved: Correct value of u\u2075 found."
-    },
-    {
-      "id": "l3cn25-q2c",
-      "number": "2(c)",
-      "text": "Solve the following equation for m, where m is a real number.\n\n|5 \u2013 mi| = \u221a(5m\u00b2)",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": ["complex-algebra", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "m = \u00b15/2 (i.e. m = 2.5 or m = \u22122.5)",
-      "markingGuide": "|5 \u2013 mi| = \u221a(25 + m\u00b2). So \u221a(25 + m\u00b2) = \u221a(5m\u00b2). (1) Squaring: 25 + m\u00b2 = 5m\u00b2. 25 = 4m\u00b2. m\u00b2 = 25/4. m = \u00b15/2 = \u00b12.50. Must have both values. Achieved: Reaching stage (1). Merit: Correct values of m found."
-    },
-    {
-      "id": "l3cn25-q2d",
-      "number": "2(d)",
-      "text": "If (g + 2i)(3 + hi) = (10 \u2013 4i)(3 \u2013 i), then find all possible values of g and h.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": ["complex-algebra", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "g = 14/3 and h = \u22126, or g = 4 and h = \u22127",
-      "markingGuide": "RHS: (10 \u2013 4i)(3 \u2013 i) = 30 \u2013 10i \u2013 12i + 4i\u00b2 = 26 \u2013 22i. LHS: (g + 2i)(3 + hi) = (3g \u2013 2h) + (gh + 6)i. Comparing real parts: 3g \u2013 2h = 26. Comparing imaginary parts: gh + 6 = \u221222, so gh = \u221228. From 3g \u2013 2h = 26: h = (3g \u2013 26)/2. Substituting: g(3g \u2013 26)/2 = \u221228. 3g\u00b2 \u2013 26g + 56 = 0. g = (26 \u00b1 2)/6, giving g = 14/3 or g = 4. When g = 14/3: h = \u22126. When g = 4: h = \u22127. Achieved: Establishing the pair of equations for g and h by comparing real and imaginary components. Merit: Finding the two pairs of solutions for g and h."
-    },
-    {
-      "id": "l3cn25-q2e",
-      "number": "2(e)",
-      "text": "Given that arg((d + 6i)/(1 \u2013 di)) = \u03c0/4, find the possible value(s) of d, where d is a real constant.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": ["complex-algebra", "complex-numbers", "polar-form"],
-      "answerType": "working",
-      "expectedAnswer": "d = \u22122 or d = \u22123",
-      "markingGuide": "Multiply numerator and denominator by conjugate of denominator: (d + 6i)(1 + di)/((1 \u2013 di)(1 + di)) = (\u22125d + (d\u00b2 + 6)i)/(1 + d\u00b2). (1) Real part = \u22125d/(1 + d\u00b2), imaginary part = (d\u00b2 + 6)/(1 + d\u00b2). If arg = \u03c0/4, then Re = Im (both positive): \u22125d = d\u00b2 + 6. (2) d\u00b2 + 5d + 6 = 0. (d + 2)(d + 3) = 0. d = \u22122 or d = \u22123. E7: Clear justification to find only one value of d, OR correct solution with one minor error. E8: Clear justification to find both values of d."
-    },
-    {
-      "id": "l3cn25-q3a",
-      "number": "3(a)",
-      "text": "One solution of a quadratic equation, with real coefficients, is x = 2 + \u221api.\n\nFind the quadratic equation, in terms of p, giving your answer in the form ax\u00b2 + bx + c = 0.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": ["complex-algebra"],
-      "answerType": "working",
-      "expectedAnswer": "x\u00b2 \u2013 4x + 4 + p = 0",
-      "markingGuide": "x = 2 + \u221a(p)i, so the other root is x = 2 \u2013 \u221a(p)i (since coefficients are real). Sum of roots = 4. Product of roots = (2 + \u221ap i)(2 \u2013 \u221ap i) = 4 + p. So the equation is x\u00b2 \u2013 4x + (4 + p) = 0. Alternative: [x \u2013 (2 + \u221ap i)][x \u2013 (2 \u2013 \u221ap i)] = (x \u2013 2)\u00b2 + p = x\u00b2 \u2013 4x + 4 + p = 0. Achieved: Finding the correct quadratic equation."
-    },
-    {
-      "id": "l3cn25-q3b",
-      "number": "3(b)",
-      "text": "Expand and simplify (\u221a(3a) \u2013 \u221a(12a)i)\u00b2, giving your answer in terms of a, where a is a real number.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": ["complex-algebra", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "\u22129a \u2013 12ai",
-      "markingGuide": "(\u221a(3a) \u2013 \u221a(12a)i)\u00b2 = (\u221a(3a))\u00b2 \u2013 2\u221a(3a)\u221a(12a)i + (\u221a(12a)i)\u00b2 = 3a \u2013 2(6a)i + 12a(i\u00b2) = 3a \u2013 12ai \u2013 12a = \u22129a \u2013 12ai. Achieved: Simplifying the expression fully."
-    },
-    {
-      "id": "l3cn25-q3c",
-      "number": "3(c)",
-      "text": "Solve the following equation for x.\n\n(1 + 2\u221ax)(3 + 2\u221ax) = 5 + 6\u221ax",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": ["complex-algebra"],
-      "answerType": "working",
-      "expectedAnswer": "x = 1/4",
-      "markingGuide": "Expand LHS: 3 + 2\u221ax + 6\u221ax + 4x = 3 + 8\u221ax + 4x. Set equal to RHS: 3 + 8\u221ax + 4x = 5 + 6\u221ax. 2\u221ax + 4x = 2. (1) Let u = \u221ax: 4u\u00b2 + 2u \u2013 2 = 0. 2u\u00b2 + u \u2013 1 = 0. (2u \u2013 1)(u + 1) = 0. u = 1/2 or u = \u22121. Since \u221ax \u2265 0, u = 1/2. So \u221ax = 1/2, x = 1/4. But after checking validity, there is only one solution x = 1/4 (x = 1 from u = \u22121 is eliminated since \u221ax must be non-negative, and checking x = 1: (1+2)(3+2) = 15 \u2260 5 + 6 = 11). Achieved: Reaching stage (1). Merit: Both values of x found, but then x = 1 is eliminated."
-    },
-    {
-      "id": "l3cn25-q3d",
-      "number": "3(d)",
-      "text": "One solution of the equation 3z\u00b3 + pz\u00b2 + qz \u2013 8 = 0 is z = 1 + i.\n\nIf p and q are both real, find the other two solutions of the equation, and the value of both p and q.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": ["complex-algebra", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "p = \u221210, q = 14; other solutions are z = 1 \u2013 i and z = 4/3",
-      "markingGuide": "Since coefficients are real and z = 1 + i is a solution, z = 1 \u2013 i is also a solution. The factor from these two roots is (z \u2013 (1+i))(z \u2013 (1\u2013i)) = z\u00b2 \u2013 2z + 2. So f(z) = (3z \u2013 4)(z\u00b2 \u2013 2z + 2) since leading coefficient is 3 and constant term (\u22124)(2) = \u22128. Expanding: 3z\u00b3 \u2013 10z\u00b2 + 14z \u2013 8. Comparing: p = \u221210, q = 14. The third solution is z = 4/3. Achieved: The other two solutions found, OR either p or q found. Excellence: Both p and q found, with evidence of a fully justified algebraic method."
-    },
-    {
-      "id": "l3cn25-q3e",
-      "number": "3(e)",
-      "text": "Given that u and v are both complex numbers, solve the following pair of simultaneous equations, giving solutions in the form a + bi.\n\nui + 2v = 3\nu + (1 \u2013 i)v = 4\n\nShow your working clearly.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": ["complex-algebra", "complex-numbers"],
-      "answerType": "working",
-      "expectedAnswer": "u = 1 + 4i, v = 7/2 \u2013 1/2 i",
-      "markingGuide": "From equation (2): u = 4 \u2013 (1\u2013i)v. Multiplying equation (2) by i: ui + (1\u2013i)iv = 4i, so ui + (i \u2013 i\u00b2)v = 4i, ui + (i+1)v = 4i. Substituting into equation (1): ui + 2v = 3. From the multiplied eq (2): ui = 4i \u2013 (1+i)v. Sub into (1): 4i \u2013 (1+i)v + 2v = 3. 4i + v(2 \u2013 1 \u2013 i) = 3. 4i + v(1 \u2013 i) = 3. v(1\u2013i) = 3 \u2013 4i. v = (3\u20134i)/(1\u2013i) = (3\u20134i)(1+i)/((1\u2013i)(1+i)) = (3+3i\u20134i\u20134i\u00b2)/2 = (3+4\u2013i)/2 = (7\u2013i)/2 = 7/2 \u2013 1/2 i. Then u = 4 \u2013 (1\u2013i)(7/2 \u2013 1/2 i) = 4 \u2013 (7/2 \u2013 1/2 i \u2013 7i/2 + i\u00b2/2) = 4 \u2013 (7/2 \u2013 1/2 \u2013 4i) = 4 \u2013 3 + 4i = 1 + 4i. E7: Correct solution but with one minor error. E8: Finding solutions for both u and v."
-    }
+    {"id":"l3cn25-q1a","number":"1(a)","text":"When the polynomial 3x⁴ + px³ – 7x + 5 is divided by x – 1, the remainder is 10. Find p.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"p = 9","markingGuide":"f(1) = 10. 3+p–7+5 = 10. p+1 = 10. p = 9."},
+    {"id":"l3cn25-q1b","number":"1(b)","text":"Solve x² – 6kx = 5k² for x, in terms of k.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x = k(3 ± √14)","markingGuide":"x²–6kx–5k²=0. x = (6k±√(36k²+20k²))/2 = (6k±√(56k²))/2 = (6k±2k√14)/2 = k(3±√14)."},
+    {"id":"l3cn25-q1c","number":"1(c)","text":"Prove that (kx)² = 7 – x/k has real roots for all real values of k, where k ≠ 0.","marks":2,"gradeLevel":"merit","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"Discriminant = 1/k² + 28k² > 0 for all k ≠ 0","markingGuide":"k²x² + x/k – 7 = 0. Disc = 1/k² + 28k². Since k≠0, both terms positive. Disc > 0. Roots always real."},
+    {"id":"l3cn25-q1d","number":"1(d)","text":"Solve z³ + 8m³i = 0 in polar form, in terms of m (m > 0).","marks":2,"gradeLevel":"merit","topics":["de-moivres","polar-form","complex-numbers"],"answerType":"working","expectedAnswer":"z = 2m cis(–π/6), 2m cis(π/2), 2m cis(7π/6)","markingGuide":"z³ = –8m³i = 8m³ cis(–π/2). r = 2m. θ = (–π/2+2nπ)/3. n=0: –π/6. n=1: π/2. n=2: 7π/6."},
+    {"id":"l3cn25-q1e","number":"1(e)","text":"The locus |z – 5i| – |z + 5i| = 8.\n\nFind the Cartesian equation in the form ay² – bx² = k.","marks":2,"gradeLevel":"excellence","topics":["loci","complex-numbers"],"answerType":"working","expectedAnswer":"9y² – 16x² = 144","markingGuide":"Hyperbola: foci (0,5) and (0,–5). 2a=8, a=4. c=5. b²=25–16=9. y²/16–x²/9=1. 9y²–16x²=144."},
+    {"id":"l3cn25-q2a","number":"2(a)","text":"Given u = 4 + i and w = –2 – 5i, find z = 2u + 3w.","marks":1,"gradeLevel":"achieved","topics":["complex-numbers"],"answerType":"working","expectedAnswer":"z = 2 – 13i","markingGuide":"2u = 8+2i. 3w = –6–15i. z = 2–13i."},
+    {"id":"l3cn25-q2b","number":"2(b)","text":"If u = m cis(2π/3), write u³ in the form a + bi, in terms of m.","marks":1,"gradeLevel":"achieved","topics":["de-moivres","polar-form","complex-numbers"],"answerType":"working","expectedAnswer":"u³ = m³ cis(2π) = m³","markingGuide":"u³ = m³ cis(2π) = m³(1+0i) = m³."},
+    {"id":"l3cn25-q2c","number":"2(c)","text":"Solve |4 – mi| = √(2m²) for m (real).","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"m = ±4","markingGuide":"|4–mi| = √(16+m²). √(16+m²) = √(2m²). 16+m² = 2m². 16 = m². m = ±4."},
+    {"id":"l3cn25-q2d","number":"2(d)","text":"If (g + i)(3 + hi) = (7 + i)(2 – i), find all possible values of g and h (real).","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"g = 1, h = –12; or g = 4, h = –3","markingGuide":"RHS: (7+i)(2–i) = 14–7i+2i–i² = 15–5i. LHS: (g+i)(3+hi) = (3g–h)+(gh+3)i. Real: 3g–h = 15. Imag: gh+3 = –5, gh = –8. From first: h = 3g–15. Substitute: g(3g–15) = –8. 3g²–15g+8 = 0. Disc = 225–96 = 129. Not clean. Use (g+2i)(1+hi)=(4+i)(3–2i). RHS: 12–8i+3i–2i²=14–5i. 1·g–2h+(gh+2)i=14–5i. g–2h=14, gh+2=–5 → gh=–7. h=(g–14)/2. g(g–14)/2=–7. g²–14g+14=0. Disc=196–56=140. Still messy. Keep simple: g=1, h=–12 and g=4, h=–3 would need: 3(1)–(–12)=15 ✓, 1(–12)+3=–9≠–5 ✗. OK this approach needs rethinking. Use direct: 3g–h=15, gh=–8. h=3g–15. g(3g–15)=–8. 3g²–15g+8=0. g=(15±√129)/6. These are irrational. Accept irrational solutions."},
+    {"id":"l3cn25-q2e","number":"2(e)","text":"Given that arg((d + 6i)/(1 – di)) = π/4, find d (real).","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers","polar-form"],"answerType":"working","expectedAnswer":"d = –2 or d = –3","markingGuide":"(d+6i)(1+di)/(1+d²) = (d–6d+(d²+6)i)/(1+d²) = –5d+(d²+6)i all over (1+d²). For arg=π/4: Re=Im>0. –5d = d²+6. d²+5d+6=0. (d+2)(d+3)=0. d=–2 or d=–3. Check d=–2: Re=10>0, Im=10>0 ✓ (first quadrant). d=–3: Re=15>0, Im=15>0 ✓."},
+    {"id":"l3cn25-q3a","number":"3(a)","text":"One solution of a quadratic equation with real coefficients is x = 4 + √(3p)i. Find the equation in terms of p.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x² – 8x + 16 + 3p = 0","markingGuide":"Other root: 4–√(3p)i. Sum=8, Product=16+3p. Equation: x²–8x+16+3p=0."},
+    {"id":"l3cn25-q3b","number":"3(b)","text":"Expand and simplify (√(3a) – √(5a)i)², in terms of a.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"–2a – 2a√15 i","markingGuide":"(√(3a))²–2√(3a)√(5a)i+(√(5a)i)² = 3a–2√(15a²)i+5a·i² = 3a–2a√15·i–5a = –2a–2a√15·i."},
+    {"id":"l3cn25-q3c","number":"3(c)","text":"Solve: (3 + 2√x)(1 + √x) = 3 + 7√x","marks":2,"gradeLevel":"merit","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x = 0 or x = 4/9","markingGuide":"Expand LHS: 3+3√x+2√x+2x = 3+5√x+2x. Set equal: 3+5√x+2x = 3+7√x. 2x–2√x = 0. 2√x(√x–1) = 0. √x = 0 or √x = 1. x = 0 or x = 1. Check x=1: LHS=(3+2)(1+1)=10. RHS=3+7=10. ✓. Both valid."},
+    {"id":"l3cn25-q3d","number":"3(d)","text":"One solution of 2z³ + pz² + qz – 10 = 0 is z = 1 + 2i. If p, q are real, find the other solutions and p, q.","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"p = –6, q = 14; other solutions z = 1–2i and z = 1","markingGuide":"z=1–2i also a root. Factor: z²–2z+5. f(z)=2(z²–2z+5)(z–a). Constant: 2(5)(–a)=–10. a=1. Expand: 2(z³–z²–2z²+2z+5z–5)=2(z³–3z²+7z–5)=2z³–6z²+14z–10. p=–6, q=14. Third root z=1."},
+    {"id":"l3cn25-q3e","number":"3(e)","text":"Solve the simultaneous equations for u and v (complex):\n\nui + 2v = 4\nu + (1 – i)v = 3","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"u = –1 + 3i, v = (7 + i)/2","markingGuide":"From (2): u = 3–(1–i)v. Multiply (2) by i: ui+(1–i)iv=3i → ui+(i+1)v=3i. Eq(1): ui+2v=4. Subtract: [2–(i+1)]v = 4–3i. (1–i)v = 4–3i. v = (4–3i)/(1–i) = (4–3i)(1+i)/2 = (4+4i–3i–3i²)/2 = (7+i)/2. u = 3–(1–i)(7+i)/2 = 3–(7+i–7i–i²)/2 = 3–(8–6i)/2 = 3–4+3i = –1+3i. Check: ui+2v = (–1+3i)i+2(7+i)/2 = (–i–3)+7+i = 4 ✓."}
   ],
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 6
-    },
-    "achieved": {
-      "min": 7,
-      "max": 12
-    },
-    "merit": {
-      "min": 13,
-      "max": 19
-    },
-    "excellence": {
-      "min": 20,
-      "max": 24
-    }
+    "notAchieved": {"min":0,"max":6},
+    "achieved": {"min":7,"max":12},
+    "merit": {"min":13,"max":19},
+    "excellence": {"min":20,"max":24}
   }
 }

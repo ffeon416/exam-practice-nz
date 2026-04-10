@@ -11,7 +11,7 @@
     {
       "id": "l1sc25-p1ab",
       "number": "Part 1(a)–(b)",
-      "text": "Choose ONE context from the Resource Booklet:\n• Context One: Personality tests (Resource A: Scientific American magazine article, Resource B: Myers-Briggs website)\n• Context Two: The future of plastics (Resource A: Good News Network article, Resource B: BioPak website)\n\nUse Resource A from your chosen context to respond to the following:\n\n(a) Who published this information?\n\n(b) Why was this information published?",
+      "text": "Choose ONE context from the Resource Booklet:\n• Context One: Sleep quality and screen time (Resource A: a university health research centre report; Resource B: a technology company's wellness blog)\n• Context Two: Native tree planting and carbon capture (Resource A: a Department of Conservation factsheet; Resource B: a commercial carbon-offset company's website)\n\nUse Resource A from your chosen context to respond to the following:\n\n(a) Who published this information?\n\n(b) Why was this information published?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -20,7 +20,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identify who published the information and why",
-      "markingGuide": "Achieved: Describe the source and its intended purpose. Context One: (a) Researchers for ClearerThinking.org wrote and published in Scientific American. (b) They published this to tell people about the accuracy of personality tests in predicting life outcomes and to promote their website and research. Context Two: (a) A summary of an article written by Andy Corbley and published on the Good News Network website. (b) The purpose was to inform people about a new type of biodegradable plastic."
+      "markingGuide": "Achieved: Describe the source and its intended purpose. Context One: (a) Researchers at a university health research centre published this report. (b) They published it to inform the public about research findings linking screen time before bed to reduced sleep quality. Context Two: (a) The Department of Conservation (DOC) published this factsheet. (b) They published it to educate the public about the role of native trees in capturing and storing carbon dioxide from the atmosphere."
     },
     {
       "id": "l1sc25-p1c",
@@ -34,7 +34,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identify a science-related claim from the resource",
-      "markingGuide": "Achieved: Describe a science-related claim in the information. Context One examples: Most people cannot be divided into two distinct categories for each trait. Personality tests would be better at predicting life outcomes if they allowed more than two traits. Context Two examples: Researchers have made a new type of biodegradable plastic that has bacterial spores in it. Researchers have made a more durable plastic that will be almost fully broken down within five months when in the right conditions."
+      "markingGuide": "Achieved: Describe a science-related claim in the information. Context One examples: Exposure to blue light from screens before bedtime suppresses melatonin production. People who use devices within one hour of bedtime take longer to reach deep sleep. Context Two examples: Established native forest can absorb up to 3.6 tonnes of CO₂ per hectare per year. Planting native species such as tōtara and kahikatea creates long-term carbon sinks that persist for centuries."
     },
     {
       "id": "l1sc25-p1d",
@@ -48,7 +48,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identify and explain how science language and conventions are used to support the claim",
-      "markingGuide": "Merit: Show understanding and describe the science-related claims, explaining how science language or conventions support them. Context One: Science language — normally distributed, classified. Science conventions — large sample size of 559 participants; graph has no units but has clear labels and evenly spaced numbers (0.38 intervals); self-published, may not be peer-reviewed. The graph makes it look more scientific and legitimate. The names and qualifications of the researchers are not all given. A large sample size makes the claims more believable as the experiment was repeated many times. Context Two: Science language — bacterial spores, biodegradable, thermoplastic polyurethane, germinate, polymer, microbially active, sterile, nutrients, Bacillus subtilis, vegetative. Science conventions — from a recent article (Feb 2024), sourced from peer-reviewed journal Nature Communications; researchers are from University of California San Diego. The article is up to date (published 2024), strengthening the claim. The research was peer-reviewed. The researchers will have qualifications in this area."
+      "markingGuide": "Merit: Show understanding and describe the science-related claims, explaining how science language or conventions support them. Context One: Science language — melatonin, circadian rhythm, blue-light wavelength (450–490 nm), REM sleep. Science conventions — sample size of 412 participants; controlled sleep study; data presented as mean hours of sleep with standard deviation; peer-reviewed journal article from 2023. Using specific wavelengths and a large sample makes the findings more credible. The researchers' university affiliation adds authority. Context Two: Science language — carbon sequestration, photosynthesis, biomass, carbon sink, CO₂ per hectare. Science conventions — data measured in tonnes of CO₂ per hectare per year; data gathered over a 20-year monitoring period; DOC is a government-funded organisation with expertise in ecology. Long-term measurements and standardised units strengthen the claim."
     },
     {
       "id": "l1sc25-p1e",
@@ -62,8 +62,8 @@
         "scientific-method"
       ],
       "answerType": "text",
-      "expectedAnswer": "Evaluate how well the science language/conventions support the claim, discussing strengths and...",
-      "markingGuide": "Excellence: Evaluate the use of science language or conventions used to support the science-related claims. Context One: The researchers are people who self-publish, meaning we don't know if they have had their work checked by others in a peer review. This is important as it allows other people to make sure what they are writing is correct. These researchers may have tried personality tests in the past and not liked the results, so they may have a bias. If we don't have evidence that their research has been checked, we can't be sure how accurate it is. However, as it has also been published in Scientific American, a popular open-access science magazine, these researchers will want to maintain a good reputation, so it most likely is accurate. Context Two: The article talks about the plastic being more durable. However, it has not been explained how they have tested this. There is no information on how they carried out the tests, how many repeats they did, how they controlled the variables like size, number of spores, etc. For a science investigation to be valid, all these things need to be considered when designing the experiment. As these researchers work at a university, they will have qualifications that make them experts in their fields, but without being told all this information, we cannot be 100% sure that they did their experiments properly."
+      "expectedAnswer": "Evaluate how well the science language/conventions support the claim, discussing strengths and weaknesses",
+      "markingGuide": "Excellence: Evaluate the use of science language or conventions used to support the science-related claims. Context One: The study uses a reasonably large sample size (412), which makes the results more generalisable. The research was published in a peer-reviewed journal, meaning other experts have checked the methodology and conclusions. However, the study only measured short-term effects (two weeks), so we cannot be certain whether these effects persist long-term. The participants were all university students aged 18–24, which limits how well the findings apply to other age groups. Despite this, the use of precise scientific measurements (melatonin levels in saliva, sleep onset latency in minutes) makes the data reliable and the claim well-supported. Context Two: DOC is a government department with no financial interest in selling carbon offsets, so their motivation is likely to inform rather than persuade. The 20-year monitoring period provides strong longitudinal evidence. However, the factsheet does not explain the methodology used to measure carbon absorption, and the figure of 3.6 tonnes per hectare is an average that may vary significantly depending on soil type, rainfall, and species mix. There is also no mention of peer review for the specific data cited. Overall, the claim is reasonably well supported by the science language and conventions, but more detail about the measurement methods would strengthen it."
     },
     {
       "id": "l1sc25-p2ab",
@@ -77,7 +77,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identify who published the information and why",
-      "markingGuide": "Achieved: Describe the source and intended purpose. Context One: (a) Myers-Briggs published this on their website. (b) They published this to tell people about their personality test. Context Two: (a) A company called BioPak published this on their website. (b) The purpose was to educate people about biodegradable plastic."
+      "markingGuide": "Achieved: Describe the source and intended purpose. Context One: (a) A technology company published this on their wellness blog. (b) They published this to promote their device's built-in 'night mode' feature and to appear health-conscious. Context Two: (a) A commercial carbon-offset company published this on their website. (b) The purpose was to convince people to purchase carbon credits by planting native trees."
     },
     {
       "id": "l1sc25-p2c",
@@ -91,7 +91,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identify a science-related claim from the resource",
-      "markingGuide": "Achieved: Describe a science-related claim. Context One examples: The Myers-Briggs personality test can be used as a tool for individual development and self-awareness. It is rare for personality preferences to change. Context Two examples: Compostable packaging is better than biodegradable products. Biodegradable products are still conventional plastic but have some additives that make them break down in the right conditions."
+      "markingGuide": "Achieved: Describe a science-related claim. Context One examples: Their night-mode feature reduces blue-light emission by 70%, which the company claims significantly improves sleep quality. Context Two examples: Planting one native tree offsets 50 kg of CO₂ emissions per year, and their planting programme is the most effective way to reduce your personal carbon footprint."
     },
     {
       "id": "l1sc25-p2d",
@@ -105,7 +105,7 @@
       ],
       "answerType": "text",
       "expectedAnswer": "Identify and explain how science language and conventions support the claim",
-      "markingGuide": "Merit: Show understanding and describe the science-related claims, explaining how science language or conventions support them. Context One: Science language — reliability, traits, test-retest correlations. Science conventions — Myers-Briggs also sells their test on their website, so there may be a conflict of interest; the graph does not tell us what the other names stand for (e.g. Big Five etc.); the test has been reviewed thousands of times; they quote themselves rather than including research from other sources. As the website also sells the tests, there is a conflict of interest — they want to sell their product so may ignore bad things about it. They said there were 31,000 records for MBTI but have not said what these records were for. Context Two: Science language — biodegradable, plastic, fossil fuels, additive, biobased, biomass, cellulose, oxo-degradable plastics, UV irradiation, oxygen, manganese, polymer. Science conventions — no date to tell how recent this is; this company also sells products so there may be a conflict of interest; they do not list sources. There are a lot of science words making it sound like the author knows what they are talking about. They are selling a product that is in competition with the product they say is bad."
+      "markingGuide": "Merit: Show understanding and describe the science-related claims, explaining how science language or conventions support them. Context One: Science language — blue-light spectrum, circadian rhythm, melatonin. Science conventions — the blog cites a percentage (70% reduction) but does not reference the study it came from; no author name or qualifications listed; the company also sells the product being promoted, creating a potential conflict of interest. The use of percentages makes the claim sound precise, but without a source, the reader cannot verify it. Context Two: Science language — carbon offset, CO₂ emissions, carbon footprint, native biodiversity. Science conventions — the figure of 50 kg per tree per year is presented without a source; the company profits from selling carbon credits, creating a conflict of interest; no date given for when the data was collected; no mention of independent verification or peer review. The science-sounding language may give readers false confidence in the accuracy of the claims."
     },
     {
       "id": "l1sc25-p2e",
@@ -119,8 +119,8 @@
         "scientific-method"
       ],
       "answerType": "text",
-      "expectedAnswer": "Evaluate how well the science language/conventions support the claim, discussing strengths and...",
-      "markingGuide": "Excellence: Evaluate the use of science language or conventions used to support science-related claims. Context One: This is a popular personality test and lots of people have taken it. However, because they are selling it, they are earning money from it. Therefore, it is in their best interests to make the test sound good, because if they said anything bad, people may not want to buy it and they would earn less. But on the other hand, they might want to sound reliable and honest as people may start to give bad reviews if the tests do not work properly, and they would also lose potential earnings. Context Two: There are a lot of science-sounding words in this article (e.g. oxo-degradable plastics, biobased, biodegradable). For some of these words, they have explained what they mean, making it clearer for the reader so they fully understand what they read and won't be confused. This makes them and the claim more trustworthy. These science words also seem to be used correctly, which shows that the authors are knowledgeable about this topic. This further strengthens the claim."
+      "expectedAnswer": "Evaluate how well the science language/conventions support the claim, discussing strengths and weaknesses",
+      "markingGuide": "Excellence: Evaluate the use of science language or conventions used to support science-related claims. Context One: The company has a clear commercial motivation — they are selling the very product they claim improves sleep. This conflict of interest means they are unlikely to report any negative findings about their product. The 70% reduction figure sounds impressive but is not linked to any published study. Without knowing the experimental conditions, we cannot assess whether this reduction is meaningful for real-world sleep improvement. However, the use of scientifically accurate terms like 'melatonin' and 'circadian rhythm' shows some familiarity with the science, which could make the claim seem more trustworthy to a reader. Overall, the claim lacks the supporting evidence needed to be considered scientifically robust. Context Two: The company is selling carbon credits, so they have a financial incentive to overstate the benefits of tree planting. The claim that one tree offsets 50 kg of CO₂ per year is a very specific figure that sounds credible, but without knowing the tree species, age, growing conditions, or measurement method, it is impossible to verify. The language used (carbon footprint, native biodiversity, carbon offset) is accurate but may be used strategically to make the product seem environmentally responsible. An independent audit or peer-reviewed research supporting their figures would significantly strengthen the claim. Without this, the claim remains commercially motivated and only partially supported by the science language used."
     }
   ],
   "cutScores": {

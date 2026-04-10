@@ -11,68 +11,98 @@
     {
       "id": "st586-24-q1a",
       "number": "1a",
-      "text": "The heights of adult males in New Zealand are normally distributed with a mean of 177 cm and a standard deviation of 7.5 cm.\n\n(i) Find the probability that a randomly selected adult male is taller than 185 cm.\n(ii) Find the probability that a randomly selected adult male is between 170 cm and 190 cm.",
+      "text": "The weights of kiwifruit from a packhouse in Te Puke are normally distributed with a mean of 95 g and a standard deviation of 12 g.\n\n(i) Find the probability that a randomly selected kiwifruit weighs more than 105 g.\n(ii) Find the probability that a randomly selected kiwifruit weighs between 80 g and 110 g.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["normal-distribution-l3", "probability-distributions"],
+      "topics": [
+        "normal-distribution-l3",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (185 - 177)/7.5 = 8/7.5 = 1.067. P(Z > 1.067) = 1 - 0.8571 = 0.1429 ≈ 0.143. (ii) z₁ = (170 - 177)/7.5 = -0.933, z₂ = (190 - 177)/7.5 = 1.733. P(-0.933 < Z < 1.733) = P(Z < 1.733) - P(Z < -0.933) = 0.9586 - 0.1753 = 0.7833 ≈ 0.783."
+      "markingGuide": "Achievement: (i) z = (105 - 95)/12 = 0.833. P(Z > 0.833) = 1 - P(Z < 0.833) ≈ 0.2023. (ii) z₁ = (80 - 95)/12 = -1.250, z₂ = (110 - 95)/12 = 1.250. P(-1.250 < Z < 1.250) = P(Z < 1.250) - P(Z < -1.250)."
     },
     {
       "id": "st586-24-q1b",
       "number": "1b",
-      "text": "A clothing company wants to manufacture shirts that fit the middle 90% of adult males.\n\n(i) Find the range of heights that the shirts should be designed for.\n(ii) What percentage of the male population would not be catered for by shirts of these sizes?",
+      "text": "A exporter wants to sell bags of kiwifruit that contain the heaviest 80% of kiwifruit from this orchard.\n\n(i) Find the minimum weight of kiwifruit that would be included in these bags.\n(ii) What percentage of kiwifruit would be rejected (too light) for the bags?",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["normal-distribution-l3", "inverse-normal"],
+      "topics": [
+        "normal-distribution-l3",
+        "inverse-normal"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) Middle 90% means 5% in each tail. z = ±1.645. Lower: 177 - 1.645 × 7.5 = 177 - 12.34 = 164.7 cm. Upper: 177 + 1.645 × 7.5 = 177 + 12.34 = 189.3 cm. Shirts should fit males between approximately 164.7 cm and 189.3 cm. (ii) 10% of the male population would not be catered for — 5% too short and 5% too tall."
+      "markingGuide": "Merit: (i) Bottom 20% excluded. z for 20th percentile = -0.842. Weight = 185 + (-0.842)(22) = 185 - 18.52 = 166.5 g. Apples must weigh at least 166.5 g. (ii) 20% of kiwifruit would be rejected."
     },
     {
       "id": "st586-24-q2a",
       "number": "2a",
-      "text": "A bus arrives at a bus stop every 15 minutes. The waiting time for a passenger who arrives at random follows a uniform distribution on the interval [0, 15] minutes.\n\n(i) Write down the probability density function for the waiting time.\n(ii) Find the expected waiting time and the standard deviation of the waiting time.\n(iii) Find the probability that a passenger waits more than 10 minutes.",
+      "text": "A shuttle departs every 15 minutes from the wharf. The waiting time for a passenger who arrives at random follows a uniform distribution on the interval [0, 15] minutes.\n\n(i) Write down the probability density function for the waiting time.\n(ii) Find the expected waiting time and the standard deviation of the waiting time.\n(iii) Find the probability that a passenger waits more than 10 minutes.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["continuous-distributions", "probability-distributions"],
+      "topics": [
+        "continuous-distributions",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) f(x) = 1/15 for 0 ≤ x ≤ 15, f(x) = 0 otherwise. (ii) E(X) = (0 + 15)/2 = 7.5 minutes. SD = (15 - 0)/√12 = 15/3.464 = 4.33 minutes. (iii) P(X > 10) = (15 - 10)/15 = 5/15 = 1/3 ≈ 0.333."
+      "markingGuide": "Achievement: (i) f(x) = 1/15 for 0 ≤ x ≤ 15, f(x) = 0 otherwise. (ii) E(X) = (0 + 15)/2 = 7.5 minutes. SD = (15 - 0)/√12 = 15/3.464 = 4.33 minutes. (iii) P(X > 10) = (15 - 10)/15 = 5/15 = 1/3."
     },
     {
       "id": "st586-24-q2b",
       "number": "2b",
-      "text": "The time between earthquakes of magnitude 5.0 or greater in the Canterbury region can be modelled by an exponential distribution with a mean of 18 months.\n\n(i) Find the probability that the next earthquake of this magnitude occurs within 12 months.\n(ii) Given that 12 months have already passed without such an earthquake, find the probability of waiting at least another 12 months.",
+      "text": "The time between significant earthquakes of a certain magnitude in the Taupō Volcanic Zone can be modelled by an exponential distribution with a mean of 30 years.\n\n(i) Find the probability that the next eruption of this magnitude occurs within 20 years.\n(ii) Given that 20 years have already passed without such an eruption, find the probability of waiting at least another 20 years.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["exponential-distribution", "probability-distributions"],
+      "topics": [
+        "exponential-distribution",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) λ = 1/18. P(X ≤ 12) = 1 - e^(-12/18) = 1 - e^(-2/3) = 1 - 0.5134 = 0.4866. Merit: (ii) By the memoryless property of the exponential distribution, P(X > 24 | X > 12) = P(X > 12) = e^(-12/18) = e^(-2/3) = 0.5134. The probability of waiting another 12 months is the same regardless of how long we've already waited. This is the key property of the exponential distribution."
+      "markingGuide": "Achievement: (i) λ = 1/25. P(X ≤ 15) = 1 - e^(-15/25) = 1 - e^(-0.6) = 1 - 0.5488 = 0.4512. Merit: (ii) By the memoryless property of the exponential distribution, P(X > 30 | X > 15) = P(X > 15) = e^(-15/25) = e^(-0.6) = 0.5488. The probability of waiting another 20 years is the same regardless of how long we've already waited. This is the key property of the exponential distribution."
     },
     {
       "id": "st586-24-q3a",
       "number": "3a",
-      "text": "The random variable X has the probability density function:\n\nf(x) = kx(4 - x) for 0 ≤ x ≤ 4\nf(x) = 0 otherwise\n\n(i) Find the value of k.\n(ii) Find E(X).\n(iii) Find P(X > 3).",
+      "text": "The random variable X has the probability density function:\n\nf(x) = kx(8 - x) for 0 ≤ x ≤ 6\nf(x) = 0 otherwise\n\n(i) Find the value of k.\n(ii) Find E(X).\n(iii) Find P(X > 4).",
       "marks": 5,
       "gradeLevel": "merit",
-      "topics": ["continuous-distributions", "probability-distributions"],
+      "topics": [
+        "continuous-distributions",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) ∫₀⁴ kx(4-x) dx = 1. ∫₀⁴ k(4x - x²) dx = k[2x² - x³/3]₀⁴ = k(32 - 64/3) = k(96/3 - 64/3) = k(32/3) = 1. So k = 3/32. Merit: (ii) E(X) = ∫₀⁴ x · (3/32)x(4-x) dx = (3/32)∫₀⁴ (4x² - x³) dx = (3/32)[4x³/3 - x⁴/4]₀⁴ = (3/32)(256/3 - 64) = (3/32)(256/3 - 192/3) = (3/32)(64/3) = 64/32 = 2. (iii) P(X > 3) = ∫₃⁴ (3/32)x(4-x) dx = (3/32)[2x² - x³/3]₃⁴ = (3/32)[(32 - 64/3) - (18 - 9)] = (3/32)[(32/3) - 9] = (3/32)(5/3) = 5/32 = 0.15625."
+      "markingGuide": "Achievement: (i) ∫₀⁶ kx(6-x) dx = 1. ∫₀⁶ k(6x - x²) dx = k[3x² - x³/3]₀⁶ = k(108 - 72) = k(36) = 1. So k = 1/36. Merit: (ii) E(X) = ∫₀⁶ x · (1/36)x(6-x) dx = (1/36)∫₀⁶ (6x² - x³) dx = (1/36)[2x³ - x⁴/4]₀⁶ = (1/36)(432 - 324) = 108/36 = 3. (iii) P(X > 4) = ∫₄⁶ (1/36)x(6-x) dx = (1/36)[3x² - x³/3]₄⁶ = (1/36)[(108 - 72) - (48 - 64/3)] = (1/36)[36 - 26.667] = 9.333/36 = 7/27 ≈ 0.2593."
     },
     {
       "id": "st586-24-q3b",
       "number": "3b",
-      "text": "The weights of packets of rice are normally distributed with a mean of 1.02 kg and a standard deviation of 0.03 kg. Packets are labelled as containing 1 kg of rice.\n\n(i) Find the probability that a randomly selected packet weighs less than the labelled weight.\n(ii) The manufacturer wants no more than 1% of packets to be underweight. To what value should the mean weight be set, assuming the standard deviation stays at 0.03 kg?",
+      "text": "The volume of milk in bottles is normally distributed with a mean of 510 mL and a standard deviation of 8 mL. Cartons are labelled as containing 500 mL of juice.\n\n(i) Find the probability that a randomly selected carton contains less than the labelled volume.\n(ii) The manufacturer wants no more than 2% of cartons to be underfilled. To what value should the mean volume be set, assuming the standard deviation stays at 8 mL?",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": ["normal-distribution-l3", "inverse-normal"],
+      "topics": [
+        "normal-distribution-l3",
+        "inverse-normal"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) z = (1.00 - 1.02)/0.03 = -0.667. P(Z < -0.667) = 0.2525 ≈ 25.3%. Excellence: (ii) Need P(X < 1) ≤ 0.01. z for 1% tail = -2.326. 1 = μ + (-2.326)(0.03). μ = 1 + 2.326 × 0.03 = 1 + 0.0698 = 1.070 kg. The mean should be set to at least 1.070 kg."
+      "markingGuide": "Merit: (i) z = (500 - 510)/8 = -1.25. P(Z < -1.25) = 0.1056 ≈ 10.6%. Excellence: (ii) Need P(X < 500) ≤ 0.02. z for 2% tail = -2.054. 500 = μ + (-2.054)(8). μ = 500 + 2.054 × 8 = 500 + 16.43 = 516.4 mL. The mean should be set to at least 516.4 mL."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

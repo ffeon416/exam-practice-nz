@@ -8,84 +8,10 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {
-      "id": "l3aa25-q1a",
-      "number": "1(a)",
-      "text": "Asset classification based on conversion to cash within 12-month period.",
-      "marks": 4,
-      "gradeLevel": "achieved",
-      "topics": [
-        "asset classification",
-        "statement of financial position"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Current assets convertible to cash within 12 months, non-current otherwise.",
-      "markingGuide": "Clear criteria with examples of classification decisions."
-    },
-    {
-      "id": "l3aa25-q1b",
-      "number": "1(b)",
-      "text": "Recognition criteria for liabilities and tax payables.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "recognition criteria",
-        "liability definition",
-        "tax treatment"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Liability: present obligation, probable outflow, reliable measurement of amount.",
-      "markingGuide": "Apply three recognition criteria to justify liability classification.",
-      "image": "/images/exams/91404-2025-q1b.png"
-    },
-    {
-      "id": "l3aa25-q2a",
-      "number": "2(a)",
-      "text": "Asset definition and economic benefit analysis.",
-      "marks": 7,
-      "gradeLevel": "merit",
-      "topics": [
-        "asset definition",
-        "economic benefit",
-        "control"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Asset: resource controlled, future economic benefit, past event recognized.",
-      "markingGuide": "Comprehensive application of asset definition criteria."
-    },
-    {
-      "id": "l3aa25-q2b",
-      "number": "2(b)",
-      "text": "Capital expenditure vs revenue expenditure justification.",
-      "marks": 7,
-      "gradeLevel": "excellence",
-      "topics": [
-        "capital expenditure",
-        "classification criteria",
-        "accounting treatment"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Capital: future benefit spans periods. Revenue: current period expense benefit.",
-      "markingGuide": "Detailed distinction with explicit reference to framework and examples.",
-      "image": "/images/exams/91404-2025-q2b.png"
-    }
+    { "id": "l3aa25-q1a", "number": "1(a)", "text": "Fisher & Paykel Healthcare Limited is a New Zealand medical devices manufacturer. Using the concept of current vs non-current classification, explain how Fisher & Paykel would classify the following items on its Statement of Financial Position:\n(a) Trade receivables from hospital customers (due within 45 days)\n(b) A manufacturing plant with an expected useful life of 30 years\n(c) Raw materials inventory used in production\n\nJustify each classification with reference to the 12-month operating cycle criterion.", "marks": 4, "gradeLevel": "achieved", "topics": ["asset classification", "statement of financial position"], "answerType": "text", "expectedAnswer": "Trade receivables: current asset (convertible to cash within 45 days, well within 12 months). Manufacturing plant: non-current asset (provides economic benefits over 30 years, well beyond 12 months). Raw materials inventory: current asset (expected to be consumed in production and sold within the normal operating cycle of 12 months). Current assets are expected to be realised or consumed within 12 months.", "markingGuide": "Clear criteria with examples of classification decisions for each item." },
+    { "id": "l3aa25-q1b", "number": "1(b)", "text": "Fisher & Paykel has a warranty provision of $18 million for products sold. The warranty covers product defects for up to three years after sale.\n\nUsing the three recognition criteria for a liability, justify why this provision is reported as a liability in Fisher & Paykel's Statement of Financial Position. Discuss any limitations of this reporting.", "marks": 6, "gradeLevel": "merit", "topics": ["recognition criteria", "liability definition", "tax treatment"], "answerType": "text", "expectedAnswer": "Three criteria: (1) Present obligation from a past event — Fisher & Paykel has a contractual obligation to honour warranties on products already sold; (2) Probable outflow of economic benefits — warranty claims will require repair or replacement; (3) Reliable measurement — $18m is estimated based on historical claim rates. Classified partially as current (claims expected within 12 months) and non-current (longer-term warranty obligations). Limitations: the $18m is an estimate that depends on future failure rates, product quality improvements, and customer behaviour — actual costs may differ significantly.", "markingGuide": "Apply three recognition criteria to justify liability classification with discussion of estimation limitations." },
+    { "id": "l3aa25-q2a", "number": "2(a)", "text": "Fisher & Paykel recently invested in a new automated assembly line. The acquisition included robotic arms ($12m), specialised software ($4m), installation and testing costs ($2m), and staff training ($1.5m).\n\nUsing the asset definition framework, justify how each of these items meets (or may not meet) the definition of an asset. Consider how items like staff training present particular challenges for recognition.", "marks": 7, "gradeLevel": "merit", "topics": ["asset definition", "economic benefit", "control"], "answerType": "text", "expectedAnswer": "Robotic arms: meets all criteria — controlled, from past event, generates future manufacturing output. Specialised software: intangible asset — controlled through licence, essential for operating the robots. Installation and testing: capitalised as part of the assembly line cost — necessary to bring the asset into working condition. Staff training ($1.5m): does not meet asset definition — cannot be controlled (staff may leave), benefits are uncertain. Expensed as incurred. Training is challenging because the entity cannot control the future economic benefits.", "markingGuide": "Comprehensive application of asset definition criteria to different types of expenditure." },
+    { "id": "l3aa25-q2b", "number": "2(b)", "text": "Fisher & Paykel spent $3.2 million upgrading its clean room facilities to meet new regulatory standards, and $600,000 on regular calibration of existing manufacturing equipment.\n\nJustify the different accounting treatment of these two expenditures. In your answer, distinguish between capital expenditure and revenue expenditure, explaining why each is classified as it is and how each is reported in the financial statements.", "marks": 7, "gradeLevel": "excellence", "topics": ["capital expenditure", "classification criteria", "accounting treatment"], "answerType": "text", "expectedAnswer": "Clean room upgrade ($3.2m): capital expenditure because it enhances the facility's capability to meet new standards, enabling production of higher-specification products. Benefits extend beyond one accounting period. Capitalised as an addition to PPE on the SFP and depreciated over its useful life. Regular calibration ($600,000): revenue expenditure because it maintains existing precision without enhancement. Benefits only the current period. Reported as an expense in the Income Statement. The distinction matters because capitalising vs expensing affects reported profit, asset values, and ratios.", "markingGuide": "Detailed distinction with explicit reference to framework and specific financial statement impacts." }
   ],
-  "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
-      "max": 13
-    },
-    "merit": {
-      "min": 14,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
 }

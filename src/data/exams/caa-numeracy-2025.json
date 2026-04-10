@@ -11,34 +11,33 @@
     {
       "id": "caa25-q1a",
       "number": "1(a)",
-      "text": "Mum will be on crutches for three weeks. She says, \"Three weeks is about 30,000 minutes.\"\n\nIs she right? Use time calculations to explain your answer.",
+      "text": "Mum will be away on a work trip for three weeks. She says, \"Three weeks is about 30,000 minutes.\"\n\nIs she right? Use time calculations to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "time-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Yes — 3 weeks = 21 days = 504 hours = about 30,000 minutes",
-      "markingGuide": "Student must show calculation: 3 weeks x 7 = 21 days, 21 x 24 = 504 hours, 504 x 60 = 30,240 minutes. Then state that 30,240 is about 30,000 so she is right. Accept rounding explanations."
+      "expectedAnswer": "Yes — 3 weeks = 21 days = 504 hours = about 30,240 minutes",
+      "markingGuide": "Student must show calculation: 3 weeks x 7 = 21 days, 21 x 24 = 504 hours, 504 x 60 = 30,240 minutes. Then state that 30,240 is about 30,000 so she is approximately right. Accept rounding explanations."
     },
     {
       "id": "caa25-q1b",
       "number": "1(b)",
-      "text": "Mum's crutches need to be set so that her arm is bent at the correct angle.\n\n[See diagram: a protractor showing the correct angle for the crutch.]\n\nHow many degrees is the correct angle?",
+      "text": "Dad is setting up a reading light. He needs the light arm to be tilted at an angle.\n\nThe angle between the wall and the light arm is 40°.\n\nWhat is the angle between the light arm and a horizontal line going straight out from the wall?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "estimation"
       ],
       "answerType": "number",
-      "expectedAnswer": "145",
-      "markingGuide": "Student reads the angle from the protractor diagram. Accept 143–147 degrees.",
-      "image": "/images/exams/32406-2025-q1b.png"
+      "expectedAnswer": "50",
+      "markingGuide": "The angle from horizontal = 90° - 40° = 50°. Accept 50 degrees."
     },
     {
       "id": "caa25-q1c",
       "number": "1(c)",
-      "text": "A friend takes Mum's dog for a walk. The dashed line on the map shows the path they take. The X marks about 400 metres along the path from the start of the walk.\n\n[See diagram: a map with a walking path and scale options.]\n\nTick the letter that shows the correct scale for this map.\n\nA, B, C, D, or E",
+      "text": "Dad jogs along a coastal path that is 3.6 km long. He checks his watch after running for 12 minutes and has covered 1200 metres.\n\nAt this rate, approximately how long will the entire jog take?\n\n(A) 24 minutes\n(B) 30 minutes\n(C) 36 minutes\n(D) 42 minutes\n(E) 48 minutes",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -48,13 +47,12 @@
       "answerType": "multi-choice",
       "options": ["A", "B", "C", "D", "E"],
       "expectedAnswer": "C",
-      "markingGuide": "Student must identify the correct map scale by using the X mark at 400 m to estimate which scale bar matches. The correct answer is C.",
-      "image": "/images/exams/32406-2025-q1c.png"
+      "markingGuide": "1200 m in 12 min, so 3600 m at same rate = 3600/1200 x 12 = 3 x 12 = 36 minutes. The correct answer is C."
     },
     {
       "id": "caa25-q1d",
       "number": "1(d)",
-      "text": "Mum needs to have a garden box filled with dirt to grow vegetables.\n\n[See diagram: a garden box with dimensions shown.]\n\nHow many cubic metres (m³) of dirt are needed?",
+      "text": "Dad wants a raised planter box filled with soil. The planter box is 2.0 m long, 1.5 m wide, and 0.5 m deep.\n\nHow many cubic metres (m³) of soil are needed?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -62,40 +60,39 @@
         "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "0.6",
-      "markingGuide": "Student reads the dimensions from the diagram and calculates the volume. Dimensions are approximately 2 m x 1 m x 0.3 m = 0.6 m³. Accept reasonable answers based on diagram dimensions.",
-      "image": "/images/exams/32406-2025-q1d.png"
+      "expectedAnswer": "1.5",
+      "markingGuide": "Volume = 2.0 x 1.5 x 0.5 = 1.5 m³."
     },
     {
       "id": "caa25-q1e",
       "number": "1(e)",
-      "text": "Dad puts 7 kilograms of clothes into the washing machine. After washing, the wet clothes weigh 1.8 times as much as the dry clothes did.\n\nHow much do the wet clothes weigh, in kilograms?",
+      "text": "Mum puts 8 kilograms of wet clothes into the dryer. After tumble drying, the dry clothes weigh 0.75 times the weight they were when wet.\n\nHow much do the dry clothes weigh, in kilograms?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "12.6",
-      "markingGuide": "7 x 1.8 = 12.6 kg. Award mark for correct answer."
+      "expectedAnswer": "6",
+      "markingGuide": "8 x 0.75 = 6 kg. Award mark for correct answer."
     },
     {
       "id": "caa25-q1f",
       "number": "1(f)",
-      "text": "Mum notices that the 240-litre rubbish bin is ⅔ full.\n\nHow much space, in litres, is left in the bin?",
+      "text": "Dad notices the 200-litre compost bin is ¾ full.\n\nHow much space, in litres, is left in the bin?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "fractions"
       ],
       "answerType": "number",
-      "expectedAnswer": "80",
-      "markingGuide": "If the bin is 2/3 full, then 1/3 is empty. 240 ÷ 3 = 80 litres left. Award mark for correct answer."
+      "expectedAnswer": "50",
+      "markingGuide": "If the bin is 3/4 full, then 1/4 is empty. 200 / 4 = 50 litres left. Award mark for correct answer."
     },
     {
       "id": "caa25-q2a",
       "number": "2(a)",
-      "text": "Jackets come in different sizes.\n\n[See table: Jacket sizes with Chest (cm), Waist (cm), and Sleeve (cm) measurements for X-Small through X-Large.]\n\nJack's arm (sleeve length) measures 91 cm, and his chest measures 110 cm.\n\nJack thinks that a size 'Large' will be the best jacket size to buy. Do you agree? Use measurements from the table to explain your answer.",
+      "text": "Tramping packs come in different sizes.\n\nSize chart — Maximum load and volume:\n• Small: Volume 40 L, Max load 12 kg\n• Medium: Volume 55 L, Max load 16 kg\n• Large: Volume 70 L, Max load 20 kg\n• X-Large: Volume 85 L, Max load 24 kg\n\nRewa has 18 kg of gear and needs at least 65 litres of space.\n\nRewa thinks a Medium pack will be best. Do you agree? Use measurements from the table to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -103,27 +100,26 @@
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "No — chest fits Large but sleeve fits X-Large, so he needs X-Large",
-      "markingGuide": "Student must compare Jack's measurements against the table. Chest 110 fits Large (106–111) and X-Large (112–122). Sleeve 91 fits X-Large (91–93) only, not Large (89–90). Therefore X-Large is better. Accept answers that correctly use data from the table to justify why Large is not the best fit.",
-      "image": "/images/exams/32406-2025-q2a.png"
+      "expectedAnswer": "No — Rewa has 18 kg of gear (too heavy for Medium at 16 kg max) and needs 65 L of space (Medium only has 55 L). She needs Large.",
+      "markingGuide": "Student must compare Rewa's needs against the table. Weight 18 kg exceeds Medium's max load (16 kg). Volume 65 L exceeds Medium's volume (55 L). Large (70 L, 20 kg) fits both requirements. Accept answers that correctly use data from the table."
     },
     {
       "id": "caa25-q2b",
       "number": "2(b)",
-      "text": "The price of this jacket is usually $189. On sale, you get 25% off.\n\nWhat is the sale price of the jacket?",
+      "text": "The price of a wetsuit is usually $180. On sale, you get 20% off.\n\nWhat is the sale price of the wetsuit?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "141.75",
-      "markingGuide": "25% of $189 = $47.25. Sale price = $189 – $47.25 = $141.75. Accept $141.75."
+      "expectedAnswer": "144",
+      "markingGuide": "20% of $180 = $36.00. Sale price = $180 - $36 = $144. Accept $144."
     },
     {
       "id": "caa25-q2c",
       "number": "2(c)",
-      "text": "Sometimes, jackets have a temperature-range guide.\n\n[See diagram: a jacket temperature-range guide showing different jacket weights and their temperature ranges.]\n\nTick the temperature range that a medium-weight jacket is made for.\n\n(i) 10 °C to 20 °C\n(ii) −1 °C to 10 °C\n(iii) −6 °C to −1 °C\n(iv) −20 °C to −6 °C\n(v) −30 °C to −20 °C",
+      "text": "A barbecue has different heat settings with recommended uses:\n\n(i) High: Searing steaks\n(ii) Medium-High: Grilling sausages and burgers\n(iii) Medium: Cooking chicken pieces through\n(iv) Low: Warming buns and bread\n(v) Very Low: Melting cheese on top\n\nYou want to cook chicken pieces all the way through.\n\nTick the best heat setting for cooking chicken.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -131,15 +127,14 @@
         "data-interpretation"
       ],
       "answerType": "multi-choice",
-      "options": ["(i) 10 °C to 20 °C", "(ii) −1 °C to 10 °C", "(iii) −6 °C to −1 °C", "(iv) −20 °C to −6 °C", "(v) −30 °C to −20 °C"],
-      "expectedAnswer": "(ii) −1 °C to 10 °C",
-      "markingGuide": "Student reads the temperature-range guide to find the range for a medium-weight jacket. The correct answer is (ii) −1 °C to 10 °C.",
-      "image": "/images/exams/32406-2025-q2c.png"
+      "options": ["(i) High", "(ii) Medium-High", "(iii) Medium", "(iv) Low", "(v) Very Low"],
+      "expectedAnswer": "(iii) Medium",
+      "markingGuide": "Student reads the guide to find the setting for cooking chicken through. The correct answer is (iii) Medium."
     },
     {
       "id": "caa25-q2d",
       "number": "2(d)",
-      "text": "A jacket keeps you warmer if it has a higher fill quality (FQ). Here are the FQs, weights, and prices of three jackets.\n\n[See diagram: three jacket tags showing FQ, weight, and price for each jacket.]\n\nIs it true to say \"Jackets with high FQ cost more, but weigh less, than low-FQ jackets\"? Use numbers from any two jacket tags to explain your answer.",
+      "text": "Three different surfboards have these specifications:\n\nBoard A: Weight 3.2 kg, Length 6'2\", Price $480\nBoard B: Weight 4.5 kg, Length 7'0\", Price $390\nBoard C: Weight 2.8 kg, Length 6'0\", Price $620\n\nIs it true to say 'Lighter boards cost more, but are shorter than heavier boards'? Use numbers from any two boards to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -147,27 +142,26 @@
         "tables"
       ],
       "answerType": "working",
-      "expectedAnswer": "Yes — higher FQ jacket costs more and weighs less",
-      "markingGuide": "Student must compare data from two jacket tags and use specific numbers (FQ, weight, and/or price) to support or refute the claim. Accept any correct comparison with supporting numbers.",
-      "image": "/images/exams/32406-2025-q2d.png"
+      "expectedAnswer": "Partially true — Board C is lightest and most expensive, and shortest. Board B is heaviest and cheapest, and longest.",
+      "markingGuide": "Student must compare data from two boards and use specific numbers (weight, length, and/or price) to support or refute the claim. Accept any correct comparison with supporting numbers."
     },
     {
       "id": "caa25-q2e",
       "number": "2(e)",
-      "text": "While testing a jacket, the inside temperature of the jacket was measured at 15.1 °C. The outside temperature was measured at −2.8 °C.\n\nWhat is the difference between 15.1 °C and −2.8 °C?",
+      "text": "While tramping, the temperature at the summit was measured at 8.6°C. The temperature at the base of the mountain was measured at -2.4°C.\n\nWhat is the difference between 8.6°C and -2.4°C?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "estimation"
       ],
       "answerType": "number",
-      "expectedAnswer": "17.9",
-      "markingGuide": "15.1 – (−2.8) = 15.1 + 2.8 = 17.9 °C. Award mark for 17.9."
+      "expectedAnswer": "11",
+      "markingGuide": "8.6 - (-2.4) = 8.6 + 2.4 = 11°C. Award mark for 11."
     },
     {
       "id": "caa25-q2f",
       "number": "2(f)",
-      "text": "The graph below shows how many jackets are sold at a shop during 2023 and 2024.\n\n[See graph: a line graph showing number of jackets sold each month from Jan 2023 to Dec 2024.]\n\nNote: June, July, and August are the coldest months. December, January, and February are the hottest months.\n\n\"More jackets are sold when the weather is cold than when it is hot.\"\n\nDo you agree? Use information from the graph to explain your answer.",
+      "text": "A chart shows the number of visitors to a ski field each month during 2023 and 2024.\n\nVisitors per month: Jan = 80, Feb = 60, Mar = 40, Apr = 30, May = 120, Jun = 350, Jul = 480, Aug = 420, Sep = 200, Oct = 90, Nov = 50, Dec = 70.\n\nNote: June, July, and August are winter (ski season). December, January, and February are summer.\n\n'More people visit the ski field in cold months than warm months.'\n\nDo you agree? Use information from the data to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -175,14 +169,13 @@
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Yes — sales peak in cold months (Jun-Aug) and drop in summer",
-      "markingGuide": "Student must refer to specific data from the graph to support their answer. They should identify that cold months (Jun–Aug) show higher sales and hot months (Dec–Feb) show lower sales, using approximate numbers from the graph.",
-      "image": "/images/exams/32406-2025-q2f.png"
+      "expectedAnswer": "Yes — visits peak in winter months (Jun-Aug: 350, 480, 420) and are lowest in summer (Dec-Feb: 70, 80, 60)",
+      "markingGuide": "Student must refer to specific data to support their answer. They should identify that cold months (Jun-Aug) show much higher visitor numbers and warm months (Dec-Feb) show lower numbers, using approximate figures."
     },
     {
       "id": "caa25-q3a",
       "number": "3(a)",
-      "text": "You want to shop on a Saturday any time after 12 p.m. You like a supermarket with lots of people in it.\n\n[See diagram: popular times bar charts for Supersave and Pricemart showing customer traffic by time of day on Saturday.]\n\nWhich supermarket should you choose, Supersave or Pricemart, and what time should you go? Use information from the graphs to explain your answer.",
+      "text": "You want to visit the community market on a Sunday after 11 a.m. You prefer a market that is busy.\n\nMarket A: busiest at 8-10 a.m. (about 300 people), quieter after noon (about 100 people).\nMarket B: quiet in the morning, busiest at 11:30 a.m. - 1 p.m. (about 350 people).\n\nWhich market should you visit, and what time should you go? Use information from the data to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -190,14 +183,13 @@
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "The supermarket with the highest bars after 12 p.m. on Saturday",
-      "markingGuide": "Student must name a supermarket and a time after 12 p.m., and use the bar chart data to justify their choice by referring to the height of the bars (popularity) in the afternoon period.",
-      "image": "/images/exams/32406-2025-q3a.png"
+      "expectedAnswer": "Market B at 11:30 a.m. — it has the most people (350) after 11 a.m.",
+      "markingGuide": "Student must name a market and a time after 11 a.m., and use the data to justify their choice by referring to the number of people."
     },
     {
       "id": "caa25-q3b",
       "number": "3(b)",
-      "text": "The price of bananas is $3.29 per kilogram.\n\nHow much will it cost for a bunch of bananas that weighs 685 grams? Round your answer to the nearest cent.",
+      "text": "The price of manuka honey is $6.40 per kilogram.\n\nHow much will it cost for a jar of honey that weighs 500 grams? Round your answer to the nearest cent.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -205,27 +197,26 @@
         "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "2.25",
-      "markingGuide": "685 g = 0.685 kg. 0.685 x $3.29 = $2.25365, rounded to $2.25. Award mark for $2.25."
+      "expectedAnswer": "3.20",
+      "markingGuide": "500 g = 0.5 kg. 0.5 x $6.40 = $3.20. Award mark for $3.20."
     },
     {
       "id": "caa25-q3c",
       "number": "3(c)",
-      "text": "A line of five supermarket trolleys is 192 centimetres long. A line of three supermarket trolleys is 144 centimetres long. Notice how each trolley fits inside the one in front.\n\n[See diagram: images showing nested trolleys.]\n\nWhen one extra trolley is added to either line, how much does the total length of the line increase by? Write your answer in centimetres.",
+      "text": "A stack of six crates is 150 cm tall. A stack of three crates is 90 cm tall. Each crate sits inside the one below it.\n\nWhen one extra crate is added to either stack, how much does the total height increase by? Write your answer in centimetres.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "patterns"
       ],
       "answerType": "number",
-      "expectedAnswer": "24",
-      "markingGuide": "The difference between 5 trolleys (192 cm) and 3 trolleys (144 cm) is 48 cm for 2 extra trolleys. So each extra trolley adds 48 ÷ 2 = 24 cm. Award mark for 24 cm.",
-      "image": "/images/exams/32406-2025-q3c.png"
+      "expectedAnswer": "20",
+      "markingGuide": "The difference between 6 crates (150 cm) and 3 crates (90 cm) is 60 cm for 3 extra crates. So each extra crate adds 60 / 3 = 20 cm. Award mark for 20 cm."
     },
     {
       "id": "caa25-q3d",
       "number": "3(d)",
-      "text": "A 1-kilogram block of cheese costs $13.79, a 500-gram block of the same cheese costs $8.19, and a 250-gram block of the same cheese costs $6.19.\n\n[See image: three blocks of Mainland Edam cheese with price tags.]\n\nWhich block of cheese is the cheapest per 100 grams? Use the weights and prices to explain your answer.",
+      "text": "A 2 kg bag of flour costs $5.60, a 1 kg bag of the same flour costs $3.50, and a 500 g bag of the same flour costs $2.20.\n\nWhich bag of flour is the cheapest per 100 grams? Use the weights and prices to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -233,14 +224,13 @@
         "division"
       ],
       "answerType": "working",
-      "expectedAnswer": "The 1 kg block — $1.38 per 100 g vs $1.64 and $1.70",
-      "markingGuide": "Student must calculate the price per 100 g for at least two blocks and identify the 1 kg block as cheapest. 1 kg = $1.38/100 g, 500 g = $1.64/100 g, 250 g = $2.48/100 g.",
-      "image": "/images/exams/32406-2025-q3d.png"
+      "expectedAnswer": "The 2 kg bag — $0.28 per 100 g vs $0.35 and $0.44",
+      "markingGuide": "Student must calculate the price per 100 g for at least two bags and identify the 2 kg bag as cheapest. 2 kg = $0.28/100 g, 1 kg = $0.35/100 g, 500 g = $0.44/100 g."
     },
     {
       "id": "caa25-q3e",
       "number": "3(e)",
-      "text": "The image below shows a Cadbury Favourites packet.\n\n[See diagram: a Favourites box and three possible nets (flat patterns).]\n\nTick the net (flat pattern) that would fold to make the Favourites packet.\n\n(i), (ii), or (iii)",
+      "text": "A tissue box has the shape of a rectangular prism (cuboid). Below are three possible nets (flat patterns).\n\nNet (i) has 6 rectangular faces that fold into a cuboid shape.\nNet (ii) has faces that overlap when folded.\nNet (iii) has faces that do not connect properly.\n\nTick the net that would fold to make the tissue box.\n\n(i), (ii), or (iii)",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -249,27 +239,25 @@
       "answerType": "multi-choice",
       "options": ["(i)", "(ii)", "(iii)"],
       "expectedAnswer": "(i)",
-      "markingGuide": "Student must identify which net folds into the shape of the Favourites box. The correct answer is (i).",
-      "image": "/images/exams/32406-2025-q3e.png"
+      "markingGuide": "Student must identify which net folds correctly. The correct answer is (i)."
     },
     {
       "id": "caa25-q3f",
       "number": "3(f)",
-      "text": "The container shown below holds 900 grams of baby formula. You can make one feed for a baby from two scoops of formula mixed with water. Two scoops of formula weigh 16 grams in total.\n\nHow many feeds can be made from the 900 gram container?",
+      "text": "A tub holds 840 grams of washing powder. Each wash uses 35 grams of powder.\n\nHow many washes can be done from the 840 gram tub?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "division"
       ],
       "answerType": "number",
-      "expectedAnswer": "56",
-      "markingGuide": "Each feed uses 16 grams. 900 ÷ 16 = 56.25. Since you can't make a partial feed, the answer is 56 feeds. Award mark for 56.",
-      "image": "/images/exams/32406-2025-q3f.png"
+      "expectedAnswer": "24",
+      "markingGuide": "Each wash uses 35 grams. 840 / 35 = 24 washes. Award mark for 24."
     },
     {
       "id": "caa25-q4a",
       "number": "4(a)",
-      "text": "The beat in music is made up of notes of different lengths.\n\nCrotchet = 1 beat, Quaver = 1/2 beat, Semiquaver = 1/4 beat.\n\n[See diagram: reference showing note values, and four sets of notes (i)–(iv).]\n\nTick the set of notes that adds together to make a total of four beats.\n\n(i), (ii), (iii), or (iv)",
+      "text": "In an orchestra, instruments have different beat values.\n\nWhole note = 4 beats, Half note = 2 beats, Quarter note = 1 beat, Eighth note = 1/2 beat.\n\nFour combinations of notes are given:\n(i) 2 half notes + 1 quarter note = 5 beats\n(ii) 1 whole note + 2 eighth notes = 5 beats\n(iii) 3 quarter notes + 2 eighth notes = 4 beats\n(iv) 1 half note + 3 quarter notes + 2 eighth notes = 6 beats\n\nTick the combination of notes that adds together to make a total of four beats.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -278,28 +266,26 @@
       "answerType": "multi-choice",
       "options": ["(i)", "(ii)", "(iii)", "(iv)"],
       "expectedAnswer": "(iii)",
-      "markingGuide": "Student must count the beat values of each note in each set and find the one that totals exactly 4 beats. The correct answer is (iii).",
-      "image": "/images/exams/32406-2025-q4a.png"
+      "markingGuide": "Count beats: (i) 2x2 + 1 = 5, (ii) 4 + 2x0.5 = 5, (iii) 3x1 + 2x0.5 = 4, (iv) 2 + 3 + 1 = 6. The correct answer is (iii)."
     },
     {
       "id": "caa25-q4b",
       "number": "4(b)",
-      "text": "This is a famous album cover. The cover has a lot of mirror symmetry.\n\n[See diagram: album cover image.]\n\nLook carefully at the cover. From the list below, tick the TWO parts of the picture that have mirror symmetry.\n\n(i) Eyes\n(ii) Trees\n(iii) Sky\n(iv) Building\n(v) Noses",
+      "text": "A kowhaiwhai design is drawn with several elements. Some parts of the design have mirror symmetry and some do not.\n\nOf the following parts:\n(i) The main curved line\n(ii) The left and right border panels\n(iii) The background shading\n(iv) The outer rectangular border\n(v) The central curving tendril\n\nTick the TWO parts of the design that have mirror symmetry.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "symmetry"
       ],
       "answerType": "multi-choice",
-      "options": ["(i) Eyes", "(ii) Trees", "(iii) Sky", "(iv) Building", "(v) Noses"],
-      "expectedAnswer": "(iii) Sky and (iv) Building",
-      "markingGuide": "Student must identify the TWO parts with mirror symmetry. The correct answers are Sky and Building. Both must be selected for the mark.",
-      "image": "/images/exams/32406-2025-q4b.png"
+      "options": ["(i) Main curved line", "(ii) Border panels", "(iii) Background shading", "(iv) Outer border", "(v) Central tendril"],
+      "expectedAnswer": "(ii) Border panels and (iv) Outer border",
+      "markingGuide": "Student must identify the TWO parts with mirror symmetry. The border panels and outer border are symmetrical. Both must be selected for the mark."
     },
     {
       "id": "caa25-q4c",
       "number": "4(c)",
-      "text": "On average, people listen to 988 hours of music per year. There are 52 weeks in one year.\n\nHow many hours per week, on average, do people listen to music?",
+      "text": "On average, New Zealanders spend 780 hours per year listening to music. There are 52 weeks in one year.\n\nHow many hours per week, on average, do New Zealanders listen to music?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -307,13 +293,13 @@
         "rates"
       ],
       "answerType": "number",
-      "expectedAnswer": "19",
-      "markingGuide": "988 ÷ 52 = 19 hours per week. Award mark for 19."
+      "expectedAnswer": "15",
+      "markingGuide": "780 / 52 = 15 hours per week. Award mark for 15."
     },
     {
       "id": "caa25-q4d",
       "number": "4(d)",
-      "text": "The table below shows the different types of songs on a playlist. There are 200 songs altogether.\n\n| Type | Count |\n|------|-------|\n| Pop | 50 |\n| Rock | 46 |\n| Rap | 34 |\n| Other | 70 |\n\nIf one song is picked at random, what is the probability that it will be a pop song? Write your answer as a percentage.",
+      "text": "A class library has 200 books of different genres:\n\n| Genre | Count |\n|-------|-------|\n| Fiction | 60 |\n| Non-fiction | 50 |\n| Graphic novels | 40 |\n| Other | 50 |\n\nIf one book is picked at random, what is the probability that it will be a fiction book? Write your answer as a percentage.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -321,14 +307,13 @@
         "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "25",
-      "markingGuide": "50 out of 200 = 50/200 = 0.25 = 25%. Award mark for 25%.",
-      "image": "/images/exams/32406-2025-q4d.png"
+      "expectedAnswer": "30",
+      "markingGuide": "60 out of 200 = 60/200 = 0.30 = 30%. Award mark for 30%."
     },
     {
       "id": "caa25-q4e",
       "number": "4(e)",
-      "text": "The table below shows how much an artist gets paid each time someone streams their song. There are seven different streaming platforms.\n\n[See table: streaming platform payment rates.]\n\n\"Amazon Music gives artists the best deal.\"\n\nDo you agree? Use numbers from the table to explain your answer.",
+      "text": "The table below shows how much an artist earns per sale on different online platforms:\n\nPlatform A: $0.85 per sale\nPlatform B: $0.60 per sale\nPlatform C: $1.20 per sale\nPlatform D: $0.45 per sale\nPlatform E: $0.95 per sale\n\n'Platform C gives artists the best deal.'\n\nDo you agree? Use numbers from the table to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -336,14 +321,13 @@
         "tables"
       ],
       "answerType": "working",
-      "expectedAnswer": "No — Amazon Music does not pay the most per stream",
-      "markingGuide": "Student must use numbers from the table to support or refute the statement. They need to compare Amazon Music's rate with at least one other platform and make a clear conclusion.",
-      "image": "/images/exams/32406-2025-q4e.png"
+      "expectedAnswer": "Yes — Platform C pays $1.20 per sale, which is more than all others",
+      "markingGuide": "Student must use numbers from the table to support or refute the statement. They need to compare Platform C's rate ($1.20) with at least one other platform and make a clear conclusion."
     },
     {
       "id": "caa25-q4f",
       "number": "4(f)",
-      "text": "This graph compares the music sold in stores with the music sold by streaming platforms.\n\n[See diagram: two horizontal stacked bar charts showing percentage of music sold by sales method and type in 2024 — one for in-store sales and one for streams. Categories: Rap/Hip-hop, Pop, Rock, Country, Other.]\n\nIn-store sales: Rap/Hip-hop 20.0%, Pop 23.0%, Rock 33.0%, Country 14.0%, Other 10.0%\nStreams: Rap/Hip-hop 54.0%, Pop 19.0%, Rock 13.0%, Country 9.5%, Other 4.5%\n\nFrom the list below, tick the TWO statements that are true.\n\n(i) Over 1/2 of streams are rap / hip-hop.\n(ii) More than 1/5 of streams are pop.\n(iii) 1/4 of all music is bought in-store.\n(iv) About 1/3 of in-store sales are rock.\n(v) Less than 10% of in-store sales are country.",
+      "text": "A survey compares how people in two age groups watch sport.\n\nAge 15-24: Streaming 65%, TV 15%, Live at venue 8%, Radio 7%, Other 5%\nAge 55-64: Streaming 20%, TV 45%, Live at venue 12%, Radio 18%, Other 5%\n\nFrom the list below, tick the TWO statements that are true.\n\n(i) Over 3/5 of 15-24 year olds use streaming.\n(ii) More than 1/4 of 55-64 year olds use streaming.\n(iii) Exactly 1/2 of 15-24 year olds watch on TV.\n(iv) About 9/20 of 55-64 year olds watch on TV.\n(v) Less than 10% of 55-64 year olds go to live events.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -352,41 +336,40 @@
         "percentages"
       ],
       "answerType": "multi-choice",
-      "options": ["(i) Over 1/2 of streams are rap / hip-hop", "(ii) More than 1/5 of streams are pop", "(iii) 1/4 of all music is bought in-store", "(iv) About 1/3 of in-store sales are rock", "(v) Less than 10% of in-store sales are country"],
+      "options": ["(i) Over 3/5 of 15-24 year olds use streaming", "(ii) More than 1/4 of 55-64 year olds use streaming", "(iii) Exactly 1/2 of 15-24 year olds watch on TV", "(iv) About 9/20 of 55-64 year olds watch on TV", "(v) Less than 10% of 55-64 year olds go to live events"],
       "expectedAnswer": "(i) and (iv)",
-      "markingGuide": "Check each statement: (i) Rap/Hip-hop streams = 54%, which is over 50% (1/2) — TRUE. (ii) Pop streams = 19%, and 1/5 = 20%, so 19% is NOT more than 1/5 — FALSE. (iii) Cannot determine from graph alone — FALSE. (iv) Rock in-store = 33%, and 1/3 ≈ 33.3%, so about 1/3 — TRUE. (v) Country in-store = 14%, which is NOT less than 10% — FALSE. Both (i) and (iv) must be selected.",
-      "image": "/images/exams/32406-2025-q4f.png"
+      "markingGuide": "Check each: (i) 65% > 60% (3/5) — TRUE. (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE. (iii) 15% is not 50% — FALSE. (iv) 45% = 9/20 — TRUE. (v) 12% > 10% — FALSE. Both (i) and (iv) must be selected."
     },
     {
       "id": "caa25-q5a",
       "number": "5(a)",
-      "text": "A mother seal is 1.26 metres long. Her newborn pup is 0.45 metres long.\n\nHow many times longer is the mother seal than her pup?",
+      "text": "An adult humpback whale is 13.5 metres long. Its calf is 4.5 metres long.\n\nHow many times longer is the adult whale than its calf?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "division"
       ],
       "answerType": "number",
-      "expectedAnswer": "2.8",
-      "markingGuide": "1.26 ÷ 0.45 = 2.8. Award mark for 2.8."
+      "expectedAnswer": "3",
+      "markingGuide": "13.5 / 4.5 = 3. Award mark for 3."
     },
     {
       "id": "caa25-q5b",
       "number": "5(b)",
-      "text": "Seals must eat between 4% and 6% of their body weight in food each day. This seal weighs 160 kilograms.\n\nWhat is the minimum amount of food this seal must eat each day?",
+      "text": "Penguins must eat between 8% and 12% of their body weight in food each day. This penguin weighs 5 kilograms.\n\nWhat is the minimum amount of food this penguin must eat each day?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "6.4",
-      "markingGuide": "Minimum is 4% of 160 kg. 4% x 160 = 0.04 x 160 = 6.4 kg. Award mark for 6.4."
+      "expectedAnswer": "0.4",
+      "markingGuide": "Minimum is 8% of 5 kg. 8% x 5 = 0.08 x 5 = 0.4 kg. Award mark for 0.4."
     },
     {
       "id": "caa25-q5c",
       "number": "5(c)",
-      "text": "Places where seals can be found are shown as letters on the map below.\n\n[See diagram: a map of part of New Zealand showing locations A–F with latitude and longitude grid lines.]\n\nTick where seals can be found at 42.4° S and 173.7° E.\n\nA, B, C, D, E, or F",
+      "text": "Seals have been spotted at various locations around the coast. A map shows locations A-F with latitude and longitude grid lines.\n\nWhich location is closest to 43.5° S and 172.6° E?\n\nThese coordinates are near Christchurch. Location C is marked nearest to Christchurch on the map.\n\n(A) Northland\n(B) Waikato\n(C) Canterbury\n(D) Wellington\n(E) Southland\n(F) West Coast",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -395,14 +378,13 @@
       ],
       "answerType": "multi-choice",
       "options": ["A", "B", "C", "D", "E", "F"],
-      "expectedAnswer": "D",
-      "markingGuide": "Student must read the map coordinates to find the location at 42.4° S and 173.7° E. The correct answer is D.",
-      "image": "/images/exams/32406-2025-q5c.png"
+      "expectedAnswer": "C",
+      "markingGuide": "43.5° S, 172.6° E is near Christchurch in Canterbury. The correct answer is C."
     },
     {
       "id": "caa25-q5d",
       "number": "5(d)",
-      "text": "Seals are excellent divers. This number line shows the depth dived by a New Zealand fur seal. The scale runs from 0 metres (sea level) to 500 metres depth, with the depth of dive marked by a dotted arrow.\n\n[See diagram: a vertical number line showing sea level at 0 metres and 500 metres at the bottom, with the seal's dive depth marked.]\n\nEstimate the depth the fur seal dived to.",
+      "text": "Whales are excellent divers. A number line shows depth from 0 metres (sea level) to 600 metres. A sperm whale typically dives to about 2/3 of this maximum depth.\n\nEstimate the depth the sperm whale would dive to.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -410,14 +392,13 @@
         "graph-reading"
       ],
       "answerType": "number",
-      "expectedAnswer": "350",
-      "markingGuide": "Student estimates from the number line diagram. The dive depth appears to be about 3/4 of the way between 0 and 500, which is approximately 350 metres. Accept 325–375 metres.",
-      "image": "/images/exams/32406-2025-q5d.png"
+      "expectedAnswer": "400",
+      "markingGuide": "2/3 of 600 = 400 metres. Accept 380-420 metres."
     },
     {
       "id": "caa25-q5e",
       "number": "5(e)",
-      "text": "This graph shows what kind of food seals eat at different times of the year. The different coloured bars show different halves of the year.\n\n[See graph: grouped bar chart titled \"Diet of adult fur seals\" showing percentage by weight of Squid, Octopus, Anchovy, Eel, Mackerel, and Hoki eaten in Autumn/Winter vs Spring/Summer.]\n\n\"In spring and summer, seals eat mostly squid, octopus, and anchovy.\"\n\nDo you agree? Use percentages from the graph to explain your answer.",
+      "text": "A chart shows what seals eat at different times of the year.\n\nAutumn/Winter diet: Fish 50%, Squid 25%, Crustaceans 15%, Other 10%.\nSpring/Summer diet: Fish 30%, Squid 15%, Crustaceans 30%, Other 25%.\n\n'In autumn and winter, seals eat mostly fish and squid.'\n\nDo you agree? Use percentages from the data to explain your answer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -426,14 +407,13 @@
         "percentages"
       ],
       "answerType": "working",
-      "expectedAnswer": "No — squid + octopus + anchovy is only about 31%, not most of the diet",
-      "markingGuide": "Student must read spring/summer percentages from the graph and add them to determine if squid + octopus + anchovy make up most of the diet. They should conclude that these three foods are NOT the majority and cite specific percentages.",
-      "image": "/images/exams/32406-2025-q5e.png"
+      "expectedAnswer": "Yes — fish (50%) + squid (25%) = 75%, which is three quarters of the diet",
+      "markingGuide": "Student must read autumn/winter percentages and add them: fish 50% + squid 25% = 75%. This is well over half, so fish and squid are the clear majority of the diet. Accept either agree or disagree if justified with specific percentages."
     },
     {
       "id": "caa25-q5f",
       "number": "5(f)",
-      "text": "The dots on the map show where seals have been located around a place called Ohau Point. Ohau Point is shown by the yellow star. The white dot shows the furthest distance a seal swam to.\n\n[See diagram: a map showing Ohau Point with a scale bar, and dots marking seal locations.]\n\nUse the scale on the map to estimate the distance from Ohau Point to the white dot.",
+      "text": "Researchers tracked seabirds from Banks Peninsula. The furthest seabird was spotted at a location that, using the map scale, is 5 scale-bar lengths from Banks Peninsula. Each scale-bar length represents 8 km.\n\nEstimate the distance from Banks Peninsula to where the furthest seabird was spotted.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -441,9 +421,8 @@
         "graph-reading"
       ],
       "answerType": "number",
-      "expectedAnswer": "30",
-      "markingGuide": "Student must use the map scale to estimate the distance from Ohau Point (yellow star) to the white dot. Accept 25–35 km depending on how the student reads the scale.",
-      "image": "/images/exams/32406-2025-q5f.png"
+      "expectedAnswer": "40",
+      "markingGuide": "5 x 8 km = 40 km. Accept 35-45 km."
     }
   ]
 }

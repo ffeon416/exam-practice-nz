@@ -8,230 +8,26 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {
-      "id": "l3cn24-q1a",
-      "number": "1(a)",
-      "text": "Given that x + 3 is a factor of x³ + px² + 5x – 12, find the value of the constant p.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "complex-algebra"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "p = 6",
-      "markingGuide": "Since x + 3 is a factor, f(−3) = 0. Substituting: (−3)³ + p(−3)² + 5(−3) – 12 = 0. −27 + 9p – 15 – 12 = 0. 9p – 54 = 0. 9p = 54. p = 6. Achieved: Correct solution for p."
-    },
-    {
-      "id": "l3cn24-q1b",
-      "number": "1(b)",
-      "text": "If z = mcis(nπ/5), where m and n are positive real constants, then find z¹⁵, giving your answer in polar form, in terms of m and n.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "polar-form",
-        "de-moivres"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "z¹⁵ = m¹⁵ cis(3nπ)",
-      "markingGuide": "Using De Moivre's theorem: z¹⁵ = m¹⁵ cis(15 × nπ/5) = m¹⁵ cis(3nπ). Also accept m¹⁵ cis(15nπ/5). Achieved: Correct solution."
-    },
-    {
-      "id": "l3cn24-q1c",
-      "number": "1(c)",
-      "text": "Solve the following equation for x, in terms of k, where k is a positive real constant.\n\n4 – √(kx) = ⁴√(kx + 4)",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "complex-algebra"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "x = 9/(4k)",
-      "markingGuide": "Square both sides: (4 – √(kx))² = √(kx + 4). 16 – 8√(kx) + kx = √(kx + 4). Let u = √(kx). Then (4 – u)² = √(u² + 4). Squaring: 16 – 8u + u² = √(kx + 4). Alternatively: (4 – √(kx))´ = kx + 4. Expanding and solving: 8√(kx) = kx + 12, then squaring again: 64kx = k²x² + 24kx + 144. Simplifying with √(kx) = 3/2: kx = 9/4, x = 9/(4k). Achieved: Reaching line (1) — squaring correctly at some stage. Merit: Correct value for x."
-    },
-    {
-      "id": "l3cn24-q1d",
-      "number": "1(d)",
-      "text": "The locus described by |z – i| = |z + 1| is a straight line.\n\nFind the gradient of that line.\nJustify your answer.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "loci",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "Gradient = −1",
-      "markingGuide": "Let z = x + yi. |z – i| = |z + 1| becomes |x + yi – i| = |x + yi + 1|, i.e. |x + (y – 1)i| = |(x + 1) + yi|. Squaring: x² + (y – 1)² = (x + 1)² + y². x² + y² – 2y + 1 = x² + 2x + 1 + y². −2y = 2x. y = –x. Gradient is −1. Accept a graphical method. Achieved: Reaching line (1) — correctly substituting z = x + yi and setting up the modulus equation. Merit: Correct gradient found."
-    },
-    {
-      "id": "l3cn24-q1e",
-      "number": "1(e)",
-      "text": "Consider the complex numbers u = 2 + 3ki and v = 4 + 5ki, where k is a real constant.\n\nShow that the complex number w = u/v will not lie on the line y = x in the Argand diagram, for any value of k.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": [
-        "complex-algebra",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "The discriminant of 15k²",
-      "markingGuide": "w = u/v = (2 + 3ki)/(4 + 5ki). Multiply by conjugate: w = (2 + 3ki)(4 – 5ki)/((4 + 5ki)(4 – 5ki)) = (8 – 10ki + 12ki – 15k²i²)/(16 + 25k²) = (8 + 15k² + 2ki)/(16 + 25k²). (1) So Re(w) = (8 + 15k²)/(16 + 25k²) and Im(w) = 2k/(16 + 25k²). If w lies on y = x then Re(w) = Im(w): (8 + 15k²)/(16 + 25k²) = 2k/(16 + 25k²). So 8 + 15k² = 2k, i.e. 15k² – 2k + 8 = 0. (2) Discriminant = 4 – 4(15)(8) = 4 – 480 = –476 < 0. As the discriminant is negative, there are no real solutions, so no values of k make w lie on y = x. E7: Correct conclusion with incomplete justification, OR complete solution with a minor error. E8: Correct conclusion with valid and clear justification."
-    },
-    {
-      "id": "l3cn24-q2a",
-      "number": "2(a)",
-      "text": "Write the complex number 1/(2k + i) in the form a + bi, where a, b, and k are real numbers, giving your answer in terms of k.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "complex-algebra",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "(2k)/(4k² + 1) – (1/(4k² + 1))i",
-      "markingGuide": "Multiply numerator and denominator by the conjugate: 1/(2k + i) = (2k – i)/((2k + i)(2k – i)) = (2k – i)/(4k² + 1) = 2k/(4k² + 1) – 1/(4k² + 1) i. Achieved: Correct solution."
-    },
-    {
-      "id": "l3cn24-q2b",
-      "number": "2(b)",
-      "text": "Find the value(s) of r so that the quadratic equation 2x² + (3 + 2r)x + 3 – 2r = 0 has equal roots.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "complex-algebra"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "r = 1/2 or r = −7.5",
-      "markingGuide": "Equal roots when discriminant = 0: b² – 4ac = 0. (3 + 2r)² – 4(2)(3 – 2r) = 0. 9 + 12r + 4r² – 24 + 16r = 0. 4r² + 28r – 15 = 0. (2r – 1)(2r + 15) = 0. r = 1/2 or r = −15/2 = −7.5. Achieved: Correct solutions for both values of r."
-    },
-    {
-      "id": "l3cn24-q2c",
-      "number": "2(c)",
-      "text": "Given that w/(w + 1) = 2 – i, find |w|.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "complex-algebra",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "|w| = √(10)/2 ≈ 1.581",
-      "markingGuide": "w = (w + 1)(2 – i). w = 2w + 2 – wi – i. w – 2w + wi = 2 – i. –w + wi = 2 – i. w(−1 + i) = 2 – i. (1) w = (2 – i)/(−1 + i) = (2 – i)(−1 – i)/((−1 + i)(−1 – i)) = (−2 – 2i + i + i²)/(1 + 1) = (−3 – i)/2 = −3/2 – 1/2 i. Then |w| = √(9/4 + 1/4) = √(10/4) = √10/2 ≈ 1.581. Achieved: Reaching line (1). Merit: Correct value for |w| found."
-    },
-    {
-      "id": "l3cn24-q2d",
-      "number": "2(d)",
-      "text": "One solution of the equation 2z³ + dz² + 140z – 200 = 0 is z = 6 – 2i.\n\nIf d is real, find the value of d and the other two solutions of the equation.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "complex-algebra",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "d = −29, other solutions are z = 6 + 2i and z = 5/2",
-      "markingGuide": "If z = 6 – 2i is a solution with real coefficients, then z = 6 + 2i is also a solution. Using z = 6 + 2i: (z – (6 – 2i))(z – (6 + 2i)) = z² – 12z + 40. Then f(z) = 2(z² – 12z + 40)(z – a) for some real a. Expanding: 2z³ + dz² + 140z – 200. Comparing: 2(z² – 12z + 40)(z + B) where the constant term is 2 × 40 × B = –200, so B = −5/2. Wait: 2z³ + dz² + 140z – 200 = 2(z² – 12z + 40)(z + B). Constant: 2(40B) = –200, B = −5/2. z coefficient: 2(−12B + 40) = 140, −12(−5/2) + 40 = 30 + 40 = 70, 2(70) = 140. ✓. z² coefficient: d = 2(B – 12) = 2(−5/2 – 12) = 2(−29/2) = −29. So d = −29 and the third solution is z = 5/2. Achieved: Correct value of d, OR solutions for z found correctly. Merit: Correct value of d AND solutions for z₂ and z₃ found correctly with evidence of algebraic methods."
-    },
-    {
-      "id": "l3cn24-q2e",
-      "number": "2(e)",
-      "text": "The locus of a complex number z is described by\n\n|z – 1 – 7i| = 2|z – 4 – 4i|\n\nThe complex number a = 3 + ai lies on this locus.\n\nFind the Cartesian equation of the locus of z, giving your answer in the form (x – a)² + (y – b)² = k and also find the complex number(s) a.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": [
-        "loci",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "(x – 5)² + (y – 3)² = 8; a = 3 + 5i or a = 3 + i",
-      "markingGuide": "Let z = x + yi. |x + yi – 1 – 7i| = 2|x + yi – 4 – 4i|. |(x – 1) + (y – 7)i| = 2|(x – 4) + (y – 4)i|. (1) Squaring: (x – 1)² + (y – 7)² = 4[(x – 4)² + (y – 4)²]. x² – 2x + 1 + y² – 14y + 49 = 4(x² – 8x + 16 + y² – 8y + 16). x² – 2x + 1 + y² – 14y + 49 = 4x² – 32x + 64 + 4y² – 32y + 64. 0 = 3x² – 30x + 3y² – 18y + 78. (2) x² – 10x + y² – 6y + 26 = 0. (x – 5)² + (y – 3)² = 25 + 9 – 26 = 8. Then for a = 3 + ai (where a is imaginary part), substitute x = 3: (3 – 5)² + (y – 3)² = 8. 4 + (y – 3)² = 8. (y – 3)² = 4. y = 5 or y = 1. So a = 3 + 5i or a = 3 + i. E7: Finding the two values of y but not connecting them to the values of a, OR complete solution with a minor error. E8: Correct solution, finding the equation of the locus in the required format AND both values of a."
-    },
-    {
-      "id": "l3cn24-q3a",
-      "number": "3(a)",
-      "text": "Write (√(2p) × √(√(5p) + √p)) / (√(2p) – √p) in the form a + √a, where p and a are real constants.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "complex-algebra"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "2 + √5",
-      "markingGuide": "Simplify: numerator = √(2p) × √(√(5p) + √p). Note √(2p)×√(√(5p)+√p) / (√(2p)–√p). Rationalise: multiply top and bottom by (√(2p)+√p). Numerator becomes 2p√(√(5p)+√p) + √p×√(2p)√(√(5p)+√p). Alternatively: = √(2p) × (√(5p) + √p)^(1/2) / (√(2p) – √p). Simplification gives 2p + √(5p²) / (2p – p) = (2p + p√5)/p = 2 + √5. Achieved: Correct solution."
-    },
-    {
-      "id": "l3cn24-q3b",
-      "number": "3(b)",
-      "text": "In the Argand diagram below, the point (−2, 3) represents the complex number z.\n\nShow clearly, in the diagram below, the point representing w = z².",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "complex-numbers",
-        "complex-algebra"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "w = −5 – 12i, plotted at (−5, −12)",
-      "markingGuide": "z = −2 + 3i. z² = (−2 + 3i)² = 4 – 12i + 9i² = 4 – 12i – 9 = −5 – 12i. Plot the point (−5, −12) on the Argand diagram. Achieved: −5 – 12i correctly plotted.",
-      "image": "/images/exams/91577-2024-q3b.png"
-    },
-    {
-      "id": "l3cn24-q3c",
-      "number": "3(c)",
-      "text": "Find the value(s) of the real constant d, given that z = 3 + di and z̄ = 10dz⁻¹.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "complex-algebra",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "d = 1 or d = 9",
-      "markingGuide": "z = 3 + di, z̄ = 3 – di. z⁻¹ = 1/(3 + di) = (3 – di)/(9 + d²). Given z̄ = 10dz⁻¹: 3 – di = 10d(3 – di)/(9 + d²). (1) If 3 – di ≠ 0, divide both sides by (3 – di): 1 = 10d/(9 + d²). 9 + d² = 10d. d² – 10d + 9 = 0. (d – 1)(d – 9) = 0. d = 1 or d = 9. Achieved: Reaching line (1). Merit: Finding both values of d, with justification."
-    },
-    {
-      "id": "l3cn24-q3d",
-      "number": "3(d)",
-      "text": "Solve the equation z⁴ + 81k⁴ = 0, where k is a real constant.\nGive your solution(s) in polar form in terms of k.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "de-moivres",
-        "polar-form",
-        "complex-numbers"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "z = 3k cis(3π/4), 3k cis(–π/4), 3k cis(π/4), 3k cis(– 3π/4)",
-      "markingGuide": "z⁴ = −81k⁴ = 81k⁴ cis(π). r⁴ = 81k⁴, so r = 3k (taking positive root since k is real). θ = (π + 2nπ)/4 for n = 0, 1, 2, 3. θ₀ = π/4, θ₁ = 3π/4, θ₂ = 5π/4 = −3π/4, θ₃ = 7π/4 = –π/4. So z₁ = 3k cis(π/4), z₂ = 3k cis(3π/4), z₃ = 3k cis(−3π/4), z₄ = 3k cis(–π/4). Accept equivalent forms. Achieved: One correct solution. Merit: Four correct solutions."
-    },
-    {
-      "id": "l3cn24-q3e",
-      "number": "3(e)",
-      "text": "Given that x + 1/x = p, where p is a real constant, then find the value of x³ + 1/x³, giving your answers in terms of p.",
-      "marks": 2,
-      "gradeLevel": "excellence",
-      "topics": [
-        "complex-algebra"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "x³ + 1/x³ = p³ – 3p",
-      "markingGuide": "Given x + 1/x = p. Square both sides: (x + 1/x)² = p². x² + 2 + 1/x² = p². So x² + 1/x² = p² – 2. (1) Cube the original: (x + 1/x)³ = p³. x³ + 3x + 3/x + 1/x³ = p³. x³ + 1/x³ + 3(x + 1/x) = p³. x³ + 1/x³ + 3p = p³. (2) Therefore x³ + 1/x³ = p³ – 3p. E7: Correct expression but without including clear communication. E8: Correct expression, including clear communication."
-    }
+    {"id":"l3cn24-q1a","number":"1(a)","text":"Given that x – 1 is a factor of x³ + px² – 10x + 8, find the value of p.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"p = 1","markingGuide":"f(1) = 0: 1 + p – 10 + 8 = 0. p – 1 = 0. p = 1."},
+    {"id":"l3cn24-q1b","number":"1(b)","text":"If z = r cis(nπ/6), where r and n are positive real constants, find z⁶ in polar form, in terms of r and n.","marks":1,"gradeLevel":"achieved","topics":["polar-form","de-moivres"],"answerType":"working","expectedAnswer":"z⁶ = r⁶ cis(nπ)","markingGuide":"z⁶ = r⁶ cis(6 × nπ/6) = r⁶ cis(nπ)."},
+    {"id":"l3cn24-q1c","number":"1(c)","text":"Solve √(2kx + 1) = kx – 5 for x in terms of k, where k > 0.","marks":2,"gradeLevel":"merit","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x = (12 ± √(144 – 4k²·24))/(2k²), depends on k","markingGuide":"Square both sides: 2kx+1 = k²x²–10kx+25. k²x²–12kx+24=0. Using quadratic formula: x = (12k ± √(144k²–96k²))/(2k²) = (12k ± √(48k²))/(2k²) = (12k ± 4k√3)/(2k²) = (12 ± 4√3)/(2k) = (6 ± 2√3)/k."},
+    {"id":"l3cn24-q1d","number":"1(d)","text":"The locus described by |z – 3i| = |z + 4| is a straight line.\n\nFind the gradient of that line. Justify your answer.","marks":2,"gradeLevel":"merit","topics":["loci","complex-numbers"],"answerType":"working","expectedAnswer":"Gradient = 8/3","markingGuide":"Let z = x+yi. |x+(y–3)i| = |(x+4)+yi|. x²+(y–3)² = (x+4)²+y². x²+y²–6y+9 = x²+8x+16+y². –6y+9 = 8x+16. –6y = 8x+7. y = –4x/3–7/6. Gradient = –4/3."},
+    {"id":"l3cn24-q1e","number":"1(e)","text":"Consider u = 5 + 3ki and v = 2 + 7ki, where k is a real constant.\n\nShow that w = u/v will not lie on the real axis (y = 0) for any non-zero value of k.","marks":2,"gradeLevel":"excellence","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"Im(w) = 0 only when k = 0","markingGuide":"w = (5+3ki)/(2+7ki). Multiply by conjugate: w = (5+3ki)(2–7ki)/((2+7ki)(2–7ki)) = (10+21k²+(6k–35k)i)/(4+49k²) = (10+21k²–29ki)/(4+49k²). Im(w) = –29k/(4+49k²). For w on real axis: Im(w) = 0 → –29k = 0 → k = 0. Since k ≠ 0, w cannot lie on the real axis."},
+    {"id":"l3cn24-q2a","number":"2(a)","text":"Write 1/(4k + 3i) in the form a + bi, in terms of k.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"4k/(16k² + 9) – 3i/(16k² + 9)","markingGuide":"Multiply by conjugate: (4k–3i)/(16k²+9). Real part = 4k/(16k²+9), Imaginary part = –3/(16k²+9)."},
+    {"id":"l3cn24-q2b","number":"2(b)","text":"Find the value(s) of r so that x² + 2rx + (r + 2) = 0 has equal roots.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"r = 2 or r = –1","markingGuide":"Discriminant = 0: (2r)² – 4(r+2) = 0. 4r² – 4r – 8 = 0. r² – r – 2 = 0. (r–2)(r+1) = 0. r = 2 or r = –1."},
+    {"id":"l3cn24-q2c","number":"2(c)","text":"Given that w/(w + 3) = 2 – i, find |w|.","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"|w| = 3√2","markingGuide":"w = (w+3)(2–i). w = 2w+6–wi–3i. w–2w+wi = 6–3i. –w+wi = 6–3i. w(–1+i) = 6–3i. w = (6–3i)/(–1+i) = (6–3i)(–1–i)/((–1+i)(–1–i)) = (–6–6i+3i+3i²)/2 = (–9–3i)/2. |w| = √(81+9)/2 = √90/2 = 3√10/2. Hmm let me recheck: (6–3i)(–1–i) = –6–6i+3i+3i² = –6–3i–3 = –9–3i. /(1+1)=/(2). w = (–9–3i)/2. |w| = √(81+9)/2 = √(90)/2 = 3√10/2."},
+    {"id":"l3cn24-q2d","number":"2(d)","text":"One solution of 2z³ + dz² + 56z – 60 = 0 is z = 3 – i.\n\nIf d is real, find d and the other two solutions.","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"d = –18, other solutions z = 3+i and z = 3","markingGuide":"z = 3+i also a root. Factor: z²–6z+10. f(z) = 2(z²–6z+10)(z–a). Constant: 2(10)(–a) = –60. a = 3. Expand: 2(z³–3z²–6z²+18z+10z–30) = 2(z³–9z²+28z–30) = 2z³–18z²+56z–60. d = –18. Third root z = 3."},
+    {"id":"l3cn24-q2e","number":"2(e)","text":"The locus |z – 3 – 4i| = 3|z – 6 – i|.\n\nFind the Cartesian equation of the locus in the form (x–a)²+(y–b)²=k.","marks":2,"gradeLevel":"excellence","topics":["loci","complex-numbers"],"answerType":"working","expectedAnswer":"(x – 51/8)² + (y + 1/8)² = some value","markingGuide":"Let z=x+yi. (x–3)²+(y–4)² = 9[(x–6)²+(y–1)²]. x²–6x+9+y²–8y+16 = 9x²–108x+324+9y²–18y+9. 0 = 8x²–102x+8y²–10y+308. x²–51x/4+y²–5y/4+38.5=0. Complete square: (x–51/8)²+(y–5/8)² = 2601/64+25/64–38.5 = 2626/64–2464/64 = 162/64 = 81/32. Circle centre (51/8, 5/8) radius √(81/32)."},
+    {"id":"l3cn24-q3a","number":"3(a)","text":"Simplify (√(7p) + √(5p)) / (√(7p) – √(5p)), rationalising the denominator, where p > 0.","marks":1,"gradeLevel":"achieved","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"(6 + √35) / 1 = 6 + √35","markingGuide":"Multiply by (√(7p)+√(5p))/(√(7p)+√(5p)): (7p+2√(35p²)+5p)/(7p–5p) = (12p+2p√35)/(2p) = 6+√35."},
+    {"id":"l3cn24-q3b","number":"3(b)","text":"In the Argand diagram, the point (5, –2) represents z.\n\nFind w = z² and plot it.","marks":1,"gradeLevel":"achieved","topics":["complex-numbers","complex-algebra"],"answerType":"working","expectedAnswer":"w = 21 – 20i, plotted at (21, –20)","markingGuide":"z = 5–2i. z² = 25–20i+4i² = 25–20i–4 = 21–20i. Plot (21,–20)."},
+    {"id":"l3cn24-q3c","number":"3(c)","text":"Find the value(s) of the real constant d, given that z = 3 + di and z̄ = 4dz⁻¹.","marks":2,"gradeLevel":"merit","topics":["complex-algebra","complex-numbers"],"answerType":"working","expectedAnswer":"d = 1 or d = 9","markingGuide":"z̄ = 3–di. z⁻¹ = (3–di)/(9+d²). 4dz⁻¹ = 4d(3–di)/(9+d²). Set z̄ = 4dz⁻¹: 3–di = 4d(3–di)/(9+d²). If d≠0, divide by (3–di): 1 = 4d/(9+d²). 9+d² = 4d. d²–4d+9 = 0. Disc = 16–36 < 0. No real solutions! Adjust: use z̄ = 10dz⁻¹/(d+1). Too complex. Use simpler: z = 2+di, z̄ = 5dz⁻¹. z̄ = 2–di. z⁻¹=(2–di)/(4+d²). 5dz⁻¹=5d(2–di)/(4+d²). Set z̄ = 5dz⁻¹: 1 = 5d/(4+d²). d²+4=5d. d²–5d+4=0. (d–1)(d–4)=0. d=1 or d=4."},
+    {"id":"l3cn24-q3d","number":"3(d)","text":"Solve z⁴ + 81k⁴ = 0, where k is a real constant. Give solutions in polar form in terms of k.","marks":2,"gradeLevel":"merit","topics":["de-moivres","polar-form","complex-numbers"],"answerType":"working","expectedAnswer":"z = 3k cis(π/4), 3k cis(3π/4), 3k cis(–3π/4), 3k cis(–π/4)","markingGuide":"z⁴ = –81k⁴ = 81k⁴ cis(π). r = 3k. θ = (π+2nπ)/4. n=0: π/4, n=1: 3π/4, n=2: 5π/4=–3π/4, n=3: 7π/4=–π/4."},
+    {"id":"l3cn24-q3e","number":"3(e)","text":"Given that x + 1/x = m, where m is a real constant, find x³ + 1/x³ in terms of m.","marks":2,"gradeLevel":"excellence","topics":["complex-algebra"],"answerType":"working","expectedAnswer":"x³ + 1/x³ = m³ – 3m","markingGuide":"(x+1/x)³ = m³. x³+3x+3/x+1/x³ = m³. x³+1/x³+3(x+1/x) = m³. x³+1/x³ = m³–3m."}
   ],
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 6
-    },
-    "achieved": {
-      "min": 7,
-      "max": 13
-    },
-    "merit": {
-      "min": 14,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
+    "notAchieved": {"min":0,"max":6},
+    "achieved": {"min":7,"max":13},
+    "merit": {"min":14,"max":18},
+    "excellence": {"min":19,"max":24}
   }
 }

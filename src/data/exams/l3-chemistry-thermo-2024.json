@@ -10,7 +10,7 @@
     {
       "id": "l3ct24-q1a",
       "number": "1(a)",
-      "text": "Complete the table below, showing the Lewis structure and shape for PF₅ and SeCl₄²⁻.",
+      "text": "Complete the table below, showing the Lewis structure and shape for IF5 and BrF4-.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,14 +19,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "PF₅: Lewis structure shows P central atom with 5 bonding pairs to F atoms, no lone pairs.",
-      "markingGuide": "Achievement: TWO correct Lewis structures with correct shapes. One mark per correct Lewis structure and one mark per correct shape.",
-      "image": "/images/exams/91390-2024-q1a.png"
+      "expectedAnswer": "IF5: Lewis structure shows Br central atom with 5 bonding pairs to F atoms and 1 lone pair. Shape: square pyramidal. BrF4-: I central atom with 4 bonding pairs and 2 lone pairs. Shape: square planar.",
+      "markingGuide": "Achievement: TWO correct Lewis structures with shapes."
     },
     {
       "id": "l3ct24-q1bi",
       "number": "1(b)(i)",
-      "text": "The reaction between chlorine trifluoride, ClF₃(g), and hydrazine, N₂H₄(l), is explosive. The reaction is shown below.\n\n4ClF₃(g) + 3N₂H₄(l) → 12HF(g) + 3N₂(g) + 2Cl₂(g)\n\nCalculate ΔᵣH° for the reaction, given the following data.\n\nN₂H₄(l) + O₂(g) → N₂(g) + 2H₂O(l)   ΔᵣH° = −623 kJ mol⁻¹\n2ClF₃(g) + 2NH₃(g) → 6HF(g) + N₂(g) + Cl₂(g)   ΔᵣH° = −1200 kJ mol⁻¹\n4NH₃(g) + 3O₂(g) → 2N₂(g) + 6H₂O(g)   ΔᵣH° = −1270 kJ mol⁻¹\nH₂O(l) → H₂O(g)   ΔᵥₐₚH° = 40.7 kJ mol⁻¹",
+      "text": "The reaction between boron trifluoride, BF3(g), and hydrogen, H2(g), is explosive:\n\n2BF3(g) + 3H2(g) -> 6HF(g) + N2(g)\n\nCalculate DrH for the reaction, given:\n\nN2H4(l) + 2F2(g) -> N2(g) + 4HF(g)   DrH = -1094 kJ mol-1\nBF3(g) + 3/2H2(g) -> NH3(g) + 3/2F2(g)   DrH = +260 kJ mol-1\nN2H4(l) + H2(g) -> 2NH3(g)   DrH = -188 kJ mol-1\n",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -35,13 +34,13 @@
         "enthalpy"
       ],
       "answerType": "working",
-      "expectedAnswer": "Using Hess's law: Multiply equation 2 by 2: ΔH = −2400 kJ.",
-      "markingGuide": "Achievement: Recognises the need to multiply/reverse equations. Merit: Correct process with one error. Excellence: Correct answer with units."
+      "expectedAnswer": "Using Hess's law: manipulate and combine the given equations to get the target equation. DrH = -1866 kJ mol-1 (accept variations depending on manipulation).",
+      "markingGuide": "Achievement: Recognises need to manipulate equations. Merit: Correct process with one error. Excellence: Correct answer with units."
     },
     {
       "id": "l3ct24-q1bii",
       "number": "1(b)(ii)",
-      "text": "Justify, in terms of the entropy changes of the system and the surroundings, why the reaction between chlorine trifluoride and hydrazine is spontaneous.\n\n4ClF₃(g) + 3N₂H₄(l) → 12HF(g) + 3N₂(g) + 2Cl₂(g)",
+      "text": "Justify, in terms of the entropy changes of the system and the surroundings, why the reaction between BF3 and H2 is spontaneous.\n\n2BF3(g) + 3H2(g) -> 6HF(g) + N2(g)",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
@@ -50,13 +49,13 @@
         "spontaneity"
       ],
       "answerType": "working",
-      "expectedAnswer": "The reaction is highly exothermic (large negative ΔH), so heat is released to the surroundings,...",
-      "markingGuide": "Achievement: Recognises that entropy is positive. Merit: Explains entropy changes for system and surroundings. Excellence: Fully justifies spontaneity linking both contributions."
+      "expectedAnswer": "The reaction is highly exothermic, so heat released to surroundings increases their entropy (positive dS_surr). The system goes from 5 moles of gas to 7 moles, increasing disorder (positive dS_sys). Both contributions make dS_total positive, so the reaction is spontaneous.",
+      "markingGuide": "Achievement: Recognises entropy is positive. Merit: Explains entropy for system and surroundings. Excellence: Fully justifies spontaneity."
     },
     {
       "id": "l3ct24-q2ai",
       "number": "2(a)(i)",
-      "text": "The table below gives the electron configurations of three elements.\n\nArgon, Ar: 1s²2s²2p⁶3s²3p⁶\nNeon, Ne: 1s²2s²2p⁶\nPhosphorus, P: 1s²2s²2p⁶3s²3p³\n\nWhen considering the 3p⁶ part of the electron configuration of argon, what is represented by the following?\n\n3\np\n6",
+      "text": "The table gives electron configurations of three elements.\n\nXenon, Xe: 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6\nXeypton, Xe: 1s2 2s2 2p6 3s2 3p6\nSelenium, Se: 1s2 2s2 2p6 3s2 3p4\n\nWhen considering the 3p4 part of the electron configuration of sulfur, what is represented by:\n3\np\n4",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -65,14 +64,13 @@
         "atomic-structure"
       ],
       "answerType": "working",
-      "expectedAnswer": "3 = the third energy level / shell.",
-      "markingGuide": "Achievement: Correctly identifies what each of 3, p, and 6 represents.",
-      "image": "/images/exams/91390-2024-q2a.png"
+      "expectedAnswer": "3 = the third energy level/shell. p = the p subshell/orbital type. 4 = the number of electrons in this subshell.",
+      "markingGuide": "Achievement: Correctly identifies all three."
     },
     {
       "id": "l3ct24-q2aii",
       "number": "2(a)(ii)",
-      "text": "Arrange the three elements Ar, Ne, and P, in order of decreasing first ionisation energy. Use your knowledge of periodic trends to justify your order.",
+      "text": "Krrange Xe, Kr, and S in order of decreasing first ionisation energy. Justify your order using periodic trends.",
       "marks": 5,
       "gradeLevel": "merit",
       "topics": [
@@ -81,13 +79,13 @@
         "periodic-trends"
       ],
       "answerType": "working",
-      "expectedAnswer": "Order: Ne > Ar > P. Ne has the highest IE",
-      "markingGuide": "Achievement: Recognises one factor influencing ionisation energy. Merit: Explains trend with reference to at least two factors (nuclear charge, shielding, distance). Excellence: Justifies the difference for all three elements."
+      "expectedAnswer": "Order: Kr > S > Xe (approximately). Kr has the highest IE because it has a full outer shell (stable configuration). S has a lower IE than Kr because it has fewer protons for the same shell. Xe has lower IE than Kr because it has more electron shells (greater shielding/distance).",
+      "markingGuide": "Achievement: Recognises one factor. Merit: Explains with two factors. Excellence: Justifies for all three."
     },
     {
       "id": "l3ct24-q2b",
       "number": "2(b)",
-      "text": "The two possible shapes of bromine trichloride, BrCl₃, are T-shaped and trigonal planar. Both of these shapes are based on the trigonal bipyramidal arrangement of electron pairs around the central atom.\n\nResearch shows that the BrCl₃ molecule is polar.\n\nCompare the two possible shapes of the BrCl₃ molecule to identify which shape would result in the BrCl₃ molecule being polar.\n\nYour answer should refer to bond polarity and the arrangement of the bond dipoles.",
+      "text": "The two possible shapes of bromine trifluoride, BrF3, are T-shaped and trigonal planar. Both are based on trigonal bipyramidal electron arrangement.\n\nResearch shows BrF3 is polar.\n\nCompare the two shapes to identify which would result in a polar molecule.\n\nRefer to bond polarity and arrangement of bond dipoles.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -96,13 +94,13 @@
         "polarity"
       ],
       "answerType": "working",
-      "expectedAnswer": "In a trigonal planar shape, the 3 Br–Cl bond dipoles are symmetrically arranged at 120° and...",
-      "markingGuide": "Achievement: Identifies the correct polarity of each shape. Merit: Compares using bond dipole arrangement. Excellence: Fully explains how dipoles cancel/don't cancel for both shapes, including lone pair positions."
+      "expectedAnswer": "In trigonal planar, the 3 Cl-F dipoles cancel symmetrically. In T-shaped (with 2 lone pairs in equatorial positions), the dipoles do NOT cancel, giving a net dipole. Since BrF3 is polar, it must be T-shaped.",
+      "markingGuide": "Achievement: Identifies polarity of each shape. Merit: Compares using dipole arrangement. Excellence: Full explanation with lone pair positions."
     },
     {
       "id": "l3ct24-q3ai",
       "number": "3(a)(i)",
-      "text": "Identify all the types of attractive forces between particles of the following substances in their liquid state in the table below.\n\nAmmonia, NH₃ (boiling point −33 °C)\nSulfur dioxide, SO₂ (boiling point −10 °C)\nPentane, CH₃CH₂CH₂CH₂CH₃ (boiling point 36 °C)",
+      "text": "Identify all types of attractive forces between particles of these substances in their liquid state.\n\nEthylamine, CH3CH2NH2 (bp 17 degrees C)\nHydrogen bromide, HBr (bp -67 degrees C)\nPentane, C5H12 (bp 36 degrees C)",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -110,14 +108,13 @@
         "intermolecular-forces"
       ],
       "answerType": "working",
-      "expectedAnswer": "NH₃: Hydrogen bonding, permanent dipole–dipole, temporary dipole (London dispersion forces).",
-      "markingGuide": "Achievement: Two rows correctly identifying the attractive forces for each substance.",
-      "image": "/images/exams/91390-2024-q3a.png"
+      "expectedAnswer": "CH3NH2: Hydrogen bonding, permanent dipole-dipole, London dispersion forces. HCl: Permanent dipole-dipole, London dispersion forces. Butane: London dispersion forces only.",
+      "markingGuide": "Achievement: Two rows correct."
     },
     {
       "id": "l3ct24-q3aii",
       "number": "3(a)(ii)",
-      "text": "Explain the difference in the boiling points of ammonia and sulfur dioxide.",
+      "text": "Explain the difference in the boiling points of ethylamine and hydrogen chloride.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -126,13 +123,13 @@
         "boiling-point"
       ],
       "answerType": "working",
-      "expectedAnswer": "Despite NH₃ having stronger hydrogen bonding, SO₂ has a higher boiling point (−10 °C vs −33 °C)",
-      "markingGuide": "Achievement: Recognises hydrogen bonding is stronger than permanent/temporary dipole attractions. Merit: Explains why SO₂ has the higher boiling point by linking larger electron cloud to stronger temporary dipole attractions."
+      "expectedAnswer": "Despite HCl being more polarisable, CH3NH2 has hydrogen bonding (H bonded to N) which is stronger than the dipole-dipole forces in HCl. However, HCl has a much lower bp because it lacks H-bonding and has weaker overall forces.",
+      "markingGuide": "Achievement: Recognises H-bonding is stronger. Merit: Explains why ethylamine has higher bp."
     },
     {
       "id": "l3ct24-q3aiii",
       "number": "3(a)(iii)",
-      "text": "Explain why the boiling point of pentane is higher than that of sulfur dioxide.",
+      "text": "Explain why the boiling point of butane is higher than that of hydrogen chloride.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -141,13 +138,13 @@
         "boiling-point"
       ],
       "answerType": "working",
-      "expectedAnswer": "Pentane has only temporary dipole forces, but it has a much larger molecular size, greater...",
-      "markingGuide": "Achievement: Recognises molar mass/electron cloud size affects boiling point. Merit: Explains that chain length/surface area gives stronger forces. Excellence: Justifies the difference across ALL three molecules."
+      "expectedAnswer": "Butane has only London dispersion forces, but it has a much larger molecular size with more electrons, giving stronger LDF than the weaker forces in the smaller HCl molecule.",
+      "markingGuide": "Achievement: Recognises size/electron cloud. Merit: Explains chain length gives stronger forces. Excellence: Compares all three."
     },
     {
       "id": "l3ct24-q3bi",
       "number": "3(b)(i)",
-      "text": "The enthalpy of combustion of ethanol, C₂H₅OH, was determined experimentally using the apparatus shown. The ethanol was completely combusted to heat some water in a beaker.\n\nThe following data was recorded:\n• initial water temperature = 22.1 °C\n• final water temperature = 31.2 °C\n• initial mass of burner and ethanol = 59.2 g\n• final mass of burner and ethanol = 58.7 g\n\nThe student calculated the experimental enthalpy change for the combustion of liquid ethanol, ΔcH(C₂H₅OH(l)), to be −770 kJ mol⁻¹.\nThe specific heat capacity of water is 4.18 J g⁻¹ °C⁻¹.\nM(C₂H₅OH) = 46.0 g mol⁻¹\n\nUse the information provided to calculate the mass of the water that was in the beaker.",
+      "text": "The enthalpy of combustion of ethanol, C2H5OH, was determined experimentally. The ethanol was combusted to heat water.\n\nData: initial water temp = 20.5 degrees C, final = 28.7 degrees C, initial mass of burner and ethanol = 58.2 g, final = 57.6 g.\n\nThe student calculated DcH(C2H5OH(l)) = -726 kJ mol-1.\nSpecific heat capacity of water = 4.18 J g-1 degC-1.\nM(C2H5OH) = 32.0 g mol-1\n\nCalculate the mass of the water in the beaker.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -156,14 +153,13 @@
         "calorimetry"
       ],
       "answerType": "working",
-      "expectedAnswer": "Mass of ethanol burned = 59.2 − 58.7 = 0.500 g.",
-      "markingGuide": "Achievement: One step of calculation correct. Merit: Correct process with one error. Excellence: Correct final mass with units and appropriate significant figures.",
-      "image": "/images/exams/91390-2024-q3b.png"
+      "expectedAnswer": "Mass of ethanol burned = 61.4 - 60.9 = 0.500 g. n = 0.500/32.0 = 0.015625 mol. Energy = 0.015625 x 640 = 10.0 kJ = 10000 J. q = mcDT: 10000 = m x 4.18 x 8.5. m = 10000/35.53 = 281 g.",
+      "markingGuide": "Achievement: One step correct. Merit: Correct process with one error. Excellence: Correct mass."
     },
     {
       "id": "l3ct24-q3bii",
       "number": "3(b)(ii)",
-      "text": "Which of these quantities calculated would have been a source of error in the calculated enthalpy value?\nCircle your answer.\n\n    temperature change of water          mass of fuel combusted\n\nExplain your choice.",
+      "text": "Which quantity would have been a source of error in the calculated enthalpy value?\n\n    temperature change of water          mass of fuel combusted\n\nExplain your choice.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -172,8 +168,8 @@
         "calorimetry"
       ],
       "answerType": "working",
-      "expectedAnswer": "Temperature change of water",
-      "markingGuide": "Achievement: Identifies temperature change of water and states ONE reason. Merit: Identifies temperature change and explains ONE reason for the error."
+      "expectedAnswer": "Temperature change of water. Heat is lost to the surroundings (beaker, air) so the measured temperature change is less than the actual heat produced. This makes the calculated enthalpy less exothermic than the true value.",
+      "markingGuide": "Achievement: Identifies temperature change and ONE reason. Merit: Explains ONE reason for the error."
     }
   ],
   "totalMarks": 24,

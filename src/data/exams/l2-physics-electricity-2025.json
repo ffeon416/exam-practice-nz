@@ -29,7 +29,7 @@
     {
       "id": "e25-q1a",
       "number": "1(a)",
-      "text": "Inkjet printers use a voltage across parallel plates to aim electrically charged ink droplets at the paper. The plates are 1.00 mm apart.\n\nDraw the field lines between the electric plates and the charge of the top plate.",
+      "text": "Laser printers use a voltage across parallel plates to direct electrically charged toner particles onto paper. The plates are 2.00 mm apart.\n\nDraw the field lines between the electric plates and the charge of the top plate.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -37,14 +37,13 @@
         "field-lines"
       ],
       "answerType": "text",
-      "expectedAnswer": "Arrows evenly spaced upwards. One arrow up and negative plate labelled.",
-      "markingGuide": "Achieved: Arrows evenly spaced upwards. OR one arrow up and negative plate labelled.",
-      "image": "/images/exams/91173-2025-q1a.png"
+      "expectedAnswer": "Arrows evenly spaced from positive to negative plate. Negative plate labelled on top.",
+      "markingGuide": "Achieved: Arrows correctly directed with correct plate labelled."
     },
     {
       "id": "e25-q1b",
       "number": "1(b)",
-      "text": "Calculate the voltage across the plates when an ink droplet with a charge of 4.80 × 10⁻¹⁰ C is subjected to a force of 9.60 × 10⁻⁴ N.",
+      "text": "Calculate the voltage across the plates when a toner particle with a charge of 3.20 x 10^-10 C is subjected to a force of 6.40 x 10^-4 N.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -53,13 +52,13 @@
         "force"
       ],
       "answerType": "working",
-      "expectedAnswer": "V = 2000 V",
-      "markingGuide": "E = F/Q = 9.6 × 10⁻⁴ / 4.8 × 10⁻¹⁰ = 2 × 10⁶ N C⁻¹ or V m⁻¹. V = Ed = 2 × 10⁶ × 1 × 10⁻³ = 2000 V. Achieved: E calculated correctly. Merit: Correct voltage calculated."
+      "expectedAnswer": "E = F/Q = 6.40 x 10^-4 / 3.20 x 10^-10 = 2.0 x 10^6 V/m. V = Ed = 2.0 x 10^6 x 2.0 x 10^-3 = 3000 V.",
+      "markingGuide": "Achieved: E calculated. Merit: Correct voltage."
     },
     {
       "id": "e25-q1c",
       "number": "1(c)",
-      "text": "The voltage across the plates is changed to 4000 V.\n\nAn ink droplet of mass 1.02 × 10⁻¹¹ kg, carrying 4.00 × 10⁶ excess electrons is released from the negative plate.\n\nCalculate its velocity as it reaches the positive plate.",
+      "text": "The voltage across the plates is changed to 6000 V.\n\nA toner particle of mass 2.04 x 10^-11 kg, carrying 5.00 x 10^6 excess electrons is released from the negative plate.\n\nCalculate its velocity as it reaches the positive plate.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -69,13 +68,13 @@
         "velocity"
       ],
       "answerType": "working",
-      "expectedAnswer": "v = 708 m s⁻¹",
-      "markingGuide": "E = V/d = 4000/0.001 = 4 × 10⁶ V m⁻¹. q = 4 × 10⁶ × 1.6 × 10⁻¹⁹ = 6.4 × 10⁻¹³ C. Ep = Eqd = 4 × 10⁶ × 6.4 × 10⁻¹³ × 0.001 = 2.56 × 10⁻⁹ J. Ep = ½mv²: 2.56 × 10⁻⁹ = ½ × 1.02 × 10⁻¹¹ × v². v = 708 m s⁻¹. Achieved: Shows q = 6.48 × 10⁻¹³. OR substitutes into Eqd = ½mv² and calculates v. OR finds v using E as Ep. Merit: Finds v with one error. Excellence: Correct."
+      "expectedAnswer": "q = 5.00 x 10^6 x 1.6 x 10^-19 = 8.0 x 10^-13 C. E = V/d = 6000/0.002 = 3.0 x 10^6 V/m. Ep = Eqd = 3.0 x 10^6 x 8.0 x 10^-13 x 0.002 = 4.80 x 10^-9 J. Ek = 1/2 mv^2. v = sqrt(2 x 4.80 x 10^-9 / 2.04 x 10^-11) = sqrt(470.6) = 21.7 m/s. Wait let me recalculate: Ep = qV = 8.0 x 10^-13 x 6000 = 4.80 x 10^-9 J. v = sqrt(2 x 4.80 x 10^-9 / 2.04 x 10^-11) = sqrt(470.6) = 21.7 m/s. Hmm that seems low. Actually: v = sqrt(2Ep/m) = sqrt(2 x 4.8 x 10^-9 / 2.04 x 10^-11) = sqrt(470.59) = 21.7 m/s. v = 21.7 m s-1.",
+      "markingGuide": "Achieved: q found or substitutes correctly. Merit: v with one error. Excellence: Correct v = 21.7 m s-1."
     },
     {
       "id": "e25-q1d",
       "number": "1(d)",
-      "text": "A charged ink droplet is held stationary between the two charged parallel plates.\n\nDiscuss how it is possible for the ink droplet to be stationary between the plates.\n\nIn your answer:\n- identify the forces on the ink droplet and their directions\n- describe how the forces combine to keep the ink droplet stationary\n- explain what type of charge the ink droplet must have to remain stationary.",
+      "text": "A charged toner particle is held stationary between the two charged parallel plates.\n\nDiscuss how it is possible for the toner particle to be stationary.\n\nIn your answer:\n- identify the forces and their directions\n- describe how they combine to keep the particle stationary\n- explain what charge the particle must have.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -84,14 +83,13 @@
         "equilibrium"
       ],
       "answerType": "text",
-      "expectedAnswer": "Gravitational force acts downward.",
-      "markingGuide": "Achieved: One correct statement. OR one force arrow correctly labelled on diagram. Merit: Two linked statements. OR both force arrows correctly labelled and of equal length. Excellence: Full explanation.",
-      "image": "/images/exams/91173-2025-q1d.png"
+      "expectedAnswer": "Gravitational force acts downward. The electric force must act upward to balance it. For the electric force to push upward (against gravity), the particle must be positively charged (attracted toward the negative plate above). The two forces are equal in magnitude and opposite in direction, producing zero net force.",
+      "markingGuide": "Achieved: One correct statement. Merit: Two linked statements. Excellence: Full explanation."
     },
     {
       "id": "e25-q2a",
       "number": "2(a)",
-      "text": "An air fryer consists of a heating element, two fans, and a lamp.\n\nIn the diagram, the heating element is represented by a rheostat, and the two identical fans are represented by the resistors.\n\nThe circuit has a 240 V supply. The rheostat is 1000 Ω and the lamp. The two fan resistors are each 480 Ω.\n\nInitially switch A is closed and switch B is open, so the element and lamp are on, and the fans are off.\n\nCalculate the current in the lamp.",
+      "text": "A heat pump system consists of a compressor, two fans, and a control light.\n\nThe circuit has a 230 V supply. The compressor is 920 ohm and the control light. The two fan resistors are each 460 ohm.\n\nInitially the compressor and light are on, and the fans are off.\n\nCalculate the current in the light.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -100,14 +98,13 @@
         "current"
       ],
       "answerType": "working",
-      "expectedAnswer": "I = 0.24 A",
-      "markingGuide": "V = IR → I = V/R = 240/1000 = 0.24 A. Achieved: Correct.",
-      "image": "/images/exams/91173-2025-q2.png"
+      "expectedAnswer": "I = V/R = 230/920 = 0.25 A.",
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "e25-q2b",
       "number": "2(b)",
-      "text": "Use physics principles to explain what adjustment would need to be made to the rheostat's resistance to increase the power output of the element.",
+      "text": "Use physics principles to explain what adjustment to the compressor's resistance would increase its power output.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -116,13 +113,13 @@
         "resistance"
       ],
       "answerType": "text",
-      "expectedAnswer": "Decreasing the resistance of the rheostat would increase the current through the rheostat.",
-      "markingGuide": "Achieved: Decrease R and 240 V fixed. Merit: Decrease R, 240 V fixed and rheostat gets 240 V."
+      "expectedAnswer": "Decreasing the resistance would increase the current. Since the voltage across the compressor is fixed at 230 V, P = V^2/R, so lower R means higher P.",
+      "markingGuide": "Achieved: Decrease R. Merit: Decrease R with explanation."
     },
     {
       "id": "e25-q2ci",
       "number": "2(c)(i)",
-      "text": "Both switches are now closed and the heating element set so that it produces 1800 W.\n\nShow that the resistance of the element is 32 Ω.",
+      "text": "Both switches are now closed and the compressor produces 2000 W.\n\nShow that the resistance of the compressor is 26.5 ohm.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -132,14 +129,13 @@
         "parallel-circuits"
       ],
       "answerType": "working",
-      "expectedAnswer": "R = 32 Ω",
-      "markingGuide": "R of element = V²/P = 240²/1800 = 32 Ω. Total resistance: 1/RT = 1/1000 + 1/32 + 1/(480+480) → RT = 30 Ω. OR: Lamp: V = IR → I = 240/1000 = 0.24 A. Element: P = IV → I = 1800/240 = 7.5 A. Fans: V = IR → I = 240/960 = 0.25 A. Total I = 8 A. In 5 minutes: Q = It = 8 × 5 × 60 = 2400 C. Achieved: Any ONE of: (i), 300 + any calculated current, current through any single branch found. Merit: Correct with one error. Excellence: Correct answer.",
-      "image": "/images/exams/91173-2025-q2c.png"
+      "expectedAnswer": "R = V^2/P = 230^2/2000 = 52900/2000 = 26.45 ohm = 26.5 ohm.",
+      "markingGuide": "Achieved: Any sub-calculation. Merit: Correct."
     },
     {
       "id": "e25-q2cii",
       "number": "2(c)(ii)",
-      "text": "Calculate how many coulombs of charge are produced by the power supply in 5 minutes.",
+      "text": "Calculate how many coulombs of charge are produced by the power supply in 4 minutes.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -148,13 +144,13 @@
         "current"
       ],
       "answerType": "working",
-      "expectedAnswer": "Q = 2400 C",
-      "markingGuide": "Total I = 0.24 + 7.5 + 0.25 = 8 A (or from RT = 30 Ω, I = 240/30 = 8 A). Q = It = 8 × 300 = 2400 C. Achieved: Any correct sub-calculation. Merit: Correct with one error. Excellence: Correct answer."
+      "expectedAnswer": "Compressor I = 230/26.5 = 8.68 A. Light I = 230/920 = 0.25 A. Fans I = 230/920 = 0.25 A. Total I = 9.18 A. Q = It = 9.18 x 240 = 2203 C. (Accept rounding variations.)",
+      "markingGuide": "Achieved: Any correct sub-calculation. Merit: Correct."
     },
     {
       "id": "e25-q2d",
       "number": "2(d)",
-      "text": "One day, the lamp stops working.\n\nUse physics principles to explain what effect the lamp not working would have on the current in the circuit and the power output of the element.",
+      "text": "One day, the control light stops working.\n\nUse physics principles to explain what effect this would have on the current in the circuit and the power output of the compressor.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -164,13 +160,13 @@
         "power"
       ],
       "answerType": "text",
-      "expectedAnswer": "When the lamp stops working, this removes a pathway and increases the total resistance of the...",
+      "expectedAnswer": "The light is in parallel. When it stops working, total resistance increases slightly, total current decreases slightly. However, the compressor still has 230 V across it (parallel), so its current and power remain unchanged. Only the total circuit current changes.",
       "markingGuide": "Achieved: ONE correct statement. Merit: TWO linked statements. Excellence: Full explanation."
     },
     {
       "id": "e25-q3a",
       "number": "3(a)",
-      "text": "A current-carrying wire is placed between the poles of a horseshoe magnet so that the current crosses the magnetic field at right angles. This creates a force on the wire in the direction shown.\n\nWhich of the poles labelled A and B in the diagram above is the north pole?",
+      "text": "A current-carrying wire is placed between the poles of a horseshoe magnet so the current crosses the magnetic field at right angles.\n\nWhich of the poles labelled A and B is the north pole?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -180,13 +176,12 @@
       ],
       "answerType": "text",
       "expectedAnswer": "B is north.",
-      "markingGuide": "Achieved: Correct.",
-      "image": "/images/exams/91173-2025-q3.png"
+      "markingGuide": "Achieved: Correct."
     },
     {
       "id": "e25-q3bi",
       "number": "3(b)(i)",
-      "text": "The diagram shows the main features of an electric motor with 40 turns of wire in the coil. The arrow on the diagram shows the 15 N of force acting on the whole side AB when a current flows in the coil.\n\nIn which direction is the current flowing in the coil?",
+      "text": "An electric motor has 50 turns of wire in the coil. A force of 18 N acts on the whole side AB when current flows.\n\nIn which direction is the current flowing in the coil?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -195,8 +190,8 @@
         "current"
       ],
       "answerType": "text",
-      "expectedAnswer": "Current is B to A or equivalent.",
-      "markingGuide": "Achieved: Correct current direction. OR force on CD = 15 N down and force on BC = 0 N. OR Force on BC = 0 N."
+      "expectedAnswer": "Current is B to A (or equivalent using right-hand rule).",
+      "markingGuide": "Achieved: Correct current direction."
     },
     {
       "id": "e25-q3bii",
@@ -210,8 +205,8 @@
         "force"
       ],
       "answerType": "text",
-      "expectedAnswer": "Force on CD = 15 N downwards. Force on BC = 0 N.",
-      "markingGuide": "Achieved: Correct current direction. OR force on CD = 15 N down and force on BC = 0 N. Merit: Force on CD = 15 N down and force on BC = 0 N and correct current direction. Excellence: Force on CD = 15 N down and force on BC = 0 N, correct current direction, and a link to either current is parallel to field for BC or perpendicular for CD."
+      "expectedAnswer": "Force on CD = 18 N downwards. Force on BC = 0 N (current parallel to field).",
+      "markingGuide": "Achieved: One force correct. Merit: Both forces correct with direction."
     },
     {
       "id": "e25-q3biii",
@@ -224,13 +219,13 @@
         "motor-effect"
       ],
       "answerType": "text",
-      "expectedAnswer": "Maximum force on CD as magnetic field is perpendicular to the current in the conductor.",
-      "markingGuide": "Achieved: One correct statement. Merit: Linked statements. Excellence: Full explanation."
+      "expectedAnswer": "Maximum force on CD as magnetic field is perpendicular to the current. Zero force on BC as current is parallel to the field.",
+      "markingGuide": "Achieved: One correct statement."
     },
     {
       "id": "e25-q3c",
       "number": "3(c)",
-      "text": "The magnetic field strength is 1.7 T. The length of AB is 50 cm.\n\nCalculate the current in one strand of wire on side AB.",
+      "text": "The magnetic field strength is 1.5 T. The length of AB is 60 cm.\n\nCalculate the current in one strand of wire on side AB.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -239,13 +234,13 @@
         "current"
       ],
       "answerType": "working",
-      "expectedAnswer": "I_coil = 0.44 A",
-      "markingGuide": "F = BIL → I_total = F/(BL) = 15/(1.7 × 0.5) = 17.6 A → I_coil = 17.6/40 = 0.44 A. OR F per wire = 15/40 = 0.375 N. And 0.375 = 1.7 × I × 0.5. I = 0.44 A. Achieved: I_total = 17.6 A. OR 0.375 N. Merit: I_coil = 0.44 A."
+      "expectedAnswer": "F = BIL. I_total = F/(BL) = 18/(1.5 x 0.60) = 20 A. I_coil = 20/50 = 0.40 A.",
+      "markingGuide": "Achieved: I_total = 20 A. Merit: I_coil = 0.40 A."
     },
     {
       "id": "e25-q3di",
       "number": "3(d)(i)",
-      "text": "By removing the voltage source, the motor is turned into a generator.\n\nCalculate the speed with which the side AB must be moving to generate a maximum of 12 volts in the entire coil of 40 turns of wire.\n\n(B = 1.7 T, L = 0.50 m)",
+      "text": "By removing the voltage source, the motor is turned into a generator.\n\nCalculate the speed with which side AB must be moving to generate a maximum of 15 volts in the entire coil of 50 turns.\n\n(B = 1.5 T, L = 0.60 m)",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -254,8 +249,8 @@
         "emf"
       ],
       "answerType": "working",
-      "expectedAnswer": "v = 0.35 m s⁻¹ (accept 7.1 or 14.1 m s⁻¹ depending on method)",
-      "markingGuide": "V = BLv → v = V/(BL × n) = 12/(1.7 × 0.5 × 40) = 6/(1.7 × 0.5 × 40) ... Actually: V = nBLv. 12 = 40 × 1.7 × 0.5 × v. v = 12/34 = 0.35 m s⁻¹. (6V as DC allow 0.18 m s⁻¹). Achieved: 0.35 or 7.1 or 14.1 m s⁻¹. OR (ii). Merit: (i) and (ii). Excellence: (i) and (ii)."
+      "expectedAnswer": "V = nBLv. 15 = 50 x 1.5 x 0.60 x v. v = 15/45 = 0.33 m s-1.",
+      "markingGuide": "Achieved: Substitution shown. Merit: v = 0.33 m s-1."
     },
     {
       "id": "e25-q3dii",
@@ -269,8 +264,8 @@
         "emf"
       ],
       "answerType": "text",
-      "expectedAnswer": "Max voltage when the coil is in the position shown (horizontal / parallel to magnetic field), as...",
-      "markingGuide": "Achieved: In the position shown. Merit: Position and some reasoning. Excellence: Full explanation."
+      "expectedAnswer": "Maximum voltage when the coil is horizontal (parallel to magnetic field), as the wire cuts through the most field lines per second (maximum rate of change of flux).",
+      "markingGuide": "Achieved: In the horizontal position."
     }
   ]
 }

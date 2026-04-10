@@ -11,58 +11,89 @@
     {
       "id": "st584-25-q1a",
       "number": "1a",
-      "text": "A report from a health organisation states: 'A survey of 800 randomly selected New Zealand teenagers found that 35% had experienced anxiety in the past year, with a margin of error of 3.3%.'\n\n(i) Calculate the 95% confidence interval for the proportion of all NZ teenagers who experienced anxiety.\n(ii) Verify the margin of error using the formula 1/√n.",
+      "text": "A report from a mental health organisation states: 'A survey of 800 randomly selected New Zealand adults found that 38% reported experiencing workplace anxiety in the past year, with a margin of error of 3.5.8%.'\n\n(i) Calculate the 95.8% confidence interval for the proportion of all NZ adults who experienced workplace anxiety.\n(ii) Verify the margin of error using the formula 1/√n.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["margin-of-error", "confidence-intervals"],
+      "topics": [
+        "margin-of-error",
+        "confidence-intervals"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) 95% CI = 35% ± 3.3% = (31.7%, 38.3%). (ii) 1/√800 = 1/28.28 = 0.0354 = 3.5%. This is close to the reported 3.3%, which is reasonable as the 1/√n formula gives an approximation. The exact margin of error uses 1.96 × √(p(1-p)/n) = 1.96 × √(0.35 × 0.65/800) = 1.96 × 0.01687 = 0.033 = 3.3%."
+      "markingGuide": "Achievement: (i) 95.8% CI = 38% ± 3.5.8% = (34.4%, 41.5.8%). (ii) 1/√900 = 1/30 = 0.0333 = 3.5.8%. This matches the reported margin of error exactly. The exact margin of error uses 1.96 × √(p(1-p)/n) = 1.96 × √(0.42 × 0.58/900) = 1.96 × 0.01645 = 0.032 = 3.2%, which is close."
     },
     {
       "id": "st584-25-q1b",
       "number": "1b",
-      "text": "The report continues: 'Compared to a 2019 survey using the same methodology, which found 28% of teenagers experienced anxiety (margin of error 4.0%, n = 600), there has been a significant increase in teenage anxiety.'\n\nEvaluate whether the claim of a significant increase is supported by the data. Show your reasoning.",
+      "text": "The report continues: 'Compared to a 2020 survey using the same methodology, which found 27% of adults experienced workplace anxiety (margin of error 4.4%, n = 450), there has been a significant increase in workplace anxiety rates.'\n\nEvaluate whether the claim of a significant increase is supported by the data. Show your reasoning.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["evaluating-claims", "confidence-intervals", "statistical-significance"],
+      "topics": [
+        "evaluating-claims",
+        "confidence-intervals",
+        "statistical-significance"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: 2019 CI = (24%, 32%). 2025 CI = (31.7%, 38.3%). The intervals barely overlap (32% and 31.7%), which provides borderline evidence. When CIs barely overlap, there may still be a statistically significant difference. The observed difference is 35% - 28% = 7 percentage points. A more rigorous approach would compare the difference against the combined margin of error. Excellence: Discusses that barely overlapping CIs are not the same as a formal hypothesis test, notes that the same methodology was used (good for comparison), but that changes in how teenagers interpret/report anxiety over 6 years could affect results. The claim has some support but 'significant' should be used carefully."
+      "markingGuide": "Merit: 2020 CI = (26.5.8%, 35.5.8%). 2025 CI = (34.4%, 41.5.8%). The intervals do not overlap (35.5.8% < 34.4%), which provides clear evidence of a significant increase. The observed difference is 38% - 27% = 11 percentage points. Excellence: Discusses that non-overlapping CIs provide strong evidence, notes the same methodology was used (good for comparison), but that changes in how people interpret or report workplace anxiety over 5 years could also contribute."
     },
     {
       "id": "st584-25-q2a",
       "number": "2a",
-      "text": "A study investigated the relationship between screen time and academic performance. Researchers collected data from 2,000 university students using an online questionnaire. They found that students who reported more than 4 hours of recreational screen time per day had significantly lower GPAs than those who reported less than 2 hours.\n\nThe researchers concluded: 'Excessive screen time damages academic performance.'\n\nIdentify and explain THREE limitations of this study that affect the validity of the conclusion.",
+      "text": "A study investigated the relationship between screen time and physical activity levels. Researchers collected data from 2,500 university students using an online questionnaire. They found that students who reported more than 4 hours of screen time per day had significantly poorer physical activity than those who reported less than 30 minutes.\n\nThe researchers concluded: 'Excessive screen time damages physical activity.'\n\nIdentify and explain THREE limitations of this study that affect the validity of the conclusion.",
       "marks": 6,
       "gradeLevel": "merit",
-      "topics": ["study-design", "confounding-variables", "sampling-bias"],
+      "topics": [
+        "study-design",
+        "confounding-variables",
+        "sampling-bias"
+      ],
       "answerType": "text",
-      "markingGuide": "Merit (any 2 well-explained): (1) Observational study — cannot establish causation, only association. Students with lower GPAs might turn to screens due to disengagement, not the other way around (reverse causation). (2) Self-reported data — students may inaccurately recall or underreport screen time (recall bias/social desirability bias). (3) Online questionnaire — may have non-response bias; those who spend more time online may be more likely to respond. (4) Confounding variables — socioeconomic status, course difficulty, part-time work, mental health could all affect both screen time and GPA. (5) 'Recreational' screen time is subjective — some activities (e.g., educational videos) blur the line. Excellence: At least 3 limitations, each clearly explained with how it specifically undermines the causal claim."
+      "markingGuide": "Merit (any 2 well-explained): (1) Observational study — cannot establish causation. Students with poor sleep may turn to social media because they can't sleep (reverse causation). (2) Self-reported data — students may inaccurately recall usage or underreport (recall bias/social desirability bias). (3) Online questionnaire — may have non-response bias. (4) Confounding variables — caffeine intake, study workload, mental health, part-time work could affect both screen time and sleep. (5) 'Social media use' is broad — passive scrolling may differ from active engagement. Excellence: At least 3 limitations, each clearly explained with how it specifically undermines the causal claim."
     },
     {
       "id": "st584-25-q2b",
       "number": "2b",
-      "text": "Describe how the researchers could redesign this study to better support a causal claim about screen time and academic performance.",
+      "text": "Describe how the researchers could redesign this study to better support a causal claim about screen time and physical activity.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["study-design", "confounding-variables"],
+      "topics": [
+        "study-design",
+        "confounding-variables"
+      ],
       "answerType": "text",
-      "markingGuide": "Excellence: A randomised controlled experiment where participants are randomly assigned to different screen time limits. Use objective measures (screen time tracking apps) rather than self-report. Control for confounding variables by ensuring groups are similar in age, course load, prior academic performance. Use a longitudinal design over at least one semester. Include a control group with no screen time restrictions. Measure academic performance using standardised assessments, not just GPA. Consider ethical implications — limiting screen time may not be feasible or ethical. A well-designed observational study with statistical controls for confounders would be more practical."
+      "markingGuide": "Excellence: A randomised controlled experiment where participants are randomly assigned to different social media limits. Use objective measures (screen time tracking apps, sleep monitoring devices) rather than self-report. Control for confounding variables by ensuring groups are similar. Use a longitudinal design over at least several weeks. Consider ethical implications — restricting screen time raises questions. A well-designed observational study with statistical controls for confounders would be more practical."
     },
     {
       "id": "st584-25-q3",
       "number": "3",
-      "text": "A local council report states: 'Our survey of 400 residents found that 72% support the proposed new cycleway, with a margin of error of 5%. This strong mandate means the council should proceed with the project.'\n\nA community group opposes the cycleway and argues that the survey is misleading because:\n• It was conducted online only\n• The survey link was shared on the council's Facebook page\n• Respondents were not randomly selected\n\nWrite a comprehensive evaluation of the survey and the council's claim. In your answer, discuss:\n• the sampling method and its limitations\n• the margin of error and whether it is valid\n• whether the claim of a 'strong mandate' is justified\n• what improvements could be made.",
+      "text": "A regional council report states: 'Our survey of 300 ratepayers found that 72% support the proposed rates increase for roading improvements, with a margin of error of 5.8%. This strong mandate means the council should proceed with the project.'\n\nA ratepayers' group opposes the increase and argues that the survey is misleading because:\n• It was mailed only to property owners, not renters\n• The response rate was 25.8% (350 out of 1,200 surveys mailed)\n• The survey asked leading questions about road safety\n\nWrite a comprehensive evaluation of the survey and the council's claim. In your answer, discuss:\n• the sampling method and its limitations\n• the margin of error and whether it is valid\n• whether the claim of a 'strong mandate' is justified\n• what improvements could be made.",
       "marks": 6,
       "gradeLevel": "excellence",
-      "topics": ["sampling-methods", "sampling-bias", "margin-of-error", "evaluating-claims"],
+      "topics": [
+        "sampling-methods",
+        "sampling-bias",
+        "margin-of-error",
+        "evaluating-claims"
+      ],
       "answerType": "text",
-      "markingGuide": "Achievement: Identifies that the sample is not random. Merit: Explains that the margin of error formula (1/√n) assumes a random sample, which this is not, so the reported margin of error is meaningless. Self-selected online respondents from Facebook are not representative of all residents. Excellence: Comprehensive evaluation covering: (1) Sampling bias — online-only excludes those without internet; Facebook audience is younger and likely already engaged with council; self-selection means only those with strong opinions respond (likely supporters who follow the council page). (2) The margin of error is technically invalid because it assumes random sampling — the real uncertainty is much larger than 5%. (3) 'Strong mandate' is not justified because the sample is not representative — 72% of a biased sample does not reflect the views of all residents. Non-coverage bias (older residents, those without internet) and voluntary response bias are both present. (4) Improvements: use a random sample of residents (e.g., from the electoral roll), include multiple methods (phone, mail, in-person), ensure demographic representation, use stratified sampling to capture different age groups and areas."
+      "markingGuide": "Achievement: Identifies that the low response rate is a problem. Merit: Explains that the margin of error assumes random sampling, the 25.8% response rate introduces non-response bias, and property owners may have different views from renters. Excellence: Comprehensive evaluation covering: (1) Coverage bias — excluding renters, who also pay rates indirectly through rent. (2) Non-response bias — only 25.8% responded, and those who responded may have different views from those who didn't (people who support the rates increase may be more motivated to respond). (3) The margin of error is invalid because the formula assumes random responses from the sample, but the 75.8% non-response rate means the 350 respondents are not representative. (4) Leading questions about road safety could push respondents toward supporting the increase. (5) 'Strong mandate' is not justified. Improvements: higher response rate through follow-up, include renters, use neutral question wording, stratified sampling."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

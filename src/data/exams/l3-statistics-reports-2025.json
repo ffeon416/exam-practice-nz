@@ -11,74 +11,105 @@
     {
       "id": "stat584-25-q1a",
       "number": "1(a)",
-      "text": "A report from a polling company states: 'Our latest poll of 1000 randomly selected New Zealand voters shows that 48% intend to vote for Party A, with a margin of error of ±3.1%. This is a significant drop from our previous poll three months ago, which showed Party A at 54%.'\n\nCalculate a confidence interval for the current level of support for Party A. Based on the two polls, can we be confident that support for Party A has actually decreased? Justify your answer using the margins of error.",
+      "text": "A report from a polling company states: 'Our latest poll of 1,100 randomly selected Auckland residents shows that 41% support a congestion charges, with a margin of error of ±3.0%. This is a notable shift from our previous poll six months ago, which showed support at 48%.'\n\nCalculate a confidence interval for the current level of support for a congestion charges. Based on the two polls, can we be confident that support has actually decreased? Justify your answer using the margins of error.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["margin-of-error", "confidence-intervals"],
+      "topics": [
+        "margin-of-error",
+        "confidence-intervals"
+      ],
       "answerType": "working",
-      "expectedAnswer": "Current poll CI: 48% ± 3.1% = (44.9%, 51.1%). Previous poll: assuming similar margin of error ~±3.1%, CI would be (50.9%, 57.1%). Since the intervals do not overlap (51.1% < 50.9% is borderline), there is weak evidence of a real decrease. However, the intervals barely fail to overlap, so the evidence is not strong. More precisely, since the CIs almost overlap, the change could be real but we cannot be highly confident.",
-      "markingGuide": "Achieved: Calculates the confidence interval for the current poll correctly as (44.9%, 51.1%). Merit: Considers both confidence intervals and discusses whether they overlap to assess if the change is real. Excellence: Discusses the borderline nature of the overlap, notes that non-overlapping CIs suggest a real difference but that the margins of error make this uncertain, and considers that both polls have their own sampling variability."
+      "expectedAnswer": "Current poll CI: 41% ± 3.0% = (38%, 44%). Previous poll: assuming similar margin of error ~±3.0%, CI would be (48.2%, 53.8%). Since the intervals do not overlap (44% < 48.2%), there is evidence of a real decrease in support.",
+      "markingGuide": "Achieved: Calculates the confidence interval for the current poll correctly as (38%, 44%). Merit: Considers both confidence intervals and discusses whether they overlap to assess if the change is real. Excellence: Discusses the non-overlapping CIs as strong evidence of a real difference, notes that both polls have their own sampling variability, and considers that other factors may have influenced the change."
     },
     {
       "id": "stat584-25-q1b",
       "number": "1(b)",
-      "text": "The report notes that the poll was conducted by telephone during weekday business hours (9am–5pm).\n\nExplain how this data collection method could introduce bias and what effect this might have on the poll results.",
+      "text": "The report notes that the poll was conducted using automated phone calls (robocalls) to landline numbers only.\n\nExplain how this data collection method could introduce bias and what effect this might have on the poll results.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["sampling-bias", "sampling-methods"],
+      "topics": [
+        "sampling-bias",
+        "sampling-methods"
+      ],
       "answerType": "text",
-      "expectedAnswer": "Calling during weekday business hours means the sample would under-represent people who work full-time during the day (typically working-age adults) and over-represent retirees, stay-at-home parents, shift workers, and unemployed people. This creates non-response bias and coverage bias. The political preferences of those available during business hours may differ systematically from the general voting population. For example, retired people may tend to support different parties than working professionals, so the 48% figure may not accurately reflect the views of all NZ voters.",
-      "markingGuide": "Achieved: Identifies that some groups would be missed by daytime calling. Merit: Explains which groups would be over/under-represented and how this could systematically affect the poll results in a particular direction. Excellence: Provides a detailed explanation of how the timing creates coverage and non-response bias, discusses specific demographic groups affected, explains the likely direction of bias on political preferences, and suggests how this could be mitigated (e.g., calling at different times, weighting responses)."
+      "expectedAnswer": "Using landline numbers only means the sample would under-represent younger adults (who are more likely to use mobile phones only) and over-represent older adults who still maintain landlines. This creates coverage bias. Additionally, automated calls have low response rates, introducing non-response bias — those who choose to complete a robocall survey may have different political views from those who hang up. The political preferences of landline users may differ systematically from the general voting population.",
+      "markingGuide": "Achieved: Identifies that some groups would be missed by landline-only calls. Merit: Explains which groups would be over/under-represented and how this could systematically affect the poll results. Excellence: Provides a detailed explanation of how the method creates coverage and non-response bias, discusses specific demographic groups affected, explains the likely direction of bias on political preferences, and suggests how this could be mitigated."
     },
     {
       "id": "stat584-25-q1c",
       "number": "1(c)",
-      "text": "A rival polling company conducted their own poll using an online panel of 5000 volunteers who signed up to participate in surveys. Their poll showed 52% support for Party A.\n\nThe rival company argues their poll is more accurate because their sample size is five times larger. Evaluate this claim.",
+      "text": "A rival polling company conducted their own poll using an online panel of 7,000 volunteers who opted in to participate in surveys. Their poll showed 47% support for a congestion charges.\n\nThe rival company argues their poll is more accurate because their sample size is much larger. Evaluate this claim.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["sampling-methods", "evaluating-claims", "sampling-bias"],
+      "topics": [
+        "sampling-methods",
+        "evaluating-claims",
+        "sampling-bias"
+      ],
       "answerType": "text",
-      "expectedAnswer": "The rival company's claim is not justified. While a larger sample size does reduce the margin of error (it would be roughly ±1.4% for n=5000), this only measures random sampling error. The fundamental problem is that an online panel of volunteers is not a random sample — it suffers from self-selection bias (only people who choose to sign up are included) and coverage bias (excludes those without internet or who don't volunteer for surveys). A large biased sample does not give better estimates than a smaller random sample. The margin of error formula assumes random sampling, so the ±1.4% would be misleading — the actual uncertainty could be much larger due to the systematic bias. As the saying goes, a biased sample of 5000 is worse than a random sample of 500.",
-      "markingGuide": "Achieved: Notes that volunteer samples are not random. Merit: Explains that larger sample size reduces random error but does not fix bias, and identifies the self-selection problem. Excellence: Clearly distinguishes between random sampling error (reduced by larger n) and systematic bias (not reduced by larger n). Explains that the margin of error formula doesn't apply to non-random samples. Discusses why the 1000-person random sample may actually be more reliable despite being smaller."
+      "expectedAnswer": "The rival company's claim is not justified. While a larger sample size does reduce the margin of error (it would be roughly ±1.1% for n=8000), this only measures random sampling error. The fundamental problem is that an online panel of volunteers is not a random sample — it suffers from self-selection bias and coverage bias. A large biased sample does not give better estimates than a smaller random sample. The margin of error formula assumes random sampling, so the ±1.1% would be misleading — the actual uncertainty could be much larger due to systematic bias.",
+      "markingGuide": "Achieved: Notes that volunteer samples are not random. Merit: Explains that larger sample size reduces random error but does not fix bias, and identifies the self-selection problem. Excellence: Clearly distinguishes between random sampling error (reduced by larger n) and systematic bias (not reduced by larger n). Explains that the margin of error formula doesn't apply to non-random samples. Discusses why the 1,200-person random sample may actually be more reliable despite being smaller."
     },
     {
       "id": "stat584-25-q2a",
       "number": "2(a)",
-      "text": "A government report claims: 'Cities that have built more cycle lanes have seen a 25% reduction in car accidents. Therefore, building cycle lanes reduces car accidents.'\n\nThe report includes data from 20 cities, comparing accident rates before and after cycle lanes were built.\n\nIdentify and explain TWO reasons why the causal claim (that cycle lanes reduce car accidents) may not be valid.",
+      "text": "A council report claims: 'Suburbs that have installed cycle lanes have seen a 30% reduction in traffic accidents. Therefore, cycle lanes prevent traffic accidents.'\n\nThe report includes data from 15 suburbs, comparing injury rates before and after cycle lanes were installed.\n\nIdentify and explain TWO reasons why the causal claim (that cycle lanes prevent traffic accidents) may not be valid.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["evaluating-claims", "confounding-variables"],
+      "topics": [
+        "evaluating-claims",
+        "confounding-variables"
+      ],
       "answerType": "text",
-      "expectedAnswer": "1. Confounding variables: Cities that build cycle lanes may also be implementing other road safety measures at the same time (lower speed limits, traffic calming, better signage, road redesign). The reduction in accidents may be partly or entirely due to these other changes, not the cycle lanes specifically.\n2. Regression to the mean / selection bias: Cities may choose to build cycle lanes in areas with high accident rates. These areas would naturally tend to show improvement over time regardless of the intervention, simply because extreme values tend to move toward the average. Also, broader trends like improving car safety technology, changing driving habits, or reduced traffic volumes could explain the decrease.",
-      "markingGuide": "Achieved: Identifies one valid reason why causation cannot be concluded. Merit: Identifies and explains two distinct reasons, such as confounding variables and an alternative explanation for the observed pattern. Excellence: Provides detailed explanations of both reasons with specific examples relevant to the context, discusses the direction of potential bias, and explains what study design would be needed to establish causation (e.g., a controlled experiment, which is impractical here)."
+      "expectedAnswer": "1. Confounding variables: Suburbs that install cycle lanes may also be implementing other safety measures at the same time (better lighting, traffic crossings, lower speed limits). The reduction in injuries may be partly or entirely due to these other changes.\n2. Regression to the mean / selection bias: Councils may install cycle lanes in suburbs that had unusually high injury rates. These areas would naturally tend to show improvement over time regardless of the intervention, simply because extreme values tend to move toward the average.",
+      "markingGuide": "Achieved: Identifies one valid reason why causation cannot be concluded. Merit: Identifies and explains two distinct reasons, such as confounding variables and regression to the mean. Excellence: Provides detailed explanations of both reasons with specific examples relevant to the context, discusses the direction of potential bias, and explains what study design would be needed to establish causation."
     },
     {
       "id": "stat584-25-q2b",
       "number": "2(b)",
-      "text": "The report also states: 'We surveyed residents in these cities and found that 70% of people feel safer cycling since the new cycle lanes were built. This confirms that cycle lanes improve safety.'\n\nExplain why 'feeling safer' does not confirm that cycle lanes actually improve safety. Discuss the difference between perception and statistical evidence in this context.",
+      "text": "The report also states: 'We surveyed residents and found that 75% feel safer walking in their suburb since the cycle lanes were installed. This confirms that cycle lanes improve safety.'\n\nExplain why 'feeling safer' does not confirm that cycle lanes actually improve safety. Discuss the difference between perception and statistical evidence in this context.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["evaluating-claims", "statistical-reasoning"],
+      "topics": [
+        "evaluating-claims",
+        "statistical-reasoning"
+      ],
       "answerType": "text",
-      "expectedAnswer": "Feeling safer (perception) is different from being safer (reality measured by data). People may feel safer because of the visible infrastructure, but the actual accident rates may not have changed, or may have changed for other reasons. The survey measures subjective opinion, not objective safety outcomes. Additionally, the survey may suffer from response bias — people who use cycle lanes are more likely to respond positively about them. Those who don't cycle may not have been surveyed. The question wording 'since the new cycle lanes were built' is leading, as it assumes the cycle lanes are the cause of any perceived change. Proper evidence of improved safety would require comparing actual accident/injury data, not perceptions.",
-      "markingGuide": "Achieved: Notes that feeling safer is not the same as being safer. Merit: Explains the distinction between perception and actual safety data, and identifies at least one source of bias in the survey. Excellence: Thoroughly discusses: (1) the difference between subjective perception and objective measurement, (2) potential survey biases (response bias, leading question, who was surveyed), (3) what proper evidence of improved safety would look like, and (4) why perceptions can be misleading in evaluating policy effectiveness."
+      "expectedAnswer": "Feeling safer (perception) is different from being safer (reality measured by data). People may feel safer because of the visible infrastructure, but the actual injury rates may not have changed, or may have changed for other reasons. The survey measures subjective opinion, not objective safety outcomes. Additionally, the survey may suffer from response bias. Proper evidence of improved safety would require comparing actual injury data, not perceptions.",
+      "markingGuide": "Achieved: Notes that feeling safer is not the same as being safer. Merit: Explains the distinction between perception and actual safety data, and identifies at least one source of bias in the survey. Excellence: Thoroughly discusses: (1) the difference between subjective perception and objective measurement, (2) potential survey biases, (3) what proper evidence of improved safety would look like, and (4) why perceptions can be misleading in evaluating policy effectiveness."
     },
     {
       "id": "stat584-25-q2c",
       "number": "2(c)",
-      "text": "Suggest a more rigorous study design that could provide stronger evidence about whether cycle lanes reduce car accidents. Explain why your design would be an improvement.",
+      "text": "Suggest a more rigorous study design that could provide stronger evidence about whether cycle lanes reduce traffic accidents. Explain why your design would be an improvement.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["study-design", "evaluating-claims"],
+      "topics": [
+        "study-design",
+        "evaluating-claims"
+      ],
       "answerType": "text",
-      "expectedAnswer": "A stronger design would be a quasi-experimental study: select pairs of similar cities (matched on population, traffic volume, road design, existing safety measures). In each pair, one city builds cycle lanes while the other doesn't (control). Compare accident rates over the same time period. This controls for time-related trends affecting all cities. Include before-and-after data for both groups (difference-in-differences design). Collect data on potential confounders (other road safety changes, traffic volume changes, weather) and adjust for these statistically. Use a long enough time period to account for seasonal variation and ensure the sample of cities is large enough for meaningful statistical comparison. This would be an improvement because it includes a control group (cities without cycle lanes) to compare against, controls for confounding variables, and uses objective accident data rather than perceptions.",
-      "markingGuide": "Achieved: Suggests using a control group or comparison cities. Merit: Describes a study with matched comparison cities, before-and-after measurements, and control for confounding variables. Explains why this is better than the original study. Excellence: Provides a detailed, well-structured study design that addresses multiple limitations of the original study. Discusses matching, control groups, time period, confounding variables, and the type of data to collect. Acknowledges practical limitations (can't truly randomise cities) and explains how the design still improves on the original evidence."
+      "expectedAnswer": "A stronger design would be a quasi-experimental study: select pairs of similar suburbs (matched on population, traffic volume, road type, existing safety measures). In each pair, one suburb installs cycle lanes while the other doesn't (control). Compare injury rates over the same time period. This controls for time-related trends. Include before-and-after data for both groups (difference-in-differences design). Collect data on potential confounders (other road safety changes, traffic volume changes) and adjust for these statistically. This would be an improvement because it includes a control group to compare against, controls for confounding variables, and uses objective injury data rather than perceptions.",
+      "markingGuide": "Achieved: Suggests using a control group or comparison suburbs. Merit: Describes a study with matched comparison suburbs, before-and-after measurements, and control for confounding variables. Excellence: Provides a detailed, well-structured study design that addresses multiple limitations of the original study. Discusses matching, control groups, time period, confounding variables, and the type of data to collect."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

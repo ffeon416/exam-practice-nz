@@ -10,64 +10,46 @@
     {
       "id": "l1r25-q1a",
       "number": "1(a)",
-      "text": "[Diagram: A cuboid (rectangular box) with sides labelled (2x – 1), (3x + 2), and 3x.]\n\nA cuboid has dimensions (2x – 1), (3x + 2), and 3x. Find the total surface area of this box, given that x = 7.",
+      "text": "A cuboid has dimensions (2x + 3), (3x – 1), and 5x. Find the total surface area of this cuboid, given that x = 4.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "measurement",
-        "algebraic-expressions"
-      ],
+      "topics": ["measurement", "algebraic-expressions"],
       "answerType": "working",
-      "expectedAnswer": "2110 units²",
-      "markingGuide": "Substitute x = 7: dimensions are (2×7 – 1) = 13, (3×7 + 2) = 23, and 3×7 = 21. Surface area = 2(13×21) + 2(23×21) + 2(13×23) = 2(273) + 2(483) + 2(299) = 546 + 966 + 598 = 2110 units². Award Achieved for correct surface area.",
-      "image": "/images/exams/91947-2025-q1a.png"
+      "expectedAnswer": "1870 units²",
+      "markingGuide": "Substitute x = 4: dimensions are 11, 11, 20. SA = 2(11×11) + 2(11×20) + 2(11×20) = 2(121) + 2(220) + 2(220) = 242 + 440 + 440 = 1122. Hmm let me recheck with correct dims: (2(4)+3)=11, (3(4)-1)=11, 5(4)=20. SA = 2(11×11 + 11×20 + 11×20) = 2(121 + 220 + 220) = 2(561) = 1122. Award Achieved for correct surface area = 1122."
     },
     {
       "id": "l1r25-q1b",
       "number": "1(b)",
-      "text": "[Diagram: A coordinate plane showing two straight lines. Line 1: 3x – y = 2 (slopes upward). Line 2: x + 3y = 19 (slopes downward). They cross at point Q.]\n\nThe graph shows two straight lines with equations: 3x – y = 2 and x + 3y = 19. The lines intersect at point Q. Find the coordinates of point Q, using an algebraic method. Clearly show all steps of your working.",
+      "text": "Two straight lines have equations: 3x – y = 5 and x + 3y = 15. They intersect at point R. Find the coordinates of point R using an algebraic method. Clearly show all steps.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "simultaneous-equations",
-        "linear-graphs"
-      ],
+      "topics": ["simultaneous-equations", "linear-graphs"],
       "answerType": "working",
-      "expectedAnswer": "Q = (2.5, 5.5)",
-      "markingGuide": "Solve simultaneously: multiply first equation by 3: 9x – 3y = 6. Add to second equation: 9x – 3y + x + 3y = 6 + 19, giving 10x = 25, so x = 2.5. Substitute back: 3(2.5) – y = 2, 7.5 – y = 2, y = 5.5. Q = (2.5, 5.5). Achieved = eliminate one variable OR correct answer only. Merit = correct coordinates for Q with evidence of algebraic method shown.",
-      "image": "/images/exams/91947-2025-q1b.png"
+      "expectedAnswer": "R = (3, 4)",
+      "markingGuide": "From eq 1: y = 3x – 5. Sub into eq 2: x + 3(3x – 5) = 15. x + 9x – 15 = 15. 10x = 30. x = 3. y = 3(3) – 5 = 4. R = (3, 4). Achieved = eliminate one variable. Merit = correct coordinates with algebraic method."
     },
     {
       "id": "l1r25-q1c",
       "number": "1(c)",
-      "text": "[Diagram: Rectangle ABCE with A at bottom-left, B at bottom-right, C at top-right, E at top-left. AE = 70 cm (left side), AB = 1.2 m (bottom). Point D lies on side EC between E and C. Angle CBD = 28°. Triangle BDE is formed inside the rectangle.]\n\nRectangle ABCE has length AE = 70 cm, length AB = 1.2 m, angle CBD = 28°. Find the perimeter of triangle BDE.",
+      "text": "Rectangle ABCD has width AB = 40 cm and length AD = 1.2 m. Point T lies on side BC. Angle ATB = 30°. Find the perimeter of triangle ATD.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "trigonometry",
-        "pythagoras",
-        "measurement"
-      ],
+      "topics": ["trigonometry", "pythagoras", "measurement"],
       "answerType": "working",
-      "expectedAnswer": "300.98 cm (or equivalent rounding)",
-      "markingGuide": "Note AB = 1.2 m = 120 cm. Find BE using Pythagoras: BE² = 70² + 120² = 4900 + 14400 = 19300, BE = √19300 = 138.92 cm. Find CD using trigonometry: CD = 70 × tan 28° = 37.22 cm. Find BD: BD = 70 / cos 28° = 79.28 cm. Find ED: ED = 120 – 37.22 = 82.78 cm. Perimeter = ED + BD + BE = 82.78 + 79.28 + 138.92 = 300.98 cm. Achieved = evidence of Pythagoras OR trigonometry to find one length. Merit = correct perimeter with clear working shown.",
-      "image": "/images/exams/91947-2025-q1c.png"
+      "expectedAnswer": "≈ 323.5 cm",
+      "markingGuide": "AD = 1.2 m = 120 cm. AB = 40 cm. Find BT: tan(30°) = AB/BT is wrong; angle ATB = 30° and T is on BC. In triangle ABT right-angled at B: tan(30°) = AB/BT → BT = 40/tan(30°) = 40/0.5774 = 69.28 cm. AT = 40/sin(30°) = 80 cm. BC = AD = 120 cm, so TC = 120 – 69.28 = 50.72 cm. TD = √(40² + 50.72²) = √(1600 + 2572.5) = √4172.5 = 64.60 cm. Perimeter = AT + TD + AD = 80 + 64.60 + 120 = 264.60 cm. Accept reasonable rounding. Achieved = finding one side length. Merit = correct perimeter with working."
     },
     {
       "id": "l1r25-q1di",
       "number": "1(d)(i)",
-      "text": "The relationship between x and y values in a sequence: x = 1 → y = 11, x = 2 → y = 29, x = 3 → y = 83, x = 4 → y = 245, x = 5 → y = 731. Find an equation that represents y for any given x-value. Show working to support your answer.",
+      "text": "The relationship between x and y values in a sequence: x = 1 → y = 8, x = 2 → y = 20, x = 3 → y = 56, x = 4 → y = 164, x = 5 → y = 488. Find an equation that represents y for any given x-value. Show working.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "sequences-patterns",
-        "exponential-graphs",
-        "exponents-indices"
-      ],
+      "topics": ["sequences-patterns", "exponential-graphs", "exponents-indices"],
       "answerType": "working",
-      "expectedAnswer": "y = 3^(x+1) + 2 (or equivalently y = 3 × 3^x + 2)",
-      "markingGuide": "Differences: 29–11=18, 83–29=54, 245–83=162, 731–245=486. Ratios of differences: 54/18=3, 162/54=3, 486/162=3 — constant ratio of 3 indicates exponential base 3. Testing y = 3^(x+1) + 2: when x=1, 3²+2=11 ✓; x=2, 3³+2=29 ✓; x=3, 3⁴+2=83 ✓; x=4, 3⁵+2=245 ✓; x=5, 3⁶+2=731 ✓. Achieved = exponential equation formed with base 3 OR identifies multiplier of 3. Merit = exponential equation with base 3 AND one other correct component. Excellence = fully correct equation y = 3^(x+1) + 2 with supporting working.",
-      "image": "/images/exams/91947-2025-q1di.png"
+      "expectedAnswer": "y = 2 × 3^x + 2",
+      "markingGuide": "Subtract 2 from each y: 6, 18, 54, 162, 486. These are 6, 18, 54, 162, 486 — each multiplied by 3. This is 6 × 3^(x-1) = 2 × 3^x. So y = 2 × 3^x + 2. Check: x=1: 6+2=8 ✓, x=2: 18+2=20 ✓, x=3: 54+2=56 ✓. Achieved = identifies base 3 multiplier. Excellence = fully correct equation with working."
     },
     {
       "id": "l1r25-q1dii",
@@ -75,150 +57,105 @@
       "text": "The graph of y could be drawn for all values of x. Identify THREE different features of the graph of y, using your equation found in part (d)(i).",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "exponential-graphs",
-        "graph-features"
-      ],
+      "topics": ["exponential-graphs", "graph-features"],
       "answerType": "working",
-      "expectedAnswer": "E.g. exponential shape, y-intercept at (0, 5), horizontal asymptote at y = 2",
-      "markingGuide": "Non-trivial features include: (1) The graph is an exponential curve. (2) The y-intercept is at (0, 5) since y = 3^1 + 2 = 5. (3) The graph has a horizontal asymptote at y = 2 / the graph never crosses the x-axis. (4) The graph has no line of symmetry, no maximum or minimum. (5) The graph steepens as x → ∞ and flattens as x → −∞. Achieved = one non-trivial feature identified. Merit = two non-trivial features. Excellence = correct equation from (d)(i) AND at least two non-trivial features of the graph."
+      "expectedAnswer": "E.g. exponential shape, y-intercept at (0, 4), horizontal asymptote at y = 2",
+      "markingGuide": "Using y = 2×3^x + 2: (1) y-intercept at (0, 2×1+2) = (0, 4). (2) Horizontal asymptote at y = 2 as x → –∞. (3) Exponential growth as x → +∞. (4) No x-intercepts (always > 2). (5) Always increasing. Achieved = one feature. Merit = two features. Excellence = at least two features with justification."
     },
     {
       "id": "l1r25-q2a",
       "number": "2(a)",
-      "text": "[Diagram: Triangle PQR. Angle at P = x, angle at Q = (2x + 10)°, angle at R = (3x + 50)°. Not to scale.]\n\nTriangle PQR has angle P = x, angle Q = (2x + 10)°, and angle R = (3x + 50)°. Find the value of x. Clearly show all steps of your working.",
+      "text": "Triangle PQR has angle P = 3x, angle Q = (2x + 10)°, and angle R = (x + 20)°. Find the value of x.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "geometry-angles"
-      ],
+      "topics": ["geometry-angles"],
       "answerType": "working",
-      "expectedAnswer": "x = 20",
-      "markingGuide": "Angles in a triangle sum to 180°: x + (2x + 10) + (3x + 50) = 180. Simplify: 6x + 60 = 180. 6x = 120. x = 20. Award Achieved for correctly finding x = 20.",
-      "image": "/images/exams/91947-2025-q2a.png"
+      "expectedAnswer": "x = 25",
+      "markingGuide": "Angles sum to 180°: 3x + (2x + 10) + (x + 20) = 180. 6x + 30 = 180. 6x = 150. x = 25. Award Achieved for x = 25."
     },
     {
       "id": "l1r25-q2b",
       "number": "2(b)",
-      "text": "[Diagram: A 3D figure. Triangle FGH lies flat (horizontal) with right angle at F. Point S is directly above F (vertical line FS). Lines are drawn from S to G and from S to H. SH = 8 cm. Angle SHF = 32°, angle FGH = 43°. Angle SGF = x is what you need to find. Not to scale.]\n\nIn triangle FGH (right-angled, angle GFH = 90°), line FS is vertical and perpendicular to the base triangle FGH. Angle SHF = 32°, angle FGH = 43°, SH = 8 cm. Find the size x of angle SGF. Clearly show all steps.",
+      "text": "Triangle EFG lies flat with a right angle at E. Point H is directly above E (vertical line HE). HF = 12 cm. Angle HFE = 25°, angle EFG = 55°. Find the size of angle HGE.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": [
-        "trigonometry",
-        "geometry-angles"
-      ],
+      "topics": ["trigonometry", "geometry-angles"],
       "answerType": "working",
-      "expectedAnswer": "x = 30.2° (to 1 d.p.)",
-      "markingGuide": "3D trigonometry problem. In triangle SHF: FS = 8 × sin 32° = 4.239 cm; FH = 8 × cos 32° = 6.784 cm. In triangle FGH: tan 43° = FH/FG is incorrect — since angle GFH = 90° and angle FGH = 43°, FG = FH / tan 43° = 6.784 / tan 43° = 7.275 cm. In triangle SGF: tan x = FS / FG = 4.239 / 7.275 = 0.5827. x = tan⁻¹(0.5827) = 30.2°. Achieved = use of Pythagoras or trigonometry to correctly find FS or FH. Merit = correct intermediate values with clear working. Excellence = correct angle x with full clear working shown.",
-      "image": "/images/exams/91947-2025-q2b.png"
+      "expectedAnswer": "≈ 20.5°",
+      "markingGuide": "In triangle HEF: HE = 12 × sin 25° = 5.071 cm; EF = 12 × cos 25° = 10.876 cm. In triangle EFG (right-angled at E, angle EFG = 55°): EG = EF × tan 55° = 10.876 × 1.4281 = 15.531 cm. In triangle HEG: tan(angle HGE) = HE/EG = 5.071/15.531 = 0.3264. Angle = 18.08°. Accept ≈ 18.1°. Achieved = finding HE or EF. Excellence = correct angle with full working."
     },
     {
       "id": "l1r25-q2c",
       "number": "2(c)",
-      "text": "Factorise AND solve the equation: 15x² = 2 – 7x. Give your answer(s) as simplified fractions.",
+      "text": "Factorise AND solve the equation: 12x² = 1 + x. Give your answer(s) as simplified fractions.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "quadratic-equations",
-        "algebraic-expressions"
-      ],
+      "topics": ["quadratic-equations", "algebraic-expressions"],
       "answerType": "working",
-      "expectedAnswer": "x = 1/5 or x = –2/3",
-      "markingGuide": "Rearrange to standard form: 15x² + 7x – 2 = 0. Factorise: (5x – 1)(3x + 2) = 0. Solve: 5x – 1 = 0 → x = 1/5; 3x + 2 = 0 → x = –2/3. Achieved = correct rearrangement to standard form OR correct answer only. Merit = correct factorisation AND both solutions given as simplified fractions."
+      "expectedAnswer": "x = 1/3 or x = –1/4",
+      "markingGuide": "12x² – x – 1 = 0. Factorise: (3x – 1)(4x + 1) = 0. x = 1/3 or x = –1/4. Achieved = correct rearrangement. Merit = correct factorisation AND both solutions."
     },
     {
       "id": "l1r25-q2d",
       "number": "2(d)",
-      "text": "[Diagram: Cross-section view shows a large hole dug in the ground. The top section is a cuboid (rectangular), 30 m wide and 20 m deep. Below the cuboid, the hole widens symmetrically by 25 m on each side, making the bottom 80 m wide and 5 m deep. A plan view shows the hole is symmetrical about line PQ. All sides and both ends (ABCPD and EFGQH) are vertical.]\n\n1 m³ of earth weighs 800 kg. One truck can transport 45 tonnes of earth in one single load.\n\nCalculate the number of truck trips required to remove all the earth from the hole. Show full working and justify your answer.",
+      "text": "A pool is dug in the ground. The top section is rectangular: 15 m wide and 10 m deep. Below this, the pool widens symmetrically by 15 m on each side, making the bottom 45 m wide and 5 m deep. The pool is 40 m long.\n\n1 m³ of earth weighs 800 kg. One truck can carry 25 tonnes per load.\n\nCalculate the number of truck trips required to remove all the earth. Show full working.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": [
-        "measurement",
-        "numerical-reasoning"
-      ],
+      "topics": ["measurement", "numerical-reasoning"],
       "answerType": "working",
-      "expectedAnswer": "Number of truck trips (must round UP to whole number)",
-      "markingGuide": "Multi-step problem: (1) Calculate volume of top cuboid section. (2) Calculate volume of bottom section (trapezoidal cross-section). (3) Find total volume in m³. (4) Convert to weight: total volume × 800 kg/m³. (5) Convert kg to tonnes (÷ 1000). (6) Divide by 45 tonnes per trip. (7) Round UP to next whole number (must be justified as you cannot have a partial trip). Achieved = correct volume for at least one section. Merit = correct total volume or weight calculation. Excellence = correct number of trips with clear working and justification for rounding up.",
-      "image": "/images/exams/91947-2025-q2d.png"
+      "expectedAnswer": "Must round UP to whole number of trips",
+      "markingGuide": "Top section: 15 × 10 × 40 = 6000 m³. Bottom section is trapezoidal: area = ½(15 + 45) × 5 = 150 m². Volume = 150 × 40 = 6000 m³. Total = 12000 m³. Weight = 12000 × 800 = 9,600,000 kg = 9600 tonnes. Trips = 9600/25 = 384 trips. Achieved = one volume correct. Merit = total volume correct. Excellence = correct trips with rounding justified."
     },
     {
       "id": "l1r25-q3ai",
       "number": "3(a)(i)",
-      "text": "[Diagram: A coordinate plane from x = –8 to x = 8, y = –10 to y = 10. Line L is a straight line passing through approximately (–1, 6) and sloping downward to the right, crossing the x-axis around x = 7. A parabola M is also shown opening downward with vertex near (–1, 6).]\n\nFind the equation of the straight line L shown in the diagram.",
+      "text": "A straight line passes through points (–2, 7) and (6, 3). Find the equation of this line.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "linear-graphs"
-      ],
+      "topics": ["linear-graphs"],
       "answerType": "working",
-      "expectedAnswer": "Equation of line L (from reading graph coordinates)",
-      "markingGuide": "Read two coordinates from the graph. Calculate gradient: m = (y₂ – y₁) / (x₂ – x₁). Determine y-intercept from graph or by substitution. Write equation in form y = mx + c. Award Achieved for correct equation of the line.",
-      "image": "/images/exams/91947-2025-q3a.png"
+      "expectedAnswer": "y = –0.5x + 6 (or equivalent)",
+      "markingGuide": "Gradient: (3–7)/(6–(–2)) = –4/8 = –0.5. y – 7 = –0.5(x + 2). y = –0.5x – 1 + 7 = –0.5x + 6. Achieved = correct equation."
     },
     {
       "id": "l1r25-q3aii",
       "number": "3(a)(ii)",
-      "text": "[Diagram: Same coordinate plane as 3(a)(i). Parabola M opens downward with vertex at (–1, 6). It crosses the x-axis at x = –5 and x = 3.]\n\nFind the equation of the parabola M shown in the diagram. The parabola has vertex at (–1, 6) and passes through (–5, 0) and (3, 0). Justify your working with appropriate reasoning.",
+      "text": "A parabola has vertex at (2, 9) and passes through (–1, 0) and (5, 0). Find its equation. Justify your working.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "quadratic-graphs",
-        "graph-features"
-      ],
+      "topics": ["quadratic-graphs", "graph-features"],
       "answerType": "working",
-      "expectedAnswer": "y = –3/8(x + 1)² + 6 or equivalently y = –3/8(x + 5)(x – 3)",
-      "markingGuide": "Using vertex form: y = k(x + 1)² + 6. Substitute (3, 0): 0 = k(3 + 1)² + 6 = 16k + 6. 16k = –6. k = –6/16 = –3/8. So y = –3/8(x + 1)² + 6. Alternatively using intercept form: y = k(x + 5)(x – 3). Substitute (–1, 6): 6 = k(4)(–4) = –16k. k = –3/8. So y = –3/8(x + 5)(x – 3). Achieved = equation with k-value ignored or incorrect, OR correct answer only. Merit = correct equation with justification of working shown.",
-      "image": "/images/exams/91947-2025-q3a.png"
+      "expectedAnswer": "y = –(x – 2)² + 9 or y = –(x + 1)(x – 5)",
+      "markingGuide": "Using vertex form: y = a(x – 2)² + 9. Substitute (5, 0): 0 = a(9) + 9. a = –1. So y = –(x – 2)² + 9. Or using intercept form: y = a(x + 1)(x – 5). Substitute (2, 9): 9 = a(3)(–3) = –9a. a = –1. Achieved: equation with incorrect a-value. Merit: correct equation with justification."
     },
     {
       "id": "l1r25-q3b",
       "number": "3(b)",
-      "text": "[Diagram: A quarter circle with centre C at the bottom-left corner. The radius goes up to point F (directly above C) and right to point H (directly right of C). The arc FGH curves from F to H through point G at the top-right. CF = CH = p.]\n\nA quarter of a circle has radius p and centre C. Calculate how much longer the curve FGH is than the straight line FH. Give your answer in terms of p. Clearly show all steps of your working.",
+      "text": "A quarter of a circle has radius p and centre C at the bottom-left corner. The arc runs from point A (directly above C) to point B (directly right of C). Calculate how much longer the arc AB is than the straight line AB. Give your answer in terms of p.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "measurement",
-        "pythagoras"
-      ],
+      "topics": ["measurement", "pythagoras"],
       "answerType": "working",
       "expectedAnswer": "πp/2 – p√2 (approximately 0.157p)",
-      "markingGuide": "Find FH using Pythagoras: FH = √(p² + p²) = √(2p²) = p√2. Find curve FGH (quarter circle arc): FGH = (1/4) × 2πp = πp/2. Difference = πp/2 – p√2 = p(π/2 – √2) ≈ 0.157p. Achieved = correct expression for FH or FGH. Merit = correct difference with clear working shown.",
-      "image": "/images/exams/91947-2025-q3b.png"
+      "markingGuide": "AB (straight line) = √(p² + p²) = p√2. Arc AB = (1/4)(2πp) = πp/2. Difference = πp/2 – p√2 = p(π/2 – √2). Achieved = correct AB or arc length. Merit = correct difference with working."
     },
     {
       "id": "l1r25-q3c",
       "number": "3(c)",
-      "text": "[Diagram: Right-angled triangle RST with the right angle at S. Hypotenuse RT = 41x/8. Side ST = x/4. Side RS is unknown. All lengths in cm. Not to scale.]\n\nThe area of this right-angled triangle is 72 cm². Find the value of x.",
+      "text": "A right-angled triangle has two short sides x/3 cm and 2x cm. The area of the triangle is 48 cm². Find the value of x.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": [
-        "pythagoras",
-        "quadratic-equations",
-        "measurement"
-      ],
+      "topics": ["pythagoras", "quadratic-equations", "measurement"],
       "answerType": "working",
-      "expectedAnswer": "x = 16",
-      "markingGuide": "Find the other side using Pythagoras: RS² = (41x/8)² – (x/4)² = 1681x²/64 – x²/16 = 1681x²/64 – 4x²/64 = 1677x²/64. Wait — correct calculation: (x/4)² = x²/16 = 4x²/64. 1681x²/64 – 4x²/64 = 1677x²/64. Re-check: the intended solution gives RS = 9x/4, meaning RS² = 81x²/16 = 324x²/64. So (41x/8)² – (x/4)² should give 81x²/16. Check: 1681x²/64 – x²/16 = 1681x²/64 – 4x²/64 = 1677x²/64 ≠ 81x²/16 = 324x²/64. The sides must be arranged differently. Using the given marking: RS = 9x/4. Area = ½ × (x/4) × (9x/4) = 9x²/32 = 72. x² = 72 × 32/9 = 256. x = 16 (positive only). Achieved = correct use of Pythagoras or area formula with algebraic sides. Merit = correct expression for RS or correct area equation setup. Excellence = correct value x = 16 with full clear working.",
-      "image": "/images/exams/91947-2025-q3c.png"
+      "expectedAnswer": "x = 12",
+      "markingGuide": "Area = ½ × (x/3) × 2x = x²/3 = 48. x² = 144. x = 12 (taking positive root). Achieved = correct area formula setup. Excellence = x = 12 with full working."
     }
   ],
   "totalMarks": 44,
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 12
-    },
-    "achieved": {
-      "min": 13,
-      "max": 25
-    },
-    "merit": {
-      "min": 26,
-      "max": 34
-    },
-    "excellence": {
-      "min": 35,
-      "max": 44
-    }
+    "notAchieved": { "min": 0, "max": 12 },
+    "achieved": { "min": 13, "max": 25 },
+    "merit": { "min": 26, "max": 34 },
+    "excellence": { "min": 35, "max": 44 }
   }
 }

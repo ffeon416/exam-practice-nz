@@ -1,213 +1,12 @@
 {
   "id": "l3-physics-waves-2025",
-  "title": "Level 3 Physics — Waves (91523) — 2025",
+  "title": "Level 3 Physics \u2014 Waves (91523) \u2014 2025",
   "level": 3,
   "standard": "91523",
   "year": 2025,
   "subject": "physics",
   "timeMinutes": 0,
   "totalMarks": 24,
-  "questions": [
-    {
-      "id": "91523-25-q1a",
-      "number": "1(a)",
-      "text": "QUESTION ONE: THE DOPPLER EFFECT\n\nMartin and Kerryn are riding their jet skis on a lake. Martyn's jet ski is fitted with an air horn that emits a frequency of 1043 Hz. At one point, Kerryn stops and Martyn travels directly towards her at a speed of 27.3 m s⁻¹. The speed of sound in air is 343 m s⁻¹.\n\nCalculate the frequency of the sound that Kerryn hears.",
-      "marks": 2,
-      "gradeLevel": "achieved",
-      "topics": [
-        "doppler-effect",
-        "frequency"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "f' = 1130 Hz",
-      "markingGuide": "Achievement: States correct answer. Working: f' = f × v_w/(v_w − v_s) = 1043 × 343/(343 − 27.3) = 1043 × 343/315.7 = 1133.19 ≈ 1130 Hz."
-    },
-    {
-      "id": "91523-25-q1b",
-      "number": "1(b)",
-      "text": "Explain why Kerryn hears a different frequency than that emitted by the jet ski's air horn.",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "doppler-effect",
-        "wavelength",
-        "frequency",
-        "wave-fronts"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "As the jet ski approaches Kerryn, the wave fronts bunch up in front, making the apparent...",
-      "markingGuide": "Achievement: States ONE of: higher f, lower wavelength, speed of sound constant. Merit: Complete answer: higher f AND lower wavelength AND speed of sound constant."
-    },
-    {
-      "id": "91523-25-q1c",
-      "number": "1(c)",
-      "text": "Kerryn is floating very close to the path of Martyn's jet ski, while her friend Erin is watching from a bank on the edge of the lake. The diagram shows positions A, B, and C along Martyn's path, with Kerryn at position B and Erin offset from the path.\n\nThe graph shows the frequency of the sound heard by Kerryn and Erin as the jet ski travels from A to C.\n\nExplain why the frequency that Kerryn hears is the same or different to that which Erin hears.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "doppler-effect",
-        "frequency",
-        "velocity-component"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91523-2025-q1c-graph.png",
-      "expectedAnswer": "At A, both hear ~1130 Hz (jet ski far away, approaching directly).",
-      "markingGuide": "Achievement: Explains A, B, or C section. Merit: Explains B OR the transition between sections. Excellence: Complete answer explaining all sections including how the component of velocity towards each observer changes with position."
-    },
-    {
-      "id": "91523-25-q1d",
-      "number": "1(d)",
-      "text": "An underwater microphone has been submerged in the lake to monitor noise pollution from jet ski engines. Martyn's jet ski engine makes a sound at 574.0 Hz. As the jet ski travels away from the underwater microphone at 27.3 m s⁻¹, the microphone measures a frequency of 563.6 Hz coming from the jet ski engine.\n\nCalculate the velocity of sound in water.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "doppler-effect",
-        "wave-speed",
-        "sound-in-water"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "v_w = 1480 m s⁻¹",
-      "markingGuide": "Achievement: Identifies '+' in denominator (receding source) OR substitutes correctly. Merit: Provides calculation with minor error or insufficient working. Excellence: Correct answer. Working: f' = f × v_w/(v_w + v_s). 563.6 = 574.0 × v_w/(v_w + 27.3). 563.6(v_w + 27.3) = 574.0 × v_w. 563.6v_w + 15386.28 = 574.0v_w. 15386.28 = 10.4v_w. v_w = 1479.45 ≈ 1480 m s⁻¹."
-    },
-    {
-      "id": "91523-25-q2a",
-      "number": "2(a)",
-      "text": "QUESTION TWO: STANDING WAVES\n\nThe cello is a stringed instrument belonging to the violin family. The strings are supported at each end by a piece of wood called the bridge and the nut respectively. The length of the strings between the supported ends is 0.690 m. When the cello is played, the strings can vibrate in different harmonics.\n\nDraw a diagram of the 4th harmonic. Label the nodes and antinodes.",
-      "marks": 2,
-      "gradeLevel": "achieved",
-      "topics": [
-        "standing-waves",
-        "harmonics",
-        "string"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Diagram showing 4th harmonic on a string fixed at both ends: 4 antinodes, 5 nodes (including...",
-      "markingGuide": "Achievement: Correct diagram (4 'bumps') with nodes and antinodes labelled correctly."
-    },
-    {
-      "id": "91523-25-q2b",
-      "number": "2(b)",
-      "text": "Sometimes if the cello has been in storage, the tension in the strings will decrease, and the instrument will be out of tune. The strings will therefore play a frequency that is other than the desired frequency.\n\nUse the equation below to explain how this could have caused the frequency to be higher or lower than the desired frequency.\n\nv(wave on string) = √(tension / mass per unit length)\n\nNo calculations are required.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "standing-waves",
-        "wave-speed",
-        "tension",
-        "frequency"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "As tension decreases, v decreases (from the equation).",
-      "markingGuide": "Achievement: States ONE of: v decreased, frequency decreased. Merit: Correct answer with two points linked. Excellence: Complete answer: tension decreased → v decreased (from equation) → frequency decreased (since v = fλ and λ constant) → note is lower."
-    },
-    {
-      "id": "91523-25-q2c",
-      "number": "2(c)",
-      "text": "When a 0.690 m string is played, the first harmonic has a frequency of 147 Hz. A finger is then pressed onto the string, changing the length of the string to play a first harmonic with a frequency of 207 Hz.\n\nCalculate the new length of the string when the second note of 207 Hz is played.\n\nAssume that the tension in the string remains constant.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "standing-waves",
-        "harmonics",
-        "frequency",
-        "wavelength"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "L = 0.49 m",
-      "markingGuide": "Achievement: Calculates ONE of: λ = 1.38 m, v = 202.86 m s⁻¹. Correct v in string with incorrect wavelength. Correct L. Merit: Correct v in string OR correct method from incorrect 1st harmonic wavelength. Excellence: Calculates correct answer with working. Working: λ₁ = 2L = 2(0.690) = 1.38 m. v = fλ = 147 × 1.38 = 202.86 m s⁻¹. λ₂ = v/f₂ = 202.86/207 = 0.98 m. L₂ = λ₂/2 = 0.49 m."
-    },
-    {
-      "id": "91523-25-q2di",
-      "number": "2(d)(i)",
-      "text": "Two strings that are next to each other can be played at the same time. When string 2 is played (without a finger being pressed on it), it produces a note with a frequency of 98.0 Hz. Strings 1 and 2 are played at the same time that a finger is pressed onto string 1, and the length of string 1 is gradually reduced until a beat is heard.\n\nExplain why beats form.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "beats",
-        "superposition",
-        "interference"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "When the two strings produce similar frequencies, the waves move in and out of phase.",
-      "markingGuide": "Achievement: States one of: constructive produces loud, destructive produces quiet; pulsating volume heard. Merit: Explains beat formation (in phase → constructive → loud, out of phase → destructive → quiet). Excellence: Complete answer."
-    },
-    {
-      "id": "91523-25-q2dii",
-      "number": "2(d)(ii)",
-      "text": "Explain what will be heard as the length of the string continues to be gradually reduced.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "beats",
-        "frequency"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Beat frequency decreases then increases.",
-      "markingGuide": "Achievement: Beat will decrease (then increase). When f₁ = f₂ then no beat is heard. Merit: OR how the beat frequency will change. Excellence: Complete answer explaining the decrease, zero beat, and then increase as the string continues to shorten."
-    },
-    {
-      "id": "91523-25-q3a",
-      "number": "3(a)",
-      "text": "QUESTION THREE: INTERFERENCE PATTERNS\n\nA laser shines green light onto a double slit, which has a slit separation of 1.25 × 10⁻⁴ m. Each slit then acts as a light source that is in phase, producing an interference pattern on a screen with fringes that are close together.\n\nWhen the screen is 3.40 m from the slits, the distance from the central maxima to the 3rd order maxima is 4.20 × 10⁻² m.\n\nShow that the laser has a wavelength of 515 nm.",
-      "marks": 2,
-      "gradeLevel": "achieved",
-      "topics": [
-        "interference",
-        "double-slit",
-        "wavelength"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "λ = 515 nm",
-      "markingGuide": "Achievement: Correct answer. Working: nλ = d sin θ. sin θ ≈ tan θ = x/L = 0.0420/3.40 = 0.012353. d = 1.25 × 10⁻⁴ m. 3λ = 1.25 × 10⁻⁴ × 0.012353. λ = 5.1471 × 10⁻⁷ m ≈ 515 nm. If approximation not used: θ = arctan(0.0420/3.40) = 0.7079°. 3λ = 1.25 × 10⁻⁴ × sin(0.7079°). λ = 514.9 × 10⁻⁹ m ≈ 515 nm."
-    },
-    {
-      "id": "91523-25-q3b",
-      "number": "3(b)",
-      "text": "Explain why the intensity of the light on the screen varies, as shown in the interference pattern image.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "interference",
-        "path-difference",
-        "superposition"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91523-2025-q3b-pattern.png",
-      "expectedAnswer": "When path difference is a whole number of wavelengths, waves are in phase (constructive...",
-      "markingGuide": "Achievement: Explains changing brightness in terms of path difference. Merit: Explains constructive (in phase, whole wavelength path difference) and destructive (out of phase, half wavelength). Excellence: Complete answer linking path difference to constructive/destructive interference and consequent superposition."
-    },
-    {
-      "id": "91523-25-q3c",
-      "number": "3(c)",
-      "text": "The double slit is replaced with a diffraction grating which has more closely-spaced slits.\n\nDescribe and explain the changes to the interference pattern observed on the screen.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "diffraction",
-        "diffraction-grating",
-        "interference"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Maxima are further apart (smaller d means larger angle for same order).",
-      "markingGuide": "Achievement: Identify brighter OR identify more well defined. Merit: Identify AND justify one of: more well defined, brighter, maxima further apart. Excellence: Complete answer — justify THREE of: more well defined, brighter, maxima further apart (all justified)."
-    },
-    {
-      "id": "91523-25-q3d",
-      "number": "3(d)",
-      "text": "In another experiment, a green laser, of wavelength 515 nm, is shone through a different diffraction grating and 7 maxima are seen on the screen. The screen is 0.900 m wide and is 1.20 m from the diffraction grating.\n\nCalculate the possible range of values for the slit separation of the diffraction grating.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "diffraction",
-        "diffraction-grating",
-        "geometry"
-      ],
-      "answerType": "working",
-      "image": "/images/exams/91523-2025-q3d-setup.png",
-      "expectedAnswer": "4.40 × 10⁻⁶ m < d < 5.87 × 10⁻⁶ m (most likely d = 5.00 × 10⁻⁶, i.e. 200 lines/mm).",
-      "markingGuide": "Achievement: States/calculates ONE of: n = 3, θ = 20.556°. Merit: Calculates d = 4.4002 × 10⁻⁶ m (n = 3) OR n = 3 OR recognises range and uses nλ = d sin θ. Excellence: Correct answer giving a correct upper and lower limit of d. Working: 7 maxima so 3 either side of central maxima. 3 ≤ n ≤ 4. tan θ = 0.45/1.20, θ = 20.556°. For n = 3: d = 3(515 × 10⁻⁹)/sin 20.556° = 4.4002 × 10⁻⁶ m. For n = 4: d = 4(515 × 10⁻⁹)/sin 20.556° = 5.8669 × 10⁻⁶ m. So 4.40 × 10⁻⁶ < d < 5.87 × 10⁻⁶."
-    }
-  ],
   "cutScores": {
     "notAchieved": {
       "min": 0,
@@ -225,5 +24,203 @@
       "min": 19,
       "max": 24
     }
-  }
+  },
+  "questions": [
+    {
+      "id": "91523-25-q1a",
+      "number": "1(a)",
+      "text": "QUESTION ONE: THE DOPPLER EFFECT\n\nTane and Kiri are riding their jet boats on a lake. Tane's boat has an air horn emitting 980 Hz. At one point, Kiri stops and Tane travels directly toward her at 24.5 m s-1. Speed of sound = 343 m s-1.\n\nCalculate the frequency Kiri hears.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "doppler-effect",
+        "frequency"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f' = f x v/(v-vs) = 980 x 343/(343-24.5) = 980 x 343/318.5 = 1055 Hz.",
+      "markingGuide": "Achievement: Correct answer."
+    },
+    {
+      "id": "91523-25-q1b",
+      "number": "1(b)",
+      "text": "Explain why Kiri hears a different frequency than that emitted by the horn.",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "doppler-effect",
+        "wavelength",
+        "frequency",
+        "wave-fronts"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "As the boat approaches, wave fronts bunch up in front, making the apparent wavelength shorter. Since the speed of sound is constant, shorter wavelength means higher frequency.",
+      "markingGuide": "Achievement: ONE point. Merit: Complete answer."
+    },
+    {
+      "id": "91523-25-q1c",
+      "number": "1(c)",
+      "text": "Kiri is floating close to Tane's path while her friend Moana watches from the bank. The graph shows the frequency heard by each observer as the boat travels past.\n\nExplain why the frequency Kiri hears is the same or different to that which Moana hears.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "doppler-effect",
+        "frequency",
+        "velocity-component"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "When the boat is far away and approaching, both hear similar frequencies (nearly same component of velocity toward each). As it passes Kiri directly, she hears the actual frequency momentarily, then hears a much lower frequency (directly receding). Moana, offset from the path, always has a component of velocity toward/away from her that is less than the full speed, so her frequency change is more gradual and less extreme.",
+      "markingGuide": "Achievement: Explains one section. Merit: Explains transition. Excellence: Complete answer."
+    },
+    {
+      "id": "91523-25-q1d",
+      "number": "1(d)",
+      "text": "An underwater microphone detects Tane's engine at 520.0 Hz. As the boat travels away at 24.5 m s-1, the microphone measures 512.0 Hz.\n\nCalculate the velocity of sound in water.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "doppler-effect",
+        "wave-speed",
+        "sound-in-water"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f' = f x v/(v+vs). 512.0 = 520.0 x v/(v+24.5). 512.0(v+24.5) = 520.0v. 512v + 12544 = 520v. 8v = 12544. v = 1568 m s-1.",
+      "markingGuide": "Achievement: '+' in denominator identified. Merit: One error. Excellence: v = 1568 m s-1."
+    },
+    {
+      "id": "91523-25-q2a",
+      "number": "2(a)",
+      "text": "QUESTION TWO: STANDING WAVES\n\nThe guitar is a stringed instrument. The strings are supported at each end by the bridge and the nut. The length of the strings between the supports is 0.650 m. The strings vibrate in different harmonics.\n\nDraw a diagram of the 3rd harmonic. Label nodes and antinodes.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "standing-waves",
+        "harmonics",
+        "string"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Diagram showing 3rd harmonic on a string fixed at both ends: 3 antinodes, 4 nodes.",
+      "markingGuide": "Achievement: Correct diagram with labels."
+    },
+    {
+      "id": "91523-25-q2b",
+      "number": "2(b)",
+      "text": "If the guitar has been in storage, the tension may decrease. Use the equation below to explain how this affects the frequency.\n\nv(wave on string) = sqrt(tension / mass per unit length)\n\nNo calculations required.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "standing-waves",
+        "wave-speed",
+        "tension",
+        "frequency"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "As tension decreases, v decreases (from the equation). Since v = f lambda and lambda is constant (string length determines the harmonic wavelength), frequency decreases. The note played would be lower than intended.",
+      "markingGuide": "Achievement: v or f decreased. Merit: Two points linked. Excellence: Complete answer."
+    },
+    {
+      "id": "91523-25-q2c",
+      "number": "2(c)",
+      "text": "When a 0.650 m string is played, the first harmonic has frequency 165 Hz. A finger is pressed to change the length and play a first harmonic of 220 Hz.\n\nCalculate the new length. Assume constant tension.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "standing-waves",
+        "harmonics",
+        "frequency",
+        "wavelength"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "lambda_1 = 2L = 2 x 0.650 = 1.30 m. v = f lambda = 165 x 1.30 = 214.5 m/s. lambda_2 = v/f2 = 214.5/220 = 0.975 m. L2 = lambda_2/2 = 0.488 m.",
+      "markingGuide": "Achievement: v or lambda1 found. Merit: Correct v. Excellence: L = 0.488 m."
+    },
+    {
+      "id": "91523-25-q2di",
+      "number": "2(d)(i)",
+      "text": "Two adjacent strings are played together. String 2 produces 110.0 Hz without a finger pressed. String 1 is gradually shortened from 0.650 m until a beat is heard.\n\nExplain why beats form.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "beats",
+        "superposition",
+        "interference"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "When the two strings produce similar frequencies, the waves periodically move in and out of phase. When in phase, constructive interference produces a loud sound. When out of phase, destructive interference produces a quiet sound. This alternating loud-quiet pattern is the beat.",
+      "markingGuide": "Achievement: Constructive/destructive. Merit: Explains beat formation. Excellence: Complete answer."
+    },
+    {
+      "id": "91523-25-q2dii",
+      "number": "2(d)(ii)",
+      "text": "Explain what will be heard as the string length continues to be gradually reduced.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "beats",
+        "frequency"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "As the string shortens, its frequency increases. Beat frequency = |f1 - f2|. Initially the beat frequency decreases as f1 approaches f2 = 110 Hz. When f1 = 110 Hz, no beat is heard. As string continues to shorten, f1 > 110, beat frequency increases again.",
+      "markingGuide": "Achievement: Beat decreases then increases. Merit: Explains. Excellence: Complete answer."
+    },
+    {
+      "id": "91523-25-q3a",
+      "number": "3(a)",
+      "text": "QUESTION THREE: INTERFERENCE PATTERNS\n\nA laser shines blue light onto a double slit with separation 1.50 x 10^-4 m. Each slit acts as a coherent source. The screen is 4.00 m away, and the distance from central maxima to the 4th order maxima is 5.60 x 10^-2 m.\n\nShow that the laser has wavelength 525 nm.",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "interference",
+        "double-slit",
+        "wavelength"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "sin theta approx tan theta = x/L = 0.0560/4.00 = 0.01400. n lambda = d sin theta. 4 lambda = 1.50e-4 x 0.01400. lambda = 5.25 x 10^-7 m = 525 nm.",
+      "markingGuide": "Achievement: Correct working."
+    },
+    {
+      "id": "91523-25-q3b",
+      "number": "3(b)",
+      "text": "Explain why the intensity of light varies across the screen.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "interference",
+        "path-difference",
+        "superposition"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "When the path difference is a whole number of wavelengths, waves arrive in phase (constructive interference), producing bright fringes. When the path difference is an odd number of half wavelengths, waves arrive out of phase (destructive interference), producing dark fringes. Between these extremes, intensity varies gradually.",
+      "markingGuide": "Achievement: Path difference mentioned. Merit: Constructive and destructive. Excellence: Complete answer."
+    },
+    {
+      "id": "91523-25-q3c",
+      "number": "3(c)",
+      "text": "The double slit is replaced with a diffraction grating with more closely spaced slits.\n\nDescribe and explain the changes to the interference pattern.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "diffraction",
+        "diffraction-grating",
+        "interference"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Maxima are further apart (smaller d means larger angle for same order). Maxima are brighter (more slits contribute light). Maxima are more sharply defined (more slits means narrower peaks). Fewer maxima visible (larger angles needed for each order, some exceed 90 degrees).",
+      "markingGuide": "Achievement: ONE change identified. Merit: ONE justified. Excellence: THREE justified."
+    },
+    {
+      "id": "91523-25-q3d",
+      "number": "3(d)",
+      "text": "In another experiment, a green laser of wavelength 525 nm is shone through a different diffraction grating and 9 maxima are seen on the screen. The screen is 1.00 m wide and 1.50 m from the grating.\n\nCalculate the possible range of values for the slit separation.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "diffraction",
+        "diffraction-grating",
+        "geometry"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "9 maxima: 4 on each side plus central maximum. n = 4. The 4th order must fit on the screen: tan theta = 0.50/1.50, theta = 18.43 degrees. For n=4: d = n lambda/sin theta = 4 x 525e-9/sin 18.43 = 6.64e-6 m. For n=5 to NOT fit: d < 5 x 525e-9/sin 18.43 = 8.30e-6 m. So 6.64e-6 < d < 8.30e-6 m.",
+      "markingGuide": "Achievement: n=4 or angle found. Merit: d calculated for one limit. Excellence: Both limits correct."
+    }
+  ]
 }

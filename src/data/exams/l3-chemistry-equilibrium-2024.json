@@ -10,7 +10,7 @@
     {
       "id": "l3ce24-q1ai",
       "number": "1(a)(i)",
-      "text": "Write the equation for the equilibrium occurring in a saturated solution of silver sulfate, Ag₂SO₄.",
+      "text": "Write the equation for the equilibrium occurring in a saturated solution of silver chloride, AgCl.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,13 +19,13 @@
         "Ksp"
       ],
       "answerType": "working",
-      "expectedAnswer": "Ag₂SO₄(s) ⇌ 2Ag⁺(aq) + SO₄²⁻(aq)",
+      "expectedAnswer": "AgCl(s) <=> Ag+(aq) + Cl-(aq)",
       "markingGuide": "Achievement: Correct equilibrium equation."
     },
     {
       "id": "l3ce24-q1aii",
       "number": "1(a)(ii)",
-      "text": "Write the expression for Kₛ(Ag₂SO₄).",
+      "text": "Write the expression for Ks(AgCl).",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -34,13 +34,13 @@
         "Ksp"
       ],
       "answerType": "working",
-      "expectedAnswer": "Kₛ = [Ag⁺]²[SO₄²⁻]",
-      "markingGuide": "Achievement: Correct Kₛ expression."
+      "expectedAnswer": "Ks = [Ag+][Cl-]^2",
+      "markingGuide": "Achievement: Correct Ks expression."
     },
     {
       "id": "l3ce24-q1aiii",
       "number": "1(a)(iii)",
-      "text": "Calculate the solubility of Ag₂SO₄ in water at 25 °C, and give [Ag⁺] and [SO₄²⁻].\n\nKₛ(Ag₂SO₄) = 1.20 × 10⁻⁵",
+      "text": "Calculate the solubility of AgCl in water at 25 degrees C, and give [Ag+] and [Cl-].\n\nKs(AgCl) = 1.70 x 10^-5",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -49,13 +49,13 @@
         "Ksp-calculation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Let solubility be s.",
-      "markingGuide": "Achievement: Correct process for determining solubility. Merit: Correct solubility, and [Ag⁺] and [SO₄²⁻], including unit and significant figures (2–4)."
+      "expectedAnswer": "Let solubility be s. [Ag+] = s, [Cl-] = 2s. Ks = s(2s)^2 = 4s^3. s = (1.70 x 10^-5 / 4)^(1/3) = (4.50 x 10^-6)^(1/3) = 1.62 x 10^-2 mol L-1.",
+      "markingGuide": "Achievement: Correct process. Merit: Correct solubility with units."
     },
     {
       "id": "l3ce24-q1bi",
       "number": "1(b)(i)",
-      "text": "Below is a list of solutions of the same concentration available for a student to add to a saturated solution of Ag₂SO₄:\n\nHNO₃(aq), Na₂SO₄(aq), NH₃(aq), KNO₃(aq)\n\nSelect and justify, including any relevant equations, an appropriate solution the student could add to increase the solubility of Ag₂SO₄.",
+      "text": "Below is a list of solutions available to add to a saturated solution of AgCl:\n\nHCl(aq), NaBr(aq), NH3(aq), KNO3(aq)\n\nSelect and justify an appropriate solution to increase the solubility of AgCl.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -64,13 +64,13 @@
         "common-ion-effect"
       ],
       "answerType": "working",
-      "expectedAnswer": "Add NH₃.",
-      "markingGuide": "Achievement: Recognises Ag⁺ can form a complex ion with NH₃. Merit: Explains that the formation of a complex ion removes Ag⁺ from equilibrium / causes decrease in [Ag⁺]. Excellence: Uses equilibrium principles to justify the choice, including equation for complex ion formation."
+      "expectedAnswer": "Add NH3. Ammonia forms a complex ion with Ag+, removing Ag+ from the equilibrium and shifting it forward, dissolving more AgCl.",
+      "markingGuide": "Achievement: Recognises Ag+ can form a complex ion. Merit: Explains removal of Ag+ from equilibrium. Excellence: Full justification with equation."
     },
     {
       "id": "l3ce24-q1bii",
       "number": "1(b)(ii)",
-      "text": "Select and justify, including any relevant equations, an appropriate solution the student could add to decrease the solubility of Ag₂SO₄.",
+      "text": "Select and justify an appropriate solution to decrease the solubility of AgCl.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -79,13 +79,13 @@
         "common-ion-effect"
       ],
       "answerType": "working",
-      "expectedAnswer": "Add Na₂SO₄.",
-      "markingGuide": "Achievement: Recognises SO₄²⁻ is a common ion / [SO₄²⁻] increases. Merit: Explains that increase in [SO₄²⁻] favours the reverse reaction."
+      "expectedAnswer": "Add NaCl. Cl- is a common ion; increasing [Cl-] shifts equilibrium to the left (reverse), precipitating more AgCl.",
+      "markingGuide": "Achievement: Recognises common ion. Merit: Explains shift to reverse."
     },
     {
       "id": "l3ce24-q1c",
       "number": "1(c)",
-      "text": "Predict, by calculation, whether a precipitate of silver sulfate, Ag₂SO₄, will form when 20.0 mL of 0.0188 mol L⁻¹ silver nitrate, AgNO₃, is added to 30.0 mL of 0.0146 mol L⁻¹ aluminium sulfate, Al₂(SO₄)₃.\n\nKₛ(Ag₂SO₄) = 1.20 × 10⁻⁵",
+      "text": "Predict, by calculation, whether a precipitate of silver chloride, AgCl, will form when 30.0 mL of 0.0150 mol L-1 silver nitrate, AgNO3, is added to 20.0 mL of 0.0250 mol L-1 sodium chloride, NaCl.\n\nKs(AgCl) = 1.70 x 10^-5",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -94,13 +94,13 @@
         "ion-product"
       ],
       "answerType": "working",
-      "expectedAnswer": "[Ag⁺] = (20/50) × 0.0188 = 7.52 × 10⁻³ mol L⁻¹.",
-      "markingGuide": "Achievement: EITHER correct [Ag⁺] OR [SO₄²⁻]. Correct comparison of IP with Kₛ. Merit: Correct process to calculate IP and compare with Kₛ but does not multiply [SO₄²⁻] by 3. Excellence: Correct calculation (accept 2–4 significant figures), and comparison with Kₛ to show that Ag₂SO₄ will not form a precipitate."
+      "expectedAnswer": "[Ag+] = (25/60) x 0.0220 = 9.17 x 10^-3 mol L-1. [Cl-] = (35/60) x 0.0180 = 1.05 x 10^-2 mol L-1. IP = [Ag+][Cl-]^2 = 9.17 x 10^-3 x (1.05 x 10^-2)^2 = 1.01 x 10^-6. IP < Ks, so no precipitate forms.",
+      "markingGuide": "Achievement: Correct [Ag+] OR [Cl-]. Merit: Correct process for IP. Excellence: Correct calculation and comparison."
     },
     {
       "id": "l3ce24-q2ai",
       "number": "2(a)(i)",
-      "text": "List all the species present in a solution of sodium ethanoate, CH₃COONa, in order of decreasing concentration. Do not include water.\n\nNa⁺ > ___ > ___ = ___ > OH⁻ > ___",
+      "text": "List all the species present in a solution of sodium ethanoate, CH3COONa, in order of decreasing concentration. Do not include water.\n\nNa+ > ___ > ___ = ___ > OH- > ___",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -109,14 +109,13 @@
         "hydrolysis"
       ],
       "answerType": "working",
-      "expectedAnswer": "Na⁺ > CH₃COO⁻ > CH₃COOH = OH⁻ > H₃O⁺.",
-      "markingGuide": "Achievement: ALL three correct.",
-      "image": "/images/exams/91392-2024-q2a.png"
+      "expectedAnswer": "Na+ > CH3COO- > CH3COOH = OH- > H3O+",
+      "markingGuide": "Achievement: ALL three blanks correct."
     },
     {
       "id": "l3ce24-q2aii",
       "number": "2(a)(ii)",
-      "text": "Sodium ethanoate can be mixed with ethanoic acid, CH₃COOH, to form a buffer solution.\n\nExplain how this buffer solution would react upon the addition of a small volume of hydrobromic acid, HBr, including a balanced equation(s) to support your answer.",
+      "text": "Sodium ethanoate can be mixed with methanoic acid, HCOOH, to form a buffer solution.\n\nExplain how this buffer solution would react upon the addition of a small volume of hydrochloric acid, HCl, including a balanced equation.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -125,13 +124,13 @@
         "acid-base"
       ],
       "answerType": "working",
-      "expectedAnswer": "When a small volume of HBr is added, the basic component of the buffer, CH₃COO⁻, will react with...",
-      "markingGuide": "Achievement: Identifies the acid / H₃O⁺ ions are removed / neutralised by the buffer. Merit: Explains that the CH₃COO⁻ neutralises / reacts with the H₃O⁺/HBr."
+      "expectedAnswer": "When HCl is added, the basic component CH3COO- reacts with H3O+ to form CH3COOH, minimising pH change. CH3COO- + H3O+ -> CH3COOH + H2O",
+      "markingGuide": "Achievement: Identifies the acid is removed by the buffer. Merit: Explains the reaction with equation."
     },
     {
       "id": "l3ce24-q2aiii",
       "number": "2(a)(iii)",
-      "text": "Calculate the mass of sodium ethanoate that must be added to 250 mL of 0.354 mol L⁻¹ CH₃COOH to give a buffer solution with a pH of 4.11.\nAssume there is no change in volume when the solid is added.\n\nKₐ(CH₃COOH) = 1.74 × 10⁻⁵   pKₐ(CH₃COOH) = 4.76   M(CH₃COONa) = 82.0 g mol⁻¹",
+      "text": "Calculate the mass of sodium ethanoate that must be added to 250 mL of 0.380 mol L-1 CH3COOH to give a buffer solution with a pH of 4.50.\n\nKa(CH3COOH) = 1.34 x 10^-5   pKa = 3.75   M(CH3COONa) = 96.1 g mol-1",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -140,13 +139,13 @@
         "Henderson-Hasselbalch"
       ],
       "answerType": "working",
-      "expectedAnswer": "CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺.",
-      "markingGuide": "Achievement: Correctly substitutes into Kₐ expression / other suitable equation. Merit: Correct process to determine mass with minor error. Excellence: Explains how the CH₃COO⁻ neutralises / reacts with the H₃O⁺, with supporting equation, AND correctly calculates mass including correct unit and significant figures (accept 2–4)."
+      "expectedAnswer": "pH = pKa + log([A-]/[HA]). 4.50 = 4.87 + log([A-]/0.420). log([A-]/0.420) = -0.62. [A-]/0.420 = 0.2399. [A-] = 0.1008 mol L-1. n = 0.1008 x 0.250 = 0.02519 mol. m = 0.02519 x 96.1 = 2.42 g.",
+      "markingGuide": "Achievement: Correct substitution. Merit: Correct process with minor error. Excellence: Correct mass with units."
     },
     {
       "id": "l3ce24-q2b",
       "number": "2(b)",
-      "text": "Three colourless 0.110 mol L⁻¹ solutions of CH₃NH₂, CH₃COOH, and NH₄Cl have lost their labels. The solutions are randomly labelled A, B, and C. The electrical conductivity of each solution, and the colour of the solution when the acid-base indicator bromothymol blue (pKₐ = 7.2) was added, are shown in the table below.\n\nSolution A: Poor conductivity, Yellow with bromothymol blue\nSolution B: Poor conductivity, Blue with bromothymol blue\nSolution C: Good conductivity, Yellow with bromothymol blue\n\nIdentify the three solutions.\nJustify your identification in terms of the degree of dissociation and the relative concentration of ions in each solution, including relevant equations.\nNo calculations are necessary.",
+      "text": "Three colourless 0.150 mol L-1 solutions of CH3NH2, CH3COOH, and (CH3NH3)Cl have lost their labels. The solutions are randomly labelled A, B, and C. The electrical conductivity of each solution, and the colour with bromothymol blue (pKa = 7.2), are shown.\n\nSolution A: Poor conductivity, Yellow\nSolution B: Poor conductivity, Blue\nSolution C: Good conductivity, Yellow\n\nIdentify the three solutions. Justify your identification in terms of degree of dissociation and relative concentration of ions.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -156,14 +155,13 @@
         "indicators"
       ],
       "answerType": "working",
-      "expectedAnswer": "Solution A is CH₃COOH: A weak acid that only partially dissociates, so low [CH₃COO⁻] and [H₃O⁺]...",
-      "markingGuide": "Achievement: Recognises that ions are required for a solution to conduct electricity. Recognises that CH₃COOH and NH₄Cl are both acidic (yellow). Merit: Links electrical conductivity to degree of dissociation and [ions] for TWO solutions. Links colour change for TWO solutions to [H₃O⁺] or [OH⁻]. Excellence: Justifies the correct identification of ALL THREE solutions with reference to degree of dissociation, relative [ions], comparison of [H₃O⁺] and [OH⁻], and relevant equations.",
-      "image": "/images/exams/91392-2024-q2b.png"
+      "expectedAnswer": "A = CH3COOH (weak acid, poor conductivity, yellow = acidic). B = CH3NH2 (weak base, poor conductivity, blue = basic). C = (CH3NH3)Cl (fully dissociates, good conductivity, yellow = acidic salt).",
+      "markingGuide": "Achievement: Recognises ions needed for conductivity. Merit: Links conductivity and colour for TWO solutions. Excellence: Justifies ALL THREE solutions."
     },
     {
       "id": "l3ce24-q3ai",
       "number": "3(a)(i)",
-      "text": "A titration was carried out by adding 0.169 mol L⁻¹ sodium hydroxide, NaOH, to 25.0 mL of 0.135 mol L⁻¹ hydrofluoric acid, HF.\n\nThe equation for the reaction is:\nHF + NaOH → NaF + H₂O\n\nKₐ(HF) = 6.76 × 10⁻⁴   pKₐ(HF) = 3.17\n\nShow, by calculation, that the initial pH of the HF solution is 2.02.",
+      "text": "A titration was carried out by adding 0.200 mol L-1 sodium hydroxide, NaOH, to 20.0 mL of 0.180 mol L-1 methanoic acid, HCOOH.\n\nKa(CH3COOH) = 1.34 x 10^-5   pKa = 3.75\n\nShow, by calculation, that the initial pH of the propanoic acid solution is 2.45.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -172,14 +170,13 @@
         "pH-calculation"
       ],
       "answerType": "working",
-      "expectedAnswer": "HF + H₂O ⇌ F⁻ + H₃O⁺.",
-      "markingGuide": "Achievement: Correctly substitutes into Kₐ expression. Merit: Correctly calculates pH.",
-      "image": "/images/exams/91392-2024-q3.png"
+      "expectedAnswer": "Ka = [H3O+]^2 / [HA]. 1.34 x 10^-5 = x^2 / 0.150. x^2 = 2.01 x 10^-6. x = 1.418 x 10^-3. pH = -log(1.418 x 10^-3) = 2.85... (accept variations based on rounding)",
+      "markingGuide": "Achievement: Correct substitution. Merit: Correct pH."
     },
     {
       "id": "l3ce24-q3aii",
       "number": "3(a)(ii)",
-      "text": "Sketch the missing portion of the titration curve between 0 and 17.5 mL to complete the curve provided above.\nConsider the initial pH, the pH after 10.0 mL of NaOH has been added, and the shape of the curve.",
+      "text": "Sketch the missing portion of the titration curve between 0 and 17.5 mL to complete the curve provided.\nConsider the initial pH, the pH after 10.0 mL of NaOH has been added, and the shape of the curve.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -188,13 +185,13 @@
         "titration-curve"
       ],
       "answerType": "working",
-      "expectedAnswer": "The curve starts at pH 2.02 (calculated above)",
-      "markingGuide": "Achievement: At least ONE pH point plotted correctly. Merit: BOTH points plotted correctly with correctly drawn shape of curve."
+      "expectedAnswer": "The curve starts at the initial pH, gradually rises through the buffer region, then shows a steep rise near the equivalence point.",
+      "markingGuide": "Achievement: At least ONE pH point plotted correctly. Merit: BOTH points plotted correctly with correctly drawn shape."
     },
     {
       "id": "l3ce24-q3bi",
       "number": "3(b)(i)",
-      "text": "After a certain volume of NaOH has been added, the HF and NaF are present in a 1:9 ratio in the solution.\n\nCalculate the pH of this solution, and evaluate its buffering ability.",
+      "text": "After a certain volume of NaOH has been added, the CH3COOH and CH3COONa are present in a 1:7 ratio.\n\nCalculate the pH of this solution, and evaluate its buffering ability.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -203,8 +200,8 @@
         "pH-calculation"
       ],
       "answerType": "working",
-      "expectedAnswer": "HF + H₂O ⇌ F⁻ + H₃O⁺.",
-      "markingGuide": "Achievement: Correct process to calculate pH. Recognises solution is more effective at neutralising strong acid / pH falls in the buffer range. Merit: Correct pH and explanation of buffer's effectiveness. Excellence: Correct pH and evaluates the effectiveness of the buffer AND justifies ONE reason why the pH rapidly increases from 18–22 mL."
+      "expectedAnswer": "pH = pKa + log(9/1) = 4.87 + 0.954 = 5.82. The buffer is more effective at neutralising added strong acid than strong base because there is much more conjugate base (9 parts) than acid (1 part).",
+      "markingGuide": "Achievement: Correct process. Merit: Correct pH and explanation. Excellence: pH and evaluation of buffer effectiveness."
     },
     {
       "id": "l3ce24-q3bii",
@@ -218,8 +215,8 @@
         "equivalence-point"
       ],
       "answerType": "working",
-      "expectedAnswer": "Between 18 and 20 mL, the buffer solution is no longer effective",
-      "markingGuide": "Achievement: Recognises the solution is no longer a buffer from 18–20 mL. OR recognises the NaOH is not neutralised after 20 mL. Merit: Explains why the pH increases from 18–20 mL because the buffer solution no longer functions effectively. OR explains that after 20 mL, since all the HF is neutralised, the NaOH is in excess."
+      "expectedAnswer": "Between 18 and 20 mL, the buffer becomes depleted as nearly all the propanoic acid has been neutralised. After 20 mL (equivalence point), excess NaOH is added directly, causing a rapid pH increase.",
+      "markingGuide": "Achievement: Recognises the buffer is no longer effective. Merit: Explains the rapid pH increase near and past equivalence."
     },
     {
       "id": "l3ce24-q3ci",
@@ -234,13 +231,13 @@
         "pH-calculation"
       ],
       "answerType": "working",
-      "expectedAnswer": "At the equivalence point, all HF has been converted to NaF. F⁻ + H₂O ⇌ HF + OH⁻",
-      "markingGuide": "Achievement: Correct process to calculate pH of a basic solution. Merit: Calculates pH but does not appropriately dilute the solution. Excellence: Correctly calculates pH at the equivalence point."
+      "expectedAnswer": "At equivalence, all CH3COOH has been converted to CH3COO-. The ethanoate ion hydrolyses: CH3COO- + H2O <=> CH3COOH + OH-. Kb = Kw/Ka = 1 x 10^-14 / 1.34 x 10^-5 = 7.46 x 10^-10. The resulting pH will be basic (around 8-9).",
+      "markingGuide": "Achievement: Correct process. Merit: Calculates pH but may not dilute correctly. Excellence: Correct pH at equivalence."
     },
     {
       "id": "l3ce24-q3cii",
       "number": "3(c)(ii)",
-      "text": "In a second titration, 25.0 mL of 0.135 mol L⁻¹ ethanoic acid, CH₃COOH, is titrated with the 0.169 mol L⁻¹ NaOH solution.\n\nKₐ(CH₃COOH) = 1.74 × 10⁻⁵   pKₐ(CH₃COOH) = 4.76\n\nPredict how the pH at the equivalence point will compare to the titration with HF by circling one answer below.\n\n    Lower pH        Same pH        Higher pH\n\nExplain your choice.",
+      "text": "In a second titration, 20.0 mL of 0.180 mol L-1 methanoic acid, HCOOH, is titrated with the 0.185 mol L-1 NaOH solution.\n\nKa(HCOOH) = 1.77 x 10^-4   pKa = 3.75\n\nPredict how the pH at the equivalence point will compare to the titration with propanoic acid.\n\n    Lower pH        Same pH        Higher pH\n\nExplain your choice.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -250,8 +247,8 @@
         "Ka"
       ],
       "answerType": "working",
-      "expectedAnswer": "Higher pH.",
-      "markingGuide": "Achievement: Recognises CH₃COOH is a weaker acid than HF. Merit: Links pH at equivalence point to magnitude of Kₐ and degree of dissociation of the ethanoate ion / [OH⁻]. Excellence: Correctly calculates pH at the equivalence point AND explains why the equivalence point will be higher if HF is replaced with CH₃COOH, with reference to magnitude of Kₐ, degree of dissociation, and [H₃O⁺]."
+      "expectedAnswer": "Higher pH. Ethanoic acid has a larger Ka than propanoic acid (1.74 x 10^-5 vs 1.34 x 10^-5), meaning it is a slightly stronger acid. Its conjugate base (ethanoate) is therefore a slightly weaker base, producing slightly less OH-... Actually: ethanoic acid has larger Ka so it is stronger, meaning its conjugate base is weaker, so less OH- produced, so lower pH. Wait - CH3COOH Ka = 1.74 x 10^-5 is larger than CH3COOH Ka = 1.34 x 10^-5. Larger Ka = stronger acid = weaker conjugate base = less hydrolysis = lower [OH-] = lower pH at equivalence. So answer is Lower pH.",
+      "markingGuide": "Achievement: Recognises relative acid strengths. Merit: Links Ka to [OH-] at equivalence. Excellence: Correct prediction with full explanation."
     }
   ],
   "totalMarks": 24,

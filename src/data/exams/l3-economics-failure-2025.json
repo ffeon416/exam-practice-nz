@@ -8,83 +8,10 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {
-      "id": "l3ef25-q1a",
-      "number": "1(a)",
-      "text": "Identify and explain types of market failures in economies.",
-      "marks": 5,
-      "gradeLevel": "achieved",
-      "topics": [
-        "market failure types",
-        "efficiency",
-        "resource allocation"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Types: externalities, public goods, monopoly power, information asymmetry.",
-      "markingGuide": "Identify and explain main categories of market failures."
-    },
-    {
-      "id": "l3ef25-q1b",
-      "number": "1(b)",
-      "text": "Analyse negative externalities and market outcomes.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "negative externalities",
-        "overproduction",
-        "social welfare"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Negative externalities lead to overproduction relative to social optimum.",
-      "markingGuide": "Show how externalities cause market failure with analysis."
-    },
-    {
-      "id": "l3ef25-q2a",
-      "number": "2(a)",
-      "text": "Evaluate government policies to address market failures.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "policy evaluation",
-        "government intervention",
-        "effectiveness"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Evaluate policies: taxes, regulation, subsidies for effectiveness and trade-offs.",
-      "markingGuide": "Critical evaluation of policy options and their consequences."
-    },
-    {
-      "id": "l3ef25-q2b",
-      "number": "2(b)",
-      "text": "Comprehensive market failure and policy analysis.",
-      "marks": 7,
-      "gradeLevel": "excellence",
-      "topics": [
-        "failure analysis",
-        "policy strategy",
-        "economic outcomes"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Integrate failure types, causes, and optimal policy responses.",
-      "markingGuide": "Sophisticated synthesis of failure analysis and policy design."
-    }
+    { "id": "l3ef25-q1a", "number": "1(a)", "text": "Many coastal towns in New Zealand face increasing risks from sea-level rise and storm surges. Homeowners in these areas bear the cost of flood damage, but the broader costs of coastal development — including emergency services, infrastructure repair, and ecological degradation — are shared by all taxpayers.\n\nIdentify and explain the types of market failure present in coastal property development. Use diagrams to illustrate your answer.", "marks": 5, "gradeLevel": "achieved", "topics": ["market failure types", "efficiency", "resource allocation"], "answerType": "text", "expectedAnswer": "Types of market failure: (1) Negative externality of consumption — each coastal property development imposes costs on the wider community (emergency services, infrastructure protection, environmental damage) that are not reflected in the property price (MSC > MPC). Overdevelopment of coastal land at market prices. (2) Information failure — property buyers may not fully understand the long-term flood and erosion risks. Diagram shows divergence between private and social costs of coastal development.", "markingGuide": "Identify and explain main categories of market failures relevant to coastal development." },
+    { "id": "l3ef25-q1b", "number": "1(b)", "text": "Analyse the negative externalities of coastal development in New Zealand, explaining why the free market leads to overdevelopment of at-risk coastal areas. In your answer, distinguish between marginal private cost and marginal social cost of building on the coast.", "marks": 6, "gradeLevel": "merit", "topics": ["negative externalities", "overproduction", "social welfare"], "answerType": "text", "expectedAnswer": "Each developer considers only their private costs (land purchase, construction, insurance). They do not consider the marginal social cost — the additional burden on emergency services, Council infrastructure, and environmental systems. Because MPC < MSC, too many properties are built in at-risk areas (overdevelopment). The deadweight loss represents the net social cost of developments where MSC exceeds the benefit to the owner. As more properties are built, the risk increases non-linearly — each additional property amplifies cumulative demand on shared protective infrastructure.", "markingGuide": "Show how externalities cause overdevelopment with analysis of MPC vs MSC." },
+    { "id": "l3ef25-q2a", "number": "2(a)", "text": "The government is considering managed retreat — requiring homeowners in high-risk coastal zones to relocate over a 20-year period. Evaluate the effectiveness of this policy in correcting the market failure. Consider: (1) how the policy addresses the externality, (2) the impact on different groups of homeowners, and (3) how compensation should be structured.", "marks": 6, "gradeLevel": "merit", "topics": ["policy evaluation", "government intervention", "effectiveness"], "answerType": "text", "expectedAnswer": "Managed retreat corrects the externality by removing the source — no coastal properties means no ongoing costs to taxpayers for flood protection and emergency responses. However, equity concerns arise — homeowners who purchased before risks were understood face forced relocation. Wealthier homeowners may own multiple properties and can absorb the loss, while lower-income homeowners may have their entire wealth in one coastal property. Compensation could be based on current market value, replacement cost, or a declining scale over the 20-year period. The policy is efficient in the long run but socially disruptive.", "markingGuide": "Critical evaluation of policy options covering efficiency, equity, and compensation design." },
+    { "id": "l3ef25-q2b", "number": "2(b)", "text": "Compare managed retreat with two alternative policies: (A) building sea walls and flood defences, and (B) requiring mandatory high-risk insurance for all coastal properties. Recommend the best approach for New Zealand, justifying your recommendation with economic analysis.", "marks": 7, "gradeLevel": "excellence", "topics": ["failure analysis", "policy strategy", "economic outcomes"], "answerType": "text", "expectedAnswer": "Sea walls: high ongoing cost to taxpayers, creates moral hazard (encourages further coastal development behind the walls), does not address the root externality, and may fail in extreme events. Mandatory insurance: internalises the externality by making coastal property owners pay the true risk cost, discouraging new development through high premiums. But existing owners may become uninsurable, property values collapse, and low-income owners are trapped. Managed retreat: addresses the root cause permanently but is politically difficult and expensive upfront. Recommended approach: mandatory high-risk insurance for existing properties combined with a ban on new development in high-risk zones and a voluntary buyback scheme funded by insurance premiums. This internalises the externality, discourages new development, and provides a pathway out for existing owners.", "markingGuide": "Sophisticated synthesis comparing three policies and recommending an integrated approach with full justification." }
   ],
-  "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
-      "max": 13
-    },
-    "merit": {
-      "min": 14,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
 }

@@ -11,66 +11,36 @@
     {
       "id": "91429-2024-q1a",
       "number": "1(a)",
-      "text": "Read the resource booklet about wildfires in Canada. Integrate geographic concepts and supporting evidence from any of the resources into your answers.\n\nUsing evidence from the resources, describe the pattern (spatial or temporal) of Canadian wildfires.",
+      "text": "The following questions relate to coral reef degradation in the Pacific region. Integrate geographic concepts and supporting evidence into your answers.\n\nDescribe the spatial or temporal pattern of coral reef decline across the Pacific.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": [
-        "patterns",
-        "spatial",
-        "temporal",
-        "wildfires"
-      ],
+      "topics": ["patterns", "spatial", "temporal", "coral-reefs"],
       "answerType": "text",
-      "expectedAnswer": "Describes spatial pattern (e.g.",
-      "markingGuide": "Achievement: Partially describes the spatial or temporal pattern of Canadian wildfires. Describes a pattern with limited evidence. Merit: Describes the spatial or temporal pattern in detail with supporting evidence from resources. Describes two different patterns or one in detail with specific data. Excellence: Description is detailed with comprehensive evidence integrated throughout."
+      "expectedAnswer": "Describes spatial pattern (e.g. reef decline concentrated near populated islands, more severe in warmer equatorial waters) or temporal pattern (accelerating decline since the 1990s with mass bleaching events).",
+      "markingGuide": "Achievement: Partially describes the spatial or temporal pattern of coral reef decline. Describes a pattern with limited evidence. Merit: Describes the spatial or temporal pattern in detail with supporting evidence. Describes two different patterns or one in detail with specific data. Excellence: Description is detailed with comprehensive evidence integrated throughout."
     },
     {
       "id": "91429-2024-q1b",
       "number": "1(b)",
-      "text": "What are two different perspectives related to the wildfires, and why do people hold these perspectives?\n\nPerspective 1:\n\nPerspective 2:",
+      "text": "What are two different perspectives related to coral reef degradation, and why do people hold these perspectives?\n\nPerspective 1:\n\nPerspective 2:",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": [
-        "perspectives",
-        "wildfires"
-      ],
+      "topics": ["perspectives", "coral-reefs"],
       "answerType": "text",
-      "expectedAnswer": "Two different perspectives on Canadian wildfires, e.g.",
-      "markingGuide": "Achievement: Describes two different perspectives (e.g. a group/individual) related to wildfires. Outlines consequences of wildfires with some reference to the environment. Merit: Describes two different perspectives related to wildfires in Canada for people and the environment with supporting evidence. Excellence: Explains in detail two perspectives with comprehensive evidence, analysing why people hold these views."
+      "expectedAnswer": "Two different perspectives on coral reef degradation, e.g. (1) environmental scientists who see reef loss as a climate emergency requiring immediate emission reductions; (2) local fishing communities who depend on reefs for food security and livelihoods.",
+      "markingGuide": "Achievement: Describes two different perspectives (e.g. a group/individual) related to reef degradation. Outlines consequences with some reference to the environment. Merit: Describes two different perspectives with supporting evidence. Excellence: Explains in detail two perspectives with comprehensive evidence, analysing why people hold these views."
     },
     {
       "id": "91429-2024-q1c",
       "number": "1(c)",
-      "text": "Wildfires are an environmental disaster with significant environmental, economic, and social costs. Evaluate the consequences of wildfires for people and the environment.",
+      "text": "Coral reef degradation is an environmental issue with significant ecological, economic, and social consequences. Evaluate the consequences of coral reef decline for people and the environment.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "evaluation",
-        "consequences",
-        "wildfires",
-        "sustainability"
-      ],
+      "topics": ["evaluation", "consequences", "coral-reefs", "sustainability"],
       "answerType": "text",
-      "expectedAnswer": "Evaluates environmental consequences (habitat destruction, air quality, carbon release),...",
-      "markingGuide": "Achievement: Includes some evidence from resources that demonstrates use of geographic skills and conventions. Responses may lack specific concepts or geographic terminology. Merit: Includes evidence from resources that includes detailed geographic skills and conventions. Response shows some geographic concepts and geographic skills and conventions. Excellence: Includes detailed evidence from resources. Comprehensively evaluates the consequences for people and the environment with insight, using geographic terminology. Evidence is fully integrated."
+      "expectedAnswer": "Evaluates environmental consequences (biodiversity loss, coastal erosion, reduced fish stocks), economic consequences (loss of tourism revenue, fishing industry decline), and social consequences (food insecurity for Pacific communities, cultural loss).",
+      "markingGuide": "Achievement: Includes some evidence that demonstrates use of geographic skills and conventions. Responses may lack specific concepts or geographic terminology. Merit: Includes evidence that includes detailed geographic skills and conventions. Response shows some geographic concepts. Excellence: Includes detailed evidence. Comprehensively evaluates the consequences for people and the environment with insight, using geographic terminology. Evidence is fully integrated."
     }
   ],
-  "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 2
-    },
-    "achieved": {
-      "min": 3,
-      "max": 4
-    },
-    "merit": {
-      "min": 5,
-      "max": 6
-    },
-    "excellence": {
-      "min": 7,
-      "max": 8
-    }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 2 }, "achieved": { "min": 3, "max": 4 }, "merit": { "min": 5, "max": 6 }, "excellence": { "min": 7, "max": 8 } }
 }

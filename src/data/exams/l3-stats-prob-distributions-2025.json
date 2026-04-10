@@ -11,58 +11,85 @@
     {
       "id": "st586-25-q1a",
       "number": "1a",
-      "text": "The lifetime of a particular brand of battery is normally distributed with a mean of 48 hours and a standard deviation of 6 hours.\n\n(i) Find the probability that a randomly selected battery lasts more than 54 hours.\n(ii) Find the probability that a randomly selected battery lasts between 40 and 56 hours.\n(iii) In a pack of 4 batteries, find the probability that all 4 last more than 42 hours. Assume battery lifetimes are independent.",
+      "text": "The lifetime of a particular model of smartphone battery is normally distributed with a mean of 46 months and a standard deviation of 6 months.\n\n(i) Find the probability that a randomly selected battery lasts more than 55 months.\n(ii) Find the probability that a randomly selected battery lasts between 40 and 58 months.\n(iii) In a batch of 6 batteries, find the probability that all 5 last more than 36 months. Assume battery lifetimes are independent.",
       "marks": 5,
       "gradeLevel": "achieved",
-      "topics": ["normal-distribution-l3", "probability-distributions"],
+      "topics": [
+        "normal-distribution-l3",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) z = (54 - 48)/6 = 1. P(Z > 1) = 0.1587. (ii) z₁ = (40 - 48)/6 = -1.333, z₂ = (56 - 48)/6 = 1.333. P(-1.333 < Z < 1.333) = 0.9088 - 0.0912 = 0.8176. Merit: (iii) P(X > 42) per battery: z = (42 - 48)/6 = -1, P(Z > -1) = 0.8413. P(all 4 > 42) = 0.8413⁴ = 0.5012."
+      "markingGuide": "Achievement: (i) z = (55 - 48)/6 = 1.167. P(Z > 1.167) ≈ 0.1217. (ii) z₁ = (40 - 48)/6 = -1.333, z₂ = (58 - 48)/6 = 1.667. P(-1.333 < Z < 1.667) = P(Z<1.667) - P(Z<-1.333). Merit: (iii) P(X > 36) per battery: z = (36 - 48)/6 = -2.0, P(Z > -2.0) = 0.9772. P(all 6 > 36) = 0.9772⁶ = 0.8708."
     },
     {
       "id": "st586-25-q1b",
       "number": "1b",
-      "text": "The manufacturer wants to offer a guarantee: if a battery fails before a certain number of hours, it will be replaced free of charge. They want no more than 5% of batteries to be replaced.\n\nFind the maximum number of hours the guarantee should cover.",
+      "text": "The manufacturer wants to offer a warranty: if a battery fails before a certain number of months, it will be replaced free. They want no more than 3% of batteries to be replaced.\n\nFind the maximum number of months the warranty should cover.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["inverse-normal", "normal-distribution-l3"],
+      "topics": [
+        "inverse-normal",
+        "normal-distribution-l3"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: Need P(X < g) = 0.05. z for 5th percentile = -1.645. g = 48 + (-1.645)(6) = 48 - 9.87 = 38.13 hours. The guarantee should cover up to 38 hours (rounding down to ensure no more than 5% are replaced)."
+      "markingGuide": "Merit: Need P(X < g) = 0.03. z for 3rd percentile = -1.881. g = 48 + (-1.881)(6) = 48 - 11.29 = 36.71 months. The warranty should cover up to 36 months."
     },
     {
       "id": "st586-25-q2a",
       "number": "2a",
-      "text": "Calls to a helpline arrive at an average rate of 3 per hour, following a Poisson distribution.\n\n(i) Find the probability of receiving exactly 5 calls in a 2-hour period.\n(ii) Find the probability of receiving no calls in a 30-minute period.\n(iii) The helpline has 2 operators. Each call takes exactly 20 minutes. What is the probability that a call cannot be answered immediately (both operators are busy)?",
+      "text": "Calls to a IT help desk arrive at an average rate of 5 per hour, following a Poisson distribution.\n\n(i) Find the probability of receiving exactly 8 calls in a 2-hour period.\n(ii) Find the probability of receiving no calls in a 15-minute period.\n(iii) The service has 4 operators. Each call takes exactly 15 minutes. What is the probability that a call cannot be answered immediately (all operators are busy)?",
       "marks": 5,
       "gradeLevel": "merit",
-      "topics": ["poisson-distribution", "probability-distributions"],
+      "topics": [
+        "poisson-distribution",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) In 2 hours, λ = 6. P(X = 5) = e⁻⁶ × 6⁵/5! = 0.002479 × 7776/120 = 0.1606. (ii) In 30 min, λ = 1.5. P(X = 0) = e⁻¹·⁵ = 0.2231. Merit: (iii) In any 20-minute window, λ = 1 (3 per hour = 1 per 20 min). Both operators busy means 2 or more calls in the 20-min window before the current call. P(X ≥ 2) = 1 - P(0) - P(1) = 1 - e⁻¹ - e⁻¹ = 1 - 0.3679 - 0.3679 = 0.2642. Note: This is a simplification; a full queueing model would be more accurate."
+      "markingGuide": "Achievement: (i) In 2 hours, λ = 10. P(X = 8) = e⁻¹⁰ × 10⁸/8! ≈ 0.1126. (ii) In 15 min, λ = 5/4 = 1.25. P(X = 0) = e⁻¹·²⁵ = 0.2865. Merit: (iii) In any 15-minute window, λ = 1.25. All operators busy means 4 or more calls. P(X ≥ 4) = 1 - P(X ≤ 3). Using Poisson with λ=1.25."
     },
     {
       "id": "st586-25-q2b",
       "number": "2b",
-      "text": "The time between successive calls follows an exponential distribution.\n\n(i) State the mean of this exponential distribution.\n(ii) Find the probability that the time between two successive calls is more than 30 minutes.\n(iii) Explain what the memoryless property means in this context.",
+      "text": "The time between successive calls follows an exponential distribution.\n\n(i) State the mean of this exponential distribution.\n(ii) Find the probability that the time between two successive calls is more than 20 minutes.\n(iii) Explain what the memoryless property means in this context.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["exponential-distribution", "probability-distributions"],
+      "topics": [
+        "exponential-distribution",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) Mean = 1/λ = 1/3 hours = 20 minutes. (ii) λ = 3 per hour. P(T > 0.5) = e^(-3 × 0.5) = e^(-1.5) = 0.2231. Merit: (iii) The memoryless property means that if 10 minutes have already passed without a call, the probability of waiting at least another 30 minutes is the same as the probability of waiting 30 minutes from the start. The past waiting time gives no information about future waiting time. Mathematically: P(T > s + t | T > s) = P(T > t)."
+      "markingGuide": "Achievement: (i) Mean = 1/λ = 1/5 hours = 12 minutes. (ii) λ = 5 per hour. P(T > 1/4) = e^(-5 × 1/4) = e^(-1.25) = 0.2865. Merit: (iii) The memoryless property means that if 10 minutes have already passed without a call, the probability of waiting at least another 15 minutes is the same as waiting 15 minutes from the start."
     },
     {
       "id": "st586-25-q3",
       "number": "3",
-      "text": "A continuous random variable X has the probability density function:\n\nf(x) = cx² for 0 ≤ x ≤ 3\nf(x) = 0 otherwise\n\n(i) Find the value of c.\n(ii) Find E(X) and Var(X).\n(iii) Find the median of X.\n(iv) Find P(1 < X < 2).",
+      "text": "A continuous random variable X has the probability density function:\n\nf(x) = cx³ for 0 ≤ x ≤ 2\nf(x) = 0 otherwise\n\n(i) Find the value of c.\n(ii) Find E(X) and Var(X).\n(iii) Find the median of X.\n(iv) Find P(1 < X < 1.5).",
       "marks": 7,
       "gradeLevel": "excellence",
-      "topics": ["continuous-distributions", "probability-distributions"],
+      "topics": [
+        "continuous-distributions",
+        "probability-distributions"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: (i) ∫₀³ cx² dx = c[x³/3]₀³ = c(9) = 1, so c = 1/9. Merit: (ii) E(X) = ∫₀³ x · (1/9)x² dx = (1/9)∫₀³ x³ dx = (1/9)[x⁴/4]₀³ = (1/9)(81/4) = 81/36 = 9/4 = 2.25. E(X²) = ∫₀³ x² · (1/9)x² dx = (1/9)∫₀³ x⁴ dx = (1/9)[x⁵/5]₀³ = (1/9)(243/5) = 243/45 = 27/5 = 5.4. Var(X) = 5.4 - (2.25)² = 5.4 - 5.0625 = 0.3375. Excellence: (iii) Find m such that ∫₀ᵐ (1/9)x² dx = 0.5. (1/9)(m³/3) = 0.5. m³ = 13.5. m = ∛13.5 = 2.381. (iv) P(1 < X < 2) = ∫₁² (1/9)x² dx = (1/9)[x³/3]₁² = (1/9)(8/3 - 1/3) = (1/9)(7/3) = 7/27 = 0.2593."
+      "markingGuide": "Achievement: (i) ∫₀² cx³ dx = c[x⁴/4]₀² = c(4) = 1, so c = 1/4. Merit: (ii) E(X) = ∫₀² x · (1/4)x³ dx = (1/4)∫₀² x⁴ dx = (1/4)[x⁵/5]₀² = (1/4)(32/5) = 32/20 = 8/5 = 1.6. E(X²) = ∫₀² x² · (1/4)x³ dx = (1/4)∫₀² x⁵ dx = (1/4)[x⁶/6]₀² = (1/4)(64/6) = 64/24 = 8/3 = 2.667. Var(X) = 8/3 - (8/5)² = 2.667 - 2.56 = 0.107. Excellence: (iii) Find m such that ∫₀ᵐ (1/4)x³ dx = 0.5. (1/4)(m⁴/4) = 0.5. m⁴ = 8. m = ⁴√8 = 8^(1/4) = 1.682. (iv) P(1 < X < 1.5) = ∫₁¹·⁵ (1/4)x³ dx = (1/4)[x⁴/4]₁¹·⁵ = (1/4)(5.0625/4 - 1/4) = (1/4)(1.265625 - 0.25) = (1/4)(1.015625) = 0.2539."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

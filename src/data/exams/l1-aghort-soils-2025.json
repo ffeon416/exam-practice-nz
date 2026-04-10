@@ -11,101 +11,79 @@
     {
       "id": "91930-25-q1a",
       "number": "1(a)",
-      "text": "Name a primary production system of your choice.\n\nHow is fertiliser applied in your named primary production system?",
+      "text": "Name a primary production system of your choice.\n\nHow is organic matter (such as compost) applied in your named primary production system?",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "soil-management",
-        "primary-production"
-      ],
+      "topics": ["soil-management", "primary-production"],
       "answerType": "text",
-      "expectedAnswer": "Describe how fertiliser is applied, e.g.",
-      "markingGuide": "Achieved: Describes how fertiliser is applied. Fertiliser can be applied by selecting the type of fertiliser and spreading it evenly over the soil. On a flat / rolling pastoral farm, a tractor may tow a spreader, which spreads granules of fertiliser."
+      "expectedAnswer": "Describe how organic matter is applied, e.g. spread over the soil surface or incorporated into the topsoil.",
+      "markingGuide": "Achieved: Describes how organic matter is applied. Organic matter/compost can be applied by spreading it evenly over the soil surface using a spreader or by hand. On a horticultural property, compost may be dug or rotary-hoed into the topsoil before planting."
     },
     {
       "id": "91930-25-q1b",
       "number": "1(b)",
-      "text": "Explain how fertiliser impacts soil properties.",
+      "text": "Explain how adding organic matter impacts soil properties.",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": [
-        "soil-properties",
-        "soil-management"
-      ],
+      "topics": ["soil-properties", "soil-management"],
       "answerType": "text",
-      "expectedAnswer": "Explain that fertilisers change the chemical properties of the soil by adding more nutrients;...",
-      "markingGuide": "Merit: Explains how fertiliser impacts soil properties. Fertilisers change the chemical properties of the soil by adding more nutrients. They increase the specific nutrients that make up the fertilisers - for example urea will increase the nitrogen content of the soil but no other nutrients. They increase the nutrients in proportion to the application rate (kg/ha). Fertilisers may generally decrease pH of the soil. Indirectly, fertilisers may change other properties, e.g. if fertilisers increase plant growth, we may see increased organic matter in the soil over time. Inappropriate fertiliser use may be toxic to life in soil, decreasing those biological properties associated with soil life."
+      "expectedAnswer": "Explain that organic matter changes soil properties by improving structure, water-holding capacity, and nutrient content.",
+      "markingGuide": "Merit: Explains how organic matter impacts soil properties. Organic matter improves soil structure by binding soil particles into aggregates (peds), creating a mix of macropores and micropores. This improves both drainage and water-holding capacity. Organic matter also increases the nutrient content of the soil as it is broken down by microorganisms. It can buffer soil pH changes. Dark-coloured organic matter absorbs heat, warming the soil and increasing the rate of biological activity."
     },
     {
       "id": "91930-25-q1c",
       "number": "1(c)",
-      "text": "Justify why soil tests should be carried out before applying fertiliser.\n\nIn your answer consider:\n- chemical and biological soil properties\n- how applying fertiliser after a soil test can improve plant growth.",
+      "text": "Justify why soil tests should be carried out regularly as part of managing soil health.\n\nIn your answer consider:\n- chemical and biological soil properties\n- how regular monitoring can guide management decisions to improve plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "soil-properties",
-        "soil-management",
-        "primary-production"
-      ],
+      "topics": ["soil-properties", "soil-management", "primary-production"],
       "answerType": "text",
-      "expectedAnswer": "Justify by explaining that soil tests provide information about nutrient status and pH in...",
-      "markingGuide": "Achieved: Describes why soil tests should be carried out. Merit: Explains why soil tests should be carried out, and relates this to use of fertiliser. Excellence: Justifies why soil tests should be carried out before applying fertiliser, by giving detailed reasons.\n\nSoil tests provide information about the nutrient status and pH in different areas of the property. Fertilisers can then be chosen to match the chemical properties of the soil, e.g. if sulphur is low in soil, ensure adequate sulphur is in fertiliser. Soil pH should be between 5.7 and 6.3. When soils are outside this range, plants struggle to take up nutrients, so adding fertiliser will not hugely impact growth. If too much fertiliser is used, it can cause damage / toxicity to life in soil, reducing the number of organisms in soil. Plants need adequate levels of nutrients and appropriate pH for optimum growth because they require nutrients for their life processes. Without soil tests, we cannot know which nutrients are required and may provide too many, causing toxicity, or too little, causing deficiencies, and poor plant growth. Multiple soil tests should be carried out at one time to identify variation in soil properties across a property (depending on the chosen production system). The cost of soil tests is generally far less than the plant growth benefits of having applied fertiliser correctly."
+      "expectedAnswer": "Justify by explaining that soil tests provide baseline and trend data about nutrient levels and pH.",
+      "markingGuide": "Achieved: Describes why soil tests should be carried out. Merit: Explains why soil tests should be carried out and relates this to management decisions. Excellence: Justifies why regular soil testing is essential, giving detailed reasons.\n\nSoil tests reveal the current nutrient status, pH, and organic matter content. Regular testing (annually or before each planting season) allows growers to track trends — e.g. whether pH is gradually dropping or whether nitrogen levels are declining. This data guides targeted management decisions such as applying specific fertilisers, adjusting lime rates, or increasing organic matter inputs. Without regular testing, growers may over-apply fertiliser (wasting money and risking nutrient leaching into waterways) or under-apply (leading to nutrient deficiency and poor plant growth). Regular testing demonstrates responsible soil stewardship (manaakitanga) by ensuring inputs match the soil's actual needs."
     },
     {
       "id": "91930-25-q2a",
       "number": "2(a)",
-      "text": "A vegetable grower has sandy soil and is using compost to improve their soil.\n\nDescribe how compost is made.",
+      "text": "A kiwifruit grower has clay-rich soil and is using mulch to improve their soil.\n\nDescribe how mulch is prepared and applied.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "soil-management"
-      ],
+      "topics": ["soil-management"],
       "answerType": "text",
-      "expectedAnswer": "Describe the composting process: a variety of plant material including 'greens' (leafy) and...",
-      "markingGuide": "Achieved: Describes how compost is made. A variety of plant material including 'greens' (leafy) and 'browns' (more fibrous / woody) are collected into a container that allows air flow. The compost is kept moist, so there is air and water. It is mixed regularly and monitored for temperature and pH. Lime can be used if the compost becomes too acidic. Once the compost is well decomposed and has become dark humus, it can be added to the soil."
+      "expectedAnswer": "Describe the mulching process: organic materials such as bark chips, straw, or leaf litter are spread over the soil surface.",
+      "markingGuide": "Achieved: Describes how mulch is prepared and applied. Mulch can be made from a range of organic materials including bark chips, straw, grass clippings, or shredded prunings. It is spread evenly over the soil surface around the base of plants to a depth of 50–100 mm, avoiding direct contact with plant stems to prevent rot."
     },
     {
       "id": "91930-25-q2b",
       "number": "2(b)",
-      "text": "How can adding compost increase nutrient levels in the soil?",
+      "text": "How can applying mulch improve the biological properties of the soil?",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": [
-        "soil-properties",
-        "soil-management"
-      ],
+      "topics": ["soil-properties", "soil-management"],
       "answerType": "text",
-      "expectedAnswer": "Explain that compost contains organic matter where nutrients are available for plants to absorb;...",
-      "markingGuide": "Achieved: Describes how compost increases nutrient levels in the soil. Merit: Explains how compost increases nutrient levels in soil, with reference to biological properties.\n\nCompost contains organic matter in a state where nutrients are available for plants to absorb. The amount of each nutrient may vary between different compost mixtures. Sandy soil can leach nutrients faster than other types of soil, so using compost to supply more nutrients can be beneficial."
+      "expectedAnswer": "Explain that mulch provides habitat and food for soil organisms, increasing biological activity.",
+      "markingGuide": "Achieved: Describes how mulch improves biological properties. Merit: Explains how mulch improves biological properties with reference to soil organisms.\n\nMulch provides a food source for soil organisms such as earthworms, bacteria, and fungi. As these organisms break down the mulch, they release nutrients into the soil. The mulch layer also creates a moist, sheltered environment that is ideal for soil organisms to thrive. Earthworm activity is increased, which improves soil structure through tunnelling and mixing."
     },
     {
       "id": "91930-25-q2c",
       "number": "2(c)",
-      "text": "The grower is considering replacing compost with a combination of fertiliser and irrigation.\n\nEvaluate the application of compost, compared to irrigation and fertiliser application.\n\nIn your answer consider:\n- the long-term effects on the soil\n- vegetable growth.",
+      "text": "The grower is considering replacing mulch with a synthetic weed mat and drip irrigation system.\n\nEvaluate the application of mulch, compared to using a weed mat and drip irrigation.\n\nIn your answer consider:\n- the long-term effects on the soil\n- plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "soil-management",
-        "soil-properties",
-        "primary-production"
-      ],
+      "topics": ["soil-management", "soil-properties", "primary-production"],
       "answerType": "text",
-      "expectedAnswer": "Evaluate compost vs irrigation/fertiliser by comparing: compost improves soil structure, water...",
-      "markingGuide": "Achieved: Describes how compost differs from fertiliser and irrigation. Merit: Explains how management practices improve soil properties. Excellence: Evaluates the use of compost by comparing it to irrigation and fertiliser application, including long-term effects on soil and production.\n\nSandy soils drain water rapidly and leach nutrients out of soil rapidly. Irrigation replaces soil moisture that is drained away from sandy soil rapidly. Water is required for many plant processes, including dissolving nutrients for micro- and macro-organisms in soil. It is required to dissolve nutrients so plants can absorb them. Irrigation requires expensive equipment, pumps, a water supply, and labour. It must be used regularly, depending on soil moisture and rainfall. Long-term, irrigation can decrease the risk of soil reaching wilting point, speed up nutrient leaching (resulting in poor soil fertility), and increase nutrients entering waterways.\n\nCompost replaces nutrients leached from sandy soil. Nutrients are required for many plant processes, e.g. nitrogen is especially important in growing leaves like lettuces. Compost can be expensive to make or purchase, and application requires special equipment, depending on the size of the farm. Compost is generally used less often than irrigation, so less testing and labour is required. Long-term, compost can reduce soil pH, maintain optimum soil nutrient levels, and increase nutrient leaching into waterways.\n\nA production system without irrigation risks large scale plant death if the sandy soil reaches permanent wilting point. A production system without compost risks slow growth as it becomes low in nutrients. The grower does have other options to replace nutrients, like fertiliser."
+      "expectedAnswer": "Evaluate mulch vs weed mat/irrigation by comparing: mulch improves soil biology and structure, weed mat does not.",
+      "markingGuide": "Achieved: Describes how mulch differs from weed mat/irrigation. Merit: Explains how both management practices affect soil properties. Excellence: Evaluates the use of mulch by comparing it to weed mat and irrigation, including long-term effects.\n\nMulch improves soil biology, adds nutrients as it decomposes, improves structure, and reduces evaporation. Long-term, mulch builds organic matter, improving the soil's ability to support plant growth without additional inputs. However, mulch needs regular replacement and can harbour pests.\n\nA synthetic weed mat suppresses weeds effectively and reduces evaporation, but does not add nutrients or organic matter. Long-term, the soil beneath a weed mat may become biologically inactive. Drip irrigation provides precise water delivery but does not improve soil structure or biology.\n\nA system combining drip irrigation under organic mulch may provide the benefits of both approaches — weed suppression, moisture retention, and ongoing soil improvement."
     },
     {
       "id": "91930-25-q3a",
       "number": "3(a)",
-      "text": "Name a primary production system.\n\nFor your primary production system, choose a management practice from the list below that may help to improve drainage of the soil.\n- Installing a drainage system\n- Cultivation\n- Application of lime\n- Application of effluent\n- Using a multi-species sward\n\nWith reference to your chosen primary production system, describe how this management practice is carried out.",
+      "text": "Name a primary production system.\n\nFor your primary production system, choose a management practice from the list below that may help to reduce soil erosion.\n- Contour ploughing\n- Planting shelter belts\n- Applying ground cover crops\n- Reducing stock numbers\n- Installing retaining walls\n\nWith reference to your chosen primary production system, describe how this management practice is carried out.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "soil-management",
-        "primary-production"
-      ],
+      "topics": ["soil-management", "primary-production"],
       "answerType": "text",
-      "expectedAnswer": "Describe how the chosen management practice is performed, e.g.",
-      "markingGuide": "Achieved: Describes how one listed management practice is performed. Example - installing a drainage system: Mole drainage is carried out by pulling a bullet-shaped mole plough behind a tractor in lines, which point towards a low point in the paddock. Mole drainage may need to be repeated every few years."
+      "expectedAnswer": "Describe how the chosen management practice is performed.",
+      "markingGuide": "Achieved: Describes how one listed management practice is performed. Example — planting shelter belts: rows of trees or shrubs are planted along boundaries or exposed ridges to reduce wind speed across the property. Species such as poplars, willows, or native species like tōtara may be used depending on the region and conditions."
     },
     {
       "id": "91930-25-q3b",
@@ -113,46 +91,27 @@
       "text": "How does this management practice improve one physical and one biological property of the soil?\n\nPhysical property:\n\nBiological property:",
       "marks": 2,
       "gradeLevel": "merit",
-      "topics": [
-        "soil-properties",
-        "soil-management"
-      ],
+      "topics": ["soil-properties", "soil-management"],
       "answerType": "text",
       "expectedAnswer": "Explain how the management practice impacts one physical AND one biological property.",
-      "markingGuide": "Achieved: Describes how a management practice impacts physical OR biological properties. Merit: Explains how a management practice impacts physical AND biological properties.\n\nExample - installing a drainage system:\nPhysical property: Drainage can increase the aeration of soil because there is less water in the soil pores, which can then be replaced by air.\nBiological property: Drainage can increase decomposition in the soil because having a better balance of air and water is needed for microorganisms and macroorganisms."
+      "markingGuide": "Achieved: Describes how a management practice impacts physical OR biological properties. Merit: Explains how a management practice impacts physical AND biological properties.\n\nExample — planting shelter belts:\nPhysical property: Shelter belts reduce wind erosion by lowering wind speed, keeping topsoil in place and maintaining soil structure.\nBiological property: The leaf litter from shelter belt trees adds organic matter to the soil, providing food for soil organisms and increasing decomposition rates."
     },
     {
       "id": "91930-25-q3c",
       "number": "3(c)",
-      "text": "Choose a second management practice from the list on page 8.\n\nFor your chosen primary production system, which of your two management practices is more effective in improving soil structure and drainage?\n\nJustify why the grower should use this management practice with reference to plant growth.",
+      "text": "Choose a second management practice from the list in the question above.\n\nFor your chosen primary production system, which of your two management practices is more effective in reducing soil erosion?\n\nJustify why the grower should use this management practice with reference to plant growth.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": [
-        "soil-management",
-        "soil-properties",
-        "primary-production"
-      ],
+      "topics": ["soil-management", "soil-properties", "primary-production"],
       "answerType": "text",
-      "expectedAnswer": "Describe the second practice, explain how it impacts soil properties, then justify",
-      "markingGuide": "Achieved: Describes a second management practice and its impact on soil properties. Merit: Explains how a management practice has a greater impact on soil properties. Excellence: Justifies why a named management practice is more effective, with reference to optimised production.\n\nExample - application of lime:\nLime has the effect of flocculation on clay particles. This is where clay particles clump together more, leading to more peds and more larger pores between peds. These macropores allow water to drain better and allow more plant growth, which can lead to even better soil structure. Unfortunately, the flocculation by lime is useful only for clay particles and is a less effective tool for draining water compared to using mole drainage."
+      "expectedAnswer": "Describe the second practice, explain how it impacts soil properties, then justify which is more effective.",
+      "markingGuide": "Achieved: Describes a second management practice and its impact on soil properties. Merit: Explains how a management practice has a greater impact on soil properties. Excellence: Justifies why a named management practice is more effective, with reference to optimised production.\n\nExample — applying ground cover crops: Cover crops (e.g. clover, ryegrass) are planted between main crop rows or during fallow periods. Their roots physically hold soil in place, reducing both wind and water erosion. The plants also increase organic matter when they decompose. Compared to shelter belts, ground cover crops provide more immediate and comprehensive erosion protection across the entire soil surface rather than just at boundaries. However, shelter belts provide long-term wind protection without needing replanting each season. The most effective approach depends on the type of erosion — wind-dominated areas benefit more from shelter belts, while sloping areas with water erosion benefit more from ground cover."
     }
   ],
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
-      "max": 12
-    },
-    "merit": {
-      "min": 13,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
   }
 }

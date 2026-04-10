@@ -10,7 +10,7 @@
     {
       "id": "l1m24-q1a",
       "number": "1(a)",
-      "text": "[Diagram: Table 1 shows the physical properties of graphite (carbon), C. Properties include: Melting point 3650°C (Very high), Solubility in water (Insoluble), Electrical conductivity 3×10⁵ σ (S/m) at 20°C (Good), Malleability 4.80 GPa (Brittle), Hardness 1 to 2 Moh (Soft).]\n\nA pencil containing graphite (carbon), C, has been used to draw an electrical circuit, which is an outline of a car. A 9V battery and light-emitting diode (LED) are also part of the circuit.\n\nDescribe TWO physical properties of graphite (carbon) and link these two physical properties to their use in drawing and creating an operating electrical circuit.",
+      "text": "Table 1 shows the physical properties of copper, Cu.\n\n| Property | Value | Description |\n|---|---|---|\n| Melting point | 1085 °C | Very high |\n| Solubility in water | Insoluble | Insoluble |\n| Electrical conductivity | 5.96 × 10⁷ S/m at 20 °C | Excellent |\n| Malleability | Malleable | Can be shaped |\n| Hardness | 3.0 Mohs | Moderately hard |\n\nCopper wire is widely used in household electrical wiring. The copper is drawn into thin wires and carries electric current throughout a house.\n\nDescribe TWO physical properties of copper and link these two physical properties to their use in household electrical wiring.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -18,14 +18,13 @@
         "physical-properties"
       ],
       "answerType": "working",
-      "expectedAnswer": "Graphite is soft (1-2 Moh hardness) so it transfers onto paper when rubbed.",
-      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and the physical properties of graphite, and how these link to its use to draw the circuit or allow the circuit to operate.",
-      "image": "/images/exams/92023-2024-q1a.png"
+      "expectedAnswer": "Copper has excellent electrical conductivity (5.96 × 10⁷ S/m) so it efficiently carries current.",
+      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and the physical properties of copper, and how these link to its use in electrical wiring or allow the wiring to function."
     },
     {
       "id": "l1m24-q1b",
       "number": "1(b)",
-      "text": "Explain these TWO physical properties with reference to the structure and bonding of graphite (carbon).",
+      "text": "Explain these TWO physical properties with reference to the structure and bonding of copper.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -34,13 +33,13 @@
         "bonding"
       ],
       "answerType": "working",
-      "expectedAnswer": "Graphite is a 2D covalent network of carbon layers with weak forces between layers",
-      "markingGuide": "Merit: Explains how the structure, relative strength of attractive forces between the atoms, and how the physical properties of graphite make it suitable for use in drawing or operating the circuit. Some aspects of the explanation are incomplete."
+      "expectedAnswer": "Copper is a metallic solid with a 3D lattice of Cu²⁺ cations surrounded by delocalised electrons",
+      "markingGuide": "Merit: Explains how the structure, relative strength of attractive forces between the atoms, and how the physical properties of copper make it suitable for use in electrical wiring. Some aspects of the explanation are incomplete."
     },
     {
       "id": "l1m24-q1c",
       "number": "1(c)",
-      "text": "Evaluate how graphite (carbon) will behave when used to draw and create an operating electrical circuit by linking the TWO physical properties to the structure and bonding.",
+      "text": "Evaluate how copper will behave when used as household electrical wiring by linking the TWO physical properties to the structure and bonding.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -49,13 +48,13 @@
         "bonding"
       ],
       "answerType": "working",
-      "expectedAnswer": "Graphite has weak attractive forces between layers allowing them to slide and transfer onto...",
-      "markingGuide": "Excellence: Evaluates the structure, relative strength of attractive forces between the atoms, and how the physical properties of graphite enable the drawing of the circuit and the electrical conduction within the circuit."
+      "expectedAnswer": "Copper has delocalised electrons in its metallic structure that are free to move and carry charge...",
+      "markingGuide": "Excellence: Evaluates the structure, relative strength of attractive forces between the atoms, and how the physical properties of copper enable effective electrical wiring through conductivity and the ability to be drawn into thin wires."
     },
     {
       "id": "l1m24-q2a",
       "number": "2(a)",
-      "text": "[Diagram: Table 2 shows physical properties of carbon dioxide and air. CO₂ density at 20°C: 1.98 kg/m³, Air density: 1.20. CO₂ electrical conductivity: Insulator. Air electrical conductivity: Insulator. An image of a carbon dioxide fire extinguisher is shown.]\n\nCarbon dioxide fire extinguishers can be used safely to put out electrical fires. These extinguishers are filled with non-flammable carbon dioxide, CO₂ gas.\n\nDescribe TWO physical properties of carbon dioxide and link these two physical properties to the safe use of carbon dioxide to prevent oxygen in the air from fuelling a fire.",
+      "text": "Table 2 shows physical properties of nitrogen gas, N₂, and oxygen gas, O₂.\n\n| Property | Nitrogen, N₂ | Oxygen, O₂ |\n|---|---|---|\n| Boiling point at 1 atm | −196 °C | −183 °C |\n| Density at 20 °C | 1.25 kg/m³ | 1.43 kg/m³ |\n| Electrical conductivity | Insulator | Insulator |\n\nFood packaging sometimes replaces the air inside with pure nitrogen gas to keep food fresh for longer. Nitrogen gas is non-reactive and displaces oxygen that would cause the food to spoil.\n\nDescribe TWO physical properties of nitrogen gas and link these two physical properties to its use in keeping food fresh in sealed packaging.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -64,14 +63,13 @@
         "chemical-properties"
       ],
       "answerType": "working",
-      "expectedAnswer": "CO₂ is denser than air (1.98 vs 1.20 kg/m³) so it sinks and smothers the fire.",
-      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and a physical property of carbon dioxide, and how this links to its use to safely put out an electrical fire.",
-      "image": "/images/exams/92023-2024-q2a.png"
+      "expectedAnswer": "Nitrogen has a very low boiling point (−196 °C) so it is a gas at room temperature.",
+      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and a physical property of nitrogen gas, and how this links to its use in food packaging."
     },
     {
       "id": "l1m24-q2b",
       "number": "2(b)",
-      "text": "Explain these TWO physical properties, with reference to the structure and bonding of carbon dioxide.",
+      "text": "Explain these TWO physical properties, with reference to the structure and bonding of nitrogen gas.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -80,13 +78,13 @@
         "bonding"
       ],
       "answerType": "working",
-      "expectedAnswer": "CO₂ is a molecular substance with discrete molecules held by strong covalent bonds but with weak...",
-      "markingGuide": "Merit: Explains why carbon dioxide is used for a fire extinguisher/electrical fire, with reference to its structure, relative strength of attractive forces, and a physical property."
+      "expectedAnswer": "N₂ is a molecular substance with discrete diatomic molecules held by strong triple covalent bonds but with weak...",
+      "markingGuide": "Merit: Explains why nitrogen gas is used for food packaging, with reference to its structure, relative strength of attractive forces, and a physical property."
     },
     {
       "id": "l1m24-q2c",
       "number": "2(c)",
-      "text": "Evaluate how carbon dioxide will behave when used as a fire extinguisher by linking the TWO physical properties to the structure and bonding.",
+      "text": "Evaluate how nitrogen gas will behave when used in food packaging by linking the TWO physical properties to the structure and bonding.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -95,13 +93,13 @@
         "bonding"
       ],
       "answerType": "working",
-      "expectedAnswer": "CO₂ consists of discrete molecules with weak intermolecular forces, allowing free movement as a...",
-      "markingGuide": "Excellence: Evaluates the use of carbon dioxide to put out an electrical fire with reference to its structure, relative strength of attractive forces, and physical property."
+      "expectedAnswer": "N₂ consists of discrete molecules with a strong triple covalent bond within the molecule and very weak intermolecular forces...",
+      "markingGuide": "Excellence: Evaluates the use of nitrogen gas in food packaging with reference to its structure, relative strength of attractive forces, and physical properties. Links to the non-reactivity of the triple bond and the gaseous state at room temperature."
     },
     {
       "id": "l1m24-q3a",
       "number": "3(a)",
-      "text": "[Diagram: Images show harakeke leaves (green) and white muka fibres, and a kupenga (fishing net) made by knotting muka fibres together. Table 3 shows Young's modulus and solubility of various materials: Muka 8.6 GPa Insoluble, Hemp 11.8 GPa Insoluble, Wool 2.3 GPa Insoluble, Glass 70-100 GPa Insoluble. *A high value of Young's modulus means that a material is brittle.]\n\nHarakeke (New Zealand flax) has long upright leaves. When the green flesh is removed, a long white fibre (polymer) called muka is revealed. Muka fibre is a natural polymer material.\n\nDescribe TWO physical properties of muka and link these two physical properties to their use in making a working kupenga.",
+      "text": "Pounamu (New Zealand greenstone or nephrite jade) is a mineral prized in Māori culture for making tools and ornaments. Pounamu is a silicate mineral with a fibrous crystalline structure.\n\nTable 3 shows properties of pounamu and other materials.\n\n| Material | Hardness (Mohs) | Solubility in water |\n|---|---|---|\n| Pounamu (jade) | 6.0–6.5 | Insoluble |\n| Obsidian (volcanic glass) | 5.0–5.5 | Insoluble |\n| Calcite (limestone mineral) | 3.0 | Slightly soluble |\n| Quartz | 7.0 | Insoluble |\n\nPounamu was traditionally shaped into cutting tools (toki) and personal adornments (hei-tiki). It is very tough and resists chipping.\n\nDescribe TWO physical properties of pounamu and link these two physical properties to their use in making tools and adornments.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -109,14 +107,13 @@
         "physical-properties"
       ],
       "answerType": "working",
-      "expectedAnswer": "Muka is malleable/flexible (Young's modulus 8.6 GPa, not brittle) so it can be spun and knotted.",
-      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and the physical properties of muka fibre and how it links to its usage/suitability as a kupenga.",
-      "image": "/images/exams/92023-2024-q3a.png"
+      "expectedAnswer": "Pounamu is hard (6.0–6.5 Mohs) so it can hold a sharp edge for cutting tools.",
+      "markingGuide": "Achievement: Describes the structure, relative strength of attractive forces, and the physical properties of pounamu and how it links to its usage/suitability as a tool or adornment."
     },
     {
       "id": "l1m24-q3b",
       "number": "3(b)",
-      "text": "Explain these TWO physical properties, with reference to the structure and bonding of muka.",
+      "text": "Explain these TWO physical properties, with reference to the structure and bonding of pounamu.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -125,13 +122,13 @@
         "bonding"
       ],
       "answerType": "working",
-      "expectedAnswer": "Muka is a polymer made of long chains with strong covalent bonds within chains and weaker...",
-      "markingGuide": "Merit: Explains the structure, relative strength of attractive forces, and the physical properties of muka. Links to its use/suitability as a kupenga. Some aspects of the explanation are incomplete."
+      "expectedAnswer": "Pounamu is a covalent network material made of interlocking fibrous silicate chains with strong covalent bonds...",
+      "markingGuide": "Merit: Explains the structure, relative strength of attractive forces, and the physical properties of pounamu. Links to its use/suitability as a tool or adornment. Some aspects of the explanation are incomplete."
     },
     {
       "id": "l1m24-q3c",
       "number": "3(c)",
-      "text": "Evaluate how muka will behave when used as a kupenga by linking the TWO physical properties to the structure and bonding.",
+      "text": "Evaluate how pounamu will behave when used as a cutting tool by linking the TWO physical properties to the structure and bonding.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -140,8 +137,8 @@
         "bonding"
       ],
       "answerType": "working",
-      "expectedAnswer": "Muka's polymer chains have weak intermolecular forces between them, allowing flexibility for...",
-      "markingGuide": "Excellence: Evaluates the physical properties of muka, linking to the structure of the polymer, muka, the relative strength of attractive forces between the polymer particles, and hence its use and suitability as a kupenga."
+      "expectedAnswer": "Pounamu's interlocking fibrous covalent network of silicate chains gives it both hardness and toughness...",
+      "markingGuide": "Excellence: Evaluates the physical properties of pounamu, linking to the structure of the covalent network, the relative strength of attractive forces between the particles, and hence its use and suitability as a cutting tool or adornment."
     }
   ],
   "totalMarks": 24,

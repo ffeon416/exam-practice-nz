@@ -10,7 +10,7 @@
     {
       "id": "l2rx24-q1ai",
       "number": "1(a)(i)",
-      "text": "Tiwai Point in the South Island of New Zealand extracts large amounts of aluminium sourced from an ore called bauxite, which contains the mineral aluminium(III) oxide, Al₂O₃. One step of the main extraction process is as follows:\n\nAl₂O₃(s) + 2NaOH(aq) -> 2NaAlO₂(aq) + H₂O(l)\n\nThe graph below shows the mass of aluminium(III) oxide, Al₂O₃, as it reacts with 0.5 mol L⁻¹ NaOH. The graph has two sections: Section A (steep decline) and Section B (curve levelling off).\n\nAdd a second line to the graph to predict the rate of decline in mass of aluminium(III) oxide if 2 mol L⁻¹ NaOH were used in the reaction instead.\n\nAssume both reactions started with the same mass of ore.",
+      "text": "Aluminium refining in New Zealand uses bauxite containing aluminium oxide, Al2O3. One step of the extraction involves the reaction of aluminium oxide with carbon monoxide:\n\nAl2O3(s) + 3CO(g) -> 2Fe(l) + 3CO2(g)\n\nThe graph below shows the mass of aluminium oxide, Al2O3, as it reacts with 0.5 mol L-1 CO. The graph has two sections: Section A (steep decline) and Section B (curve levelling off).\n\nAdd a second line to the graph to predict the rate of decline in mass of aluminium oxide if 2.0 mol L-1 CO were used instead.\n\nAssume both reactions started with the same mass of ore.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -18,14 +18,13 @@
         "collision-theory"
       ],
       "answerType": "working",
-      "expectedAnswer": "Added line should have a steeper gradient, and begin and end at the same mass of Al₂O₃",
-      "markingGuide": "Achievement: Correct second line (steeper gradient, same start and end mass).",
-      "image": "/images/exams/91166-2024-q1a.png"
+      "expectedAnswer": "Added line should have a steeper gradient, and begin and end at the same mass of Al2O3.",
+      "markingGuide": "Achievement: Correct second line (steeper gradient, same start and end mass)."
     },
     {
       "id": "l2rx24-q1aii",
       "number": "1(a)(ii)",
-      "text": "With reference to the line you have drawn, explain the effect that this change in concentration of NaOH from 0.5 mol L⁻¹ to 2 mol L⁻¹ would have on the rate of this reaction.\n\nIn your answer you should include reference to:\n- mass of Al₂O₃\n- each section of the line\n- collision theory.",
+      "text": "With reference to the line you have drawn, explain the effect that this change in concentration of CO from 0.5 mol L-1 to 2.0 mol L-1 would have on the rate of this reaction.\n\nIn your answer you should include reference to:\n- mass of Al2O3\n- each section of the line\n- collision theory.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -34,13 +33,13 @@
         "concentration"
       ],
       "answerType": "working",
-      "expectedAnswer": "The added line shows a steeper decline in mass of Al₂O₃ due to the higher concentration of NaOH,",
-      "markingGuide": "Achievement: States that the same mass of Al₂O₃ is used (starts or ends) OR correctly identifies that higher concentration increases rate of reaction. Merit: Correctly links increased concentration to the increase in frequency of successful collisions OR a correct comparison of sections A and B OR correctly identifies that the end point is reached sooner. Excellence: Full comparison including a correct comparison of sections A and B linked to the gradient of one line, which links the increase in concentration to the increase in frequency of successful collisions and an increase in the rate of reaction."
+      "expectedAnswer": "The added line shows a steeper decline in mass of Al2O3 due to the higher concentration of CO, meaning more frequent successful collisions.",
+      "markingGuide": "Achievement: States that the same mass of Al2O3 is used OR correctly identifies that higher concentration increases rate. Merit: Correctly links increased concentration to increased frequency of successful collisions. Excellence: Full comparison including sections A and B."
     },
     {
       "id": "l2rx24-q1bi",
       "number": "1(b)(i)",
-      "text": "For the 0.5 mol L⁻¹ NaOH solution, calculate the hydronium ion, H₃O⁺, concentration.",
+      "text": "For the 0.5 mol L-1 NaOH solution used in another process, calculate the hydronium ion, H3O+, concentration.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -48,13 +47,13 @@
         "pH-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "[H₃O⁺] = (1 x 10⁻¹⁴) / 0.5 = 2 x 10⁻¹⁴ mol L⁻¹",
-      "markingGuide": "Achievement: Correctly calculates [H₃O⁺] (can accept e⁻¹⁴)."
+      "expectedAnswer": "[H3O+] = (1 x 10^-14) / 0.4 = 2.5 x 10^-14 mol L-1",
+      "markingGuide": "Achievement: Correctly calculates [H3O+]."
     },
     {
       "id": "l2rx24-q1bii",
       "number": "1(b)(ii)",
-      "text": "Calculate the pH of the 0.5 mol L⁻¹ NaOH solution.",
+      "text": "Calculate the pH of the 0.5 mol L-1 NaOH solution.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -62,13 +61,13 @@
         "pH-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "pH = -log(2 x 10⁻¹⁴) = 13.7 (1 s.f.)\nAccept use of pH = 14 - pOH.",
-      "markingGuide": "Achievement: Incorrectly calculates pH using [OH⁻]. Merit: Correct pH (sig figs are not required)."
+      "expectedAnswer": "pH = -log(2.5 x 10^-14) = 13.6",
+      "markingGuide": "Achievement: Incorrectly calculates pH using [OH-]. Merit: Correct pH."
     },
     {
       "id": "l2rx24-q1c",
       "number": "1(c)",
-      "text": "Using the principles of collision and particle theories, explain why using a catalyst would help to increase the rate of production of sodium aluminium salt (NaAlO₂).\n\nYou should include an energy profile diagram to support your answer.",
+      "text": "Using the principles of collision and particle theories, explain why using a catalyst would help to increase the rate of production of iron from aluminium oxide.\n\nYou should include an energy profile diagram to support your answer.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -77,13 +76,13 @@
         "activation-energy"
       ],
       "answerType": "working",
-      "expectedAnswer": "A catalyst increases the rate of a reaction by providing an alternative pathway for the reaction...",
-      "markingGuide": "Achievement: Basic definition of a catalyst (lowers activation energy and provides an alternative pathway). Merit: Links the higher rate of reaction to the lower activation energy requirement and the catalyst providing the alternative pathway. Excellence: Explanation including reference to activation energy, alternative pathway, successful collisions, and correct energy profile diagram."
+      "expectedAnswer": "A catalyst increases the rate of a reaction by providing an alternative pathway with lower activation energy.",
+      "markingGuide": "Achievement: Basic definition of a catalyst. Merit: Links higher rate to lower activation energy. Excellence: Full explanation with energy profile diagram."
     },
     {
       "id": "l2rx24-q2ai",
       "number": "2(a)(i)",
-      "text": "Superphosphate fertiliser is manufactured in New Zealand using phosphorite rocks and sulfuric acid. The sulfuric acid is often produced on site, and includes a reaction involving oxygen, O₂(g), sulfur dioxide, SO₂(g), and sulfur trioxide, SO₃(g), which is represented by the equilibrium constant expression below.\n\nKc = [SO₃]² / ([SO₂]²[O₂])     Kc = 32.7 at 25 degrees C\n\nGive the equation for this reaction.",
+      "text": "Ammonia for industrial use is manufactured in New Zealand using a reaction involving nitrogen, N2(g), hydrogen, H2(g), and ammonia, NH3(g), which is represented by the equilibrium constant expression below.\n\nKc = [NH3]^2 / ([N2][H2]^3)     Kc = 0.620 at 450 degrees C\n\nGive the equation for this reaction.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -91,13 +90,13 @@
         "equations"
       ],
       "answerType": "working",
-      "expectedAnswer": "O₂(g) + 2SO₂(g) ⇌ 2SO₃(g)",
-      "markingGuide": "Achievement: Correct equation without states. Merit: First step correct but inverted answer. Excellence: Correct value including full working."
+      "expectedAnswer": "N2(g) + 3H2(g) <=> 2NH3(g)",
+      "markingGuide": "Achievement: Correct equation."
     },
     {
       "id": "l2rx24-q2aii",
       "number": "2(a)(ii)",
-      "text": "The reaction is set up and allowed to reach equilibrium.\n\nCalculate the concentration of oxygen, O₂, at equilibrium if the concentration of sulfur dioxide, SO₂, is 0.17 mol L⁻¹ and sulfur trioxide, SO₃, is 0.50 mol L⁻¹.",
+      "text": "The reaction is set up and allowed to reach equilibrium.\n\nCalculate the concentration of nitrogen, N2, at equilibrium if the concentration of hydrogen, H2, is 0.250 mol L-1 and ammonia, NH3, is 0.500 mol L-1.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -105,13 +104,13 @@
         "Kc-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Kc = [SO₃]² / ([SO₂]²[O₂])\n32.7 = (0.50)² / ((0.17)² x [O₂])\n32.7 = 0.25 / (0.0289 x [O₂])\n[O₂]...",
-      "markingGuide": "Achievement: Correct substitution but inverted value or not the same as Kc value calculated. Merit: Correct value (sig figs are not required). Excellence: Correct value including full working."
+      "expectedAnswer": "Kc = [NH3]^2 / ([N2][H2]^3)\n0.620 = (0.400)^2 / ([N2] x (0.200)^3)\n0.620 = 0.160 / (0.00800 x [N2])\n[N2] = 0.160 / (0.00800 x 0.620) = 40.0 mol L-1",
+      "markingGuide": "Achievement: Correct substitution. Merit: Correct value."
     },
     {
       "id": "l2rx24-q2bi",
       "number": "2(b)(i)",
-      "text": "The reaction is set up differently, with concentrations of each component as indicated below.\n\n[SO₃] = 0.530 mol L⁻¹\n[O₂] = 0.710 mol L⁻¹\n[SO₂] = 0.620 mol L⁻¹\n\nUsing a calculation, explain why this reaction is not at equilibrium.",
+      "text": "The reaction is set up differently, with concentrations of each component as indicated below.\n\n[NH3] = 0.520 mol L-1\n[N2] = 0.700 mol L-1\n[H2] = 0.620 mol L-1\n\nUsing a calculation, explain why this reaction is not at equilibrium.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -119,8 +118,8 @@
         "Kc-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Qc = [SO₃]² / ([SO₂]²[O₂]) = (0.530)² / ((0.620)² x 0.710) = 0.2809 / 0.27284 = 1.03\nThis value...",
-      "markingGuide": "Achievement: States the calculated value is not the same as Kc value. Merit: States the value is less than Kc and therefore the reaction proceeds forwards (more products). Excellence: Identifies the reaction proceeds forwards with full explanation."
+      "expectedAnswer": "Qc = [NH3]^2 / ([N2][H2]^3) = (0.480)^2 / ((0.650) x (0.580)^3) = 0.2304 / 0.12680 = 1.82\nThis value is not equal to Kc (0.620), so the system is not at equilibrium.",
+      "markingGuide": "Achievement: States the calculated value is not the same as Kc. Merit: States the value is greater than Kc and therefore the reaction proceeds in reverse."
     },
     {
       "id": "l2rx24-q2bii",
@@ -132,13 +131,13 @@
         "equilibrium"
       ],
       "answerType": "working",
-      "expectedAnswer": "To establish equilibrium, the forward reaction must proceed at a greater rate than the reverse,",
-      "markingGuide": "Achievement: Correctly identifies direction based on answer from (b)(i). Merit: States the value is the same as Kc and therefore the reaction proceeds forwards. Excellence: Identifies the reaction proceeds forwards and explains in relation to products and reactants."
+      "expectedAnswer": "Since Qc > Kc, the reverse reaction must proceed at a greater rate than the forward, converting products back to reactants until Qc = Kc.",
+      "markingGuide": "Achievement: Correctly identifies direction. Merit: States the reaction proceeds in reverse to establish Kc."
     },
     {
       "id": "l2rx24-q2ci",
       "number": "2(c)(i)",
-      "text": "Sulfuric acid, H₂SO₄, can be manufactured using the following reaction:\n\nSO₃(g) + H₂O(g) ⇌ H₂SO₄(g)\n\nUsing equilibrium principles, identify, then describe, the effect on the position of the equilibrium when:\n\n- water vapour, H₂O(g), is added to the reaction mixture.\nCircle your choice: Forward is favoured / No Change / Reverse is favoured\n\n- sodium hydroxide, NaOH(aq), is added to the reaction mixture.\nCircle your choice: Forward is favoured / No Change / Reverse is favoured",
+      "text": "Ammonia, NH3, can be reacted with carbon dioxide to form urea:\n\n2NH3(g) + CO2(g) <=> (NH2)2CO(s) + H2O(g)\n\nUsing equilibrium principles, identify, then describe, the effect on the position of the equilibrium when:\n\n- ammonia, NH3(g), is added to the reaction mixture.\n\n- sodium hydroxide, NaOH(aq), is added to the reaction mixture.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -146,8 +145,8 @@
         "le-chateliers-principle"
       ],
       "answerType": "working",
-      "expectedAnswer": "Water vapour: Forward is favoured.",
-      "markingGuide": "Achievement: One correct answer. Merit: Either correct answer linked to a reason for the shift and the outcome. Excellence: Justification of increase favouring forward reaction and products for either (c)(i) or (c)(ii)."
+      "expectedAnswer": "Adding ammonia: Forward is favoured. Adding NaOH: Forward is favoured (NaOH reacts with CO2, removing a reactant).",
+      "markingGuide": "Achievement: One correct answer. Merit: Correct answer linked to a reason. Excellence: Justification for both shifts."
     },
     {
       "id": "l2rx24-q2cii",
@@ -161,13 +160,13 @@
         "pressure"
       ],
       "answerType": "working",
-      "expectedAnswer": "Le Chatelier's principle states that increasing the pressure will favour the reaction that...",
-      "markingGuide": "Achievement: Identifies it will favour products with no explanation. Merit: Explains increase favours side with fewer gas moles which favours the forward direction."
+      "expectedAnswer": "Increasing the pressure favours the side with fewer gas moles. The forward reaction has 3 gas moles of reactant and 1 gas mole of product, so high pressure favours product formation.",
+      "markingGuide": "Achievement: Identifies it will favour products. Merit: Explains increase favours side with fewer gas moles."
     },
     {
       "id": "l2rx24-q3ai",
       "number": "3(a)(i)",
-      "text": "A reaction of HSO₄⁻ is shown below:\n\nHSO₄⁻(aq) + CO₃²⁻(aq) ⇌ SO₄²⁻(aq) + HCO₃⁻(aq)\n\nIdentify the species acting as an acid and the species acting as a base in the above equation, and their conjugate pairs.\n\nAcid:                Conjugate base:\nBase:                Conjugate acid:",
+      "text": "A reaction of H2PO4- is shown below:\n\nH2PO4-(aq) + NH3(aq) <=> HPO42-(aq) + NH4+(aq)\n\nIdentify the species acting as an acid and the species acting as a base in the above equation, and their conjugate pairs.\n\nAcid:                Conjugate base:\nBase:                Conjugate acid:",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -175,7 +174,7 @@
         "conjugate-pairs"
       ],
       "answerType": "working",
-      "expectedAnswer": "Acid: HSO₄⁻, Conjugate base: SO₄²⁻. Base: CO₃²⁻, Conjugate acid: HCO₃⁻.",
+      "expectedAnswer": "Acid: H2PO4-, Conjugate base: HPO42-. Base: NH3, Conjugate acid: NH4+.",
       "markingGuide": "Achievement: One pair correct."
     },
     {
@@ -189,13 +188,13 @@
         "Kc-expression"
       ],
       "answerType": "working",
-      "expectedAnswer": "Kc = [SO₄²⁻][HCO₃⁻] / ([HSO₄⁻][CO₃²⁻])",
+      "expectedAnswer": "Kc = [HPO42-][NH4+] / ([H2PO4-][NH3])",
       "markingGuide": "Achievement: Correct Kc expression."
     },
     {
       "id": "l2rx24-q3aiii",
       "number": "3(a)(iii)",
-      "text": "This reaction was initially performed at 25 degrees C to determine the Kc value. When the reaction temperature was increased to 50 degrees C, the Kc value increased.\n\nExplain whether the forward reaction is exothermic or endothermic.",
+      "text": "This reaction was initially performed at 25 degrees C to determine the Kc value. When the reaction temperature was increased to 50 degrees C, the Kc value decreased.\n\nExplain whether the forward reaction is exothermic or endothermic.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -204,13 +203,13 @@
         "enthalpy"
       ],
       "answerType": "working",
-      "expectedAnswer": "Increasing the Kc value shows that the changes to the reaction has favoured the forward reaction",
-      "markingGuide": "Achievement: Recognises that the forwards reaction is endothermic OR identifies that Kc increase shows products favoured. Merit: Explains that the Kc increase shows products were favoured when temperature is increased AND explains that increasing temperature favours the endothermic reaction to minimise the change. Excellence: Endothermic nature of the forwards reaction is justified linked to the increase in Kc due to temperature."
+      "expectedAnswer": "Decreasing Kc shows that increasing temperature favoured the reverse reaction. By Le Chatelier's principle, increasing temperature favours the endothermic direction. Since the reverse is favoured, the forward reaction must be exothermic.",
+      "markingGuide": "Achievement: Recognises that the forward reaction is exothermic OR identifies that Kc decrease shows reverse favoured. Merit: Explains that the Kc decrease shows reverse was favoured when temperature increased AND explains that increasing temperature favours the endothermic reaction. Excellence: Exothermic nature of the forward reaction is justified linked to the decrease in Kc."
     },
     {
       "id": "l2rx24-q3bi",
       "number": "3(b)(i)",
-      "text": "Solutions of 0.1 mol L⁻¹ concentration were made of each of the following three substances:\n\nNH₃          HNO₃          NH₄Cl\n\nExplain the pH of each of these solutions.\n\nInclude:\n- a choice of pH value for each substance from the options below\n- a classification for each substance\n- any equations to explain the pH value.\n\npH options:    1-2    4-5    7    9-10    13-14",
+      "text": "Solutions of 0.1 mol L-1 concentration were made of each of the following three substances:\n\nC2H5NH2          HI          C2H5NH3Cl\n\nExplain the pH of each of these solutions.\n\nInclude:\n- a choice of pH value for each substance from the options below\n- a classification for each substance\n- any equations to explain the pH value.\n\npH options:    1-2    4-5    7    9-10    13-14",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -219,13 +218,13 @@
         "strong-weak"
       ],
       "answerType": "working",
-      "expectedAnswer": "NH₃: pH 9-10.",
-      "markingGuide": "Achievement: Identifies 2 correct pH values OR correctly classifies substances. Merit: Correct statement about the concentration of species linked to pH OR correct equations for relevant substances. Excellence: Full justification including correct equations for all three species (does not need to include NH₄Cl pH if reasoning for other two is comprehensive)."
+      "expectedAnswer": "C2H5NH2: pH 9-10 (weak base, partial proton acceptance). HI: pH 1-2 (strong acid, complete dissociation). C2H5NH3Cl: pH 4-5 (acidic salt).",
+      "markingGuide": "Achievement: Identifies 2 correct pH values OR correctly classifies substances. Merit: Correct statement about the concentration of species linked to pH OR correct equations. Excellence: Full justification including correct equations for all three species."
     },
     {
       "id": "l2rx24-q3bii",
       "number": "3(b)(ii)",
-      "text": "Discuss the conductivity of the solutions:\n\nNH₃          HNO₃          NH₄Cl\n\nNote they are all equal in concentration.\n\nIn your answer you should:\n- explain the requirements for a solution to conduct electricity\n- compare the extent of conductivity of each substance\n- reference the relevant equations from your previous answer to part (b)(i).",
+      "text": "Discuss the conductivity of the solutions:\n\nC2H5NH2          HI          C2H5NH3Cl\n\nNote they are all equal in concentration.\n\nIn your answer you should:\n- explain the requirements for a solution to conduct electricity\n- compare the extent of conductivity of each substance\n- reference the relevant equations from your previous answer.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -234,8 +233,8 @@
         "dissociation"
       ],
       "answerType": "working",
-      "expectedAnswer": "HNO₃ is a strong acid, so it completely dissociates in water, producing a large number of freely...",
-      "markingGuide": "Achievement: Correct statement about the conductivity of free species. Merit: Correct statement of relative concentrations of species linked to conductivity. Excellence: Full justification including all three species (does not need exact ranking, but reasoning for each)."
+      "expectedAnswer": "HI is a strong acid, completely dissociating in water, producing a large number of freely moving ions, so it has the highest conductivity. C2H5NH3Cl is an ionic compound that fully dissociates into ions. C2H5NH2 is a weak base that only partially accepts protons, producing fewer ions.",
+      "markingGuide": "Achievement: Correct statement about free species. Merit: Correct statement of relative concentrations linked to conductivity. Excellence: Full justification including all three species."
     }
   ],
   "totalMarks": 24,

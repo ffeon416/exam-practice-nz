@@ -10,7 +10,7 @@
     {
       "id": "l2cb24-q1ai",
       "number": "1(a)(i)",
-      "text": "The leaves of kawakawa have been used to treat a range of conditions, including toothache and gastrointestinal upsets. Recent research has shown medicinal effects can be attributed to many molecules in kawakawa, including vitexin.\n\n[Diagram shows vitexin molecule with two functional groups A and B circled. Group A is shown as an aldehyde/carbonyl group (H-C=O-H). Group B is shown as an alkene (C=C with H atoms).]\n\nThe molecule vitexin has had key functional groups, A and B, circled and shown to the right.\n\nName the functional groups that have been circled:\nA:\nB:",
+      "text": "Mānuka leaves contain a range of bioactive molecules, including leptospermone, which contributes to their distinctive aroma. Another compound isolated from mānuka oil is grandiflorone.\n\nThe molecule grandiflorone contains two key functional groups, labelled A and B.\n\nGroup A has the structure: R-C=C-R (a carbon-to-carbon double bond)\nGroup B has the structure: R-O-H (a hydroxyl group attached to a carbon)\n\nName the functional groups labelled A and B:\nA:\nB:",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -18,14 +18,13 @@
         "functional-groups"
       ],
       "answerType": "working",
-      "expectedAnswer": "A: (Primary) alcohol / hydroxyl, primary not essential. B: Alkene / carbon to carbon double bond.",
-      "markingGuide": "Achievement: Correct identification of both groups.",
-      "image": "/images/exams/91165-2024-q1.png"
+      "expectedAnswer": "A: Alkene / carbon-to-carbon double bond. B: (Primary) alcohol / hydroxyl.",
+      "markingGuide": "Achievement: Correct identification of both groups."
     },
     {
       "id": "l2cb24-q1aii",
       "number": "1(a)(ii)",
-      "text": "Identification tests were conducted to show the presence of groups A and B in the molecule.\n\nName the reagents and any conditions required for identifying group A and group B separately.\n\nReagents/Conditions:\nA:\nB:",
+      "text": "Identification tests were carried out to confirm the presence of groups A and B in the molecule.\n\nName the reagents and any conditions required for identifying group A and group B separately.\n\nReagents/Conditions:\nA:\nB:",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -33,7 +32,7 @@
         "identification-tests"
       ],
       "answerType": "working",
-      "expectedAnswer": "A: Acidified permanganate or dichromate should be added to the sample (and the sample heated).",
+      "expectedAnswer": "A: Bromine water (Br2(aq)) — decolourises from orange/brown to colourless. B: Acidified permanganate (MnO4-/H+) or acidified dichromate (Cr2O72-/H+) with heating.",
       "markingGuide": "Achievement: Two reagents correctly identified."
     },
     {
@@ -48,13 +47,13 @@
         "reactions"
       ],
       "answerType": "working",
-      "expectedAnswer": "A: Acidified purple permanganate solution becomes colourless OR acidified orange dichromate...",
+      "expectedAnswer": "A: Bromine water decolourises from orange to colourless. Reaction type: addition. Product functional group: haloalkane (dihaloalkane, two C-Br bonds). B: Acidified purple permanganate becomes colourless OR acidified orange dichromate becomes green. Reaction type: oxidation. Product functional group: carboxylic acid (-COOH).",
       "markingGuide": "Achievement: Correct reagent AND associated observation or reaction type or product. Merit: Correct reagent AND THREE of: observation, reaction type, name, drawing correct for one group. Excellence: A and B are both correctly named with all correct reagents, full observations, reaction type, and named and drawn functional group of products."
     },
     {
       "id": "l2cb24-q1b",
       "number": "1(b)",
-      "text": "Kawakawa also contains some anti-inflammatory molecules. When researchers extracted these molecules from kawakawa leaves, they had to use a range of solvents including methanol, ethanol, and hexane. All three of these solvents are colourless liquids at room temperature.\n\nExplain the procedure you could use to distinguish between methanol, ethanol, and hexane, based solely on their physical properties.\n\nGive reasons for the different results between solvents.\n\nPhysical properties are limited to differences in melting point, boiling point, and solubility in water.",
+      "text": "When preparing extracts from native plants, researchers often use different solvents including pentan-1-ol, ethanol, and heptane. All three solvents are colourless liquids at room temperature.\n\nExplain the procedure you could use to distinguish between pentan-1-ol, ethanol, and heptane, based solely on their physical properties.\n\nGive reasons for the different results between solvents.\n\nPhysical properties are limited to differences in melting point, boiling point, and solubility in water.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -63,13 +62,13 @@
         "intermolecular-forces"
       ],
       "answerType": "working",
-      "expectedAnswer": "Mix each unknown solvent in a test tube with water.",
-      "markingGuide": "Achievement: Identifies ethanol or methanol as miscible/soluble OR identifies hexane as an alkane. Merit: Correctly identifies hexane as non-soluble AND provides method to distinguish between alcohols. Excellence: Explains how all three can be distinguished, with reference to solubility, molecular structure, and carbon chain effects."
+      "expectedAnswer": "Mix each unknown solvent in a test tube with water. Hexane (alkane) is non-polar and immiscible with water, forming a separate layer. Methanol and pentan-1-ol are both miscible/partially miscible due to their polar hydroxyl groups forming hydrogen bonds with water. Distinguish ethanol from pentan-1-ol by measuring boiling points: ethanol boils at 65 degrees C, pentan-1-ol at 117 degrees C, because pentan-1-ol has a longer carbon chain producing stronger London dispersion forces.",
+      "markingGuide": "Achievement: Identifies ethanol or pentan-1-ol as miscible/soluble OR identifies heptane as an alkane. Merit: Correctly identifies heptane as non-soluble AND provides method to distinguish between the two alcohols. Excellence: Explains how all three can be distinguished, with reference to solubility, molecular structure, and carbon chain effects."
     },
     {
       "id": "l2cb24-q1ci",
       "number": "1(c)(i)",
-      "text": "Polystyrene has been used widely in the manufacture of plastic produce such as bags, plates, bowls, and cutlery. However, single-use plastics, such as these, are being phased out.\n\nPolystyrene is an addition polymer made from the styrene monomer.\n\n[Diagram shows styrene monomer: a benzene ring attached to C=C with H atoms]\n\nIn the box below, draw three repeating units of the polystyrene polymer.",
+      "text": "Polypropylene (PP) is widely used in packaging for bags, bottles, and wrapping. PP is an addition polymer made from the propene monomer.\n\nThe monomer propene has the structure: H2C=CH-CH3\n\nIn the box below, draw three repeating units of the PP polymer.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -77,14 +76,13 @@
         "polymers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Three repeating units showing the C-C backbone (no double bonds) with alternating benzene ring...",
-      "markingGuide": "Achievement: Identifies polymer is orientated correctly (C-C unsaturated). Merit: Labels saturated (C-C) or monomer is unsaturated (C=C).",
-      "image": "/images/exams/91165-2024-q1c.png"
+      "expectedAnswer": "Three repeating units showing the C-C backbone (no double bonds) with H atoms: -[CH2-CH2]3-",
+      "markingGuide": "Achievement: Identifies polymer is orientated correctly (C-C saturated backbone). Merit: Labels saturated (C-C) or monomer is unsaturated (C=C)."
     },
     {
       "id": "l2cb24-q1cii",
       "number": "1(c)(ii)",
-      "text": "Plastics are cheap and stable.\n\nExplain why the monomer styrene is more reactive than the polymer polystyrene.\n\nIn your answer you should:\n- explain the term 'addition polymerisation'\n- explain the difference in structure, and link it to chemical reactivity\n- relate how this difference is important for the uses of the polymer.",
+      "text": "Plastics made from PP are durable and resistant to chemical attack.\n\nExplain why the monomer ethene is more reactive than the polymer PP.\n\nIn your answer you should:\n- explain the term 'addition polymerisation'\n- explain the difference in structure, and link it to chemical reactivity\n- relate how this difference is important for the uses of the polymer.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -93,13 +91,13 @@
         "reactivity"
       ],
       "answerType": "working",
-      "expectedAnswer": "In an addition polymerisation reaction, C=C double bonds are broken to form single bonds,...",
+      "expectedAnswer": "In an addition polymerisation reaction, C=C double bonds in the monomer are broken and reform as single C-C bonds, linking many monomer units into a long chain. The monomer is more reactive because the C=C double bond is a region of high electron density, making it susceptible to electrophilic addition reactions. The polymer has only single C-C bonds, which are much less reactive. This chemical stability is essential for PP's uses in packaging materials that must resist degradation.",
       "markingGuide": "Achievement: Identifies polymer is orientated correctly OR partial explanation of addition polymerisation. Merit: Links saturated/unsaturated nature of polymer/monomer to materials reactivity AND explains addition polymerisation. Excellence: Explains the difference of monomer and polymer in terms of structure, reactivity and use."
     },
     {
       "id": "l2cb24-q2ai",
       "number": "2(a)(i)-(ii)",
-      "text": "An incomplete reaction scheme starting with 2-bromobutane, Compound A, is shown.\n\n[Diagram shows a reaction scheme: Compound G (1-chlorobutane) and Compound A (2-bromobutane) at the top. Compound A goes via Reagent 1 / Reaction type W to form Compound B and Compound C. Compound B goes via H₂O/H⁺ heat to Compound D, and also to Compound E. Compound C goes via MnO₄⁻/H⁺ Reaction type X to Compound F. Compound E is given with structure showing an alcohol on C2. Compound F goes via Cr₂O₇²⁻/H⁺ heat to Compound H. Compound H goes via KOH Reaction type Z to Compound J (a potassium salt of a carboxylic acid).]\n\n(i) Draw the structural formulae of Compounds C, D, E, and H in the labelled boxes provided.\n(ii) Complete the Reagents 1 and 2 in the labelled boxes provided.",
+      "text": "An incomplete reaction scheme starting with 2-bromopentane, Compound A, is shown.\n\nCompound A (2-bromopentane) undergoes Reaction type W with Reagent 1 to form Compound B (an alkene) and Compound C (a different alkene isomer). Compound B reacts with H2O/H+ and heat to form Compound D (an alcohol). Compound B also forms Compound E (a secondary alcohol on C2 of butane). Compound C reacts with MnO4-/H+ in Reaction type X to form Compound F. Compound F reacts with Cr2O72-/H+ and heat to form Compound H. Compound H reacts with KOH in Reaction type Z to form Compound J (a potassium salt of a carboxylic acid).\n\n(i) Draw the structural formulae of Compounds C, D, E, and H.\n(ii) Complete the Reagents 1 and 2.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -108,9 +106,8 @@
         "structures"
       ],
       "answerType": "working",
-      "expectedAnswer": "Compound C: but-1-ene (H₂C=CH-CH₂-CH₃).",
-      "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct.",
-      "image": "/images/exams/91165-2024-q2a.png"
+      "expectedAnswer": "Compound C: but-1-ene (H2C=CH-CH2-CH3). Compound D: pentan-1-ol or butan-2-ol depending on Markovnikov addition. Compound E: butan-2-ol. Compound H: butanoic acid. Reagent 1: KOH(alc)/heat (elimination). Reagent 2: H2O/H+.",
+      "markingGuide": "Achievement: Any 3/10 correct. Merit: Any 6/10 correct. Excellence: 10/10 correct."
     },
     {
       "id": "l2cb24-q2aiii",
@@ -129,7 +126,7 @@
     {
       "id": "l2cb24-q2b",
       "number": "2(b)",
-      "text": "The starting material Compound A, and one of the final products Compound G, are both secondary haloalkanes.\n\nDraw the tertiary isomer of bromobutane and explain why it is classified as tertiary.",
+      "text": "The starting material Compound A, 2-bromopentane, is a secondary haloalkane.\n\nDraw the tertiary isomer of chlorobutane and explain why it is classified as tertiary.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -138,13 +135,13 @@
         "classification"
       ],
       "answerType": "working",
-      "expectedAnswer": "Structure: (CH₃)₃C-Br (2-bromo-2-methylpropane). This is a tertiary haloalkane",
+      "expectedAnswer": "Structure: 2-chloro-2-methylpropane, i.e. (CH3)3CCl. This is a tertiary haloalkane because the carbon bonded to the chlorine is also bonded to three other carbon atoms (no hydrogen atoms on the C bearing Cl).",
       "markingGuide": "Achievement: Correct structure OR explanation. Merit: Correct structure AND explanation."
     },
     {
       "id": "l2cb24-q2ci",
       "number": "2(c)(i)",
-      "text": "When Compound B reacts with hydrochloric acid, HCl, without heat, two products are formed in differing amounts.\n\n[Diagram shows Compound B: but-1-ene structure H₂C=CH-CH₂-CH₃]\n\nDiscuss the reaction of Compound B with hydrochloric acid.\nIn your answer you should:\n- name and explain this type of reaction\n- draw the structures of both products, in the appropriate box for the major and minor products\n- justify your choice of major and minor products.",
+      "text": "When Compound B (pent-2-ene) reacts with hydrogen chloride, HCl, without heat, two products are formed in differing amounts.\n\nCompound B: CH3-CH=CH-CH3 (pent-2-ene)\n\nDiscuss the reaction of Compound B with hydrogen chloride.\nIn your answer you should:\n- name and explain this type of reaction\n- draw the structures of both products, in the appropriate box for the major and minor products\n- justify your choice of major and minor products.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -153,14 +150,13 @@
         "markovnikovs-rule"
       ],
       "answerType": "working",
-      "expectedAnswer": "This is an addition reaction",
-      "markingGuide": "Achievement: Correct structure for one product OR identifies the haloalkane is formed. Merit: Explains major/minor and identifies both structures. Excellence: Explanation of addition reaction, options for major/minor products, and why they are produced in this situation.",
-      "image": "/images/exams/91165-2024-q2ci.png"
+      "expectedAnswer": "This is an addition reaction. The HCl adds across the C=C double bond. According to Markovnikov's rule, the H adds to the carbon with more H atoms, and the Cl adds to the more substituted carbon. Major product: 2-bromopentane (Cl on C2). Minor product: 3-chlorobutane (Cl on C3).",
+      "markingGuide": "Achievement: Correct structure for one product OR identifies the haloalkane is formed. Merit: Explains major/minor and identifies both structures. Excellence: Explanation of addition reaction, options for major/minor products, and why they are produced in this situation."
     },
     {
       "id": "l2cb24-q2cii",
       "number": "2(c)(ii)",
-      "text": "Compare the reaction of Compound B with chlorine, Cl₂, against the previous reaction of Compound B with HCl.\n\nIn your answer you should:\n- explain why a different number of products are formed in the same type of reaction\n- draw any relevant product structures.",
+      "text": "Compare the reaction of Compound B with bromine, Br2, against the previous reaction of Compound B with HCl.\n\nIn your answer you should:\n- explain why a different number of products are formed in the same type of reaction\n- draw any relevant product structures.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -169,13 +165,13 @@
         "symmetry"
       ],
       "answerType": "working",
-      "expectedAnswer": "With Cl₂, both atoms that form on the new bonds are the same (both Cl), so both of the new bonds...",
-      "markingGuide": "Achievement: Identifies symmetry as a factor OR identifies both structures are the same. Merit: Links symmetry and asymmetry of reactions. Excellence: Full explanation including why only one product for Cl₂ and two for HCl."
+      "expectedAnswer": "With Br2, both atoms that add across the double bond are the same (both Br), so both possible orientations give the same product: 2,3-dibromobutane. There is only ONE product, not two. With HCl, the two atoms (H and Cl) are different, so which atom ends up on which carbon matters, producing two different products (major and minor). The symmetry of the Br2 molecule means Markovnikov's rule does not apply.",
+      "markingGuide": "Achievement: Identifies symmetry as a factor OR identifies both structures are the same. Merit: Links symmetry and asymmetry of reactions. Excellence: Full explanation including why only one product for Br2 and two for HCl."
     },
     {
       "id": "l2cb24-q3a",
       "number": "3(a)",
-      "text": "Four organic compounds are given in the table below.\n\nComplete the table by drawing the structure or giving the IUPAC (systematic) name.\n\n[Table shows:\nCompound K: Structure H-C-C-C=C with H atoms (but-1-ene), Name blank\nCompound L: Structure blank, Name 3-methylpentanoic acid\nCompound M: Structure shows hexan-3-ol, Name blank\nCompound N: Structure blank, Name fluoroethane]",
+      "text": "Four organic compounds are given in the table below.\n\nComplete the table by drawing the structure or giving the IUPAC (systematic) name.\n\nCompound K: Structure CH3-CH2-CH=CH-CH3 (with H atoms shown), Name blank\nCompound L: Structure blank, Name 4-methylhexanoic acid\nCompound M: Structure shows heptan-3-ol, Name blank\nCompound N: Structure blank, Name bromopropene",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -184,14 +180,13 @@
         "structures"
       ],
       "answerType": "working",
-      "expectedAnswer": "K: but-1-ene (or 1-butene).",
-      "markingGuide": "Achievement: Any combination of two correct, structures or names. Merit: All FOUR correct.",
-      "image": "/images/exams/91165-2024-q3a.png"
+      "expectedAnswer": "K: pent-2-ene. L: structure of 4-methylhexanoic acid (CH3CH2CH(CH3)CH2COOH). M: heptan-3-ol. N: structure of bromopropene (H2C=CHBr).",
+      "markingGuide": "Achievement: Any combination of two correct, structures or names. Merit: All FOUR correct."
     },
     {
       "id": "l2cb24-q3b",
       "number": "3(b)",
-      "text": "Compound M above has the formula C₆H₁₄O.\n\nDraw all of the structural isomers that are primary alcohols for this formula.\n\nThere is space below, as well as additional space at the back of this booklet, for working.",
+      "text": "Compound M above has the formula C7H16O.\n\nDraw all of the structural isomers that are primary alcohols for this formula.\n\nThere is space below for working.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -199,13 +194,13 @@
         "isomers"
       ],
       "answerType": "working",
-      "expectedAnswer": "8 primary alcohol isomers of C₆H₁₄O: hexan-1-ol, 2-methylpentan-1-ol, 3-methylpentan-1-ol,...",
-      "markingGuide": "Achievement: TWO correct primary alcohol isomer structures drawn. Merit: FOUR correct primary alcohol isomer structures drawn. Excellence: SEVEN correct primary alcohol isomer structures drawn."
+      "expectedAnswer": "Primary alcohol isomers of C7H16O: hexan-1-ol, 2-methylpentan-1-ol, 3-methylpentan-1-ol, 4-methylpentan-1-ol, 2,2-dimethylpentan-1-ol, 2,3-dimethylpentan-1-ol, 3,3-dimethylpentan-1-ol. There are multiple primary alcohol isomers.",
+      "markingGuide": "Achievement: TWO correct primary alcohol isomer structures drawn. Merit: THREE correct primary alcohol isomer structures drawn. Excellence: All correct primary alcohol isomer structures drawn."
     },
     {
       "id": "l2cb24-q3ci",
       "number": "3(c)(i)",
-      "text": "Describe a two-step series of reactions to convert Compound M into Compound P.\n\n[Diagram shows Compound M (hexan-3-ol) converting to Compound P (hex-3-ene, a straight-chain alkene)]\n\nStep 1 starts with Compound M:\nReaction type:\nReagents and any conditions:\nProducts' functional group:\nDraw the structure of ALL products.\n\nStep 2 ends with Compound P:\nReaction type:\nReagents and any conditions:",
+      "text": "Describe a two-step series of reactions to convert Compound M (heptan-3-ol) into Compound P (hept-3-ene, a straight-chain alkene).\n\nStep 1 starts with Compound M:\nReaction type:\nReagents and any conditions:\nProducts' functional group:\nDraw the structure of ALL products.\n\nStep 2 ends with Compound P:\nReaction type:\nReagents and any conditions:",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -214,14 +209,13 @@
         "multi-step-synthesis"
       ],
       "answerType": "working",
-      "expectedAnswer": "Step 1: Elimination with concentrated H₂SO₄, produces an alkene, with functional group C=C",
-      "markingGuide": "Achievement: 2/4 correct for Step 1 OR both correct for Step 2. Merit: Any 4/6 correct. Excellence: 6/6 correct.",
-      "image": "/images/exams/91165-2024-q3ci.png"
+      "expectedAnswer": "Step 1: Elimination with concentrated H2SO4 and heat, produces an alkene with functional group C=C. Step 2: If needed, hydrogenation or further manipulation to obtain the specific hept-3-ene isomer.",
+      "markingGuide": "Achievement: 2/4 correct for Step 1 OR both correct for Step 2. Merit: Any 4/6 correct. Excellence: 6/6 correct."
     },
     {
       "id": "l2cb24-q3cii",
       "number": "3(c)(ii)",
-      "text": "The reaction in Step 1 produces two isomers with the same functional group in equal quantities.\n\nExplain why there is no major or minor product of the hydrocarbon produced.\n\nIn your answer you should explain:\n- the type of reaction\n- what determines major and minor products\n- why the products are equal in this situation.",
+      "text": "The elimination reaction in Step 1 produces two isomers with the same functional group in equal quantities.\n\nExplain why there is no major or minor product of the hydrocarbon produced.\n\nIn your answer you should explain:\n- the type of reaction\n- what determines major and minor products\n- why the products are equal in this situation.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -230,13 +224,13 @@
         "zaitsevs-rule"
       ],
       "answerType": "working",
-      "expectedAnswer": "An elimination reaction results in the formation of a C=C double bond and eliminates a small...",
+      "expectedAnswer": "An elimination reaction results in the formation of a C=C double bond by removing a small molecule (H2O in acid-catalysed dehydration). When the OH is on C3 of heptane, the double bond can form between C2-C3 (hex-2-ene) or C3-C4 (hept-3-ene). If the carbon atoms on either side of the C bearing the OH have the same number of hydrogen atoms available for elimination, the products form in equal amounts because there is equal probability of H being removed from either side.",
       "markingGuide": "Achievement: Partial explanation of an elimination reaction OR states that in an elimination reaction a double bond could form in either direction. Merit: Explains what determines major/minor products. Excellence: Explanation of elimination reaction, options for products, what determines a majority/minority and why they are produced in equal amounts for this situation."
     },
     {
       "id": "l2cb24-q3di",
       "number": "3(d)(i)",
-      "text": "Compounds Q and R below each contain a carbon to carbon double bond, but only one of them can form geometric isomers.\n\nH₂N-CH₂-CH=CH-CH₃     H₂N-CH₂-CH₂-CH=CH₂\n     Compound Q                Compound R\n\nWhich compound forms geometric isomers?",
+      "text": "Compounds Q and R below each contain a carbon-to-carbon double bond, but only one of them can form geometric isomers.\n\nHO-CH2-CH=CH-CH2-CH2-CH3     HO-CH2-CH2-CH2-CH=CH2\n     Compound Q                    Compound R\n\nWhich compound forms geometric isomers?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -245,12 +239,12 @@
       ],
       "answerType": "working",
       "expectedAnswer": "Compound Q will form geometric isomers.",
-      "markingGuide": "Achievement: Correct compound and isomers."
+      "markingGuide": "Achievement: Correct compound identified."
     },
     {
       "id": "l2cb24-q3dii",
       "number": "3(d)(ii)",
-      "text": "Draw the cis and trans geometric isomers that it forms in the boxes provided, and select the correct label.",
+      "text": "Draw the cis and trans geometric isomers of the compound you identified, and label each correctly.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -258,7 +252,7 @@
         "geometric-isomers"
       ],
       "answerType": "working",
-      "expectedAnswer": "Trans isomer: NH₂CH₂ and CH₃ on opposite sides of the C=C double bond.",
+      "expectedAnswer": "Trans isomer: HOCH2 and CH2CH2CH3 on opposite sides of the C=C double bond. Cis isomer: HOCH2 and CH2CH2CH3 on the same side of the C=C double bond.",
       "markingGuide": "Achievement: Correct compound and isomers identified. Merit: Both structures correct with correct cis/trans labels."
     }
   ],

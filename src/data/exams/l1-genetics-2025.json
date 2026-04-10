@@ -10,17 +10,13 @@
     {
       "id": "l1g25-q1a",
       "number": "1(a)",
-      "text": "[Diagram: Figure 1 shows the location of the CFTR gene on a pair of chromosomes.]\n\nThe cystic fibrosis transmembrane conductance regulator (CFTR) gene in humans is responsible for mucus production in the human body. The normal allele (F) is dominant over the mutant allele (f). Individuals who are homozygous recessive will develop cystic fibrosis.\n\nExplain the relationship between chromosomes, genes, alleles, and DNA. Include examples in your answer.",
+      "text": "Huntington's disease is a neurological condition caused by a mutation in the HTT gene. The mutant allele (H) is dominant over the normal allele (h). Individuals who carry at least one copy of the dominant allele will eventually develop Huntington's disease.\n\nExplain the relationship between chromosomes, genes, alleles, and DNA. Include examples in your answer.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": [
-        "genetics",
-        "genetic-variation"
-      ],
+      "topics": ["genetics", "genetic-variation"],
       "answerType": "working",
       "expectedAnswer": "Chromosomes are made of DNA.",
-      "markingGuide": "Achievement: Accurately defines OR describes chromosome, genes, alleles, and DNA. Merit: Explains the relationship between chromosomes, genes, alleles, and DNA using clear examples (examples do not have to be within the CFTR gene context).",
-      "image": "/images/exams/92022-2025-q1a.png"
+      "markingGuide": "Achievement: Accurately defines OR describes chromosome, genes, alleles, and DNA. Merit: Explains the relationship between chromosomes, genes, alleles, and DNA using clear examples (examples do not have to be within the HTT gene context)."
     },
     {
       "id": "l1g25-q1bi",
@@ -28,132 +24,93 @@
       "text": "Define the term mutation.",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": [
-        "genetics",
-        "genetic-variation"
-      ],
+      "topics": ["genetics", "genetic-variation"],
       "answerType": "working",
-      "expectedAnswer": "A mutation is a permanent base change in the sequence of a DNA strand."
+      "expectedAnswer": "A mutation is a permanent change in the base sequence of a DNA strand."
     },
     {
       "id": "l1g25-q1bii",
       "number": "1(b)(ii)",
-      "text": "Discuss how genetic variation has occurred in the CFTR gene.\n\nIn your answer, include:\n- the difference between phenotype and genotype\n- the difference between heritable and non-heritable variation.",
+      "text": "Discuss how genetic variation has occurred in the HTT gene.\n\nIn your answer, include:\n- the difference between phenotype and genotype\n- the difference between heritable and non-heritable variation.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": [
-        "genetics",
-        "genetic-variation"
-      ],
+      "topics": ["genetics", "genetic-variation"],
       "answerType": "working",
-      "expectedAnswer": "The F to f mutation occurred in a gametic cell so it could be passed on.",
-      "markingGuide": "Achievement: Accurately defines mutation, phenotype, genotype, genetic variation, heritable or non-heritable variation. Merit: Explains difference between phenotype and genotype using clear examples AND explains difference between heritable and non-heritable variation AND explains difference between somatic and gametic mutations. Excellence: Comprehensively discusses how genetic variation has occurred by linking key terms/ideas together (chromosomes, genes, alleles, DNA, phenotype, and genotype) within the context AND comprehensively discusses genetic variation referencing the mutation of F to f allele occurring in the gametic cell."
+      "expectedAnswer": "The h to H mutation occurred in a gametic cell so it could be passed on.",
+      "markingGuide": "Achievement: Accurately defines mutation, phenotype, genotype, genetic variation, heritable or non-heritable variation. Merit: Explains difference between phenotype and genotype using clear examples AND explains difference between heritable and non-heritable variation AND explains difference between somatic and gametic mutations. Excellence: Comprehensively discusses how genetic variation has occurred by linking key terms/ideas together (chromosomes, genes, alleles, DNA, phenotype, and genotype) within the context AND comprehensively discusses genetic variation referencing the mutation of h to H allele occurring in a gametic cell."
     },
     {
       "id": "l1g25-q2ai",
       "number": "2(a)(i)",
-      "text": "[Diagram: Figure 2 shows a pedigree chart tracking the inheritance of cystic fibrosis in a family. Individuals 5, 6, 10, 11 are affected (shaded). Individuals 1, 2, 3, 4, 7, 8, 9, 12 are unaffected.]\n\nCystic fibrosis is caused by a recessive allele (f). The normal allele (F) is dominant over the mutant allele (f).\n\nWhat are the possible genotypes of an individual who does not have cystic fibrosis?",
+      "text": "A pedigree chart tracks the inheritance of Huntington's disease in a family. Individuals 3, 7, and 9 are affected (shaded). Individuals 1, 2, 4, 5, 6, 8, 10, 11, 12 are unaffected.\n\nHuntington's disease is caused by a dominant allele (H). The normal allele (h) is recessive.\n\nWhat are the possible genotypes of an individual who does not have Huntington's disease?",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": [
-        "genetics",
-        "inheritance"
-      ],
+      "topics": ["genetics", "inheritance"],
       "answerType": "working",
-      "expectedAnswer": "FF (homozygous dominant) or Ff (heterozygous)",
-      "markingGuide": "Achievement: Identifies both genotypes correctly.",
-      "image": "/images/exams/92022-2025-q2a.png"
+      "expectedAnswer": "hh (homozygous recessive) only",
+      "markingGuide": "Achievement: Identifies the genotype correctly — hh is the only genotype that does not develop the disease."
     },
     {
       "id": "l1g25-q2aii",
       "number": "2(a)(ii)",
-      "text": "Fill in the genotype(s) of the numbered individuals from the pedigree chart (Figure 2):\n\n- Individual 4\n- Individual 5\n- Individual 7",
+      "text": "Fill in the genotype(s) of the following individuals from the pedigree chart:\n\n- Individual 3 (affected)\n- Individual 5 (unaffected)\n- Individual 9 (affected)",
       "marks": 1,
       "gradeLevel": "achieved",
-      "topics": [
-        "genetics",
-        "inheritance"
-      ],
+      "topics": ["genetics", "inheritance"],
       "answerType": "working",
-      "expectedAnswer": "Individual 4: FF or Ff (heterozygous); Individual 5: ff (homozygous recessive); Individual 7: Ff...",
+      "expectedAnswer": "Individual 3: Hh (heterozygous); Individual 5: hh (homozygous recessive); Individual 9: Hh (heterozygous)",
       "markingGuide": "Achievement: Two of three individuals correct."
     },
     {
       "id": "l1g25-q2b",
       "number": "2(b)",
-      "text": "How are scientists able to confirm the genotype of individual 7 from the pedigree chart?\nSupport your answer using evidence from both the parents of individual 7 and the children of individuals 7 and 8.\n\nUse Punnett squares to support your answer.",
+      "text": "How can scientists confirm the genotype of Individual 3 from the pedigree chart?\nSupport your answer using evidence from both the parents and the children of Individual 3.\n\nUse Punnett squares to support your answer.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "genetics",
-        "inheritance"
-      ],
+      "topics": ["genetics", "inheritance"],
       "answerType": "working",
-      "expectedAnswer": "Individual 7 must be Ff. Parents 1 and 2 must both be Ff",
-      "markingGuide": "Achievement: Identifies the genotypes of 1 and 2 (heterozygous) AND identifies the genotypes of 7 and 8 (heterozygous). Merit: Explains why 1 and 2 must be Ff by referring to offspring (e.g. since 1 and 2 must each have at least a recessive f allele to pass on) AND explains why 7 and 8 must be Ff by referring to their offspring (11 and 12). Excellence: Comprehensively discusses the genotype of 7, using evidence from the parents (1 and 2), their offspring (5 and 6), and the offspring of 7 and 8 (11 and 12)."
+      "expectedAnswer": "Individual 3 must be Hh. One parent must carry the H allele.",
+      "markingGuide": "Achievement: Identifies that Individual 3 must be Hh AND identifies relevant parental genotypes. Merit: Explains why Individual 3 must be Hh by referring to parents (one must be Hh since the other is hh and Individual 3 has the disease) AND explains using offspring evidence. Excellence: Comprehensively discusses the genotype of Individual 3, using evidence from the parents and the offspring, with Punnett squares."
     },
     {
       "id": "l1g25-q2c",
       "number": "2(c)",
-      "text": "Discuss the purpose of identifying the genetic relationship for the genotype(s) of individual 4 from the pedigree chart.\n\nIn your answer, consider:\n- the possible genotype(s) of individual 4 by referring to individual 10\n- the purpose for tracking the cystic fibrosis allele in this family in relation to individual 4.",
+      "text": "Discuss the purpose of identifying the genetic relationship for the genotypes of unaffected children of Individual 3.\n\nIn your answer, consider:\n- the possible genotype(s) of each unaffected child\n- the purpose for tracking the Huntington's allele in this family.",
       "marks": 3,
       "gradeLevel": "excellence",
-      "topics": [
-        "genetics",
-        "inheritance"
-      ],
+      "topics": ["genetics", "inheritance"],
       "answerType": "working",
-      "expectedAnswer": "4 and 10 are either FF or Ff.",
-      "markingGuide": "Achievement: Identifies that 10 can be ff or FF AND identifies that 3 and 4 must be Ff if they have a child with cystic fibrosis AND describes the purpose for genetic tracking. Merit: Explains why 4's genotype cannot be confirmed by referring to their offspring (9 and 10) AND explains a purpose for tracking cystic fibrosis in this family (3 and 4). Excellence: Discusses the purpose of identifying the genetic relationship for the genotype of 4, including reference to 4's parents, their offspring, potential future offspring."
+      "expectedAnswer": "Unaffected children are hh.",
+      "markingGuide": "Achievement: Identifies that unaffected children are hh AND describes the purpose for genetic tracking. Merit: Explains why unaffected children must be hh (they need two recessive alleles) AND explains a purpose for tracking Huntington's in this family. Excellence: Discusses the purpose of identifying the genetic relationship, including reference to the parents' genotypes, potential risk for future offspring if an unaffected child is a carrier of a different genetic condition, and genetic counselling implications."
     },
     {
       "id": "l1g25-q3a",
       "number": "3(a)",
-      "text": "The normal cystic fibrosis transmembrane conductance regulator (CFTR) allele (F) is dominant over the mutant allele (f). Homozygous recessive individuals will develop cystic fibrosis. Homozygous dominant and heterozygous individuals will not be affected.\n\nExplain how meiosis, sexual reproduction, and non-random mating can contribute to the continuation of the recessive allele (f) in the population.",
+      "text": "The Huntington's allele (H) is dominant over the normal allele (h). Homozygous dominant (HH) and heterozygous (Hh) individuals both develop the disease, but homozygous dominant individuals tend to develop symptoms earlier.\n\nExplain how meiosis, sexual reproduction, and non-random mating can contribute to the continuation of the dominant allele (H) in the population.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": [
-        "genetics",
-        "inheritance",
-        "genetic-variation"
-      ],
+      "topics": ["genetics", "inheritance", "genetic-variation"],
       "answerType": "working",
       "expectedAnswer": "Meiosis produces gametes with different allele combinations.",
-      "markingGuide": "Achievement: Accurately defines or describes meiosis, sexual reproduction, non-random mating, and/or describes fertilisation. Also identifies that crossing over or independent assortment occurs during meiosis. Merit: Explains meiosis (includes a description of effects of crossing over or independent assortment) AND explains how sexual reproduction may cause carriers to pass on the recessive f allele to their offspring AND explains how non-random mating (in small populations) can lead to a higher chance of the allele being passed on in the population. Excellence: Comprehensively explains how meiosis, sexual reproduction, and non-random mating in a small population can lead to a higher chance of the f allele being passed on."
+      "markingGuide": "Achievement: Accurately defines or describes meiosis, sexual reproduction, non-random mating, and/or describes fertilisation. Also identifies that crossing over or independent assortment occurs during meiosis. Merit: Explains meiosis (includes a description of effects of crossing over or independent assortment) AND explains how sexual reproduction may cause carriers to pass on the dominant H allele to their offspring before symptoms appear AND explains how non-random mating (in small communities) can lead to a higher chance of the allele being passed on. Excellence: Comprehensively explains how meiosis, sexual reproduction, and non-random mating can lead to a higher chance of the H allele being passed on, especially because symptoms appear later in life after reproduction has often already occurred."
     },
     {
       "id": "l1g25-q3b",
       "number": "3(b)",
-      "text": "Discuss how the CFTR mutant allele (f) remains in the population.\n\nIn your answer, consider:\n- if the occurrence of the recessive allele (f) will increase, decrease, or stay the same over time\n- why an increase in the frequency of recessive alleles (f) in a population does not always lead to an increase in the frequency of the cystic fibrosis phenotype.",
+      "text": "Discuss how the HTT mutant allele (H) remains in the population despite causing a harmful disease.\n\nIn your answer, consider:\n- why the frequency of the dominant allele (H) does not rapidly increase or decrease over generations\n- why a harmful dominant allele can persist in a population when it would seem to be selected against.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": [
-        "genetics",
-        "inheritance",
-        "genetic-variation"
-      ],
+      "topics": ["genetics", "inheritance", "genetic-variation"],
       "answerType": "working",
-      "expectedAnswer": "The f allele may increase due to heterozygous carriers who are unaffected",
-      "markingGuide": "Achievement: Accurately defines population AND states that the f allele will increase due to heterozygotes/carriers AND identifies the f allele as being neither advantageous nor disadvantageous in heterozygotes. Merit: Explains a logical scenario for the f allele to increase, decrease, or stay the same AND explains a reason for the f allele to increase in the population while having no increase in cystic fibrosis phenotype. Excellence: Comprehensively discusses AND clearly justifies why an increase in the f allele in a population does not necessarily lead to an increase in phenotype frequency."
+      "expectedAnswer": "The H allele persists because Huntington's symptoms typically appear after reproductive age",
+      "markingGuide": "Achievement: Accurately defines population AND states that the H allele persists because it is expressed late in life AND identifies that natural selection cannot easily remove alleles whose effects appear after reproduction. Merit: Explains a logical scenario for why the H allele persists (late onset means carriers reproduce before symptoms appear) AND explains why the frequency stays relatively stable rather than increasing (affected individuals have a 50% chance of passing it on, but the allele is relatively rare). Excellence: Comprehensively discusses AND clearly justifies why a harmful dominant allele can persist in a population — linking late onset, reproductive timing, mutation rate, and the limitations of natural selection on late-acting alleles."
     }
   ],
   "totalMarks": 24,
   "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
-      "max": 12
-    },
-    "merit": {
-      "min": 13,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
+    "notAchieved": { "min": 0, "max": 7 },
+    "achieved": { "min": 8, "max": 12 },
+    "merit": { "min": 13, "max": 18 },
+    "excellence": { "min": 19, "max": 24 }
   }
 }

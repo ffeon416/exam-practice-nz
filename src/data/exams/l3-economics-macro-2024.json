@@ -8,84 +8,10 @@
   "timeMinutes": 60,
   "totalMarks": 24,
   "questions": [
-    {
-      "id": "l3em24-q1a",
-      "number": "1(a)",
-      "text": "Explain aggregate demand and its components.",
-      "marks": 5,
-      "gradeLevel": "achieved",
-      "topics": [
-        "aggregate demand",
-        "consumption",
-        "investment",
-        "exports"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Aggregate demand: C + I + G + (X - M)",
-      "markingGuide": "Identify and explain components of aggregate demand."
-    },
-    {
-      "id": "l3em24-q1b",
-      "number": "1(b)",
-      "text": "Analyse factors affecting aggregate supply in economy.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "aggregate supply",
-        "production capacity",
-        "cost factors"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Factors: labour, capital, technology, input prices affecting supply.",
-      "markingGuide": "Explain short-run and long-run aggregate supply determinants."
-    },
-    {
-      "id": "l3em24-q2a",
-      "number": "2(a)",
-      "text": "Analyse macroeconomic equilibrium and policy effectiveness.",
-      "marks": 6,
-      "gradeLevel": "merit",
-      "topics": [
-        "AD/AS equilibrium",
-        "monetary policy",
-        "fiscal policy"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Show how demand and supply determine output, price level, employment.",
-      "markingGuide": "Evaluate policy effectiveness in reaching macroeconomic objectives."
-    },
-    {
-      "id": "l3em24-q2b",
-      "number": "2(b)",
-      "text": "Comprehensive macroeconomic analysis and policy evaluation.",
-      "marks": 7,
-      "gradeLevel": "excellence",
-      "topics": [
-        "macro analysis",
-        "policy coordination",
-        "economic outcomes"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Integrate AD/AS analysis with policy evaluation and economic objectives.",
-      "markingGuide": "Sophisticated analysis of macro equilibrium and policy trade-offs."
-    }
+    { "id": "l3em24-q1a", "number": "1(a)", "text": "In 2024, the Reserve Bank of New Zealand (RBNZ) maintained a restrictive monetary policy stance, keeping the Official Cash Rate (OCR) elevated to bring inflation back within its 1-3% target band.\n\nExplain the components of aggregate demand (AD = C + I + G + (X - M)) and analyse how a high OCR is expected to decrease aggregate demand through at least two of these components.", "marks": 5, "gradeLevel": "achieved", "topics": ["aggregate demand", "consumption", "investment", "exports"], "answerType": "text", "expectedAnswer": "AD = C + I + G + (X-M). High OCR leads to higher retail interest rates. (1) Consumption (C) decreases: higher mortgage rates reduce disposable income for homeowners; higher savings returns encourage saving over spending. (2) Investment (I) decreases: more expensive borrowing discourages businesses from investing in new capital, expansion, and hiring. (3) Net exports may decrease if higher rates attract foreign capital, appreciating the NZD and making exports more expensive.", "markingGuide": "Identify and explain components of AD and how high OCR affects at least two." },
+    { "id": "l3em24-q1b", "number": "1(b)", "text": "Analyse the factors that could limit the effectiveness of a high OCR in reducing inflation in the New Zealand economy. Consider both demand-side and supply-side factors.", "marks": 6, "gradeLevel": "merit", "topics": ["aggregate supply", "production capacity", "cost factors"], "answerType": "text", "expectedAnswer": "Demand-side limitations: (1) Households with fixed-rate mortgages are shielded until their rate resets. (2) Government spending continues to grow, partially offsetting the OCR effect. (3) Migration-driven population growth sustains demand. Supply-side factors: (1) If inflation is driven by supply constraints (e.g., shipping disruptions, input costs), high OCR does not address the root cause. (2) Labour shortages in key sectors keep wage costs elevated. (3) Global commodity prices are beyond NZ's control. The OCR primarily targets demand, so supply-driven inflation is resistant to monetary policy.", "markingGuide": "Explain demand-side and supply-side limitations of monetary policy in controlling inflation." },
+    { "id": "l3em24-q2a", "number": "2(a)", "text": "Using an AD/AS diagram, analyse the macroeconomic situation where the RBNZ is tightening monetary policy to control inflation while the government is simultaneously increasing public spending on healthcare and infrastructure. Explain how these conflicting policies affect equilibrium output and the price level.", "marks": 6, "gradeLevel": "merit", "topics": ["AD/AS equilibrium", "monetary policy", "fiscal policy"], "answerType": "text", "expectedAnswer": "RBNZ rate hikes shift AD left (contractionary monetary policy). Government spending increases shift AD right (expansionary fiscal policy). Net effect on AD depends on relative magnitudes. If they offset, AD may not change significantly. Price level and output effects are ambiguous. On an AD/AS diagram, show both shifts and discuss possible net outcomes. The conflicting policies reduce the effectiveness of each.", "markingGuide": "Evaluate conflicting policy effects with diagram showing both AD shifts." },
+    { "id": "l3em24-q2b", "number": "2(b)", "text": "Evaluate whether the RBNZ should coordinate its monetary policy with the government's fiscal policy. In your answer, consider the independence of the central bank, the inflation target, and the potential benefits and costs of policy coordination.", "marks": 7, "gradeLevel": "excellence", "topics": ["macro analysis", "policy coordination", "economic outcomes"], "answerType": "text", "expectedAnswer": "Arguments for coordination: conflicting policies waste resources and confuse businesses/consumers; coordination could achieve targets more efficiently. Arguments against: RBNZ independence is crucial for credibility — if markets believe the central bank is subject to political pressure, inflation expectations may become unanchored. The RBNZ's mandate is price stability (1-3% inflation target); fiscal policy has broader goals. Conclusion: some degree of communication is beneficial, but formal coordination risks undermining central bank independence. The current framework where each authority pursues its mandate independently, with awareness of the other's actions, may be the best balance.", "markingGuide": "Sophisticated analysis of macro equilibrium, central bank independence, and policy trade-offs." }
   ],
-  "cutScores": {
-    "notAchieved": {
-      "min": 0,
-      "max": 7
-    },
-    "achieved": {
-      "min": 8,
-      "max": 13
-    },
-    "merit": {
-      "min": 14,
-      "max": 18
-    },
-    "excellence": {
-      "min": 19,
-      "max": 24
-    }
-  }
+  "cutScores": { "notAchieved": { "min": 0, "max": 7 }, "achieved": { "min": 8, "max": 13 }, "merit": { "min": 14, "max": 18 }, "excellence": { "min": 19, "max": 24 } }
 }

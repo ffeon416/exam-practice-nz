@@ -10,7 +10,7 @@
     {
       "id": "l2cr24-q1a",
       "number": "1(a)",
-      "text": "Draw the Lewis structure for each of the two blank molecules, and name their shapes.\n\nA table is given with three molecules: NI₃ (nitrogen triiodide), H₂S (hydrogen sulfide), and CS₂ (carbon disulfide).\n\nH₂S is provided as an example: Lewis structure H-S-H, shape 'bent', bond angle 109.5 degrees.\n\nNI₃ has bond angle 109.5 degrees. CS₂ has bond angle 180 degrees.\n\nDraw the Lewis structures for NI₃ and CS₂, and name their shapes.",
+      "text": "Draw the Lewis structure for each of the two blank molecules, and name their shapes.\n\nA table is given with three molecules: NCl3 (nitrogen trichloride), H2O (water), and CO2 (carbon dioxide).\n\nH2O is provided as an example: Lewis structure H-O-H, shape 'bent', bond angle 104.5 degrees.\n\nNCl3 has bond angle 107 degrees. CO2 has bond angle 180 degrees.\n\nDraw the Lewis structures for NCl3 and CO2, and name their shapes.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,13 +19,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "NI₃: Lewis structure shows N with three I atoms bonded and one lone pair.",
-      "markingGuide": "Achievement: Draws a correct Lewis structure OR identifies the correct shape and bond angles. Merit: Links total number of lone pairs/non-bonding electron regions and bonding electron density around the central atom to geometry and bond angles. Excellence: Explains bond angles and shapes of the molecules by referring to electron repulsion including the role of lone pairs."
+      "expectedAnswer": "NCl3: Lewis structure shows P with three Cl atoms bonded and one lone pair. Shape: trigonal pyramidal. CO2: Lewis structure shows O=C=O with two double bonds and no lone pairs on C. Shape: linear.",
+      "markingGuide": "Achievement: Draws a correct Lewis structure OR identifies the correct shape and bond angles. Merit: Links lone pairs and bonding regions to geometry. Excellence: Explains bond angles and shapes by referring to electron repulsion including lone pairs."
     },
     {
       "id": "l2cr24-q1b",
       "number": "1(b)",
-      "text": "Compare and contrast the shapes and bond angles of silicon tetrahydride, SiH₄, and azanone, HNO.\n\nThe Lewis structures are given:\nSiH₄: H-Si-H with H above and below (tetrahedral arrangement)\nHNO: H-N=O\n\nCompare and contrast the shapes and bond angles of these molecules.",
+      "text": "Compare and contrast the shapes and bond angles of aluminium trichloride, AlCl3, and phosphorus trichloride, PCl3.\n\nAlCl3: B central atom with 3 F atoms (trigonal planar)\nPCl3: N central atom with 3 F atoms and one lone pair\n\nCompare and contrast the shapes and bond angles of these molecules.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -34,13 +34,13 @@
         "electron-repulsion"
       ],
       "answerType": "working",
-      "expectedAnswer": "SiH₄ is tetrahedral with bond angles of 109.5 degrees",
-      "markingGuide": "Achievement: Identifies the correct shape of ONE molecule OR recognises that electron pairs arrange to minimise repulsion. Merit: Links total number of lone pairs/non-bonding and bonding electron pairs around the central atom to the shape of ONE molecule. Excellence: Explains bond angles and shapes of BOTH molecules by referring to electron repulsion, including the role of lone pairs."
+      "expectedAnswer": "AlCl3 is trigonal planar with bond angles of 120 degrees. PCl3 is trigonal pyramidal with bond angles of approximately 107 degrees due to the lone pair on nitrogen compressing the bond angles.",
+      "markingGuide": "Achievement: Identifies the correct shape of ONE molecule. Merit: Links lone pairs to shape for ONE molecule. Excellence: Explains both shapes with reference to electron repulsion."
     },
     {
       "id": "l2cr24-q1ci",
       "number": "1(c)(i)",
-      "text": "Hydrogen sulfide, H₂S, and hydrogen cyanide, HCN, molecules have a different shape, but they both have the same polarity.\n\nThe Lewis structures are:\nhydrogen sulfide: H-S-H\nhydrogen cyanide: H-C≡N\n\nCircle the word below which identifies the polarity of both H₂S and HCN.\n\nPolar          Non-polar",
+      "text": "Water, H2O, and carbon dioxide, CO2, have different shapes, but they have different polarities.\n\nCircle the word below which identifies the polarity of H2O.\n\nPolar          Non-polar",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -67,13 +67,13 @@
         "electronegativity"
       ],
       "answerType": "working",
-      "expectedAnswer": "Both molecules are polar.",
-      "markingGuide": "Achievement: Correctly identifies polarity OR identifies a difference in electronegativity between atoms in bonds. Merit: Links asymmetry of H₂S molecule to non-cancellation/reinforcement of dipole in this molecule OR links relative strength of polar bonds to non-cancellation/reinforcement of dipole in HCN molecule, despite symmetry. Excellence: Correctly justifies polarity of BOTH molecules with reference to electronegativity differences between atoms in bonds, bond polarity, and symmetry of dipole arrangement."
+      "expectedAnswer": "H2O is polar because the O-H bonds are polar (electronegativity difference) and the bent shape means the dipoles do not cancel. CO2 is non-polar because although C=O bonds are polar, the linear symmetrical arrangement means the dipoles cancel.",
+      "markingGuide": "Achievement: Identifies polarity OR electronegativity difference. Merit: Links asymmetry to non-cancellation for one molecule. Excellence: Justifies polarity of BOTH molecules."
     },
     {
       "id": "l2cr24-q1di",
       "number": "1(d)(i)",
-      "text": "Methanamine, CH₃NH₂, is used widely in the production of pharmaceuticals, fungicides, insecticides, cleaning agents, and in the fabric industry.\n\nAlthough hydrogen cyanide, HCN, is highly poisonous, it can be used to produce methanamine, as shown in the reaction below:\n\nHCN(g) + 2H₂(g) -> CH₃NH₂(g)    ΔH = -158 kJ mol⁻¹\n\nCalculate the mass of methanamine formed when 1890 kJ of energy is released.\nM(CH₃NH₂) = 31.0 g mol⁻¹",
+      "text": "Propanamine, CH3CH2CH2NH2, is used in the production of herbicides and pharmaceuticals.\n\nAlthough hydrogen cyanide, HCN, is highly poisonous, it can be used to produce propanamine, as shown:\n\nHCN(g) + 2H2(g) -> CH3NH2(g)    then further reaction gives CH3CH2NH2\n\nFor the reaction: 2HCN(g) + 5H2(g) -> CH3CH2NH2(g) + NH3(g)    DH = -318 kJ mol-1\n\nCalculate the mass of propanamine formed when 2650 kJ of energy is released.\nM(CH3CH2CH2NH2) = 59.1 g mol-1",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -82,13 +82,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(CH₃NH₂) = 1890/158 = 11.962 mol\nm = n x M = 11.962 x 31.0 = 370.82 g (371 g, 3 s.f.)",
-      "markingGuide": "Achievement: One step correct, e.g. moles of either, or used 1 or 100 instead of 1000. Merit: Correct answer for (i) OR (ii). Excellence: Correct answer for (i) AND (ii). ΔH position and value needed."
+      "expectedAnswer": "n(CH3CH2NH2) = 2130/284 = 7.500 mol\nm = n x M = 7.500 x 45.1 = 338.25 g (338 g, 3 s.f.)",
+      "markingGuide": "Achievement: One step correct. Merit: Correct answer for one part. Excellence: Correct answer with units."
     },
     {
       "id": "l2cr24-q1dii",
       "number": "1(d)(ii)",
-      "text": "Choose the correct energy diagram that represents the reaction above and label it with the information provided in the equation.\n\n[Two energy diagrams are shown: the left diagram shows reactants at a high energy level dropping to a lower products level. The right diagram shows reactants at a low level rising to a higher products level.]",
+      "text": "Choose the correct energy diagram that represents the reaction above and label it with the information provided in the equation.\n\nTwo energy diagrams are shown: the left diagram shows reactants at a high energy level dropping to a lower products level. The right diagram shows reactants at a low level rising to a higher products level.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -96,14 +96,13 @@
         "enthalpy"
       ],
       "answerType": "working",
-      "expectedAnswer": "The LEFT diagram is correct (exothermic,",
-      "markingGuide": "Achievement: Identifies correct energy diagram by partially but correctly labelling with either ΔH position (value not needed) or reactants and products. Merit: Correct answer for (i) AND (ii).",
-      "image": "/images/exams/91164-2024-q1dii.png"
+      "expectedAnswer": "The LEFT diagram is correct (exothermic, DH is negative).",
+      "markingGuide": "Achievement: Identifies correct energy diagram. Merit: Correct diagram with labels."
     },
     {
       "id": "l2cr24-q2a",
       "number": "2(a)",
-      "text": "Complete the table below for each substance in their solid state.\n\n| Solid | Melting point (degrees C) | Type of solid | Type of particle | Attractive forces between particles |\n|---|---|---|---|---|\n| SiO₂(s) (silicon dioxide) | 1700 | | | |\n| SiCl₄(s) (silicon tetrachloride) | -69 | | | |\n| CuCl₂(s) (copper(II) chloride) | 620 | | | |\n| Al(s) (aluminium) | 660 | | | |",
+      "text": "Complete the table below for each substance in their solid state.\n\n| Solid | Melting point (degrees C) | Type of solid | Type of particle | Attractive forces |\n|---|---|---|---|---|\n| SiO2(s) (silicon dioxide) | 2730 | | | |\n| SCl2(l) (sulfur dichloride) | -41 | | | |\n| NaCl(s) (sodium chloride) | 734 | | | |\n| Ag(s) (silver) | 1085 | | | |",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
@@ -112,13 +111,13 @@
         "properties"
       ],
       "answerType": "working",
-      "expectedAnswer": "SiO₂: covalent network, atoms, strong covalent bonds.",
+      "expectedAnswer": "SiO2: covalent network, atoms, strong covalent bonds. SCl2: molecular, molecules, weak intermolecular forces. NaCl: ionic, ions, strong ionic bonds. Cu: metallic, cations/atoms, metallic bonds.",
       "markingGuide": "Achievement: Two rows correct. Merit: Full table correct."
     },
     {
       "id": "l2cr24-q2b",
       "number": "2(b)",
-      "text": "Both SiO₂ and SiCl₄ contain silicon, but SiCl₄ has a considerably lower melting point.\n\nExplain why there is a difference in melting point for these substances.",
+      "text": "Both SiO2 and SCl2 contain similar elements, but SCl2 has a considerably lower melting point.\n\nExplain why there is a difference in melting point for these substances.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -128,13 +127,13 @@
         "melting-point"
       ],
       "answerType": "working",
-      "expectedAnswer": "SiO₂ is a 3D covalent network solid of Si and O atoms held together by strong covalent bonds.",
-      "markingGuide": "Achievement: Identifies melting point is linked to the strength of forces between particles OR identifies that forces in one example are strong/weak. Merit: Links strength of forces to energy requirement for melting OR identifies that forces between particles cause the difference in melting point for ONE substance. Excellence: Links structure and bonding of both substances to the energy requirements for melting, comparing both."
+      "expectedAnswer": "SiO2 is a 3D covalent network solid held together by strong covalent bonds requiring large amounts of energy to break. SCl2 is a molecular solid held together by weak intermolecular forces requiring little energy to overcome.",
+      "markingGuide": "Achievement: Identifies melting point is linked to force strength. Merit: Links forces to energy for ONE substance. Excellence: Compares both substances."
     },
     {
       "id": "l2cr24-q2c",
       "number": "2(c)",
-      "text": "Explain why silicon tetrachloride, SiCl₄, does not dissolve in water, but copper(II) chloride, CuCl₂, does.\n\nIn your answer:\n- link to their structure and bonding\n- include the type of solvent that SiCl₄ will dissolve in, and why\n- include a diagram to support your answer for CuCl₂.",
+      "text": "Explain why phosphorus tribromide, SCl2, does not dissolve in water, but potassium bromide, NaCl, does.\n\nIn your answer:\n- link to their structure and bonding\n- include the type of solvent that SCl2 will dissolve in, and why\n- include a diagram to support your answer for NaCl.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -143,13 +142,13 @@
         "polarity"
       ],
       "answerType": "working",
-      "expectedAnswer": "SiCl₄ is non-polar molecular. Water is polar",
-      "markingGuide": "Achievement: Identifies SiCl₄ as non-polar and water as polar OR identifies SiCl₄ would dissolve in a non-polar solvent OR identifies attractions are required between solute and solvent. Merit: Links relative strength of attractive forces between solute and solvent particles to solubility for ONE solute OR links polarity to solubility. Excellence: Justifies solubility of SiCl₄ with reference to polarity, relative strength of attractive forces, and need to overcome existing forces AND includes reason for why SiCl₄ would dissolve in a non-polar solvent AND explains solubility of CuCl₂ with reference to polarity, relative strength, and need to overcome existing force. Use of diagram to illustrate CuCl₂ answer."
+      "expectedAnswer": "SCl2 is a non-polar molecular substance. Water is polar. Like dissolves like, so SCl2 would dissolve in a non-polar solvent. NaCl is ionic; water molecules surround the K+ and Br- ions, overcoming the ionic bonds.",
+      "markingGuide": "Achievement: Identifies SCl2 as non-polar OR identifies attractions needed. Merit: Links forces to solubility for ONE solute. Excellence: Full explanation for both."
     },
     {
       "id": "l2cr24-q3ai",
       "number": "3(a)(i)",
-      "text": "Bottled gas supply in New Zealand is a 60% propane, C₃H₈, and 40% butane, C₄H₁₀, mix.\n\nThe combustion reactions for both propane and butane fuels are given below.\n\nEnergy released by 1.00 kg of propane combustion:\nC₃H₈(g) + 5O₂(g) -> 3CO₂(g) + 4H₂O(g)    ΔH = -2044 kJ mol⁻¹\nM(C₃H₈) = 44.1 g mol⁻¹\n\nCalculate the energy released by 1.00 kg of propane.",
+      "text": "Bottled gas supply in New Zealand is a 60% ethane, C2H6, and 40% ethane, C2H6, mix.\n\nEnergy released by 1.50 kg of ethane combustion:\nC2H6(g) + 5O2(g) -> 3CO2(g) + 4H2O(g)    DH = -1561 kJ mol-1\nM(C2H6) = 44.1 g mol-1\n\nCalculate the energy released by 1.50 kg of ethane.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -158,13 +157,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(propane) = 1000/44.1 = 22.676 mol\nEnergy = 22.676 x 2044 = 46,349 kJ\n46,300 kJ released (3 s.f.)",
-      "markingGuide": "Achievement: One step of process correct, e.g. moles of either or used 1 or 100 instead of 1000. Merit: Either part (i) or (ii) correct. Excellence: Calculates how much more energy is produced by propane, uses correct process for all calculations and units."
+      "expectedAnswer": "n(ethane) = 1000/44.1 = 22.676 mol\nEnergy = 22.676 x 2044 = 46,349 kJ\n46,300 kJ released (3 s.f.)",
+      "markingGuide": "Achievement: One step correct. Merit: Correct answer."
     },
     {
       "id": "l2cr24-q3aii",
       "number": "3(a)(ii)",
-      "text": "Energy released by 1.00 kg of butane combustion:\n2C₄H₁₀(g) + 13O₂(g) -> 8CO₂(g) + 10H₂O(g)    ΔH = -2877 kJ mol⁻¹\nM(C₄H₁₀) = 58.1 g mol⁻¹\n\nCalculate the energy released by 1.00 kg of butane.",
+      "text": "Energy released by 1.50 kg of propane combustion:\n2C3H8(g) + 13O2(g) -> 8CO2(g) + 10H2O(g)    DH = -2044 kJ mol-1\nM(C3H8) = 58.1 g mol-1\n\nCalculate the energy released by 1.50 kg of propane.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -173,13 +172,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "n(butane) = 1000/58.1 = 17.212 mol\nEnergy = 17.212 x (-2877/2) = -24,759 kJ\n24,800 kJ released...",
-      "markingGuide": "Achievement: One step of process correct. Merit: Either part (i) or (ii) correct."
+      "expectedAnswer": "n(propane) = 1000/58.1 = 17.212 mol\nEnergy = 17.212 x (-2877/2) = -24,759 kJ\n24,800 kJ released (3 s.f.)",
+      "markingGuide": "Achievement: One step correct. Merit: Correct answer."
     },
     {
       "id": "l2cr24-q3aiii",
       "number": "3(a)(iii)",
-      "text": "Calculate how much more energy is released by 1.00 kg of propane than 1.00 kg of butane.",
+      "text": "Calculate how much more energy is released by 1.50 kg of ethane than 1.50 kg of propane.",
       "marks": 1,
       "gradeLevel": "excellence",
       "topics": [
@@ -187,13 +186,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Difference = 46,300 - 24,800 = 21,500 kJ more released from propane per kg.",
-      "markingGuide": "Excellence: Calculates how much more energy is produced by propane, uses correct process for all calculations and units."
+      "expectedAnswer": "Difference = 46,300 - 24,800 = 21,500 kJ more released from ethane per kg.",
+      "markingGuide": "Excellence: Correct calculation with units."
     },
     {
       "id": "l2cr24-q3b",
       "number": "3(b)",
-      "text": "The reaction of a hydrogen fuel cell is shown below. Hydrogen reacts with oxygen to produce water.\n\n2H₂(g) + O₂(g) -> 2H₂O(g)    ΔH = -484 kJ mol⁻¹\n\nBond energies: H-H = 436 kJ mol⁻¹, O=O = 498 kJ mol⁻¹\n\nUse the bond energies listed in the table, and the change in enthalpy (-484 kJ mol⁻¹) provided for the reaction, to calculate the average bond energy of the O-H bond.",
+      "text": "The reaction of a ethane fuel cell is shown below. Methane reacts with oxygen to produce carbon dioxide and water.\n\nC2H6(g) + 2O2(g) -> CO2(g) + 2H2O(g)    DH = -1561 kJ mol-1\n\nBond energies: C-H = 413 kJ mol-1, O=O = 498 kJ mol-1, C=O = 805 kJ mol-1\n\nUse the bond energies listed and the change in enthalpy (-1561 kJ mol-1) to calculate the average bond energy of the O-H bond.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -202,13 +201,13 @@
         "calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Bonds broken: 2 x H-H = 2 x 436 = 872, 1 x O=O = 498.",
-      "markingGuide": "Achievement: Correctly calculates total bonds broken (1370) OR gives a total for bonds formed (4x). Merit: Correct process with minor error. Excellence: Correct answer with units and 3SF."
+      "expectedAnswer": "Bonds broken: 4 x C-H = 4 x 413 = 1652, 2 x O=O = 2 x 498 = 996. Total broken = 2648.\nBonds formed: 2 x C=O = 2 x 805 = 1610, 4 x O-H = 4x.\nDH = broken - formed: -802 = 2648 - (1610 + 4x). 4x = 2648 + 802 - 1610 = 1840. x = 460 kJ mol-1.",
+      "markingGuide": "Achievement: Correctly calculates total bonds broken OR formed. Merit: Correct process with minor error. Excellence: Correct answer with units."
     },
     {
       "id": "l2cr24-q3ci",
       "number": "3(c)(i)",
-      "text": "'Galvorn' is a newly developed form of carbon that is strong, light, and has good conductivity. With its clean manufacturing process and wide range of applications, it is anticipated that Galvorn could reduce the reliance on standard metals that are energy intensive to produce.\n\nAs with graphite, Galvorn conducts electricity.\n\nWhat requirement must Galvorn have to allow it to conduct electricity?",
+      "text": "Fullerene is an allotrope of carbon that is strong, lightweight, and has excellent conductivity. Like graphite, fullerene conducts electricity.\n\nWhat requirement must fullerene have to allow it to conduct electricity?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -216,13 +215,13 @@
         "conductivity"
       ],
       "answerType": "working",
-      "expectedAnswer": "To conduct electricity, a substance must contain free-moving charged particles (delocalised...",
+      "expectedAnswer": "To conduct electricity, a substance must contain free-moving charged particles (delocalised electrons).",
       "markingGuide": "Achievement: Correct definition."
     },
     {
       "id": "l2cr24-q3cii",
       "number": "3(c)(ii)",
-      "text": "Aluminium, Al, is also a good conductor of electricity, and it is malleable (can be pressed into shapes). These properties enable it to be used extensively in overhead power lines and for components and shells in smartphones and laptops.\n\nExplain why aluminium, Al, has these properties, and link it to the uses stated.\n\nRefer to its structure and bonding.\n\nConducts electricity:\n\nMalleable:",
+      "text": "Aluminium, Al, is also a good conductor of electricity, and it is malleable (can be pressed into shapes). These properties enable it to be used extensively in wiring and for components in electronics.\n\nExplain why copper, Cu, has these properties, and link it to the uses stated.\n\nRefer to its structure and bonding.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
@@ -231,8 +230,8 @@
         "properties"
       ],
       "answerType": "working",
-      "expectedAnswer": "Al is a metallic solid, made up of metal atoms/cations in a 3D lattice with delocalised valence...",
-      "markingGuide": "Achievement: Describes the structure of a metallic solid OR identifies non-directional bonds required for malleability. Merit: Links conductivity to presence of delocalised valence electrons OR links malleability to non-directional metallic bonds allowing particles to move without breaking these bonds. Excellence: Comprehensively explains both conductivity and malleability of aluminium and links it to their suitability for the uses stated."
+      "expectedAnswer": "Cu is a metallic solid with metal cations in a 3D lattice surrounded by delocalised valence electrons. The delocalised electrons can move freely, carrying charge (conductivity). The non-directional metallic bonds allow layers to slide without breaking (malleability).",
+      "markingGuide": "Achievement: Describes metallic structure. Merit: Links conductivity to delocalised electrons OR malleability to non-directional bonds. Excellence: Explains both properties and links to uses."
     }
   ],
   "totalMarks": 24,

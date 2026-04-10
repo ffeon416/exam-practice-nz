@@ -1,232 +1,12 @@
 {
   "id": "l3-physics-waves-2024",
-  "title": "Level 3 Physics — Waves (91523) — 2024",
+  "title": "Level 3 Physics \u2014 Waves (91523) \u2014 2024",
   "level": 3,
   "standard": "91523",
   "year": 2024,
   "subject": "physics",
   "timeMinutes": 0,
   "totalMarks": 24,
-  "questions": [
-    {
-      "id": "91523-24-q1a",
-      "number": "1(a)",
-      "text": "QUESTION ONE: THE PAN FLUTE\n\nSpeed of sound in air = 343 m s⁻¹\n\nThe pan flute is a wind instrument that creates sound when air is blown across it. It consists of different length pipes that are bound together. Each pipe is closed at one end and open at the other end.\n\nIn the diagram below, draw a diagram of the third harmonic that can be produced in a pan flute. Label nodes (N) and antinodes (A) in the diagram.",
-      "marks": 2,
-      "gradeLevel": "achieved",
-      "topics": [
-        "standing-waves",
-        "harmonics",
-        "closed-pipe"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Diagram showing 3rd harmonic in a closed pipe (3/4 wavelength): node at closed end, antinode at...",
-      "markingGuide": "Achievement: Correct shape with node at closed end and antinode at open end, labelled correctly. Merit: Correct wavelength relationship shown."
-    },
-    {
-      "id": "91523-24-q1b",
-      "number": "1(b)",
-      "text": "Jane has a pan flute. The shortest pipe is 8.50 cm long and the longest pipe is 17.5 cm long.\n\nCalculate the frequency of the third harmonic produced in the shortest pipe.",
-      "marks": 3,
-      "gradeLevel": "merit",
-      "topics": [
-        "standing-waves",
-        "harmonics",
-        "closed-pipe",
-        "frequency"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "f₃ = 3v/4L = 3 × 343 / (4 × 0.085) = 3029 Hz",
-      "markingGuide": "Achievement: Correct wavelength OR correct use of v = fλ. Merit: Correct frequency of the third harmonic (3029 Hz) with working shown. For closed pipe, harmonics are odd multiples: L = 3λ/4, so λ = 4L/3 = 4 × 0.085/3 = 0.1133 m. f = v/λ = 343/0.1133 = 3026 Hz (accept 3030 Hz)."
-    },
-    {
-      "id": "91523-24-q1c",
-      "number": "1(c)",
-      "text": "Explain how standing waves are formed in a pan flute that is open at one end and closed at the other end, and explain why not all harmonics can be formed.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "standing-waves",
-        "harmonics",
-        "closed-pipe",
-        "superposition"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Waves reflect off the closed end with 180° phase change, superpose with incident waves to form...",
-      "markingGuide": "Achievement: ONE of: wave reflects off end; waves in phase produce antinode; quarter wavelengths to have N at closed end. Merit: Identifies odd harmonics and explains quarter wavelength requirement to have N at closed end and A at open end. Excellence: Explains superposition of incident and reflected waves, 180° phase change at closed end, and justifies why only odd multiples of quarter wavelengths (which have nodes at both ends) can form. Accept correct pressure model justification."
-    },
-    {
-      "id": "91523-24-q1d",
-      "number": "1(d)",
-      "text": "Some pan flutes can be tuned by moving a small cork inside the pipe to adjust the length of the pipe. Initially the length of the longest pipe is too long, and the untuned pipe creates a beat of 9.00 Hz with another tuned pipe. The tuned pipe has a length of 0.164 m, which produces a frequency of 523 Hz when playing the first harmonic.\n\nCalculate how much further the cork needs to be pushed into the pipe and explain how it is possible to hear when the cork is in the correct position.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "beats",
-        "standing-waves",
-        "closed-pipe",
-        "frequency"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "ΔL = 0.00283 m (2.83 mm).",
-      "markingGuide": "Achievement: f₂ = 514 Hz. No beat when in tune. Merit: Correct length of untuned pipe OR explains beat frequency decreases as frequencies get closer (more time between loud regions). Excellence: Correct ΔL calculation AND explains that as f get closer, beat frequency decreases (more time between loud regions) until no beat is heard. Working: f_b = |f₁ − f₂|, 9 = |523 − f₂|, f₂ = 514 Hz (longer pipe = lower frequency). v = fλ, 343 = 514λ, λ = 0.667315 m. L = λ/4 = 0.166829 m. ΔL = 0.166829 − 0.164 = 0.002829 m."
-    },
-    {
-      "id": "91523-24-q2a",
-      "number": "2(a)",
-      "text": "QUESTION TWO: INTERFERENCE\n\nJane's Physics teacher Mr Smith shines a red laser through a diffraction grating placed at the centre of a semicircular screen. The pattern seen on the screen has a number of narrow, bright fringes.\n\nThe formula associated with diffraction gratings is nλ = d sin θ, where n is the order number and λ is the wavelength.\n\nWhat does the term nλ represent, when n and λ are combined?",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "diffraction",
-        "interference",
-        "path-difference"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91523-2024-q2-grating.png",
-      "expectedAnswer": "Path difference.",
-      "markingGuide": "Achievement: Correct answer — path difference."
-    },
-    {
-      "id": "91523-24-q2b",
-      "number": "2(b)",
-      "text": "The diffraction grating that was used has 200 lines per mm. The red laser used has a wavelength of 638 nm.\n\nCalculate the total number of dots that are seen on the semicircular screen.\n\nBegin your answer by calculating the distance between the slits.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "diffraction",
-        "diffraction-grating",
-        "interference"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "15 dots total (7 on each side plus central maximum).",
-      "markingGuide": "Achievement: Correct value for d = 5 × 10⁻⁶ m. Attempts to use nλ = d sin θ. Merit: One error in calculation OR correct answer of n = 7.83. Excellence: Correct answer of 15 dots in total (must indicate central maxima). NOT 2 × 7.84 = 15.68. Working: d = 1/200000 = 5 × 10⁻⁶ m. nλ = d sin θ, n = d sin θ / λ = 5 × 10⁻⁶ × sin 90° / 638 × 10⁻⁹ = 7.837. Since n is an integer, n_max = 7. Total = 7 + 7 + 1 = 15."
-    },
-    {
-      "id": "91523-24-q2c",
-      "number": "2(c)",
-      "text": "Mr Smith uses the same red laser and shines it through two slits where the slits are of the same width as the diffraction grating, but the slits are further apart. The pattern on the screen is different compared to the pattern obtained in a diffraction grating.\n\nDescribe the differences between the patterns formed, and explain the reason for each difference.",
-      "marks": 4,
-      "gradeLevel": "excellence",
-      "topics": [
-        "diffraction",
-        "double-slit",
-        "diffraction-grating",
-        "interference"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Two-slit pattern has maxima closer together, less bright, and less well defined than diffraction...",
-      "markingGuide": "Achievement: Identify maxima closer difference OR identify less bright OR identify less well defined. Merit: Justify ONE of: maxima closer together, less bright, less well defined. Excellence: Justify THREE of: maxima closer together (slit separation greater so d sin θ = nλ gives smaller angle), less bright (only two slits so less light passes through), less well defined (only two slits so gradual change from maxima to minima rather than sharp peaks)."
-    },
-    {
-      "id": "91523-24-q2d",
-      "number": "2(d)",
-      "text": "Mr Smith then shines white light onto the diffraction grating. The pattern he observes has a central white region, and the other orders form complete spectra on either side of the central white region.\n\nExplain why white light forms a spectra, with violet on the inside and red on the outside, when passed through a diffraction grating.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "diffraction",
-        "diffraction-grating",
-        "white-light",
-        "spectra"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91523-2024-q2d-spectra.png",
-      "expectedAnswer": "White light has many wavelengths.",
-      "markingGuide": "Achievement: Identifies blue has shorter wavelength OR red has longer wavelength. Blue has shorter path difference OR red has longer path difference. Merit: Justifies that red is further from central maxima using path difference OR formula. Excellence: Complete answer linking wavelength to path difference to angle for both colours."
-    },
-    {
-      "id": "91523-24-q3a",
-      "number": "3(a)",
-      "text": "QUESTION THREE: DOPPLER EFFECT\n\nJane and her classmates stand on the platform at a railway station, listening to a train approach them at a constant speed, blowing its whistle. The speed of sound in air is 343 m s⁻¹.\n\nDescribe what Jane and her friends would hear, compared to the driver, as the approaching train blows its whistle.",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "doppler-effect",
-        "frequency",
-        "pitch"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Higher frequency / higher pitch than the driver hears.",
-      "markingGuide": "Achievement: Higher frequency."
-    },
-    {
-      "id": "91523-24-q3b",
-      "number": "3(b)",
-      "text": "Explain why Jane and her friends would hear a change in frequency as the approaching train blows its whistle.",
-      "marks": 3,
-      "gradeLevel": "merit",
-      "topics": [
-        "doppler-effect",
-        "wavelength",
-        "frequency",
-        "wave-fronts"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "The wave fronts bunch up in front of the approaching train, so apparent wavelength decreases.",
-      "markingGuide": "Achievement: ONE of: wave fronts bunch up so apparent wavelength decreases; speed of sound is constant. Note: NOT waves bunch; NOT speed of train constant. Merit: Wave fronts bunch up, so apparent wavelength decreases AND speed of sound stays the same AND so Jane and her friends will hear a note of higher pitch."
-    },
-    {
-      "id": "91523-24-q3c",
-      "number": "3(c)",
-      "text": "Jane and her friends hear a frequency of 1270 Hz as the train approaches them. After the train has passed them, they hear a frequency of 1190 Hz as the train goes away from them at the same constant speed.\n\nCalculate the speed of the train.",
-      "marks": 3,
-      "gradeLevel": "excellence",
-      "topics": [
-        "doppler-effect",
-        "frequency",
-        "wave-speed"
-      ],
-      "answerType": "working",
-      "expectedAnswer": "v_s = 11.2 m s⁻¹",
-      "markingGuide": "Achievement: Correct choice of equations for approaching and receding. Note: can cancel f_w together: f(v_w − v_s) = f'(v_w + v_s). Merit: One error in calculation. If incorrectly assumed f = 1230 (midpoint) then v = 10.8 m s⁻¹. Excellence: Correct answer. Working: f_approach = f_w v_w/(v_w − v_s) and f_recede = f_w v_w/(v_w + v_s). So f_approach(v_w − v_s) = f_recede(v_w + v_s). 1270(343 − v_s) = 1190(343 + v_s). 435610 − 1270v_s = 408170 + 1190v_s. 27440 = 2460v_s. v_s = 11.2 m s⁻¹."
-    },
-    {
-      "id": "91523-24-q3di",
-      "number": "3(d)(i)",
-      "text": "Jane and her friends listen to the whistle of another train that approaches them and then goes past them, without stopping at the station. The graph below is a frequency vs position graph for this situation.\n\nExplain what may be happening in this situation by considering the shape of the graph in relation to frequency and position:\n\n(i) as the train approaches (Section A).",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "doppler-effect",
-        "frequency",
-        "acceleration"
-      ],
-      "answerType": "text",
-      "image": "/images/exams/91523-2024-q3d-graph.png",
-      "expectedAnswer": "The graph shows increasing higher pitch",
-      "markingGuide": "Achievement: Identify increasing higher pitch. Merit: Justify increasing higher pitch — the train is accelerating, so the wave fronts bunch up more, decreasing apparent wavelength further and increasing frequency."
-    },
-    {
-      "id": "91523-24-q3dii",
-      "number": "3(d)(ii)",
-      "text": "(ii) as the train is right in front of Jane and her friends (Point B).",
-      "marks": 1,
-      "gradeLevel": "achieved",
-      "topics": [
-        "doppler-effect",
-        "frequency"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "They hear the actual frequency because there is no component of velocity towards them",
-      "markingGuide": "Achievement: Actual frequency when it is in front of Jane and her friends (the graph line crosses the actual frequency line)."
-    },
-    {
-      "id": "91523-24-q3diii",
-      "number": "3(d)(iii)",
-      "text": "(iii) as the train goes away from Jane and her friends (Section C).",
-      "marks": 2,
-      "gradeLevel": "merit",
-      "topics": [
-        "doppler-effect",
-        "frequency",
-        "acceleration"
-      ],
-      "answerType": "text",
-      "expectedAnswer": "Decreasing lower pitch as the train recedes,",
-      "markingGuide": "Achievement: Identify decreasing lower pitch. Merit: Justify — the train is accelerating away, so the velocity of the train is increasing relative to Jane, meaning the apparent wavelength increases further and frequency decreases more."
-    }
-  ],
   "cutScores": {
     "notAchieved": {
       "min": 0,
@@ -244,5 +24,222 @@
       "min": 20,
       "max": 24
     }
-  }
+  },
+  "questions": [
+    {
+      "id": "91523-24-q1a",
+      "number": "1(a)",
+      "text": "QUESTION ONE: THE RECORDER\n\nSpeed of sound in air = 343 m s-1\n\nThe recorder is a wind instrument that creates sound when air is blown across it. It consists of a tube that is open at one end and effectively closed at the other by the player's breath.\n\nDraw a diagram of the fifth harmonic that can be produced in this instrument. Label nodes (N) and antinodes (A).",
+      "marks": 2,
+      "gradeLevel": "achieved",
+      "topics": [
+        "standing-waves",
+        "harmonics",
+        "closed-pipe"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Diagram showing 5th harmonic in a closed pipe (5/4 wavelength): node at closed end, antinode at open end, with 3 nodes and 3 antinodes in between.",
+      "markingGuide": "Achievement: Correct shape with correct node/antinode labels."
+    },
+    {
+      "id": "91523-24-q1b",
+      "number": "1(b)",
+      "text": "A recorder has its shortest effective length of 9.50 cm and longest of 19.0 cm.\n\nCalculate the frequency of the fifth harmonic produced in the shortest configuration.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "standing-waves",
+        "harmonics",
+        "closed-pipe",
+        "frequency"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "For closed pipe, harmonics are odd: L = 5 lambda/4. lambda = 4L/5 = 4 x 0.095/5 = 0.0760 m. f = v/lambda = 343/0.0760 = 4513 Hz.",
+      "markingGuide": "Achievement: Correct wavelength. Merit: Correct frequency with working."
+    },
+    {
+      "id": "91523-24-q1c",
+      "number": "1(c)",
+      "text": "Explain how standing waves are formed in a tube that is open at one end and closed at the other, and why not all harmonics can be formed.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "standing-waves",
+        "harmonics",
+        "closed-pipe",
+        "superposition"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Sound waves reflect off the closed end with a 180 degree phase change (node at closed end). The reflected wave superposes with the incident wave. Only odd harmonics can form because the tube must have a node at the closed end and an antinode at the open end, which requires odd multiples of quarter wavelengths.",
+      "markingGuide": "Achievement: Wave reflects. Merit: Odd harmonics with quarter wavelength requirement. Excellence: Full explanation."
+    },
+    {
+      "id": "91523-24-q1d",
+      "number": "1(d)",
+      "text": "Some recorders can be tuned by adjusting the length. Initially the tube is too long, producing a beat of 7.00 Hz with a tuned instrument. The tuned instrument has length 0.180 m producing 477 Hz at the first harmonic.\n\nCalculate how much the tube needs to be shortened and explain how to hear when it is in the correct position.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "beats",
+        "standing-waves",
+        "closed-pipe",
+        "frequency"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f_beat = |f1 - f2|. 7 = |477 - f2|. f2 = 470 Hz (longer tube = lower frequency). v = f lambda, lambda = v/f = 343/470 = 0.7298 m. L = lambda/4 = 0.18245 m. DL = 0.18245 - 0.180 = 0.00245 m = 2.45 mm. As the tube is shortened, the beat frequency decreases until no beat is heard when the frequencies match.",
+      "markingGuide": "Achievement: f2 = 470 Hz. Merit: Correct length or beat explanation. Excellence: Both correct."
+    },
+    {
+      "id": "91523-24-q2a",
+      "number": "2(a)",
+      "text": "QUESTION TWO: INTERFERENCE\n\nA physics teacher shines a green laser through a diffraction grating placed at the centre of a semicircular screen.\n\nnlambda = d sin theta\n\nWhat does nlambda represent?",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "diffraction",
+        "interference",
+        "path-difference"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Path difference.",
+      "markingGuide": "Achievement: Correct."
+    },
+    {
+      "id": "91523-24-q2b",
+      "number": "2(b)",
+      "text": "The diffraction grating has 300 lines per mm. The green laser has wavelength 532 nm.\n\nCalculate the total number of dots seen on the semicircular screen.\n\nBegin by calculating d.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "diffraction",
+        "diffraction-grating",
+        "interference"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "d = 1/300000 = 3.333 x 10^-6 m. n_max = d sin 90 / lambda = 3.333e-6 / 532e-9 = 6.26. n_max = 6. Total = 6 + 6 + 1 = 13 dots.",
+      "markingGuide": "Achievement: d correct. Merit: n_max found. Excellence: 13 total dots."
+    },
+    {
+      "id": "91523-24-q2c",
+      "number": "2(c)",
+      "text": "The same laser is shone through a double slit with the same slit width but larger slit separation. Compare the patterns.",
+      "marks": 4,
+      "gradeLevel": "excellence",
+      "topics": [
+        "diffraction",
+        "double-slit",
+        "diffraction-grating",
+        "interference"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Two-slit pattern: maxima further apart (larger d), less bright (only 2 slits), less well-defined (gradual change rather than sharp peaks).",
+      "markingGuide": "Achievement: ONE difference. Merit: Justify ONE. Excellence: Justify THREE."
+    },
+    {
+      "id": "91523-24-q2d",
+      "number": "2(d)",
+      "text": "White light is shone onto the diffraction grating. A central white region forms, with spectra on either side.\n\nExplain why white light forms a spectrum with violet inside and red outside.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "diffraction",
+        "diffraction-grating",
+        "white-light",
+        "spectra"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "White light contains many wavelengths. From n lambda = d sin theta, longer wavelength (red) diffracts at larger angle, shorter wavelength (violet) at smaller angle. So violet appears closest to the centre and red furthest away in each order.",
+      "markingGuide": "Achievement: Identifies wavelength difference. Merit: Justifies using formula. Excellence: Complete answer."
+    },
+    {
+      "id": "91523-24-q3a",
+      "number": "3(a)",
+      "text": "QUESTION THREE: DOPPLER EFFECT\n\nStudents stand on a platform listening to an approaching ambulance siren. Speed of sound = 343 m s-1.\n\nDescribe what they would hear compared to the paramedic inside.",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "doppler-effect",
+        "frequency",
+        "pitch"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Higher frequency / higher pitch than the paramedic hears.",
+      "markingGuide": "Achievement: Higher frequency."
+    },
+    {
+      "id": "91523-24-q3b",
+      "number": "3(b)",
+      "text": "Explain why the students hear a change in frequency as the ambulance approaches.",
+      "marks": 3,
+      "gradeLevel": "merit",
+      "topics": [
+        "doppler-effect",
+        "wavelength",
+        "frequency",
+        "wave-fronts"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The wave fronts bunch up in front of the approaching ambulance, so apparent wavelength decreases. The speed of sound remains constant. Therefore frequency increases (v = f lambda with v constant and lambda smaller).",
+      "markingGuide": "Achievement: Wave fronts bunch. Merit: Full explanation."
+    },
+    {
+      "id": "91523-24-q3c",
+      "number": "3(c)",
+      "text": "The students hear 1350 Hz as the ambulance approaches and 1240 Hz as it recedes, at the same constant speed.\n\nCalculate the speed of the ambulance.",
+      "marks": 3,
+      "gradeLevel": "excellence",
+      "topics": [
+        "doppler-effect",
+        "frequency",
+        "wave-speed"
+      ],
+      "answerType": "working",
+      "expectedAnswer": "f_app(v-vs) = f_rec(v+vs). 1350(343-vs) = 1240(343+vs). 463050 - 1350vs = 425320 + 1240vs. 37730 = 2590vs. vs = 14.6 m s-1.",
+      "markingGuide": "Achievement: Correct equation setup. Merit: One error. Excellence: vs = 14.6 m s-1."
+    },
+    {
+      "id": "91523-24-q3di",
+      "number": "3(d)(i)",
+      "text": "The students listen to another ambulance that approaches and passes without stopping. The graph shows frequency vs position.\n\nExplain what may be happening in Section A (approaching).",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "doppler-effect",
+        "frequency",
+        "acceleration"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "The graph shows increasing frequency as the ambulance approaches. This indicates the ambulance is accelerating \u2014 as it gets closer and faster, wave fronts bunch up more, increasing the apparent frequency.",
+      "markingGuide": "Achievement: Increasing frequency. Merit: Justify with acceleration."
+    },
+    {
+      "id": "91523-24-q3dii",
+      "number": "3(d)(ii)",
+      "text": "Explain Point B (right in front of the students).",
+      "marks": 1,
+      "gradeLevel": "achieved",
+      "topics": [
+        "doppler-effect",
+        "frequency"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "They hear the actual frequency because there is no component of velocity toward them at that instant.",
+      "markingGuide": "Achievement: Actual frequency."
+    },
+    {
+      "id": "91523-24-q3diii",
+      "number": "3(d)(iii)",
+      "text": "Explain Section C (receding).",
+      "marks": 2,
+      "gradeLevel": "merit",
+      "topics": [
+        "doppler-effect",
+        "frequency",
+        "acceleration"
+      ],
+      "answerType": "text",
+      "expectedAnswer": "Decreasing frequency as the ambulance recedes and accelerates away. The wave fronts spread out more as the velocity increases relative to the observers.",
+      "markingGuide": "Achievement: Decreasing frequency. Merit: Justified with acceleration."
+    }
+  ]
 }

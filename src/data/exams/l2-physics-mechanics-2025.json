@@ -29,7 +29,7 @@
     {
       "id": "m25-q1a",
       "number": "1(a)",
-      "text": "A rugby player accelerates uniformly from rest at 0.680 m s⁻² and runs 22.0 m.\n\nHow long did it take to run the 22.0 m?",
+      "text": "A netball player accelerates uniformly from rest at 0.750 m s-2 and runs 18.0 m.\n\nHow long did it take to run the 18.0 m?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -38,13 +38,13 @@
         "acceleration"
       ],
       "answerType": "working",
-      "expectedAnswer": "t = 8.0 s",
-      "markingGuide": "vi = 0, a = 0.68, d = 22, t = ? Using d = vit + ½at²: 22 = 0 + ½ × 0.68 × t². t² = 22/(0.34) = 64.7. t = 8.0 s. Achieved: Correct answer."
+      "expectedAnswer": "d = vit + 1/2 at^2. 18.0 = 0 + 0.5 x 0.750 x t^2. t^2 = 48.0. t = 6.93 s.",
+      "markingGuide": "Achieved: Correct answer."
     },
     {
       "id": "m25-q1b",
       "number": "1(b)",
-      "text": "While stopping, a player runs into a tackle bag at speed v. The tackle bag compresses a distance x like a spring as the player comes to a stop.\n\nAssuming all the player's energy is transferred to the bag, state and justify what would happen to the distance the bag was compressed if the player was moving at twice the speed.",
+      "text": "While stopping, a player runs into a tackle pad at speed v. The pad compresses a distance x like a spring.\n\nAssuming all energy is transferred, state and justify what happens to the compression distance if the player moves at twice the speed.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -53,13 +53,13 @@
         "springs"
       ],
       "answerType": "text",
-      "expectedAnswer": "x doubles with evidence (e.g.",
-      "markingGuide": "½mv² = ½kx² → doubling v would double x. Achieved: x bigger. OR x double with no evidence. Merit: x double with evidence (e.g. energy is conserved)."
+      "expectedAnswer": "Compression doubles. Since Ek = 1/2 mv^2 and Ep = 1/2 kx^2, doubling v quadruples Ek, so x^2 quadruples, meaning x doubles.",
+      "markingGuide": "Achieved: x bigger. Merit: x doubles with evidence."
     },
     {
       "id": "m25-q1c",
       "number": "1(c)",
-      "text": "To take a penalty shot, the ball is placed on the ground and kicked towards the goal posts. To make the penalty shot, the ball must go over the crossbar, which is 3.00 m above the ground and 45.0 m from where the ball is kicked.\n\nA player taking a penalty shot kicks the ball at 25.0 m s⁻¹ at 34.0° to the ground.\n\nBy performing appropriate calculations, decide whether the ball makes it over the crossbar before hitting the ground.",
+      "text": "To take a shot at goal, the ball is placed on the ground and kicked toward the goal posts. The crossbar is 3.00 m above ground and 40.0 m away.\n\nA player kicks the ball at 20.0 m s-1 at 38.0 degrees to the ground.\n\nBy performing appropriate calculations, decide whether the ball makes it over the crossbar.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -67,14 +67,13 @@
         "kinematics"
       ],
       "answerType": "working",
-      "expectedAnswer": "The ball clears the crossbar. Height at 45 m horizontal = 7.26 m > 3.00 m.",
-      "markingGuide": "Initial velocities: vₓ = 25 cos(34°) = 13.98 ≈ 14.0 m s⁻¹. v_y = 25 sin(34°) = 20.7 m s⁻¹ (accept v_y = 25 cos(34°) = 20.7 m s⁻¹ depending on angle convention). Time to travel 45.0 m horizontally: t = 45/20.7 = 2.17 s. Height of ball at 2.17 s: d = v_yt + ½at² = 13.98 × 2.17 − ½ × 9.8 × 2.17² = 7.26 m. The ball clears the crossbar before hitting the ground. Achieved: ONE of: vₓ or v_y calculated, any calculated speed, 45/(speed). Merit: Made one error in a correct method. Excellence: Correct, with a confirmatory sentence.",
-      "image": "/images/exams/91171-2025-q1c.png"
+      "expectedAnswer": "vx = 22.0 cos 38.0 = 17.34 m/s. vy = 22.0 sin 38.0 = 13.54 m/s. Time to 40 m: t = 40.0/17.34 = 2.308 s. Height at 2.308 s: h = 13.54 x 2.308 - 0.5 x 9.8 x 2.308^2 = 31.25 - 26.11 = 5.14 m. 5.14 m > 3.00 m, so the ball clears the crossbar.",
+      "markingGuide": "Achieved: One component calculated. Merit: One error in correct method. Excellence: Correct with conclusion."
     },
     {
       "id": "m25-q1d",
       "number": "1(d)",
-      "text": "The player from part (c) replaces the ball with one from a different manufacturer. The new ball is heavier.\n\nThe player kicks the new ball towards the posts so that it leaves the ground at the same speed and angle as before.\n\nIgnoring any effects from air friction and without using calculations, compare the path of the new ball to that of the original ball.\n\nYour answer should consider:\n- the time in the air\n- the acceleration of the balls in the air\n- the initial vertical and horizontal speeds\n- the horizontal distances travelled.",
+      "text": "The player replaces the ball with a heavier one. The new ball is kicked at the same speed and angle.\n\nIgnoring air friction, compare the path of the new ball to the original.\n\nConsider: time in air, acceleration, initial speeds, horizontal distance.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -82,21 +81,21 @@
         "gravity"
       ],
       "answerType": "text",
-      "expectedAnswer": "The new ball will have the same initial horizontal and vertical speeds",
-      "markingGuide": "Achieved: One correct statement. Merit: A statement linking cause and effect. Excellence: Full explanation."
+      "expectedAnswer": "The path is identical. Same initial speeds (horizontal and vertical), same gravitational acceleration (g is independent of mass), same time in air, same horizontal distance. Mass does not affect projectile motion in the absence of air resistance.",
+      "markingGuide": "Achieved: One correct statement. Merit: Linking cause and effect. Excellence: Full explanation."
     },
     {
       "id": "m25-q2a",
       "number": "2(a)",
-      "text": "A 80.0 kg player moves at 4.30 m s⁻¹.\n\nCalculate the player's momentum and give the correct unit.\n\nMomentum: _____ Unit: _____",
+      "text": "A 75.0 kg player moves at 4.80 m s-1.\n\nCalculate the player's momentum and give the correct unit.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "momentum"
       ],
       "answerType": "working",
-      "expectedAnswer": "p = 344 kg m s⁻¹",
-      "markingGuide": "p = mv = 4.3 × 80 = 344 kg m s⁻¹. Achieved: 344 kg m s⁻¹."
+      "expectedAnswer": "p = mv = 75.0 x 4.80 = 360 kg m s-1.",
+      "markingGuide": "Achieved: 360 kg m s-1."
     },
     {
       "id": "m25-q2b",
@@ -110,13 +109,13 @@
         "kinetic-energy"
       ],
       "answerType": "text",
-      "expectedAnswer": "If there are no external forces, then momentum is conserved.",
+      "expectedAnswer": "If there are no external forces, momentum is always conserved in all collisions (elastic and inelastic). Kinetic energy is only conserved in perfectly elastic collisions, which are rare.",
       "markingGuide": "Achieved: One correct statement. Merit: Full answer."
     },
     {
       "id": "m25-q2c",
       "number": "2(c)",
-      "text": "The mass of the All Black scrum is 883 kg. The mass of the Argentinian scrum is 850 kg.\n\nAs the scrum is set, the All Blacks move forward at 0.354 m s⁻¹, and the Argentinians move forward at 0.378 m s⁻¹. The two scrums collide and stick together.\n\nCalculate the speed and direction of the combined scrums immediately after they collide and stick together.",
+      "text": "In a netball scrum, the Silver Ferns have a combined mass of 890 kg and move forward at 0.340 m s-1. The opposition scrum has mass 860 kg and moves forward at 0.395 m s-1. They collide and stick together.\n\nCalculate the speed and direction after collision.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -125,14 +124,13 @@
         "collisions"
       ],
       "answerType": "working",
-      "expectedAnswer": "v ≈ 0.00503 m s⁻¹ in the direction of the Argentinian scrum (or approximately stationary)",
-      "markingGuide": "Argentinian scrum: 850 × 0.378 = 321.3 kg m s⁻¹. All Black scrum: 883 × 0.354 = 312.58 kg m s⁻¹. Total momentum = 321.3 − 312.58 = 8.72 kg m s⁻¹ (in Argentine direction). Speed of combined = 8.72 / (850 + 883) = 8.72/1733 = 0.00503 m s⁻¹. Achieved: One correct momentum. Merit: Total momentum found. Excellence: Correct speed with direction.",
-      "image": "/images/exams/91171-2025-q2c.png"
+      "expectedAnswer": "Taking opposition direction as positive: p_AB = 890 x (-0.340) = -302.6. p_opp = 860 x 0.395 = 339.7. p_total = 339.7 - 302.6 = 37.1. v = 37.1 / 1750 = 0.0212 m s-1 in opposition direction.",
+      "markingGuide": "Achieved: One momentum correct. Merit: Total momentum found. Excellence: Correct speed with direction."
     },
     {
       "id": "m25-q2d",
       "number": "2(d)",
-      "text": "The ball comes out of the scrum and a player sprints towards the line. The player is tackled and brought to a stop by colliding with thick pads (cushions) that are on the bottom of the goalpost.\n\nExplain how having these pads on the post help protect a player when they collide with the post.",
+      "text": "A player sprints toward the line and collides with thick pads on the goalpost.\n\nExplain how the pads protect the player.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -141,13 +139,13 @@
         "force"
       ],
       "answerType": "text",
-      "expectedAnswer": "A player's change in momentum would be the same with or without pads",
-      "markingGuide": "Achieved: ONE of: Δp the same, collision takes longer, smaller force. Merit: Two linked statements. Excellence: Full explanation."
+      "expectedAnswer": "The change in momentum is the same with or without pads. The pads increase the stopping time. Since F = Dp/Dt, a longer time means a smaller force, reducing the risk of injury.",
+      "markingGuide": "Achieved: ONE point. Merit: Two linked. Excellence: Full explanation."
     },
     {
       "id": "m25-q3a",
       "number": "3(a)",
-      "text": "When warming up, players run up the stairs.\n\nThe stairs have a horizontal distance of 35.0 m and a vertical height of 14.1 m.\n\nCalculate the work done by a 68.3 kg player who runs up the stairs once.",
+      "text": "Players run up stairs in warm-up. The stairs have horizontal distance 30.0 m and vertical height 12.5 m.\n\nCalculate the work done by a 72.0 kg player who runs up once.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -156,14 +154,13 @@
         "gravitational-potential-energy"
       ],
       "answerType": "working",
-      "expectedAnswer": "W = 9440 J (accept 9438 J)",
-      "markingGuide": "W = mgh = 68.3 × 9.8 × 14.1 = 9438 ≈ 9440 J. Achieved: 9440 J.",
-      "image": "/images/exams/91171-2025-q3a.png"
+      "expectedAnswer": "W = mgh = 72.0 x 9.8 x 12.5 = 8820 J.",
+      "markingGuide": "Achieved: 8820 J."
     },
     {
       "id": "m25-q3b",
       "number": "3(b)",
-      "text": "Another warm-up activity is short sprints.\n\nDuring one sprint, the 68.3 kg player accelerates from rest to 7.52 m s⁻¹ in 4.35 s.\n\nCalculate the average power produced by the player during this sprint.",
+      "text": "During a sprint, the 72.0 kg player accelerates from rest to 8.20 m s-1 in 4.50 s.\n\nCalculate the average power produced.",
       "marks": 1,
       "gradeLevel": "merit",
       "topics": [
@@ -172,13 +169,13 @@
         "energy"
       ],
       "answerType": "working",
-      "expectedAnswer": "P = 444 W",
-      "markingGuide": "W = Ek = ½mv² = ½ × 68.3 × 7.52² = 1931 J. P = W/t = 1931/4.35 = 444 W. Achieved: ONE of: 1931 J, any calculated work/4.35. Merit: 444 W."
+      "expectedAnswer": "Ek = 1/2 mv^2 = 0.5 x 72.0 x 8.20^2 = 2421 J. P = W/t = 2421/4.50 = 538 W.",
+      "markingGuide": "Achieved: Ek found. Merit: P = 538 W."
     },
     {
       "id": "m25-q3ci",
       "number": "3(c)(i)",
-      "text": "While waiting to play, two players sit on a uniform bench.\n\nThe bench is 621 N and 3.21 m long. A 669 N player sits 0.110 m to the left of support A, and a 769 N player sits 0.240 m to the right of support A.\n\nThe supports are each 0.260 m from the ends.\n\nAdd labelled arrows to the diagram, to show all the forces acting on the bench.",
+      "text": "Two players sit on a uniform bench.\n\nThe bench weighs 580 N and is 3.00 m long. A 640 N player sits 0.150 m to the left of support A, and a 720 N player sits 0.200 m to the right of support A.\n\nSupports are each 0.300 m from the ends.\n\nAdd labelled arrows to show all forces on the bench.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -186,14 +183,13 @@
         "equilibrium"
       ],
       "answerType": "text",
-      "expectedAnswer": "Five forces labelled: Weight of bench (down, centre), weight of each player (down), support...",
-      "markingGuide": "Achieved: ONE of: all 5 forces labelled, any torque calculation. Merit: Made ONE error, e.g. used one incorrect distance. Excellence: All forces labelled AND FA = 351 N, FB = 1708 N.",
-      "image": "/images/exams/91171-2025-q3c.png"
+      "expectedAnswer": "Five forces: weight of bench (down, centre), weight of each player (down), support A (up), support B (up).",
+      "markingGuide": "Achieved: All 5 forces labelled."
     },
     {
       "id": "m25-q3cii",
       "number": "3(c)(ii)",
-      "text": "By calculating torques about support A, calculate the value of the forces acting on the bench at A and B.",
+      "text": "By calculating torques about support A, calculate the forces at A and B.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -202,13 +198,13 @@
         "moments"
       ],
       "answerType": "working",
-      "expectedAnswer": "FA = 351 N, FB = 1708 N",
-      "markingGuide": "Torques about A: 0.11 × 669 + FB × 2.69 = 1.345 × 621 + 0.24 × 769. 73.59 + 2.69 FB = 835.245 + 184.56. 2.69 FB = 946.215. FB = 351.7... Wait let me recalculate from schedule: 0.11 × 669 + FA × 2.69... Actually from schedule: FA = 351 N and FB = 1708 N. Taking torques about A: clockwise = anti-clockwise. 0.11 × 669 (anti-clockwise player left of A) + ... The schedule shows the calculation. Achieved: ONE of: all 5 forces labelled, any torque calculation. Merit: Made ONE error, e.g. used one incorrect distance. Excellence: All forces labelled AND FA = 351 N and FB = 1708 N."
+      "expectedAnswer": "Taking torques about A: Clockwise: 720 x 0.200 + 580 x 1.200 + FB x 0 (wrong, need to set up properly). Let me use the standard approach. Support A is 0.300 from left end. Support B is 0.300 from right end. Distance A-B = 3.00 - 0.60 = 2.40 m. Player 1 at 0.150 m left of A means 0.150 m from left end. Player 2 at 0.200 m right of A means 0.500 m from left end. Taking torques about A: clockwise = 720 x 0.200 + 580 x 1.200. Anti-clockwise = 640 x 0.150 + FB x 2.40. Solving: 144 + 696 = 96 + 2.40 FB. 840 = 96 + 2.40 FB. FB = 744/2.40 = 310 N. FA = 640 + 720 + 580 - 310 = 1630 N.",
+      "markingGuide": "Achieved: One torque correct. Merit: One error. Excellence: Both forces correct."
     },
     {
       "id": "m25-q3di",
       "number": "3(d)(i)",
-      "text": "Just before the players enter the game, they use one more warm-up activity, where two players hold hands and move around in a circle at constant speed.\n\nAdd an arrow to Figure B to show the direction of acceleration on one of the players.",
+      "text": "Two players hold hands and move in a circle at constant speed.\n\nAdd an arrow to show the direction of acceleration on one player.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -216,14 +212,13 @@
         "acceleration"
       ],
       "answerType": "text",
-      "expectedAnswer": "Arrow towards the centre of the circle.",
-      "markingGuide": "Achieved: Arrow towards centre. OR tension force. OR change in direction. OR velocity a vector.",
-      "image": "/images/exams/91171-2025-q3d.png"
+      "expectedAnswer": "Arrow toward the centre of the circle.",
+      "markingGuide": "Achieved: Arrow toward centre."
     },
     {
       "id": "m25-q3dii",
       "number": "3(d)(ii)",
-      "text": "Explain how it is possible for the players to be moving at a constant speed yet accelerating.",
+      "text": "Explain how it is possible for the players to be moving at constant speed yet accelerating.",
       "marks": 1,
       "gradeLevel": "excellence",
       "topics": [
@@ -232,8 +227,8 @@
         "acceleration"
       ],
       "answerType": "text",
-      "expectedAnswer": "In order to move in a circle at constant speed, there must be a force towards the middle...",
-      "markingGuide": "Achieved: ONE of: arrow towards centre, tension force, change in direction, velocity a vector. Merit: Arrow towards centre and one statement linking cause and effect. Excellence: Full explanation."
+      "expectedAnswer": "Velocity is a vector quantity (speed + direction). Although speed is constant, direction is continuously changing, so there is a change in velocity, which means acceleration. This centripetal acceleration is directed toward the centre and is caused by the tension in their arms.",
+      "markingGuide": "Achieved: One point. Merit: Two linked. Excellence: Full explanation."
     }
   ]
 }

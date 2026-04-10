@@ -11,78 +11,111 @@
     {
       "id": "st267-25-q1a",
       "number": "1a",
-      "text": "At a school of 800 students, the following information is known:\n• 320 students study Music\n• 480 students play a team sport\n• 160 students both study Music and play a team sport\n\n(i) Complete a two-way table to display this information.\n(ii) Find the probability that a randomly selected student studies Music or plays a team sport (or both).",
+      "text": "At a school of 500 students, the following information is known:\n• 200 students take an Arts subject\n• 275 students take a Technology subject\n• 100 students take both a Arts and a Technology subject\n\n(i) Complete a two-way table to display this information.\n(ii) Find the probability that a randomly selected student takes a Arts subject or a Technology subject (or both).",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["two-way-tables", "probability-calculations"],
+      "topics": [
+        "two-way-tables",
+        "probability-calculations"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: Two-way table: Music & Sport = 160, Music only = 160, Sport only = 320, Neither = 160. P(Music or Sport) = (320 + 480 - 160)/800 = 640/800 = 0.80. Using addition rule: P(M ∪ S) = P(M) + P(S) - P(M ∩ S) = 0.40 + 0.60 - 0.20 = 0.80."
+      "markingGuide": "Achievement: Two-way table: Arts & Technology = 120, Arts only = 120, Technology only = 210, Neither = 150. P(Arts or Technology) = (240 + 330 - 120)/600 = 450/600 = 0.75. Using addition rule: P(S ∪ H) = P(S) + P(H) - P(S ∩ H) = 0.40 + 0.55 - 0.20 = 0.75."
     },
     {
       "id": "st267-25-q1b",
       "number": "1b",
-      "text": "Using the information from Question 1a:\n(i) Find the probability that a student plays a team sport, given that they study Music.\n(ii) Determine whether studying Music and playing a team sport are independent events. Justify your answer.",
+      "text": "Using the information from Question 1a:\n(i) Find the probability that a student takes a Technology subject, given that they take a Arts subject.\n(ii) Determine whether taking a Arts subject and taking a Technology subject are independent events. Justify your answer.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["conditional-probability", "independence"],
+      "topics": [
+        "conditional-probability",
+        "independence"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: (i) P(Sport | Music) = 160/320 = 0.50. (ii) For independence: P(Sport) = 0.60, P(Sport | Music) = 0.50. Since P(Sport | Music) ≠ P(Sport), the events are NOT independent. Students who study Music are less likely to play a team sport than students in general. Alternatively: P(M) × P(S) = 0.40 × 0.60 = 0.24, but P(M ∩ S) = 0.20 ≠ 0.24."
+      "markingGuide": "Merit: (i) P(Technology | Arts) = 120/240 = 0.50. (ii) For independence: P(Technology) = 0.55, P(Technology | Arts) = 0.50. Since P(Technology | Arts) ≠ P(Technology), the events are NOT independent. Students who take Arts are slightly less likely to also take Technology than students in general. Alternatively: P(S) × P(H) = 0.40 × 0.55 = 0.22, but P(S ∩ H) = 0.20 ≠ 0.22."
     },
     {
       "id": "st267-25-q2a",
       "number": "2a",
-      "text": "Hana is planning her after-school activities for the week. On any given day:\n• The probability it rains is 0.3.\n• If it rains, the probability she goes to the library is 0.7, and otherwise she goes home.\n• If it does not rain, the probability she goes to the park is 0.5, to a friend's house is 0.3, and otherwise she goes home.\n\nDraw a fully labelled probability tree diagram showing all possible outcomes for one day.",
+      "text": "Riki is deciding what to do after school each day. On any given day:\n• The probability that basketball practice is on is 0.4.\n• If basketball practice is on, the probability he goes to training is 0.8, and otherwise he goes to the library.\n• If basketball practice is not on, the probability he goes to the library is 0.6, to the gym is 0.25, and otherwise he goes straight home.\n\nDraw a fully labelled probability tree diagram showing all possible outcomes for one day.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["probability-trees", "probability-calculations"],
+      "topics": [
+        "probability-trees",
+        "probability-calculations"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: Tree with first branch: Rain (0.3) / No Rain (0.7). Rain branch: Library (0.7), Home (0.3). No Rain branch: Park (0.5), Friend (0.3), Home (0.2). All branches correctly labelled with probabilities."
+      "markingGuide": "Achievement: Tree with first branch: Basketball practice on (0.4) / No basketball practice (0.6). Basketball on branch: Training (0.8), Library (0.2). No basketball branch: Library (0.6), Mate's house (0.25), Home (0.15). All branches correctly labelled with probabilities."
     },
     {
       "id": "st267-25-q2b",
       "number": "2b",
-      "text": "Using the tree diagram from Question 2a, calculate:\n(i) The probability that Hana goes home on any given day.\n(ii) The probability that it was raining, given that Hana went home.",
+      "text": "Using the tree diagram from Question 2a, calculate:\n(i) The probability that Riki goes to the library on any given day.\n(ii) The probability that basketball practice was on, given that Riki went to the library.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["probability-trees", "conditional-probability"],
+      "topics": [
+        "probability-trees",
+        "conditional-probability"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: P(Home) = P(Rain and Home) + P(No Rain and Home) = 0.3 × 0.3 + 0.7 × 0.2 = 0.09 + 0.14 = 0.23. Merit: P(Rain | Home) = P(Rain and Home)/P(Home) = 0.09/0.23 = 9/23 ≈ 0.391. Clear working showing conditional probability formula applied correctly."
+      "markingGuide": "Achievement: P(Library) = P(Basketball on and Library) + P(No basketball and Library) = 0.4 × 0.2 + 0.6 × 0.6 = 0.08 + 0.36 = 0.44. Merit: P(Basketball on | Library) = P(Basketball on and Library)/P(Library) = 0.08/0.44 = 8/44 = 2/11 ≈ 0.182. Clear working showing conditional probability formula applied correctly."
     },
     {
       "id": "st267-25-q3a",
       "number": "3a",
-      "text": "A study compared two methods of revision for an upcoming test. The results are shown below:\n\n| | Passed the test | Failed the test | Total |\n|---|---|---|---|\n| Used flashcards | 84 | 36 | 120 |\n| Used practice tests | 108 | 12 | 120 |\n\nCalculate the risk of failing the test for each revision method.",
+      "text": "A study compared two approaches to learning a foreign language. The results are shown below:\n\n| | Passed the assessment | Failed the assessment | Total |\n|---|---|---|---|\n| Daily short sessions | 72 | 48 | 120 |\n| Weekly intensive sessions | 45 | 75 | 120 |\n\nCalculate the risk of failing the language assessment for each practice approach.",
       "marks": 2,
       "gradeLevel": "achieved",
-      "topics": ["relative-risk", "two-way-tables"],
+      "topics": [
+        "relative-risk",
+        "two-way-tables"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: Risk of failing (flashcards) = 36/120 = 0.30 (30%). Risk of failing (practice tests) = 12/120 = 0.10 (10%)."
+      "markingGuide": "Achievement: Risk of failing (daily short practice) = 48/120 = 0.35 (35%). Risk of failing (weekly long practice) = 75/120 = 0.55 (55%)."
     },
     {
       "id": "st267-25-q3b",
       "number": "3b",
-      "text": "Calculate the relative risk of failing the test for students who used flashcards compared to those who used practice tests. Interpret the relative risk in context.",
+      "text": "Calculate the relative risk of failing the language assessment for students who practised weekly (long sessions) compared to those who practised daily (short sessions). Interpret the relative risk in context.",
       "marks": 3,
       "gradeLevel": "merit",
-      "topics": ["relative-risk", "risk-interpretation"],
+      "topics": [
+        "relative-risk",
+        "risk-interpretation"
+      ],
       "answerType": "working",
-      "markingGuide": "Merit: Relative risk = 0.30/0.10 = 3.0. Students who used flashcards were 3 times as likely to fail the test compared to students who used practice tests. This suggests that practice tests are a more effective revision method than flashcards for passing this test."
+      "markingGuide": "Merit: Relative risk = 0.55/0.35 = 1.571. Students who practised in weekly long sessions were about 1.57 times as likely to fail the language assessment compared to students who practised in daily short sessions. This suggests that daily short practice sessions are a more effective approach than weekly long sessions for passing music exams."
     },
     {
       "id": "st267-25-q3c",
       "number": "3c",
-      "text": "A student claims: 'This study proves that practice tests cause students to pass.' Discuss the validity of this claim. In your answer, consider the study design and any factors that might affect the conclusion.",
+      "text": "A language teacher claims: 'This study proves that studying daily in short sessions causes students to pass assessments.' Discuss the validity of this claim. In your answer, consider the study design and any factors that might affect the conclusion.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["risk-interpretation", "independence"],
+      "topics": [
+        "risk-interpretation",
+        "independence"
+      ],
       "answerType": "text",
-      "markingGuide": "Excellence: The claim is not valid because: (1) This is an observational study, not a randomised experiment — students chose their own revision method, so we cannot establish causation. (2) Confounding variables could explain the results, e.g. students who chose practice tests may already be more motivated or higher-achieving. (3) We do not know if the groups were comparable in ability, study time, or other factors. (4) The study only shows an association, not causation. To establish causation, a randomised controlled trial would be needed where students are randomly assigned to each method. Must discuss at least two of these points with clear reasoning linked to the context."
+      "markingGuide": "Excellence: The claim is not valid because: (1) This is an observational study, not a randomised experiment — students chose their own practice pattern, so we cannot establish causation. (2) Confounding variables could explain the results, e.g. students who chose daily practice may already be more disciplined or motivated learners. (3) We do not know if the groups were comparable in prior ability, total practice hours, or teacher quality. (4) The study only shows an association, not causation. To establish causation, a randomised controlled trial would be needed where students are randomly assigned to each practice regime. Must discuss at least two of these points with clear reasoning linked to the context."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

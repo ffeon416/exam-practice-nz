@@ -11,68 +11,101 @@
     {
       "id": "st584-24-q1a",
       "number": "1a",
-      "text": "A newspaper article reports: 'A recent poll of 500 New Zealand adults found that 62% support a ban on single-use plastic bags, with a margin of error of 4.3%.'\n\n(i) Calculate the 95% confidence interval for the proportion of all New Zealand adults who support the ban.\n(ii) Explain what this confidence interval means in context.",
+      "text": "A newspaper article reports: 'A recent poll of 500 New Zealand adults found that 63% support tighter regulations on single-use plastic packaging, with a margin of error of 4.5%.'\n\n(i) Calculate the 95% confidence interval for the proportion of all New Zealand adults who support tighter regulations.\n(ii) Explain what this confidence interval means in context.",
       "marks": 4,
       "gradeLevel": "achieved",
-      "topics": ["margin-of-error", "confidence-intervals"],
+      "topics": [
+        "margin-of-error",
+        "confidence-intervals"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: 95% CI = 62% ± 4.3% = (57.7%, 66.3%). Interpretation: We are 95% confident that the true proportion of all NZ adults who support a ban on single-use plastic bags is between 57.7% and 66.3%. Merit: Also notes that this means if we repeated the survey many times, about 95% of the resulting confidence intervals would contain the true population proportion."
+      "markingGuide": "Achievement: 95% CI = 63% ± 4.5% = (58.5%, 67.5%). Interpretation: We are 95% confident that the true proportion of all NZ adults who support tighter regulations on single-use plastics is between 58.5% and 67.5%. Merit: Also notes that this means if we repeated the survey many times, about 95% of the resulting confidence intervals would contain the true population proportion."
     },
     {
       "id": "st584-24-q1b",
       "number": "1b",
-      "text": "The article also states: 'This proves that a clear majority of New Zealanders want plastic bags banned.'\n\nEvaluate this claim using the confidence interval from Question 1a. Is the claim justified? Explain your reasoning.",
+      "text": "The article also states: 'This proves that a clear majority of New Zealanders want stricter rules on single-use plastics.'\n\nEvaluate this claim using the confidence interval from Question 1a. Is the claim justified? Explain your reasoning.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["evaluating-claims", "confidence-intervals"],
+      "topics": [
+        "evaluating-claims",
+        "confidence-intervals"
+      ],
       "answerType": "text",
-      "markingGuide": "Merit: The claim that a 'clear majority' supports the ban is partially justified. The entire confidence interval (57.7% to 66.3%) is above 50%, so we can be 95% confident that more than half of all NZ adults support the ban. However, 'clear majority' is subjective — the lower bound of 57.7% could be considered modest rather than 'clear'. The word 'proves' is too strong — statistical surveys provide evidence, not proof. Excellence: Also discusses that the sample may not represent all New Zealanders (sampling method matters), and that opinion may vary by demographics, region, or time."
+      "markingGuide": "Merit: The claim that a 'clear majority' supports tighter rules is partially justified. The entire confidence interval (58.5% to 67.5%) is above 50%, so we can be 95% confident that more than half of all NZ adults support the regulations. However, 'proves' is too strong — statistical surveys provide evidence, not proof. The term 'clear majority' is subjective. Excellence: Also discusses that the sample may not represent all New Zealanders (sampling method matters), and that opinion may vary by demographics or region."
     },
     {
       "id": "st584-24-q2a",
       "number": "2a",
-      "text": "A health researcher conducted a study to investigate whether a new exercise programme reduces blood pressure. The study recruited 80 volunteers from a local gym who had high blood pressure. Half were randomly assigned to the exercise programme, and half continued their normal routine. After 12 weeks, the exercise group had a statistically significant reduction in blood pressure compared to the control group.\n\nIdentify TWO issues with the sampling method used in this study and explain how each could affect the results.",
+      "text": "A health researcher conducted a study to investigate whether a new office standing desk programme reduces reported neck strain. The study recruited 60 volunteers from a single corporate office who had experienced neck strain. Half were randomly assigned to the standing desk programme, and half continued their normal routine. After 8 weeks, the standing desk group had a statistically significant reduction in neck strain compared to the control group.\n\nIdentify TWO issues with the sampling method used in this study and explain how each could affect the results.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["sampling-methods", "sampling-bias"],
+      "topics": [
+        "sampling-methods",
+        "sampling-bias"
+      ],
       "answerType": "text",
-      "markingGuide": "Merit: (1) Volunteer bias — the participants volunteered, so they may be more motivated or health-conscious than the general population, meaning results may not generalise. (2) The sample was taken from a gym — gym members are already more physically active, which is not representative of the general population with high blood pressure. Other valid issues: sample size may be too small; no mention of blinding; the 'normal routine' for gym members likely already includes exercise. Excellence: Links each issue clearly to how it affects the validity of the conclusions and generalisability of results."
+      "markingGuide": "Merit: (1) Volunteer bias — participants volunteered, so they may be more motivated or health-conscious than the general working population, meaning results may not generalise. (2) Single workplace — the sample is from one corporate office, which is not representative of all workers with neck strain (different occupations have different types of neck strain). Other valid issues: sample size may be too small; no mention of blinding; self-reported pain is subjective. Excellence: Links each issue clearly to how it affects the validity and generalisability of results."
     },
     {
       "id": "st584-24-q2b",
       "number": "2b",
-      "text": "The researcher claims: 'The exercise programme causes a reduction in blood pressure in people with hypertension.'\n\nDiscuss whether this causal claim is justified. Consider the study design, potential confounding variables, and the population to which results can be generalised.",
+      "text": "The researcher claims: 'The standing desk programme prevents neck strain in office workers.'\n\nDiscuss whether this causal claim is justified. Consider the study design, potential confounding variables, and the population to which results can be generalised.",
       "marks": 4,
       "gradeLevel": "excellence",
-      "topics": ["evaluating-claims", "confounding-variables", "study-design"],
+      "topics": [
+        "evaluating-claims",
+        "confounding-variables",
+        "study-design"
+      ],
       "answerType": "text",
-      "markingGuide": "Excellence: The causal claim has some support because random assignment was used (this controls for known and unknown confounders between the two groups). However: (1) Confounding variables such as diet changes, stress levels, medication use during the 12 weeks were not mentioned as being controlled. (2) The Hawthorne effect — exercise group members knew they were in the treatment group and may have changed other behaviours. (3) Generalisation is limited — the sample was gym members only, not the wider hypertension population. (4) 80 participants is relatively small. (5) 'Statistically significant' does not necessarily mean practically significant — the size of the reduction matters. A justified causal claim requires: random assignment (present), control of confounders (partially met), appropriate sample (not met), sufficient size (marginal). Overall the claim is too strong given the limitations."
+      "markingGuide": "Excellence: The causal claim has some support because random assignment was used. However: (1) Confounding variables such as changes in posture, exercise habits, or workstation setup during the 8 weeks were not mentioned. (2) The Hawthorne effect — standing desk group members knew they were in the treatment group and may have also changed other behaviours. (3) Generalisation is limited — the sample was from one office only. (4) 60 participants is relatively small. (5) 'Statistically significant' does not necessarily mean practically significant. Overall the claim is too strong given the limitations."
     },
     {
       "id": "st584-24-q3a",
       "number": "3a",
-      "text": "A report states: 'A survey of 1,200 randomly selected NZ households found that the average weekly grocery spend was $285, with a margin of error of $12. A similar survey conducted five years ago found the average was $245, with a margin of error of $15.'\n\nCompare the two confidence intervals and determine whether there is evidence that average weekly grocery spending has increased.",
+      "text": "A report states: 'A survey of 1,000 randomly selected NZ households found that the average weekly spending on streaming services was $28, with a margin of error of $2.50. A similar survey conducted three years ago found the average was $18, with a margin of error of $3.50.'\n\nCompare the two confidence intervals and determine whether there is evidence that average weekly spending on streaming services has increased.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["confidence-intervals", "margin-of-error", "evaluating-claims"],
+      "topics": [
+        "confidence-intervals",
+        "margin-of-error",
+        "evaluating-claims"
+      ],
       "answerType": "working",
-      "markingGuide": "Achievement: Current CI = ($273, $297). Previous CI = ($230, $260). Merit: Since the two confidence intervals do not overlap ($260 < $273), there is evidence of a statistically significant increase in average weekly grocery spending. The gap between the upper bound of the old interval ($260) and the lower bound of the new interval ($273) suggests the increase is real, not due to sampling variability alone. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect inflation rather than real changes in spending, and that 'randomly selected households' needs scrutiny (response rates, how 'random' was achieved)."
+      "markingGuide": "Achievement: Current CI = ($25.50, $30.50). Previous CI = ($14.50, $21.50). Merit: Since the two confidence intervals do not overlap ($25 < $29), there is evidence of a statistically significant increase in average weekly streaming spending. Excellence: Also considers that both surveys should use comparable methods, that the increase might partly reflect new services available rather than changes in behaviour per household, and that 'randomly selected households' needs scrutiny."
     },
     {
       "id": "st584-24-q3b",
       "number": "3b",
-      "text": "Explain why the margin of error for the current survey ($12) is smaller than for the previous survey ($15), despite both surveying 1,200 households. What factors affect the size of the margin of error?",
+      "text": "Explain why the margin of error for the current survey ($3) is smaller than for the previous survey ($4), despite both surveying 1,000 households. What factors affect the size of the margin of error?",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["margin-of-error", "sampling-methods", "statistical-reasoning-l3"],
+      "topics": [
+        "margin-of-error",
+        "sampling-methods",
+        "statistical-reasoning-l3"
+      ],
       "answerType": "text",
-      "markingGuide": "Merit: The margin of error depends on the sample size and the variability (standard deviation) of the data. Since both surveys have the same sample size (n = 1200), the difference in margin of error is likely due to different amounts of variability in the data. The current survey may have less spread in grocery spending (smaller standard deviation), leading to a smaller margin of error. For a mean, margin of error ≈ 2 × s/√n. Excellence: Also mentions that confidence level affects margin of error (both presumably 95%), and discusses that the formula shows margin of error decreases with larger n and smaller s. The variability could differ due to changes in how households shop (e.g., more uniform spending patterns now)."
+      "markingGuide": "Merit: The margin of error depends on the sample size and the variability (standard deviation) of the data. Since both surveys have the same sample size (n = 1000), the difference in margin of error is likely due to different amounts of variability in the data. The current survey may have less spread in streaming spending (smaller standard deviation), leading to a smaller margin of error. For a mean, margin of error ≈ 2 × s/√n. Excellence: Also mentions that confidence level affects margin of error, and discusses that the variability could differ due to changes in how households subscribe to streaming services."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 5 },
-    "achieved": { "min": 6, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 5
+    },
+    "achieved": {
+      "min": 6,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

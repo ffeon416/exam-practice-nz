@@ -11,74 +11,106 @@
     {
       "id": "stat584-24-q1a",
       "number": "1(a)",
-      "text": "A newspaper article reports: 'A survey of 500 New Zealanders found that 62% support a sugar tax on fizzy drinks, with a margin of error of 4.3%.'\n\nExplain what the 'margin of error of 4.3%' means in this context.",
+      "text": "A news website reports: 'A survey of 600 New Zealanders found that 55% believe electric vehicles should be subsidised, with a margin of error of 4.1%.'\n\nExplain what the 'margin of error of 4.1%' means in this context.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["margin-of-error", "sampling-methods"],
+      "topics": [
+        "margin-of-error",
+        "sampling-methods"
+      ],
       "answerType": "text",
-      "expectedAnswer": "The margin of error of 4.3% means that we can be reasonably confident (95% confident) that the true proportion of all New Zealanders who support a sugar tax lies within 4.3 percentage points of the sample estimate. That is, somewhere between 57.7% and 66.3%.",
-      "markingGuide": "Achieved: States that the true proportion is likely within 4.3% of 62%, or gives the interval 57.7%–66.3%. Merit: Explains that this gives a confidence interval and relates it to the population parameter. Excellence: Explains the concept fully — connects to sampling variability, notes the 95% confidence level, and correctly interprets in context."
+      "expectedAnswer": "The margin of error of 4.1% means that we can be reasonably confident (95% confident) that the true proportion of all New Zealanders who believe electric vehicles should be subsidised lies within 4.0 percentage points of the sample estimate. That is, somewhere between 50.8% and 59.1%.",
+      "markingGuide": "Achieved: States that the true proportion is likely within 4.1% of 55%, or gives the interval 50.8%–59.1%. Merit: Explains that this gives a confidence interval and relates it to the population parameter. Excellence: Explains the concept fully — connects to sampling variability, notes the 95% confidence level, and correctly interprets in context."
     },
     {
       "id": "stat584-24-q1b",
       "number": "1(b)",
-      "text": "The article also states: 'The survey was conducted online through a pop-up on the newspaper's website.'\n\nIdentify and explain TWO potential sources of bias in this sampling method.",
+      "text": "The article also states: 'The survey was conducted via a link posted on the website's social media accounts.'\n\nIdentify and explain TWO potential sources of bias in this sampling method.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["sampling-bias", "sampling-methods"],
+      "topics": [
+        "sampling-bias",
+        "sampling-methods"
+      ],
       "answerType": "text",
-      "expectedAnswer": "1. Self-selection bias / voluntary response bias: Only people who choose to click on the pop-up will respond. People with strong opinions about sugar taxes are more likely to participate, which could skew results.\n2. Non-representative sampling frame: Only people who visit this newspaper's website can participate. This excludes people without internet access, people who read other news sources, and may over-represent certain demographics (age, education, political views) typical of that newspaper's readership.",
-      "markingGuide": "Achieved: Identifies one source of bias with a brief explanation. Merit: Identifies two distinct sources of bias with clear explanations of how each could affect the results. Excellence: Provides detailed explanations of two sources of bias, explains the direction of the bias (how it would affect the 62% figure), and discusses the implications for the validity of the survey's conclusions."
+      "expectedAnswer": "1. Self-selection bias / voluntary response bias: Only people who choose to click on the link and complete the survey will respond. People with strong opinions about vehicle subsidies are more likely to participate, which could skew results.\n2. Non-representative sampling frame: Only people who follow the website's social media can see the survey. This excludes people who don't use social media and may over-represent younger, more tech-savvy demographics who are more likely to support free transport for their age group.",
+      "markingGuide": "Achieved: Identifies one source of bias with a brief explanation. Merit: Identifies two distinct sources of bias with clear explanations of how each could affect the results. Excellence: Provides detailed explanations of two sources of bias, explains the direction of the bias (how it would affect the 55% figure), and discusses the implications for the validity of the survey's conclusions."
     },
     {
       "id": "stat584-24-q1c",
       "number": "1(c)",
-      "text": "The article concludes: 'With such strong support, the government should immediately introduce a sugar tax.'\n\nCritically evaluate this conclusion. In your answer, consider the statistical evidence presented and the limitations of the study.",
+      "text": "The article concludes: 'With clear majority support, the government should make electric vehicles free for under-25s immediately.'\n\nCritically evaluate this conclusion. In your answer, consider the statistical evidence presented and the limitations of the study.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["evaluating-claims", "sampling-bias", "margin-of-error"],
+      "topics": [
+        "evaluating-claims",
+        "sampling-bias",
+        "margin-of-error"
+      ],
       "answerType": "text",
-      "expectedAnswer": "The conclusion is not well supported. While 62% appears to show majority support, the sampling method (online pop-up on one newspaper's website) means the sample is unlikely to be representative of all New Zealanders. The voluntary response method means those with strong opinions are over-represented. The margin of error of 4.3% is calculated assuming a random sample, which this is not — so the actual uncertainty could be much larger. Additionally, a single survey is not sufficient basis for policy decisions; the question wording may have been leading, and public opinion can change. The claim about 'strong support' may be overstated given these limitations.",
+      "expectedAnswer": "The conclusion is not well supported. While 55% appears to show majority support, the sampling method (social media link on one website) means the sample is unlikely to be representative of all New Zealanders. The voluntary response method means those with strong opinions are over-represented. The margin of error of 4.1% is calculated assuming a random sample, which this is not — so the actual uncertainty could be much larger. Additionally, a single online survey is not sufficient basis for policy decisions; the question wording may have been leading, and public opinion can vary by demographics and region.",
       "markingGuide": "Achieved: Identifies at least one limitation that affects the conclusion. Merit: Discusses multiple limitations (sampling bias, representativeness) and how they undermine the conclusion. Links the margin of error to the sampling method. Excellence: Provides a comprehensive evaluation covering: (1) the margin of error assumes random sampling which wasn't used, (2) self-selection and coverage bias mean the sample doesn't represent all NZers, (3) the strength of the conclusion is not justified by the evidence, (4) additional considerations such as question wording, sample demographics, or the difference between statistical evidence and policy decisions."
     },
     {
       "id": "stat584-24-q2a",
       "number": "2(a)",
-      "text": "A health report states: 'A clinical trial of 1200 participants found that those taking Vitamin D supplements were 35% less likely to catch a cold than those taking a placebo. The result was statistically significant (p < 0.05).'\n\nExplain what 'statistically significant (p < 0.05)' means in this context.",
+      "text": "A wellness report states: 'A clinical trial of 1,800 participants found that those using a mindfulness programme for 10 minutes daily were 25% less likely to report high anxiety levels than those using a relaxation control. The result was statistically significant (p = 0.03).'\n\nExplain what 'statistically significant (p = 0.03)' means in this context.",
       "marks": 3,
       "gradeLevel": "achieved",
-      "topics": ["statistical-significance", "evaluating-claims"],
+      "topics": [
+        "statistical-significance",
+        "evaluating-claims"
+      ],
       "answerType": "text",
-      "expectedAnswer": "A p-value less than 0.05 means that if Vitamin D supplements had no real effect on catching colds (the null hypothesis), there would be less than a 5% probability of observing a difference as large as 35% (or larger) just by chance. Because this probability is small, we reject the null hypothesis and conclude the observed difference is unlikely to be due to chance alone.",
+      "expectedAnswer": "A p-value less than 0.05 means that if the mindfulness programme had no real effect on anxiety levels (the null hypothesis), there would be less than a 5% probability of observing a difference as large as 25% (or larger) just by chance. Because this probability is small, we reject the null hypothesis and conclude the observed difference is unlikely to be due to chance alone.",
       "markingGuide": "Achieved: States that the result is unlikely to have occurred by chance. Merit: Explains in terms of the null hypothesis — if there were no real difference, the probability of seeing this result by chance is less than 5%. Excellence: Clearly explains the p-value in context, notes it means we reject the null hypothesis, and distinguishes between statistical significance and practical significance."
     },
     {
       "id": "stat584-24-q2b",
       "number": "2(b)",
-      "text": "The report later mentions that the clinical trial was funded by a company that sells Vitamin D supplements, and that participants knew whether they were taking the vitamin or the placebo.\n\nDiscuss how these TWO factors could affect the reliability of the findings.",
+      "text": "The report later mentions that the clinical trial was funded by the company that developed the mindfulness programme, and that participants were told which group they were in (mindfulness programme or relaxation control).\n\nDiscuss how these TWO factors could affect the reliability of the findings.",
       "marks": 4,
       "gradeLevel": "merit",
-      "topics": ["evaluating-claims", "study-design"],
+      "topics": [
+        "evaluating-claims",
+        "study-design"
+      ],
       "answerType": "text",
-      "expectedAnswer": "1. Funding bias: The supplement company has a financial interest in positive results. This could lead to publication bias (only publishing favourable results), selective reporting of outcomes, or design choices that favour a positive finding. The study may not be as objective as independently funded research.\n2. Lack of blinding (not double-blind): If participants knew whether they had the vitamin or placebo, this introduces the placebo effect — those taking the vitamin may feel healthier or report fewer colds because they expect the supplement to work. Those on the placebo may not try as hard to stay healthy. This means the 35% reduction may not be entirely due to the vitamin itself.",
-      "markingGuide": "Achieved: Identifies one factor and gives a brief explanation. Merit: Discusses both factors clearly — explains how funding source creates potential bias and how lack of blinding introduces the placebo effect. Excellence: Provides detailed discussion of both factors, explains the direction of bias (both would tend to overstate the benefit), discusses what 'double-blind' means and why it matters, and considers the overall impact on the reliability of the 35% claim."
+      "expectedAnswer": "1. Funding bias: The app company has a financial interest in positive results. This could lead to publication bias (only publishing favourable results), selective reporting of outcomes, or design choices that favour a positive finding.\n2. Lack of blinding: If participants knew which app they were using, this introduces the placebo effect — those using the real mindfulness programme may feel less anxietyed simply because they expect it to work. Those on the relaxation control may not engage as sincerely. This means the 25% reduction may not be entirely due to the mindfulness itself.",
+      "markingGuide": "Achieved: Identifies one factor and gives a brief explanation. Merit: Discusses both factors clearly — explains how funding source creates potential bias and how lack of blinding introduces the placebo effect. Excellence: Provides detailed discussion of both factors, explains the direction of bias (both would tend to overstate the benefit), discusses what 'double-blind' means and why it matters, and considers the overall impact on the reliability of the 25% claim."
     },
     {
       "id": "stat584-24-q2c",
       "number": "2(c)",
-      "text": "Another study, published by a university research team, tested Vitamin D supplements using a double-blind randomised controlled trial of 3000 participants and found only a 12% reduction in colds, which was not statistically significant (p = 0.08).\n\nCompare the two studies and discuss which provides stronger evidence about the effectiveness of Vitamin D supplements for preventing colds.",
+      "text": "Another study, conducted by a university research team with no commercial ties, tested the same mindfulness technique using a double-blind randomised controlled trial of 3,500 participants and found only a 8% reduction in reported anxiety, which was not statistically significant (p = 0.11).\n\nCompare the two studies and discuss which provides stronger evidence about the effectiveness of the mindfulness programme for reducing anxiety.",
       "marks": 5,
       "gradeLevel": "excellence",
-      "topics": ["evaluating-claims", "study-design", "statistical-significance"],
+      "topics": [
+        "evaluating-claims",
+        "study-design",
+        "statistical-significance"
+      ],
       "answerType": "text",
-      "expectedAnswer": "The university study provides stronger evidence because: (1) It used a double-blind design, eliminating placebo effects and observer bias. (2) It was independently funded, reducing potential funding bias. (3) It had a larger sample size (3000 vs 1200), giving it more statistical power to detect a real effect. (4) Despite the larger sample size and more rigorous design, the effect was smaller (12% vs 35%) and not statistically significant (p = 0.08 > 0.05). This suggests the true effect of Vitamin D on colds is smaller than the first study claimed, and may not exist at all. The larger, better-designed study finding a smaller, non-significant effect is more trustworthy than the smaller, potentially biased study finding a larger, significant effect.",
-      "markingGuide": "Achieved: Identifies that the second study has better design features. Merit: Compares the studies on at least two dimensions (sample size, blinding, funding, significance) and concludes the second study is more reliable. Excellence: Provides a comprehensive comparison covering study design (double-blind vs not), sample size, independence of funding, the contradiction in results, and explains why the second study's non-significant finding with better methodology is more convincing than the first study's significant finding with poorer methodology. May also note that p = 0.08 is not far from 0.05 and discuss what this means."
+      "expectedAnswer": "The university study provides stronger evidence because: (1) It used a double-blind design, eliminating placebo effects and observer bias. (2) It was independently funded, reducing potential funding bias. (3) It had a larger sample size (4,000 vs 1,500), giving it more statistical power to detect a real effect. (4) Despite the larger sample size and more rigorous design, the effect was smaller (8% vs 25%) and not statistically significant (p = 0.11 > 0.05). This suggests the true effect of the mindfulness programme on anxiety is smaller than the first study claimed, and may not be real. The larger, better-designed study finding a smaller, non-significant effect is more trustworthy than the smaller, potentially biased study finding a larger, significant effect.",
+      "markingGuide": "Achieved: Identifies that the second study has better design features. Merit: Compares the studies on at least two dimensions (sample size, blinding, funding, significance) and concludes the second study is more reliable. Excellence: Provides a comprehensive comparison covering study design (double-blind vs not), sample size, independence of funding, the contradiction in results, and explains why the second study's non-significant finding with better methodology is more convincing than the first study's significant finding with poorer methodology. May also note that p = 0.11 is not far from 0.05 and discuss what this means."
     }
   ],
   "cutScores": {
-    "notAchieved": { "min": 0, "max": 6 },
-    "achieved": { "min": 7, "max": 12 },
-    "merit": { "min": 13, "max": 18 },
-    "excellence": { "min": 19, "max": 24 }
+    "notAchieved": {
+      "min": 0,
+      "max": 6
+    },
+    "achieved": {
+      "min": 7,
+      "max": 12
+    },
+    "merit": {
+      "min": 13,
+      "max": 18
+    },
+    "excellence": {
+      "min": 19,
+      "max": 24
+    }
   }
 }

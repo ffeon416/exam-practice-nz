@@ -10,7 +10,7 @@
     {
       "id": "l3ct25-q1a",
       "number": "1(a)",
-      "text": "Sulfur forms a range of different fluoride-containing ions and molecules.\n\nComplete the table below, showing the Lewis structure and name of shape for SF₃⁻ and SBrF₅.",
+      "text": "Phosphorus forms a range of different chloride-containing ions and molecules.\n\nComplete the table, showing Lewis structure and name of shape for SbCl4- and AsCl5.",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,14 +19,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "SF₃⁻: Lewis structure shows S central atom with 3 bonding pairs to F and 1 lone pair.",
-      "markingGuide": "Achievement: Two correct entries. One mark per correct Lewis structure and one mark per correct shape name.",
-      "image": "/images/exams/91390-2025-q1a.png"
+      "expectedAnswer": "SbCl4-: P central with 4 bonding pairs and 0 lone pairs -> tetrahedral. AsCl5: P central with 5 bonding pairs -> trigonal bipyramidal.",
+      "markingGuide": "Achievement: Two correct entries."
     },
     {
       "id": "l3ct25-q1bi",
       "number": "1(b)(i)",
-      "text": "The Lewis structure and shape for sulfur tetrafluoride, SF₄, are shown below.\n\n[Diagram shows SF₄ with seesaw shape]\n\nIdentify and explain the polarity of SF₄.",
+      "text": "The Lewis structure and shape for phosphorus trichloride, AsCl3, are shown (trigonal pyramidal with one lone pair).\n\nIdentify and explain the polarity of AsCl3.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -35,14 +34,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "SF₄ is polar.",
-      "markingGuide": "Achievement: Identifies SF₄ as polar and recognises the influence of electronegativity. Merit: Explains the polarity of SF₄ in terms of bond polarity and the asymmetric arrangement of dipoles.",
-      "image": "/images/exams/91390-2025-q1b.png"
+      "expectedAnswer": "AsCl3 is polar. The P-Cl bonds are polar and the trigonal pyramidal shape means the dipoles do not cancel due to asymmetry caused by the lone pair.",
+      "markingGuide": "Achievement: Identifies AsCl3 as polar. Merit: Explains using bond polarity and asymmetric arrangement."
     },
     {
       "id": "l3ct25-q1bii",
       "number": "1(b)(ii)",
-      "text": "Justify why the F–S–F bond angles in SF₄ are different to the F–S–F bond angles in SBrF₅.",
+      "text": "Justify why the Cl-P-Cl bond angles in AsCl3 are different to those in AsCl5.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -51,13 +49,13 @@
         "molecular-shape"
       ],
       "answerType": "working",
-      "expectedAnswer": "SF₄ has five areas of electron density around S (4 bonding pairs + 1 lone pair) based on...",
-      "markingGuide": "Achievement: States SF₄ has F–S–F bond angles of 90° and 120°. Merit: Identifies different electron geometries lead to different bond angles. Excellence: Justifies the difference linking to electron pair arrangement and lone pair repulsion in each geometry."
+      "expectedAnswer": "AsCl3 has four areas of electron density (3 bonding + 1 lone pair) based on tetrahedral arrangement, giving bond angles close to 107 degrees. AsCl5 has five areas of electron density (5 bonding pairs) based on trigonal bipyramidal arrangement, with bond angles of 90 and 120 degrees.",
+      "markingGuide": "Achievement: States bond angles. Merit: Identifies different electron geometries. Excellence: Justifies the difference."
     },
     {
       "id": "l3ct25-q1c",
       "number": "1(c)",
-      "text": "Finely powdered sulfur, S(s), readily reacts with fluorine gas, F₂(g), in an exothermic reaction to produce sulfur hexafluoride, SF₆(g). The equation for the reaction is:\n\nS(s) + 3F₂(g) → SF₆(g)\n\nJustify, in terms of the entropy changes of the system and surroundings, why the reaction is spontaneous.",
+      "text": "Finely powdered phosphorus, P(s), readily reacts with chlorine gas, Cl2(g), in an exothermic reaction to produce phosphorus pentachloride, PCl5(g):\n\nP(s) + 5/2 Cl2(g) -> PCl5(g)\n\nJustify, in terms of the entropy changes of the system and surroundings, why the reaction is spontaneous.",
       "marks": 4,
       "gradeLevel": "merit",
       "topics": [
@@ -66,13 +64,13 @@
         "spontaneity"
       ],
       "answerType": "working",
-      "expectedAnswer": "System entropy decreases: 3 highly randomised gas molecules and one solid produce only one gas...",
-      "markingGuide": "Achievement: Recognises entropy increases when there is an increase in disorder / dispersal of matter. Merit: Explains entropy change for the system OR surroundings. Excellence: Justifies the spontaneous nature of the reaction in terms of entropy changes in the system and surroundings."
+      "expectedAnswer": "System entropy decreases: 2.5 gas molecules and one solid produce one gas molecule (fewer particles, less disorder). However, the reaction is exothermic, so heat released to surroundings greatly increases their entropy. The positive dS_surr outweighs the negative dS_sys, making dS_total positive.",
+      "markingGuide": "Achievement: Recognises entropy concept. Merit: Explains system OR surroundings entropy. Excellence: Justifies spontaneity with both."
     },
     {
       "id": "l3ct25-q2ai",
       "number": "2(a)(i)",
-      "text": "Complete the table below, showing the electron configuration (use s, p, d notations) for:\n\nCl\nCu\nFe³⁺",
+      "text": "Complete the table showing electron configuration for:\n\nBr\nAg\nFe3+",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -80,14 +78,13 @@
         "electron-configuration"
       ],
       "answerType": "working",
-      "expectedAnswer": "Cl: 1s²2s²2p⁶3s²3p⁵.",
-      "markingGuide": "Achievement: Two correct electron configurations.",
-      "image": "/images/exams/91390-2025-q2ai.png"
+      "expectedAnswer": "Se: 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p5. Pd: [Kr] 4d10 5s1. Fe3+: 1s2 2s2 2p6 3s2 3p6 3d3.",
+      "markingGuide": "Achievement: Two correct configurations."
     },
     {
       "id": "l3ct25-q2aii",
       "number": "2(a)(ii)",
-      "text": "Iron, Fe, can form two different ions, Fe²⁺ and Fe³⁺. Their ionic radii are given below:\n\nFe²⁺: 92 pm\nFe³⁺: 79 pm\n\nExplain why the radius of the Fe²⁺ ion is larger than the radius of the Fe³⁺ ion.",
+      "text": "Iron, Fe, can form two different ions, Fe2+ and Fe3+. Their ionic radii are:\n\nFe2+: 92 pm\nFe3+: 79 pm\n\nExplain why the radius of Fe2+ is larger than Fe3+.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -96,13 +93,13 @@
         "atomic-structure"
       ],
       "answerType": "working",
-      "expectedAnswer": "Both ions have the same nuclear charge (26 protons), but Fe²⁺ has more electrons (24) than Fe³⁺...",
-      "markingGuide": "Achievement: Identifies same nuclear charge but different numbers of electrons. Merit: Explains that Fe²⁺ has more electrons with the same number of protons, so there is a greater electron-electron repulsion or less effective nuclear charge per electron, leading to a larger radius."
+      "expectedAnswer": "Both have the same nuclear charge (29 protons). Fe2+ has more electrons (28) than Fe3+ (27), so there is greater electron-electron repulsion in Fe2+, leading to a larger radius.",
+      "markingGuide": "Achievement: Identifies same nuclear charge but different electrons. Merit: Explains repulsion difference."
     },
     {
       "id": "l3ct25-q2bi",
       "number": "2(b)(i)",
-      "text": "Identify all the types of attractive forces between particles of the following substances in their liquid state.\n\nHydrogen bromide, HBr(l) — ΔvapH° = 17.3 kJ mol⁻¹\nHydrogen fluoride, HF(l) — ΔvapH° = 25.2 kJ mol⁻¹\nBromine, Br₂(l) — ΔvapH° = 29.6 kJ mol⁻¹",
+      "text": "Identify all types of attractive forces between particles of these substances in their liquid state.\n\nHydrogen bromide, HBr(l) — DvapH = 17.2 kJ mol-1\nHydrogen fluoride, HF(l) — DvapH = 7.46 kJ mol-1\nBromine, Br2(l) — DvapH = 30.0 kJ mol-1",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -110,14 +107,13 @@
         "intermolecular-forces"
       ],
       "answerType": "working",
-      "expectedAnswer": "HBr: Permanent dipole–dipole (PD–PD) attractions, temporary dipole (TD–TD / London dispersion)...",
-      "markingGuide": "Achievement: Correctly identifies attractive forces for at least two substances.",
-      "image": "/images/exams/91390-2025-q2b.png"
+      "expectedAnswer": "HI: Permanent dipole-dipole, London dispersion forces. HCl: Permanent dipole-dipole, London dispersion forces. Cl2: London dispersion forces only.",
+      "markingGuide": "Achievement: Correctly identifies forces for at least two substances."
     },
     {
       "id": "l3ct25-q2bii",
       "number": "2(b)(ii)",
-      "text": "Explain why the ΔvapH° of HF is higher than that of HBr.",
+      "text": "Explain why the DvapH of HI is higher than that of HCl.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -126,13 +122,13 @@
         "enthalpy-vaporisation"
       ],
       "answerType": "working",
-      "expectedAnswer": "HF has hydrogen bonding (due to large electronegativity difference between H and F),",
-      "markingGuide": "Achievement: Recognises hydrogen bonding is stronger. Merit: Explains differences in molarity/electronegativity leading to differences in strength of attractive forces."
+      "expectedAnswer": "HI has a larger electron cloud than HCl (iodine has more electrons), resulting in stronger London dispersion forces. This outweighs the slightly stronger dipole-dipole in HCl.",
+      "markingGuide": "Achievement: Recognises electron cloud size matters. Merit: Explains difference."
     },
     {
       "id": "l3ct25-q2biii",
       "number": "2(b)(iii)",
-      "text": "Justify why Br₂ has the highest ΔvapH° of the three substances.",
+      "text": "Justify why Cl2 has the highest DvapH of the three substances.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -141,13 +137,13 @@
         "enthalpy-vaporisation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Despite Br₂ having only temporary dipole forces (no permanent dipoles or hydrogen bonding), it...",
-      "markingGuide": "Achievement: Recognises that a larger electron cloud / larger molar mass gives stronger temporary dipole forces. Merit: Explains that Br₂'s large size produces strong temporary dipole forces despite lacking hydrogen bonding. Excellence: Fully justifies by comparing all three substances' attractive force strengths."
+      "expectedAnswer": "Despite Cl2 having only London dispersion forces, it has a larger molecular size than HCl, giving stronger London forces. The two chlorine atoms together provide a substantial electron cloud. Its overall intermolecular forces are strongest among these three.",
+      "markingGuide": "Achievement: Recognises larger size gives stronger LDF. Merit: Explains Cl2's large size. Excellence: Compares all three."
     },
     {
       "id": "l3ct25-q3ai",
       "number": "3(a)(i)",
-      "text": "Nitric acid, HNO₃, is manufactured from ammonia, NH₃. The equation for one of the reactions in the process is:\n\n4NH₃(g) + 5O₂(g) → 4NO(g) + 6H₂O(l)   ΔᵣH° ≈ −1172 kJ mol⁻¹\n\nWrite the balanced equation to represent the standard enthalpy of formation of ammonia in the table below.\n\n[Table shows: NH₃(g) — equation blank — ΔfH° blank; NO(g) — ½N₂(g) + ½O₂(g) → NO(g) — +90.3; H₂O(l) — H₂(g) + ½O₂(g) → H₂O(l) — −286]",
+      "text": "Nitric acid, H2SO4, is manufactured from nitrogen dioxide. One reaction is:\n\n2NO2(g) + O2(g) -> 2N2O4(g)   DrH = -114 kJ mol-1\n\nWrite the balanced equation to represent the standard enthalpy of formation of NO2.\n\nData: N2O4(g) DfH = +33.2 kJ mol-1, H2O(l) DfH = -286 kJ mol-1",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
@@ -155,14 +151,13 @@
         "enthalpy-formation"
       ],
       "answerType": "working",
-      "expectedAnswer": "½N₂(g) + 1½H₂(g) → NH₃(g) (or ½N₂(g) + ³⁄₂H₂(g) → NH₃(g))",
-      "markingGuide": "Achievement: Correct enthalpy of formation equation for NH₃.",
-      "image": "/images/exams/91390-2025-q3a.png"
+      "expectedAnswer": "S(s) + O2(g) -> NO2(g)",
+      "markingGuide": "Achievement: Correct equation."
     },
     {
       "id": "l3ct25-q3aii",
       "number": "3(a)(ii)",
-      "text": "Calculate the standard enthalpy of formation for ammonia, ΔfH°(NH₃(g)), using the data given in part (i).",
+      "text": "Calculate the standard enthalpy of formation for NO2, DfH(NO2(g)), using the data given.",
       "marks": 3,
       "gradeLevel": "achieved",
       "topics": [
@@ -171,13 +166,13 @@
         "enthalpy-formation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Using ΔᵣH° = Σ ΔfH°(products) − Σ ΔfH°(reactants): −1172 = [4(90.3) + 6(−286)] − [4(ΔfH° NH₃) + 0].",
-      "markingGuide": "Achievement: Correct process with one error. Merit: Correct process. Excellence: Correct answer, including unit and 2–4 significant figures."
+      "expectedAnswer": "DrH = sum DfH(products) - sum DfH(reactants). -198 = 2(-396) - [2(DfH NO2) + 0]. -198 = -792 - 2x. 2x = -792 + 198 = -594. x = -297 kJ mol-1.",
+      "markingGuide": "Achievement: Correct process with one error. Merit: Correct process. Excellence: Correct answer with units."
     },
     {
       "id": "l3ct25-q3ci",
       "number": "3(c)(i)",
-      "text": "Dinitrogen tetroxide, N₂O₄, was reacted with methylhydrazine, CH₃NHNH₂. The equation for the reaction is:\n\n4CH₃NHNH₂(l) + 5N₂O₄(l) → 4CO₂(g) + 12H₂O(g) + 9N₂(g)\n\nCalculate the standard enthalpy change of this reaction, using the following data.\n\nC(s) + 3H₂(g) + N₂(g) → CH₃NHNH₂(l)   ΔfH° = +54.1 kJ mol⁻¹\nC(s) + O₂(g) → CO₂(g)   ΔfH° = −394 kJ mol⁻¹\nN₂(g) + 2O₂(g) → N₂O₄(l)   ΔfH° = −20.0 kJ mol⁻¹\nH₂(g) + ½O₂(g) → H₂O(l)   ΔfH° = −286 kJ mol⁻¹\nH₂O(l) → H₂O(g)   ΔvapH° = +40.7 kJ mol⁻¹",
+      "text": "Dimethylhydrazine, (CH3)2NNH2, was reacted with dinitrogen tetroxide, N2O4:\n\n2(CH3)2NNH2(l) + N2O4(l) -> 3N2(g) + 4H2O(g)\n\nCalculate DrH using:\n(CH3)2NNH2(l) DfH = +50.6 kJ mol-1\nCO2(g) DfH = -394 kJ mol-1\nN2O4(l) DfH = -19.5 kJ mol-1\nH2O(l) DfH = -286 kJ mol-1\nH2O(l) -> H2O(g) DvapH = +40.7 kJ mol-1",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -186,13 +181,13 @@
         "enthalpy"
       ],
       "answerType": "working",
-      "expectedAnswer": "ΔᵣH° = Σ ΔfH°(products) − Σ ΔfH°(reactants).",
-      "markingGuide": "Achievement: Correctly manipulates one equation/enthalpy change. Merit: Correct process with one error. Excellence: Correct answer with correct unit, sign, and significant figures (2–4)."
+      "expectedAnswer": "First find DfH(H2O(g)) = -286 + 40.7 = -245.3 kJ mol-1. DrH = [3(0) + 4(-245.3)] - [2(50.6) + (-19.5)] = -981.2 - 81.7 = -1062.9 kJ mol-1.",
+      "markingGuide": "Achievement: Correctly manipulates one value. Merit: Correct process with one error. Excellence: Correct answer."
     },
     {
       "id": "l3ct25-q3cii",
       "number": "3(c)(ii)",
-      "text": "Explain the effect on the standard enthalpy change calculated in part (c)(i) if the water was produced as a liquid.",
+      "text": "Explain the effect on the standard enthalpy change if the water was produced as a liquid.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -201,13 +196,13 @@
         "state-changes"
       ],
       "answerType": "working",
-      "expectedAnswer": "The enthalpy change would be more exothermic / more negative",
-      "markingGuide": "Achievement: Recognises energy is released when gas changes to liquid. Merit: Explains that energy is released as intermolecular forces form between water molecules when changing state from gas to liquid."
+      "expectedAnswer": "The enthalpy change would be more exothermic (more negative) because energy is released when water vapour condenses to liquid (intermolecular forces form).",
+      "markingGuide": "Achievement: Recognises energy released when gas -> liquid. Merit: Explains fully."
     },
     {
       "id": "l3ct25-q3bi",
       "number": "3(b)(i)",
-      "text": "Justify, using your knowledge of periodic trends, why magnesium, Mg, has a greater first ionisation energy than strontium, Sr.",
+      "text": "Justify, using periodic trends, why strontium, Sr, has a greater first ionisation energy than calcium, Ca.",
       "marks": 3,
       "gradeLevel": "merit",
       "topics": [
@@ -216,13 +211,13 @@
         "periodic-trends"
       ],
       "answerType": "working",
-      "expectedAnswer": "Mg has a greater first ionisation energy than Sr",
-      "markingGuide": "Achievement: Recognises distance/shielding has an effect. Merit: Explains the trend in terms of distance, shielding, and effective nuclear charge. Excellence: Explains the trends in atomic radii across a period linking distance, repulsion, shielding, and nuclear charge."
+      "expectedAnswer": "Ca has greater first IE than Ba because Ca has fewer electron shells, meaning outer electrons are closer to the nucleus with less shielding, experiencing a greater effective nuclear charge.",
+      "markingGuide": "Achievement: Recognises distance/shielding. Merit: Explains with distance, shielding, and effective nuclear charge."
     },
     {
       "id": "l3ct25-q3bii",
       "number": "3(b)(ii)",
-      "text": "The atomic radii of five elements from Period 3 are shown in the table below.\n\nNa: 0.191 nm, Mg: 0.160 nm, Al: 0.130 nm, Si: 0.118 nm, P: 0.110 nm\n\nExplain the trend in atomic radius shown in the table.",
+      "text": "The atomic radii of five elements from Period 3 are shown.\n\nNa: 0.191 nm, Mg: 0.160 nm, Al: 0.130 nm, Si: 0.118 nm, P: 0.110 nm\n\nExplain the trend in atomic radius.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -231,14 +226,13 @@
         "periodic-trends"
       ],
       "answerType": "working",
-      "expectedAnswer": "Atomic radius decreases across Period 3 from Na to P.",
-      "markingGuide": "Achievement: Recognises that nuclear charge affects atomic radius. Merit: Explains the trend linking nuclear charge and same energy level. Excellence: Explains the trend in atomic radii across a period, including distance, repulsion/shielding, and nuclear charge/attraction.",
-      "image": "/images/exams/91390-2025-q3bii.png"
+      "expectedAnswer": "Atomic radius decreases across Period 3 from Na to P. As proton number increases, the nuclear charge increases while electrons are added to the same shell. The increased nuclear attraction pulls electrons closer, decreasing radius. Shielding remains roughly constant across the period.",
+      "markingGuide": "Achievement: Recognises nuclear charge. Merit: Explains with nuclear charge and same energy level. Excellence: Full explanation."
     },
     {
       "id": "l3ct25-q3c",
       "number": "3(c)",
-      "text": "When solid calcium chloride, CaCl₂(s), dissolves in water, the temperature increases from 20.4 °C to 23.2 °C.\n\nCaCl₂(s) → Ca²⁺(aq) + 2Cl⁻(aq)   ΔH = −81.3 kJ mol⁻¹\n\nCalculate the mass of CaCl₂(s) that must dissolve to cause this temperature increase.\nAssume the specific heat capacity of the calcium chloride solution is 4.18 J g⁻¹ °C⁻¹.\nAssume the mass of the calcium chloride solution is 68.0 g.\nM(CaCl₂) = 111 g mol⁻¹",
+      "text": "When solid lithium chloride, LiCl(s), dissolves in water, the temperature increases from 20.2 degrees C to 24.8 degrees C.\n\nLiCl(s) -> Mg2+(aq) + SO42-(aq)   DH = -37.0 kJ mol-1\n\nCalculate the mass of LiCl(s) that must dissolve to cause this temperature increase.\nSpecific heat capacity = 4.18 J g-1 degC-1.\nMass of solution = 85.0 g.\nM(LiCl) = 120.4 g mol-1",
       "marks": 4,
       "gradeLevel": "achieved",
       "topics": [
@@ -247,8 +241,8 @@
         "calorimetry"
       ],
       "answerType": "working",
-      "expectedAnswer": "q = m × c × ΔT = 68.0 × 4.18 × (23.2 − 20.4) = 68.0 × 4.18 × 2.8 = 795.9 J = 0.7959 kJ.",
-      "markingGuide": "Achievement: Calculates heat energy released when CaCl₂ dissolves. Merit: Correct process to determine mass with minor error. Excellence: Calculates mass of CaCl₂, including unit and 2–4 significant figures."
+      "expectedAnswer": "q = mcDT = 72.0 x 4.18 x (22.4-19.8) = 72.0 x 4.18 x 2.6 = 782.9 J = 0.7829 kJ. n = 0.7829 / 91.2 = 0.008585 mol. m = 0.008585 x 120.4 = 1.03 g.",
+      "markingGuide": "Achievement: Calculates heat energy. Merit: Correct process with minor error. Excellence: Correct mass with units."
     }
   ],
   "totalMarks": 24,
