@@ -23,6 +23,7 @@ export default function ExamPage({
     | "mock";
 
   const [exam, setExam] = useState<Exam | null>(null);
+  const [examNotFound, setExamNotFound] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [currentQ, setCurrentQ] = useState(0);
   const [submitting, setSubmitting] = useState(false);
@@ -33,14 +34,28 @@ export default function ExamPage({
   >({});
 
   useEffect(() => {
-    const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
-    if (!e) {
-      router.push("/subjects");
-      return;
+    // Run on mount only — wait for the next tick so localStorage is hydrated
+    let cancelled = false;
+    function tryLoad() {
+      if (cancelled) return;
+      if (typeof window === "undefined") return;
+      const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
+      if (e) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setExam(e);
+      } else {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setExamNotFound(true);
+      }
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setExam(e);
-  }, [examId, router]);
+    // Try immediately, then after a small delay as a safety net
+    tryLoad();
+    const timeout = setTimeout(tryLoad, 200);
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
+  }, [examId]);
 
   const handleSubmit = useCallback(async () => {
     if (!exam || submitting) return;
@@ -60,9 +75,31 @@ export default function ExamPage({
   }, [handleSubmit]);
 
   if (!exam) {
+    if (examNotFound) {
+      return (
+        <div className="max-w-md mx-auto px-5 py-20 text-center">
+          <h1 className="text-2xl font-semibold text-white mb-3">Exam not found</h1>
+          <p className="text-zinc-400 text-sm mb-2">
+            We couldn&apos;t find this exam on this device.
+          </p>
+          <p className="text-zinc-500 text-xs mb-8">
+            Custom exams are saved to the device they were generated on. Build a new one to start practising.
+          </p>
+          <button
+            onClick={() => router.push("/subjects")}
+            className="w-full py-3 rounded-lg bg-indigo-500 text-white font-medium hover:bg-indigo-400 transition-colors"
+          >
+            Build a new exam
+          </button>
+        </div>
+      );
+    }
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center text-slate-400">
-        Loading...
+      <div className="max-w-md mx-auto px-5 py-20 text-center">
+        <div className="inline-flex items-center justify-center w-12 h-12 mb-4">
+          <div className="w-6 h-6 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
+        </div>
+        <p className="text-zinc-400 text-sm">Loading your exam...</p>
       </div>
     );
   }
