@@ -1,16 +1,43 @@
-// Uses the local claude-max-api proxy (OpenAI-compatible on port 3456)
-// which routes through to Claude via OpenClaw/Ace
-
-const PROXY_URL = "http://localhost:3456/v1/chat/completions";
+// Uses the Anthropic API in production, or a local proxy in development
+const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
+const LOCAL_PROXY_URL = "http://localhost:3456/v1/chat/completions";
 
 // Model selection — use cheaper Haiku for simple marking, Sonnet for complex tasks
-const MODEL_FAST = "claude-haiku-4-5"; // 6x cheaper — for marking, simple checks
-const MODEL_SMART = "claude-sonnet-4"; // smarter — for generation, tutor chat, essays
+const MODEL_FAST = "claude-haiku-4-5-20251001"; // 6x cheaper — for marking, simple checks
+const MODEL_SMART = "claude-sonnet-4-5-20250929"; // smarter — for generation, tutor chat, essays
 
 async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
   const model = options.smart ? MODEL_SMART : MODEL_FAST;
   const maxTokens = options.maxTokens ?? 1024;
-  const res = await fetch(PROXY_URL, {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+
+  // If we have an API key, use the real Anthropic API
+  if (apiKey) {
+    const res = await fetch(ANTHROPIC_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model,
+        max_tokens: maxTokens,
+        messages: [{ role: "user", content: prompt }],
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.text().catch(() => "Unknown error");
+      throw new Error(`Anthropic API error ${res.status}: ${err}`);
+    }
+
+    const data = await res.json();
+    return data.content?.[0]?.text ?? "";
+  }
+
+  // Fall back to local proxy in development
+  const res = await fetch(LOCAL_PROXY_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
