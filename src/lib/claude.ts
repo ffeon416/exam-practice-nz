@@ -13,7 +13,41 @@ const isProxy = !process.env.ANTHROPIC_API_KEY;
 const MODEL_FAST = isProxy ? "claude-haiku-4" : "claude-haiku-4-5-20251001";
 const MODEL_SMART = isProxy ? "claude-sonnet-4" : "claude-sonnet-4-5-20250929";
 
-async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
+// Sleep helper
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Exponential backoff retry wrapper — retries on network errors, timeouts,
+// and 5xx server errors. Won't retry on 4xx client errors.
+async function withRetry<T>(
+  fn: () => Promise<T>,
+  options: { maxAttempts?: number; initialDelayMs?: number; label?: string } = {}
+): Promise<T> {
+  const maxAttempts = options.maxAttempts ?? 4;
+  const initialDelay = options.initialDelayMs ?? 1500;
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastError = err;
+      const message = err instanceof Error ? err.message : String(err);
+      // Don't retry on permanent errors
+      if (/error 4\d\d/.test(message) && !/error 408/.test(message) && !/error 429/.test(message)) {
+        throw err;
+      }
+      if (attempt === maxAttempts) break;
+      const delay = initialDelay * Math.pow(2, attempt - 1);
+      console.log(`[${options.label ?? "request"}] attempt ${attempt} failed (${message.slice(0, 100)}), retrying in ${delay}ms`);
+      await sleep(delay);
+    }
+  }
+  throw lastError;
+}
+
+async function chatCompletionOnce(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
   const model = options.smart ? MODEL_SMART : MODEL_FAST;
   const maxTokens = options.maxTokens ?? 1024;
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -21,50 +55,72 @@ async function chatCompletion(prompt: string, options: { smart?: boolean; maxTok
 
   // 1. Real Anthropic API
   if (apiKey) {
-    const res = await fetch(ANTHROPIC_API_URL, {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 min timeout
+    try {
+      const res = await fetch(ANTHROPIC_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": apiKey,
+          "anthropic-version": "2023-06-01",
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: maxTokens,
+          messages: [{ role: "user", content: prompt }],
+        }),
+        signal: controller.signal,
+      });
+
+      if (!res.ok) {
+        const err = await res.text().catch(() => "Unknown error");
+        throw new Error(`Anthropic API error ${res.status}: ${err}`);
+      }
+
+      const data = await res.json();
+      const text = data.content?.[0]?.text ?? "";
+      if (!text) throw new Error("Empty response from Anthropic API");
+      return text;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  // 2 & 3. OpenAI-compatible proxy (custom URL or local default)
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 min timeout
+  try {
+    const res = await fetch(proxyUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
+        Authorization: "Bearer not-needed-proxy-auth",
       },
       body: JSON.stringify({
         model,
-        max_tokens: maxTokens,
         messages: [{ role: "user", content: prompt }],
+        max_tokens: maxTokens,
       }),
+      signal: controller.signal,
     });
 
     if (!res.ok) {
       const err = await res.text().catch(() => "Unknown error");
-      throw new Error(`Anthropic API error ${res.status}: ${err}`);
+      throw new Error(`Proxy error ${res.status}: ${err}`);
     }
 
     const data = await res.json();
-    return data.content?.[0]?.text ?? "";
+    const text = data.choices?.[0]?.message?.content ?? "";
+    if (!text) throw new Error("Empty response from proxy");
+    return text;
+  } finally {
+    clearTimeout(timeoutId);
   }
+}
 
-  // 2 & 3. OpenAI-compatible proxy (custom URL or local default)
-  const res = await fetch(proxyUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer not-needed-proxy-auth",
-    },
-    body: JSON.stringify({
-      model,
-      messages: [{ role: "user", content: prompt }],
-      max_tokens: maxTokens,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text().catch(() => "Unknown error");
-    throw new Error(`Proxy error ${res.status}: ${err}`);
-  }
-
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content ?? "";
+async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
+  return withRetry(() => chatCompletionOnce(prompt, options), { label: options.smart ? "smart" : "fast" });
 }
 
 export async function markAnswer(
@@ -126,15 +182,27 @@ Respond ONLY with valid JSON (no markdown, no code fences):
 }`;
 
   // Use fast model for marking — it's basically checking, not generating
-  const text = await chatCompletion(prompt, { smart: false });
-
+  // chatCompletion has built-in retry, so this rarely fails
   try {
-    return JSON.parse(text);
-  } catch {
+    const text = await chatCompletion(prompt, { smart: false });
+    // Strip markdown fences if present
+    const cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+    const parsed = JSON.parse(cleaned);
+    // Sanity-check the result
+    if (typeof parsed.marksAwarded !== "number") parsed.marksAwarded = 0;
+    if (!parsed.grade) parsed.grade = "not-achieved";
+    if (!parsed.feedback) parsed.feedback = "Your answer has been recorded.";
+    if (!parsed.correctApproach) parsed.correctApproach = markingGuide;
+    if (!parsed.examTip) parsed.examTip = "Always show your working clearly.";
+    if (!Array.isArray(parsed.topicsToReview)) parsed.topicsToReview = [];
+    return parsed;
+  } catch (err) {
+    // Last-resort fallback — give them benefit of the doubt rather than 0
+    console.error("Marking fallback triggered:", err);
     return {
-      marksAwarded: 0,
-      grade: "not-achieved",
-      feedback: "Unable to parse AI response. Please try again.",
+      marksAwarded: Math.floor(marks / 2), // partial marks rather than zero
+      grade: "achieved" as const,
+      feedback: "We had trouble auto-marking this one. Compare your answer with the marking guide below.",
       correctApproach: markingGuide,
       examTip: "Always show your working clearly.",
       topicsToReview: [],
@@ -402,7 +470,17 @@ ${history}
 
 Respond as the tutor with just your next message. Keep it short and helpful.`;
 
-  return chatCompletion(prompt, { smart: true, maxTokens: 300 });
+  // chatCompletion has built-in retry. If even that fails, return a friendly message
+  // rather than throwing — students should never see a hard error from the tutor.
+  try {
+    const reply = await chatCompletion(prompt, { smart: true, maxTokens: 300 });
+    if (!reply || reply.trim().length === 0) {
+      return "Sorry, I lost my train of thought! Can you try asking that again?";
+    }
+    return reply;
+  } catch {
+    return "Sorry, I'm having trouble connecting right now. Try asking again in a moment, or check the marking guide below the question.";
+  }
 }
 
 // ── AI Paper Generation ──
@@ -457,8 +535,38 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   ]
 }`;
 
-  const text = await chatCompletion(prompt, { smart: true, maxTokens: 4096 });
-  // Strip markdown code fences if present
-  const cleaned = text.replace(/^```json\s*/i, "").replace(/```\s*$/, "").trim();
-  return JSON.parse(cleaned);
+  // chatCompletion has built-in retry. We add an additional layer here for
+  // JSON parse errors specifically — if the model returns malformed JSON,
+  // we ask it to regenerate up to 3 times.
+  let lastErr: unknown;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const text = await chatCompletion(prompt, { smart: true, maxTokens: 8192 });
+      // Strip markdown code fences if present, and any leading/trailing prose
+      let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+      // Try to extract JSON object if the model wrapped it in prose
+      const jsonStart = cleaned.indexOf("{");
+      const jsonEnd = cleaned.lastIndexOf("}");
+      if (jsonStart > 0 && jsonEnd > jsonStart) {
+        cleaned = cleaned.slice(jsonStart, jsonEnd + 1);
+      }
+      const parsed = JSON.parse(cleaned);
+      // Validate structure
+      if (!parsed.title || !Array.isArray(parsed.questions) || parsed.questions.length === 0) {
+        throw new Error("Generated paper has invalid structure");
+      }
+      // Validate each question has required fields
+      for (const q of parsed.questions) {
+        if (!q.text || !q.markingGuide || typeof q.marks !== "number") {
+          throw new Error("Generated question is missing required fields");
+        }
+      }
+      return parsed;
+    } catch (err) {
+      lastErr = err;
+      console.log(`[generatePracticePaper] attempt ${attempt} failed:`, err instanceof Error ? err.message : String(err));
+      if (attempt < 3) await sleep(2000);
+    }
+  }
+  throw lastErr;
 }

@@ -93,33 +93,50 @@ export default function GeneratePage() {
     setLoading(true);
     const stopCycle = startLoadingCycle();
 
+    // Retry up to 3 times automatically — students should never see an error
+    async function fetchPaperWithRetry(activeSubject: string): Promise<ApiPaper> {
+      let lastErr: Error | null = null;
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          const res = await fetch("/api/generate-paper", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              subject: activeSubject,
+              level: yearMeta.ncea,
+              topic: topic.trim() || undefined,
+              questionCount,
+            }),
+          });
+
+          if (!res.ok) {
+            const body = await res.json().catch(() => ({}));
+            throw new Error(body.error ?? `Request failed (${res.status})`);
+          }
+
+          const data = (await res.json()) as { paper: ApiPaper };
+          if (!data.paper || !Array.isArray(data.paper.questions) || data.paper.questions.length === 0) {
+            throw new Error("Empty paper");
+          }
+          return data.paper;
+        } catch (err) {
+          lastErr = err instanceof Error ? err : new Error(String(err));
+          if (attempt < 3) {
+            // Wait before retrying (2s, then 4s)
+            await new Promise((r) => setTimeout(r, attempt * 2000));
+          }
+        }
+      }
+      throw lastErr ?? new Error("Failed to generate paper after 3 attempts");
+    }
+
     try {
       // If a subject that's only available at certain levels is stale, pick first available
       const activeSubject = availableSubjects.find((s) => s.value === subject)
         ? subject
         : availableSubjects[0]?.value ?? "mathematics";
 
-      const res = await fetch("/api/generate-paper", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          subject: activeSubject,
-          level: yearMeta.ncea,
-          topic: topic.trim() || undefined,
-          questionCount,
-        }),
-      });
-
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? `Request failed (${res.status})`);
-      }
-
-      const data = (await res.json()) as { paper: ApiPaper };
-      const paper = data.paper;
-      if (!paper || !Array.isArray(paper.questions) || paper.questions.length === 0) {
-        throw new Error("The generator returned an empty paper. Please try again.");
-      }
+      const paper = await fetchPaperWithRetry(activeSubject);
 
       const id = generateCustomExamId();
 
@@ -178,7 +195,7 @@ export default function GeneratePage() {
             {LOADING_MESSAGES[loadingMsgIdx]}
           </p>
           <p className="text-zinc-600 text-xs mt-4">
-            This can take 10&ndash;30 seconds. Please don&rsquo;t close the page.
+            This can take 30&ndash;90 seconds. Please don&rsquo;t close the page.
           </p>
         </div>
       </div>

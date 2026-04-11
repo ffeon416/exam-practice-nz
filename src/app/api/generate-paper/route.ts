@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generatePracticePaper } from "@/lib/claude";
 
+// Allow up to 5 minutes for paper generation
+export const maxDuration = 300;
+export const dynamic = "force-dynamic";
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -21,8 +25,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ paper });
   } catch (error) {
     console.error("Paper generation error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to generate paper. Please try again." },
+      { error: `Generation failed: ${message}` },
       { status: 500 }
     );
   }
