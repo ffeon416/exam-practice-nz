@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import {
   clearPlan,
@@ -54,12 +54,26 @@ export default function PlanPage() {
     getServerPlanVersion
   );
 
+  // Gate the first client render behind `mounted` so returning users don't
+  // get a hydration mismatch between SSR (no plan) and the stored plan.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const plan = useMemo<StudyPlan | null>(() => {
     void version;
-    if (typeof window === "undefined") return null;
+    if (!mounted) return null;
     return loadPlan();
-  }, [version]);
+  }, [version, mounted]);
 
+  // Keep the initial client render identical to SSR by showing a neutral
+  // placeholder until the mount effect flips `mounted`.
+  if (!mounted) {
+    return (
+      <div className="max-w-2xl mx-auto px-4 py-16 text-center text-zinc-500 text-sm">
+        Loading plan…
+      </div>
+    );
+  }
   if (!plan) return <PlanCreateForm />;
   return <PlanView plan={plan} />;
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, KeyboardEvent } from "react";
+// Note: onMessagesChange is invoked via a ref-stable wrapper so that parents
+// passing inline arrow functions don't accidentally create a setState loop.
 
 interface TutorChatProps {
   question: {
@@ -45,10 +47,18 @@ export default function TutorChat({
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Notify parent whenever messages change so state can be preserved
+  // Keep the latest onMessagesChange in a ref so we can call it from inside
+  // state-updater helpers without depending on its identity (which changes
+  // every render when the parent passes an inline arrow function, which
+  // would otherwise cause an infinite setState loop).
+  const onMessagesChangeRef = useRef(onMessagesChange);
   useEffect(() => {
-    onMessagesChange?.(messages);
-  }, [messages, onMessagesChange]);
+    onMessagesChangeRef.current = onMessagesChange;
+  }, [onMessagesChange]);
+
+  function emitMessages(next: Message[]) {
+    onMessagesChangeRef.current?.(next);
+  }
 
   // Auto-scroll to latest message
   useEffect(() => {
@@ -69,6 +79,7 @@ export default function TutorChat({
     const userMessage: Message = { role: "user", content: trimmed };
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
+    emitMessages(nextMessages);
     setInput("");
     setLoading(true);
     setError(null);
@@ -97,10 +108,14 @@ export default function TutorChat({
         throw new Error(data.error ?? "No reply from tutor");
       }
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: data.reply as string },
-      ]);
+      setMessages((prev) => {
+        const updated: Message[] = [
+          ...prev,
+          { role: "assistant", content: data.reply as string },
+        ];
+        emitMessages(updated);
+        return updated;
+      });
     } catch (err) {
       console.error("Tutor chat error:", err);
       setError(

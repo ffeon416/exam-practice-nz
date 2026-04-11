@@ -25,10 +25,15 @@ export interface GraphData {
   title?: string;
   xLabel?: string;
   yLabel?: string;
-  data: Array<{ label: string; value: number; color?: string }> | number[][] | { headers: string[]; rows: string[][] };
+  // `data` is used by bar/pie/scatter/table/box-plot charts. Line/histogram
+  // charts supply `xValues` + `series` (or `values`) instead, so `data` is
+  // optional at the type level and each chart renderer null-checks what it
+  // needs before drawing.
+  data?: Array<{ label: string; value: number; color?: string }> | number[][] | { headers: string[]; rows: string[][] } | Array<number> | Array<{ x: number; y: number; label?: string }>;
   xValues?: number[];
   yValues?: number[];
   series?: Array<{ name: string; values: number[]; color?: string }>;
+  values?: number[]; // used by histogram / box-plot for raw data
 }
 
 export interface Question {

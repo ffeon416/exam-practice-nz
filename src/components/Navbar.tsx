@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import {
   getDueCount,
   getReviewsVersion,
@@ -29,13 +29,16 @@ export default function Navbar() {
     getReviewsVersion,
     getServerReviewsVersion
   );
-  // `version` is only referenced so useMemo re-runs; the actual value is
-  // irrelevant — getDueCount reads fresh from localStorage each call.
+  // `mounted` keeps the initial client render in lockstep with the server
+  // render (both show 0) to avoid a hydration mismatch when the user already
+  // has reviews queued in localStorage. After mount, we read the real count.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const dueCount = useMemo(() => {
     void version;
-    if (typeof window === "undefined") return 0;
+    if (!mounted) return 0;
     return getDueCount();
-  }, [version]);
+  }, [version, mounted]);
 
   return (
     <nav className="bg-[#0a0a0f]/80 backdrop-blur-md border-b border-white/[0.06] sticky top-0 z-50">

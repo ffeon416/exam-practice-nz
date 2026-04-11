@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import {
   getAllReviews,
@@ -54,18 +54,19 @@ export default function ReviewPage() {
   );
 
   // Derived data — re-reads on every version bump (cheap, localStorage).
-  // On the server, these return zeros / empty arrays so SSR and first-client
-  // render match.
-  const isClient = typeof window !== "undefined";
+  // `mounted` keeps the first client render empty (matching SSR) to avoid a
+  // hydration mismatch when the user already has reviews queued.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   void version; // keep this in scope so lint sees it's used
-  const stats = isClient
+  const stats = mounted
     ? getReviewStats()
     : { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
-  const dueItems: EnrichedItem[] = isClient ? getDueReviews().map(enrich) : [];
+  const dueItems: EnrichedItem[] = mounted ? getDueReviews().map(enrich) : [];
 
   // Next-due date for the intro + done screens.
   let nextDueDate: Date | null = null;
-  if (isClient) {
+  if (mounted) {
     const nowIso = new Date().toISOString();
     const upcoming = getAllReviews()
       .filter((i) => i.nextReview > nowIso)

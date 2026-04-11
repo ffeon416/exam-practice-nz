@@ -38,6 +38,11 @@ import type { StudentProgress } from "@/lib/types";
 export default function DashboardPage() {
   const [progress, setProgress] = useState<StudentProgress | null>(null);
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
+  // `mounted` gates every localStorage-derived value below so the first
+  // client render matches the server render (empty) and only refreshes
+  // after hydration. Without this guard, returning users would trigger a
+  // hydration mismatch on every dashboard load.
+  const [mounted, setMounted] = useState(false);
 
   // Reactive spaced-review stats via useSyncExternalStore — updates
   // automatically whenever reviews are added or completed.
@@ -48,7 +53,7 @@ export default function DashboardPage() {
   );
   const reviewStats = (() => {
     void reviewsVersion;
-    if (typeof window === "undefined") {
+    if (!mounted) {
       return { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
     }
     return getReviewStats();
@@ -62,7 +67,7 @@ export default function DashboardPage() {
   );
   const ratings = (() => {
     void ratingsVersion;
-    if (typeof window === "undefined") return {} as Record<string, number>;
+    if (!mounted) return {} as Record<string, number>;
     return getAllRatings();
   })();
   const sortedRatings = Object.entries(ratings).sort((a, b) => b[1] - a[1]);
@@ -79,11 +84,12 @@ export default function DashboardPage() {
   );
   const currentWeek: StudyWeek | null = (() => {
     void planVersion;
-    if (typeof window === "undefined") return null;
+    if (!mounted) return null;
     return getCurrentWeek();
   })();
 
   useEffect(() => {
+    setMounted(true);
     setProgress(loadProgress());
     setCustomExams(listCustomExams());
   }, []);
