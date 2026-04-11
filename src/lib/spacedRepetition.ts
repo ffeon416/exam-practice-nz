@@ -69,32 +69,45 @@ export function recordReview(
   let interval = existing?.interval ?? 1;
   let repetitions = existing?.repetitions ?? 0;
 
+  // Use fractional intervals (in days) so we can schedule "review now"
+  let intervalDays = interval;
+
   if (quality < 3) {
-    // Failed — reset
+    // Failed — review immediately (due now). Student wants to drill the
+    // ones they got wrong straight after finishing the exam.
     repetitions = 0;
-    interval = 1;
+    intervalDays = 0;
+  } else if (quality === 3) {
+    // Partial — review tomorrow
+    repetitions = Math.max(repetitions, 1);
+    intervalDays = 1;
   } else {
-    // Passed — increase interval
+    // Correct — increase interval
     if (repetitions === 0) {
-      interval = 1;
+      intervalDays = 3; // 3 days
     } else if (repetitions === 1) {
-      interval = 3;
+      intervalDays = 7; // 1 week
     } else {
-      interval = Math.round(interval * ease);
+      intervalDays = Math.round(interval * ease);
     }
     repetitions += 1;
-    // Update ease factor
     ease = Math.max(1.3, ease + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
   }
+
+  // For 0-day interval, set nextReview to the past so it's instantly due.
+  // For longer intervals, schedule from now.
+  const nextReview = intervalDays === 0
+    ? new Date(now.getTime() - 1000).toISOString()
+    : addDays(now, intervalDays).toISOString();
 
   store.items[questionId] = {
     questionId,
     examId,
     questionText,
     ease,
-    interval,
+    interval: intervalDays,
     repetitions,
-    nextReview: addDays(now, interval).toISOString(),
+    nextReview,
     lastReviewed: now.toISOString(),
     topics,
   };
