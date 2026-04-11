@@ -547,7 +547,7 @@ export default function ResultsPage({
                 <button
                   key={question.id}
                   onClick={() => setExpandedQ(isSelected ? null : question.id)}
-                  className={`py-2 px-1 rounded text-xs font-medium transition-colors ${
+                  className={`min-h-[44px] py-2 px-1 rounded text-xs font-medium transition-colors ${
                     isSelected
                       ? "bg-blue-600 text-white border border-blue-400 ring-1 ring-blue-400"
                       : selfMarked && assessed === true

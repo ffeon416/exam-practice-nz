@@ -181,7 +181,7 @@ export default function ReviewPage() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-4 gap-px bg-zinc-800/50 rounded-lg overflow-hidden mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-zinc-800/50 rounded-lg overflow-hidden mb-6">
           <StatCell label="tracked" value={stats.total} />
           <StatCell label="new" value={stats.new} accent="indigo" />
           <StatCell label="learning" value={stats.learning} accent="amber" />
@@ -442,7 +442,7 @@ export default function ReviewPage() {
         <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-3">
           Your queue
         </p>
-        <div className="grid grid-cols-4 gap-3 text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
           <div>
             <p className="text-lg font-semibold text-white">{stats.total}</p>
             <p className="text-[10px] text-zinc-600 mt-0.5">tracked</p>

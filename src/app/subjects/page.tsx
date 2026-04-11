@@ -226,7 +226,7 @@ export default function SubjectsPage() {
             <button
               key={yl.value}
               onClick={() => { setYearLevel(yl.value); setSubject(null); }}
-              className={`py-3 rounded-lg text-[13px] font-medium transition-all border ${
+              className={`min-h-[44px] py-3 rounded-lg text-[13px] font-medium transition-all border ${
                 yearLevel === yl.value
                   ? "bg-indigo-500 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
                   : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
@@ -253,7 +253,7 @@ export default function SubjectsPage() {
               <button
                 key={s.value}
                 onClick={() => setSubject(s.value)}
-                className={`py-3 px-4 rounded-lg text-[13px] text-left transition-all border ${
+                className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-all border ${
                   subject === s.value
                     ? "bg-indigo-500 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
                     : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"

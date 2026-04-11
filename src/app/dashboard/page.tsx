@@ -131,29 +131,29 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-      <p className="text-slate-400 mb-8">Track your progress and find your weak spots.</p>
+      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Dashboard</h1>
+      <p className="text-sm sm:text-base text-slate-400 mb-8">Track your progress and find your weak spots.</p>
 
       <TodaysTasksWidget week={currentWeek} />
 
       {!hasData && customExams.length === 0 ? (
-        <div className="bg-card border border-card-border rounded-lg p-12 text-center">
-          <h2 className="text-xl font-semibold text-white mb-2">
+        <div className="bg-card border border-card-border rounded-lg p-6 sm:p-12 text-center">
+          <h2 className="text-lg sm:text-xl font-semibold text-white mb-2">
             No exams taken yet
           </h2>
-          <p className="text-slate-400 mb-4">
+          <p className="text-sm sm:text-base text-slate-400 mb-4">
             Take your first exam to start tracking progress.
           </p>
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/subjects"
-              className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center justify-center w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors"
             >
               Browse Exams
             </Link>
             <Link
               href="/generate"
-              className="inline-block bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-500 transition-colors"
+              className="inline-flex items-center justify-center w-full sm:w-auto bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-500 transition-colors"
             >
               Generate Paper
             </Link>
@@ -268,7 +268,7 @@ export default function DashboardPage() {
                   {reviewStats.due > 0 ? "Start reviewing" : "View queue"}
                 </Link>
               </div>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
                   <div className="text-xl font-bold text-white">{reviewStats.due}</div>
                   <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
@@ -460,17 +460,17 @@ export default function DashboardPage() {
                     return (
                       <div
                         key={t.topic}
-                        className="flex items-center justify-between p-3 bg-red-950/20 border border-red-900/20 rounded"
+                        className="flex items-center justify-between gap-3 p-3 bg-red-950/20 border border-red-900/20 rounded"
                       >
-                        <div>
-                          <span className="text-sm text-white">
+                        <div className="min-w-0 flex-1">
+                          <span className="block text-sm text-white truncate">
                             {getTopicLabel(t.topic)}
                           </span>
-                          <span className="text-xs text-slate-400 ml-2">
+                          <span className="block text-xs text-slate-400">
                             {t.attempts} attempts
                           </span>
                         </div>
-                        <span className="text-sm text-red-400 font-medium">
+                        <span className="text-sm text-red-400 font-medium shrink-0">
                           {pct}%
                         </span>
                       </div>
@@ -560,19 +560,19 @@ export default function DashboardPage() {
                 return (
                   <div
                     key={i}
-                    className="flex items-center justify-between py-2 border-b border-slate-800 last:border-0"
+                    className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0"
                   >
-                    <div>
-                      <span className="text-sm text-white">
+                    <div className="min-w-0 flex-1">
+                      <span className="block text-sm text-white truncate">
                         {attempt.examId}
                       </span>
-                      <span className="text-xs text-slate-400 ml-2">
+                      <span className="block text-xs text-slate-400">
                         {attempt.mode} &middot;{" "}
                         {new Date(attempt.date).toLocaleDateString()}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm text-slate-300">
+                    <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                      <span className="text-xs sm:text-sm text-slate-300 tabular-nums">
                         {attempt.totalMarks}/{attempt.maxMarks} ({pct}%)
                       </span>
                       <span

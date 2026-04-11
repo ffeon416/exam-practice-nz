@@ -147,7 +147,7 @@ export default function PricingPage() {
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl p-7 transition-all ${
+                className={`relative rounded-2xl p-5 sm:p-7 transition-all ${
                   plan.highlight
                     ? "bg-gradient-to-b from-indigo-500/15 to-purple-500/5 border border-indigo-500/40 shadow-2xl shadow-indigo-500/10"
                     : "bg-white/[0.02] border border-white/[0.08]"
@@ -229,8 +229,8 @@ export default function PricingPage() {
 
       {/* Comparison stats */}
       <section className="max-w-3xl mx-auto px-5 pb-20">
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-8">
-          <h2 className="text-[24px] font-bold text-white text-center mb-2">Compare the cost</h2>
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-5 sm:p-8">
+          <h2 className="text-[20px] sm:text-[24px] font-bold text-white text-center mb-2">Compare the cost</h2>
           <p className="text-zinc-500 text-[13px] text-center mb-8">A month of Study Ace vs. the alternatives</p>
 
           <div className="space-y-3">
@@ -244,7 +244,7 @@ export default function PricingPage() {
 
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-5 pb-24">
-        <h2 className="text-[28px] font-bold text-white text-center mb-10">Common questions</h2>
+        <h2 className="text-[22px] sm:text-[28px] font-bold text-white text-center mb-8 sm:mb-10">Common questions</h2>
         <div className="space-y-3">
           <Faq
             q="Will this actually help me pass?"
@@ -275,10 +275,10 @@ export default function PricingPage() {
 
       {/* Final CTA */}
       <section className="max-w-3xl mx-auto px-5 pb-24">
-        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-10 text-center relative overflow-hidden">
+        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-6 sm:p-10 text-center relative overflow-hidden">
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
           <div className="relative">
-            <h2 className="text-[24px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight mb-4">
+            <h2 className="text-[22px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight mb-4">
               Try it free first
             </h2>
             <p className="text-zinc-400 text-[15px] mb-8 max-w-md mx-auto">
@@ -303,14 +303,14 @@ export default function PricingPage() {
 function CompareRow({ label, cost, highlight }: { label: string; cost: string; highlight?: boolean }) {
   return (
     <div
-      className={`flex items-center justify-between px-4 py-3 rounded-lg ${
+      className={`flex items-center justify-between gap-3 px-4 py-3 rounded-lg ${
         highlight
           ? "bg-indigo-500/15 border border-indigo-500/30"
           : "bg-white/[0.02] border border-white/[0.06]"
       }`}
     >
-      <span className={`text-[14px] ${highlight ? "text-white font-semibold" : "text-zinc-300"}`}>{label}</span>
-      <span className={`text-[14px] tabular-nums ${highlight ? "text-indigo-300 font-bold" : "text-zinc-500"}`}>
+      <span className={`text-[13px] sm:text-[14px] min-w-0 ${highlight ? "text-white font-semibold" : "text-zinc-300"}`}>{label}</span>
+      <span className={`text-[13px] sm:text-[14px] tabular-nums shrink-0 ${highlight ? "text-indigo-300 font-bold" : "text-zinc-500"}`}>
         {cost}
       </span>
     </div>

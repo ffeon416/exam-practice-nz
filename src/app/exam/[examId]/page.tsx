@@ -108,9 +108,9 @@ export default function ExamPage({
   if (!started) {
     const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
     return (
-      <div className="max-w-2xl mx-auto px-4 py-16">
-        <div className="bg-card border border-card-border rounded-lg p-8 text-center">
-          <h1 className="text-2xl font-bold text-white mb-2">{exam.title}</h1>
+      <div className="max-w-2xl mx-auto px-4 py-12 sm:py-16">
+        <div className="bg-card border border-card-border rounded-lg p-5 sm:p-8 text-center">
+          <h1 className="text-xl sm:text-2xl font-bold text-white mb-2">{exam.title}</h1>
           <p className="text-slate-400 mb-6">
             {exam.questions.length} questions &middot; {totalMarks} marks
             &middot; {exam.timeMinutes} minutes
@@ -167,14 +167,14 @@ export default function ExamPage({
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header bar */}
-      <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-700">
-        <div>
-          <h1 className="text-lg font-semibold text-white">{exam.title}</h1>
-          <p className="text-sm text-slate-400">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 pb-4 border-b border-slate-700">
+        <div className="min-w-0">
+          <h1 className="text-base sm:text-lg font-semibold text-white truncate">{exam.title}</h1>
+          <p className="text-xs sm:text-sm text-slate-400">
             {answeredCount}/{exam.questions.length} answered
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0">
           {mode === "mock" && (
             <Timer
               totalMinutes={exam.timeMinutes}
@@ -185,7 +185,7 @@ export default function ExamPage({
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="bg-green-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-green-700 transition-colors disabled:opacity-50"
+            className="bg-green-600 text-white px-4 py-2.5 rounded text-sm font-medium hover:bg-green-700 transition-colors disabled:opacity-50 min-h-[44px]"
           >
             {submitting ? "Submitting..." : "Submit Exam"}
           </button>
@@ -198,7 +198,7 @@ export default function ExamPage({
           <button
             key={q.id}
             onClick={() => setCurrentQ(i)}
-            className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+            className={`w-10 h-10 sm:w-9 sm:h-9 rounded text-xs font-medium transition-colors ${
               i === currentQ
                 ? "bg-blue-600 text-white"
                 : answers[q.id]?.trim()
@@ -212,7 +212,7 @@ export default function ExamPage({
       </div>
 
       {/* Current question */}
-      <div className="bg-card border border-card-border rounded-lg p-6">
+      <div className="bg-card border border-card-border rounded-lg p-4 sm:p-6">
         <div className="flex items-start justify-between mb-4">
           <span className="text-sm font-medium text-blue-400">
             Question {question.number}
@@ -337,7 +337,7 @@ export default function ExamPage({
                             setAnswers((prev) => ({ ...prev, [question.id]: opt }));
                           }
                         }}
-                        className={`block w-full text-left px-4 py-2.5 rounded-lg border transition-colors ${
+                        className={`block w-full text-left px-4 py-3 rounded-lg border transition-colors min-h-[44px] ${
                           isSelected
                             ? "border-indigo-500 bg-indigo-500/10 text-white"
                             : "border-zinc-800 text-zinc-300 hover:border-zinc-600"
@@ -395,32 +395,33 @@ export default function ExamPage({
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between mt-4">
+      <div className="flex items-center justify-between gap-2 mt-4">
         <button
           onClick={() => setCurrentQ((q) => Math.max(0, q - 1))}
           disabled={currentQ === 0}
-          className="px-4 py-2 rounded text-sm border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors disabled:opacity-30"
+          className="px-3 sm:px-4 py-2.5 rounded text-sm border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors disabled:opacity-30 min-h-[44px]"
         >
           Previous
         </button>
-        <span className="text-sm text-slate-400 self-center">
-          {currentQ + 1} of {exam.questions.length} &middot; {totalMarks} marks
-          total
+        <span className="text-[11px] sm:text-sm text-slate-400 text-center">
+          <span className="block sm:inline">{currentQ + 1} of {exam.questions.length}</span>
+          <span className="hidden sm:inline"> &middot; </span>
+          <span className="block sm:inline">{totalMarks} marks total</span>
         </span>
         {currentQ === exam.questions.length - 1 ? (
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="px-4 py-2 rounded text-sm bg-green-600 text-white hover:bg-green-700 transition-colors disabled:opacity-50"
+            className="px-3 sm:px-4 py-2.5 rounded text-sm bg-green-600 text-white hover:bg-green-700 transition-colors disabled:opacity-50 min-h-[44px]"
           >
-            {submitting ? "Submitting..." : "Submit Exam"}
+            {submitting ? "Submitting..." : "Submit"}
           </button>
         ) : (
           <button
             onClick={() =>
               setCurrentQ((q) => Math.min(exam.questions.length - 1, q + 1))
             }
-            className="px-4 py-2 rounded text-sm bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+            className="px-3 sm:px-4 py-2.5 rounded text-sm bg-blue-600 text-white hover:bg-blue-700 transition-colors min-h-[44px]"
           >
             Next
           </button>

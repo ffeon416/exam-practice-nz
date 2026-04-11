@@ -228,7 +228,7 @@ export default function PracticePage() {
             <button
               key={opt.val}
               onClick={() => { setLevel(opt.val); setSearch(""); }}
-              className={`px-4 py-2 rounded-lg text-[12px] font-medium transition-colors border ${
+              className={`flex-1 min-h-[44px] px-4 py-2.5 rounded-lg text-[12px] font-medium transition-colors border ${
                 level === opt.val
                   ? "border-white/30 text-white"
                   : "border-zinc-800 text-zinc-600 hover:text-zinc-400 hover:border-zinc-700"

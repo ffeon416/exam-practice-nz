@@ -136,8 +136,8 @@ function PlanCreateForm() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-white mb-2">Study Planner</h1>
-      <p className="text-zinc-400 mb-8">
+      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Study Planner</h1>
+      <p className="text-sm sm:text-base text-zinc-400 mb-8">
         Tell us when your exam is and we&apos;ll build a week-by-week plan —
         weakest topics first.
       </p>
@@ -275,8 +275,8 @@ function PlanView({ plan }: { plan: StudyPlan }) {
     <div className="max-w-3xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-1">Study Planner</h1>
-        <p className="text-zinc-400">
+        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">Study Planner</h1>
+        <p className="text-sm sm:text-base text-zinc-400">
           {daysLeft === 0
             ? "Your exam is today — good luck!"
             : weeksLeft <= 1
@@ -389,21 +389,21 @@ function WeekCard({
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-white/[0.02] transition-colors"
+        className="w-full px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-white/[0.02] transition-colors min-h-[56px]"
       >
-        <div>
-          <div className="text-white font-medium text-sm">
+        <div className="min-w-0 flex-1">
+          <div className="text-white font-medium text-sm truncate">
             Week {week.weekNumber} · {week.focus}
           </div>
           <div className="text-xs text-zinc-500 mt-0.5">
             {formatDateRange(week.startDate, week.endDate)}
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-zinc-400">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <span className="text-xs text-zinc-400 tabular-nums">
             {done}/{total}
           </span>
-          <div className="w-16 bg-zinc-800 rounded-full h-1.5">
+          <div className="hidden sm:block w-16 bg-zinc-800 rounded-full h-1.5">
             <div
               className={`h-1.5 rounded-full ${
                 highlight ? "bg-indigo-400" : "bg-zinc-500"
