@@ -11,92 +11,92 @@
     {
       "id": "y10phys-q1",
       "number": "1",
-      "text": "A car travels 150 kilometres in 2 hours. What is its average speed?",
+      "text": "A car drives from Auckland towards Hamilton. It covers 120 km in the first 1.5 hours, then stops for 30 minutes for petrol, then drives a further 30 km in 0.5 hours.\n\nWhat is its AVERAGE speed for the WHOLE journey (including the stop), in km/h?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "forces-motion-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "300 km/h",
         "75 km/h",
-        "148 km/h",
-        "152 km/h"
+        "60 km/h",
+        "80 km/h",
+        "100 km/h"
       ],
-      "expectedAnswer": "75 km/h",
-      "markingGuide": "The correct answer is 75 km/h.\n\nHere's why:\nSpeed = distance ÷ time = 150 ÷ 2 = 75 km/h.\nExam tip: Always remember the formula triangle — speed = distance/time, distance = speed × time, time = distance/speed."
+      "expectedAnswer": "60 km/h",
+      "markingGuide": "The correct answer is 60 km/h.\n\nHere's why:\nTotal distance = 120 km + 30 km = 150 km.\nTotal time = 1.5 h + 0.5 h (stop) + 0.5 h = 2.5 h.\nAverage speed = total distance ÷ total time = 150 ÷ 2.5 = 60 km/h.\nA common mistake is to forget to include the stopped time — but average speed for a JOURNEY includes all of it.\nExam tip: Always read carefully for words like 'whole journey' and 'average'."
     },
     {
       "id": "y10phys-q2",
       "number": "2",
-      "text": "According to Newton's First Law of Motion, what happens to a stationary object if no unbalanced force acts on it?",
+      "text": "Two forces act horizontally on a 5 kg shopping trolley: a 30 N forward push and a 12 N backward friction force.\n\nUsing F = ma, what is the trolley's acceleration?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "forces-motion-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "It begins to move slowly",
-        "It stays stationary",
-        "It accelerates in a random direction",
-        "It gradually slows down"
+        "3.6 m/s² forwards",
+        "8.4 m/s² forwards",
+        "6.0 m/s² forwards",
+        "0.6 m/s² forwards"
       ],
-      "expectedAnswer": "It stays stationary",
-      "markingGuide": "The correct answer is It stays stationary.\n\nHere's why:\nNewton's First Law (the law of inertia) states that an object at rest stays at rest, and an object in motion stays in motion at constant speed in a straight line, unless acted upon by an unbalanced (net) force.\nIf no unbalanced force acts, there is no change in motion."
+      "expectedAnswer": "3.6 m/s² forwards",
+      "markingGuide": "The correct answer is 3.6 m/s² forwards.\n\nHere's why:\nResultant (net) force = 30 N − 12 N = 18 N forwards (the friction force opposes motion).\nNewton's second law: F = ma, so a = F ÷ m = 18 ÷ 5 = 3.6 m/s² forwards.\nA common mistake is to use the 30 N push as the force, ignoring friction.\nExam tip: ALWAYS find the NET (resultant) force first before using F = ma."
     },
     {
       "id": "y10phys-q3",
       "number": "3",
-      "text": "Which of the following is an example of kinetic energy being converted to gravitational potential energy?",
+      "text": "A 2 kg ball is held 5 m above the ground (g = 10 N/kg) and then released. Just before it hits the ground, what is its kinetic energy? (Ignore air resistance.)",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "energy-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "A ball rolling along a flat surface",
-        "A ball being thrown upwards",
-        "A ball falling from a shelf",
-        "A ball sitting on the ground"
+        "10 J",
+        "50 J",
+        "100 J",
+        "200 J"
       ],
-      "expectedAnswer": "A ball being thrown upwards",
-      "markingGuide": "The correct answer is A ball being thrown upwards.\n\nHere's why:\nAs the ball moves upward, it slows down — its kinetic energy (energy of movement) is being converted into gravitational potential energy (energy stored due to height).\nA falling ball converts potential to kinetic.\nA ball on flat ground has constant kinetic energy (ignoring friction).\nA stationary ball has no kinetic energy."
+      "expectedAnswer": "100 J",
+      "markingGuide": "The correct answer is 100 J.\n\nHere's why:\nGravitational PE at the start = mgh = 2 × 10 × 5 = 100 J.\nBy the law of conservation of energy, with no air resistance, ALL of the GPE is converted to KE just before impact.\nSo the kinetic energy just before hitting the ground = 100 J.\nExam tip: 'energy is conserved' lets you skip messy speed calculations and just track total energy."
     },
     {
       "id": "y10phys-q4",
       "number": "4",
-      "text": "Which of the following correctly describes the energy transformation in a hydroelectric power station like the Manapōuri Power Station in Fiordland?",
+      "text": "Manapōuri is one of NZ's largest hydroelectric power stations. Which row CORRECTLY traces the energy transformations from the reservoir to the national grid, AND identifies where most of the 'lost' energy goes?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "energy-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "Chemical energy → electrical energy → heat energy",
-        "Gravitational potential energy → kinetic energy → electrical energy",
-        "Nuclear energy → heat energy → electrical energy",
-        "Electrical energy → kinetic energy → sound energy"
+        "GPE → KE → electrical; lost energy mainly as heat and sound (friction in turbines and generators)",
+        "Chemical → heat → electrical; lost energy as light",
+        "Nuclear → heat → electrical; lost energy as gravity",
+        "Sound → kinetic → electrical; lost energy as chemical energy"
       ],
-      "expectedAnswer": "Gravitational potential energy → kinetic energy → electrical energy",
-      "markingGuide": "The correct answer is Gravitational potential energy → kinetic energy → electrical energy.\n\nHere's why:\nWater stored at height behind a dam has gravitational potential energy.\nAs it flows downhill through pipes (penstocks), this converts to kinetic energy.\nThe moving water spins turbines connected to generators, which convert the kinetic energy into electrical energy.\nExam tip: New Zealand generates about 80% of its electricity from renewable sources, with hydroelectric being the largest contributor."
+      "expectedAnswer": "GPE → KE → electrical; lost energy mainly as heat and sound (friction in turbines and generators)",
+      "markingGuide": "The correct answer is the GPE → KE → electrical option with heat/sound losses.\n\nHere's why:\nWater stored at height in the reservoir has gravitational potential energy. Falling through penstocks converts GPE → kinetic energy (the moving water). The kinetic energy spins turbines connected to generators, which convert KE → electrical energy.\nNo conversion is 100% efficient — friction in the bearings and generators produces heat, and the spinning machinery produces sound. These are the main 'wasted' forms of energy.\nExam tip: NZ generates about 80% of its electricity from renewable sources, with hydroelectric being the largest contributor."
     },
     {
       "id": "y10phys-q5",
       "number": "5",
-      "text": "In a simple electrical circuit, a battery provides a voltage of 12 V and the current flowing through a resistor is 3 A. What is the resistance of the resistor?",
+      "text": "In a circuit, two resistors are connected in series with a 12 V battery. R1 = 3 Ω and R2 = 5 Ω. Calculate the CURRENT flowing through the circuit. Give your answer in amps to 2 decimal places.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "electricity-y10"
       ],
       "answerType": "number",
       "graph": {
         "type": "table",
-        "title": "Circuit Measurements",
+        "title": "Series Circuit Measurements",
         "data": {
           "headers": [
             "Quantity",
@@ -105,56 +105,61 @@
           ],
           "rows": [
             [
-              "Voltage (V)",
+              "Battery voltage (V)",
               "12",
               "V"
             ],
             [
-              "Current (I)",
+              "Resistor R1",
               "3",
-              "A"
+              "Ω"
             ],
             [
-              "Resistance (R)",
-              "?",
+              "Resistor R2",
+              "5",
               "Ω"
+            ],
+            [
+              "Current (I)",
+              "?",
+              "A"
             ]
           ]
         }
       },
-      "expectedAnswer": "4",
-      "markingGuide": "Step 1: The answer is 4 ohms (Ω).\n\nStep 2: Using Ohm's Law: V = I × R, so R = V ÷ I = 12 ÷ 3 = 4 Ω.\n\nStep 3: Exam tip: Remember Ohm's Law — Voltage = Current × Resistance.\n\nStep 4: You can rearrange this to find any of the three values: R = V/I, I = V/R."
+      "expectedAnswer": "1.5",
+      "markingGuide": "Step 1: In a series circuit, total resistance is the SUM of the resistors: R_total = 3 + 5 = 8 Ω.\n\nStep 2: Use Ohm's Law: V = I × R, rearranged to I = V / R.\n\nStep 3: I = 12 ÷ 8 = 1.5 A.\n\nStep 4: Accept 1.5 (or 1.50).\n\nExam tip: Series → resistances add. Parallel → resistance gets smaller. Always work out total resistance first before applying Ohm's Law."
     },
     {
       "id": "y10phys-q6",
       "number": "6",
-      "text": "Explain the difference between a series circuit and a parallel circuit. Include what happens to the current and voltage in each type, and give a real-life example of where each type might be used.",
+      "text": "Two students are arguing about Christmas tree lights:\n• Student A says 'You should wire them in series so they share the voltage and don't burn out.'\n• Student B says 'You should wire them in parallel so if one bulb fails, the rest still work.'\n\nExplain which student is correct AND describe what happens to the CURRENT and VOLTAGE in each type of circuit. Give ONE other real-world example of where each type of circuit is used.",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "electricity-y10"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark: Series circuit — components are connected one after another in a single loop.\n\nThe current is the same at all points in the circuit.\n\nThe voltage is shared (split) between the components.\n\nIf one component fails, the whole circuit breaks.\n\n1 mark: Parallel circuit — components are connected on separate branches.\n\nThe voltage across each branch is the same.\n\nThe current is split between the branches (and adds up to the total current from the battery).\n\nIf one component fails, the others still work.\n\n1 mark: Real-life examples — series: old-style Christmas lights (one blows, all go out), a torch with batteries in a line;.\n\nparallel: household wiring (each appliance gets the same mains voltage and can be switched on/off independently), modern Christmas lights (one bulb fails, the rest stay lit).\n\nExam tip: Most real-world circuits are parallel — your house wiring is parallel so that turning off the kitchen light doesn't turn off the TV!"
+      "markingGuide": "1 mark — Series circuit description: components are connected one after another in a single loop. The CURRENT is the same at every point in the circuit, but the VOLTAGE is shared (split) between the components. If one component breaks, the whole circuit is broken and everything stops working.\n\n1 mark — Parallel circuit description: components are connected on separate branches. The VOLTAGE across each branch is the same (= the supply voltage). The CURRENT is split between the branches and adds back together. If one branch breaks, the others keep working.\n\n1 mark — Which student is correct + examples: Student B is correct in modern lighting — parallel wiring is better because one failed bulb does not stop the whole string. Real-world examples: Series — old-style cheap fairy lights, the cells inside a torch, a security alarm loop. Parallel — household wiring (each appliance gets full mains voltage and can be switched independently), modern LED string lights, car headlights.\n\nExam tip: Most real-world wiring is parallel — your house is parallel so that turning off the kitchen light doesn't turn off the TV."
     },
     {
       "id": "y10phys-q7",
       "number": "7",
-      "text": "Sound waves and light waves are both types of waves, but they have important differences. State ONE similarity and ONE difference between sound waves and light waves.",
+      "text": "A student is at one end of a 200 m school field. They watch the PE teacher 200 m away start a stopwatch and fire a starter pistol. Light from the smoke and the BANG travel through the air.\n\n(a) State the speed of light and the speed of sound in air (approximate values).\n(b) Explain why the student SEES the smoke before they HEAR the bang.\n(c) Calculate roughly how long the bang takes to reach the student. (Show working.)",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "waves-y10"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for a correct similarity: Both transfer energy from one place to another without transferring matter;.\n\nboth can be reflected;.\n\nboth have frequency, wavelength, and amplitude;.\n\nboth can be absorbed.\n\n1 mark for a correct difference: Sound waves are longitudinal (particles vibrate parallel to the direction of wave travel) while light waves are transverse (particles vibrate perpendicular to the direction of travel).\n\nOR: Sound waves need a medium to travel through (cannot travel through a vacuum) while light waves can travel through a vacuum.\n\nOR: Light travels much faster than sound (300,000,000 m/s vs about 340 m/s in air).\n\nExam tip: A classic way to remember — you see lightning before you hear thunder because light travels much faster than sound."
+      "markingGuide": "1 mark for (a) and (b) combined — must give approximate values: speed of light ≈ 300,000,000 m/s (3×10⁸ m/s); speed of sound in air ≈ 340 m/s. Light reaches the observer almost instantly because it travels nearly a million times faster than sound, so the eye sees the smoke/flash before the ear receives the sound waves.\n\n1 mark for (c) — sound travel time = distance ÷ speed = 200 ÷ 340 ≈ 0.59 s. Accept 0.58–0.6 s with working shown.\n\nExam tip: 'count the seconds between lightning and thunder, divide by 3 to get distance in km' uses exactly the same idea — sound travels about 340 m every second, so 3 seconds ≈ 1 km."
     },
     {
       "id": "y10phys-q8",
       "number": "8",
-      "text": "The velocity-time graph above shows the journey of a cyclist.\n\nUsing the graph:\n(a) Describe the cyclist's motion during each phase of the journey.\n(b) Calculate the acceleration during the period when the cyclist is speeding up.\n(c) Calculate the total distance covered during the journey shown on the graph.",
+      "text": "The velocity-time graph above shows the journey of a cyclist.\n\nUsing the graph:\n(a) Describe the cyclist's motion in EACH of the three phases of the journey.\n(b) Calculate the ACCELERATION during phase 1 (speeding up). Include units.\n(c) Calculate the TOTAL DISTANCE covered during the whole journey (use the area under the line).\n(d) Calculate the cyclist's AVERAGE speed for the whole journey.",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "forces-motion-y10"
       ],
@@ -183,33 +188,33 @@
         ]
       },
       "expectedAnswer": "100",
-      "markingGuide": "Step 1: 1 mark (a): Phase 1 (0–5 s): cyclist accelerates from 0 to 10 m/s (speeding up at a constant rate).\n\nStep 2: Phase 2 (5–10 s): cyclist travels at a constant velocity of 10 m/s.\n\nStep 3: Phase 3 (10–15 s): cyclist decelerates from 10 m/s to 0 (slowing to a stop).\n\nStep 4: 1 mark (b): Acceleration = change in velocity ÷ time = (10 − 0) ÷ 5 = 2 m/s².\n\nStep 5: Must show working and include units.\n\nStep 6: 1 mark (c): Total distance = area under the velocity-time graph = area of trapezium = ½ × (sum of parallel sides) × height = ½ × (5 + 15) × 10 = 100 m.\n\nStep 7: (Or split into triangle + rectangle + triangle: 25 + 50 + 25 = 100 m.) Exam tip: On a velocity-time graph, the gradient gives acceleration and the area under the line gives distance travelled."
+      "markingGuide": "1 mark (a): Phase 1 (0–5 s) — accelerates uniformly from 0 to 10 m/s. Phase 2 (5–10 s) — travels at constant velocity of 10 m/s. Phase 3 (10–15 s) — decelerates uniformly from 10 m/s to 0.\n\n1 mark (b): Acceleration = change in velocity ÷ time = (10 − 0) ÷ 5 = 2 m/s². Must include the unit m/s².\n\n1 mark (c) and (d): Distance = area under graph (trapezium) = ½ × (5 + 15) × 10 = 100 m. (Or split into triangle + rectangle + triangle: 25 + 50 + 25 = 100 m.)\nAverage speed = total distance ÷ total time = 100 m ÷ 15 s ≈ 6.67 m/s.\n\nMust show working in (b), (c) and (d).\n\nExam tip: On a velocity-time graph, the GRADIENT gives acceleration and the AREA under the line gives distance travelled."
     },
     {
       "id": "y10phys-q9",
       "number": "9",
-      "text": "New Zealand experiences frequent earthquakes because it sits on the boundary between the Pacific and Australian tectonic plates. Earthquakes produce seismic waves that travel through the Earth.\n\nThere are two main types of seismic waves that travel through the Earth's interior: P-waves (primary) and S-waves (secondary).\n\nExplain TWO differences between P-waves and S-waves. Include in your answer why the difference in their behaviour helps scientists understand the structure of the Earth's interior.",
+      "text": "New Zealand experiences frequent earthquakes. Earthquakes produce seismic waves — P-waves (primary) and S-waves (secondary).\n\nExplain TWO important DIFFERENCES between P-waves and S-waves. Then describe how the BEHAVIOUR of these waves provides scientific evidence for the structure of the Earth's interior (specifically, what the difference tells us about the OUTER CORE).",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "waves-y10"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark: P-waves are longitudinal (compressions and rarefactions — particles vibrate in the same direction as the wave travels) while S-waves are transverse (particles vibrate perpendicular to the direction of wave travel).\n\n1 mark: P-waves travel faster than S-waves and arrive at seismograph stations first (hence 'primary' and 'secondary').\n\nP-waves can travel through solids and liquids, but S-waves can only travel through solids.\n\n1 mark: Scientists discovered that S-waves cannot pass through the Earth's outer core — this tells us the outer core must be liquid (since S-waves only travel through solids).\n\nP-waves change speed and direction when passing between different layers, which reveals the density and composition of the Earth's interior.\n\nThis is how we know the Earth has a solid inner core, liquid outer core, mantle, and crust.\n\nExam tip: The fact that S-waves are blocked by the liquid outer core was one of the key pieces of evidence for our understanding of Earth's internal structure — a great example of how wave physics connects to geology."
+      "markingGuide": "1 mark — First difference (wave type): P-waves are LONGITUDINAL (particles vibrate parallel to the direction the wave is travelling — compressions and rarefactions). S-waves are TRANSVERSE (particles vibrate at right angles to the direction of travel).\n\n1 mark — Second difference (speed and medium): P-waves travel FASTER than S-waves and arrive at seismograph stations FIRST (hence 'primary'). P-waves can travel through both SOLIDS and LIQUIDS, but S-waves can ONLY travel through SOLIDS.\n\n1 mark — Evidence for Earth's structure: Seismographs on the side of the Earth opposite to an earthquake DETECT P-waves but NOT S-waves. The only explanation is that S-waves are blocked by something on the way through. Because S-waves cannot travel through liquids, this is evidence that the OUTER CORE of the Earth is LIQUID. P-waves also bend (refract) as they pass between layers of different density, which is how we know the Earth has distinct layers (crust, mantle, outer core, inner core).\n\nExam tip: This is one of the best examples in Year 10 of how indirect evidence (waves we can detect at the surface) lets scientists 'see' inside something we can't dig down to."
     },
     {
       "id": "y10phys-q10",
       "number": "10",
-      "text": "New Zealand aims to reach 100% renewable electricity generation. Currently, the main sources are hydroelectric, geothermal, and wind power.\n\nA wind turbine converts kinetic energy of the wind into electrical energy. A particular wind turbine generates 2,000,000 joules (2 MJ) of electrical energy in 100 seconds.\n\n(a) Calculate the power output of this wind turbine in watts.\n(b) Explain ONE advantage and ONE disadvantage of using wind power compared to fossil fuel power stations for generating New Zealand's electricity.\n(c) Describe ONE way that the law of conservation of energy applies to this wind turbine — that is, explain why not all of the wind's kinetic energy is converted to electrical energy.",
+      "text": "A wind turbine generates 2,000,000 J (2 MJ) of electrical energy in 100 seconds. The turbine is rated at 30% efficiency — meaning only 30% of the kinetic energy of the wind hitting the blades is converted to electrical energy.\n\n(a) Calculate the POWER OUTPUT of the wind turbine, in watts.\n(b) Calculate the TOTAL kinetic energy of the wind that struck the turbine in those 100 seconds.\n(c) Explain, using the law of conservation of energy, where the 'lost' energy goes.\n(d) Compare wind power with fossil fuel power stations: give ONE clear ADVANTAGE and ONE clear DISADVANTAGE of wind power for NZ's electricity supply.",
       "marks": 4,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "energy-y10",
         "electricity-y10"
       ],
       "answerType": "working",
       "expectedAnswer": "20000",
-      "markingGuide": "Step 1: 1 mark (a): Power = energy ÷ time = 2,000,000 ÷ 100 = 20,000 W (or 20 kW).\n\nStep 2: Must show working or state the formula.\n\nStep 3: 1 mark (b advantage): Wind is a renewable energy source that will not run out;.\n\nStep 4: it produces no greenhouse gas emissions during operation;.\n\nStep 5: NZ has abundant wind resources especially in places like the Manawatū Gorge and Cook Strait;.\n\nStep 6: it reduces dependence on imported fossil fuels.\n\nStep 7: 1 mark (b disadvantage): Wind is intermittent — it does not blow all the time, so electricity generation is variable and unreliable;.\n\nStep 8: turbines can be visually intrusive on the landscape;.\n\nStep 9: they can affect bird populations;.\n\nStep 10: the initial cost of building wind farms is high;.\n\nStep 11: energy storage is needed for calm periods.\n\nStep 12: 1 mark (c): The law of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another.\n\nStep 13: In a wind turbine, not all kinetic energy becomes electrical energy — some is converted to heat energy through friction in the gears and bearings, some becomes sound energy (turbines are noisy), and some kinetic energy remains in the wind after it passes the turbine blades.\n\nStep 14: The total energy is conserved, but it is spread across multiple forms.\n\nStep 15: Exam tip: No energy conversion is 100% efficient.\n\nStep 16: There are always 'waste' energy outputs, usually as heat and sound.\n\nStep 17: This is a key concept for understanding why efficiency matters in power generation.\n\nFinal answer: 20000."
+      "markingGuide": "1 mark (a): Power = energy ÷ time = 2,000,000 ÷ 100 = 20,000 W (or 20 kW). Must show working.\n\n1 mark (b): Efficiency = useful output ÷ total input × 100. Rearranged: Total input = useful output ÷ efficiency = 2,000,000 ÷ 0.30 ≈ 6,666,667 J (about 6.67 MJ). Accept 6.6–6.7 MJ with working shown.\n\n1 mark (c): The law of conservation of energy says energy cannot be created or destroyed, only transformed. The 'missing' 70% (≈ 4.67 MJ) is converted to other forms — heat in the gears and bearings (friction), sound (turbines are noisy), and importantly some kinetic energy stays in the air leaving the turbine (you can't extract 100% of the wind's energy or the air would have to stop completely behind the blades). The TOTAL energy is conserved — it is just spread across multiple forms.\n\n1 mark (d): ONE clear advantage AND ONE clear disadvantage with reasoning.\n\nAdvantages (any one): renewable resource that won't run out; produces no CO₂ during operation, helping NZ reach 100% renewable electricity; reduces need for imported fossil fuels; wind is free; well-suited to NZ's high-wind sites (Cook Strait, Manawatū Gorge).\n\nDisadvantages (any one): wind is intermittent (variable and unreliable, so backup power is needed on calm days); turbines can be visually intrusive; can affect bird and bat populations; high upfront cost; remote sites need long transmission lines.\n\nExam tip: No energy conversion is 100% efficient — heat and sound are the most common 'waste' forms. Excellence-level answers always link this back to conservation of energy."
     }
   ],
   "cutScores": {

@@ -11,98 +11,98 @@
     {
       "id": "y10chem-q1",
       "number": "1",
-      "text": "An atom consists of a nucleus surrounded by electrons. What particles are found in the nucleus of an atom?",
+      "text": "A sodium atom (Na) loses one electron to become a sodium ion (Na+). Which row CORRECTLY describes the difference between the atom and the ion?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "atoms-elements"
       ],
       "answerType": "multi-choice",
       "options": [
-        "Electrons and neutrons",
-        "Protons and electrons",
-        "Protons and neutrons",
-        "Only protons"
+        "The ion has one less proton than the atom and is now smaller",
+        "The ion has the same number of protons but one less electron, giving it a +1 charge",
+        "The ion has one more electron than the atom and is now negatively charged",
+        "The ion has one more neutron than the atom and is heavier"
       ],
-      "expectedAnswer": "Protons and neutrons",
-      "markingGuide": "The correct answer is Protons and neutrons.\n\nHere's why:\nThe nucleus contains positively charged protons and neutral neutrons.\nElectrons are negatively charged particles that orbit the nucleus in energy levels (shells).\nExam tip: Remember — Protons are Positive, Neutrons are Neutral, and Electrons are nEgative."
+      "expectedAnswer": "The ion has the same number of protons but one less electron, giving it a +1 charge",
+      "markingGuide": "The correct answer describes the loss of an electron giving a +1 charge.\n\nHere's why:\nIons form when atoms LOSE or GAIN electrons — protons and neutrons are not changed in normal chemistry.\nSodium has 11 protons. It loses 1 electron to become Na+, so it now has 11 protons and 10 electrons, giving an overall charge of +1.\nA common mistake is to think the number of protons changes — but if protons changed it would be a different element.\nExam tip: 'Lose electrons → positive (cation). Gain electrons → negative (anion).'"
     },
     {
       "id": "y10chem-q2",
       "number": "2",
-      "text": "The element carbon has an atomic number of 6 and a mass number of 12. How many protons, neutrons, and electrons does a carbon atom have?",
+      "text": "The element magnesium has atomic number 12 and mass number 24. Magnesium reacts to form the ion Mg²⁺. How many protons, neutrons, and electrons are in ONE Mg²⁺ ion?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "atoms-elements"
       ],
       "answerType": "multi-choice",
       "options": [
-        "6 protons, 6 neutrons, 12 electrons",
-        "6 protons, 6 neutrons, 6 electrons",
-        "12 protons, 6 neutrons, 6 electrons",
-        "6 protons, 12 neutrons, 6 electrons"
+        "12 protons, 12 neutrons, 12 electrons",
+        "12 protons, 12 neutrons, 10 electrons",
+        "12 protons, 24 neutrons, 10 electrons",
+        "10 protons, 12 neutrons, 12 electrons"
       ],
-      "expectedAnswer": "6 protons, 6 neutrons, 6 electrons",
-      "markingGuide": "The correct answer is 6 protons, 6 neutrons, 6 electrons.\n\nHere's why:\nThe atomic number tells you the number of protons (6).\nIn a neutral atom, the number of electrons equals the number of protons (6).\nThe mass number = protons + neutrons, so neutrons = 12 - 6 = 6.\nExam tip: Atomic number = protons = electrons (in a neutral atom).\nMass number = protons + neutrons."
+      "expectedAnswer": "12 protons, 12 neutrons, 10 electrons",
+      "markingGuide": "The correct answer is 12 protons, 12 neutrons, 10 electrons.\n\nHere's why:\nAtomic number = 12 → 12 protons.\nNeutrons = mass number − atomic number = 24 − 12 = 12.\nMg²⁺ has lost 2 electrons, so it has 12 − 2 = 10 electrons (giving it a +2 charge).\nA very common mistake is to forget to subtract electrons when an atom becomes a positive ion.\nExam tip: only ELECTRONS change when ions form."
     },
     {
       "id": "y10chem-q3",
       "number": "3",
-      "text": "Which of the following is a sign that a chemical reaction has taken place?",
+      "text": "A student mixes two clear, colourless liquids in a beaker. Which combination of observations BEST shows that a CHEMICAL change has happened, rather than just a physical change?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "chemical-reactions-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "The substance dissolves in water",
-        "A colour change, gas production, or temperature change occurs",
-        "The substance changes from a solid to a liquid",
-        "The substance is mixed with another substance"
+        "The liquid level rises in the beaker",
+        "The mixture becomes warmer AND a white solid (precipitate) forms",
+        "The mixture becomes a slightly different shade",
+        "Some of the liquid evaporates after several days"
       ],
-      "expectedAnswer": "A colour change, gas production, or temperature change occurs",
-      "markingGuide": "The correct answer is A colour change, gas production, or temperature change occurs.\n\nHere's why:\nSigns of a chemical reaction include: colour change, gas bubbles produced, temperature change (exothermic or endothermic), precipitate formed, light or sound produced, or a new smell.\nDissolving and melting are physical changes, not chemical reactions.\nSimply mixing substances does not guarantee a reaction."
+      "expectedAnswer": "The mixture becomes warmer AND a white solid (precipitate) forms",
+      "markingGuide": "The correct answer is the warmer + precipitate option.\n\nHere's why:\nKey signs of a chemical reaction include: temperature change (energy is released or absorbed), colour change, gas bubbles, precipitate formation, light or sound, and a new smell.\nTwo of these signs together (temperature rise AND a precipitate forming) are very strong evidence of a chemical reaction.\nLevel rising and evaporating are physical changes only.\nExam tip: physical changes can be reversed easily; chemical changes form new substances."
     },
     {
       "id": "y10chem-q4",
       "number": "4",
-      "text": "A student adds hydrochloric acid to sodium hydroxide solution. The word equation for this reaction is:\n\nhydrochloric acid + sodium hydroxide → sodium chloride + water\n\nWhat type of reaction is this?",
+      "text": "A student adds magnesium ribbon to dilute hydrochloric acid. The reaction is:\n\nmagnesium + hydrochloric acid → magnesium chloride + hydrogen\n\nWhich of these correctly describes the type of reaction AND a way of testing the gas produced?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "chemical-reactions-y10",
         "acids-bases"
       ],
       "answerType": "multi-choice",
       "options": [
-        "Combustion",
-        "Neutralisation",
-        "Decomposition",
-        "Photosynthesis"
+        "Neutralisation; test by adding limewater (turns cloudy)",
+        "Acid + metal reaction; test by holding a lit splint at the mouth of the tube — a 'pop' confirms hydrogen",
+        "Combustion; test by relighting a glowing splint — it relights for oxygen",
+        "Decomposition; test using damp red litmus paper — turns blue for ammonia"
       ],
-      "expectedAnswer": "Neutralisation",
-      "markingGuide": "The correct answer is Neutralisation.\n\nHere's why:\nWhen an acid reacts with a base (or alkali), the products are a salt and water.\nThis is called a neutralisation reaction.\nHydrochloric acid + sodium hydroxide (a base) → sodium chloride (a salt) + water.\nExam tip: acid + base → salt + water is ALWAYS a neutralisation reaction."
+      "expectedAnswer": "Acid + metal reaction; test by holding a lit splint at the mouth of the tube — a 'pop' confirms hydrogen",
+      "markingGuide": "The correct answer is acid + metal, with the lit splint 'pop' test.\n\nHere's why:\nThe general rule is acid + metal → salt + hydrogen. This is NOT neutralisation (which is acid + base/alkali → salt + water — no metal).\nHydrogen gas burns with a small explosive 'squeaky pop' when a lit splint is held at the mouth of the test tube.\nLimewater is the test for CO2, glowing splint relighting is for oxygen, and damp red litmus turning blue tests for ammonia.\nExam tip: each gas has its own characteristic test — memorise all four."
     },
     {
       "id": "y10chem-q5",
       "number": "5",
-      "text": "The pH scale measures how acidic or alkaline a substance is. Which of the following correctly describes the pH scale?",
+      "text": "A student measures the pH of four substances using universal indicator: Substance A (pH 2), Substance B (pH 6), Substance C (pH 8), Substance D (pH 13).\n\nWhich row of statements is CORRECT?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "acids-bases"
       ],
       "answerType": "multi-choice",
       "options": [
-        "pH 0 is neutral, pH 7 is strongly acidic, pH 14 is strongly alkaline",
-        "pH 0 is strongly alkaline, pH 7 is neutral, pH 14 is strongly acidic",
-        "pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline",
-        "pH 1 is weakly acidic, pH 7 is neutral, pH 14 is weakly alkaline"
+        "A is a strong acid, B is a weak acid, C is a weak alkali, D is a strong alkali",
+        "A is the most alkaline, D is the most acidic",
+        "All four are acidic because they contain hydrogen",
+        "Only D is a base because its pH is higher than 12"
       ],
-      "expectedAnswer": "pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline",
-      "markingGuide": "The correct answer is pH 0 is strongly acidic, pH 7 is neutral, pH 14 is strongly alkaline.\n\nHere's why:\nThe pH scale runs from 0 to 14.\nBelow 7 is acidic (lower = stronger acid), 7 is neutral (e.g. pure water), and above 7 is alkaline/basic (higher = stronger alkali).\nExam tip: Think of pH as 'power of Hydrogen' — more H⁺ ions means more acidic and a lower pH number.",
+      "expectedAnswer": "A is a strong acid, B is a weak acid, C is a weak alkali, D is a strong alkali",
+      "markingGuide": "The correct answer is the option ordering A→D from strong acid → strong alkali.\n\nHere's why:\npH 0–6 is acidic (closer to 0 = stronger acid), pH 7 is neutral, pH 8–14 is alkaline (closer to 14 = stronger alkali).\nA (pH 2) and B (pH 6) are both acids but A is much stronger than B.\nC (pH 8) is a weak alkali, D (pH 13) is a strong alkali.\nExam tip: pH is a logarithmic scale — pH 2 is TEN times more acidic than pH 3, not just 'a bit more'.",
       "graph": {
         "type": "bar",
         "title": "The pH Scale",
@@ -190,59 +190,59 @@
     {
       "id": "y10chem-q6",
       "number": "6",
-      "text": "A student has a mixture of sand and salt. Describe how they could separate this mixture to obtain pure, dry salt. Include all the steps needed and name the separation technique used at each step.",
+      "text": "A student has a mixture of sand, salt, and iron filings. Describe a complete procedure to obtain pure dry samples of EACH of the three substances. For each step, name the technique used AND explain WHY it works (refer to the property being used to separate).",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "mixtures-separation"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark: Add water to the mixture and stir — the salt dissolves in the water but the sand does not.\n\nThis uses the difference in solubility (salt is soluble, sand is insoluble).\n\n1 mark: Filter the mixture using filter paper and a funnel — the sand is trapped in the filter paper (residue) and the salt solution passes through (filtrate).\n\nThe technique is filtration and it separates insoluble solids from a liquid.\n\n1 mark: Evaporate the water from the salt solution by heating it gently (or leaving it to evaporate slowly for better crystals) — this leaves behind pure, dry salt crystals.\n\nThe technique is evaporation/crystallisation.\n\nExam tip: This question tests three separation techniques in sequence — dissolving, filtration, and evaporation.\n\nAlways think about which physical property allows you to separate each component."
+      "markingGuide": "1 mark per step IF the technique is named AND the property used is explained. 3 steps required.\n\nStep 1 — MAGNETISM: hold a magnet (or wrap a magnet in plastic and dip into the mixture) to remove the iron filings. Works because iron is magnetic but salt and sand are not.\n\nStep 2 — DISSOLVING then FILTRATION: add water to the remaining mixture and stir; salt dissolves but sand does not (different solubility). Pour through filter paper in a funnel — sand stays as the residue, salt solution passes through as the filtrate.\n\nStep 3 — EVAPORATION/CRYSTALLISATION: heat the salt solution (or leave it in a warm place) so the water evaporates, leaving pure dry salt crystals behind. Works because water has a much lower boiling point than salt.\n\nMake sure the order is correct (magnet FIRST — once you add water you can't easily get the iron out).\n\nDo not award the mark for naming the technique without explaining why it works."
     },
     {
       "id": "y10chem-q7",
       "number": "7",
-      "text": "New Zealand has significant geothermal activity, especially in the Taupō Volcanic Zone. The geothermal water in places like Rotorua often smells of 'rotten eggs' due to hydrogen sulphide gas (H₂S) and the water is naturally acidic.\n\nExplain why geothermal water might damage metal pipes over time. Use your knowledge of acids and chemical reactions in your answer.",
+      "text": "Geothermal water in Rotorua is naturally acidic because hydrogen sulphide (H₂S), carbon dioxide (CO₂) and sulphur dioxide (SO₂) gases dissolve in it. Engineers find that the metal pipes carrying this water need to be replaced regularly.\n\nExplain in detail WHY the geothermal water damages the metal pipes. Your answer must:\n• identify the type of chemical reaction taking place\n• name the products formed (in general terms)\n• describe ONE observable sign of this reaction\n• suggest ONE way engineers could reduce the damage.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "acids-bases",
         "chemical-reactions-y10"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark: Explains that the geothermal water is acidic (contains dissolved hydrogen sulphide and other acidic gases like carbon dioxide and sulphur dioxide which form acids when dissolved in water).\n\n1 mark: Explains that acids react with metals — this is a chemical reaction called corrosion/acid attack.\n\nThe acid reacts with the metal in the pipes, gradually dissolving it and weakening the pipes over time.\n\nSigns of this reaction include the metal surface becoming pitted or thin, and gas bubbles (hydrogen gas) may be produced.\n\nExam tip: This is a real-world application of acid-metal reactions.\n\nIn Rotorua, special corrosion-resistant materials must be used for pipes and buildings because of the acidic geothermal environment."
+      "markingGuide": "1 mark for identifying the reaction type and products: this is an ACID + METAL reaction (or 'corrosion'). The general equation is acid + metal → salt + hydrogen gas. Over time the metal of the pipe is gradually eaten away (oxidised) and dissolves into the water as a salt.\n\n1 mark for an observable sign AND a sensible engineering solution.\n\nObservable signs (any one): bubbles of gas (hydrogen) on the inside of the pipe; pipe walls becoming pitted, thinner, and discoloured; rust-coloured deposits in the water; eventual leaks.\n\nEngineering solutions (any one): use corrosion-resistant materials such as plastic (PVC, polyethylene), stainless steel, or specially coated pipes; add a protective lining to the inside of the pipe; reduce the acidity of the water before it enters the pipes; replace pipes on a regular maintenance schedule.\n\nExam tip: Rotorua's buildings and signs show the same effect — the acidic atmosphere quickly weathers metal."
     },
     {
       "id": "y10chem-q8",
       "number": "8",
-      "text": "Sodium chloride (table salt, NaCl) is an ionic compound, while water (H₂O) is a covalent compound. Describe ONE key difference between ionic and covalent bonding, and explain how this difference affects the properties of these two substances.",
+      "text": "Compare ionic and covalent bonding using sodium chloride (NaCl) and water (H₂O) as examples. In your answer you must:\n• describe what happens to electrons in EACH type of bond\n• explain TWO different physical properties (e.g. melting point, electrical conductivity, hardness) that result from the bonding\n• link each property back to the bonding to explain WHY it is the way it is.",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "chemical-bonding-y10"
       ],
       "answerType": "text",
-      "markingGuide": "Step 1: 1 mark: Correctly describes ionic bonding — electrons are transferred from a metal atom to a non-metal atom, forming positive ions (cations) and negative ions (anions) that are held together by the electrostatic attraction between opposite charges.\n\nStep 2: 1 mark: Correctly describes covalent bonding — electrons are shared between two non-metal atoms;.\n\nStep 3: each atom contributes one or more electrons to form shared pairs that hold the atoms together.\n\nStep 4: Accept clear descriptions that demonstrate understanding of the key difference: transfer vs sharing of electrons.\n\nStep 5: 1 mark: Links bonding to properties — e.g. ionic compounds like NaCl have high melting points due to strong electrostatic forces between ions, form crystals, and conduct electricity when dissolved in water or molten (ions are free to move);.\n\nStep 6: covalent compounds like water have lower melting/boiling points because the forces between molecules are weaker, and they generally do not conduct electricity.\n\nStep 7: Exam tip: Ionic = metal + non-metal (transfer electrons).\n\nStep 8: Covalent = non-metal + non-metal (share electrons)."
+      "markingGuide": "1 mark — Ionic bonding (NaCl): electrons are TRANSFERRED from a metal atom (sodium) to a non-metal atom (chlorine), forming Na⁺ and Cl⁻ ions held together by strong electrostatic attraction in a giant 3D lattice.\n\n1 mark — Covalent bonding (H₂O): electrons are SHARED between non-metal atoms (oxygen and hydrogen), forming small discrete molecules with weak forces between separate molecules.\n\n1 mark — TWO physical properties linked to bonding:\n\nMelting point — NaCl has a very high melting point (~801 °C) because lots of energy is needed to break the strong electrostatic attractions throughout the giant lattice. Water melts at 0 °C because only the weak forces between molecules need to be overcome (the covalent bonds inside the molecule stay intact).\n\nElectrical conductivity — solid NaCl does not conduct (ions are fixed in place), but molten or dissolved NaCl conducts electricity because the ions become free to move and carry charge. Water is a covalent compound and pure water hardly conducts at all because there are no free charged particles.\n\nOther valid properties: hardness/brittleness of NaCl crystals, low boiling point of water, solubility behaviour.\n\nExam tip: ALWAYS explain physical properties by referring back to the BONDS holding the particles together — that is what excellence-level answers do."
     },
     {
       "id": "y10chem-q9",
       "number": "9",
-      "text": "Ocean acidification is a growing concern in New Zealand's marine environment, particularly in areas like the Hauraki Gulf. As carbon dioxide (CO₂) levels in the atmosphere increase, more CO₂ dissolves in seawater, making it more acidic.\n\nThe word equation is: carbon dioxide + water → carbonic acid\n\nExplain how ocean acidification could affect marine organisms such as pāua (abalone) and mussels. In your answer, include:\n• how the pH of the ocean changes\n• why this is harmful to shellfish\n• one way this could affect New Zealand's economy.",
+      "text": "Ocean acidification is a growing concern in NZ. Carbon dioxide from the atmosphere dissolves in seawater to form carbonic acid:\n\ncarbon dioxide + water → carbonic acid\n\nShellfish such as pāua and green-lipped mussels build their shells from calcium carbonate (CaCO₃).\n\nExplain how ocean acidification could affect these shellfish. Your answer MUST include:\n• how the ocean's pH changes when more CO₂ dissolves\n• the chemical reaction between an acid and a carbonate (acid + carbonate → ?)\n• why this is harmful to shellfish at different life stages\n• one social or economic impact on New Zealand.",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "acids-bases",
         "chemical-reactions-y10"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark: Explains pH change — as more CO₂ dissolves in seawater, more carbonic acid is formed, which lowers the pH of the ocean (makes it more acidic).\n\nEven small changes in pH can have significant effects on marine life.\n\n1 mark: Explains harm to shellfish — pāua, mussels, and other shellfish build their shells from calcium carbonate (CaCO₃).\n\nAcidic water reacts with calcium carbonate (acid + carbonate → salt + water + carbon dioxide), dissolving or weakening the shells.\n\nIn more acidic water, these organisms struggle to build and maintain their shells, making them vulnerable to predators and disease.\n\n1 mark: Links to NZ economy — New Zealand's aquaculture industry (especially green-lipped mussels and pāua) is worth hundreds of millions of dollars annually;.\n\nocean acidification threatens shellfish farming and wild fisheries;.\n\nthis could affect jobs in coastal communities and export revenue;.\n\nMāori customary fisheries (kaimoana) would also be impacted.\n\nExam tip: This connects chemistry (acid-carbonate reactions) with biology (ecosystems) and economics — exam questions increasingly ask you to make these cross-topic links."
+      "markingGuide": "1 mark — pH change: more CO₂ dissolving means more carbonic acid forms, which slightly LOWERS the pH of seawater (makes it more acidic). Even a 0.1 unit drop is significant on the logarithmic pH scale.\n\n1 mark — Chemical reaction with carbonate AND impact on shellfish: acid + carbonate → salt + water + carbon dioxide. So acidic seawater chemically attacks calcium carbonate shells, dissolving and weakening them. Adult shellfish struggle to build/maintain shells, while LARVAL shellfish (which have very thin shells) often die before they can grow — collapsing the next generation. (Mention of larvae or juvenile shellfish is what lifts this above achieved.)\n\n1 mark — NZ social/economic impact: NZ's aquaculture industry (especially green-lipped mussels and pāua) is worth hundreds of millions of dollars in exports; ocean acidification threatens jobs in coastal towns like Coromandel and Marlborough; Māori customary fisheries (kaimoana) are also at risk, affecting cultural practices and food security.\n\nExam tip: excellence answers connect chemistry to biology AND to NZ society — show those links explicitly."
     },
     {
       "id": "y10chem-q10",
       "number": "10",
-      "text": "A student carries out an experiment to investigate the reaction between magnesium ribbon and hydrochloric acid at different concentrations. They measure the time taken for the magnesium to completely dissolve.\n\nTheir results are shown in the graph above.\n\n(a) Calculate how many times faster the reaction is at 2.0 mol/L compared to 0.5 mol/L, and describe the overall pattern shown by the results.\n(b) Explain, using particle theory, why increasing the concentration of acid speeds up the reaction.\n(c) Write the word equation for this reaction.",
+      "text": "A student investigates the reaction between magnesium ribbon and hydrochloric acid at three different concentrations. They measure the time taken for the magnesium to dissolve completely.\n\nResults are shown in the graph above.\n\n(a) Calculate the rate of reaction at EACH concentration in 'cm of Mg per second' if the magnesium ribbon was 6 cm long. Show your working.\n(b) Explain, using particle theory, WHY increasing the concentration of acid speeds up the reaction.\n(c) The student wants to repeat the experiment to show that TEMPERATURE also affects the rate. State ONE variable they must keep CONSTANT (a 'control' variable) and explain why.\n(d) Write the WORD equation AND a balanced symbol equation for this reaction.",
       "marks": 4,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "chemical-reactions-y10",
         "acids-bases"
@@ -268,7 +268,7 @@
           }
         ]
       },
-      "markingGuide": "1 mark (a): Calculation — at 0.5 mol/L the time is 120 s;.\n\nat 2.0 mol/L the time is 30 s.\n\n120 / 30 = 4, so the reaction is 4 times faster at 2.0 mol/L.\n\nPattern: as concentration increases, time taken decreases (inverse relationship — when concentration doubles, time roughly halves).\n\n1 mark (b): At higher concentrations, there are more acid particles (H⁺ ions) in the same volume of solution, so there are more frequent collisions between acid particles and magnesium atoms.\n\nMore collisions per second means a faster reaction.\n\n1 mark (b continued): Quality of explanation — uses scientific vocabulary correctly (particles, collisions, concentration, rate of reaction, collision theory).\n\n1 mark (c): magnesium + hydrochloric acid → magnesium chloride + hydrogen.\n\nAccept: Mg + 2HCl → MgCl₂ + H₂ if the student writes the balanced symbol equation instead.\n\nExam tip: When explaining rates of reaction, always link back to particle theory and collisions."
+      "markingGuide": "1 mark (a) — RATE = length / time for each:\n0.5 mol/L: 6 cm / 120 s = 0.05 cm/s\n1.0 mol/L: 6 cm / 60 s = 0.10 cm/s\n2.0 mol/L: 6 cm / 30 s = 0.20 cm/s\nMust show working and units.\n\n1 mark (b) — Particle theory: a higher concentration of acid means MORE acid particles (H⁺ ions) per unit volume. This means more frequent collisions between acid particles and the surface of the magnesium, and more of those collisions are successful per second, so the rate of reaction increases. Must use the words 'particles', 'collisions' and 'concentration'.\n\n1 mark (c) — Control variable: examples (any ONE with reason) — same length/mass of magnesium ribbon (so the amount of reactant is identical), same volume of acid (so the depth of liquid covering the metal is the same), same surface area of the metal (so the number of collision sites is identical), same starting temperature in the temperature experiment except for the variable being changed. Reason must explain WHY.\n\n1 mark (d) — Equations:\nWord: magnesium + hydrochloric acid → magnesium chloride + hydrogen\nSymbol (balanced): Mg + 2HCl → MgCl₂ + H₂\nBoth required for the mark. Accept clearly correct balancing only.\n\nExam tip: excellence-level chemistry questions often combine calculations, particle theory and 'fair test' design — be ready to do all three in one answer."
     }
   ],
   "cutScores": {

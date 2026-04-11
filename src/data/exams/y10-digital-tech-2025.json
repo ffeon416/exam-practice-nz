@@ -11,7 +11,7 @@
     {
       "id": "y10dt-q1",
       "number": "1",
-      "text": "What does HTML stand for?",
+      "text": "A student is building a web page and writes the following HTML:\n\n<h1>My Site<h1>\n<p>Welcome to my <b>first<b> page.</p>\n\nThe page does not display correctly. Which statement BEST identifies the problem?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,18 +19,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Hyper Text Markup Language",
-        "High Tech Modern Language",
-        "Hyper Transfer Markup Language",
-        "Home Tool Markup Language"
+        "The <h1> and <b> closing tags are missing the forward slash (should be </h1> and </b>)",
+        "HTML does not allow bold text inside a paragraph",
+        "The <p> tag should come before the <h1> tag",
+        "HTML files must start with <html> on every line"
       ],
-      "expectedAnswer": "Hyper Text Markup Language",
-      "markingGuide": "The correct answer is Hyper Text Markup Language.\n\nHere's why:\nHTML is the standard markup language used to create and structure content on web pages.\nIt uses tags to define elements like headings, paragraphs, images, and links."
+      "expectedAnswer": "The <h1> and <b> closing tags are missing the forward slash (should be </h1> and </b>)",
+      "markingGuide": "The correct answer identifies the missing slashes in the closing tags.\n\nHere's why:\nIn HTML, opening tags look like <h1> and closing tags must include a forward slash, e.g. </h1>.\nWithout the slash, the browser thinks a new heading or bold section is starting, breaking the structure of the page.\nThis is a very common bug in beginner HTML."
     },
     {
       "id": "y10dt-q2",
       "number": "2",
-      "text": "Which HTML tag creates a paragraph?",
+      "text": "A student writes the following CSS to make all paragraphs red:\n\np {\n  colour: red;\n}\n\nThe paragraphs are still black. What is the bug, and how would you fix it?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -38,18 +38,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "<p>",
-        "<para>",
-        "<text>",
-        "<pg>"
+        "Change 'p' to 'paragraph'",
+        "Change 'colour' to 'color' (CSS uses American spelling)",
+        "Move the rule inside the <body> tag",
+        "Add quotation marks around 'red'"
       ],
-      "expectedAnswer": "<p>",
-      "markingGuide": "The correct answer is <p>.\n\nHere's why:\nThe <p> tag defines a paragraph in HTML.\nIt is one of the most commonly used tags.\nThe other options are not valid HTML tags."
+      "expectedAnswer": "Change 'colour' to 'color' (CSS uses American spelling)",
+      "markingGuide": "The correct answer is to change 'colour' to 'color'.\n\nHere's why:\nCSS uses the American spelling 'color'.\nBecause 'colour' is not a valid CSS property, the browser ignores the line and the paragraphs stay the default colour.\n'p' is the correct selector and 'red' does not need quotation marks."
     },
     {
       "id": "y10dt-q3",
       "number": "3",
-      "text": "What is an algorithm?",
+      "text": "Trace through this algorithm with starting value n = 5 and state the final value of total:\n\n  total = 0\n  REPEAT while n > 0\n    total = total + n\n    n = n - 1\n\nWhat is the final value of total?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -57,18 +57,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "A type of computer virus",
-        "A step-by-step set of instructions to solve a problem or complete a task",
-        "A programming language used to build websites",
-        "A device that stores data"
+        "5",
+        "10",
+        "15",
+        "25"
       ],
-      "expectedAnswer": "A step-by-step set of instructions to solve a problem or complete a task",
-      "markingGuide": "The correct answer is A step-by-step set of instructions to solve a problem or complete a task.\n\nHere's why:\nAn algorithm is a clear, ordered sequence of steps that can be followed to achieve a specific outcome.\nAlgorithms are used in everyday life (e.g. a recipe) as well as in computing."
+      "expectedAnswer": "15",
+      "markingGuide": "The correct answer is 15.\n\nHere's why:\nThe loop runs while n > 0, adding each value of n to total before decreasing n by 1.\nIterations: n=5 (total=5), n=4 (total=9), n=3 (total=12), n=2 (total=14), n=1 (total=15), n=0 (loop stops).\nThis algorithm sums the integers from 1 to 5: 1+2+3+4+5 = 15.\nExam tip: When tracing a loop, write out the value of every variable after each iteration."
     },
     {
       "id": "y10dt-q4",
       "number": "4",
-      "text": "What is the binary number 1010 in decimal (base 10)?",
+      "text": "Convert the binary number 10110 to decimal (base 10).",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -76,19 +76,20 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "8",
-        "10",
-        "12",
-        "15"
+        "20",
+        "22",
+        "24",
+        "26"
       ],
-      "expectedAnswer": "10",
-      "markingGuide": "The correct answer is 10.\n\nHere's why:\nIn binary, each digit represents a power of 2 from right to left: 1010 = (1×8) + (0×4) + (1×2) + (0×1) = 8 + 0 + 2 + 0 = 10.",
+      "expectedAnswer": "22",
+      "markingGuide": "The correct answer is 22.\n\nHere's why:\nIn binary, each digit represents a power of 2 from right to left: 10110 = (1×16) + (0×8) + (1×4) + (1×2) + (0×1) = 16 + 0 + 4 + 2 + 0 = 22.\nExam tip: A common mistake is to read the binary digits in the wrong direction — always start with the rightmost digit as the 1s column.",
       "graph": {
         "type": "table",
         "title": "Binary Place Values",
         "data": {
           "headers": [
             "Position",
+            "5 (2^4)",
             "4 (2^3)",
             "3 (2^2)",
             "2 (2^1)",
@@ -97,6 +98,7 @@
           "rows": [
             [
               "Place value",
+              "16",
               "8",
               "4",
               "2",
@@ -107,12 +109,14 @@
               "1",
               "0",
               "1",
+              "1",
               "0"
             ],
             [
               "Decimal value",
-              "8",
+              "16",
               "0",
+              "4",
               "2",
               "0"
             ]
@@ -123,19 +127,19 @@
     {
       "id": "y10dt-q5",
       "number": "5",
-      "text": "Explain the difference between hardware and software. Give one example of each.",
+      "text": "Explain the difference between hardware, system software, and application software. Give one specific example of each, and describe how they work together when you open a document.",
       "marks": 2,
       "gradeLevel": "achieved",
       "topics": [
         "digital-basics"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the difference: Hardware is the physical components of a computer that you can touch (tangible), while software is the programs and instructions that tell the hardware what to do (intangible).\n\n1 mark for giving one valid example of each.\n\nHardware examples: keyboard, mouse, monitor, CPU, hard drive, RAM, printer.\n\nSoftware examples: Microsoft Word, Google Chrome, Windows, macOS, Scratch, Python."
+      "markingGuide": "1 mark for clearly distinguishing the three categories with one valid example for each.\n\nHardware: physical components you can touch (e.g. CPU, RAM, hard drive, keyboard).\n\nSystem software: programs that manage the computer's resources and provide a platform for other software (e.g. Windows, macOS, Linux).\n\nApplication software: programs that perform tasks for the user (e.g. Microsoft Word, Google Chrome).\n\n1 mark for explaining how they work together: e.g. when you open a Word document, the keyboard/mouse (hardware) sends a signal to the operating system (system software), which then loads Word (application software) into RAM (hardware). Word then uses the OS to fetch the document file from the hard drive."
     },
     {
       "id": "y10dt-q6",
       "number": "6",
-      "text": "Which of the following is the strongest password?",
+      "text": "A website asks you to choose a password. Two suggestions are:\n\n(A) Tropical42 — 10 characters, mixed case and numbers, contains a common word\n(B) Tr0pic@lFish42! — 15 characters, mixed case, numbers and symbols, no common dictionary word\n\nWhich password is stronger, and which TWO factors make it stronger?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -143,30 +147,30 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "password123",
-        "MyDog'sName",
-        "Tr0pic@lFish42!",
-        "12345678"
+        "(A), because shorter passwords are easier to remember",
+        "(B), because it is longer AND uses a wider variety of character types",
+        "(A), because it contains a real word that is easy to type",
+        "(B), because it contains the year you were born"
       ],
-      "expectedAnswer": "Tr0pic@lFish42!",
-      "markingGuide": "The correct answer is Tr0pic@lFish42!.\n\nHere's why:\nA strong password uses a mix of uppercase and lowercase letters, numbers, and special characters.\nIt should be long (at least 12 characters) and not contain common words or personal information.\nThe other options are weak because they use common words, simple sequences, or lack variety in character types."
+      "expectedAnswer": "(B), because it is longer AND uses a wider variety of character types",
+      "markingGuide": "The correct answer is (B).\n\nHere's why:\nPassword strength depends on length and the size of the character set (letters, numbers, symbols, mixed case).\nA 15-character password with symbols is exponentially harder to brute-force than a 10-character one with only letters and numbers.\n(B) also avoids using a plain dictionary word, which makes it resistant to dictionary attacks."
     },
     {
       "id": "y10dt-q7",
       "number": "7",
-      "text": "Explain TWO things you should consider about your digital footprint when posting on social media.",
+      "text": "A student posts a photo of themselves and a friend at school, tagging the school's location, on a public social media account.\n\nExplain TWO different risks this creates for their digital footprint, and for EACH risk suggest ONE thing they could do to reduce it.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "digital-citizenship"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each valid consideration (2 required).\n\nPossible answers: Permanence — once something is posted online, it can be very difficult to remove completely, even if you delete it (others may have screenshotted or shared it);.\n\nFuture impact — potential employers, universities, and scholarships may look at your social media, so inappropriate posts could affect your future opportunities;.\n\nPrivacy — sharing personal information (location, school, full name) can make you vulnerable to identity theft, stalking, or scams;.\n\nAudience — what you post can be seen by a wider audience than you intend, including strangers;.\n\nImpact on others — posts about other people (photos, comments) should respect their privacy and consent;.\n\nReputation — your online presence contributes to how others perceive you."
+      "markingGuide": "1 mark for each clearly explained risk paired with a sensible mitigation (2 required).\n\nPossible answers (must include the mitigation, not just the risk):\n\nPrivacy/safety: revealing the school location lets strangers identify where they are during school hours, creating a safety risk. Mitigation: turn off location tagging and set the account to private.\n\nConsent of others: posting another person without permission may breach their privacy and damage the friendship. Mitigation: ask the friend before posting, and remove tags they did not consent to.\n\nPermanence/future impact: future employers, universities, or scholarship panels may view old posts. Mitigation: think before posting and audit/clean up old posts regularly.\n\nReputation/screenshots: even if deleted, others may have screenshotted or shared the post. Mitigation: limit posts to a small, trusted audience.\n\nDigital footprint accumulation: tagged content links them to a wider data trail. Mitigation: review tag settings so the user must approve tags before they appear.\n\nDo not award the second mark unless the student gives a different risk for both points."
     },
     {
       "id": "y10dt-q8",
       "number": "8",
-      "text": "In a spreadsheet application, what character must a formula start with?",
+      "text": "In a spreadsheet, cell A1 contains 10, cell A2 contains 20, and cell A3 contains 30. A student types the following formula into cell A4:\n\n=A1+A2*A3\n\nWhat value will appear in cell A4?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -174,37 +178,37 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "=",
-        "+",
-        "@",
-        "#"
+        "60",
+        "610",
+        "900",
+        "1800"
       ],
-      "expectedAnswer": "=",
-      "markingGuide": "The correct answer is =.\n\nHere's why:\nIn spreadsheet applications such as Google Sheets or Microsoft Excel, all formulas must begin with an equals sign (=).\nFor example, =A1+B1 adds the values in cells A1 and B1."
+      "expectedAnswer": "610",
+      "markingGuide": "The correct answer is 610.\n\nHere's why:\nSpreadsheet formulas follow standard order of operations (BEDMAS): multiplication is done before addition.\n=A1+A2*A3 evaluates as 10 + (20 × 30) = 10 + 600 = 610.\nA common mistake is to evaluate left-to-right, which would give (10 + 20) × 30 = 900.\nIf the student wanted that result they would need brackets: =(A1+A2)*A3."
     },
     {
       "id": "y10dt-q9",
       "number": "9",
-      "text": "Describe what debugging means in programming and explain ONE strategy for finding errors in code.",
+      "text": "A student writes a Python program to print the numbers 1 to 5, but the output is wrong:\n\n  count = 1\n  while count < 5:\n      print(count)\n      count = count + 1\n\nThe program only prints 1, 2, 3, 4. Explain what the bug is and describe how to fix it.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "computational-thinking"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for describing debugging: Debugging is the process of finding and fixing errors (bugs) in a computer program that prevent it from working correctly.\n\n1 mark for explaining a valid strategy: Trace through the code line by line to see where it stops working as expected;.\n\nuse print statements to display variable values at different points in the program;.\n\nread error messages carefully as they often tell you the line number and type of error;.\n\ntest small sections of code separately to isolate the problem;.\n\nuse a rubber duck method — explain the code out loud step by step to identify where the logic breaks down;.\n\ncompare the code against the original plan or algorithm."
+      "markingGuide": "1 mark for correctly identifying the bug: the loop condition uses < (less than), so when count reaches 5 the condition 5 < 5 is FALSE and the loop stops before 5 is printed. This is an off-by-one error.\n\n1 mark for a correct fix: change the condition to <= 5 (count <= 5), OR change the starting/ending values so 5 is included (e.g. while count < 6).\n\nAlso accept clear explanations that mention 'off-by-one error' or 'boundary condition'.\n\nExam tip: Off-by-one errors are one of the most common bugs in loops — always check what happens at the very first and very last iteration."
     },
     {
       "id": "y10dt-q10",
       "number": "10",
-      "text": "A local sports club wants a simple website. Describe THREE features the website should have and explain why each would be useful for the club.",
+      "text": "A local sports club wants a simple website. Describe THREE features the website should have. For each feature you must:\n• name the feature\n• explain why it is useful for the club\n• identify ONE technical consideration (e.g. accessibility, privacy, mobile usability, data storage) the developer would need to think about when building it.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
         "web-development"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark for each feature with a clear explanation of its usefulness (3 required).\n\nPossible features: A home page with information about the club (location, training times, contact details) — useful because new members can quickly find out how to join and where to go;.\n\nA fixtures/results page — useful because members and supporters can check upcoming games and see how the team is performing;.\n\nA contact or sign-up form — useful because people can register interest or ask questions without needing to visit in person;.\n\nA photo/video gallery — useful because it builds community spirit and can be shared on social media to attract new members;.\n\nA news or events section — useful because the club can announce upcoming tournaments, fundraisers, or social events;.\n\nA members-only section — useful for sharing team sheets, training plans, or private club communications.\n\nEach feature must be distinct, clearly described, and have a specific reason why it benefits the club."
+      "markingGuide": "1 mark for each feature that includes ALL three parts (feature + usefulness + technical consideration). 3 features required.\n\nExamples of strong answers:\n\nHome page with location, training times and contact details — useful so new members can quickly find out where and when to turn up. Technical consideration: must be mobile-friendly (responsive design) because most users will visit on a phone.\n\nFixtures/results page — useful so players and supporters can check upcoming games and team performance. Technical consideration: data needs to be easy to update each week (e.g. stored in a CMS or simple database, not hard-coded into HTML).\n\nContact / sign-up form — useful because people can register interest without coming in person. Technical consideration: must handle personal data privately (HTTPS, Privacy Act 2020 obligations, secure storage of email addresses).\n\nPhoto/video gallery — useful for community spirit. Technical consideration: photos of under-18 members need parental consent before publishing.\n\nMembers-only section — useful for sharing private team information. Technical consideration: needs login/authentication so only members can see it.\n\nNews/events section — useful so the club can promote tournaments and fundraisers. Technical consideration: must be accessible (alt text on images, readable contrast) so all users can read it.\n\nDo NOT award the mark if the technical consideration is missing, generic ('it should look nice'), or just repeats the usefulness."
     }
   ],
   "cutScores": {

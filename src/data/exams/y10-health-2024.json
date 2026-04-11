@@ -11,7 +11,7 @@
     {
       "id": "y10h2-q1",
       "number": "1",
-      "text": "Which body system is responsible for transporting oxygen and nutrients around the body?",
+      "text": "When a Year 10 student sprints up a hill, the body reacts in several ways. Which of the following BEST describes how the circulatory and respiratory systems work together during the sprint?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,18 +19,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Respiratory system",
-        "Circulatory system",
-        "Digestive system",
-        "Nervous system"
+        "Breathing rate increases to take in more oxygen, and the heart pumps faster to deliver that oxygen to working muscles and remove carbon dioxide",
+        "Breathing slows down so oxygen is used more efficiently, and the heart slows to save energy",
+        "Only the respiratory system is needed; the circulatory system stops during exercise",
+        "The digestive system supplies oxygen directly to the muscles"
       ],
-      "expectedAnswer": "Circulatory system",
-      "markingGuide": "The correct answer is Circulatory system.\n\nHere's why:\nThe circulatory system (heart, blood, and blood vessels) transports oxygen from the lungs and nutrients from the digestive system to all cells in the body.\nThe respiratory system brings oxygen into the body but does not transport it to cells."
+      "expectedAnswer": "Breathing rate increases to take in more oxygen, and the heart pumps faster to deliver that oxygen to working muscles and remove carbon dioxide",
+      "markingGuide": "The correct answer describes both systems working together.\n\nHere's why:\nDuring exercise, the muscles need more oxygen to release energy from glucose (aerobic respiration) and produce more carbon dioxide as a waste product.\nThe respiratory system increases breathing rate and depth to take in more oxygen and remove more CO2.\nThe circulatory system increases heart rate so oxygenated blood is pumped to the working muscles faster.\nThis is a common Year 10 application question — knowing the two systems are connected is key."
     },
     {
       "id": "y10h2-q2",
       "number": "2",
-      "text": "In the hauora model (Te Whare Tapa Whā), which dimension is most closely linked to a person's sense of meaning, identity, and connection to the land?",
+      "text": "Read these four statements about a Year 10 student:\n\n(i) Hīria visits her marae most weekends and feels strongly connected to her tūpuna.\n(ii) Hīria walks to school every day and plays for the school netball team.\n(iii) Hīria has a close group of friends and lives with her grandparents.\n(iv) Hīria uses journaling to manage anxiety before exams.\n\nWhich dimension of Te Whare Tapa Whā does statement (i) MOST clearly describe?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -44,7 +44,7 @@
         "Taha wairua"
       ],
       "expectedAnswer": "Taha wairua",
-      "markingGuide": "The correct answer is Taha wairua (spiritual well-being).\n\nHere's why:\nThis dimension relates to a person's sense of meaning, purpose, and identity.\nIt includes connection to the land (whenua), beliefs, values, and feeling that life has purpose.\nIt is not limited to religion.",
+      "markingGuide": "The correct answer is Taha wairua.\n\nHere's why:\nTaha wairua (spiritual well-being) is about identity, meaning, purpose and connection — including connection to whenua (land), tūpuna (ancestors) and beliefs.\nA marae visit and feeling connected to tūpuna fits taha wairua most closely.\nWatch out: statement (iii) is taha whānau, (ii) is taha tinana, (iv) is taha hinengaro — students must distinguish carefully between the dimensions.",
       "graph": {
         "type": "pie",
         "title": "Te Whare Tapa Wha — Four Dimensions of Hauora",
@@ -75,19 +75,19 @@
     {
       "id": "y10h2-q3",
       "number": "3",
-      "text": "Explain TWO characteristics of a healthy relationship. For each characteristic, describe how it supports well-being.",
+      "text": "A Year 10 student is starting to date someone from another school. They notice their partner constantly texts to check up on them, gets angry if they don't reply within a few minutes, and tells them not to spend time with certain friends.\n\nIdentify TWO warning signs in this scenario, explain what makes each one unhealthy, and describe how it could affect the student's hauora.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "relationships-health"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each characteristic with a valid link to well-being (2 required).\n\nPossible characteristics: mutual respect — both people value each other's opinions and boundaries, supporting taha hinengaro (feeling valued);.\n\ntrust — being able to rely on the other person, which reduces anxiety and supports mental well-being;.\n\ncommunication — being able to express feelings openly, which prevents misunderstandings and supports emotional health;.\n\nequality — both people have equal say, which supports self-esteem;.\n\nsupport — encouraging each other's goals, which supports taha wairua (sense of purpose)."
+      "markingGuide": "1 mark for each warning sign that includes both an explanation of WHY it is unhealthy AND a link to a hauora dimension. 2 required.\n\nExamples of strong answers:\n\nControlling behaviour (telling them not to see friends) — this is a form of social isolation and removes the student's right to choose their own relationships. It damages taha whānau by cutting them off from friends and family support.\n\nConstant monitoring (excessive texting and demanding instant replies) — this shows a lack of trust and pressures the student to always be available. It damages taha hinengaro because they feel anxious every time their phone is silent, and creates ongoing stress.\n\nAnger when they don't reply — using anger to control behaviour is emotional manipulation. This damages taha hinengaro (anxiety, fear) and over time can damage taha wairua (loss of self-worth and identity).\n\nDo NOT award the second mark if the student only describes one warning sign or fails to link it to hauora."
     },
     {
       "id": "y10h2-q4",
       "number": "4",
-      "text": "What is the main health risk associated with vaping for young people in New Zealand?",
+      "text": "Which statement BEST explains why nicotine vaping is particularly harmful for young people compared to adults?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -95,30 +95,31 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "It causes immediate heart attacks",
-        "Nicotine addiction and harm to developing brains",
-        "It is more dangerous than smoking cigarettes",
-        "It causes broken bones"
+        "Because young people's brains are still developing (until around age 25), and nicotine can affect brain development, memory, attention, and increase the risk of long-term addiction",
+        "Because vaping causes immediate heart attacks in anyone under 18",
+        "Because vaping is much more dangerous than smoking traditional cigarettes",
+        "Because vape devices are heavier than cigarettes and damage the lungs more"
       ],
-      "expectedAnswer": "Nicotine addiction and harm to developing brains",
-      "markingGuide": "The correct answer is Nicotine addiction and harm to developing brains.\n\nHere's why:\nMost vapes contain nicotine, which is highly addictive and particularly harmful to young people whose brains are still developing (until around age 25).\nNicotine can affect memory, concentration, learning, and mood regulation."
+      "expectedAnswer": "Because young people's brains are still developing (until around age 25), and nicotine can affect brain development, memory, attention, and increase the risk of long-term addiction",
+      "markingGuide": "The correct answer is the first option.\n\nHere's why:\nThe key reason vaping is particularly harmful for young people is that the adolescent brain is still developing.\nNicotine acts on developing brain pathways, can permanently affect attention, memory and impulse control, and rewires the reward system, leading to faster and stronger addiction in young people than in adults.\nThe other options are misconceptions — vaping does not cause immediate heart attacks, is generally less harmful than smoking but NOT harmless, and the device weight is not the issue."
     },
     {
       "id": "y10h2-q5",
       "number": "5",
-      "text": "Describe TWO ways that regular physical activity improves fitness. Link each to a component of fitness (e.g. cardiovascular endurance, muscular strength, flexibility).",
+      "text": "A Year 10 student wants to improve their fitness for the school cross-country. They currently do no regular exercise. Describe TWO different components of fitness they should target, and for EACH component:\n• describe a specific activity they could do\n• explain how that activity improves that component\n• link it to a dimension of hauora.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "fitness-body-systems"
+        "fitness-body-systems",
+        "hauora"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each valid way linked to a fitness component (2 required).\n\nFor example: Running regularly improves cardiovascular endurance — the heart and lungs become more efficient at delivering oxygen during exercise;.\n\nWeight training improves muscular strength — muscles adapt to increased loads and become stronger;.\n\nStretching or yoga improves flexibility — joints and muscles increase their range of movement;.\n\nSwimming improves cardiovascular endurance and muscular endurance — the body can sustain effort for longer periods."
+      "markingGuide": "1 mark per fitness component IF the answer includes all three parts (activity + how it improves the component + hauora link). 2 components required.\n\nExamples of strong answers:\n\nCardiovascular endurance — Activity: jogging 3 km, three times a week, gradually building distance. How: the heart and lungs adapt to deliver oxygen more efficiently, so the student can sustain effort for longer in the cross-country. Hauora: supports taha tinana (fitter body) and taha hinengaro (stress relief from running).\n\nMuscular endurance — Activity: bodyweight exercises like lunges and squats. How: leg muscles become better able to keep contracting without fatigue, so the student can climb hills in the cross-country without slowing. Hauora: supports taha tinana, and achieving small goals supports taha wairua (sense of progress and identity as 'an athlete').\n\nFlexibility — Activity: 10 minutes of stretching after each run. How: increases joint range of motion, reducing injury risk. Hauora: supports taha tinana and taha hinengaro (mindfulness during stretching).\n\nDo not award the mark for only naming the component."
     },
     {
       "id": "y10h2-q6",
       "number": "6",
-      "text": "Which of the following is a protective factor for mental health?",
+      "text": "Which of the following is BEST described as a PROTECTIVE factor for mental health, rather than a risk factor?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -126,18 +127,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Spending excessive time on social media",
-        "Having strong connections with whānau and friends",
-        "Avoiding all difficult conversations",
-        "Keeping problems to yourself"
+        "Spending more than 5 hours a day comparing yourself to others on social media",
+        "Having at least one trusted adult and one close friend you can talk to honestly",
+        "Bottling up worries because 'other people have it worse'",
+        "Avoiding sleep so you have more time to study for exams"
       ],
-      "expectedAnswer": "Having strong connections with whānau and friends",
-      "markingGuide": "The correct answer is Having strong connections with whānau and friends.\n\nHere's why:\nProtective factors are things that reduce the risk of developing mental health problems.\nStrong social connections provide support, a sense of belonging (taha whānau), and people to talk to during difficult times."
+      "expectedAnswer": "Having at least one trusted adult and one close friend you can talk to honestly",
+      "markingGuide": "The correct answer is the second option.\n\nHere's why:\nProtective factors are things that REDUCE the chance of developing mental health problems and help people recover faster.\nHaving even one trusted person to talk to is one of the strongest protective factors for adolescent mental health.\nThe other options are all risk factors — social comparison, bottling up emotions, and sleep deprivation all increase the risk of poor mental health."
     },
     {
       "id": "y10h2-q7",
       "number": "7",
-      "text": "The chart above shows adult obesity rates by ethnicity in New Zealand.\n\n(a) Calculate the difference in obesity rates between the group with the HIGHEST rate and the group with the LOWEST rate.\n(b) Explain TWO reasons why obesity is a significant health issue in New Zealand. Include at least one reference to hauora in your answer.",
+      "text": "The chart above shows adult obesity rates by ethnicity in New Zealand.\n\n(a) Calculate the percentage point difference between the HIGHEST group and the NZ Total. Then calculate how many times higher (as a ratio) the HIGHEST group's rate is compared to the LOWEST group's rate. Show your working.\n\n(b) Explain TWO reasons why obesity is a significant health issue in New Zealand. At least ONE of your reasons must reference TWO different dimensions of hauora and show how they are linked.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -145,7 +146,7 @@
         "hauora"
       ],
       "answerType": "working",
-      "markingGuide": "Step 1: (a) Partial credit within the marks below: Highest = Pacific Peoples 64%, Lowest = Asian 16%.\n\nStep 2: Difference = 64 - 16 = 48 percentage points.\n\nStep 3: 1 mark for each valid reason in (b) (2 required), with at least one hauora reference.\n\nStep 4: At least one mark must include the correct calculation in (a).\n\nStep 5: For example: Obesity increases the risk of serious health conditions such as type 2 diabetes, heart disease, and some cancers — this affects taha tinana (physical well-being);.\n\nStep 6: Obesity can lead to low self-esteem, anxiety, and depression, especially in young people who may experience bullying — this affects taha hinengaro (mental/emotional well-being);.\n\nStep 7: NZ has one of the highest rates of childhood obesity in the OECD, putting pressure on the health system;.\n\nStep 8: Obesity is linked to socioeconomic factors — families in lower-income areas may have less access to healthy food and sports facilities, which is a community health issue.",
+      "markingGuide": "1 mark for part (a) — must include BOTH calculations correctly:\n\nDifference: Pacific Peoples (highest) = 64%, NZ Total = 34%. Difference = 64 - 34 = 30 percentage points.\n\nRatio: Pacific Peoples 64% vs Asian (lowest) 16%. 64 ÷ 16 = 4. The highest group's rate is 4 times the lowest.\n\n1 mark for part (b): TWO clear reasons, with at least ONE linking two hauora dimensions.\n\nExample of a strong answer:\n\nReason 1: Obesity raises the risk of type 2 diabetes, heart disease and some cancers, putting strain on the public health system. This affects taha tinana (physical illness) AND taha hinengaro (anxiety and depression linked to chronic disease and bullying), showing how poor physical health drags down mental well-being.\n\nReason 2: Obesity in NZ is strongly linked to socioeconomic factors — families on lower incomes have less access to fresh food and safe spaces to exercise, so this is a community/equity issue, not just an individual one.\n\nDo not award the second mark if no two-dimension hauora link is shown.",
       "graph": {
         "type": "bar",
         "title": "NZ Adult Obesity Rates by Ethnicity (2023)",
@@ -183,7 +184,7 @@
     {
       "id": "y10h2-q8",
       "number": "8",
-      "text": "Which of the following is an example of risk-taking behaviour?",
+      "text": "Risk-taking behaviour is sometimes positive (e.g. trying out for a sports team) and sometimes harmful. Which of the following scenarios describes a HARMFUL risk-taking behaviour where a teenager is exposing OTHERS to harm, not just themselves?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -191,18 +192,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Wearing a seatbelt in a car",
-        "Texting while driving",
-        "Going to bed at a regular time",
-        "Eating breakfast before school"
+        "Eating a new food at a friend's house for the first time",
+        "Speaking in front of the whole school assembly",
+        "Driving while distracted by a phone with friends in the car",
+        "Trying out for the school debating team"
       ],
-      "expectedAnswer": "Texting while driving",
-      "markingGuide": "The correct answer is Texting while driving.\n\nHere's why:\nThis is a risk-taking behaviour because it significantly increases the chance of a road accident.\nRisk-taking behaviours are actions that expose a person (or others) to potential harm.\nThe other options are all examples of protective or health-promoting behaviours."
+      "expectedAnswer": "Driving while distracted by a phone with friends in the car",
+      "markingGuide": "The correct answer is driving while distracted with friends in the car.\n\nHere's why:\nThis behaviour creates serious risk for OTHER people (passengers, other drivers, pedestrians) as well as the driver — that's the key part of the question.\nTrying new food, public speaking, and trying out for a team are positive risks that build confidence and skills.\nDistracted driving is the leading cause of crashes in teen drivers in NZ — a real-world Year 10 health topic."
     },
     {
       "id": "y10h2-q9",
       "number": "9",
-      "text": "Describe ONE way a community in New Zealand promotes the health of young people. Explain how this supports at least one dimension of hauora.",
+      "text": "Choose ONE community-based health initiative in New Zealand (e.g. KickStart Breakfast, Water Safety NZ, the 1737 helpline, school counsellors, Pink Shirt Day, Movember). Describe how it works AND explain how it supports at least TWO dimensions of hauora for young people.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
@@ -210,12 +211,12 @@
         "hauora"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying a valid community health initiative (e.g. school breakfast programmes like KickStart Breakfast;.\n\nfree counselling services through school guidance counsellors;.\n\nsports clubs and community recreation centres;.\n\nYouthline or 1737 helpline;.\n\nWater Safety NZ programmes;.\n\nschool health nurses;.\n\ncommunity gardens).\n\n1 mark for explaining how it supports a dimension of hauora (e.g. 'School breakfast programmes support taha tinana by ensuring students have the nutrition they need to learn and be physically well.\n\nIt also supports taha whānau by creating a shared, caring environment at school')."
+      "markingGuide": "1 mark for clearly naming and describing a real NZ initiative (what it does, who it serves).\n\n1 mark for explaining how it supports AT LEAST TWO dimensions of hauora.\n\nExample of a strong answer:\n\n'KickStart Breakfast is a Sanitarium and Fonterra programme that provides free breakfast (Weet-Bix and milk) at primary and intermediate schools across NZ. It supports taha tinana because students start the day with fuel for learning and growing — without breakfast they can be tired and unwell. It also supports taha whānau because students eat together at school in a shared space, building a sense of community and reducing the stigma for kids whose families can't afford breakfast.'\n\nOther valid examples:\n\n1737 helpline (free text/call mental health support) — supports taha hinengaro and taha whānau.\n\nWater Safety NZ school programmes — supports taha tinana (drowning prevention) and taha wairua (confidence in the water as part of NZ identity).\n\nDo not award full marks if only one hauora dimension is mentioned, or if the initiative is not named/explained."
     },
     {
       "id": "y10h2-q10",
       "number": "10",
-      "text": "A new student has moved to your school from another country. They are finding it hard to make friends and seem withdrawn.\n\nUsing the hauora model, explain how this situation could affect their well-being across at least THREE dimensions. Then suggest TWO specific actions the school community could take to support them.",
+      "text": "A new Year 10 student has moved to your school from another country. They speak some English but find it hard, are eating lunch alone, and have started missing school days.\n\n(a) Use Te Whare Tapa Whā to explain how this situation could affect their well-being across ALL FOUR dimensions of hauora. Give a specific consequence for each dimension.\n(b) Suggest TWO specific actions the school community could take to support them, and for each action explain which TWO dimensions of hauora it would most help and WHY.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -224,7 +225,7 @@
         "mental-health-y10"
       ],
       "answerType": "working",
-      "markingGuide": "Up to 2 marks for explaining effects on at least 3 dimensions of hauora: Taha whānau (social) — they are separated from their friends and family networks, and struggling to build new connections at school, leading to loneliness;.\n\nTaha hinengaro (mental/emotional) — feeling isolated may cause anxiety, sadness, or low self-esteem;.\n\nTaha wairua (spiritual) — they may feel a loss of identity and purpose, disconnected from their culture and the things that gave their life meaning;.\n\nTaha tinana (physical) — stress and loneliness can affect sleep, appetite, and physical health.\n\nMust address 3 dimensions well for 1 mark, all 4 with depth for 2 marks.\n\n1 mark for suggesting TWO practical actions (e.g. a buddy system where an existing student is paired with the new student;.\n\na school cultural diversity day where the new student can share their culture;.\n\nteachers checking in regularly;.\n\ninviting them to join a sports team or club;.\n\nhaving a peer support group;.\n\nensuring the school has a welcoming environment that values different cultures)."
+      "markingGuide": "Up to 2 marks for part (a) — must address all four dimensions with a specific, plausible consequence:\n\nTaha whānau — separated from old friends/extended family, eating lunch alone, no sense of belonging at the new school.\n\nTaha hinengaro — anxiety about being misunderstood, embarrassment about their English, sadness, possible signs of depression, school refusal.\n\nTaha wairua — disconnected from culture, language and identity that gave their old life meaning; may feel they have lost their place in the world.\n\nTaha tinana — stress can cause poor sleep and appetite, leading to fatigue, and missing school means less physical activity.\n\nAward 1 mark for 3 dimensions explained well, 2 marks for all 4 dimensions explained well with specific consequences.\n\n1 mark for part (b) — TWO specific actions, each with the TWO dimensions it most supports AND a justification.\n\nExamples of strong actions:\n\nBuddy system — pair the new student with a kind, bilingual or culturally aware student who eats lunch with them and walks them to class. Most supports taha whānau (rebuilds belonging) and taha hinengaro (less anxiety knowing they have someone).\n\nCultural sharing day or international club — invites the student to share food, music or photos from their home culture. Most supports taha wairua (reconnects them with identity and meaning) and taha whānau (helps the school community get to know them).\n\nESOL support classes / teacher check-ins — supports taha hinengaro (less stress about language) and taha tinana (improved attendance, regular routines).\n\nDo NOT award the action mark unless BOTH actions identify TWO dimensions and explain why."
     }
   ],
   "cutScores": {

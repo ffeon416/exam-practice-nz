@@ -11,15 +11,15 @@
     {
       "id": "caan24-q1a",
       "number": "1(a)",
-      "text": "Tuatara have lived in Aotearoa New Zealand for around 60 million years. The earliest ferns found in New Zealand date back roughly 300 million years.\n\nThe timeline below runs from 300 million years ago (earliest ferns) to today, with five arrows labelled 1 to 5 at equal intervals.\n\nWhich arrow best shows 60 million years ago on this timeline?",
+      "text": "Tuatara have lived in Aotearoa New Zealand for around 60 million years. The earliest ferns found in New Zealand date back roughly 300 million years.\n\nThe timeline below runs from 300 million years ago (earliest ferns) to today, with five arrows labelled 1 to 5 at equal intervals (each interval is 50 million years).\n\nA scientist wants to mark when dinosaurs first appeared (about 240 million years ago). Which numbered arrow is closest to 240 million years ago?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "timeline-reading"
       ],
       "answerType": "number",
-      "expectedAnswer": "5",
-      "markingGuide": "Step 1: The 5 arrows divide the timeline into 6 equal sections of 50 million years each.\n\nStep 2: Arrow 1 = 250 mya, Arrow 2 = 200 mya, Arrow 3 = 150 mya, Arrow 4 = 100 mya, Arrow 5 = 50 mya.\n\nStep 3: 60 mya is closest to Arrow 5 (50 mya).\n\nStep 4: Accept 5.",
+      "expectedAnswer": "1",
+      "markingGuide": "Step 1: Each arrow is 50 million years apart, working forward from 300 mya.\n\nStep 2: Arrow 1 = 250 mya, Arrow 2 = 200 mya, Arrow 3 = 150 mya, Arrow 4 = 100 mya, Arrow 5 = 50 mya.\n\nStep 3: 240 mya: distance to Arrow 1 (250) = 10, distance to Arrow 2 (200) = 40.\n\nStep 4: Closest is Arrow 1.\n\nFinal answer: 1.",
       "graph": {
         "type": "number-line",
         "title": "Timeline (million years ago)",
@@ -55,37 +55,39 @@
     {
       "id": "caan24-q1b",
       "number": "1(b)",
-      "text": "A kereru (wood pigeon) weighs 650 grams. It eats a large karaka berry that weighs 13 grams.\n\nHow many times heavier is the kereru than the berry?",
+      "text": "An adult kererū (wood pigeon) weighs 650 grams. A young kererū chick weighs only 1/10 of the adult's weight, and the largest karaka berry it eats weighs 13 grams.\n\nHow many of these karaka berries together would have the SAME mass as the chick?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
         "division",
+        "fractions",
         "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "50",
-      "markingGuide": "650 / 13 = 50. The kereru is 50 times heavier than the berry."
+      "expectedAnswer": "5",
+      "markingGuide": "Step 1: Chick mass = 1/10 of 650 g = 65 g.\n\nStep 2: Number of berries = 65 ÷ 13 = 5.\n\nStep 3: So 5 berries together weigh the same as the chick."
     },
     {
       "id": "caan24-q1c",
       "number": "1(c)",
-      "text": "A pair of tui birds nests once or twice each year. Each nest produces 2 to 4 chicks.\n\nIf a pair of tui nests every year and all chicks survive, about how many chicks would you expect from one pair in 6 years? Show the calculations you used to get your answer.",
+      "text": "A pair of tui nests TWICE each year. Each nest produces between 2 and 4 chicks, but only about HALF of all chicks survive to leave the nest.\n\nUsing the AVERAGE number of chicks per nest (3), estimate how many surviving chicks one pair of tui would produce in 6 years. Show your working.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "estimation",
-        "multiplication"
+        "multiplication",
+        "fractions"
       ],
       "answerType": "working",
-      "expectedAnswer": "18 chicks (1 nest × 3 chicks × 6 years)",
-      "markingGuide": "Step 1: This is an estimation question — accept any reasonable answer between 12 and 48 with clear working.\n\nStep 2: Common correct approaches: (1) 1 nest × 3 chicks (mid of 2–4) × 6 years = 18.\n\nStep 3: (2) Minimum: 1 × 2 × 6 = 12.\n\nStep 4: (3) Maximum: 2 × 4 × 6 = 48.\n\nStep 5: (4) Mid-range nests: 1.5 × 3 × 6 = 27.\n\nStep 6: Student must show their working — nests per year × chicks per nest × number of years.\n\nFinal answer: 18 chicks (1 nest × 3 chicks × 6 years)."
+      "expectedAnswer": "18 surviving chicks",
+      "markingGuide": "Step 1: Average chicks per nest = 3.\n\nStep 2: Chicks per year = 2 nests × 3 chicks = 6 chicks.\n\nStep 3: Over 6 years = 6 × 6 = 36 chicks.\n\nStep 4: Half survive: 36 ÷ 2 = 18 surviving chicks.\n\nStep 5: Student must show all working steps. Accept answers between 12 and 24 if working clearly justifies the figure.\n\nFinal answer: 18 surviving chicks."
     },
     {
       "id": "caan24-q1d",
       "number": "1(d)",
-      "text": "In 2010, a conservation group planted native trees on a reserve. The graph above shows how many trees were alive each year.\n\nCalculate the average number of new trees added per year between 2012 and 2018.",
+      "text": "In 2010, a conservation group planted native trees on a reserve. The graph above shows how many trees were alive each year.\n\n(a) Calculate the average number of NEW trees added per year between 2012 and 2018.\n(b) Between which TWO consecutive listed years did the trees increase by the largest NUMBER? Give your final answer as the average from part (a) only.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
         "averages",
@@ -93,7 +95,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "20",
-      "markingGuide": "Step 1: Read from the graph: 2012 = 40 trees, 2018 = 160 trees.\n\nStep 2: Increase = 160 - 40 = 120 trees over 6 years.\n\nStep 3: Average per year = 120 ÷ 6 = 20 trees.\n\nStep 4: Accept 20.",
+      "markingGuide": "Step 1: Read from the graph: 2012 = 40 trees, 2018 = 160 trees.\n\nStep 2: Increase = 160 − 40 = 120 trees over 6 years.\n\nStep 3: Average per year = 120 ÷ 6 = 20 trees per year.\n\nStep 4: For (b), the largest jump is between 2016 (120) and 2018 (160), an increase of 40 in 2 years. The student should also notice 2014→2016 is also +40. (No mark deducted for noting either.)\n\nFinal answer (numeric): 20.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -124,16 +126,17 @@
     {
       "id": "caan24-q1e",
       "number": "1(e)",
-      "text": "Volunteers measured the heights of 25 young kauri trees at a nursery. The histogram above shows the distribution of tree heights. The median height was 1.4 m.\n\nDoes the data suggest some of these trees were recently planted? Explain your answer using information from the histogram.",
+      "text": "Volunteers measured the heights of 25 young kauri trees. The histogram above shows the distribution. The median height is 1.4 m.\n\nA volunteer says: 'Most of the trees are taller than the median.'\n\nUsing data from the histogram, explain whether this statement is correct AND identify what the median actually tells you about a data set.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
-        "data-interpretation"
+        "data-interpretation",
+        "averages"
       ],
       "answerType": "text",
-      "expectedAnswer": "Yes — some trees are quite short (0.6–1.0 m), which suggests they were planted more recently",
-      "markingGuide": "Student must say yes AND refer to specific heights from the data.\n\nTrees below about 1.2 m are likely more recently planted since established nursery kauri are typically 1.2–2.0 m.\n\nAccept reference to heights below the median or in the 0.6–1.0 m range as evidence of younger plantings.",
+      "expectedAnswer": "Incorrect — by definition the median splits the data so that about HALF the trees are above and HALF are below the median. From the histogram, 12 trees are below 1.4 m and 13 are at/above, so the volunteer is wrong.",
+      "markingGuide": "Student must show that they understand the median is the middle value (not the average).\n\nFrom the data: bars below 1.4 m are 0.5–0.8 (3), 0.8–1.1 (4), 1.1–1.4 (5) = 12 trees.\n\nBars at/above 1.4 m are 1.4–1.7 (7), 1.7–2.0 (4), 2.0–2.2 (2) = 13 trees.\n\n12 vs 13 is essentially half/half — so the claim 'most are taller' is false.\n\nMust also state the median is the MIDDLE value of an ordered data set (about 50% above, 50% below).",
       "graph": {
         "type": "histogram",
         "title": "Heights of 25 Young Kauri Trees",
@@ -170,196 +173,200 @@
     {
       "id": "caan24-q1f",
       "number": "1(f)",
-      "text": "A nature reserve is located about 150 km south of Hamilton.\n\nUsing the information that the reserve is approximately 150 km away, and knowing that Hamilton is in the central North Island, which of these towns is closest to where the reserve might be?\n\n(A) Tauranga (about 105 km east of Hamilton)\n(B) Taupō (about 150 km south of Hamilton)\n(C) New Plymouth (about 200 km south-west of Hamilton)\n(D) Rotorua (about 110 km south-east of Hamilton)\n(E) Whanganui (about 260 km south-west of Hamilton)",
+      "text": "A nature reserve is approximately 150 km south of Hamilton on a straight bearing. A school group plans to drive there at an average speed of 75 km/h.\n\nWhich town listed below is closest to the reserve, AND approximately how long will the drive take?\n\n(A) Tauranga (about 105 km east of Hamilton)\n(B) Taupō (about 150 km south of Hamilton)\n(C) New Plymouth (about 200 km south-west of Hamilton)\n(D) Rotorua (about 110 km south-east of Hamilton)\n(E) Whanganui (about 260 km south-west of Hamilton)",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "map-reading",
-        "estimation"
+        "estimation",
+        "rates"
       ],
       "answerType": "multi-choice",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "A — about 1 hour 24 minutes",
+        "B — about 2 hours",
+        "C — about 2 hours 40 minutes",
+        "D — about 1 hour 28 minutes",
+        "E — about 3 hours 28 minutes"
       ],
-      "expectedAnswer": "B",
-      "markingGuide": "Student must identify the correct letter. Taupō is approximately 150 km south of Hamilton. Accept B."
+      "expectedAnswer": "B — about 2 hours",
+      "markingGuide": "Step 1: The reserve is 150 km south of Hamilton — Taupō is the closest match (B).\n\nStep 2: Time = distance ÷ speed = 150 ÷ 75 = 2 hours.\n\nStep 3: Accept B."
     },
     {
       "id": "caan24-q2a",
       "number": "2(a)",
-      "text": "Wiremu creates a growing triangle pattern using toothpicks.\n\nPattern 1 uses 3 toothpicks, Pattern 2 uses 9 toothpicks, Pattern 3 uses 19 toothpicks, Pattern 4 uses 33 toothpicks.\n\nThe differences between consecutive patterns are: 6, 10, 14 (increasing by 4 each time).\n\nHow many toothpicks would Pattern 5 need, in total?",
+      "text": "Wiremu creates a growing triangle pattern using toothpicks.\n\nPattern 1: 3 toothpicks. Pattern 2: 9. Pattern 3: 19. Pattern 4: 33. The differences between consecutive patterns are 6, 10, 14 (each difference increases by 4).\n\nHow many toothpicks would Pattern 6 need IN TOTAL?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "patterns"
       ],
       "answerType": "number",
-      "expectedAnswer": "51",
-      "markingGuide": "The pattern of total toothpicks is: 3, 9, 19, 33, ...\n\nThe differences are: 6, 10, 14, ...\n\n(increasing by 4 each time).\n\nSo the next difference is 18.\n\n33 + 18 = 51 toothpicks for Pattern 5."
+      "expectedAnswer": "73",
+      "markingGuide": "Step 1: The differences are: 6, 10, 14, ... each increases by 4.\n\nStep 2: Next differences after 14 are 18, then 22.\n\nStep 3: Pattern 5 = 33 + 18 = 51.\n\nStep 4: Pattern 6 = 51 + 22 = 73.\n\nStep 5: Final answer: 73 toothpicks."
     },
     {
       "id": "caan24-q2b",
       "number": "2(b)",
-      "text": "Hana is designing a woven mat pattern. The mat has six numbered horizontal stripes (1–6) running through the design.\n\nThe pattern repeats every 3 stripes. Lines of reflection symmetry pass through stripes 2 and 5.\n\nWhich numbers show lines of reflection symmetry in Hana's design? There is more than one answer.\n\nSelect TWO answers.",
+      "text": "Hana is designing a woven mat with 12 numbered horizontal stripes (1–12). The pattern repeats every 3 stripes, and each repeating block has ONE line of reflection symmetry through its middle stripe.\n\nWhich numbered stripes are lines of reflection symmetry across the WHOLE mat? Select ALL that apply.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "symmetry"
+        "symmetry",
+        "patterns"
       ],
       "answerType": "multi-choice",
       "options": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+        "1, 4, 7, 10",
+        "2, 5, 8, 11",
+        "3, 6, 9, 12",
+        "1, 5, 9",
+        "2, 6, 10"
       ],
-      "expectedAnswer": "2 and 5",
-      "markingGuide": "Lines of reflection symmetry in the woven mat pass through stripes 2 and 5 (the horizontal lines of symmetry that divide each repeating section).\n\nAccept 2 and 5 only."
+      "expectedAnswer": "2, 5, 8, 11",
+      "markingGuide": "The pattern repeats every 3 stripes, so the blocks are stripes 1–3, 4–6, 7–9, 10–12.\n\nThe middle of each block is stripes 2, 5, 8, 11.\n\nThese are the lines of reflection symmetry."
     },
     {
       "id": "caan24-q2c",
       "number": "2(c)",
-      "text": "Standard proportions for a cartoon character show the head is 1/4 of the total figure height, and the legs start at 1/2 of the total height. A student's drawing has the legs starting at 2/5 of the total height.\n\nIs the leg position correct? Use fractions to explain your answer.",
+      "text": "Standard cartoon proportions say the head is 1/4 of the total figure height, the legs start at 1/2, and the arms reach down to 5/8 of the total height.\n\nA student's drawing has the legs starting at 2/5 of the height. By what FRACTION of the total height are the legs drawn TOO HIGH?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "fractions"
       ],
       "answerType": "text",
-      "expectedAnswer": "No — the legs should start at 1/2 but they start at 2/5, which is too high up",
-      "markingGuide": "Step 1: Student must compare fractions: 1/2 = 0.5 and 2/5 = 0.4.\n\nStep 2: Since 2/5 < 1/2, the legs start too high up (the upper body is too short).\n\nStep 3: Accept any response that correctly compares these fractions and reaches a justified conclusion.\n\nFinal answer: No — the legs should start at 1/2 but they start at 2/5, which is too high up."
+      "expectedAnswer": "1/10",
+      "markingGuide": "Step 1: Convert to a common denominator: 1/2 = 5/10 and 2/5 = 4/10.\n\nStep 2: Difference = 5/10 − 4/10 = 1/10.\n\nStep 3: The legs are drawn 1/10 of the figure's total height too high.\n\nFinal answer: 1/10."
     },
     {
       "id": "caan24-q2d",
       "number": "2(d)",
-      "text": "A trophy has the shape of a rectangular base with a triangular top (like a house shape). When viewed from the front, you see the full rectangle and triangle. When viewed from the right side, you see a rectangle only (no triangle visible).\n\nWhich of these shapes shows the correct top view of the trophy?\n\n(A) A circle\n(B) A rectangle\n(C) A triangle\n(D) A hexagon\n(E) An L-shape",
+      "text": "A trophy is shaped like a cylinder (the base) with a square-based pyramid (the top) sitting on it. The cylinder has diameter 10 cm and the pyramid's base is a square that just fits inside the top of the cylinder.\n\nViewed FROM ABOVE (top view), what shape would you see?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "spatial-reasoning"
       ],
       "answerType": "multi-choice",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "A circle only",
+        "A circle with a square inscribed inside it (the square's corners touching the circle)",
+        "A square only",
+        "A hexagon",
+        "A triangle"
       ],
-      "expectedAnswer": "B",
-      "markingGuide": "Looking from above, the trophy with a rectangular base and triangular roof would appear as a rectangle (the footprint of the base).\n\nAccept B."
+      "expectedAnswer": "A circle with a square inscribed inside it (the square's corners touching the circle)",
+      "markingGuide": "Looking from directly above, you see the circular outline of the cylinder PLUS the square outline of the pyramid base sitting inside the circle (its corners touching the circle).\n\nThe pyramid itself appears as a square because you are looking straight down its central axis.\n\nAccept the option that mentions both circle AND inscribed square."
     },
     {
       "id": "caan24-q2e",
       "number": "2(e)",
-      "text": "In 1990, a rare NZ coin sold for $400. In 2024, the same coin sold for $2 million.\n\nHow many $400 coins could you buy for $2 million?\n\nTick the correct answer.",
+      "text": "In 1990, a rare NZ coin sold for $400. In 2024, it sold for $2 million.\n\n(a) How many TIMES more valuable is the coin in 2024 than 1990?\n(b) By what PERCENTAGE has the value increased? Tick the closest answer.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "division",
-        "place-value"
+        "percentages"
       ],
       "answerType": "multi-choice",
       "options": [
-        "50",
-        "500",
-        "5,000",
-        "50,000",
-        "500,000"
+        "5 times more, 400% increase",
+        "500 times more, 49,900% increase",
+        "5,000 times more, 499,900% increase",
+        "50,000 times more, 4,999,900% increase",
+        "500,000 times more, 49,999,900% increase"
       ],
-      "expectedAnswer": "5,000",
-      "markingGuide": "Step 1: $2 million = $2,000,000.\n\nStep 2: $2,000,000 / $400 = 5,000."
+      "expectedAnswer": "5,000 times more, 499,900% increase",
+      "markingGuide": "Step 1: $2,000,000 ÷ $400 = 5,000. So the coin is 5,000 times more valuable.\n\nStep 2: Increase = $2,000,000 − $400 = $1,999,600.\n\nStep 3: Percentage increase = (1,999,600 ÷ 400) × 100 = 4,999 × 100 = 499,900%.\n\nStep 4: Accept the option '5,000 times more, 499,900% increase'."
     },
     {
       "id": "caan24-q2f",
       "number": "2(f)",
-      "text": "The drive from Auckland to Rotorua takes three hours and 42 minutes.\n\nHow much time is that rounded to the nearest hour?",
+      "text": "A bus drives from Auckland to Rotorua. The driver records the trip as 3 hours 42 minutes of driving and TWO breaks of 18 minutes each.\n\nWhat is the TOTAL time from Auckland to Rotorua, rounded to the nearest 15 minutes? Give your answer in hours and minutes.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "rounding",
         "time"
       ],
-      "answerType": "number",
-      "expectedAnswer": "4",
-      "markingGuide": "3 hours 42 minutes. 42 minutes is more than 30 minutes, so it rounds up to 4 hours."
+      "answerType": "text",
+      "expectedAnswer": "4 hours 15 minutes",
+      "markingGuide": "Step 1: Driving = 3 h 42 min.\n\nStep 2: Break time = 2 × 18 = 36 min.\n\nStep 3: Total = 3 h 42 min + 36 min = 4 h 18 min.\n\nStep 4: Round to nearest 15 minutes: 18 min is closer to 15 min than to 30 min, so round to 4 h 15 min.\n\nFinal answer: 4 hours 15 minutes."
     },
     {
       "id": "caan24-q3a",
       "number": "3(a)",
-      "text": "A large fish tank holds 15 litres of water when full and weighs 15.372 kilograms.\n\nHow much does the empty fish tank weigh, in grams?\n\nNote: One litre of water weighs one kilogram.",
+      "text": "A large fish tank holds 18 litres of water when full and weighs 18.45 kilograms when full.\n\n(One litre of water weighs one kilogram.)\n\nHow much does the EMPTY tank weigh, in GRAMS?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "unit-conversion",
         "subtraction"
       ],
       "answerType": "number",
-      "expectedAnswer": "372",
-      "markingGuide": "Step 1: 15 litres of water weighs 15 kg.\n\nStep 2: Total weight is 15.372 kg.\n\nStep 3: Empty tank = 15.372 - 15 = 0.372 kg = 372 grams."
+      "expectedAnswer": "450",
+      "markingGuide": "Step 1: 18 L of water weighs 18 kg.\n\nStep 2: Empty tank = 18.45 − 18.00 = 0.45 kg.\n\nStep 3: Convert to grams: 0.45 × 1000 = 450 g.\n\nFinal answer: 450."
     },
     {
       "id": "caan24-q3b",
       "number": "3(b)",
-      "text": "Each of five bottles holds 1.5 litres of cordial.\n\nHow many 250 mL cups can you fill from all five bottles?",
+      "text": "Six bottles each hold 1.25 litres of cordial. The cordial must be diluted with water in the ratio 1 part cordial to 4 parts water before serving.\n\nHow many 250 mL cups of DILUTED drink can be made from all six bottles?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
+        "ratios",
         "division",
         "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "30",
-      "markingGuide": "Step 1: Total cordial = 5 x 1.5 L = 7.5 L = 7500 mL.\n\nStep 2: Number of cups = 7500 / 250 = 30."
+      "expectedAnswer": "150",
+      "markingGuide": "Step 1: Total cordial = 6 × 1.25 = 7.5 L = 7,500 mL.\n\nStep 2: Ratio is 1 cordial : 4 water, so total drink is 5 parts (1 + 4).\n\nStep 3: Total diluted drink = 7,500 × 5 = 37,500 mL.\n\nStep 4: Number of 250 mL cups = 37,500 ÷ 250 = 150.\n\nFinal answer: 150."
     },
     {
       "id": "caan24-q3c",
       "number": "3(c)",
-      "text": "Water makes up about 55% of an adult dog's body weight and about 75% of a puppy's body weight. This puppy weighs 4 kilograms, while the adult dog weighs 8 kilograms.\n\nHow much more water, in kilograms, does the adult dog have in their body than the puppy has in their body?",
+      "text": "Water makes up about 55% of an adult dog's body weight and about 75% of a puppy's body weight. The puppy weighs 4 kg and the adult dog weighs 8 kg.\n\nThe owner wants to give each dog a daily 'water from food' contribution equal to 10% of the dog's water weight.\n\nHow much water (in grams) does the OWNER need to provide for BOTH dogs combined?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "percentages",
-        "subtraction"
+        "addition",
+        "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "1.4",
-      "markingGuide": "Step 1: Puppy water: 75% of 4 kg = 3 kg.\n\nStep 2: Adult dog water: 55% of 8 kg = 4.4 kg.\n\nStep 3: Difference: 4.4 - 3 = 1.4 kg."
+      "expectedAnswer": "740",
+      "markingGuide": "Step 1: Puppy water = 75% of 4 kg = 3 kg.\n\nStep 2: Adult dog water = 55% of 8 kg = 4.4 kg.\n\nStep 3: Total water in both dogs = 3 + 4.4 = 7.4 kg.\n\nStep 4: 10% of 7.4 kg = 0.74 kg.\n\nStep 5: Convert to grams: 0.74 × 1000 = 740 g.\n\nFinal answer: 740."
     },
     {
       "id": "caan24-q3d",
       "number": "3(d)",
-      "text": "Here is Tama's internet bill for one month.\n\nFibreLine: Data used 240 GB, Rate $/GB = ?, Charge $72.00.\n\nHow much does Tama pay per gigabyte (GB) of data?\n\nNote: $/GB means dollars per gigabyte.",
+      "text": "Tama's internet bill says he used 240 GB of data and was charged $72.00, plus a fixed monthly access fee of $30.00 (the $72.00 does NOT include the access fee).\n\nWhat is Tama's TOTAL bill, AND what is the average cost per GB of data when the access fee is included?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "rates",
-        "division"
+        "division",
+        "addition"
       ],
       "answerType": "number",
-      "expectedAnswer": "0.30",
-      "markingGuide": "Rate = $72.00 / 240 = $0.30 per GB."
+      "expectedAnswer": "0.425",
+      "markingGuide": "Step 1: Total bill = $72.00 + $30.00 = $102.00.\n\nStep 2: Average cost per GB = $102.00 ÷ 240 = $0.425 per GB.\n\nStep 3: Accept 0.425 (or $0.43 rounded to nearest cent — both should be marked correct with working).\n\nFinal answer: 0.425."
     },
     {
       "id": "caan24-q3e",
       "number": "3(e)",
-      "text": "Mere's whanau want to save water. There are four people in Mere's whanau.\n\nMere has two ideas for saving water:\n• Reducing daily shower time from 8 minutes to 4 minutes per person.\n• Running the washing machine once every two days rather than every day.\n\nUse the table above to work out which of Mere's two ideas would save the most water. Explain your answer using information from the table.",
+      "text": "Mere's whānau of four people want to save water. The table above shows their current daily water use.\n\nMere has two ideas:\n• Idea 1: Reduce shower time from 8 minutes to 4 minutes per person (each shower).\n• Idea 2: Run the washing machine every 2 days instead of every day.\n\n(a) Calculate the daily water saving in LITRES from EACH idea (assume each person showers once per day).\n(b) State which idea saves more water and by how much per WEEK (7 days).",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "tables",
         "estimation",
         "multiplication"
       ],
       "answerType": "working",
-      "expectedAnswer": "Reducing shower time saves more water",
-      "markingGuide": "Step 1: Student must compare both ideas using table data.\n\nStep 2: Idea 1 (shower time): Saving per person = 80 - 40 = 40 litres/day.\n\nStep 3: For 4 people = 160 litres/day.\n\nStep 4: Idea 2 (washing machine): Running every 2 days saves 120/2 = 60 litres/day.\n\nStep 5: Shower reduction (160 L) saves more than washing machine (60 L).\n\nStep 6: Accept answer with correct calculations shown.\n\nFinal answer: Reducing shower time saves more water.",
+      "expectedAnswer": "Idea 1 saves 100 L more per day; over a week that is 700 L more",
+      "markingGuide": "Step 1: Idea 1: shower saving per person = 80 − 40 = 40 L. For 4 people = 160 L/day.\n\nStep 2: Idea 2: washing machine — saves 120 L every 2 days = 60 L/day on average.\n\nStep 3: Difference = 160 − 60 = 100 L/day in favour of Idea 1.\n\nStep 4: Per week = 100 × 7 = 700 L.\n\nFinal answer: Idea 1 saves 100 L per day more than Idea 2, which is 700 L more per week.",
       "graph": {
         "type": "table",
         "title": "Estimated Water Use",
@@ -388,16 +395,17 @@
     {
       "id": "caan24-q3f",
       "number": "3(f)",
-      "text": "The chart above shows the average sunshine hours for each month of the year in Dunedin.\n\nCalculate the average monthly sunshine hours across the three summer months (Dec, Jan, Feb).",
+      "text": "The chart above shows the average sunshine hours each month in Dunedin.\n\nCalculate the AVERAGE monthly sunshine across the three SUMMER months (Dec, Jan, Feb), AND determine how many MORE hours of sunshine the average summer month has compared to the average WINTER month (Jun, Jul, Aug). Give the difference (in whole hours).",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
-        "averages"
+        "averages",
+        "subtraction"
       ],
       "answerType": "number",
-      "expectedAnswer": "180",
-      "markingGuide": "Step 1: From the chart: Dec = 185, Jan = 190, Feb = 165.\n\nStep 2: Sum = 185 + 190 + 165 = 540.\n\nStep 3: Average = 540 / 3 = 180 hours.\n\nStep 4: Accept 180.",
+      "expectedAnswer": "87",
+      "markingGuide": "Step 1: Summer total = Dec 185 + Jan 190 + Feb 165 = 540. Summer average = 540 ÷ 3 = 180 hours.\n\nStep 2: Winter total = Jun 80 + Jul 90 + Aug 110 = 280. Winter average = 280 ÷ 3 ≈ 93.33 hours.\n\nStep 3: Difference = 180 − 93.33 ≈ 86.67 hours.\n\nStep 4: Rounded to whole hours = 87.\n\nFinal answer: 87.",
       "graph": {
         "type": "bar",
         "title": "Average Monthly Sunshine Hours — Dunedin",
@@ -458,16 +466,16 @@
     {
       "id": "caan24-q4a",
       "number": "4(a)",
-      "text": "Pasifika Festival is a cultural event held every year in Auckland. The chart above shows approximate attendance figures.\n\n(There was no event in 2020 or 2021 due to COVID-19.)\n\nAbout how many more people attended Pasifika Festival in 2022 than in 2015?",
+      "text": "Pasifika Festival is held annually in Auckland. The chart above shows attendance.\n\n(There was no event in 2020 or 2021 due to COVID-19.)\n\nCalculate the PERCENTAGE INCREASE in attendance from 2015 to 2022. Give your answer to the nearest whole percent.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
-        "subtraction"
+        "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "40000",
-      "markingGuide": "Step 1: From the data: 2022 attendance = 65,000, 2015 attendance = 25,000.\n\nStep 2: Difference = 65,000 - 25,000 = 40,000.\n\nStep 3: Accept 40,000.\n\nFinal answer: 40000.",
+      "expectedAnswer": "160",
+      "markingGuide": "Step 1: 2015 attendance = 25,000. 2022 attendance = 65,000.\n\nStep 2: Increase = 65,000 − 25,000 = 40,000.\n\nStep 3: Percentage increase = (40,000 ÷ 25,000) × 100 = 1.6 × 100 = 160%.\n\nStep 4: Accept 160.\n\nFinal answer: 160.",
       "graph": {
         "type": "bar",
         "title": "Pasifika Festival Attendance",
@@ -500,16 +508,17 @@
     {
       "id": "caan24-q4b",
       "number": "4(b)",
-      "text": "Pasifika Festival organisers think attendance will reach 85,000 by 2026.\n\nUsing the attendance data from the chart above, do you agree or disagree? Explain your answer using the data.",
+      "text": "Pasifika Festival organisers think attendance will reach 85,000 by 2026.\n\nUsing the data, calculate the AVERAGE yearly increase between 2015 and 2018, then explain whether the 85,000 target by 2026 is REASONABLE based on that rate. (Assume attendance also grew at this average rate from 2018 to 2026.)",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
-        "data-interpretation"
+        "data-interpretation",
+        "rates"
       ],
       "answerType": "text",
-      "expectedAnswer": "Agree — attendance has been increasing steadily and 85,000 follows the trend",
-      "markingGuide": "Student should reference specific data.\n\nAgree: attendance has been growing by about 5,000–10,000 each year, so 85,000 by 2026 is reasonable.\n\nDisagree: growth may slow down;.\n\nthere was no data for 2020–2021.\n\nAccept either position if supported by evidence from the data.",
+      "expectedAnswer": "Average yearly increase 2015–2018 was about 8,333 per year. At that rate from 2018 (50,000), 8 more years would add 66,667, giving roughly 116,667. So 85,000 is well within reach — the target is reasonable, possibly conservative.",
+      "markingGuide": "Step 1: 2015 = 25,000, 2018 = 50,000. Increase = 25,000 over 3 years.\n\nStep 2: Average yearly increase = 25,000 ÷ 3 ≈ 8,333.\n\nStep 3: From 2018 to 2026 is 8 years. 8 × 8,333 = 66,667.\n\nStep 4: Predicted 2026 attendance = 50,000 + 66,667 ≈ 116,667.\n\nStep 5: Conclusion: 85,000 is well within this trend, so the target is reasonable (perhaps conservative).\n\nAccept any answer that uses the rate calculation correctly and reaches a justified conclusion.\n\nFinal answer: Yes, reasonable — at the historic average rate, attendance could exceed 85,000 by 2026.",
       "graph": {
         "type": "bar",
         "title": "Pasifika Festival Attendance",
@@ -542,29 +551,30 @@
     {
       "id": "caan24-q4c",
       "number": "4(c)",
-      "text": "Here are the ticket prices for a school cultural showcase:\n\nTicket options:\n• $6.00 — Standard (online, fixed night)\n• $8.00 — Flexi (online, any night)\n• $10.00 — Door entry on the night\n\nIf you buy Standard tickets online for two nights, you get a 25% discount off the total.\n\nThree adults want to attend on both Friday and Saturday.\n\nWhat will the total cost be for the group?",
+      "text": "Ticket prices for a school cultural showcase are:\n• $6.00 — Standard (online, fixed night)\n• $8.00 — Flexi (online, any night)\n• $10.00 — Door entry on the night\n\nIf you buy Standard tickets online for two nights, you get a 25% discount off the total. A 15% booking fee is then added to the discounted price.\n\nThree adults want to attend on both Friday and Saturday using the Standard option.\n\nWhat is the TOTAL cost for the group (in dollars to the nearest cent)?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "percentages",
         "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "27",
-      "markingGuide": "Step 1: 3 adults, Standard online ($6.00), 2 nights each.\n\nStep 2: Total before discount: 3 x $6.00 x 2 = $36.00.\n\nStep 3: 25% discount: $36.00 x 0.25 = $9.00.\n\nStep 4: Total: $36.00 - $9.00 = $27.00."
+      "expectedAnswer": "31.05",
+      "markingGuide": "Step 1: 3 adults × $6.00 × 2 nights = $36.00 (full price).\n\nStep 2: Apply 25% discount: $36.00 × 0.75 = $27.00.\n\nStep 3: Apply 15% booking fee: $27.00 × 1.15 = $31.05.\n\nStep 4: Final total = $31.05.\n\nFinal answer: 31.05."
     },
     {
       "id": "caan24-q4d",
       "number": "4(d)",
-      "text": "A school fun run has 12 competing teams from different zones. The pie chart above shows how many teams come from each zone.\n\nEach team has the same chance of winning. What is the probability that a team from the East zone wins?\n\nGive your answer as a fraction.",
+      "text": "A school fun run has 12 competing teams from different zones. The pie chart above shows how many teams come from each zone.\n\nIf each team has an equal chance of winning, what is the probability that the winner comes from the EAST or WEST zone? Give your answer as a SIMPLIFIED fraction.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "probability"
+        "probability",
+        "fractions"
       ],
       "answerType": "text",
-      "expectedAnswer": "2/12 or 1/6",
-      "markingGuide": "Step 1: Count East teams: 2 out of 12 total.\n\nStep 2: Probability = 2/12 = 1/6.\n\nStep 3: Accept 2/12, 1/6, or equivalent.\n\nFinal answer: 2/12 or 1/6.",
+      "expectedAnswer": "1/4",
+      "markingGuide": "Step 1: East = 2 teams, West = 1 team.\n\nStep 2: East or West = 3 teams out of 12.\n\nStep 3: Probability = 3/12 = 1/4.\n\nFinal answer: 1/4 (or 0.25).",
       "graph": {
         "type": "pie",
         "title": "Fun Run Teams by Zone",
@@ -595,16 +605,17 @@
     {
       "id": "caan24-q4e",
       "number": "4(e)",
-      "text": "The timetable above shows the schedule for rugby and netball games at a school sports day.\n\nBy the time all the morning rugby games have finished (not counting breaks), how many total minutes of rugby game time have been played?",
+      "text": "The timetable above shows the morning rugby and netball games at a school sports day.\n\nCalculate the TOTAL minutes of GAME time (rugby + netball, NOT counting breaks) shown in the morning timetable.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "timetables",
+        "addition",
         "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "75",
-      "markingGuide": "Step 1: There are 3 rugby games shown in the timetable (Game 1, Game 2, Game 3), each lasting 25 minutes (9:00-9:25, 9:30-9:55, 10:00-10:25).\n\nStep 2: Total rugby time = 3 × 25 = 75 minutes.",
+      "expectedAnswer": "135",
+      "markingGuide": "Step 1: Rugby — 3 games of 25 minutes each = 75 minutes.\n\nStep 2: Netball — 4 games of 15 minutes each = 60 minutes.\n\nStep 3: Total game time = 75 + 60 = 135 minutes.\n\nFinal answer: 135.",
       "graph": {
         "type": "table",
         "title": "School Sports Day Morning Timetable",
@@ -662,16 +673,17 @@
     {
       "id": "caan24-q4f",
       "number": "4(f)",
-      "text": "A marching group starts in Formation A: 4 rows of 10 performers with a flag bearer at the front (40 performers plus flag bearer). They then move to Formation B: 5 rows of 8 performers with the flag bearer at the front (still 40 performers plus flag bearer).\n\nWhat is the smallest number of performers from Formation A that need to change rows to make Formation B?",
+      "text": "A marching group performs a routine on a rectangular field that measures 30 m by 20 m. They want to add a triangular performance zone in front of the rectangle. The triangle has the same 30 m base as the rectangle and a height of 8 m.\n\nCalculate the TOTAL AREA of the marching display (rectangle + triangle), in square metres.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "spatial-reasoning",
-        "multiplication"
+        "area",
+        "addition",
+        "spatial-reasoning"
       ],
       "answerType": "number",
-      "expectedAnswer": "8",
-      "markingGuide": "Step 1: Formation A has 4 rows of 10 (40 performers).\n\nStep 2: Formation B has 5 rows of 8 (40 performers).\n\nStep 3: Keep 8 performers in each of the original 4 rows (32 stay in place).\n\nStep 4: Move 2 performers out of each of those 4 rows to form the new 5th row: 4 × 2 = 8 performers moved.\n\nStep 5: This creates a 5th row of exactly 8.\n\nStep 6: Minimum number of performers that need to change rows = 8."
+      "expectedAnswer": "720",
+      "markingGuide": "Step 1: Rectangle area = 30 × 20 = 600 m².\n\nStep 2: Triangle area = (1/2) × base × height = (1/2) × 30 × 8 = 120 m².\n\nStep 3: Total area = 600 + 120 = 720 m².\n\nFinal answer: 720."
     }
   ]
 }

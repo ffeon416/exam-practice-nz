@@ -11,85 +11,85 @@
     {
       "id": "y10ss1-q1",
       "number": "1",
-      "text": "In what year was the Treaty of Waitangi signed?",
+      "text": "The Treaty of Waitangi was signed on 6 February 1840. Place the following events in the CORRECT chronological order:\n\n(P) Captain James Cook arrives in Aotearoa\n(Q) The Treaty of Waitangi is signed\n(R) New Zealand women win the right to vote\n(S) New Zealand becomes a Dominion within the British Empire",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "treaty-of-waitangi"
       ],
       "answerType": "multi-choice",
       "options": [
-        "1769",
-        "1840",
-        "1893",
-        "1907"
+        "P → Q → R → S",
+        "Q → P → R → S",
+        "P → Q → S → R",
+        "Q → P → S → R"
       ],
-      "expectedAnswer": "1840",
-      "markingGuide": "The correct answer is 1840.\n\nHere's why:\nThe Treaty of Waitangi was signed on 6 February 1840 at Waitangi in the Bay of Islands.\nIt was signed between representatives of the British Crown and various Māori chiefs.\n1769 was Captain Cook's arrival, 1893 was women's suffrage, and 1907 was when NZ became a Dominion."
+      "expectedAnswer": "P → Q → R → S",
+      "markingGuide": "The correct order is P → Q → R → S.\n\nHere's why:\nP) Captain Cook arrives — 1769\nQ) Treaty of Waitangi signed — 1840\nR) Women's suffrage — 1893\nS) NZ becomes a Dominion — 1907\nA common mistake is to mix up suffrage (1893) and Dominion status (1907), or to assume the Treaty came before Cook.\nExam tip: try to remember a few 'anchor' dates from each century to help you order events."
     },
     {
       "id": "y10ss1-q2",
       "number": "2",
-      "text": "A key difference between the English and Te Reo Māori versions of the Treaty of Waitangi is that the English version used the word 'sovereignty' while the Te Reo Māori version used 'kāwanatanga'. What is the significance of this difference?",
+      "text": "The English version of the Treaty used the word 'sovereignty', while the Te Reo Māori version used 'kāwanatanga'. Why has this difference led to ongoing debate over what was actually agreed in 1840?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "treaty-of-waitangi"
       ],
       "answerType": "multi-choice",
       "options": [
-        "There is no significant difference — both words mean the same thing",
-        "'Kāwanatanga' (governance) implied less power than 'sovereignty', meaning Māori may not have agreed to give up full control",
-        "'Kāwanatanga' gave Māori more power than the English version intended",
-        "The Te Reo Māori version was written first and is therefore more accurate"
+        "Both words mean exactly the same thing, so there is no real debate",
+        "'Sovereignty' in English meant supreme authority, but 'kāwanatanga' literally means 'governance' (a more limited authority) — so many rangatira may have understood they were giving the Crown a right to govern the settlers, NOT the right to rule over Māori themselves",
+        "The Te Reo Māori version was written in the 1900s and is therefore more accurate",
+        "'Kāwanatanga' actually meant the chiefs were giving themselves more power"
       ],
-      "expectedAnswer": "'Kāwanatanga' (governance) implied less power than 'sovereignty', meaning Māori may not have agreed to give up full control",
-      "markingGuide": "The correct answer is that 'kāwanatanga' (governance) implied less power than 'sovereignty.\n\nHere's why:\nIn the English text, Māori ceded 'sovereignty' (full authority) to the Crown.\nIn the Te Reo Māori text, Māori ceded 'kāwanatanga' (governance or governorship), which did not carry the same meaning as full sovereignty.\nThis meant many rangatira (chiefs) may not have understood they were giving up complete authority over their lands and people.\nThis difference has been at the heart of Treaty disputes ever since."
+      "expectedAnswer": "'Sovereignty' in English meant supreme authority, but 'kāwanatanga' literally means 'governance' (a more limited authority) — so many rangatira may have understood they were giving the Crown a right to govern the settlers, NOT the right to rule over Māori themselves",
+      "markingGuide": "The correct answer is the option about kāwanatanga meaning 'governance'.\n\nHere's why:\n'Sovereignty' is the supreme legal authority over a country.\n'Kāwanatanga' is a transliteration of 'governor' — closer to 'governance' or 'governorship'.\nHistorians and the Waitangi Tribunal have argued that many rangatira would not have agreed to give up complete authority — they thought they were allowing the Crown to govern its own settlers while Māori retained tino rangatiratanga (chieftainship) over their own people and lands.\nThis is one of the central issues in Treaty interpretation today.\nExam tip: a single word can change the meaning of a whole agreement — translation is rarely neutral."
     },
     {
       "id": "y10ss1-q3",
       "number": "3",
-      "text": "Explain ONE reason why the Treaty of Waitangi is still important in New Zealand today. Give a specific example to support your answer.",
+      "text": "Explain ONE specific reason WHY the Treaty of Waitangi is still important in New Zealand today. Your answer must:\n• identify one concrete way the Treaty shapes life in NZ today\n• give a specific named example (e.g. a settlement, a piece of legislation, a co-governance arrangement)\n• explain how that example shows the Treaty's ongoing influence.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "treaty-of-waitangi"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying a reason the Treaty remains important.\n\n1 mark for providing a relevant, specific example.\n\nPossible reasons and examples:\n• Treaty settlements — The Waitangi Tribunal investigates claims by Māori that the Crown has breached the Treaty.\n\nExample: Ngāi Tahu received a $170 million settlement in 1998 for land wrongly taken in the South Island.\n\n• Partnership between Māori and the Crown — The Treaty establishes a relationship of partnership.\n\nExample: Co-governance arrangements such as those for the Waikato River (Te Awa Tupua / Whanganui River was granted legal personhood in 2017).\n\n• Land rights and resource management — Article 2 guarantees Māori possession of their lands, forests, and fisheries.\n\nExample: The Māori Fisheries Settlement (Sealord deal) recognised Māori fishing rights.\n\n• Cultural recognition — The Treaty supports the protection of Māori language and culture.\n\nExample: Te reo Māori is an official language of New Zealand;.\n\nMāori Television was established to support language revitalisation.\n\n• Legal framework — Treaty principles are referenced in many NZ laws.\n\nExample: The Resource Management Act requires consideration of Treaty principles in resource consent decisions."
+      "markingGuide": "1 mark for clearly identifying a specific way the Treaty shapes modern NZ.\n\n1 mark for a NAMED specific example AND a clear explanation of how it shows the Treaty's ongoing influence (not just naming the example).\n\nExamples of strong answers:\n\nWaitangi Tribunal and settlements — Ngāi Tahu received a settlement worth $170 million in 1998 for breaches of the Treaty in the South Island, including land taken without consent. This shows the Treaty is enforceable today and that the Crown can be held to account for historic breaches.\n\nCo-governance — In 2017 the Whanganui River was granted legal personhood (Te Awa Tupua) and is jointly governed by Whanganui iwi and the Crown. This is a direct application of Treaty partnership in environmental management.\n\nLanguage rights — Te Reo Māori was made an official language of NZ in 1987 partly because of Treaty obligations to protect taonga, including language. This led to the establishment of kohanga reo, kura kaupapa Māori, and Whakaata Māori (Māori Television).\n\nTreaty principles in law — many NZ statutes (e.g. the Resource Management Act 1991, the Education and Training Act 2020) require decision-makers to consider Treaty principles. This shows the Treaty is woven into how the country is run.\n\nDo NOT award the second mark if the example is not named or not explained."
     },
     {
       "id": "y10ss1-q4",
       "number": "4",
-      "text": "What type of government does New Zealand have?",
+      "text": "New Zealand uses the Mixed Member Proportional (MMP) electoral system. Compared with the older First Past the Post (FPP) system, MMP usually means that:",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "nz-government"
       ],
       "answerType": "multi-choice",
       "options": [
-        "Constitutional monarchy with parliamentary democracy",
-        "Republic",
-        "Federal republic",
-        "Dictatorship"
+        "One single party almost always wins an outright majority and forms government on its own",
+        "The number of seats a party wins is roughly PROPORTIONAL to its share of the party vote, so smaller parties have a much better chance of being represented in Parliament — usually leading to coalition governments",
+        "Voters can only vote for one party and not for any individual candidates",
+        "There is no Parliament — laws are made by referendums"
       ],
-      "expectedAnswer": "Constitutional monarchy with parliamentary democracy",
-      "markingGuide": "The correct answer is Constitutional monarchy with parliamentary democracy.\n\nHere's why:\nNew Zealand's head of state is the King (currently King Charles III), represented in NZ by the Governor-General.\nThe government is run by Parliament, led by the Prime Minister.\nNZ is not a republic (it has a monarch), not a federal republic (it has a unitary system with no states), and not a dictatorship (it has free elections)."
+      "expectedAnswer": "The number of seats a party wins is roughly PROPORTIONAL to its share of the party vote, so smaller parties have a much better chance of being represented in Parliament — usually leading to coalition governments",
+      "markingGuide": "The correct answer is the proportionality option.\n\nHere's why:\nUnder FPP (used in NZ before 1996), the party with the most electorate seats won, and small parties were often shut out of Parliament even if they had significant support.\nUnder MMP, voters get TWO votes — one for an electorate MP and one for a PARTY. The total number of seats a party gets is roughly proportional to its party vote, which usually means no single party wins outright. Coalition or confidence-and-supply governments are normal under MMP.\nExam tip: MMP = More representation for Minor Parties."
     },
     {
       "id": "y10ss1-q5",
       "number": "5",
-      "text": "The pie chart above shows the 2023 New Zealand General Election party vote results. The National, ACT, and NZ First parties formed a coalition government after the election.\n\nUsing the chart, calculate the total percentage of the party vote won by the three coalition parties combined.",
+      "text": "The pie chart above shows the 2023 NZ General Election party vote results. The National, ACT, and NZ First parties formed a coalition government.\n\n(a) Calculate the COMBINED percentage of the party vote won by the three coalition parties.\n(b) The two largest opposition parties were Labour and the Greens. Calculate the difference, in percentage points, between the COALITION's combined vote and the LABOUR + GREENS combined vote. Show your working.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "nz-government",
         "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "52.8",
-      "markingGuide": "From the chart: National 38.1% + ACT 8.6% + NZ First 6.1% = 52.8%.\n\nAccept 52.8 or 52.8%.\n\nMinor rounding differences (52–53%) acceptable.",
+      "expectedAnswer": "14.3",
+      "markingGuide": "Step 1: Coalition = National 38.1% + ACT 8.6% + NZ First 6.1% = 52.8%.\n\nStep 2: Labour + Greens = 26.9% + 11.6% = 38.5%.\n\nStep 3: Difference = 52.8% − 38.5% = 14.3 percentage points.\n\nStep 4: Accept 14.3 (or 14.3%). Minor rounding (14.2–14.4) acceptable if working is shown.\n\nExam tip: when subtracting percentages always say 'percentage points' — it is technically not the same as 'percent'.",
       "graph": {
         "type": "pie",
         "title": "2023 NZ General Election — Party Vote Results",
@@ -135,76 +135,76 @@
     {
       "id": "y10ss1-q6",
       "number": "6",
-      "text": "Explain how a citizen can participate in democracy in New Zealand beyond just voting in general elections. Give TWO specific examples.",
+      "text": "Voting in general elections is just one way of taking part in a democracy. Describe TWO OTHER specific ways a New Zealand citizen can participate in democracy. For EACH way you must:\n• name the action\n• give a real or realistic NZ example\n• explain why this kind of participation matters.",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
         "nz-government"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each valid example of democratic participation (beyond voting in general elections), with brief explanation.\n\nPossible examples:\n• Making submissions on bills — Citizens can submit their views to select committees when new laws are being considered.\n\nExample: submitting on the Smokefree Environments Bill.\n\n• Joining a political party — Members can influence party policy, select candidates, and campaign.\n\n• Protesting or petitioning — Citizens have the right to peaceful protest.\n\nExample: the 2004 Foreshore and Seabed hīkoi to Parliament;.\n\nsigning or creating petitions to Parliament.\n\n• Contacting their local MP — Writing to or meeting with their Member of Parliament about issues that concern them.\n\n• Standing for local government — Running as a candidate in local body elections (city/district council, regional council, community boards).\n\n• Voting in local body elections — Council elections, DHB elections, referendums.\n\n• Joining community boards or advisory panels — Participating in local decision-making bodies.\n\n• Participating in public consultation — Councils must consult on Long Term Plans and Annual Plans.\n\n• Jury service — Contributing to the justice system when called.\n\n• Volunteering for community organisations — Contributing to civil society."
+      "markingGuide": "1 mark for each example IF the answer includes the action + a specific example + explanation of why it matters. 2 examples required.\n\nExamples of strong answers:\n\nMaking a submission on a Bill — citizens can write to a Parliamentary select committee about a proposed law. Example: thousands of New Zealanders submitted on the Smokefree Environments Bill 2022. This matters because it lets ordinary people directly influence what becomes law before the final vote.\n\nLocal body voting and standing for council — voting in local body elections (or even running as a candidate) lets people influence decisions about their community, like rates, transport and water. This matters because local government affects daily life more directly than central government.\n\nProtest and petitions — joining a hīkoi or signing a petition to Parliament. Example: the 2004 Foreshore and Seabed hīkoi to Wellington. This matters because peaceful protest is a way to put pressure on government between elections.\n\nContacting your local MP — writing to or meeting with the MP for your electorate about an issue. This matters because MPs are meant to represent their constituents, and citizens raising issues directly is one of the most effective forms of participation.\n\nJury service — when called, sitting on a jury contributes to the justice system, which is part of how a democracy works.\n\nDo NOT award full marks for examples without explanation, or for 'voting again' (the question rules that out)."
     },
     {
       "id": "y10ss1-q7",
       "number": "7",
-      "text": "When the price of a product goes up, and nothing else changes, what usually happens to the quantity demanded by consumers?",
+      "text": "When the price of a product RISES (and nothing else changes), what does the Law of Demand predict will happen, and WHY?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "economics-basics"
       ],
       "answerType": "multi-choice",
       "options": [
-        "Quantity demanded increases",
-        "Quantity demanded stays the same",
-        "Quantity demanded decreases",
-        "Quantity demanded doubles"
+        "The quantity demanded usually FALLS, because at higher prices fewer people are willing or able to buy the same amount, and some will switch to cheaper alternatives",
+        "The quantity demanded always rises sharply, because higher prices make products more desirable",
+        "Nothing changes — demand never depends on price",
+        "Supply collapses immediately whenever the price changes"
       ],
-      "expectedAnswer": "Quantity demanded decreases",
-      "markingGuide": "The correct answer is that quantity demanded decreases.\n\nHere's why:\nThis is the law of demand: there is an inverse relationship between price and quantity demanded.\nWhen the price of a good or service rises (all other factors being equal), consumers tend to buy less of it.\nFor example, if the price of petrol rises significantly, people may drive less or use public transport instead."
+      "expectedAnswer": "The quantity demanded usually FALLS, because at higher prices fewer people are willing or able to buy the same amount, and some will switch to cheaper alternatives",
+      "markingGuide": "The correct answer is the falling demand option WITH the reasoning.\n\nHere's why:\nThe Law of Demand says there is an inverse relationship between price and quantity demanded — when price goes up, the quantity people are willing to buy generally goes down.\nThe REASON is that buyers have limited budgets and substitutes — if petrol becomes more expensive, some people drive less, take the bus, or use a more fuel-efficient car.\nAt merit level you must explain WHY, not just what.\nExam tip: real-life examples (petrol, dairy, takeaways) are good to remember."
     },
     {
       "id": "y10ss1-q8",
       "number": "8",
-      "text": "Housing affordability is a significant social issue in New Zealand. Explain how the housing crisis affects young New Zealanders. Use specific examples in your answer.",
+      "text": "Housing affordability is a major issue in NZ. Explain how the housing crisis affects YOUNG New Zealanders. Your answer MUST:\n• describe at least TWO specific impacts on young people\n• give one CONCRETE example or fact (it can be a typical figure such as 'median house prices in Auckland are roughly 9 times the median household income')\n• link the impact to ONE wider social consequence (e.g. mental health, leaving the country, family stress).",
       "marks": 2,
       "gradeLevel": "merit",
       "topics": [
         "social-issues-nz"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining a clear impact on young New Zealanders.\n\n1 mark for using specific, relevant examples.\n\nPossible points:\n• Difficulty entering the housing market — Median house prices in cities like Auckland and Tauranga are many times the average income, making it very hard for young people to save a deposit.\n\nFirst-home buyers are increasingly locked out.\n\n• Rising rents — High demand and limited supply push rents up, meaning young renters spend a large proportion of their income on housing, leaving less for other needs (food, education, savings).\n\n• Overcrowding — Some young people and families live in overcrowded conditions, which affects health and wellbeing.\n\nThis disproportionately affects Māori and Pasifika communities.\n\n• Homelessness — NZ has one of the highest homelessness rates in the OECD.\n\nYoung people may experience couch-surfing or living in cars.\n\n• Impact on education — Students in unstable housing may move schools frequently, affecting their learning and social connections.\n\n• Mental health — Housing stress contributes to anxiety and depression among young people.\n\n• Geographic displacement — Young people may have to move away from their communities and whānau to find affordable housing, weakening social connections.\n\n• Government responses — KiwiBuild programme, First Home Grants, and public housing initiatives attempt to address these issues but have had mixed results."
+      "markingGuide": "1 mark for explaining at least TWO clear impacts on young New Zealanders, supported by a concrete example or figure.\n\n1 mark for linking the impacts to a wider social consequence (e.g. mental health, brain drain, delayed family formation, intergenerational inequality).\n\nExamples of strong answers:\n\nFirst-home buyers locked out — median house prices in Auckland are roughly 9 times the median household income, so saving a 20% deposit can take a young couple over a decade. Many young people give up on home ownership altogether. Wider consequence: this creates intergenerational inequality, because young people without parental help cannot get on the property ladder while their wealthier peers can.\n\nRising rents — when rents take 40–50% of a young renter's income, there is little left for saving, healthy food or further study. Wider consequence: chronic financial stress is linked to anxiety and depression, affecting mental health (taha hinengaro).\n\nMoving away — many young Kiwis move to Australia, where wages are higher and housing relatively cheaper, contributing to a 'brain drain' that affects NZ's workforce.\n\nOvercrowding and homelessness — NZ has one of the highest rates of homelessness in the OECD; some young people live in cars or sleep on couches. Wider consequence: unstable housing harms school attendance, learning, and physical health.\n\nDo not award the second mark unless a wider social consequence is clearly drawn out."
     },
     {
       "id": "y10ss1-q9",
       "number": "9",
-      "text": "Which of the following BEST describes globalisation?",
+      "text": "Globalisation has both BENEFITS and COSTS. Which of these is the BEST example of a COST of globalisation for New Zealand workers?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "globalisation"
       ],
       "answerType": "multi-choice",
       "options": [
-        "When a country refuses to trade with other nations",
-        "The increasing interconnection of the world's economies, cultures, and populations through trade, technology, and migration",
-        "When one country takes over another country's government",
-        "The process of a country becoming completely self-sufficient"
+        "NZ can export dairy products to dozens of countries",
+        "NZ consumers can buy electronics and clothes more cheaply because they are made overseas",
+        "Some NZ manufacturing jobs have been lost as factories close and production moves to countries with cheaper labour, leaving workers needing to retrain or find new work",
+        "International tourists can fly into Auckland from many countries"
       ],
-      "expectedAnswer": "The increasing interconnection of the world's economies, cultures, and populations through trade, technology, and migration",
-      "markingGuide": "The correct answer describes globalisation as the increasing interconnection of economies, cultures, and populations.\n\nGlobalisation involves the movement of goods, services, people, ideas, and information across national borders.\n\nExamples relevant to NZ include: NZ exports dairy products worldwide;.\n\nNZ imports electronics and cars from Asia;.\n\npeople migrate to NZ from many countries;.\n\nand NZ culture is influenced by global media and technology."
+      "expectedAnswer": "Some NZ manufacturing jobs have been lost as factories close and production moves to countries with cheaper labour, leaving workers needing to retrain or find new work",
+      "markingGuide": "The correct answer is the manufacturing job loss option.\n\nHere's why:\nThe question asks for a COST of globalisation, not a benefit. Cheaper imports, more exports and tourism are usually benefits.\nGlobalisation makes it easier for businesses to move production to wherever labour is cheapest, which has hurt some NZ manufacturing communities (e.g. car assembly in the 1990s).\nExam tip: be ready to discuss BOTH sides of an issue — at merit level, simple recall is not enough."
     },
     {
       "id": "y10ss1-q10",
       "number": "10",
-      "text": "New Zealand aims to be Predator Free by 2050 — removing possums, rats, and stoats from the country to protect native wildlife.\n\nDiscuss the social, economic, and environmental reasons for this goal. In your answer, consider different perspectives, such as those of conservationists, farmers, local communities, and iwi (Māori tribes).",
+      "text": "New Zealand aims to be Predator Free by 2050 — removing possums, rats, and stoats to protect native wildlife.\n\nIn an extended response, DISCUSS the social, economic and environmental reasons for this goal AND consider DIFFERENT PERSPECTIVES (conservationists, farmers, local communities, iwi). Your answer MUST:\n• give ONE strong reason from EACH of the three categories (environmental, economic, social/cultural)\n• present at least TWO DIFFERENT PERSPECTIVES that disagree with each other\n• include at least ONE specific NZ example or statistic\n• reach a clear judgement at the end about whether the goal is worth pursuing.",
       "marks": 4,
       "gradeLevel": "excellence",
       "topics": [
         "social-issues-nz"
       ],
       "answerType": "working",
-      "markingGuide": "4 marks total.\n\nAward marks across the following criteria:\n\n1 mark — Environmental reasons:\n• Introduced predators kill approximately 25 million native birds each year in NZ.\n\n• Species such as kiwi, kākāpō, and whio (blue duck) are critically endangered due to predation.\n\n• NZ's native species evolved without mammalian predators and have no natural defences.\n\n• Predators also threaten native insects (such as wētā) and reptiles (such as tuatara).\n\n• Ecosystem health: removing predators allows native forests and ecosystems to regenerate.\n\n1 mark — Economic reasons:\n• Possums damage pasture and spread bovine tuberculosis (TB) to cattle and deer, costing the farming industry millions annually.\n\n• Rats damage crops and stored food.\n\n• Conservation tourism is a major industry — healthy native ecosystems attract international visitors (e.g. Zealandia in Wellington, Tiritiri Matangi Island).\n\n• Investment in pest control creates jobs and supports innovation in NZ-developed trapping and biotechnology.\n\n1 mark — Social/cultural perspectives:\n• For iwi and Māori, native species like kiwi and kererū have deep cultural and spiritual significance (taonga species).\n\nProtecting them fulfils kaitiakitanga (guardianship) responsibilities.\n\n• Local communities benefit from predator-free zones through improved biodiversity in their backyards and local reserves.\n\n• Community trapping groups (e.g. Predator Free Wellington, Predator Free Miramar) bring people together and build social connections.\n\n• Urban and rural communities may have different views on methods used (e.g. 1080 poison drops are controversial in some rural areas).\n\n1 mark — Considering multiple perspectives / critical thinking:\n• Conservationists strongly support the goal and advocate for increased funding and use of all available tools.\n\n• Some farmers support predator control (reduces TB risk, protects lambs) but may oppose certain methods like 1080 aerial drops due to concerns about dogs, water, and deer.\n\n• Some communities debate whether eradication is achievable or whether ongoing control is more realistic.\n\n• Animal welfare groups may raise concerns about the methods used to kill predators.\n\n• Iwi may want greater involvement in decision-making about pest control on ancestral lands.\n\n• The scale and cost of the project (estimated billions of dollars) raises questions about resource allocation.\n\nExcellence-level answers will discuss at least three perspectives with specific NZ examples and show understanding of the complexity of the issue."
+      "markingGuide": "4 marks total — one for each criterion below.\n\n1 mark — Environmental reason (with example/statistic):\n• Introduced predators kill an estimated 25 million native birds each year in NZ.\n• Species such as kiwi, kākāpō and whio are critically endangered. Only about 5% of kiwi chicks reach adulthood in unmanaged areas.\n• NZ native species evolved without mammalian predators and have almost no defences against them.\n\n1 mark — Economic reason:\n• Possums damage pasture and spread bovine TB to cattle and deer, costing the agricultural sector tens of millions of dollars a year (TB-Free programme).\n• Conservation tourism is a major industry — sites like Zealandia in Wellington and Tiritiri Matangi attract tourists who pay to see native birds in protected environments.\n• Investment in pest control creates jobs and supports innovation in NZ-developed traps and biotech.\n\n1 mark — Social/cultural reason AND a clear iwi/Māori perspective:\n• Native species like kiwi, kererū and tuatara are TAONGA for many iwi, and protecting them is part of kaitiakitanga (guardianship).\n• Community trapping groups (e.g. Predator Free Wellington) bring people together and build social connections.\n\n1 mark — At least TWO different perspectives that DISAGREE, plus a clear judgement:\n\nExamples of disagreement:\n• Conservationists strongly support the goal and want more 1080 use; some rural communities oppose 1080 drops because of concerns about pets, water and deer.\n• Farmers may support TB control but object to certain methods or worry about access to private land.\n• Animal welfare groups raise concerns about humane killing methods.\n• Some iwi want greater involvement in decision-making about pest control on ancestral land — and some are critical of any approach that excludes them.\n\nThe answer must reach a clear judgement (e.g. 'On balance, the environmental and cultural benefits make this goal worth pursuing, but it must be done in genuine partnership with iwi and rural communities'). \n\nDo NOT award full marks if the answer ignores any of the four criteria."
     }
   ],
   "cutScores": {

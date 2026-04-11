@@ -11,7 +11,7 @@
     {
       "id": "y10bio-q1",
       "number": "1",
-      "text": "Which of the following structures is found in a plant cell but NOT in an animal cell?",
+      "text": "A student looks at two unlabelled microscope slides — one is a cheek cell from a human, the other is from an onion epidermis. Which combination of features would let them confirm the onion cell?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,37 +19,37 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Cell membrane",
-        "Nucleus",
-        "Cell wall",
-        "Mitochondria"
+        "Has a cell membrane and nucleus only",
+        "Has a rigid cell wall, a large central vacuole, and a regular rectangular shape",
+        "Contains chloroplasts and is spherical",
+        "Has many mitochondria but no nucleus"
       ],
-      "expectedAnswer": "Cell wall",
-      "markingGuide": "The correct answer is Cell wall.\n\nHere's why:\nPlant cells have a rigid cell wall made of cellulose that provides structural support.\nAnimal cells only have a cell membrane.\nBoth plant and animal cells contain a nucleus, cell membrane, and mitochondria.\nExam tip: Remember the three structures unique to plant cells — cell wall, chloroplasts, and large central vacuole."
+      "expectedAnswer": "Has a rigid cell wall, a large central vacuole, and a regular rectangular shape",
+      "markingGuide": "The correct answer describes the cell wall, large vacuole and rectangular shape.\n\nHere's why:\nBoth plant and animal cells have cell membranes, nuclei and mitochondria, so those are not distinguishing features.\nOnion epidermis cells are NOT photosynthetic so they don't have chloroplasts (a common trap).\nThe rigid cellulose cell wall and the large central vacuole are unique to plant cells, and the rigid wall gives onion cells their characteristic 'brick' shape.\nExam tip: 'plant cell = chloroplasts' is only true for cells in green tissue. Always think about the function of the cell."
     },
     {
       "id": "y10bio-q2",
       "number": "2",
-      "text": "What is the function of chloroplasts in a plant cell?",
+      "text": "A student grows two pea plants. Plant A is in a sealed greenhouse kept at a constant 35 °C with bright light. Plant B is kept at 22 °C with the same bright light. Plant A grows much more SLOWLY than Plant B even though it has more 'tropical' conditions.\n\nWhich is the BEST explanation?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "cells-biology"
       ],
       "answerType": "multi-choice",
       "options": [
-        "To store water and nutrients",
-        "To carry out photosynthesis",
-        "To control what enters and leaves the cell",
-        "To provide energy through cellular respiration"
+        "At 35 °C the enzymes in photosynthesis begin to denature, so the rate of photosynthesis falls and the plant produces less glucose",
+        "Plants only photosynthesise at night, so the bright light damaged the plant",
+        "Plant A is warmer so it doesn't need to grow",
+        "Plant A used up all the oxygen in the greenhouse and died"
       ],
-      "expectedAnswer": "To carry out photosynthesis",
-      "markingGuide": "The correct answer is To carry out photosynthesis.\n\nHere's why:\nChloroplasts contain the green pigment chlorophyll, which absorbs light energy and converts carbon dioxide and water into glucose and oxygen.\nThe large vacuole stores water, the cell membrane controls entry/exit, and mitochondria carry out cellular respiration."
+      "expectedAnswer": "At 35 °C the enzymes in photosynthesis begin to denature, so the rate of photosynthesis falls and the plant produces less glucose",
+      "markingGuide": "The correct answer is the enzyme denaturation explanation.\n\nHere's why:\nPhotosynthesis is controlled by enzymes, which work best at an optimum temperature (around 25 °C for many plants).\nAt very high temperatures (around 35 °C and above), the enzymes start to lose their shape (denature), so the rate of photosynthesis drops sharply.\nPlants take in CO2 and release O2 during the day, so 'used up all the oxygen' is wrong.\nExam tip: enzyme + temperature is a classic Year 10 application."
     },
     {
       "id": "y10bio-q3",
       "number": "3",
-      "text": "In humans, DNA is found inside the nucleus of cells. Chromosomes are made of tightly coiled DNA. How many chromosomes does a normal human body cell contain?",
+      "text": "A normal human body cell contains 46 chromosomes. A sperm cell is produced by meiosis. Which row CORRECTLY describes the sperm cell and the cell formed when it fuses with an egg at fertilisation?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -57,107 +57,107 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "23",
-        "46",
-        "44",
-        "92"
+        "Sperm: 23 chromosomes, fertilised cell: 46 chromosomes",
+        "Sperm: 46 chromosomes, fertilised cell: 92 chromosomes",
+        "Sperm: 23 chromosomes, fertilised cell: 23 chromosomes",
+        "Sperm: 46 chromosomes, fertilised cell: 46 chromosomes"
       ],
-      "expectedAnswer": "46",
-      "markingGuide": "The correct answer is 46.\n\nHere's why:\nHuman body cells contain 46 chromosomes arranged in 23 pairs.\nSex cells (sperm and egg) contain only 23 chromosomes — half the normal number — so that when they combine at fertilisation, the resulting cell has 46.\nExam tip: 23 pairs = 46 total.\nDon't confuse the number of pairs with the total number."
+      "expectedAnswer": "Sperm: 23 chromosomes, fertilised cell: 46 chromosomes",
+      "markingGuide": "The correct answer is sperm 23, fertilised cell 46.\n\nHere's why:\nMeiosis halves the chromosome number, so a sperm (or egg) carries 23 chromosomes — half of the body cell's 46.\nWhen sperm and egg fuse, the chromosomes combine: 23 + 23 = 46, returning to the normal body-cell number.\nThis is how each parent contributes half of the offspring's genetic information.\nExam tip: gametes (sex cells) are HAPLOID (n=23), body cells are DIPLOID (2n=46)."
     },
     {
       "id": "y10bio-q4",
       "number": "4",
-      "text": "Which of the following is an example of an inherited trait?",
+      "text": "Two parents both have brown eyes but their child has blue eyes. The brown allele (B) is dominant and the blue allele (b) is recessive.\n\nWhat are the parents' genotypes, and what is the chance their next child will also have blue eyes?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "genetics-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "A scar on your knee from a bike accident",
-        "Natural eye colour",
-        "Being able to speak Te Reo Māori",
-        "A suntan from spending time at the beach"
+        "Both parents are BB; 0% chance",
+        "Both parents are Bb; 25% chance",
+        "Both parents are bb; 100% chance",
+        "One parent BB, the other Bb; 50% chance"
       ],
-      "expectedAnswer": "Natural eye colour",
-      "markingGuide": "The correct answer is Natural eye colour.\n\nHere's why:\nInherited traits are determined by genes passed from parents to offspring through DNA.\nEye colour is controlled by genes.\nA scar, language ability, and a suntan are all acquired characteristics — they result from environmental factors or learning, not from genes."
+      "expectedAnswer": "Both parents are Bb; 25% chance",
+      "markingGuide": "The correct answer is both Bb, 25%.\n\nHere's why:\nFor a child to have blue eyes (bb), they must inherit a 'b' from each parent.\nBoth parents have brown eyes but produced a blue-eyed child, so they must each carry a hidden 'b' — they are heterozygous (Bb).\nA Bb × Bb cross gives a Punnett square with offspring 1 BB : 2 Bb : 1 bb, so 1 in 4 (25%) are blue-eyed.\nExam tip: hidden recessive alleles are a classic Year 10 / Level 5 question."
     },
     {
       "id": "y10bio-q5",
       "number": "5",
-      "text": "In a food chain: phytoplankton → krill → blue cod → bottlenose dolphin\n\nWhat would most likely happen to the blue cod population if a disease killed most of the krill?",
+      "text": "In the food chain: phytoplankton → krill → blue cod → bottlenose dolphin\n\nA disease causes a sudden 90% drop in the krill population. Which prediction BEST describes the SHORT-TERM and LONG-TERM consequences?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "ecosystems-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "The blue cod population would increase because there is less competition",
-        "The blue cod population would decrease because their food source is reduced",
-        "The blue cod population would stay the same",
-        "The blue cod population would increase because dolphins would have less to eat"
+        "Short term: blue cod numbers fall as their food runs out. Long term: dolphin numbers also fall, and phytoplankton may bloom because fewer krill graze on them",
+        "Short term: blue cod numbers rise because there is less competition for space. Long term: dolphins increase",
+        "Nothing changes because the food chain is fixed",
+        "Phytoplankton numbers crash immediately because they depend on krill for food"
       ],
-      "expectedAnswer": "The blue cod population would decrease because their food source is reduced",
-      "markingGuide": "The correct answer is The blue cod population would decrease because their food source is reduced.\n\nHere's why:\nKrill are the primary food source for blue cod in this food chain.\nIf krill numbers drop drastically, blue cod would have less food, leading to starvation and population decline.\nThis would also affect the dolphins further up the chain.\nThis demonstrates how changes at one trophic level cascade through an ecosystem."
+      "expectedAnswer": "Short term: blue cod numbers fall as their food runs out. Long term: dolphin numbers also fall, and phytoplankton may bloom because fewer krill graze on them",
+      "markingGuide": "The correct answer is the short/long-term cascade option.\n\nHere's why:\nKrill are the food source for blue cod, so blue cod will starve and decline (short term).\nWith fewer blue cod, dolphins also have less food and decline (long term).\nWith fewer krill grazing, phytoplankton populations can increase rapidly (a knock-on bottom-up effect).\nThis demonstrates how disturbance at one trophic level can cascade up AND down the food chain.\nExam tip: phytoplankton are the producers — they use sunlight, not krill."
     },
     {
       "id": "y10bio-q6",
       "number": "6",
-      "text": "The human digestive system breaks food down so nutrients can be absorbed into the blood. Describe the role of TWO of the following organs in digestion: stomach, small intestine, large intestine.",
+      "text": "The small intestine is the main site of nutrient absorption in the human digestive system. Describe TWO specific structural adaptations of the small intestine, and for EACH adaptation explain how it makes absorption more efficient.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "human-body-y10"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each organ correctly described (max 2).\n\nStomach: produces hydrochloric acid and enzymes (e.g. pepsin) to break down proteins;.\n\nchurns food into a semi-liquid called chyme.\n\nSmall intestine: where most chemical digestion and nutrient absorption occurs;.\n\nenzymes from the pancreas and bile from the liver help break down fats, proteins, and carbohydrates;.\n\nnutrients are absorbed through the intestinal wall (villi) into the blood.\n\nLarge intestine: absorbs water and minerals from remaining undigested food;.\n\ncompacts waste into faeces.\n\nExam tip: The small intestine is the main site of absorption — remember the villi increase the surface area for this."
+      "markingGuide": "1 mark per adaptation IF the answer includes BOTH the structure AND a clear explanation of how it helps absorption. 2 required.\n\nExamples of strong answers:\n\nVilli (and microvilli): the inner wall is folded into thousands of finger-like villi covered in even smaller microvilli. This massively increases the surface area available for nutrients to be absorbed into the blood. (Up to 200 m² in an adult.)\n\nThin walls (one cell thick): the wall of each villus is only one cell thick, so nutrients have a very short distance to diffuse from the gut into the blood capillaries.\n\nRich blood supply: each villus contains a network of capillaries that constantly carries away absorbed nutrients, maintaining a steep concentration gradient so absorption can continue.\n\nLong length (around 6 m): the long tube means food spends more time in contact with the absorbing surface.\n\nDo not award the second mark for only naming a structure with no explanation."
     },
     {
       "id": "y10bio-q7",
       "number": "7",
-      "text": "Explain how the human circulatory system and respiratory system work together to supply oxygen to body cells.",
+      "text": "Explain how the circulatory and respiratory systems work TOGETHER to supply a working leg muscle with oxygen during a sprint, and to remove the carbon dioxide produced. In your answer use the words: alveoli, capillaries, diffusion, heart, arteries, veins.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "human-body-y10"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the respiratory system's role: air is breathed into the lungs where oxygen passes (diffuses) from the alveoli into the blood in the surrounding capillaries.\n\n1 mark for explaining the circulatory system's role: the heart pumps oxygenated blood through arteries to body cells, where oxygen is delivered and carbon dioxide is picked up;.\n\ndeoxygenated blood returns to the heart via veins and is pumped back to the lungs.\n\nKey concept: gas exchange occurs by diffusion — oxygen moves from high concentration (alveoli) to low concentration (blood/cells)."
+      "markingGuide": "1 mark for explaining gas exchange at the lungs: oxygen breathed into the lungs DIFFUSES from the ALVEOLI into the surrounding CAPILLARIES (because oxygen is at a higher concentration in the alveoli). Carbon dioxide diffuses the other way and is breathed out.\n\n1 mark for explaining transport to the muscle: the HEART pumps oxygen-rich blood through ARTERIES to the leg muscle, where oxygen DIFFUSES out of the capillaries into the muscle cells (used in respiration to release energy from glucose). CO2 produced in the muscle diffuses into the blood and returns to the heart via the VEINS, then back to the lungs to be exhaled.\n\nKey concept (must be present): diffusion always happens from HIGH to LOW concentration.\n\nDeduct a mark if the student does not use most of the listed scientific terms or confuses arteries and veins."
     },
     {
       "id": "y10bio-q8",
       "number": "8",
-      "text": "A food web in a New Zealand forest includes the following organisms:\n- Leaves and seeds (producers)\n- Wētā and kererū (primary consumers)\n- Morepork/ruru (secondary consumer)\n- Stoats (introduced predator that eats wētā, kererū, and morepork eggs)\n\nExplain why the introduction of stoats has been so damaging to this food web. In your answer, discuss the impact on at least TWO native species.",
+      "text": "An island has a simple food web: native trees (producers) → wētā and kererū (primary consumers) → ruru/morepork (secondary consumer). Stoats are introduced.\n\nExplain in detail why introducing stoats is so damaging to this food web. In your answer you must:\n• describe the impact on TWO different native species\n• explain ONE knock-on effect on the wider ecosystem (e.g. plants, soil)\n• use the term 'evolved without mammalian predators'.",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "ecosystems-y10",
         "nz-ecology"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark: Explains that stoats are an additional predator competing at multiple trophic levels — they prey on both primary consumers (wētā, kererū) and secondary consumers (morepork eggs), disrupting the natural food web balance.\n\n1 mark: Discusses impact on specific native species — e.g. kererū populations decline because they evolved without mammalian predators and lack defensive behaviours;.\n\nwētā are ground-dwelling and vulnerable to stoats hunting at night.\n\n1 mark: Links to broader ecosystem effects — e.g. if kererū decline, seed dispersal is affected because kererū are one of the few birds large enough to swallow and spread the seeds of native trees like taraire and karaka;.\n\ndecline in morepork affects control of invertebrate populations.\n\nExam tip: NZ native species are particularly vulnerable to introduced predators because they evolved in isolation without mammals (except bats).\n\nThis is why Predator Free 2050 is so important."
+      "markingGuide": "1 mark: Explains that NZ native species EVOLVED WITHOUT MAMMALIAN PREDATORS, so they have few defences against fast climbing/digging mammals like stoats. Stoats are also a 'new' predator at multiple trophic levels (eating both primary and secondary consumers).\n\n1 mark: Specific impact on TWO native species. Examples:\n\nKererū — slow, fearless, ground-feeding birds that are easy prey; their populations fall.\n\nWētā — large, ground-dwelling and active at night, exactly when stoats hunt; populations crash.\n\nRuru — stoats raid nests and eat eggs/chicks, reducing breeding success.\n\n1 mark: Knock-on ecosystem effect. Examples:\n\nKererū are the only NZ native birds large enough to swallow and disperse the seeds of taraire, karaka and miro. Without them, those native trees can no longer regenerate, slowly changing the forest composition.\n\nLoss of wētā affects nutrient cycling and removes a major food source for other native species.\n\nLoss of ruru reduces top-down control of insect populations.\n\nExam tip: Year 10 / Level 5 ecology questions reward students who can describe a CHAIN of consequences, not just one impact."
     },
     {
       "id": "y10bio-q9",
       "number": "9",
-      "text": "The Predator Free 2050 initiative aims to remove all introduced mammalian predators (rats, stoats, and possums) from New Zealand by 2050.\n\nExplain why this programme is important for New Zealand's native biodiversity. In your answer, include:\n• at least ONE specific example of a native species that would benefit\n• how removing predators would help that species\n• ONE challenge scientists might face in achieving this goal.",
+      "text": "The Predator Free 2050 initiative aims to remove rats, stoats, and possums from New Zealand by 2050.\n\nExplain why this programme is important for NZ's native biodiversity. In your answer you MUST include:\n• ONE specific native species that would benefit AND a measurable statistic about how it is affected by predators\n• how removing predators would help that species recover\n• ONE realistic scientific or social challenge in achieving the goal, with a brief explanation of why it is a challenge\n• at least TWO of these scientific terms used correctly: biodiversity, ecosystem, endemic, kaitiakitanga, eradication.",
       "marks": 4,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "nz-ecology"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark: Names a specific native species and explains why it is threatened — e.g. kiwi (only 2–5% of kiwi chicks survive to adulthood in areas with stoats;.\n\nkiwi are flightless and nest on the ground making them vulnerable);.\n\nor Hauraki Gulf seabirds;.\n\nor native frogs (pepeketua);.\n\nor lizards like tuatara.\n\n1 mark: Explains how removing predators would help — e.g. without stoats, kiwi chick survival rates increase dramatically (as seen in predator-free sanctuaries like Zealandia where populations have rebounded);.\n\nnative bird populations could recover to naturally sustainable levels;.\n\nforest ecosystems would recover as seed-dispersing birds return.\n\n1 mark: Identifies a realistic challenge — e.g. the scale of New Zealand's terrain makes complete eradication extremely difficult;.\n\nreinvasion from surrounding areas;.\n\nsome predators breed rapidly;.\n\ndeveloping species-specific toxins that don't harm native species;.\n\ncost and long-term funding;.\n\npublic concerns about toxin use (e.g. 1080).\n\n1 mark: Quality of explanation — links ideas together logically, shows understanding of ecological relationships, uses scientific vocabulary appropriately (e.g. biodiversity, ecosystem, predator-prey, endemic, conservation)."
+      "markingGuide": "1 mark: Names a specific native species AND gives a credible statistic. Examples:\n\nKiwi — only about 5% of kiwi chicks reach adulthood in unmanaged areas because of stoat predation.\n\nKākāpō — total population dropped to 51 in 1995, recovering to over 200 today only because of intensive predator control on offshore islands.\n\nMohua/yellowhead, whio (blue duck), tuatara are all acceptable.\n\n1 mark: Explains how removing predators helps recovery — e.g. without stoats, kiwi chick survival jumps dramatically; in fenced sanctuaries like Zealandia and Maungatautari, native bird and reptile populations recover and forest ecosystems rebound.\n\n1 mark: Identifies a realistic challenge AND explains WHY it is a challenge. Examples:\n\nReinvasion — even after eradication, predators can swim or be transported back from surrounding areas, so ongoing biosecurity is needed.\n\nScale and cost — NZ is large and rugged, so the project will cost billions; sustained funding over 25+ years is politically difficult.\n\nDeveloping species-specific tools — current toxins like 1080 also affect some non-target species and are controversial with the public, so new methods are needed.\n\n1 mark: Quality of explanation — links ideas logically and uses AT LEAST TWO of the listed scientific/Māori terms correctly (biodiversity, ecosystem, endemic, kaitiakitanga, eradication).\n\nExam tip: Excellence answers don't just LIST facts, they EXPLAIN the chain of cause and effect."
     },
     {
       "id": "y10bio-q10",
       "number": "10",
-      "text": "A scientist studying the Hauraki Gulf marine ecosystem notices that overfishing of snapper has led to an increase in kina (sea urchin) populations. The kina have grazed large areas of kelp forest, creating 'kina barrens' — bare rock with very little other marine life.\n\nThe graph above shows estimated population changes in the Hauraki Gulf between 1990 and 2020.\n\n(a) Calculate the total percentage decrease in kelp cover from 1990 to 2020.\n\n(b) Using your knowledge of food webs and ecosystems, explain how the removal of one species (snapper) has led to such a large change in the ecosystem. Suggest what might happen if snapper populations were allowed to recover.",
+      "text": "A scientist studying the Hauraki Gulf marine ecosystem notices that overfishing of snapper has led to an increase in kina (sea urchin) populations. The kina graze large areas of kelp, creating 'kina barrens'.\n\nThe graph above shows estimated population changes between 1990 and 2020.\n\n(a) Calculate the percentage decrease in kelp cover from 1990 to 2020. Show your working.\n(b) Calculate the average rate of change in kina population per year between 1990 and 2020 (in index points per year).\n(c) Using your knowledge of food webs, explain in detail how the removal of one species (snapper) led to such a large change in the ecosystem. Use the term 'trophic cascade' and predict what would happen if snapper were allowed to recover.",
       "marks": 4,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "ecosystems-y10",
         "nz-ecology"
@@ -219,7 +219,7 @@
           }
         ]
       },
-      "markingGuide": "Step 1: (a) 1 mark for correct calculation: Kelp dropped from 90 (1990) to 15 (2020).\n\nStep 2: Decrease = 90 - 15 = 75.\n\nStep 3: Percentage decrease = (75/90) × 100 ≈ 83.3%.\n\nStep 4: Accept 83% or 83.3%.\n\nStep 5: (b) 1 mark: Explains the trophic cascade — snapper are a key predator of kina;.\n\nStep 6: when snapper are overfished, there are fewer predators to control kina numbers, so the kina population increases rapidly.\n\nStep 7: 1 mark: Explains the ecosystem impact — kina overgraze kelp forests, which are critical habitat;.\n\nStep 8: the loss of kelp creates 'barrens' that support far fewer species, reducing biodiversity.\n\nStep 9: 1 mark: Predicts recovery — recovering snapper would eat more kina, allowing kelp to regrow and other species to return.\n\nStep 10: Quality of scientific reasoning — uses terms like trophic cascade, keystone species, biodiversity.\n\nStep 11: Exam tip: This is a real example from Auckland's Hauraki Gulf."
+      "markingGuide": "1 mark (a): Kelp dropped from 90 (1990) to 15 (2020). Decrease = 75. Percentage decrease = (75/90) × 100 = 83.3%. Accept 83% or 83.3% with working shown.\n\n1 mark (b): Kina rose from 20 (1990) to 90 (2020) over 30 years. Change = 70 index points. Rate = 70 / 30 ≈ 2.33 index points per year. Accept 2.3 to 2.4 with working.\n\n1 mark (c) trophic cascade: snapper are a key predator of kina. Overfishing removes the top-down control on kina. Kina populations explode and overgraze the kelp forest, removing critical habitat and reducing biodiversity (creates 'kina barrens'). The student must use the term 'trophic cascade'.\n\n1 mark (c) recovery prediction + quality: if snapper are protected and rebuild, they will eat more kina, kina numbers will fall, kelp can regrow, and biodiversity in the Gulf can recover. Quality of scientific reasoning — uses terms like trophic cascade, top-down control, keystone species, biodiversity, ecosystem.\n\nExam tip: This is a real example from Auckland's Hauraki Gulf — a great connection between Year 10 ecology and current NZ marine science."
     }
   ],
   "cutScores": {

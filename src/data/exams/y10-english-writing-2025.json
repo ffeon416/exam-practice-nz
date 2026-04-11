@@ -11,97 +11,97 @@
     {
       "id": "y10w1-q1",
       "number": "1",
-      "text": "Which sentence uses a semicolon correctly?",
+      "text": "Which sentence uses a semicolon CORRECTLY?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "language-features-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "I love swimming; and running.",
-        "The rain stopped; we went outside.",
-        "She was tired; because she ran.",
-        "He ate breakfast; eggs and toast."
+        "I love swimming; and running on the beach.",
+        "The rain finally stopped; we ran outside to play.",
+        "She was tired; because she had run all the way home.",
+        "He grabbed his bag; his keys; and his phone."
       ],
-      "expectedAnswer": "The rain stopped; we went outside.",
-      "markingGuide": "The correct answer is The rain stopped; we went outside.' A semicolon joins two independent clauses that are closely related.\n\nHere's why:\nThe other options either have a conjunction after the semicolon, a dependent clause, or use a semicolon where a colon is needed."
+      "expectedAnswer": "The rain finally stopped; we ran outside to play.",
+      "markingGuide": "The correct answer is 'The rain finally stopped; we ran outside to play.'\n\nHere's why:\nA semicolon joins two CLOSELY RELATED INDEPENDENT CLAUSES (each could stand alone as its own sentence). Both 'The rain finally stopped' and 'we ran outside to play' are complete sentences on their own.\nYou should NOT put a conjunction (and, but, because) after a semicolon — that's why option 1 ('; and') and option 3 ('; because') are wrong.\nA semicolon is also not used to separate items in a simple list — option 4 should use commas.\nExam tip: a useful test — could you replace the semicolon with a full stop and have two grammatically correct sentences? If yes, the semicolon is probably correct."
     },
     {
       "id": "y10w1-q2",
       "number": "2",
-      "text": "Which of these is the BEST example of 'show don't tell' writing?\n\nThe character is angry.",
+      "text": "The character is angry. Which sentence is the BEST example of 'show, don't tell' AND ALSO uses sensory imagery?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "language-features-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "She was very angry about what happened.",
-        "She felt angry and upset inside.",
-        "Her jaw clenched and she slammed the door hard enough to rattle the windows.",
-        "She told everyone she was angry."
+        "She was very angry about what had happened in the kitchen.",
+        "She felt angry and upset deep inside her chest.",
+        "Her jaw clenched, and the door slammed shut behind her with a crack that rattled the cups on the shelf.",
+        "She told her mother she was extremely angry and walked away."
       ],
-      "expectedAnswer": "Her jaw clenched and she slammed the door hard enough to rattle the windows.",
-      "markingGuide": "The correct answer is Her jaw clenched and she slammed the door hard enough to rattle the windows.' This shows the anger through physical actions and their effects rather than simply stating the emotion."
+      "expectedAnswer": "Her jaw clenched, and the door slammed shut behind her with a crack that rattled the cups on the shelf.",
+      "markingGuide": "The correct answer is the option about the clenched jaw and slamming door.\n\nHere's why:\n'Show, don't tell' means the writer reveals an emotion through ACTIONS, BODY LANGUAGE and SENSORY DETAIL instead of stating it directly.\nThis sentence shows anger through a physical action (jaw clenching, slamming door) AND uses sensory imagery (the SOUND of the crack and the cups rattling).\nThe other options either tell the reader directly ('She was very angry') or show the action without the sensory detail.\nExam tip: at merit level, look for answers that achieve TWO things at once — not just the obvious one."
     },
     {
       "id": "y10w1-q3",
       "number": "3",
-      "text": "Rewrite this sentence to make it more descriptive and engaging. Use at least TWO language features:\n\n'The dog ran across the field.'",
+      "text": "Rewrite this sentence to make it more descriptive and engaging. Your new version must:\n• be one or two sentences long\n• use AT LEAST TWO different language features (e.g. simile, metaphor, personification, sensory imagery)\n• keep the original meaning (a dog moving across a field).\n\nOriginal sentence: 'The dog ran across the field.'",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "language-features-y10"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each language feature used effectively (up to 2).\n\nExamples of good rewrites: 'The golden retriever bounded across the sun-drenched field like a streak of liquid sunshine' (simile + imagery).\n\n'Ears flapping wildly, the scruffy terrier zigzagged through the tall grass, nose twitching at invisible trails' (onomatopoeia + imagery + personification).\n\nMust genuinely improve the original with identifiable features."
+      "markingGuide": "1 mark for each language feature that is used effectively (max 2). Both must be identifiable.\n\n1 mark may be deducted if the rewrite changes the basic meaning, contains errors, or only adds adjectives without using techniques.\n\nExamples of strong rewrites:\n\n'The golden retriever exploded across the sun-bleached paddock like a streak of liquid sunshine, his ears flapping in rhythm with the wind.' (Simile + sensory imagery + personification of the wind.)\n\n'Tongue lolling, the scruffy terrier zigzagged through the tall summer grass, nose twitching at every invisible scent the breeze carried.' (Sensory imagery + personification + listing for rhythm.)\n\nDo NOT award full marks for rewrites that simply add adjectives ('the big brown dog ran fast') without recognisable techniques."
     },
     {
       "id": "y10w1-q4",
       "number": "4",
-      "text": "Read these two sentences:\n\n(A) 'The sunset was beautiful.'\n(B) 'Ribbons of coral and gold bled across the horizon as the sun melted into the sea.'\n\nSentence B is more effective because it:",
+      "text": "Read these two sentences:\n\n(A) 'The sunset was very beautiful.'\n(B) 'Ribbons of coral and gold bled across the horizon as the sun melted into the sea.'\n\nSentence B is more effective for TWO reasons. Which row identifies BOTH reasons?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "language-features-y10"
       ],
       "answerType": "multi-choice",
       "options": [
-        "Uses more adjectives",
-        "Uses imagery and metaphor to create a vivid picture",
-        "Is longer and more detailed",
-        "Uses more difficult vocabulary"
+        "Sentence B uses metaphor ('bled', 'melted') and visual imagery ('ribbons of coral and gold'), letting the reader picture the scene rather than just being told it is beautiful",
+        "Sentence B is longer and uses more difficult vocabulary",
+        "Sentence B uses bigger adjectives and more punctuation",
+        "Sentence B contains a rhetorical question"
       ],
-      "expectedAnswer": "Uses imagery and metaphor to create a vivid picture",
-      "markingGuide": "The correct answer is Uses imagery and metaphor to create a vivid picture.\n\nHere's why:\nWhile B is longer, the key reason it is more effective is the use of metaphor ('ribbons of coral', 'bled across', 'melted into') and visual imagery that helps the reader picture the scene."
+      "expectedAnswer": "Sentence B uses metaphor ('bled', 'melted') and visual imagery ('ribbons of coral and gold'), letting the reader picture the scene rather than just being told it is beautiful",
+      "markingGuide": "The correct answer is the metaphor + imagery option.\n\nHere's why:\nLength alone does not make writing better. What makes sentence B effective is its FIGURATIVE LANGUAGE.\n'Bled' and 'melted' are metaphors that personify the sun and sky, while 'ribbons of coral and gold' is visual imagery that creates a clear, vivid picture.\nSentence A simply tells the reader 'it was beautiful' without showing.\nExam tip: 'show, don't tell' applies just as much to landscapes as to characters."
     },
     {
       "id": "y10w1-q5",
       "number": "5",
-      "text": "Write an opening paragraph (4-6 sentences) for a narrative set at a school sports day. Your writing should:\n• establish a clear mood or atmosphere\n• use at least TWO language features (e.g. simile, metaphor, personification)\n• include sensory details (what can be seen, heard, felt, smelled).",
+      "text": "Write the OPENING PARAGRAPH (4–6 sentences) of a narrative set at a school sports day. Your writing must:\n• establish a clear MOOD or atmosphere (e.g. excitement, nervousness, chaos, anticipation)\n• use AT LEAST TWO different language features (e.g. simile, metaphor, personification, sensory imagery, short sentences for impact)\n• include sensory details from at least THREE senses (sight, sound, smell, touch, taste)\n• introduce a single MAIN CHARACTER (named or referred to) whose feelings the reader can sense.",
       "marks": 3,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "language-features-y10",
         "prose-y10"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark: Clear mood established (excitement, nervousness, chaos, competition).\n\n1 mark: Two identifiable language features used effectively.\n\n1 mark: Sensory details that bring the scene to life (sounds of crowd, smell of cut grass, feel of sun, sight of track/competitors).\n\nExcellence responses will weave all three together naturally rather than listing them."
+      "markingGuide": "3 marks total. Award one mark for each of the following criteria when clearly met:\n\n1 mark — Clear, sustained mood (the whole paragraph stays in one atmosphere — excitement, nerves, chaos, anticipation, etc.).\n\n1 mark — At least TWO identifiable language features used effectively (not forced) AND sensory details from at least THREE senses.\n\n1 mark — A main character is introduced whose feelings the reader can sense, and the paragraph shows control of sentence variety (e.g. a short punchy sentence among longer ones).\n\nExcellence responses will weave all the criteria together naturally rather than ticking them off, and will use specific NZ details (e.g. 'the smell of cut grass and sunscreen', 'the school field at lunchtime', 'the starter's whistle') where natural.\n\nDo NOT award full marks if the paragraph reads as a list of features ('I will use a simile. The track was like...') rather than a coherent piece of writing."
     },
     {
       "id": "y10w1-q6",
       "number": "6",
-      "text": "Write a short persuasive paragraph (5-8 sentences) arguing that schools should have a later start time (e.g. 10am instead of 9am). Use at least THREE persuasive techniques from this list:\n• Statistics or facts\n• Rhetorical question\n• Emotive language\n• Expert opinion\n• Repetition\n• Direct address ('you')",
+      "text": "Write a SHORT PERSUASIVE PARAGRAPH (5–8 sentences) arguing EITHER that schools should start later (e.g. 10 a.m. instead of 9 a.m.) OR that mobile phones should be banned in classrooms during lessons. Your writing MUST:\n• state your position clearly in the FIRST sentence\n• use AT LEAST THREE different persuasive techniques from this list: a statistic or fact, a rhetorical question, emotive language, expert opinion, repetition, direct address ('you'), an anecdote\n• use at least ONE piece of supporting evidence (it can be invented but must sound plausible)\n• end with a strong CALL TO ACTION.",
       "marks": 4,
-      "gradeLevel": "achieved",
+      "gradeLevel": "excellence",
       "topics": [
         "language-features-y10",
         "non-fiction-y10"
       ],
       "answerType": "working",
-      "markingGuide": "1 mark: Clear persuasive position stated.\n\n1 mark: At least 2 persuasive techniques used and identifiable.\n\n1 mark: Third technique used effectively.\n\n1 mark: Overall quality — logical argument structure, techniques feel natural not forced, convincing to the reader.\n\nGood responses might reference teen sleep science, use rhetorical questions to challenge the status quo, address the reader directly to create connection."
+      "markingGuide": "4 marks total. Award one mark for each criterion when met clearly.\n\n1 mark — Clear position stated up front and held throughout.\n\n1 mark — At least THREE different persuasive techniques used and identifiable, AND each technique fits naturally into the argument (not forced).\n\n1 mark — At least ONE specific piece of supporting evidence — a credible-sounding fact, statistic, study, or expert quote (can be invented). Plus a clear call to action at the end.\n\n1 mark — Overall quality: logical structure, varied sentence types, persuasive register, and the techniques work together to convince the reader.\n\nExamples of good moves:\n\nFor 'schools should start later': cite teen sleep science ('Studies from the University of Auckland show teenagers' natural body clocks shift by two hours during puberty'); rhetorical question ('How can you do your best in maths when your brain is still asleep?'); direct address; call to action ('It's time for our Board of Trustees to listen to the science').\n\nFor 'phones should be banned in class': statistic ('Research published in 2023 found that students who keep phones in their pockets score on average 11% lower'); repetition ('Every notification is a distraction. Every distraction is a stolen second of learning'); call to action ('Let's lock the phones away during lessons').\n\nDo NOT award full marks if the paragraph is shorter than 5 sentences, has no clear position, or fails to include a call to action."
     }
   ],
   "cutScores": {

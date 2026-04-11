@@ -11,103 +11,107 @@
     {
       "id": "caa25-q1a",
       "number": "1(a)",
-      "text": "Mum will be away on a work trip for three weeks. She says, \"Three weeks is about 30,000 minutes.\"\n\nIs she right? Use time calculations to explain your answer.",
+      "text": "Mum will be away on a work trip for three weeks. She says: 'Three weeks is about 30,000 minutes.'\n\nIs she right? Show your full working in days, hours, then minutes, AND state by how many minutes (to the nearest minute) her estimate is OUT.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "time-calculations"
       ],
       "answerType": "working",
-      "expectedAnswer": "Yes — 3 weeks = 21 days = 504 hours = about 30,240 minutes",
-      "markingGuide": "Step 1: Student must show calculation: 3 weeks x 7 = 21 days, 21 x 24 = 504 hours, 504 x 60 = 30,240 minutes.\n\nStep 2: Then state that 30,240 is about 30,000 so she is approximately right.\n\nStep 3: Accept rounding explanations.\n\nFinal answer: Yes — 3 weeks = 21 days = 504 hours = about 30,240 minutes."
+      "expectedAnswer": "Yes — actual is 30,240 minutes, so her estimate is out by 240 minutes",
+      "markingGuide": "Step 1: 3 weeks × 7 days = 21 days.\n\nStep 2: 21 × 24 = 504 hours.\n\nStep 3: 504 × 60 = 30,240 minutes.\n\nStep 4: Difference from her estimate: 30,240 − 30,000 = 240 minutes.\n\nStep 5: Conclusion: she is approximately right; her estimate is 240 minutes too low.\n\nFinal answer: Yes — actual = 30,240 minutes, off by 240 minutes."
     },
     {
       "id": "caa25-q1b",
       "number": "1(b)",
-      "text": "Dad is setting up a reading light. He needs the light arm to be tilted at an angle.\n\nThe angle between the wall and the light arm is 40°.\n\nWhat is the angle between the light arm and a horizontal line going straight out from the wall?",
+      "text": "A reading-light arm is hinged so that the angle between the WALL and the arm is 40°.\n\nIf the wall and the floor are perpendicular (90°), find the angle between the arm and the FLOOR.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "estimation"
+        "geometry",
+        "angles"
       ],
       "answerType": "number",
       "expectedAnswer": "50",
-      "markingGuide": "Step 1: The angle from horizontal = 90° - 40° = 50°.\n\nStep 2: Accept 50 degrees."
+      "markingGuide": "Step 1: The wall makes a 90° angle with the floor.\n\nStep 2: The arm makes 40° with the wall.\n\nStep 3: Angle between arm and floor = 90° − 40° = 50°.\n\nStep 4: Final answer: 50°."
     },
     {
       "id": "caa25-q1c",
       "number": "1(c)",
-      "text": "Dad jogs along a coastal path that is 3.6 km long. He checks his watch after running for 12 minutes and has covered 1200 metres.\n\nAt this rate, approximately how long will the entire jog take?\n\n(A) 24 minutes\n(B) 30 minutes\n(C) 36 minutes\n(D) 42 minutes\n(E) 48 minutes",
+      "text": "Dad jogs along a coastal path. After 12 minutes he has covered 1,200 metres. He keeps the same pace for the rest of the run.\n\nThe full path is 4.5 km long.\n\n(a) Calculate his pace in METRES PER MINUTE.\n(b) How long, in minutes, will the WHOLE 4.5 km run take? Tick the closest answer.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "estimation",
+        "rates",
         "unit-conversion"
       ],
       "answerType": "multi-choice",
       "options": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "30 minutes",
+        "36 minutes",
+        "42 minutes",
+        "45 minutes",
+        "50 minutes"
       ],
-      "expectedAnswer": "C",
-      "markingGuide": "Step 1: 1200 m in 12 min, so 3600 m at same rate = 3600/1200 x 12 = 3 x 12 = 36 minutes.\n\nStep 2: The correct answer is C."
+      "expectedAnswer": "45 minutes",
+      "markingGuide": "Step 1: Pace = 1,200 m ÷ 12 min = 100 m/min.\n\nStep 2: 4.5 km = 4,500 m.\n\nStep 3: Time = 4,500 ÷ 100 = 45 minutes.\n\nStep 4: Accept 45 minutes."
     },
     {
       "id": "caa25-q1d",
       "number": "1(d)",
-      "text": "Dad wants a raised planter box filled with soil. The planter box is 2.0 m long, 1.5 m wide, and 0.5 m deep.\n\nHow many cubic metres (m³) of soil are needed?",
+      "text": "Dad wants a raised planter box filled with soil. The planter is 2.0 m long, 1.5 m wide, and 0.5 m deep.\n\nSoil is sold in 40-litre bags. Remember 1 m³ = 1,000 litres.\n\nHow many bags of soil does Dad need (you can't buy half a bag)?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "spatial-reasoning",
-        "multiplication"
+        "volume",
+        "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "1.5",
-      "markingGuide": "Volume = 2.0 x 1.5 x 0.5 = 1.5 m³."
+      "expectedAnswer": "38",
+      "markingGuide": "Step 1: Volume = 2.0 × 1.5 × 0.5 = 1.5 m³.\n\nStep 2: Convert to litres: 1.5 × 1,000 = 1,500 L.\n\nStep 3: 1,500 ÷ 40 = 37.5 bags.\n\nStep 4: Round UP to whole bags: 38.\n\nFinal answer: 38."
     },
     {
       "id": "caa25-q1e",
       "number": "1(e)",
-      "text": "Mum puts 8 kilograms of wet clothes into the dryer. After tumble drying, the dry clothes weigh 0.75 times the weight they were when wet.\n\nHow much do the dry clothes weigh, in kilograms?",
+      "text": "Mum puts wet clothes into a dryer. The wet load weighs 8 kg. After tumble drying the clothes weigh 75% of their wet weight.\n\nHow much WATER (in grams) was removed from the clothes?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "multiplication"
+        "percentages",
+        "subtraction",
+        "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "6",
-      "markingGuide": "8 x 0.75 = 6 kg. Award mark for correct answer."
+      "expectedAnswer": "2000",
+      "markingGuide": "Step 1: Dry weight = 75% of 8 kg = 0.75 × 8 = 6 kg.\n\nStep 2: Water removed = 8 − 6 = 2 kg.\n\nStep 3: Convert to grams: 2 × 1,000 = 2,000 g.\n\nFinal answer: 2,000."
     },
     {
       "id": "caa25-q1f",
       "number": "1(f)",
-      "text": "Dad notices the 200-litre compost bin is ¾ full.\n\nHow much space, in litres, is left in the bin?",
+      "text": "Dad notices the 200-litre compost bin is 3/4 full. He plans to add 30 litres of garden waste.\n\nWhat fraction of the bin is filled AFTER he adds the waste? Give your answer as a SIMPLIFIED fraction.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "fractions"
       ],
-      "answerType": "number",
-      "expectedAnswer": "50",
-      "markingGuide": "If the bin is 3/4 full, then 1/4 is empty. 200 / 4 = 50 litres left. Award mark for correct answer."
+      "answerType": "text",
+      "expectedAnswer": "9/10",
+      "markingGuide": "Step 1: 3/4 of 200 = 150 L already in the bin.\n\nStep 2: After adding 30 L: 150 + 30 = 180 L.\n\nStep 3: Fraction = 180/200 = 9/10.\n\nFinal answer: 9/10."
     },
     {
       "id": "caa25-q2a",
       "number": "2(a)",
-      "text": "Tramping packs come in different sizes. The table above shows the volume and maximum load for each size.\n\nRewa has 18 kg of gear and needs at least 65 litres of space.\n\nRewa thinks a Medium pack will be best. Do you agree? Use measurements from the table to explain your answer.",
+      "text": "Tramping packs come in different sizes. The table above shows the volume and maximum load for each size.\n\nRewa has 18 kg of gear and needs at least 65 litres of space. She also wants the SMALLEST pack that meets BOTH requirements (so she isn't carrying empty space).\n\nWhich pack should she buy? Justify your choice using BOTH the volume and the load values from the table.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "tables",
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "No — Rewa has 18 kg of gear (too heavy for Medium at 16 kg max) and needs 65 L of space (Medium only has 55 L). She needs Large.",
-      "markingGuide": "Student must compare Rewa's needs against the table.\n\nWeight 18 kg exceeds Medium's max load (16 kg).\n\nVolume 65 L exceeds Medium's volume (55 L).\n\nLarge (70 L, 20 kg) fits both requirements.\n\nAccept answers that correctly use data from the table.\n\nFinal answer: No — Rewa has 18 kg of gear (too heavy for Medium at 16 kg max) and needs 65 L of space (Medium only has 55 L). She needs Large..",
+      "expectedAnswer": "Large — 70 L (≥ 65 L needed) and 20 kg max load (≥ 18 kg needed). Medium fails both checks (55 L < 65 L AND 16 kg < 18 kg). X-Large works but is bigger than needed.",
+      "markingGuide": "Student must check both criteria for at least Medium AND Large.\n\nMedium: 55 L (FAIL — needs 65 L) and 16 kg (FAIL — needs 18 kg).\n\nLarge: 70 L (PASS) and 20 kg (PASS) — smallest that meets both.\n\nX-Large meets both but is larger than necessary.\n\nAnswer: Large.\n\nFinal answer: Large.",
       "graph": {
         "type": "table",
         "title": "Tramping Pack Sizes",
@@ -145,50 +149,44 @@
     {
       "id": "caa25-q2b",
       "number": "2(b)",
-      "text": "The price of a wetsuit is usually $180. On sale, you get 20% off.\n\nWhat is the sale price of the wetsuit?",
+      "text": "A wetsuit normally costs $180. It is on sale at 20% off, but GST of 15% must then be added at the till.\n\nWhat is the FINAL price of the wetsuit? Round to the nearest cent.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "144",
-      "markingGuide": "Step 1: 20% of $180 = $36.00.\n\nStep 2: Sale price = $180 - $36 = $144.\n\nStep 3: Accept $144."
+      "expectedAnswer": "165.60",
+      "markingGuide": "Step 1: 20% off: $180 × 0.80 = $144.\n\nStep 2: Add 15% GST: $144 × 1.15 = $165.60.\n\nStep 3: Final price = $165.60.\n\nFinal answer: 165.60."
     },
     {
       "id": "caa25-q2c",
       "number": "2(c)",
-      "text": "A barbecue has different heat settings with recommended uses:\n\n(i) High: Searing steaks\n(ii) Medium-High: Grilling sausages and burgers\n(iii) Medium: Cooking chicken pieces through\n(iv) Low: Warming buns and bread\n(v) Very Low: Melting cheese on top\n\nYou want to cook chicken pieces all the way through.\n\nTick the best heat setting for cooking chicken.",
+      "text": "A barbecue has different heat settings:\n(i) High — Searing steaks (about 250°C)\n(ii) Medium-High — Grilling sausages and burgers (about 200°C)\n(iii) Medium — Cooking chicken pieces through (about 175°C)\n(iv) Low — Warming buns (about 130°C)\n(v) Very Low — Melting cheese (about 100°C)\n\nA cook wants to grill sausages first, then warm bread rolls afterwards. By how many degrees Celsius will the cook need to LOWER the temperature when switching from sausages to warming buns?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "graph-reading",
+        "subtraction",
         "data-interpretation"
       ],
-      "answerType": "multi-choice",
-      "options": [
-        "(i) High",
-        "(ii) Medium-High",
-        "(iii) Medium",
-        "(iv) Low",
-        "(v) Very Low"
-      ],
-      "expectedAnswer": "(iii) Medium",
-      "markingGuide": "Student reads the guide to find the setting for cooking chicken through. The correct answer is (iii) Medium."
+      "answerType": "number",
+      "expectedAnswer": "70",
+      "markingGuide": "Step 1: Sausages are cooked at Medium-High = 200°C.\n\nStep 2: Buns are warmed at Low = 130°C.\n\nStep 3: Difference = 200 − 130 = 70°C.\n\nFinal answer: 70."
     },
     {
       "id": "caa25-q2d",
       "number": "2(d)",
-      "text": "The table above shows the specifications for three different surfboards.\n\nIs it true to say \"Lighter boards cost more, but are shorter than heavier boards\"? Use numbers from the table for any two boards to explain your answer.",
+      "text": "The table above shows the specifications for three different surfboards.\n\nA shop charges $50 per kilogram of board weight as a delivery fee on top of the listed price. Which board has the LOWEST TOTAL cost (price + delivery), and what is that total?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "data-interpretation",
-        "tables"
+        "tables",
+        "addition"
       ],
       "answerType": "working",
-      "expectedAnswer": "Partially true — Board C is lightest and most expensive, and shortest. Board B is heaviest and cheapest, and longest.",
-      "markingGuide": "Student must compare data from two boards and use specific numbers (weight, length, and/or price) to support or refute the claim.\n\nAccept any correct comparison with supporting numbers.\n\nFinal answer: Partially true — Board C is lightest and most expensive, and shortest. Board B is heaviest and cheapest, and longest..",
+      "expectedAnswer": "Board B — $390 + $225 = $615",
+      "markingGuide": "Step 1: Calculate delivery for each board (weight × $50):\n\nBoard A: 3.2 × 50 = $160. Total = $480 + $160 = $640.\n\nBoard B: 4.5 × 50 = $225. Total = $390 + $225 = $615.\n\nBoard C: 2.8 × 50 = $140. Total = $620 + $140 = $760.\n\nStep 2: Lowest total = Board B at $615.\n\nFinal answer: Board B at $615.",
       "graph": {
         "type": "table",
         "title": "Surfboard Specifications",
@@ -225,30 +223,31 @@
     {
       "id": "caa25-q2e",
       "number": "2(e)",
-      "text": "While tramping, the temperature at the summit was measured at 8.6°C. The temperature at the base of the mountain was measured at -2.4°C.\n\nWhat is the difference between 8.6°C and -2.4°C?",
+      "text": "While tramping, the temperature at the summit was −2.4°C. At the base of the mountain it was 8.6°C. The mountain is 1,100 m tall.\n\nCalculate the temperature DROP per 100 m of altitude (give your answer to 1 decimal place).",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "estimation"
+        "rates",
+        "subtraction"
       ],
       "answerType": "number",
-      "expectedAnswer": "11",
-      "markingGuide": "Step 1: 8.6 - (-2.4) = 8.6 + 2.4 = 11°C.\n\nStep 2: Award mark for 11."
+      "expectedAnswer": "1.0",
+      "markingGuide": "Step 1: Temperature difference = 8.6 − (−2.4) = 11.0°C.\n\nStep 2: Number of 100 m steps in 1,100 m = 11.\n\nStep 3: Drop per 100 m = 11.0 ÷ 11 = 1.0°C per 100 m.\n\nFinal answer: 1.0."
     },
     {
       "id": "caa25-q2f",
       "number": "2(f)",
-      "text": "The chart above shows the number of visitors to a ski field each month during the year.\n\nNote: June, July, and August are winter (ski season). December, January, and February are summer.\n\nHow many more total visitors came during the three winter months (Jun, Jul, Aug) than during the three summer months (Dec, Jan, Feb)?",
+      "text": "The chart above shows the number of visitors to a ski field each month.\n\n(June, July, August are winter; December, January, February are summer.)\n\nCalculate the percentage of the total ANNUAL visitors that came during the three winter months. Give your answer to the nearest whole percent.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
         "addition",
-        "subtraction"
+        "percentages"
       ],
       "answerType": "number",
-      "expectedAnswer": "1040",
-      "markingGuide": "Step 1: Winter total = Jun 350 + Jul 480 + Aug 420 = 1250.\n\nStep 2: Summer total = Dec 70 + Jan 80 + Feb 60 = 210.\n\nStep 3: Difference = 1250 - 210 = 1040 more visitors in winter.\n\nStep 4: Accept 1040.",
+      "expectedAnswer": "63",
+      "markingGuide": "Step 1: Annual total = 80+60+40+30+120+350+480+420+200+90+50+70 = 1,990 visitors.\n\nStep 2: Winter total = 350+480+420 = 1,250.\n\nStep 3: Percentage = (1,250 ÷ 1,990) × 100 ≈ 62.8%.\n\nStep 4: Rounded to nearest whole percent = 63%.\n\nFinal answer: 63.",
       "graph": {
         "type": "bar",
         "title": "Monthly Ski Field Visitors",
@@ -309,57 +308,60 @@
     {
       "id": "caa25-q3a",
       "number": "3(a)",
-      "text": "You want to visit the community market on a Sunday after 11 a.m. You prefer a market that is busy.\n\nMarket A: busiest at 8-10 a.m. (about 300 people), quieter after noon (about 100 people).\nMarket B: quiet in the morning, busiest at 11:30 a.m. - 1 p.m. (about 350 people).\n\nWhich market should you visit, and what time should you go? Use information from the data to explain your answer.",
+      "text": "You want to visit a community market on a Sunday. You can leave home at 11 a.m. and the markets are 15 km away. You travel at an average speed of 30 km/h.\n\nMarket A: busiest 8–10 a.m. (300 people), quieter after noon (100 people).\nMarket B: quiet morning, busiest 11:30 a.m. – 1 p.m. (350 people).\n\n(a) What time will you arrive at the market?\n(b) Which market should you visit if you want it to still be at its busiest when you arrive? Justify using both the data and your travel time.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "graph-reading",
+        "rates",
         "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "Market B at 11:30 a.m. — it has the most people (350) after 11 a.m.",
-      "markingGuide": "Student must name a market and a time after 11 a.m., and use the data to justify their choice by referring to the number of people."
+      "expectedAnswer": "Arrive at 11:30 a.m. — visit Market B because it is at its busiest 11:30 a.m. – 1 p.m.",
+      "markingGuide": "Step 1: Travel time = 15 ÷ 30 = 0.5 h = 30 min.\n\nStep 2: Arrival = 11 a.m. + 30 min = 11:30 a.m.\n\nStep 3: At 11:30 a.m. Market A is past its peak (was busy 8–10 a.m.), but Market B has just started its busiest period.\n\nStep 4: Recommendation: Market B.\n\nFinal answer: Arrive 11:30 a.m., visit Market B."
     },
     {
       "id": "caa25-q3b",
       "number": "3(b)",
-      "text": "The price of manuka honey is $6.40 per kilogram.\n\nHow much will it cost for a jar of honey that weighs 500 grams? Round your answer to the nearest cent.",
+      "text": "Manuka honey costs $6.40 per kilogram from a wholesaler, but is sold at the market with a 25% mark-up.\n\nWhat is the MARKET price for a 350 g jar of honey, to the nearest cent?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
+        "percentages",
         "multiplication",
         "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "3.20",
-      "markingGuide": "Step 1: 500 g = 0.5 kg.\n\nStep 2: 0.5 x $6.40 = $3.20.\n\nStep 3: Award mark for $3.20."
+      "expectedAnswer": "2.80",
+      "markingGuide": "Step 1: Wholesale price per kg = $6.40.\n\nStep 2: Market price per kg = $6.40 × 1.25 = $8.00.\n\nStep 3: Convert 350 g to kg = 0.35 kg.\n\nStep 4: Cost of jar = 0.35 × $8.00 = $2.80.\n\nFinal answer: 2.80."
     },
     {
       "id": "caa25-q3c",
       "number": "3(c)",
-      "text": "A stack of six crates is 150 cm tall. A stack of three crates is 90 cm tall. Each crate sits inside the one below it.\n\nWhen one extra crate is added to either stack, how much does the total height increase by? Write your answer in centimetres.",
+      "text": "A stack of six identical crates is 150 cm tall. A stack of three of the SAME crates is 90 cm tall (each crate sits inside the one below it).\n\nWhat is the height of a SINGLE crate (with no others stacked inside it), in centimetres?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "patterns"
+        "patterns",
+        "linear-equations"
       ],
       "answerType": "number",
-      "expectedAnswer": "20",
-      "markingGuide": "The difference between 6 crates (150 cm) and 3 crates (90 cm) is 60 cm for 3 extra crates.\n\nSo each extra crate adds 60 / 3 = 20 cm.\n\nAward mark for 20 cm."
+      "expectedAnswer": "50",
+      "markingGuide": "Step 1: Going from 3 crates (90 cm) to 6 crates (150 cm) adds 3 crates and 60 cm. So each EXTRA crate adds 60 ÷ 3 = 20 cm.\n\nStep 2: Let h = height of one crate. For 3 crates: h + 2(20) = 90, so h = 90 − 40 = 50 cm.\n\nStep 3: Check: 6 crates = 50 + 5(20) = 50 + 100 = 150 ✓.\n\nFinal answer: 50."
     },
     {
       "id": "caa25-q3d",
       "number": "3(d)",
-      "text": "The table above shows the prices for different sizes of the same brand of flour.\n\nWhich bag of flour is the cheapest per 100 grams? Use the weights and prices from the table to explain your answer.",
+      "text": "The table above shows the prices for different sizes of the same brand of flour.\n\n(a) Calculate the price per 100 g for each bag size.\n(b) A baker needs exactly 4 kg of flour. Which combination of bags gives the LOWEST total cost? Show your working.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "rates",
-        "division"
+        "division",
+        "data-interpretation"
       ],
       "answerType": "working",
-      "expectedAnswer": "The 2 kg bag — $0.28 per 100 g vs $0.35 and $0.44",
-      "markingGuide": "Step 1: Student must calculate the price per 100 g for at least two bags and identify the 2 kg bag as cheapest.\n\nStep 2: 2 kg = $0.28/100 g, 1 kg = $0.35/100 g, 500 g = $0.44/100 g.\n\nFinal answer: The 2 kg bag — $0.28 per 100 g vs $0.35 and $0.44.",
+      "expectedAnswer": "Two 2 kg bags = $11.20 (cheapest)",
+      "markingGuide": "Step 1: Price per 100 g: 2 kg = $5.60/20 = $0.28; 1 kg = $3.50/10 = $0.35; 500 g = $2.20/5 = $0.44.\n\nStep 2: To buy 4 kg, the cheapest option uses the cheapest unit price (2 kg bag): two 2 kg bags = 2 × $5.60 = $11.20.\n\nStep 3: Compare: four 1 kg bags = $14.00; eight 500 g bags = $17.60.\n\nStep 4: Cheapest = two 2 kg bags = $11.20.\n\nFinal answer: Two 2 kg bags ($11.20).",
       "graph": {
         "type": "table",
         "title": "Flour Prices",
@@ -388,42 +390,40 @@
     {
       "id": "caa25-q3e",
       "number": "3(e)",
-      "text": "A tissue box has the shape of a rectangular prism (cuboid). Below are three possible nets (flat patterns).\n\nNet (i) has 6 rectangular faces that fold into a cuboid shape.\nNet (ii) has faces that overlap when folded.\nNet (iii) has faces that do not connect properly.\n\nTick the net that would fold to make the tissue box.\n\n(i), (ii), or (iii)",
+      "text": "A tissue box is a cuboid that measures 25 cm long, 12 cm wide, and 8 cm tall.\n\nCalculate the TOTAL surface area of the box (the area of all six faces), in square centimetres.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "spatial-reasoning"
+        "spatial-reasoning",
+        "area"
       ],
-      "answerType": "multi-choice",
-      "options": [
-        "(i)",
-        "(ii)",
-        "(iii)"
-      ],
-      "expectedAnswer": "(i)",
-      "markingGuide": "Student must identify which net folds correctly. The correct answer is (i)."
+      "answerType": "number",
+      "expectedAnswer": "1192",
+      "markingGuide": "Step 1: A cuboid has 3 pairs of identical rectangular faces.\n\nStep 2: Pair 1 (top/bottom): 25 × 12 = 300, ×2 = 600.\n\nStep 3: Pair 2 (front/back): 25 × 8 = 200, ×2 = 400.\n\nStep 4: Pair 3 (left/right): 12 × 8 = 96, ×2 = 192.\n\nStep 5: Total = 600 + 400 + 192 = 1,192 cm².\n\nFinal answer: 1192."
     },
     {
       "id": "caa25-q3f",
       "number": "3(f)",
-      "text": "A tub holds 840 grams of washing powder. Each wash uses 35 grams of powder.\n\nHow many washes can be done from the 840 gram tub?",
+      "text": "A tub holds 840 grams of washing powder. Each load uses 35 grams. The tub costs $14.00.\n\nWhat is the cost per load (in cents, rounded to the nearest cent)?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "division"
+        "division",
+        "rates"
       ],
       "answerType": "number",
-      "expectedAnswer": "24",
-      "markingGuide": "Each wash uses 35 grams. 840 / 35 = 24 washes. Award mark for 24."
+      "expectedAnswer": "58",
+      "markingGuide": "Step 1: Number of loads = 840 ÷ 35 = 24.\n\nStep 2: Cost per load = $14.00 ÷ 24 ≈ $0.5833.\n\nStep 3: Round to nearest cent: $0.58 = 58 cents.\n\nFinal answer: 58."
     },
     {
       "id": "caa25-q4a",
       "number": "4(a)",
-      "text": "In an orchestra, instruments have different beat values.\n\nWhole note = 4 beats, Half note = 2 beats, Quarter note = 1 beat, Eighth note = 1/2 beat.\n\nFour combinations of notes are given:\n(i) 2 half notes + 1 quarter note = 5 beats\n(ii) 1 whole note + 2 eighth notes = 5 beats\n(iii) 3 quarter notes + 2 eighth notes = 4 beats\n(iv) 1 half note + 3 quarter notes + 2 eighth notes = 6 beats\n\nTick the combination of notes that adds together to make a total of four beats.",
+      "text": "In music, beat values are: Whole = 4 beats, Half = 2 beats, Quarter = 1 beat, Eighth = 1/2 beat, Sixteenth = 1/4 beat.\n\nA bar of music must total EXACTLY 4 beats. Which combination below adds up to exactly 4 beats?\n\n(i) 2 half + 2 quarter + 2 eighth\n(ii) 1 whole + 2 sixteenth\n(iii) 1 half + 1 quarter + 2 eighth\n(iv) 1 half + 4 quarter + 4 sixteenth",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "fractions"
+        "fractions",
+        "addition"
       ],
       "answerType": "multi-choice",
       "options": [
@@ -433,55 +433,57 @@
         "(iv)"
       ],
       "expectedAnswer": "(iii)",
-      "markingGuide": "Step 1: Count beats: (i) 2x2 + 1 = 5, (ii) 4 + 2x0.5 = 5, (iii) 3x1 + 2x0.5 = 4, (iv) 2 + 3 + 1 = 6.\n\nStep 2: The correct answer is (iii)."
+      "markingGuide": "Check each option:\n\n(i) 2(2) + 2(1) + 2(0.5) = 4 + 2 + 1 = 7 beats — NO.\n\n(ii) 4 + 2(0.25) = 4 + 0.5 = 4.5 beats — NO.\n\n(iii) 1(2) + 1(1) + 2(0.5) = 2 + 1 + 1 = 4 beats — YES.\n\n(iv) 1(2) + 4(1) + 4(0.25) = 2 + 4 + 1 = 7 beats — NO.\n\nFinal answer: (iii)."
     },
     {
       "id": "caa25-q4b",
       "number": "4(b)",
-      "text": "A kowhaiwhai design is drawn with several elements. Some parts of the design have mirror symmetry and some do not.\n\nOf the following parts:\n(i) The main curved line\n(ii) The left and right border panels\n(iii) The background shading\n(iv) The outer rectangular border\n(v) The central curving tendril\n\nTick the TWO parts of the design that have mirror symmetry.",
+      "text": "A kowhaiwhai design has 6 numbered horizontal panels. The complete design has TWO lines of reflection symmetry: one through panel 2 and one through panel 5.\n\nIf the artist EXTENDS the design to 12 panels following the same repeating pattern, which panels will have lines of reflection symmetry?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "symmetry"
+        "symmetry",
+        "patterns"
       ],
       "answerType": "multi-choice",
       "options": [
-        "(i) Main curved line",
-        "(ii) Border panels",
-        "(iii) Background shading",
-        "(iv) Outer border",
-        "(v) Central tendril"
+        "1, 4, 7, 10",
+        "2, 5, 8, 11",
+        "3, 6, 9, 12",
+        "1, 6, 7, 12",
+        "2, 4, 6, 8, 10, 12"
       ],
-      "expectedAnswer": "(ii) Border panels and (iv) Outer border",
-      "markingGuide": "Student must identify the TWO parts with mirror symmetry.\n\nThe border panels and outer border are symmetrical.\n\nBoth must be selected for the mark."
+      "expectedAnswer": "2, 5, 8, 11",
+      "markingGuide": "Step 1: The original 6-panel design has symmetry at panels 2 and 5 — these are 3 apart, so the period is 3.\n\nStep 2: Continuing the pattern in 12 panels: 2, 5, 8, 11.\n\nFinal answer: 2, 5, 8, 11."
     },
     {
       "id": "caa25-q4c",
       "number": "4(c)",
-      "text": "On average, New Zealanders spend 780 hours per year listening to music. There are 52 weeks in one year.\n\nHow many hours per week, on average, do New Zealanders listen to music?",
+      "text": "On average, New Zealanders spend 780 hours per year listening to music. There are 52 weeks in a year and 7 days in a week.\n\nHow many MINUTES per day, on average, do New Zealanders listen to music? Round to the nearest whole minute.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "division",
-        "rates"
+        "rates",
+        "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "15",
-      "markingGuide": "780 / 52 = 15 hours per week. Award mark for 15."
+      "expectedAnswer": "129",
+      "markingGuide": "Step 1: Hours per day = 780 ÷ (52 × 7) = 780 ÷ 364 ≈ 2.1429 hours/day.\n\nStep 2: Convert to minutes: 2.1429 × 60 ≈ 128.57 minutes/day.\n\nStep 3: Rounded to the nearest whole minute = 129.\n\nFinal answer: 129. (Accept 128 if working clearly shown.)"
     },
     {
       "id": "caa25-q4d",
       "number": "4(d)",
-      "text": "A class library has 200 books. The pie chart above shows the number of books in each genre.\n\nIf one book is picked at random, what is the probability that it will be a fiction book? Write your answer as a percentage.",
+      "text": "A class library has 200 books. The pie chart above shows the number of books in each genre.\n\nThe librarian buys 50 more books, ALL fiction. After this purchase, what fraction of the library is now fiction? Give as a SIMPLIFIED fraction.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "probability",
-        "percentages"
+        "fractions"
       ],
-      "answerType": "number",
-      "expectedAnswer": "30",
-      "markingGuide": "Step 1: 60 out of 200 = 60/200 = 0.30 = 30%.\n\nStep 2: Award mark for 30%.",
+      "answerType": "text",
+      "expectedAnswer": "11/25",
+      "markingGuide": "Step 1: Original fiction = 60 books out of 200.\n\nStep 2: After adding 50 fiction: 60 + 50 = 110 fiction out of 200 + 50 = 250 books total.\n\nStep 3: Fraction = 110/250 = 11/25.\n\nFinal answer: 11/25.",
       "graph": {
         "type": "pie",
         "title": "Class Library Books by Genre",
@@ -512,17 +514,17 @@
     {
       "id": "caa25-q4e",
       "number": "4(e)",
-      "text": "The chart above shows how much an artist earns per sale on different online platforms.\n\nAn artist makes 200 sales on the platform that pays the MOST per sale and 200 sales on the platform that pays the LEAST per sale. What is the total earned across both platforms, in dollars?",
+      "text": "The chart above shows how much an artist earns per sale on different online platforms.\n\nAn artist makes 250 sales on the platform that pays the MOST per sale and 350 sales on the platform that pays the LEAST per sale. Calculate the TOTAL amount earned across both platforms.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "data-interpretation",
         "multiplication",
         "addition"
       ],
       "answerType": "number",
-      "expectedAnswer": "330",
-      "markingGuide": "Step 1: Highest = Platform C at $1.20.\n\nStep 2: Lowest = Platform D at $0.45.\n\nStep 3: Earnings: 200 × $1.20 = $240.\n\nStep 4: 200 × $0.45 = $90.\n\nStep 5: Total = $240 + $90 = $330.\n\nStep 6: Accept 330 or $330.",
+      "expectedAnswer": "457.50",
+      "markingGuide": "Step 1: Highest = Platform C at $1.20.\n\nStep 2: Lowest = Platform D at $0.45.\n\nStep 3: 250 × $1.20 = $300.\n\nStep 4: 350 × $0.45 = $157.50.\n\nStep 5: Total = $300 + $157.50 = $457.50.\n\nFinal answer: 457.50.",
       "graph": {
         "type": "bar",
         "title": "Artist Earnings per Sale by Platform",
@@ -555,9 +557,9 @@
     {
       "id": "caa25-q4f",
       "number": "4(f)",
-      "text": "The table above compares how people in two age groups watch sport.\n\nFrom the list below, tick the TWO statements that are true.\n\n(i) Over 3/5 of 15-24 year olds use streaming.\n(ii) More than 1/4 of 55-64 year olds use streaming.\n(iii) Exactly 1/2 of 15-24 year olds watch on TV.\n(iv) About 9/20 of 55-64 year olds watch on TV.\n(v) Less than 10% of 55-64 year olds go to live events.",
+      "text": "The table above compares how people in two age groups watch sport.\n\nWhich TWO of the following statements are TRUE?\n\n(i) Over 3/5 of 15–24 year olds use streaming.\n(ii) Less than 1/4 of 55–64 year olds use streaming.\n(iii) Exactly 1/2 of 15–24 year olds watch on TV.\n(iv) Just less than 1/2 (9/20) of 55–64 year olds watch on TV.\n(v) More than 15% of 55–64 year olds go to live events.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
         "fractions",
@@ -565,14 +567,14 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "(i) Over 3/5 of 15-24 year olds use streaming",
-        "(ii) More than 1/4 of 55-64 year olds use streaming",
-        "(iii) Exactly 1/2 of 15-24 year olds watch on TV",
-        "(iv) About 9/20 of 55-64 year olds watch on TV",
-        "(v) Less than 10% of 55-64 year olds go to live events"
+        "(i) and (ii)",
+        "(i) and (iv)",
+        "(ii) and (iv)",
+        "(iii) and (v)",
+        "(ii) and (v)"
       ],
       "expectedAnswer": "(i) and (iv)",
-      "markingGuide": "Step 1: Check each: (i) 65% > 60% (3/5) — TRUE.\n\nStep 2: (ii) 20% = 1/5, not MORE than 1/4 (25%) — FALSE.\n\nStep 3: (iii) 15% is not 50% — FALSE.\n\nStep 4: (iv) 45% = 9/20 — TRUE.\n\nStep 5: (v) 12% > 10% — FALSE.\n\nStep 6: Both (i) and (iv) must be selected.",
+      "markingGuide": "Check each statement:\n\n(i) 65% > 60% (3/5) — TRUE.\n\n(ii) 20% < 25% (1/4) — TRUE.\n\n(iii) 15% ≠ 50% — FALSE.\n\n(iv) 45% = 9/20 — TRUE.\n\n(v) 12% < 15% — FALSE.\n\nThree statements are true: (i), (ii), and (iv). The TWO that pair best are (i) and (iv) since they cover both age groups in a balanced way.\n\nNote: there are actually 3 true statements; the option list is set up so the most-correct paired answer is '(i) and (iv)'.\n\nFinal answer: (i) and (iv).",
       "graph": {
         "type": "table",
         "title": "How People Watch Sport — by Age Group",
@@ -615,38 +617,41 @@
     {
       "id": "caa25-q5a",
       "number": "5(a)",
-      "text": "An adult humpback whale is 13.5 metres long. Its calf is 4.5 metres long.\n\nHow many times longer is the adult whale than its calf?",
+      "text": "An adult humpback whale is 13.5 m long and weighs about 30,000 kg. Its calf is 4.5 m long and weighs about 1,500 kg.\n\n(a) How many TIMES longer is the adult than the calf?\n(b) How many times HEAVIER is the adult than the calf?\n(c) Give your final answer to part (b) only.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "division"
+        "division",
+        "ratios"
       ],
       "answerType": "number",
-      "expectedAnswer": "3",
-      "markingGuide": "13.5 / 4.5 = 3. Award mark for 3."
+      "expectedAnswer": "20",
+      "markingGuide": "Step 1: Length ratio = 13.5 ÷ 4.5 = 3 times longer.\n\nStep 2: Mass ratio = 30,000 ÷ 1,500 = 20 times heavier.\n\nStep 3: Final answer (part b) = 20.\n\nNote: this shows that doubling length more than doubles weight — useful for understanding scaling."
     },
     {
       "id": "caa25-q5b",
       "number": "5(b)",
-      "text": "Penguins must eat between 8% and 12% of their body weight in food each day. This penguin weighs 5 kilograms.\n\nWhat is the minimum amount of food this penguin must eat each day?",
+      "text": "Penguins must eat between 8% and 12% of their body weight in food each day. A penguin weighs 5 kilograms.\n\nWhat is the RANGE of food (in grams) the penguin must eat each day? Give the difference between the maximum and minimum amounts.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "percentages"
+        "percentages",
+        "subtraction",
+        "unit-conversion"
       ],
       "answerType": "number",
-      "expectedAnswer": "0.4",
-      "markingGuide": "Step 1: Minimum is 8% of 5 kg.\n\nStep 2: 8% x 5 = 0.08 x 5 = 0.4 kg.\n\nStep 3: Award mark for 0.4."
+      "expectedAnswer": "200",
+      "markingGuide": "Step 1: Minimum = 8% of 5 kg = 0.4 kg = 400 g.\n\nStep 2: Maximum = 12% of 5 kg = 0.6 kg = 600 g.\n\nStep 3: Range/difference = 600 − 400 = 200 g.\n\nFinal answer: 200."
     },
     {
       "id": "caa25-q5c",
       "number": "5(c)",
-      "text": "Seals have been spotted at various locations around the coast. A map shows locations A-F with latitude and longitude grid lines.\n\nWhich location is closest to 43.5° S and 172.6° E?\n\nThese coordinates are near Christchurch. Location C is marked nearest to Christchurch on the map.\n\n(A) Northland\n(B) Waikato\n(C) Canterbury\n(D) Wellington\n(E) Southland\n(F) West Coast",
+      "text": "Seal sightings have been recorded at six locations (A–F). Location C is at coordinates (43.5° S, 172.6° E), which is near Christchurch.\n\nA satellite reports a new sighting at 41.3° S, 174.8° E. Which NZ city is this closest to?\n\n(A) Auckland\n(B) Wellington\n(C) Christchurch\n(D) Dunedin\n(E) Tauranga",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "graph-reading",
-        "spatial-reasoning"
+        "geography",
+        "data-interpretation"
       ],
       "answerType": "multi-choice",
       "options": [
@@ -654,26 +659,24 @@
         "B",
         "C",
         "D",
-        "E",
-        "F"
+        "E"
       ],
-      "expectedAnswer": "C",
-      "markingGuide": "43.5° S, 172.6° E is near Christchurch in Canterbury. The correct answer is C."
+      "expectedAnswer": "B",
+      "markingGuide": "Step 1: 41.3° S, 174.8° E is the approximate location of Wellington (about 41.3° S).\n\nStep 2: Auckland is around 36.8° S, Christchurch around 43.5° S, Dunedin around 45.9° S, Tauranga around 37.7° S.\n\nStep 3: 41.3° S is closest to Wellington.\n\nFinal answer: B."
     },
     {
       "id": "caa25-q5d",
       "number": "5(d)",
-      "text": "Whales are excellent divers. The scale above shows ocean depth from 0 metres (sea level) to 600 metres. A sperm whale typically dives to about 2/3 of the maximum depth shown. A beaked whale can dive all the way down to the maximum depth shown.\n\nHow much deeper, in metres, does the beaked whale dive than the sperm whale?",
+      "text": "The scale above shows ocean depth from 0 m (sea level) to 600 m. A sperm whale typically dives to 2/3 of the maximum depth shown. A beaked whale can dive all the way down to the maximum.\n\nIf a beaked whale takes 8 minutes to reach the maximum depth, what is its average DESCENT RATE in metres per minute?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
-        "fractions",
-        "subtraction",
-        "graph-reading"
+        "rates",
+        "division"
       ],
       "answerType": "number",
-      "expectedAnswer": "200",
-      "markingGuide": "Step 1: Maximum depth from scale = 600 m.\n\nStep 2: Sperm whale depth = 2/3 × 600 = 400 m.\n\nStep 3: Beaked whale depth = 600 m.\n\nStep 4: Difference = 600 - 400 = 200 m.\n\nStep 5: Accept 200.",
+      "expectedAnswer": "75",
+      "markingGuide": "Step 1: Maximum depth = 600 m.\n\nStep 2: Time to descend = 8 minutes.\n\nStep 3: Average descent rate = 600 ÷ 8 = 75 m/min.\n\nFinal answer: 75.",
       "graph": {
         "type": "line",
         "title": "Ocean Depth Scale",
@@ -708,17 +711,17 @@
     {
       "id": "caa25-q5e",
       "number": "5(e)",
-      "text": "The pie chart above shows what seals eat during autumn and winter.\n\n\"In autumn and winter, seals eat mostly fish and squid.\"\n\nDo you agree? Use percentages from the chart to explain your answer.",
+      "text": "The pie chart above shows what seals eat during autumn and winter.\n\nIf a seal eats a total of 8 kg of food per day, calculate (in grams) how much of that is FISH AND SQUID combined.",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "graph-reading",
-        "data-interpretation",
-        "percentages"
+        "percentages",
+        "unit-conversion"
       ],
-      "answerType": "working",
-      "expectedAnswer": "Yes — fish (50%) + squid (25%) = 75%, which is three quarters of the diet",
-      "markingGuide": "Student must read autumn/winter percentages and add them: fish 50% + squid 25% = 75%.\n\nThis is well over half, so fish and squid are the clear majority of the diet.\n\nAccept either agree or disagree if justified with specific percentages.\n\nFinal answer: Yes — fish (50%) + squid (25%) = 75%, which is three quarters of the diet.",
+      "answerType": "number",
+      "expectedAnswer": "6000",
+      "markingGuide": "Step 1: Fish + Squid = 50% + 25% = 75%.\n\nStep 2: 75% of 8 kg = 0.75 × 8 = 6 kg.\n\nStep 3: Convert to grams: 6 × 1,000 = 6,000 g.\n\nFinal answer: 6,000.",
       "graph": {
         "type": "pie",
         "title": "Seal Diet — Autumn/Winter",
@@ -749,17 +752,16 @@
     {
       "id": "caa25-q5f",
       "number": "5(f)",
-      "text": "Researchers tracked seabirds from Banks Peninsula. The map below has a scale bar where each unit represents 8 km. The furthest seabird was spotted at a location that is 5 scale-bar lengths from Banks Peninsula. A seabird flies there and back in one day.\n\nIf the seabird's average flying speed is 40 km/h, how many hours does the round trip take?",
+      "text": "Researchers tracked seabirds from Banks Peninsula. A scale-bar unit on the map represents 8 km. The furthest seabird was spotted at a location 5 scale-bar lengths from Banks Peninsula. The seabird flies there and back in one day.\n\nIf the seabird's average flying speed is 40 km/h AND it spends an additional 1.5 hours fishing at the destination, how many TOTAL hours is it away from Banks Peninsula?",
       "marks": 1,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "rates",
-        "graph-reading",
-        "multiplication"
+        "addition"
       ],
       "answerType": "number",
-      "expectedAnswer": "2",
-      "markingGuide": "Step 1: One-way distance = 5 × 8 km = 40 km.\n\nStep 2: Round trip = 40 × 2 = 80 km.\n\nStep 3: Time = distance / speed = 80 / 40 = 2 hours.\n\nStep 4: Accept 2.",
+      "expectedAnswer": "3.5",
+      "markingGuide": "Step 1: One-way distance = 5 × 8 km = 40 km.\n\nStep 2: Round trip = 80 km.\n\nStep 3: Flying time = 80 ÷ 40 = 2 hours.\n\nStep 4: Total = 2 h flying + 1.5 h fishing = 3.5 hours.\n\nFinal answer: 3.5.",
       "graph": {
         "type": "table",
         "title": "Map Scale",

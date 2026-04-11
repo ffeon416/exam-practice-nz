@@ -11,7 +11,7 @@
     {
       "id": "y10h1-q1",
       "number": "1",
-      "text": "The hauora model (Mason Durie's Te Whare Tapa Whā) describes well-being as having four dimensions. What are the four dimensions of hauora?",
+      "text": "Mason Durie's Te Whare Tapa Whā model represents hauora as a wharenui (meeting house) with four walls. Which statement BEST describes how the model views well-being?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -19,18 +19,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual)",
-        "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha mahi (work), Taha wairua (spiritual)",
-        "Taha tinana (physical), Taha kai (nutritional), Taha whānau (social/family), Taha wairua (spiritual)",
-        "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha whenua (environmental)"
+        "If just one wall is strong, the wharenui will stand and the person will be well",
+        "All four walls (taha tinana, taha hinengaro, taha whānau, taha wairua) need to be strong and balanced — if one is weak, the whole structure is affected",
+        "Only the physical and mental walls really matter; the others are optional",
+        "The walls represent four separate types of people, not one person"
       ],
-      "expectedAnswer": "Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual)",
-      "markingGuide": "The correct answer is Taha tinana (physical), Taha hinengaro (mental/emotional), Taha whānau (social/family), Taha wairua (spiritual).\n\nHere's why:\nThese are the four walls of Te Whare Tapa Whā, Mason Durie's model of health and well-being used throughout the NZ Health curriculum."
+      "expectedAnswer": "All four walls (taha tinana, taha hinengaro, taha whānau, taha wairua) need to be strong and balanced — if one is weak, the whole structure is affected",
+      "markingGuide": "The correct answer is the option about all four walls being needed and balanced.\n\nHere's why:\nTe Whare Tapa Whā models hauora as a wharenui supported by four walls — taha tinana (physical), taha hinengaro (mental/emotional), taha whānau (social/family) and taha wairua (spiritual).\nIf one wall is weakened, the whole structure becomes unstable, so true well-being requires all four to be looked after.\nA common mistake is to think the four dimensions are independent — they are interconnected."
     },
     {
       "id": "y10h1-q2",
       "number": "2",
-      "text": "Which dimension of hauora is about feeling connected to family and community?",
+      "text": "A Year 10 student moved cities and lost contact with their old friends. They have started skipping kapa haka practice and feel they no longer 'belong' anywhere. Which dimension of hauora is MOST directly being affected?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -38,30 +38,30 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Taha tinana",
-        "Taha hinengaro",
-        "Taha whānau",
-        "Taha wairua"
+        "Taha tinana — because they may be tired",
+        "Taha hinengaro — because they may feel sad",
+        "Taha whānau — because they have lost their sense of belonging and connection",
+        "Taha wairua — because they no longer believe in anything"
       ],
-      "expectedAnswer": "Taha whānau",
-      "markingGuide": "The correct answer is Taha whānau.\n\nHere's why:\nThis dimension relates to belonging, family relationships, and feeling connected to others in your community.\nIt recognises that our well-being is linked to our relationships with whānau and wider social groups."
+      "expectedAnswer": "Taha whānau — because they have lost their sense of belonging and connection",
+      "markingGuide": "The correct answer is Taha whānau.\n\nHere's why:\nTaha whānau is specifically about belonging, family, and feeling connected to wider social groups.\nLosing contact with friends and stepping away from kapa haka (a group activity) is most directly a whānau dimension issue.\nNote: this would also affect the other dimensions in time — that interconnection is the point of the model — but the question asks for the MOST direct dimension."
     },
     {
       "id": "y10h1-q3",
       "number": "3",
-      "text": "Explain how TWO dimensions of hauora are connected. Use an example from a teenager's life.",
+      "text": "Choose any TWO dimensions of hauora and explain how a change in one can lead to a change in the other. Use a specific Year 10 student example to support your answer (e.g. exam stress, joining a sports team, moving schools, an injury).",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "hauora"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for identifying two dimensions and explaining a valid connection.\n\n1 mark for a relevant, specific example from a teenager's life.\n\nFor example: Taha tinana and Taha hinengaro are connected — when a teenager exercises regularly (physical), they may feel less stressed and more confident (mental/emotional).\n\nOr: Taha whānau and Taha wairua — when a teenager feels supported by their family (social), they may feel a stronger sense of purpose and identity (spiritual)."
+      "markingGuide": "1 mark for naming TWO dimensions and explaining a clear, two-way (or cause-and-effect) link between them — not just listing them.\n\n1 mark for a specific, realistic Year 10 example that clearly shows the link in action.\n\nExample of a strong answer: 'A Year 10 student tears their ankle and can't play netball for six weeks (taha tinana). Because netball was where they saw their friends every weekend, they start to feel isolated and left out (taha whānau). The injury directly weakened their social connections — showing how taha tinana and taha whānau are linked.'\n\nDo not award full marks for vague answers like 'exercise makes you happy' without a specific example."
     },
     {
       "id": "y10h1-q4",
       "number": "4",
-      "text": "The chart above shows the energy content (in kilojoules) per gram of different macronutrients.\n\nA snack contains 10 g of fat and 20 g of carbohydrates. Using the values from the chart, calculate the total energy in the snack, in kilojoules.",
+      "text": "A teenager eats a snack containing 15 g of fat, 25 g of carbohydrates, and 8 g of protein. Using the values from the chart above, calculate the total energy in the snack in kilojoules.",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -69,8 +69,8 @@
         "multiplication"
       ],
       "answerType": "number",
-      "expectedAnswer": "710",
-      "markingGuide": "Step 1: From the chart: Fat = 37 kJ/g, Carbohydrates = 17 kJ/g.\n\nStep 2: Fat energy = 10 × 37 = 370 kJ.\n\nStep 3: Carbohydrate energy = 20 × 17 = 340 kJ.\n\nStep 4: Total = 370 + 340 = 710 kJ.\n\nStep 5: Accept 710.",
+      "expectedAnswer": "1116",
+      "markingGuide": "Step 1: From the chart: Fat = 37 kJ/g, Carbohydrates = 17 kJ/g, Protein = 17 kJ/g.\n\nStep 2: Fat energy = 15 × 37 = 555 kJ.\n\nStep 3: Carbohydrate energy = 25 × 17 = 425 kJ.\n\nStep 4: Protein energy = 8 × 17 = 136 kJ.\n\nStep 5: Total = 555 + 425 + 136 = 1116 kJ.\n\nStep 6: Accept 1116.",
       "graph": {
         "type": "bar",
         "title": "Energy Content per Gram of Macronutrients",
@@ -103,7 +103,7 @@
     {
       "id": "y10h1-q5",
       "number": "5",
-      "text": "What is the legal drinking age in New Zealand?",
+      "text": "Which statement about alcohol law in New Zealand is correct?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -111,30 +111,30 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "16",
-        "18",
-        "20",
-        "21"
+        "There is no legal drinking age in NZ, but you must be 18 to PURCHASE alcohol from a licensed seller",
+        "You must be 21 to buy or drink alcohol in NZ",
+        "Anyone aged 16 or over can buy alcohol with a parent's note",
+        "It is legal to supply alcohol to anyone under 18 without parental consent"
       ],
-      "expectedAnswer": "18",
-      "markingGuide": "The correct answer is 18.\n\nHere's why:\nIn New Zealand, the minimum purchase age for alcohol is 18 years.\nIt is illegal for anyone under 18 to buy alcohol in NZ.\nNote: there is no minimum legal drinking age in NZ, but the purchase age is 18."
+      "expectedAnswer": "There is no legal drinking age in NZ, but you must be 18 to PURCHASE alcohol from a licensed seller",
+      "markingGuide": "The correct answer is the first option.\n\nHere's why:\nNew Zealand has no minimum legal drinking age, but the minimum PURCHASE age is 18.\nIt is also illegal to supply alcohol to a person under 18 without express parental consent (and even then, it must be done responsibly).\nThe other options are common misconceptions — there is no age 21 rule (that's the United States), parental notes do not apply, and supplying alcohol to under-18s without parental consent is an offence."
     },
     {
       "id": "y10h1-q6",
       "number": "6",
-      "text": "Describe TWO strategies a teenager could use to resist peer pressure to drink alcohol.",
+      "text": "A Year 10 student is at a friend's place after a school sports event. Older teenagers offer them alcohol and start pressuring them to drink because 'everyone else is'.\n\nDescribe TWO different strategies the student could use to resist the pressure, and for each strategy explain WHY it would work in this scenario.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "drugs-alcohol"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for each valid strategy (2 required).\n\nPossible strategies include: saying 'no thanks' assertively and offering an alternative reason (e.g. 'I'm driving' or 'I have training tomorrow');.\n\nremoving themselves from the situation by leaving the party or calling a parent;.\n\nhaving a non-alcoholic drink in hand so they are not offered alcohol;.\n\nchoosing friends who respect their decision not to drink;.\n\nplanning ahead with a trusted friend to support each other;.\n\nusing humour to deflect pressure.\n\nEach strategy must be clearly described, not just named."
+      "markingGuide": "1 mark for each strategy that includes BOTH a clear action AND an explanation of why it would work in the scenario described.\n\nExamples of strong answers:\n\nUse a confident 'no' with a believable reason — e.g. 'No thanks, I've got training in the morning'. This works because it gives the older teens an answer they can't easily argue with and protects the student's identity as an athlete.\n\nLeave the situation — text a parent for a ride or move to a different room/group. This works because peer pressure relies on you staying in the situation; removing yourself ends the pressure immediately and is safer than trying to argue.\n\nUse the buddy system — have a friend agreed in advance to back each other up by both refusing. This works because it is easier to say no when you are not the only one, and reduces the social cost.\n\nHold a non-alcoholic drink — e.g. ask for a soft drink in a similar cup. This works because you are not 'empty-handed' and people are less likely to keep offering.\n\nDo NOT award the second mark if the student only names a strategy without explaining WHY it would work."
     },
     {
       "id": "y10h1-q7",
       "number": "7",
-      "text": "What does it mean to be resilient in terms of mental health?",
+      "text": "Which statement BEST describes resilience?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -142,31 +142,31 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Never feeling sad or anxious",
-        "Being able to cope with challenges and bounce back from difficulties",
-        "Always being happy and positive",
-        "Avoiding all stressful situations"
+        "Never feeling stressed, sad, or anxious about anything",
+        "The ability to recognise difficult emotions, use healthy coping strategies, and recover from setbacks over time",
+        "Pretending everything is fine and not telling anyone when you are struggling",
+        "Avoiding any situation that might be hard or uncomfortable"
       ],
-      "expectedAnswer": "Being able to cope with challenges and bounce back from difficulties",
-      "markingGuide": "The correct answer is Being able to cope with challenges and bounce back from difficulties.\n\nHere's why:\nResilience does not mean avoiding negative emotions or always being happy.\nIt is the ability to adapt and recover when things go wrong, and to keep going through tough times."
+      "expectedAnswer": "The ability to recognise difficult emotions, use healthy coping strategies, and recover from setbacks over time",
+      "markingGuide": "The correct answer is the second option.\n\nHere's why:\nResilience is NOT the absence of negative emotions — that is a common misconception.\nIt is the ability to feel difficult emotions, use coping strategies (talking to someone, exercise, problem-solving), and recover from setbacks.\nOption 3 (hiding feelings) is actually unhealthy.\nOption 4 (avoidance) tends to make things worse over time."
     },
     {
       "id": "y10h1-q8",
       "number": "8",
-      "text": "Explain why physical activity is important for mental well-being. Give a specific example.",
+      "text": "Explain TWO different ways that regular physical activity can support mental well-being. For each, link it to a specific dimension of hauora and give a concrete teenager example.",
       "marks": 2,
-      "gradeLevel": "achieved",
+      "gradeLevel": "merit",
       "topics": [
         "mental-health-y10",
         "hauora"
       ],
       "answerType": "text",
-      "markingGuide": "1 mark for explaining the link between physical activity and mental well-being (e.g. exercise releases endorphins which improve mood;.\n\nphysical activity reduces stress hormones like cortisol;.\n\nbeing active can improve sleep which supports mental health;.\n\nexercise provides a distraction from worries).\n\n1 mark for a specific, relevant example (e.g. 'A teenager who goes for a run after a stressful day at school may feel calmer and more able to focus on homework' or 'Playing in a sports team helps a young person feel a sense of belonging, which supports taha whānau and taha hinengaro')."
+      "markingGuide": "1 mark for each well-explained link (way + hauora dimension + teenager example). 2 required.\n\nExamples of strong answers:\n\n(1) Exercise releases endorphins and lowers cortisol, improving mood (taha hinengaro). Example: 'A student who goes for a run after a hard maths test feels less stressed and more able to focus on homework.'\n\n(2) Team sports provide a sense of belonging (taha whānau). Example: 'A Year 10 who joins a touch rugby team gains a regular group of friends, which boosts their mental well-being even on tough weeks.'\n\n(3) Exercise improves sleep quality (taha tinana → taha hinengaro). Example: 'A teenager who plays football after school falls asleep more easily, and better sleep means better mood and concentration the next day.'\n\n(4) Achieving a fitness goal (e.g. running 5 km) builds self-esteem and a sense of purpose (taha wairua). Example: 'Training for a school cross-country gives a student a goal to work towards, supporting their identity and self-worth.'\n\nDo not award full marks for general statements with no example or no hauora link."
     },
     {
       "id": "y10h1-q9",
       "number": "9",
-      "text": "Which of the following best describes consent in a relationship?",
+      "text": "Which statement BEST describes consent in any kind of relationship (friendship, romantic, online)?",
       "marks": 1,
       "gradeLevel": "achieved",
       "topics": [
@@ -174,18 +174,18 @@
       ],
       "answerType": "multi-choice",
       "options": [
-        "Saying yes once means you have agreed for all future situations",
-        "Consent is only needed the first time",
-        "Freely given, informed, and can be withdrawn at any time",
-        "If someone does not say no, they have given consent"
+        "Saying yes once means you've agreed for all future situations",
+        "Consent must be freely given, informed, enthusiastic, ongoing, and can be withdrawn at any time",
+        "If someone does not actively say no, they have given consent",
+        "Consent only matters in serious or romantic relationships, not friendships"
       ],
-      "expectedAnswer": "Freely given, informed, and can be withdrawn at any time",
-      "markingGuide": "The correct answer is Freely given, informed, and can be withdrawn at any time.\n\nHere's why:\nConsent must be active, ongoing, and freely given without pressure or coercion.\nIt can be withdrawn at any point.\nSilence or not saying no does not equal consent.\nConsent given once does not apply to future situations."
+      "expectedAnswer": "Consent must be freely given, informed, enthusiastic, ongoing, and can be withdrawn at any time",
+      "markingGuide": "The correct answer is the second option.\n\nHere's why:\nConsent must be: FREE (no pressure, manipulation, or coercion), INFORMED (you know what you're agreeing to), ENTHUSIASTIC (a genuine yes, not a reluctant one), ONGOING (it can be withdrawn at any time), and SPECIFIC (yes to one thing is not yes to everything).\nSilence or 'not saying no' is NOT consent.\nConsent applies to many situations including sharing photos, borrowing things, and physical contact — not just romantic situations."
     },
     {
       "id": "y10h1-q10",
       "number": "10",
-      "text": "A friend tells you they are being cyberbullied. Using the hauora model (Te Whare Tapa Whā), explain how cyberbullying could affect all four dimensions of their well-being, and suggest ONE action they could take.",
+      "text": "A friend tells you they are being cyberbullied. Apply the Te Whare Tapa Whā hauora model to:\n(a) explain how cyberbullying could affect ALL FOUR dimensions of their well-being (give a specific consequence for each dimension)\n(b) describe TWO specific actions they could take, and explain which dimension of hauora each action would support most.",
       "marks": 3,
       "gradeLevel": "excellence",
       "topics": [
@@ -193,7 +193,7 @@
         "mental-health-y10"
       ],
       "answerType": "working",
-      "markingGuide": "Up to 2 marks for explaining effects on all four dimensions: Taha tinana (physical) — stress may cause headaches, poor sleep, loss of appetite, or feeling physically unwell;.\n\nTaha hinengaro (mental/emotional) — may feel anxious, depressed, scared, angry, or lose confidence and self-esteem;.\n\nTaha whānau (social/family) — may withdraw from friends and family, feel isolated, or not want to go to school;.\n\nTaha wairua (spiritual) — may lose sense of self-worth, purpose, or identity, and feel hopeless about the future.\n\nMust address at least 3 dimensions clearly for 1 mark, all 4 for 2 marks.\n\n1 mark for suggesting a practical action (e.g. talk to a trusted adult such as a parent, teacher, or school counsellor;.\n\nblock the person online;.\n\nreport the bullying to the platform;.\n\ncontact Netsafe or a helpline like 1737)."
+      "markingGuide": "Up to 2 marks for part (a). Must address all four dimensions with a specific consequence:\n\nTaha tinana (physical) — stress causes headaches, poor sleep, loss of appetite, lowered immunity.\n\nTaha hinengaro (mental/emotional) — anxiety, depression, fear of checking phone, loss of self-esteem.\n\nTaha whānau (social/family) — withdrawal from friends and family, isolation, not wanting to go to school or join group chats.\n\nTaha wairua (spiritual) — loss of self-worth, identity, purpose; feeling hopeless about the future.\n\nAward 1 mark for 3 dimensions explained well, 2 marks for all 4 dimensions explained well.\n\n1 mark for part (b): TWO specific actions, each linked to the dimension it most supports. Examples:\n\nTalk to a trusted adult (parent, teacher, school counsellor) — supports taha whānau (rebuilding connection and feeling supported) and taha hinengaro (sharing the burden).\n\nBlock and report the bully on the platform, and screenshot the messages as evidence — supports taha tinana/hinengaro (removes the constant trigger).\n\nContact Netsafe or 1737 — supports taha hinengaro (professional emotional support).\n\nDo a calming physical activity (walk, sport) — supports taha tinana and taha hinengaro.\n\nReconnect with whānau or kapa haka — supports taha whānau and taha wairua (re-anchoring identity).\n\nDo not award the action mark unless BOTH actions name the dimension supported and briefly justify it."
     }
   ],
   "cutScores": {
