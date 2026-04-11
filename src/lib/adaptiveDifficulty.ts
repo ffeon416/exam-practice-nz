@@ -40,8 +40,12 @@ function loadStore(): RatingsStore {
 
 function saveStore(store: RatingsStore) {
   if (typeof window === "undefined") return;
-  localStorage.setItem(RATINGS_KEY, JSON.stringify(store));
-  notify();
+  try {
+    localStorage.setItem(RATINGS_KEY, JSON.stringify(store));
+    notify();
+  } catch {
+    // Storage full or disabled — fail silently
+  }
 }
 
 /**

@@ -26,98 +26,117 @@ export async function POST(request: NextRequest) {
 
     const isEnglish = subject === "english";
 
-    // Mark all questions in parallel
+    // Mark all questions in parallel — each question is wrapped in its own
+    // try/catch so one failure doesn't take down the whole exam.
     const results = await Promise.all(
       questions.map(async (q) => {
-        const studentAnswer = answers[q.id] ?? "";
-        const studentWorking = answers[`${q.id}_working`] ?? "";
+        try {
+          const studentAnswer = answers[q.id] ?? "";
+          const studentWorking = answers[`${q.id}_working`] ?? "";
 
-        // Combine working + answer for marking
-        const combinedAnswer = studentWorking
-          ? `WORKING:\n${studentWorking}\n\nFINAL ANSWER:\n${studentAnswer}`
-          : studentAnswer;
+          // Combine working + answer for marking
+          const combinedAnswer = studentWorking
+            ? `WORKING:\n${studentWorking}\n\nFINAL ANSWER:\n${studentAnswer}`
+            : studentAnswer;
 
-        // English essay-style questions (text or working answer types with
-        // meaningful length) go through the multi-pass marker. Very short
-        // answers (e.g. a 1-mark language identification) still use the fast
-        // marker — multi-pass would be overkill.
-        const isEssayLike =
-          isEnglish &&
-          q.marks >= 3 &&
-          (q.answerType === undefined ||
-            q.answerType === "text" ||
-            q.answerType === "working") &&
-          studentAnswer.trim().length > 0;
+          const isEssayLike =
+            isEnglish &&
+            q.marks >= 3 &&
+            (q.answerType === undefined ||
+              q.answerType === "text" ||
+              q.answerType === "working") &&
+            studentAnswer.trim().length > 0;
 
-        if (isEssayLike) {
-          const essay = await markEnglishEssay(
+          if (isEssayLike) {
+            const essay = await markEnglishEssay(
+              q.text,
+              q.markingGuide,
+              q.marks,
+              combinedAnswer
+            );
+            const packed =
+              essay.overallFeedback +
+              "\n\n" +
+              ESSAY_FEEDBACK_PREFIX +
+              JSON.stringify({
+                thesisAndStructure: essay.thesisAndStructure,
+                evidenceUse: essay.evidenceUse,
+                languageAndStyle: essay.languageAndStyle,
+                improvements: essay.improvements,
+                overallFeedback: essay.overallFeedback,
+              });
+
+            return {
+              questionId: q.id,
+              marksAwarded: Math.min(essay.marksAwarded, q.marks),
+              maxMarks: q.marks,
+              grade: essay.grade,
+              feedback: packed,
+              correctApproach: q.markingGuide,
+              examTip:
+                essay.improvements[0] ??
+                "Focus on developing a clear thesis and supporting it with specific textual evidence.",
+              topicsToReview: q.topics,
+            };
+          }
+
+          const result = await markAnswer(
             q.text,
-            q.markingGuide,
             q.marks,
+            q.gradeLevel,
+            q.markingGuide,
             combinedAnswer
           );
 
-          // Pack the structured dimension breakdown into the feedback field
-          // using a parseable prefix so the results page can render it. The
-          // human-readable overallFeedback is duplicated before the prefix
-          // as a graceful fallback for any consumer that doesn't know how
-          // to parse this format.
-          const packed =
-            essay.overallFeedback +
-            "\n\n" +
-            ESSAY_FEEDBACK_PREFIX +
-            JSON.stringify({
-              thesisAndStructure: essay.thesisAndStructure,
-              evidenceUse: essay.evidenceUse,
-              languageAndStyle: essay.languageAndStyle,
-              improvements: essay.improvements,
-              overallFeedback: essay.overallFeedback,
-            });
-
           return {
             questionId: q.id,
-            marksAwarded: Math.min(essay.marksAwarded, q.marks),
+            marksAwarded: Math.min(result.marksAwarded, q.marks),
             maxMarks: q.marks,
-            grade: essay.grade,
-            feedback: packed,
+            grade: result.grade,
+            feedback: result.feedback,
+            correctApproach: result.correctApproach,
+            examTip: result.examTip,
+            topicsToReview:
+              result.topicsToReview.length > 0
+                ? result.topicsToReview
+                : q.topics,
+          };
+        } catch (err) {
+          // Per-question fallback — never fail the whole exam because of one bad question
+          console.error(`Marking failed for question ${q.id}:`, err);
+          return {
+            questionId: q.id,
+            marksAwarded: 0,
+            maxMarks: q.marks,
+            grade: "achieved" as const,
+            feedback: "Auto-marking unavailable for this question. Compare your answer with the marking guide.",
             correctApproach: q.markingGuide,
-            examTip:
-              essay.improvements[0] ??
-              "Focus on developing a clear thesis and supporting it with specific textual evidence.",
+            examTip: "Always show your working clearly.",
             topicsToReview: q.topics,
           };
         }
-
-        const result = await markAnswer(
-          q.text,
-          q.marks,
-          q.gradeLevel,
-          q.markingGuide,
-          combinedAnswer
-        );
-
-        return {
-          questionId: q.id,
-          marksAwarded: Math.min(result.marksAwarded, q.marks),
-          maxMarks: q.marks,
-          grade: result.grade,
-          feedback: result.feedback,
-          correctApproach: result.correctApproach,
-          examTip: result.examTip,
-          topicsToReview:
-            result.topicsToReview.length > 0
-              ? result.topicsToReview
-              : q.topics,
-        };
       })
     );
 
     return NextResponse.json({ results });
   } catch (error) {
+    // Never fail the whole exam — return self-mark fallback so the student
+    // can still see their answers and the marking guide.
     console.error("Marking error:", error);
-    return NextResponse.json(
-      { error: "Failed to mark exam. Check your API key." },
-      { status: 500 }
-    );
+    const { questions } = (await request.clone().json().catch(() => ({ questions: [] }))) as {
+      questions?: Array<{ id: string; marks: number; markingGuide: string; topics: string[] }>;
+    };
+    const fallbackResults = (questions ?? []).map((q) => ({
+      questionId: q.id,
+      marksAwarded: 0,
+      maxMarks: q.marks,
+      grade: "achieved" as const,
+      feedback:
+        "Auto-marking is temporarily unavailable. Compare your answer with the marking guide below to mark yourself.",
+      correctApproach: q.markingGuide,
+      examTip: "Always show your working clearly.",
+      topicsToReview: q.topics,
+    }));
+    return NextResponse.json({ results: fallbackResults });
   }
 }

@@ -17,7 +17,15 @@ export function loadProgress(): StudentProgress {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultProgress();
-    return JSON.parse(raw) as StudentProgress;
+    const parsed = JSON.parse(raw) as StudentProgress;
+    // Validate structure — if corrupted, return defaults
+    if (!parsed || typeof parsed !== "object") return defaultProgress();
+    if (!Array.isArray(parsed.examAttempts)) parsed.examAttempts = [];
+    if (!parsed.topicScores || typeof parsed.topicScores !== "object") parsed.topicScores = {};
+    if (typeof parsed.totalExamsTaken !== "number") parsed.totalExamsTaken = parsed.examAttempts.length;
+    if (typeof parsed.streakDays !== "number") parsed.streakDays = 0;
+    if (typeof parsed.lastActiveDate !== "string") parsed.lastActiveDate = "";
+    return parsed;
   } catch {
     return defaultProgress();
   }
@@ -25,7 +33,11 @@ export function loadProgress(): StudentProgress {
 
 export function saveProgress(progress: StudentProgress) {
   if (typeof window === "undefined") return;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch {
+    // Quota exceeded or storage disabled — silently ignore so user isn't blocked
+  }
 }
 
 export function addExamAttempt(attempt: ExamAttempt): StudentProgress {

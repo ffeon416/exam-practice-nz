@@ -345,8 +345,12 @@ export function loadPlan(): StudyPlan | null {
 
 export function savePlan(plan: StudyPlan): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem(PLAN_KEY, JSON.stringify(plan));
-  notify();
+  try {
+    localStorage.setItem(PLAN_KEY, JSON.stringify(plan));
+    notify();
+  } catch {
+    // Storage full or disabled — fail silently
+  }
 }
 
 export function clearPlan(): void {
