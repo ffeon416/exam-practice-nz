@@ -107,6 +107,205 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   }
 }
 
+// ── Multi-pass English essay marking ──
+// Evaluates an essay across thesis/structure, evidence, and language/style in
+// three parallel smart-model passes, then synthesises overall feedback in a
+// fourth pass. Each dimension is scored 0–2; the three are summed (max 6) and
+// then rescaled to the question's actual marks total.
+
+type EssayDimensionResult = { score: number; feedback: string };
+
+function safeParseJson<T>(raw: string, fallback: T): T {
+  // Strip markdown code fences if the model wrapped the response despite
+  // being told not to, then attempt to parse. Return fallback on failure so
+  // one bad pass doesn't take down the whole request.
+  const cleaned = raw
+    .replace(/^```(?:json)?\s*/i, "")
+    .replace(/```\s*$/i, "")
+    .trim();
+  try {
+    return JSON.parse(cleaned) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+async function markEssayDimension(
+  dimension: "thesis" | "evidence" | "language",
+  questionText: string,
+  markingGuide: string,
+  studentEssay: string
+): Promise<EssayDimensionResult> {
+  const dimensionPrompts: Record<typeof dimension, { title: string; rubric: string }> = {
+    thesis: {
+      title: "THESIS AND STRUCTURE",
+      rubric: `Evaluate the essay's argument and organisation:
+- Is there a clear, defensible thesis that responds directly to the question?
+- Is the argument developed logically across the essay?
+- Do paragraphs have topic sentences, coherent structure, and clear transitions?
+- Is there a sense of introduction, body, and conclusion (even if brief)?
+
+Scoring:
+- 2 = Clear thesis, tightly structured argument, logical development throughout
+- 1 = Thesis present but underdeveloped OR structure uneven / some paragraphs off-topic
+- 0 = No clear thesis, disorganised, or doesn't address the question`,
+    },
+    evidence: {
+      title: "USE OF EVIDENCE AND QUOTATIONS",
+      rubric: `Evaluate how the student supports their argument:
+- Are specific quotations or textual references used?
+- Are they integrated smoothly into sentences (not just dropped in)?
+- Are they clearly linked back to the thesis / point being made?
+- Is the evidence accurate and relevant to the question?
+
+Scoring:
+- 2 = Well-chosen, accurate quotes/references, smoothly integrated, clearly linked to argument
+- 1 = Some evidence used but unevenly — may be dropped in, partial, or loosely connected
+- 0 = Little or no textual evidence, or evidence is inaccurate / irrelevant`,
+    },
+    language: {
+      title: "LANGUAGE ANALYSIS AND STYLE",
+      rubric: `Evaluate the student's analytical and stylistic skill:
+- Does the student analyse HOW language/techniques create meaning (not just identify them)?
+- Is literary/technical vocabulary used accurately (metaphor, symbolism, tone, etc.)?
+- Is the student's own prose clear, controlled, and appropriate for an essay?
+- Does the analysis go beyond surface-level observations?
+
+Scoring:
+- 2 = Insightful analysis of HOW techniques work, accurate terminology, polished prose
+- 1 = Identifies techniques but analysis is shallow OR prose is uneven
+- 0 = Only describes/retells, misuses terminology, or prose obscures meaning`,
+    },
+  };
+
+  const { title, rubric } = dimensionPrompts[dimension];
+
+  const prompt = `You are an experienced NCEA English examiner marking ONE dimension of a student essay. Be fair but rigorous — like a teacher who wants the student to grow.
+
+DIMENSION: ${title}
+
+${rubric}
+
+ESSAY QUESTION:
+${questionText}
+
+MARKING GUIDE (reference — the essay need not match it word-for-word):
+${markingGuide}
+
+STUDENT ESSAY:
+${studentEssay || "(No essay submitted)"}
+
+Focus ONLY on the dimension above. Ignore the other dimensions for now — they are marked separately.
+
+Respond ONLY with valid JSON (no markdown, no code fences):
+{
+  "score": <integer 0, 1, or 2>,
+  "feedback": "<2-3 sentence specific, actionable feedback on THIS dimension only. Quote briefly from the essay if useful.>"
+}`;
+
+  const text = await chatCompletion(prompt, { smart: true, maxTokens: 600 });
+  const parsed = safeParseJson<EssayDimensionResult>(text, {
+    score: 0,
+    feedback: "Unable to evaluate this dimension — please try again.",
+  });
+  // Clamp score to 0..2 in case the model returns something odd
+  const score = Math.max(0, Math.min(2, Math.round(Number(parsed.score) || 0)));
+  return { score, feedback: String(parsed.feedback ?? "") };
+}
+
+export async function markEnglishEssay(
+  questionText: string,
+  markingGuide: string,
+  marks: number,
+  studentEssay: string
+): Promise<{
+  marksAwarded: number;
+  grade: "not-achieved" | "achieved" | "merit" | "excellence";
+  overallFeedback: string;
+  thesisAndStructure: { score: number; feedback: string };
+  evidenceUse: { score: number; feedback: string };
+  languageAndStyle: { score: number; feedback: string };
+  improvements: string[];
+}> {
+  // Run the three dimension passes in parallel — they are independent.
+  const [thesisAndStructure, evidenceUse, languageAndStyle] = await Promise.all([
+    markEssayDimension("thesis", questionText, markingGuide, studentEssay),
+    markEssayDimension("evidence", questionText, markingGuide, studentEssay),
+    markEssayDimension("language", questionText, markingGuide, studentEssay),
+  ]);
+
+  // Pass 4: synthesise — give the model the three per-dimension results and
+  // ask for overall feedback + three concrete improvements.
+  const synthesisPrompt = `You are an experienced NCEA English examiner writing the overall report on a student essay. Three dimensions have already been marked separately — your job is to synthesise them into encouraging, actionable overall feedback and three specific improvements.
+
+ESSAY QUESTION:
+${questionText}
+
+STUDENT ESSAY:
+${studentEssay || "(No essay submitted)"}
+
+DIMENSION RESULTS:
+1. Thesis & Structure — ${thesisAndStructure.score}/2
+   ${thesisAndStructure.feedback}
+2. Use of Evidence — ${evidenceUse.score}/2
+   ${evidenceUse.feedback}
+3. Language & Style — ${languageAndStyle.score}/2
+   ${languageAndStyle.feedback}
+
+Write:
+- An "overallFeedback" paragraph (3–5 sentences): warm but honest summary of what the student did well and where the essay sits overall. Reference the dimension scores naturally.
+- Exactly THREE "improvements": specific, concrete things the student should do NEXT TIME. Each one should be actionable (not "write better"). Aim improvements at the weakest dimensions first.
+
+Respond ONLY with valid JSON (no markdown, no code fences):
+{
+  "overallFeedback": "<3-5 sentences>",
+  "improvements": ["<improvement 1>", "<improvement 2>", "<improvement 3>"]
+}`;
+
+  const synthesisText = await chatCompletion(synthesisPrompt, { smart: true, maxTokens: 600 });
+  const synthesis = safeParseJson<{ overallFeedback: string; improvements: string[] }>(
+    synthesisText,
+    {
+      overallFeedback:
+        "Your essay has been marked across three dimensions. See the per-dimension feedback above for specific comments.",
+      improvements: [
+        "Develop a clearer thesis that directly answers the question.",
+        "Support each point with a specific quotation from the text.",
+        "Analyse HOW language techniques create meaning, not just that they are used.",
+      ],
+    }
+  );
+
+  // Total raw score out of 6, rescaled to the question's mark total.
+  const rawTotal = thesisAndStructure.score + evidenceUse.score + languageAndStyle.score;
+  const marksAwarded = Math.round((rawTotal / 6) * marks);
+
+  // Grade based on proportion of raw total (0–6).
+  let grade: "not-achieved" | "achieved" | "merit" | "excellence";
+  if (rawTotal <= 1) grade = "not-achieved";
+  else if (rawTotal <= 3) grade = "achieved";
+  else if (rawTotal <= 4) grade = "merit";
+  else grade = "excellence";
+
+  // Clamp improvements to exactly three entries (pad or trim).
+  const improvements = Array.isArray(synthesis.improvements)
+    ? synthesis.improvements.slice(0, 3)
+    : [];
+  while (improvements.length < 3) {
+    improvements.push("Keep practising — review the dimension feedback above.");
+  }
+
+  return {
+    marksAwarded,
+    grade,
+    overallFeedback: String(synthesis.overallFeedback ?? ""),
+    thesisAndStructure,
+    evidenceUse,
+    languageAndStyle,
+    improvements,
+  };
+}
+
 export async function generatePracticeQuestion(
   topic: string,
   level: number,

@@ -6,6 +6,11 @@ import { ALL_EXAMS } from "@/data/exams";
 import { getTopicLabel, TOPICS } from "@/data/topics";
 import type { Question } from "@/lib/types";
 import Graph from "@/components/Graph";
+import {
+  getRecommendedLevel,
+  getTopicRating,
+  updateRating,
+} from "@/lib/adaptiveDifficulty";
 
 const ALL_QUESTIONS = ALL_EXAMS.flatMap((exam) =>
   exam.questions.map((q) => ({ ...q, examTitle: exam.title, level: exam.level }))
@@ -48,6 +53,24 @@ export default function PracticePage() {
 
   const levelTopics = TOPICS.filter((t) => t.level === level);
 
+  // If the search text exactly (or closely) matches a known topic, resolve
+  // its id so we can pull the adaptive rating for that topic and filter the
+  // question pool to the recommended difficulty level.
+  const matchedTopicId = (() => {
+    const s = search.trim().toLowerCase();
+    if (!s) return null;
+    const hit = TOPICS.find((t) => {
+      const label = t.label.toLowerCase();
+      return label === s || label.includes(s) || s.includes(label);
+    });
+    return hit?.id ?? null;
+  })();
+
+  const recommendedLevel = matchedTopicId
+    ? getRecommendedLevel(matchedTopicId)
+    : null;
+  const topicRating = matchedTopicId ? getTopicRating(matchedTopicId) : null;
+
   const filteredQuestions = ALL_QUESTIONS.filter((q) => {
     if (q.level !== level) return false;
     if (!search.trim()) return true;
@@ -58,7 +81,26 @@ export default function PracticePage() {
       q.examTitle.toLowerCase().includes(s);
   });
 
-  const questionsToUse = filteredQuestions.length > 0 ? filteredQuestions : ALL_QUESTIONS.filter((q) => q.level === level);
+  // When we know the student's rating for this topic, prefer questions at
+  // the recommended difficulty. Strong students get merit/excellence,
+  // weaker students get achieved. Fall back to the unfiltered pool if the
+  // filter empties out.
+  const difficultyFiltered = recommendedLevel
+    ? (() => {
+        const priority: Record<string, number> = { achieved: 0, merit: 1, excellence: 2 };
+        const target = priority[recommendedLevel];
+        // Top-rated students (merit/excellence) should never see "achieved"
+        // junk — filter it out entirely for them.
+        const minAllowed = target >= 1 ? 1 : 0;
+        const narrowed = filteredQuestions.filter((q) => {
+          const lvl = priority[q.gradeLevel] ?? 0;
+          return lvl >= minAllowed;
+        });
+        return narrowed.length > 0 ? narrowed : filteredQuestions;
+      })()
+    : filteredQuestions;
+
+  const questionsToUse = difficultyFiltered.length > 0 ? difficultyFiltered : ALL_QUESTIONS.filter((q) => q.level === level);
   const availableQuestions = questionsToUse.filter((q) => !usedIds.has(q.id));
 
   const startQuestion = useCallback(async () => {
@@ -117,6 +159,10 @@ export default function PracticePage() {
         right: prev.right + (correct ? 1 : 0),
         wrong: prev.wrong + (correct ? 0 : 1),
       }));
+      // Adaptive: log the result against every topic the question touches.
+      question.topics.forEach((topic) => {
+        updateRating(topic, question.gradeLevel, correct);
+      });
       return;
     }
 
@@ -149,6 +195,10 @@ export default function PracticePage() {
           right: prev.right + (gotMarks ? 1 : 0),
           wrong: prev.wrong + (gotMarks ? 0 : 1),
         }));
+        // Adaptive: update ratings for each topic this question touches.
+        question.topics.forEach((topic) => {
+          updateRating(topic, question.gradeLevel, gotMarks);
+        });
       }
     } catch {
       // Fallback: just show the marking guide
@@ -199,6 +249,18 @@ export default function PracticePage() {
           className="w-full bg-transparent border border-zinc-800 rounded-lg px-4 py-3 text-white text-[14px] placeholder-zinc-700 focus:outline-none focus:border-zinc-600 mb-4"
           autoFocus
         />
+
+        {/* Adaptive difficulty hint */}
+        {recommendedLevel && topicRating !== null && (
+          <div className="mb-4 text-[11px] text-zinc-500">
+            <span className="text-zinc-400">Rating</span>{" "}
+            <span className="text-white font-medium">{topicRating}</span>
+            <span className="text-zinc-600 mx-1.5">·</span>
+            <span className="text-zinc-400">Serving</span>{" "}
+            <span className="text-indigo-400 font-medium capitalize">{recommendedLevel}</span>{" "}
+            <span className="text-zinc-400">questions</span>
+          </div>
+        )}
 
         {/* Quick picks — just show top 8 */}
         <div className="flex flex-wrap gap-1.5 mb-6">

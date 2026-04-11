@@ -15,6 +15,7 @@ const links = [
   { href: "/practice", label: "Fix Weak Spots" },
   { href: "/review", label: "Review" },
   { href: "/dashboard", label: "Dashboard" },
+  { href: "/plan", label: "Plan" },
 ];
 
 export default function Navbar() {

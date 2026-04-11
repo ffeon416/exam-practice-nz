@@ -14,8 +14,96 @@ import {
 } from "@/lib/scoring";
 import { addExamAttempt } from "@/lib/storage";
 import { recordReview } from "@/lib/spacedRepetition";
+import { updateRating } from "@/lib/adaptiveDifficulty";
 import type { Exam, MarkingResult } from "@/lib/types";
 import TopicTag from "@/components/TopicTag";
+
+// Multi-pass English essay feedback payload is stuffed into the feedback
+// string with this prefix, after a plain-text summary, by /api/mark. We
+// detect the prefix here and render the dimension breakdown.
+const ESSAY_FEEDBACK_PREFIX = "__ENGLISH_ESSAY__";
+
+interface EssayFeedback {
+  overallFeedback: string;
+  thesisAndStructure: { score: number; feedback: string };
+  evidenceUse: { score: number; feedback: string };
+  languageAndStyle: { score: number; feedback: string };
+  improvements: string[];
+}
+
+function parseEssayFeedback(feedback: string): EssayFeedback | null {
+  const idx = feedback.indexOf(ESSAY_FEEDBACK_PREFIX);
+  if (idx === -1) return null;
+  const json = feedback.slice(idx + ESSAY_FEEDBACK_PREFIX.length).trim();
+  try {
+    const parsed = JSON.parse(json) as EssayFeedback;
+    if (
+      parsed &&
+      parsed.thesisAndStructure &&
+      parsed.evidenceUse &&
+      parsed.languageAndStyle &&
+      Array.isArray(parsed.improvements)
+    ) {
+      return parsed;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
+  const dimensions: { label: string; d: { score: number; feedback: string } }[] = [
+    { label: "Thesis & Structure", d: data.thesisAndStructure },
+    { label: "Use of Evidence", d: data.evidenceUse },
+    { label: "Language & Style", d: data.languageAndStyle },
+  ];
+  return (
+    <div className="space-y-4">
+      <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4">
+        <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Overall Feedback</h4>
+        <p className="text-slate-300 text-sm whitespace-pre-wrap">{data.overallFeedback}</p>
+      </div>
+
+      <div className="bg-card border border-card-border rounded-lg p-4 space-y-3">
+        <h4 className="text-xs font-medium text-slate-400 mb-1 uppercase">Dimension Breakdown</h4>
+        {dimensions.map(({ label, d }) => (
+          <div key={label} className="border-t border-slate-700 pt-3 first:border-t-0 first:pt-0">
+            <div className="flex items-baseline justify-between mb-1">
+              <span className="text-sm font-semibold text-white">{label}</span>
+              <span
+                className={`text-sm font-bold ${
+                  d.score === 2
+                    ? "text-green-400"
+                    : d.score === 1
+                    ? "text-yellow-400"
+                    : "text-red-400"
+                }`}
+              >
+                {d.score}/2
+              </span>
+            </div>
+            <p className="text-slate-300 text-sm">{d.feedback}</p>
+          </div>
+        ))}
+      </div>
+
+      {data.improvements.length > 0 && (
+        <div className="bg-blue-950/20 border border-blue-900/20 rounded-lg p-4">
+          <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Things to Improve</h4>
+          <ul className="space-y-2">
+            {data.improvements.map((imp, i) => (
+              <li key={i} className="flex gap-2 text-slate-300 text-sm">
+                <span className="text-blue-400 shrink-0">{i + 1}.</span>
+                <span>{imp}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ResultsPage({
   params,
@@ -38,6 +126,9 @@ export default function ResultsPage({
   // Ref-based idempotency guard — a ref avoids the setState-in-effect lint
   // rule and also avoids triggering an extra render just to flip a flag.
   const reviewsQueuedRef = useRef(false);
+  // Separate guard for adaptive rating updates so a single set of results
+  // only ever contributes one ELO update per topic.
+  const ratingsUpdatedRef = useRef(false);
 
   // Once results load, push marked questions into the spaced-repetition queue.
   // Only runs for API-marked results (self-marked uses a separate effect below).
@@ -56,6 +147,36 @@ export default function ResultsPage({
     });
     reviewsQueuedRef.current = true;
   }, [exam, results, selfMarked, examId]);
+
+  // Feed API-marked results into the adaptive difficulty model. Full marks
+  // counts as correct, partial marks as correct (you got the concept), zero
+  // as incorrect. One update per (question, topic).
+  useEffect(() => {
+    if (!exam || !results || selfMarked || ratingsUpdatedRef.current) return;
+    results.forEach((res) => {
+      const q = exam.questions.find((qq) => qq.id === res.questionId);
+      if (!q) return;
+      const correct = res.marksAwarded > 0;
+      q.topics.forEach((topic) => {
+        updateRating(topic, q.gradeLevel, correct);
+      });
+    });
+    ratingsUpdatedRef.current = true;
+  }, [exam, results, selfMarked]);
+
+  // Same rating update path for self-marked attempts — gated on autoScored
+  // so we only count questions the user actually assessed.
+  useEffect(() => {
+    if (!exam || !results || !selfMarked || !autoScored || ratingsUpdatedRef.current) return;
+    exam.questions.forEach((q) => {
+      const correct = selfAssess[q.id];
+      if (correct === undefined) return;
+      q.topics.forEach((topic) => {
+        updateRating(topic, q.gradeLevel, correct);
+      });
+    });
+    ratingsUpdatedRef.current = true;
+  }, [exam, results, selfMarked, autoScored, selfAssess]);
 
   // For self-marked results, queue reviews from the auto-scored / manual
   // self-assessment. We wait until autoScored is set (which happens alongside
@@ -110,6 +231,7 @@ export default function ResultsPage({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        subject: e.subject,
         questions: e.questions.map((q) => ({
           id: q.id,
           text: q.text,
@@ -117,6 +239,7 @@ export default function ResultsPage({
           gradeLevel: q.gradeLevel,
           markingGuide: q.markingGuide,
           topics: q.topics,
+          answerType: q.answerType,
         })),
         answers: savedAnswers,
       }),
@@ -724,22 +847,32 @@ export default function ResultsPage({
       </div>
 
       {/* Feedback */}
-      {r && !isFullMarks && (
-        <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4 mb-4">
-          <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Feedback</h4>
-          <p className="text-slate-300 text-sm whitespace-pre-wrap">
-            {selfMarked ? r.examTip : r.feedback}
-          </p>
-        </div>
-      )}
-
-      {/* Exam tip — only for wrong answers in AI mode */}
-      {r && !selfMarked && !isFullMarks && (
-        <div className="bg-blue-950/20 border border-blue-900/20 rounded-lg p-4 mb-4">
-          <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Exam Tip</h4>
-          <p className="text-slate-300 text-sm">{r.examTip}</p>
-        </div>
-      )}
+      {r && !isFullMarks && (() => {
+        const essay = !selfMarked ? parseEssayFeedback(r.feedback) : null;
+        if (essay) {
+          return (
+            <div className="mb-4">
+              <EssayFeedbackCard data={essay} />
+            </div>
+          );
+        }
+        return (
+          <>
+            <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4 mb-4">
+              <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Feedback</h4>
+              <p className="text-slate-300 text-sm whitespace-pre-wrap">
+                {selfMarked ? r.examTip : r.feedback}
+              </p>
+            </div>
+            {!selfMarked && (
+              <div className="bg-blue-950/20 border border-blue-900/20 rounded-lg p-4 mb-4">
+                <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Exam Tip</h4>
+                <p className="text-slate-300 text-sm">{r.examTip}</p>
+              </div>
+            )}
+          </>
+        );
+      })()}
 
       {/* Navigation */}
       <div className="flex gap-3 mt-2">

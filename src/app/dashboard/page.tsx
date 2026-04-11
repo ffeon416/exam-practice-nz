@@ -16,6 +16,22 @@ import {
   getServerReviewsVersion,
   subscribeReviews,
 } from "@/lib/spacedRepetition";
+import {
+  getAllRatings,
+  getRatingsVersion,
+  getServerRatingsVersion,
+  ratingToLevel,
+  subscribeRatings,
+} from "@/lib/adaptiveDifficulty";
+import {
+  getCurrentWeek,
+  getPlanVersion,
+  getServerPlanVersion,
+  markTaskComplete,
+  subscribePlan,
+  type StudyTask,
+  type StudyWeek,
+} from "@/lib/studyPlanner";
 import { useSyncExternalStore } from "react";
 import type { StudentProgress } from "@/lib/types";
 
@@ -36,6 +52,35 @@ export default function DashboardPage() {
       return { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
     }
     return getReviewStats();
+  })();
+
+  // Live adaptive-rating snapshot. Bumps whenever updateRating() is called.
+  const ratingsVersion = useSyncExternalStore(
+    subscribeRatings,
+    getRatingsVersion,
+    getServerRatingsVersion
+  );
+  const ratings = (() => {
+    void ratingsVersion;
+    if (typeof window === "undefined") return {} as Record<string, number>;
+    return getAllRatings();
+  })();
+  const sortedRatings = Object.entries(ratings).sort((a, b) => b[1] - a[1]);
+  const topRatings = sortedRatings.slice(0, 5);
+  const bottomRatings = sortedRatings.slice(-3).reverse();
+  const hasRatings = sortedRatings.length > 0;
+
+  // Live study plan snapshot — the dashboard widget below refreshes any
+  // time a plan is created, cleared, or a task is toggled.
+  const planVersion = useSyncExternalStore(
+    subscribePlan,
+    getPlanVersion,
+    getServerPlanVersion
+  );
+  const currentWeek: StudyWeek | null = (() => {
+    void planVersion;
+    if (typeof window === "undefined") return null;
+    return getCurrentWeek();
   })();
 
   useEffect(() => {
@@ -79,6 +124,8 @@ export default function DashboardPage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
       <p className="text-slate-400 mb-8">Track your progress and find your weak spots.</p>
+
+      <TodaysTasksWidget week={currentWeek} />
 
       {!hasData && customExams.length === 0 ? (
         <div className="bg-card border border-card-border rounded-lg p-12 text-center">
@@ -242,6 +289,96 @@ export default function DashboardPage() {
                   <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
                     mastered
                   </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Adaptive skill ratings */}
+          {hasRatings && (
+            <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
+              <div className="flex items-start justify-between mb-4 gap-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-white mb-1">
+                    Skill ratings
+                  </h2>
+                  <p className="text-slate-400 text-sm">
+                    Adaptive difficulty — the harder you beat, the higher you climb.
+                  </p>
+                </div>
+                <Link
+                  href="/practice"
+                  className="shrink-0 px-4 py-2 rounded text-sm font-medium transition-colors bg-indigo-500 text-white hover:bg-indigo-400"
+                >
+                  Practice
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* Top 5 */}
+                <div>
+                  <h3 className="text-[11px] uppercase tracking-wide text-slate-500 mb-2">
+                    Strongest topics
+                  </h3>
+                  <div className="space-y-1.5">
+                    {topRatings.map(([topic, rating]) => {
+                      const level = ratingToLevel(rating);
+                      const levelColor =
+                        level === "excellence"
+                          ? "text-indigo-300"
+                          : level === "merit"
+                          ? "text-emerald-300"
+                          : "text-slate-300";
+                      return (
+                        <div
+                          key={topic}
+                          className="flex items-center justify-between bg-slate-900/50 border border-slate-800 rounded px-3 py-2"
+                        >
+                          <span className="text-sm text-white truncate mr-2">
+                            {getTopicLabel(topic)}
+                          </span>
+                          <span className="text-xs shrink-0 tabular-nums">
+                            <span className="text-white font-semibold">{rating}</span>
+                            <span className="text-slate-600 mx-1.5">·</span>
+                            <span className={`capitalize ${levelColor}`}>{level}</span>
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Bottom 3 */}
+                <div>
+                  <h3 className="text-[11px] uppercase tracking-wide text-slate-500 mb-2">
+                    Needs work
+                  </h3>
+                  {bottomRatings.length === 0 ? (
+                    <p className="text-sm text-slate-500">
+                      Nothing flagged — keep practising.
+                    </p>
+                  ) : (
+                    <div className="space-y-1.5">
+                      {bottomRatings.map(([topic, rating]) => {
+                        const level = ratingToLevel(rating);
+                        return (
+                          <div
+                            key={topic}
+                            className="flex items-center justify-between bg-red-950/20 border border-red-900/20 rounded px-3 py-2"
+                          >
+                            <span className="text-sm text-white truncate mr-2">
+                              {getTopicLabel(topic)}
+                            </span>
+                            <span className="text-xs shrink-0 tabular-nums">
+                              <span className="text-red-300 font-semibold">{rating}</span>
+                              <span className="text-slate-600 mx-1.5">·</span>
+                              <span className="text-red-400 capitalize">{level}</span>
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -441,6 +578,143 @@ export default function DashboardPage() {
             </div>
           </div>
         </>
+      )}
+    </div>
+  );
+}
+
+// ── Today's tasks widget ───────────────────────────────────────────────
+// Shows the current week's tasks from the active study plan. Clicking a
+// task jumps straight to the exam or review page. If there's no plan the
+// widget shows a CTA to create one.
+
+function TodaysTasksWidget({ week }: { week: StudyWeek | null }) {
+  if (!week) {
+    return (
+      <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-1">
+              Today&apos;s tasks
+            </h2>
+            <p className="text-sm text-slate-400">
+              Build a study plan to see week-by-week tasks here.
+            </p>
+          </div>
+          <Link
+            href="/plan"
+            className="shrink-0 px-4 py-2 rounded text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+          >
+            Create plan
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const done = week.tasks.filter((t) => t.completed).length;
+  const total = week.tasks.length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+  return (
+    <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
+      <div className="flex items-start justify-between mb-4 gap-4">
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-1">
+            Today&apos;s tasks
+          </h2>
+          <p className="text-sm text-slate-400">
+            Week {week.weekNumber} · {week.focus} · {done}/{total} done ({pct}%)
+          </p>
+        </div>
+        <Link
+          href="/plan"
+          className="shrink-0 px-3 py-1.5 rounded text-xs font-medium border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors"
+        >
+          Open plan
+        </Link>
+      </div>
+      <div className="w-full bg-zinc-800 rounded-full h-1.5 mb-4">
+        <div
+          className="bg-indigo-500 h-1.5 rounded-full transition-all duration-700 ease-out"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <div className="space-y-1.5">
+        {week.tasks.map((task) => (
+          <DashboardTaskRow key={task.id} task={task} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DashboardTaskRow({ task }: { task: StudyTask }) {
+  const href = (() => {
+    if (task.examId) {
+      const mode = task.type === "exam" ? "mock" : "practice";
+      return `/exam/${task.examId}?mode=${mode}`;
+    }
+    if (task.type === "review") return "/review";
+    if (task.subject) return "/subjects";
+    return null;
+  })();
+
+  const body = (
+    <span
+      className={`text-sm flex-1 min-w-0 truncate ${
+        task.completed ? "line-through text-zinc-500" : "text-zinc-200"
+      }`}
+    >
+      {task.description}
+    </span>
+  );
+
+  return (
+    <div className="flex items-center gap-3 py-1">
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          markTaskComplete(task.id);
+        }}
+        aria-label={task.completed ? "Mark incomplete" : "Mark complete"}
+        className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
+          task.completed
+            ? "bg-indigo-500 border-indigo-500"
+            : "border-zinc-600 hover:border-indigo-400"
+        }`}
+      >
+        {task.completed && (
+          <svg
+            className="w-3 h-3 text-white"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={3}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        )}
+      </button>
+      <span
+        className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0 ${
+          task.type === "exam"
+            ? "bg-indigo-500/15 text-indigo-300"
+            : task.type === "practice"
+            ? "bg-emerald-500/15 text-emerald-300"
+            : "bg-amber-500/15 text-amber-300"
+        }`}
+      >
+        {task.type}
+      </span>
+      {href ? (
+        <Link href={href} className="flex-1 min-w-0 hover:text-indigo-300 transition-colors">
+          {body}
+        </Link>
+      ) : (
+        body
       )}
     </div>
   );
