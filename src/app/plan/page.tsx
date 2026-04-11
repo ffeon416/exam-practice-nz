@@ -57,6 +57,7 @@ export default function PlanPage() {
   // Gate the first client render behind `mounted` so returning users don't
   // get a hydration mismatch between SSR (no plan) and the stored plan.
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   const plan = useMemo<StudyPlan | null>(() => {

@@ -45,6 +45,7 @@ export default function SubjectsPage() {
   const [step, setStep] = useState<"setup" | "exams">("setup");
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProgress(loadProgress());
   }, []);
 

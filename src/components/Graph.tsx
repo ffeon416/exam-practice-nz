@@ -280,21 +280,25 @@ function PieChart({ data }: { data: GraphData }) {
   const total = items.reduce((s, d) => s + d.value, 0);
   if (total === 0) return null;
 
-  let cumAngle = -Math.PI / 2;
   const cx = 130, cy = 130, r = 110;
+  // Pre-compute slice angles immutably so we don't reassign during render
+  const slices = items.map((item, i) => {
+    const startAngle = items.slice(0, i).reduce((sum, s) => sum + (s.value / total) * 2 * Math.PI, -Math.PI / 2);
+    const angle = (item.value / total) * 2 * Math.PI;
+    const endAngle = startAngle + angle;
+    const midAngle = startAngle + angle / 2;
+    return { item, i, startAngle, endAngle, midAngle, angle };
+  });
 
   return (
     <ChartFrame title={data.title}>
       <div className="flex flex-col sm:flex-row items-center gap-6">
         <svg viewBox="0 0 260 260" className="w-56 h-56 shrink-0" shapeRendering="geometricPrecision">
-          {items.map((item, i) => {
-            const angle = (item.value / total) * 2 * Math.PI;
-            const x1 = cx + r * Math.cos(cumAngle);
-            const y1 = cy + r * Math.sin(cumAngle);
-            const midAngle = cumAngle + angle / 2;
-            cumAngle += angle;
-            const x2 = cx + r * Math.cos(cumAngle);
-            const y2 = cy + r * Math.sin(cumAngle);
+          {slices.map(({ item, i, startAngle, endAngle, midAngle, angle }) => {
+            const x1 = cx + r * Math.cos(startAngle);
+            const y1 = cy + r * Math.sin(startAngle);
+            const x2 = cx + r * Math.cos(endAngle);
+            const y2 = cy + r * Math.sin(endAngle);
             const largeArc = angle > Math.PI ? 1 : 0;
             const color = item.color || COLORS[i % COLORS.length];
             const pct = Math.round((item.value / total) * 100);

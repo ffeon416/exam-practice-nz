@@ -33,6 +33,7 @@ export default function Navbar() {
   // render (both show 0) to avoid a hydration mismatch when the user already
   // has reviews queued in localStorage. After mount, we read the real count.
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
   const dueCount = useMemo(() => {
     void version;

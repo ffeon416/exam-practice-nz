@@ -89,8 +89,11 @@ export default function DashboardPage() {
   })();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProgress(loadProgress());
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCustomExams(listCustomExams());
   }, []);
 

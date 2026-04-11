@@ -38,6 +38,7 @@ export default function ExamPage({
       router.push("/subjects");
       return;
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setExam(e);
   }, [examId, router]);
 

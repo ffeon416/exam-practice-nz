@@ -196,6 +196,7 @@ export default function ResultsPage({
   useEffect(() => {
     const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
     if (!e) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setExam(e);
 
     const stored = sessionStorage.getItem(`exam-answers-${examId}`);

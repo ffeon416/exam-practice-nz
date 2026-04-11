@@ -10,6 +10,7 @@ export default function HomePage() {
   const [progress, setProgress] = useState<StudentProgress | null>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProgress(loadProgress());
   }, []);
 

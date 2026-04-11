@@ -57,6 +57,7 @@ export default function ReviewPage() {
   // `mounted` keeps the first client render empty (matching SSR) to avoid a
   // hydration mismatch when the user already has reviews queued.
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
   void version; // keep this in scope so lint sees it's used
   const stats = mounted

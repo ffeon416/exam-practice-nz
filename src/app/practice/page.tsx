@@ -215,7 +215,7 @@ export default function PracticePage() {
     return (
       <div className="max-w-md mx-auto px-5 py-16">
         <h1 className="text-[22px] font-semibold text-white mb-1 tracking-tight">Fix your weak spots</h1>
-        <p className="text-zinc-500 text-[13px] mb-8">Type what you need help with. We'll teach you, then test you.</p>
+        <p className="text-zinc-500 text-[13px] mb-8">Type what you need help with. We&apos;ll teach you, then test you.</p>
 
         {/* Year */}
         <div className="flex gap-2 mb-6">
