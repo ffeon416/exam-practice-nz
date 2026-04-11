@@ -7,8 +7,11 @@ const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
 const DEFAULT_PROXY_URL = "http://localhost:3456/v1/chat/completions";
 
 // Model selection — use cheaper Haiku for simple marking, Sonnet for complex tasks
-const MODEL_FAST = "claude-haiku-4-5-20251001"; // 6x cheaper — for marking, simple checks
-const MODEL_SMART = "claude-sonnet-4-5-20250929"; // smarter — for generation, tutor chat, essays
+// When calling the local proxy, simple names work. When calling the real Anthropic
+// API directly, dated names are needed.
+const isProxy = !process.env.ANTHROPIC_API_KEY;
+const MODEL_FAST = isProxy ? "claude-haiku-4" : "claude-haiku-4-5-20251001";
+const MODEL_SMART = isProxy ? "claude-sonnet-4" : "claude-sonnet-4-5-20250929";
 
 async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
   const model = options.smart ? MODEL_SMART : MODEL_FAST;
