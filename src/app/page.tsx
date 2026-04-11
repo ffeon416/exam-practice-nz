@@ -25,7 +25,7 @@ export default function HomePage() {
       </div>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto px-5 pt-20 pb-24 text-center">
+      <section className="max-w-4xl mx-auto px-5 pt-12 sm:pt-20 pb-16 sm:pb-24 text-center">
         {/* Pre-headline badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -33,7 +33,7 @@ export default function HomePage() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-[42px] sm:text-[56px] font-bold text-white tracking-tight leading-[1.05] mb-6">
+        <h1 className="text-[32px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-5 sm:mb-6">
           Practise smarter.
           <br />
           <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
@@ -42,9 +42,9 @@ export default function HomePage() {
         </h1>
 
         {/* Subhead */}
-        <p className="text-zinc-400 text-[16px] sm:text-[18px] leading-relaxed max-w-xl mx-auto mb-10">
+        <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2">
           Unlimited NCEA practice exams, generated and marked instantly by AI.
-          Built specifically for NZ students from Year 10 to Year 13.
+          Built for NZ students from Year 10 to Year 13.
         </p>
 
         {/* CTAs */}
@@ -122,7 +122,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-5 pb-24">
         <div className="text-center mb-12">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">What you get</p>
-          <h2 className="text-[32px] sm:text-[40px] font-bold text-white tracking-tight mb-3">
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
             Everything you need to ace it
           </h2>
           <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
@@ -168,7 +168,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-5 pb-24">
         <div className="text-center mb-12">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">How it works</p>
-          <h2 className="text-[32px] sm:text-[40px] font-bold text-white tracking-tight">
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
             Three steps. That&apos;s it.
           </h2>
         </div>
@@ -196,7 +196,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-5 pb-24">
         <div className="text-center mb-10">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">19 subjects covered</p>
-          <h2 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight">
+          <h2 className="text-[24px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight">
             Whatever you&apos;re sitting, we&apos;ve got it
           </h2>
         </div>
@@ -225,7 +225,7 @@ export default function HomePage() {
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
 
           <div className="relative">
-            <h2 className="text-[32px] sm:text-[40px] font-bold text-white tracking-tight mb-4">
+            <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-4">
               Your next exam is coming.
               <br />
               Be ready.

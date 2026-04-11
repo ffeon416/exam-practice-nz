@@ -209,7 +209,7 @@ export default function SubjectsPage() {
   // ── Main form ──
   return (
     <div className="max-w-lg mx-auto px-5 py-12">
-      <h1 className="text-[34px] font-bold text-white tracking-tight text-center mb-2">
+      <h1 className="text-[28px] sm:text-[34px] font-bold text-white tracking-tight text-center mb-2">
         Practise an exam
       </h1>
       <p className="text-zinc-500 text-center text-[14px] mb-12">

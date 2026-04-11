@@ -97,19 +97,19 @@ export default function PricingPage() {
       </div>
 
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-5 pt-20 pb-12 text-center">
+      <section className="max-w-4xl mx-auto px-5 pt-12 sm:pt-20 pb-10 sm:pb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           Cancel anytime · No hidden fees
         </div>
-        <h1 className="text-[42px] sm:text-[56px] font-bold text-white tracking-tight leading-[1.05] mb-5">
+        <h1 className="text-[32px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-5">
           Simple pricing.
           <br />
           <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
             Real results.
           </span>
         </h1>
-        <p className="text-zinc-400 text-[16px] sm:text-[18px] leading-relaxed max-w-xl mx-auto mb-10">
+        <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-10 px-2">
           Cheaper than one tutoring session. More effective than any textbook.
         </p>
 
@@ -140,8 +140,8 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing cards */}
-      <section className="max-w-6xl mx-auto px-5 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <section className="max-w-6xl mx-auto px-4 sm:px-5 pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {PLANS.map((plan) => {
             const price = getPrice(plan);
             return (
@@ -278,7 +278,7 @@ export default function PricingPage() {
         <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-10 text-center relative overflow-hidden">
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
           <div className="relative">
-            <h2 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight mb-4">
+            <h2 className="text-[24px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight mb-4">
               Try it free first
             </h2>
             <p className="text-zinc-400 text-[15px] mb-8 max-w-md mx-auto">
