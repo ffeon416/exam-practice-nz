@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useAuth, UserButton } from "@clerk/nextjs";
 import {
   getDueCount,
   getReviewsVersion,
@@ -21,6 +22,7 @@ const links = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { isSignedIn } = useAuth();
 
   // useSyncExternalStore is the React-19-blessed way to read from external
   // stores like localStorage. The version counter changes whenever a review
@@ -44,11 +46,11 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#0a0a0f]/80 backdrop-blur-md border-b border-white/[0.06] sticky top-0 z-50">
-      <div className="max-w-4xl mx-auto px-5 h-12 flex items-center justify-between">
-        <Link href="/" className="font-semibold text-white text-[13px] tracking-tight">
+      <div className="max-w-5xl mx-auto px-5 h-12 flex items-center justify-between gap-4">
+        <Link href="/" className="font-semibold text-white text-[13px] tracking-tight shrink-0">
           study<span className="text-indigo-400">ace</span>
         </Link>
-        <div className="flex gap-0.5">
+        <div className="flex gap-0.5 flex-1 justify-center overflow-x-auto">
           {links.map((link) => {
             const isActive =
               pathname === link.href ||
@@ -58,7 +60,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors ${
+                className={`relative px-3 py-1.5 rounded-md text-[12px] font-medium transition-colors whitespace-nowrap ${
                   isActive
                     ? "text-white bg-white/[0.08]"
                     : "text-zinc-500 hover:text-zinc-300"
@@ -76,6 +78,32 @@ export default function Navbar() {
               </Link>
             );
           })}
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          {isSignedIn ? (
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "w-7 h-7",
+                },
+              }}
+            />
+          ) : (
+            <>
+              <Link
+                href="/sign-in"
+                className="text-[12px] text-zinc-400 hover:text-white transition-colors px-2 py-1"
+              >
+                Sign in
+              </Link>
+              <Link
+                href="/sign-up"
+                className="text-[12px] font-medium text-white bg-indigo-500 hover:bg-indigo-400 transition-colors px-3 py-1.5 rounded-md"
+              >
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>
