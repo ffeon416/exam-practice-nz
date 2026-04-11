@@ -85,15 +85,15 @@
       "markingGuide": "The correct answer is 22.\n\nHere's why:\nIn binary, each digit represents a power of 2 from right to left: 10110 = (1×16) + (0×8) + (1×4) + (1×2) + (0×1) = 16 + 0 + 4 + 2 + 0 = 22.\nExam tip: A common mistake is to read the binary digits in the wrong direction — always start with the rightmost digit as the 1s column.",
       "graph": {
         "type": "table",
-        "title": "Binary Place Values",
+        "title": "Binary Place Values (reference)",
         "data": {
           "headers": [
-            "Position",
-            "5 (2^4)",
-            "4 (2^3)",
-            "3 (2^2)",
-            "2 (2^1)",
-            "1 (2^0)"
+            "Power of 2",
+            "2^4",
+            "2^3",
+            "2^2",
+            "2^1",
+            "2^0"
           ],
           "rows": [
             [
@@ -105,19 +105,11 @@
               "1"
             ],
             [
-              "Binary digits",
+              "Binary digit",
               "1",
               "0",
               "1",
               "1",
-              "0"
-            ],
-            [
-              "Decimal value",
-              "16",
-              "0",
-              "4",
-              "2",
               "0"
             ]
           ]

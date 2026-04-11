@@ -91,8 +91,10 @@
       "expectedAnswer": "1063",
       "markingGuide": "Step 1: 17% of 12,500 = 0.17 × 12,500 = 2,125 residents identify as Māori (part a).\n\nStep 2: Half of those also identify as NZ European = 2,125 ÷ 2 ≈ 1,063 (part b).\n\nStep 3: The expected answer for part (b) is 1,063 (rounded). Accept 1062–1063 if working is shown.\n\nStep 4: Both calculations must be visible in working for the mark.\n\nNote: in the 2023 Census people could identify with more than one ethnicity, so totals exceed 100%.",
       "graph": {
-        "type": "pie",
+        "type": "bar",
         "title": "NZ Population by Ethnicity (2023 Census, multiple responses)",
+        "xLabel": "Ethnic group",
+        "yLabel": "% of population",
         "data": [
           {
             "label": "NZ European",

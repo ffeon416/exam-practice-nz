@@ -95,7 +95,7 @@
       ],
       "answerType": "number",
       "expectedAnswer": "20",
-      "markingGuide": "Step 1: Read from the graph: 2012 = 40 trees, 2018 = 160 trees.\n\nStep 2: Increase = 160 − 40 = 120 trees over 6 years.\n\nStep 3: Average per year = 120 ÷ 6 = 20 trees per year.\n\nStep 4: For (b), the largest jump is between 2016 (120) and 2018 (160), an increase of 40 in 2 years. The student should also notice 2014→2016 is also +40. (No mark deducted for noting either.)\n\nFinal answer (numeric): 20.",
+      "markingGuide": "Step 1: Read from the graph: 2012 = 40 trees, 2018 = 160 trees.\n\nStep 2: Increase = 160 − 40 = 120 trees over 6 years.\n\nStep 3: Average per year = 120 ÷ 6 = 20 trees per year.\n\nStep 4: For (b), the intervals are 2012→2014: +30, 2014→2016: +40, 2016→2018: +50 — the largest jump is between 2016 and 2018 (+50 trees).\n\nFinal answer (numeric): 20.",
       "graph": {
         "type": "line",
         "title": "Native Trees Alive on Reserve",
@@ -114,8 +114,8 @@
             "values": [
               20,
               40,
-              80,
-              120,
+              70,
+              110,
               160
             ],
             "color": "#22c55e"
