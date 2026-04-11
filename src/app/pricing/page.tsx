@@ -17,38 +17,36 @@ type Plan = {
 const PLANS: Plan[] = [
   {
     name: "Free",
-    tagline: "Try the basics",
+    tagline: "See how it works",
     price: "free",
     features: [
-      { text: "3 practice exams per week", included: true },
+      { text: "2 practice exams per week", included: true },
       { text: "Basic AI marking", included: true },
-      { text: "5 AI tutor messages per day", included: true },
+      { text: "3 AI tutor messages per day", included: true },
       { text: "1 subject at a time", included: true },
+      { text: "Maximum 8 questions per exam", included: true },
       { text: "Basic dashboard", included: true },
-      { text: "Spaced repetition review", included: false },
+      { text: "Spaced repetition", included: false },
       { text: "Adaptive difficulty", included: false },
-      { text: "Personal study planner", included: false },
-      { text: "Deep English essay marking", included: false },
-      { text: "Priority generation", included: false },
+      { text: "All 19 subjects", included: false },
+      { text: "Study planner", included: false },
     ],
     cta: "Start free",
     ctaHref: "/subjects",
   },
   {
     name: "Student",
-    tagline: "Built for serious exam prep",
+    tagline: "Pass with confidence",
     price: 9.99,
-    badge: "Most popular",
-    highlight: true,
     features: [
-      { text: "Unlimited practice exams", included: true, bold: true },
+      { text: "20 practice exams per week", included: true, bold: true },
       { text: "Full AI marking on every question", included: true },
-      { text: "Unlimited AI tutor chat", included: true },
+      { text: "50 AI tutor messages per day", included: true },
       { text: "All 19 subjects", included: true },
-      { text: "Spaced repetition (never forget)", included: true },
-      { text: "Adaptive difficulty", included: true },
+      { text: "Up to 12 questions per exam", included: true },
+      { text: "Spaced repetition review", included: true },
       { text: "Full dashboard with analytics", included: true },
-      { text: "Track progress per topic", included: true },
+      { text: "Adaptive difficulty", included: false },
       { text: "Personal study planner", included: false },
       { text: "Deep English essay marking", included: false },
     ],
@@ -57,18 +55,20 @@ const PLANS: Plan[] = [
   },
   {
     name: "Pro",
-    tagline: "For students chasing Excellence",
+    tagline: "Built to chase Excellence",
     price: 19.99,
+    badge: "Best value",
+    highlight: true,
     features: [
-      { text: "Everything in Student", included: true, bold: true },
+      { text: "UNLIMITED practice exams", included: true, bold: true },
+      { text: "UNLIMITED AI tutor chat", included: true, bold: true },
+      { text: "Up to 20 questions (full mock exams)", included: true, bold: true },
+      { text: "Adaptive difficulty (auto-tuned to you)", included: true },
       { text: "Personal study planner (week by week)", included: true },
       { text: "Deep English essay marking (4-pass)", included: true },
       { text: "Mock exam mode (timed, fullscreen)", included: true },
-      { text: "Priority generation (faster queue)", included: true },
-      { text: "Email exam reminders", included: true },
-      { text: "Detailed performance analytics", included: true },
-      { text: "Custom topic deep-dives", included: true },
-      { text: "Cancel anytime", included: true },
+      { text: "Priority generation (3× faster)", included: true },
+      { text: "Email exam date reminders", included: true },
       { text: "30-day money back guarantee", included: true },
     ],
     cta: "Get Pro",
@@ -235,8 +235,8 @@ export default function PricingPage() {
 
           <div className="space-y-3">
             <CompareRow label="One private tutoring session (1 hour)" cost="$60–$80" />
-            <CompareRow label="Study Ace Pro for a whole month" cost="$19.99" highlight />
             <CompareRow label="Workbook from Whitcoulls" cost="$25–$40" />
+            <CompareRow label="Study Ace Pro for a whole month" cost="$19.99" highlight />
             <CompareRow label="Failing an exam and retaking it next year" cost="A whole year" />
           </div>
         </div>
