@@ -1,6 +1,10 @@
-// Uses the Anthropic API in production, or a local proxy in development
+// Three ways to call Claude:
+// 1. ANTHROPIC_API_KEY set → use the real Anthropic API (production w/ API key)
+// 2. CLAUDE_PROXY_URL set → use a custom OpenAI-compatible proxy (e.g. ngrok tunnel
+//    to your local machine, lets production use your Claude subscription)
+// 3. Neither set → fall back to http://localhost:3456 (local development)
 const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
-const LOCAL_PROXY_URL = "http://localhost:3456/v1/chat/completions";
+const DEFAULT_PROXY_URL = "http://localhost:3456/v1/chat/completions";
 
 // Model selection — use cheaper Haiku for simple marking, Sonnet for complex tasks
 const MODEL_FAST = "claude-haiku-4-5-20251001"; // 6x cheaper — for marking, simple checks
@@ -10,8 +14,9 @@ async function chatCompletion(prompt: string, options: { smart?: boolean; maxTok
   const model = options.smart ? MODEL_SMART : MODEL_FAST;
   const maxTokens = options.maxTokens ?? 1024;
   const apiKey = process.env.ANTHROPIC_API_KEY;
+  const proxyUrl = process.env.CLAUDE_PROXY_URL || DEFAULT_PROXY_URL;
 
-  // If we have an API key, use the real Anthropic API
+  // 1. Real Anthropic API
   if (apiKey) {
     const res = await fetch(ANTHROPIC_API_URL, {
       method: "POST",
@@ -36,8 +41,8 @@ async function chatCompletion(prompt: string, options: { smart?: boolean; maxTok
     return data.content?.[0]?.text ?? "";
   }
 
-  // Fall back to local proxy in development
-  const res = await fetch(LOCAL_PROXY_URL, {
+  // 2 & 3. OpenAI-compatible proxy (custom URL or local default)
+  const res = await fetch(proxyUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
