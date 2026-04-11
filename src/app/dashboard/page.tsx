@@ -5,14 +5,49 @@ import Link from "next/link";
 import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
 import { getTopicLabel } from "@/data/topics";
+import {
+  listCustomExams,
+  deleteCustomExam,
+  type CustomExamMeta,
+} from "@/lib/customExams";
+import {
+  getReviewStats,
+  getReviewsVersion,
+  getServerReviewsVersion,
+  subscribeReviews,
+} from "@/lib/spacedRepetition";
+import { useSyncExternalStore } from "react";
 import type { StudentProgress } from "@/lib/types";
 
 export default function DashboardPage() {
   const [progress, setProgress] = useState<StudentProgress | null>(null);
+  const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
+
+  // Reactive spaced-review stats via useSyncExternalStore — updates
+  // automatically whenever reviews are added or completed.
+  const reviewsVersion = useSyncExternalStore(
+    subscribeReviews,
+    getReviewsVersion,
+    getServerReviewsVersion
+  );
+  const reviewStats = (() => {
+    void reviewsVersion;
+    if (typeof window === "undefined") {
+      return { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
+    }
+    return getReviewStats();
+  })();
 
   useEffect(() => {
     setProgress(loadProgress());
+    setCustomExams(listCustomExams());
   }, []);
+
+  function handleDeleteCustom(id: string) {
+    if (!confirm("Delete this generated paper? This cannot be undone.")) return;
+    deleteCustomExam(id);
+    setCustomExams(listCustomExams());
+  }
 
   if (!progress) return null;
 
@@ -45,7 +80,7 @@ export default function DashboardPage() {
       <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
       <p className="text-slate-400 mb-8">Track your progress and find your weak spots.</p>
 
-      {!hasData ? (
+      {!hasData && customExams.length === 0 ? (
         <div className="bg-card border border-card-border rounded-lg p-12 text-center">
           <h2 className="text-xl font-semibold text-white mb-2">
             No exams taken yet
@@ -53,13 +88,75 @@ export default function DashboardPage() {
           <p className="text-slate-400 mb-4">
             Take your first exam to start tracking progress.
           </p>
-          <Link
-            href="/subjects"
-            className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors"
-          >
-            Browse Exams
-          </Link>
+          <div className="flex items-center justify-center gap-3">
+            <Link
+              href="/subjects"
+              className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors"
+            >
+              Browse Exams
+            </Link>
+            <Link
+              href="/generate"
+              className="inline-block bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-500 transition-colors"
+            >
+              Generate Paper
+            </Link>
+          </div>
         </div>
+      ) : !hasData ? (
+        <>
+          {/* Custom generated papers (no exam history yet) */}
+          <div className="bg-card border border-card-border rounded-lg p-5">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-lg font-semibold text-white">Generated Papers</h2>
+                <p className="text-xs text-slate-400">Custom AI-built papers saved to this browser</p>
+              </div>
+              <Link
+                href="/generate"
+                className="text-xs px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+              >
+                + New
+              </Link>
+            </div>
+            <div className="space-y-2">
+              {customExams.map((ex) => (
+                <div
+                  key={ex.id}
+                  className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-white truncate">{ex.title}</p>
+                    <p className="text-xs text-slate-500 truncate">
+                      {ex.subject}
+                      {ex.level > 0 ? ` · NCEA L${ex.level}` : " · Year 10"}
+                      {" · "}
+                      {ex.questionCount} questions
+                      {ex.topic ? ` · ${ex.topic}` : ""}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <Link
+                      href={`/exam/${ex.id}?mode=practice`}
+                      className="text-xs px-3 py-1.5 rounded bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] hover:text-white transition-colors"
+                    >
+                      Start
+                    </Link>
+                    <button
+                      onClick={() => handleDeleteCustom(ex.id)}
+                      aria-label={`Delete ${ex.title}`}
+                      className="text-xs p-1.5 rounded text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
       ) : (
         <>
           {/* Stats row */}
@@ -87,6 +184,68 @@ export default function DashboardPage() {
               <div className="text-xs text-slate-400 mt-1">Topics Covered</div>
             </div>
           </div>
+
+          {/* Spaced review summary */}
+          {reviewStats.total > 0 && (
+            <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
+              <div className="flex items-start justify-between mb-4 gap-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-white mb-1">
+                    Spaced review
+                  </h2>
+                  <p className="text-slate-400 text-sm">
+                    {reviewStats.due > 0
+                      ? `${reviewStats.due} ${
+                          reviewStats.due === 1 ? "question" : "questions"
+                        } due for review today.`
+                      : "You're all caught up — nothing due right now."}
+                  </p>
+                </div>
+                <Link
+                  href="/review"
+                  className={`shrink-0 px-4 py-2 rounded text-sm font-medium transition-colors ${
+                    reviewStats.due > 0
+                      ? "bg-indigo-500 text-white hover:bg-indigo-400"
+                      : "border border-slate-700 text-slate-300 hover:bg-slate-800"
+                  }`}
+                >
+                  {reviewStats.due > 0 ? "Start reviewing" : "View queue"}
+                </Link>
+              </div>
+              <div className="grid grid-cols-4 gap-3">
+                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
+                  <div className="text-xl font-bold text-white">{reviewStats.due}</div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
+                    due
+                  </div>
+                </div>
+                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
+                  <div className="text-xl font-bold text-indigo-300">
+                    {reviewStats.new}
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
+                    new
+                  </div>
+                </div>
+                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
+                  <div className="text-xl font-bold text-amber-300">
+                    {reviewStats.learning}
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
+                    learning
+                  </div>
+                </div>
+                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
+                  <div className="text-xl font-bold text-emerald-300">
+                    {reviewStats.mastered}
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
+                    mastered
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Topic heatmap */}
@@ -181,6 +340,63 @@ export default function DashboardPage() {
               )}
             </div>
           </div>
+
+          {/* Custom generated papers */}
+          {customExams.length > 0 && (
+            <div className="bg-card border border-card-border rounded-lg p-5 mb-6">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-white">Generated Papers</h2>
+                  <p className="text-xs text-slate-400">Custom AI-built papers saved to this browser</p>
+                </div>
+                <Link
+                  href="/generate"
+                  className="text-xs px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+                >
+                  + New
+                </Link>
+              </div>
+              <div className="space-y-2">
+                {customExams.map((ex) => (
+                  <div
+                    key={ex.id}
+                    className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm text-white truncate">{ex.title}</p>
+                      <p className="text-xs text-slate-500 truncate">
+                        {ex.subject}
+                        {ex.level > 0 ? ` · NCEA L${ex.level}` : " · Year 10"}
+                        {" · "}
+                        {ex.questionCount} questions
+                        {ex.topic ? ` · ${ex.topic}` : ""}
+                        {ex.createdAt && ex.createdAt !== new Date(0).toISOString() && (
+                          <> · {new Date(ex.createdAt).toLocaleDateString()}</>
+                        )}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <Link
+                        href={`/exam/${ex.id}?mode=practice`}
+                        className="text-xs px-3 py-1.5 rounded bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] hover:text-white transition-colors"
+                      >
+                        Start
+                      </Link>
+                      <button
+                        onClick={() => handleDeleteCustom(ex.id)}
+                        aria-label={`Delete ${ex.title}`}
+                        className="text-xs p-1.5 rounded text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                      >
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Recent attempts */}
           <div className="bg-card border border-card-border rounded-lg p-5">

@@ -1,8 +1,9 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { getExam } from "@/data/exams";
+import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
 import {
   calculateOverallGrade,
@@ -12,6 +13,7 @@ import {
   analyzeGaps,
 } from "@/lib/scoring";
 import { addExamAttempt } from "@/lib/storage";
+import { recordReview } from "@/lib/spacedRepetition";
 import type { Exam, MarkingResult } from "@/lib/types";
 import TopicTag from "@/components/TopicTag";
 
@@ -33,9 +35,45 @@ export default function ResultsPage({
   const [selfAssess, setSelfAssess] = useState<Record<string, boolean>>({});
   const [expandedQ, setExpandedQ] = useState<string | null>(null);
   const [autoScored, setAutoScored] = useState(false);
+  // Ref-based idempotency guard — a ref avoids the setState-in-effect lint
+  // rule and also avoids triggering an extra render just to flip a flag.
+  const reviewsQueuedRef = useRef(false);
+
+  // Once results load, push marked questions into the spaced-repetition queue.
+  // Only runs for API-marked results (self-marked uses a separate effect below).
+  useEffect(() => {
+    if (!exam || !results || selfMarked || reviewsQueuedRef.current) return;
+    results.forEach((res) => {
+      const q = exam.questions.find((qq) => qq.id === res.questionId);
+      if (!q) return;
+      const quality: 0 | 3 | 5 =
+        res.marksAwarded === res.maxMarks
+          ? 5
+          : res.marksAwarded > 0
+          ? 3
+          : 0;
+      recordReview(q.id, examId, q.text, q.topics, quality);
+    });
+    reviewsQueuedRef.current = true;
+  }, [exam, results, selfMarked, examId]);
+
+  // For self-marked results, queue reviews from the auto-scored / manual
+  // self-assessment. We wait until autoScored is set (which happens alongside
+  // setSelfAssess) so the assessment data is available.
+  useEffect(() => {
+    if (!exam || !results || !selfMarked || !autoScored || reviewsQueuedRef.current) return;
+    exam.questions.forEach((q) => {
+      const correct = selfAssess[q.id];
+      // Skip questions that weren't auto-scored (correct === undefined)
+      if (correct === undefined) return;
+      const quality: 0 | 3 | 5 = correct ? 5 : 0;
+      recordReview(q.id, examId, q.text, q.topics, quality);
+    });
+    reviewsQueuedRef.current = true;
+  }, [exam, results, selfMarked, autoScored, selfAssess, examId]);
 
   useEffect(() => {
-    const e = getExam(examId);
+    const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
     if (!e) return;
     setExam(e);
 

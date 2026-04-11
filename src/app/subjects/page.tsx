@@ -57,9 +57,28 @@ export default function SubjectsPage() {
         <h1 className="text-3xl font-bold text-white mb-2 text-center">
           Find Your Exams
         </h1>
-        <p className="text-slate-400 text-center mb-10">
+        <p className="text-slate-400 text-center mb-6">
           Tell us about yourself and we&apos;ll get you practicing.
         </p>
+
+        {/* Generate custom paper CTA */}
+        <Link
+          href="/generate"
+          className="group block mb-10 rounded-xl border border-indigo-500/40 bg-gradient-to-br from-indigo-600/20 to-indigo-500/5 px-5 py-4 hover:from-indigo-600/30 hover:to-indigo-500/10 hover:border-indigo-400/60 transition-all"
+        >
+          <div className="flex items-center gap-4">
+            <div className="shrink-0 w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center text-white text-lg font-bold group-hover:scale-105 transition-transform">
+              +
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-[15px] font-semibold text-white">Generate a Custom Paper</p>
+              <p className="text-[12px] text-indigo-200/70">AI-built, matched to exactly what you want to practise</p>
+            </div>
+            <svg className="w-4 h-4 text-indigo-300 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
+        </Link>
 
         {/* School */}
         <div className="mb-8">

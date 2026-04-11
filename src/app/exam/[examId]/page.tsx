@@ -3,10 +3,12 @@
 import { use, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getExam } from "@/data/exams";
+import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import type { Exam, Question } from "@/lib/types";
 import Timer from "@/components/Timer";
 import TopicTag from "@/components/TopicTag";
 import Graph from "@/components/Graph";
+import TutorChat, { type Message as TutorMessage } from "@/components/TutorChat";
 
 export default function ExamPage({
   params,
@@ -25,9 +27,13 @@ export default function ExamPage({
   const [currentQ, setCurrentQ] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [started, setStarted] = useState(false);
+  const [tutorOpen, setTutorOpen] = useState(false);
+  const [tutorHistory, setTutorHistory] = useState<
+    Record<string, TutorMessage[]>
+  >({});
 
   useEffect(() => {
-    const e = getExam(examId);
+    const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
     if (!e) {
       router.push("/subjects");
       return;
@@ -233,9 +239,34 @@ export default function ExamPage({
 
         {/* Answer input */}
         <div>
-          <label className="block text-sm text-slate-400 mb-2">
-            Your answer:
-          </label>
+          <div className="flex items-center justify-between mb-2">
+            <label className="block text-sm text-slate-400">
+              Your answer:
+            </label>
+            {mode === "practice" && (
+              <button
+                type="button"
+                onClick={() => setTutorOpen(true)}
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-indigo-500/40 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                Ask tutor
+              </button>
+            )}
+          </div>
           {question.answerType === "multi-choice" && question.options ? (
             (() => {
               const isMultiSelect = /tick.*two|select.*two|choose.*two|tick the two|select the two|two answers|TWO answers/i.test(question.text);
@@ -357,6 +388,30 @@ export default function ExamPage({
           </button>
         )}
       </div>
+
+      {tutorOpen && (
+        <TutorChat
+          question={{
+            id: question.id,
+            text: question.text,
+            markingGuide: question.markingGuide,
+            expectedAnswer: question.expectedAnswer,
+          }}
+          studentAnswer={[
+            answers[`${question.id}_working`]
+              ? `Working: ${answers[`${question.id}_working`]}`
+              : "",
+            answers[question.id] ? `Answer: ${answers[question.id]}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n") || undefined}
+          initialMessages={tutorHistory[question.id]}
+          onMessagesChange={(msgs) =>
+            setTutorHistory((prev) => ({ ...prev, [question.id]: msgs }))
+          }
+          onClose={() => setTutorOpen(false)}
+        />
+      )}
     </div>
   );
 }

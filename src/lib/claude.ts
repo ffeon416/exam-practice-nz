@@ -2,9 +2,14 @@
 // which routes through to Claude via OpenClaw/Ace
 
 const PROXY_URL = "http://localhost:3456/v1/chat/completions";
-const MODEL = "claude-sonnet-4";
 
-async function chatCompletion(prompt: string): Promise<string> {
+// Model selection — use cheaper Haiku for simple marking, Sonnet for complex tasks
+const MODEL_FAST = "claude-haiku-4-5"; // 6x cheaper — for marking, simple checks
+const MODEL_SMART = "claude-sonnet-4"; // smarter — for generation, tutor chat, essays
+
+async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
+  const model = options.smart ? MODEL_SMART : MODEL_FAST;
+  const maxTokens = options.maxTokens ?? 1024;
   const res = await fetch(PROXY_URL, {
     method: "POST",
     headers: {
@@ -12,9 +17,9 @@ async function chatCompletion(prompt: string): Promise<string> {
       Authorization: "Bearer not-needed-proxy-auth",
     },
     body: JSON.stringify({
-      model: MODEL,
+      model,
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 1024,
+      max_tokens: maxTokens,
     }),
   });
 
@@ -85,7 +90,8 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   "topicsToReview": [<topic slugs only if the student got the question wrong>]
 }`;
 
-  const text = await chatCompletion(prompt);
+  // Use fast model for marking — it's basically checking, not generating
+  const text = await chatCompletion(prompt, { smart: false });
 
   try {
     return JSON.parse(text);
@@ -110,7 +116,7 @@ export async function generatePracticeQuestion(
   marks: number;
   markingGuide: string;
 }> {
-  const prompt = `Generate a single NCEA Level ${level} Mathematics exam question on the topic "${topic}".
+  const prompt = `Generate a single NCEA Level ${level} exam question on the topic "${topic}".
 
 Difficulty level: ${gradeLevel}
 Style it exactly like a real NZQA exam question — clear, concise, with context where appropriate.
@@ -122,6 +128,103 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   "markingGuide": "<detailed marking schedule showing how marks are allocated>"
 }`;
 
-  const text = await chatCompletion(prompt);
+  // Use smart model for generation — quality matters
+  const text = await chatCompletion(prompt, { smart: true });
   return JSON.parse(text);
+}
+
+// ── AI Tutor Chat ──
+// Lets students ask questions and get Socratic-style help
+export async function tutorChat(
+  question: { text: string; markingGuide: string; expectedAnswer?: string },
+  studentMessages: { role: "user" | "assistant"; content: string }[],
+  studentAnswerSoFar?: string
+): Promise<string> {
+  const history = studentMessages
+    .map((m) => `${m.role === "user" ? "Student" : "Tutor"}: ${m.content}`)
+    .join("\n\n");
+
+  const prompt = `You are a friendly NCEA tutor helping a student with a practice question. Your goal is to GUIDE them to the answer, not just give it away.
+
+CRITICAL RULES:
+1. Never just give the answer — use leading questions and hints
+2. Keep responses short (2-4 sentences max)
+3. Be encouraging and warm, like a helpful older sibling
+4. If they're stuck, give a small hint, then ask what they think
+5. If they get something right, celebrate it briefly then move on
+6. Use simple language, not jargon
+7. If they explicitly give up and ask for the answer after trying, give a step-by-step walkthrough
+8. Never lecture — keep it conversational
+
+QUESTION THEY'RE WORKING ON:
+${question.text}
+
+MARKING GUIDE (for your reference — don't quote directly):
+${question.markingGuide}
+
+${studentAnswerSoFar ? `WHAT THEY'VE WRITTEN SO FAR:\n${studentAnswerSoFar}\n` : ""}
+CONVERSATION HISTORY:
+${history}
+
+Respond as the tutor with just your next message. Keep it short and helpful.`;
+
+  return chatCompletion(prompt, { smart: true, maxTokens: 300 });
+}
+
+// ── AI Paper Generation ──
+// Generates a full practice paper for a given subject/topic/level
+export async function generatePracticePaper(
+  subject: string,
+  level: number,
+  topic: string | null,
+  questionCount: number = 8
+): Promise<{
+  title: string;
+  questions: Array<{
+    number: string;
+    text: string;
+    marks: number;
+    gradeLevel: "achieved" | "merit" | "excellence";
+    answerType: "text" | "number" | "multi-choice" | "working";
+    options?: string[];
+    expectedAnswer?: string;
+    markingGuide: string;
+  }>;
+}> {
+  const topicLine = topic ? `Focus on the topic: ${topic}` : `Cover a range of core topics for this subject/level.`;
+
+  const prompt = `Generate a practice exam paper for NCEA ${subject} Level ${level}.
+
+${topicLine}
+Number of questions: ${questionCount}
+Match the style, difficulty, and question types of real NZQA ${subject} exams.
+
+Requirements:
+- Mix of Achievement, Merit, and Excellence level questions
+- Include multi-choice, calculation, and extended-response questions
+- Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
+- All calculations must be mathematically/scientifically correct
+- Verify expectedAnswer matches the working in markingGuide
+
+Respond ONLY with valid JSON (no markdown, no code fences):
+{
+  "title": "<paper title>",
+  "questions": [
+    {
+      "number": "1",
+      "text": "<question text>",
+      "marks": <1-8>,
+      "gradeLevel": "achieved" | "merit" | "excellence",
+      "answerType": "text" | "number" | "multi-choice" | "working",
+      "options": ["opt1","opt2","opt3","opt4"],  // only for multi-choice
+      "expectedAnswer": "<answer>",
+      "markingGuide": "<step-by-step solution>"
+    }
+  ]
+}`;
+
+  const text = await chatCompletion(prompt, { smart: true, maxTokens: 4096 });
+  // Strip markdown code fences if present
+  const cleaned = text.replace(/^```json\s*/i, "").replace(/```\s*$/, "").trim();
+  return JSON.parse(cleaned);
 }
