@@ -505,11 +505,16 @@ export async function generatePracticePaper(
 }> {
   const topicLine = topic ? `Focus on the topic: ${topic}` : `Cover a range of core topics for this subject/level.`;
 
+  // Random seed forces fresh content even if same inputs are given twice
+  const seed = Math.random().toString(36).slice(2, 10);
+  const variantNote = `Variation seed: ${seed} — generate completely original questions, do not reuse questions from previous generations.`;
+
   const prompt = `Generate a practice exam paper for NCEA ${subject} Level ${level}.
 
 ${topicLine}
 Number of questions: ${questionCount}
 Match the style, difficulty, and question types of real NZQA ${subject} exams.
+${variantNote}
 
 Requirements:
 - Mix of Achievement, Merit, and Excellence level questions
