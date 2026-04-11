@@ -66,7 +66,7 @@ export default function SubjectsPage() {
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
   const [topic, setTopic] = useState<string>("");
-  const [questionCount, setQuestionCount] = useState<number>(8);
+  const [questionCount, setQuestionCount] = useState<number>(10);
   const [loading, setLoading] = useState(false);
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -292,16 +292,25 @@ export default function SubjectsPage() {
           id="qcount-slider"
           type="range"
           min={4}
-          max={12}
+          max={20}
           step={1}
           value={questionCount}
           onChange={(e) => setQuestionCount(Number(e.target.value))}
           className="w-full accent-indigo-500"
         />
         <div className="flex justify-between text-[10px] text-zinc-600 mt-1">
-          <span>Quick (4)</span>
-          <span>Standard (8)</span>
-          <span>Long (12)</span>
+          <span>Short (4)</span>
+          <span>Standard (10)</span>
+          <span>Full mock (20)</span>
+        </div>
+
+        {/* Why longer is better */}
+        <div className="mt-4 p-3.5 rounded-lg bg-indigo-500/[0.06] border border-indigo-500/15">
+          <p className="text-[11px] font-semibold text-indigo-300 mb-1.5 uppercase tracking-wider">Tip — more questions = better results</p>
+          <p className="text-[12px] text-zinc-400 leading-relaxed">
+            The more questions you practise on, the more topics you cover and the better prepared you&apos;ll be for your real exam.
+            <span className="text-zinc-300"> Aim for 15–20 questions when you can</span> — it&apos;s the closest to a real NCEA exam and gives you the most chances to spot weak areas before exam day.
+          </p>
         </div>
       </div>
 
