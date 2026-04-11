@@ -43,7 +43,7 @@ export default function HomePage() {
 
         {/* Subhead */}
         <p className="text-zinc-400 text-[16px] sm:text-[18px] leading-relaxed max-w-xl mx-auto mb-10">
-          NCEA practice papers across every subject, marked instantly by AI.
+          Unlimited NCEA practice exams, generated and marked instantly by AI.
           Built specifically for NZ students from Year 10 to Year 13.
         </p>
 
@@ -53,23 +53,23 @@ export default function HomePage() {
             href="/subjects"
             className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
           >
-            Start practising
+            Build my exam
             <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
           <Link
-            href="/generate"
+            href="/dashboard"
             className="text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-lg border border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.02] transition-all text-[15px]"
           >
-            Generate a custom paper
+            See my progress
           </Link>
         </div>
 
         {/* Stats row */}
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-zinc-500">
           <div className="flex items-center gap-1.5">
-            <span className="text-white font-semibold">120+</span> past papers
+            <span className="text-white font-semibold">Unlimited</span> practice exams
           </div>
           <div className="flex items-center gap-1.5">
             <span className="text-white font-semibold">19</span> subjects
@@ -133,8 +133,8 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>}
-            title="120+ real past papers"
-            desc="NCEA-style questions across 19 subjects, Years 10–13. Plus generate unlimited custom papers."
+            title="Unlimited practice exams"
+            desc="Pick a subject and topic, AI builds you a fresh NCEA-style paper in seconds. Never run out of practice."
           />
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" /></svg>}
