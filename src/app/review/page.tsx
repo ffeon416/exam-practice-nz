@@ -100,6 +100,52 @@ export default function ReviewPage() {
       quality
     );
 
+    // Fire-and-forget: sync updated review to database
+    {
+      const r = current.review;
+      const now = new Date();
+      let ease = r.ease;
+      let intervalDays = r.interval;
+      let repetitions = r.repetitions;
+
+      if (quality < 3) {
+        repetitions = 0;
+        intervalDays = 0;
+      } else if (quality === 3) {
+        repetitions = Math.max(repetitions, 1);
+        intervalDays = 1;
+      } else {
+        if (repetitions === 0) intervalDays = 3;
+        else if (repetitions === 1) intervalDays = 7;
+        else intervalDays = Math.round(r.interval * ease);
+        repetitions += 1;
+        ease = Math.max(1.3, ease + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
+      }
+
+      const nextReview =
+        intervalDays === 0
+          ? new Date(now.getTime() - 1000).toISOString()
+          : new Date(now.getTime() + intervalDays * 86400000).toISOString();
+
+      fetch("/api/reviews", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          review: {
+            questionId: r.questionId,
+            examId: r.examId,
+            questionText: r.questionText,
+            topics: r.topics,
+            ease,
+            intervalDays,
+            repetitions,
+            nextReview,
+            lastReviewed: now.toISOString(),
+          },
+        }),
+      }).catch(() => {});
+    }
+
     setSessionCount((c) => ({
       right: c.right + (quality === 5 ? 1 : 0),
       partial: c.partial + (quality === 3 ? 1 : 0),

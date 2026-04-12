@@ -105,6 +105,54 @@ function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
   );
 }
 
+/** Fire-and-forget helper to sync a review item to the database. */
+function syncReviewToDb(
+  questionId: string,
+  examId: string,
+  questionText: string,
+  topics: string[],
+  quality: 0 | 3 | 5
+) {
+  // Mirror the SM-2 state that recordReview computes so the DB stays in sync.
+  const now = new Date();
+  let intervalDays = 0;
+  let ease = 2.5;
+  let repetitions = 0;
+
+  if (quality < 3) {
+    intervalDays = 0;
+  } else if (quality === 3) {
+    intervalDays = 1;
+    repetitions = 1;
+  } else {
+    intervalDays = 3;
+    repetitions = 1;
+  }
+
+  const nextReview =
+    intervalDays === 0
+      ? new Date(now.getTime() - 1000).toISOString()
+      : new Date(now.getTime() + intervalDays * 86400000).toISOString();
+
+  fetch("/api/reviews", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      review: {
+        questionId,
+        examId,
+        questionText,
+        topics,
+        ease,
+        intervalDays,
+        repetitions,
+        nextReview,
+        lastReviewed: now.toISOString(),
+      },
+    }),
+  }).catch(() => {});
+}
+
 export default function ResultsPage({
   params,
 }: {
@@ -144,6 +192,9 @@ export default function ResultsPage({
           ? 3
           : 0;
       recordReview(q.id, examId, q.text, q.topics, quality);
+
+      // Fire-and-forget: sync review to database
+      syncReviewToDb(q.id, examId, q.text, q.topics, quality);
     });
     reviewsQueuedRef.current = true;
   }, [exam, results, selfMarked, examId]);
@@ -189,6 +240,9 @@ export default function ResultsPage({
       if (correct === undefined) return;
       const quality: 0 | 3 | 5 = correct ? 5 : 0;
       recordReview(q.id, examId, q.text, q.topics, quality);
+
+      // Fire-and-forget: sync review to database
+      syncReviewToDb(q.id, examId, q.text, q.topics, quality);
     });
     reviewsQueuedRef.current = true;
   }, [exam, results, selfMarked, autoScored, selfAssess, examId]);
@@ -263,7 +317,7 @@ export default function ResultsPage({
           0
         );
 
-        addExamAttempt({
+        const attempt = {
           examId,
           date: new Date().toISOString(),
           answers: savedAnswers,
@@ -272,7 +326,24 @@ export default function ResultsPage({
           totalMarks,
           maxMarks,
           mode,
-        });
+        };
+
+        const updatedProgress = addExamAttempt(attempt);
+
+        // Fire-and-forget: sync attempt + topic scores to database
+        fetch("/api/attempts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            attempt: {
+              ...attempt,
+              examTitle: e.title,
+              subject: e.subject,
+              level: e.level,
+            },
+            topicScores: updatedProgress.topicScores,
+          }),
+        }).catch(() => {});
 
         setLoading(false);
       })

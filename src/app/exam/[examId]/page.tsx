@@ -36,24 +36,48 @@ export default function ExamPage({
   useEffect(() => {
     // Run on mount only — wait for the next tick so localStorage is hydrated
     let cancelled = false;
-    function tryLoad() {
+    async function tryLoad() {
       if (cancelled) return;
       if (typeof window === "undefined") return;
+
+      // Try localStorage first (fast)
       const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
       if (e) {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setExam(e);
-      } else {
+        return;
+      }
+
+      // Not found locally — try database (cross-device sync)
+      try {
+        const res = await fetch(`/api/exams/${examId}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.exam) {
+            // Cache locally for next time
+            if (isCustomExamId(examId)) {
+              const { saveCustomExam } = await import("@/lib/customExams");
+              saveCustomExam(data.exam);
+            }
+            if (!cancelled) {
+              // eslint-disable-next-line react-hooks/set-state-in-effect
+              setExam(data.exam);
+              return;
+            }
+          }
+        }
+      } catch {
+        // DB fetch failed — fall through to not-found
+      }
+
+      if (!cancelled) {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setExamNotFound(true);
       }
     }
-    // Try immediately, then after a small delay as a safety net
     tryLoad();
-    const timeout = setTimeout(tryLoad, 200);
     return () => {
       cancelled = true;
-      clearTimeout(timeout);
     };
   }, [examId]);
 

@@ -173,6 +173,14 @@ export default function SubjectsPage() {
       };
 
       saveCustomExam(exam);
+
+      // Fire-and-forget: save to database for cross-device sync
+      fetch("/api/exams", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ exam }),
+      }).catch(() => {});
+
       refresh(); // Update usage cache after generating
       stopCycle();
       router.push(`/exam/${id}?mode=practice`);

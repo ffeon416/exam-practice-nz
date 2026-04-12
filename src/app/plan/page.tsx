@@ -69,6 +69,28 @@ export default function PlanPage() {
     return loadPlan();
   }, [version, mounted]);
 
+  // Background fetch from database for cross-device sync
+  useEffect(() => {
+    if (!mounted) return;
+    fetch("/api/plan")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data?.plan) return;
+        const local = loadPlan();
+        // If no local plan but DB has one, import it
+        if (!local && data.plan) {
+          savePlan({
+            examDate: data.plan.examDate,
+            subjects: data.plan.subjects,
+            yearLevel: data.plan.yearLevel,
+            weeks: data.plan.weeks,
+            createdAt: data.plan.createdAt ?? new Date().toISOString(),
+          });
+        }
+      })
+      .catch(() => {});
+  }, [mounted]);
+
   // Keep the initial client render identical to SSR by showing a neutral
   // placeholder until the mount effect flips `mounted`.
   if (!mounted || tierLoading) {
@@ -166,6 +188,13 @@ function PlanCreateForm() {
 
     const plan = createPlan(examDate, subjects, yearLevel);
     savePlan(plan);
+
+    // Fire-and-forget: sync plan to database
+    fetch("/api/plan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ plan }),
+    }).catch(() => {});
   }
 
   return (
@@ -295,6 +324,9 @@ function PlanView({ plan }: { plan: StudyPlan }) {
     )
       return;
     clearPlan();
+
+    // Fire-and-forget: delete plan from database
+    fetch("/api/plan", { method: "DELETE" }).catch(() => {});
   }
 
   const totalTasks = plan.weeks.reduce((n, w) => n + w.tasks.length, 0);
@@ -494,7 +526,18 @@ function TaskRow({ task }: { task: StudyTask }) {
     <div className="flex items-start gap-3 py-1.5">
       <button
         type="button"
-        onClick={() => markTaskComplete(task.id)}
+        onClick={() => {
+          markTaskComplete(task.id);
+          // Fire-and-forget: sync updated plan to database
+          const updatedPlan = loadPlan();
+          if (updatedPlan) {
+            fetch("/api/plan", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ plan: updatedPlan }),
+            }).catch(() => {});
+          }
+        }}
         aria-label={
           task.completed ? "Mark task incomplete" : "Mark task complete"
         }

@@ -27,6 +27,7 @@ import {
   getCurrentWeek,
   getPlanVersion,
   getServerPlanVersion,
+  loadPlan,
   markTaskComplete,
   subscribePlan,
   type StudyTask,
@@ -95,6 +96,29 @@ export default function DashboardPage() {
     setProgress(loadProgress());
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setCustomExams(listCustomExams());
+
+    // Background fetch from database for cross-device sync
+    fetch("/api/progress")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data || (!data.examAttempts?.length && !Object.keys(data.topicScores || {}).length)) return;
+        const local = loadProgress();
+
+        // Merge: use whichever source has more attempts
+        const dbAttempts = data.examAttempts ?? [];
+        if (dbAttempts.length > local.examAttempts.length) {
+          const merged: StudentProgress = {
+            examAttempts: dbAttempts,
+            topicScores: { ...local.topicScores, ...data.topicScores },
+            totalExamsTaken: dbAttempts.length,
+            streakDays: Math.max(local.streakDays, data.streakDays ?? 0),
+            lastActiveDate: local.lastActiveDate,
+          };
+          // eslint-disable-next-line react-hooks/set-state-in-effect
+          setProgress(merged);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   function handleDeleteCustom(id: string) {
@@ -687,6 +711,15 @@ function DashboardTaskRow({ task }: { task: StudyTask }) {
           e.preventDefault();
           e.stopPropagation();
           markTaskComplete(task.id);
+          // Fire-and-forget: sync updated plan to database
+          const updatedPlan = loadPlan();
+          if (updatedPlan) {
+            fetch("/api/plan", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ plan: updatedPlan }),
+            }).catch(() => {});
+          }
         }}
         aria-label={task.completed ? "Mark incomplete" : "Mark complete"}
         className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${

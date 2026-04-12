@@ -293,3 +293,58 @@ export async function getUsage(userId: string, feature: string): Promise<{ count
 
   return { count: data.count, resetsAt };
 }
+
+// ── Study plans ──
+
+export interface DbStudyPlan {
+  examDate: string;
+  subjects: string[];
+  yearLevel: number;
+  weeks: unknown; // JSON blob — the full StudyWeek[] array
+  createdAt: string;
+}
+
+export async function savePlanDb(userId: string, plan: DbStudyPlan): Promise<void> {
+  const supabase = getSupabase();
+  if (!supabase) return;
+
+  await supabase.from("study_plans").upsert({
+    user_id: userId,
+    exam_date: plan.examDate,
+    subjects: plan.subjects,
+    year_level: plan.yearLevel,
+    weeks: plan.weeks,
+    updated_at: new Date().toISOString(),
+  });
+}
+
+export async function loadPlanDb(userId: string): Promise<DbStudyPlan | null> {
+  const supabase = getSupabase();
+  if (!supabase) return null;
+
+  const { data } = await supabase
+    .from("study_plans")
+    .select("*")
+    .eq("user_id", userId)
+    .single();
+
+  if (!data) return null;
+
+  return {
+    examDate: data.exam_date,
+    subjects: data.subjects,
+    yearLevel: data.year_level,
+    weeks: data.weeks,
+    createdAt: data.created_at,
+  };
+}
+
+export async function deletePlanDb(userId: string): Promise<void> {
+  const supabase = getSupabase();
+  if (!supabase) return;
+
+  await supabase
+    .from("study_plans")
+    .delete()
+    .eq("user_id", userId);
+}
