@@ -15,6 +15,10 @@ interface TutorChatProps {
   initialMessages?: Message[];
   onMessagesChange?: (messages: Message[]) => void;
   onClose: () => void;
+  /** Current tutor message usage count */
+  tutorUsage?: number;
+  /** Daily tutor message limit (-1 = unlimited) */
+  tutorLimit?: number;
 }
 
 export interface Message {
@@ -34,7 +38,11 @@ export default function TutorChat({
   initialMessages,
   onMessagesChange,
   onClose,
+  tutorUsage = 0,
+  tutorLimit = -1,
 }: TutorChatProps) {
+  const isLimited = tutorLimit !== -1;
+  const isOverLimit = isLimited && tutorUsage >= tutorLimit;
   const [messages, setMessages] = useState<Message[]>(
     initialMessages && initialMessages.length > 0
       ? initialMessages
@@ -74,7 +82,7 @@ export default function TutorChat({
 
   const sendMessage = async () => {
     const trimmed = input.trim();
-    if (!trimmed || loading) return;
+    if (!trimmed || loading || isOverLimit) return;
 
     const userMessage: Message = { role: "user", content: trimmed };
     const nextMessages = [...messages, userMessage];
@@ -236,15 +244,21 @@ export default function TutorChat({
 
         {/* Input */}
         <div className="border-t border-zinc-800 bg-zinc-900 px-3 py-3">
+          {isOverLimit && (
+            <div className="mb-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[12px] text-amber-300">
+              You&apos;ve used your {tutorLimit} free tutor messages for today. Upgrade to Student for 50/day or Pro for unlimited.{" "}
+              <a href="/pricing" className="underline text-indigo-400 hover:text-indigo-300">View plans</a>
+            </div>
+          )}
           <div className="flex items-end gap-2">
             <textarea
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask the tutor a question..."
+              placeholder={isOverLimit ? "Daily limit reached" : "Ask the tutor a question..."}
               rows={1}
-              disabled={loading}
+              disabled={loading || isOverLimit}
               className="flex-1 resize-none bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:opacity-60 max-h-32"
             />
             <button

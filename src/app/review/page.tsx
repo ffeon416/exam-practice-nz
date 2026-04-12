@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { useTier } from "@/hooks/useTier";
 import {
   getAllReviews,
   getDueReviews,
@@ -30,6 +31,7 @@ function enrich(review: ReviewItem): EnrichedItem {
 }
 
 export default function ReviewPage() {
+  const { limits, loading: tierLoading } = useTier();
   const [phase, setPhase] = useState<Phase>("intro");
   // Snapshot taken when the session starts — we intentionally don't update
   // this as the user grades items, because advancing `index` through a
@@ -112,6 +114,36 @@ export default function ReviewPage() {
     } else {
       setPhase("done");
     }
+  }
+
+  // ── UPGRADE GATE ──
+  if (!tierLoading && !limits.spacedRepetition) {
+    return (
+      <div className="max-w-md mx-auto px-5 py-16 text-center">
+        <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
+          <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        </div>
+        <h1 className="text-[22px] font-semibold text-white mb-2 tracking-tight">
+          Spaced Repetition
+        </h1>
+        <p className="text-zinc-400 text-[14px] mb-6">
+          Spaced review automatically resurfaces questions you got wrong at increasing intervals until you master them. Upgrade to Student or Pro to unlock this feature.
+        </p>
+        <Link
+          href="/pricing"
+          className="inline-block bg-indigo-500 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[14px]"
+        >
+          View plans
+        </Link>
+        <div className="mt-4">
+          <Link href="/dashboard" className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors">
+            Back to dashboard
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   // ── INTRO / DASHBOARD VIEW ──

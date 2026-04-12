@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { markAnswer, markEnglishEssay } from "@/lib/claude";
+import { checkTier } from "@/lib/checkTier";
 
 // Structured-feedback marker used when an English question is marked by the
 // multi-pass essay pipeline. The results page detects this prefix to render
@@ -9,6 +10,9 @@ const ESSAY_FEEDBACK_PREFIX = "__ENGLISH_ESSAY__";
 
 export async function POST(request: NextRequest) {
   try {
+    // ── Tier check for deep essay marking ──
+    const { limits } = await checkTier();
+
     const body = await request.json();
     const { questions, answers, subject } = body as {
       questions: {
@@ -39,8 +43,10 @@ export async function POST(request: NextRequest) {
             ? `WORKING:\n${studentWorking}\n\nFINAL ANSWER:\n${studentAnswer}`
             : studentAnswer;
 
+          // Only use multi-pass essay marking for Pro users
           const isEssayLike =
             isEnglish &&
+            limits.deepEssayMarking &&
             q.marks >= 3 &&
             (q.answerType === undefined ||
               q.answerType === "text" ||

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { useTier } from "@/hooks/useTier";
 import {
   clearPlan,
   createPlan,
@@ -46,6 +47,8 @@ const SUBJECTS: Array<{ value: string; label: string; years: number[] }> = [
 ];
 
 export default function PlanPage() {
+  const { limits, loading: tierLoading } = useTier();
+
   // Drive all reads through useSyncExternalStore so the page re-renders
   // whenever the plan is saved, cleared, or tasks are toggled.
   const version = useSyncExternalStore(
@@ -68,13 +71,44 @@ export default function PlanPage() {
 
   // Keep the initial client render identical to SSR by showing a neutral
   // placeholder until the mount effect flips `mounted`.
-  if (!mounted) {
+  if (!mounted || tierLoading) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-16 text-center text-zinc-500 text-sm">
         Loading plan…
       </div>
     );
   }
+
+  // Gate: study planner is Pro-only
+  if (!limits.studyPlanner) {
+    return (
+      <div className="max-w-md mx-auto px-5 py-16 text-center">
+        <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
+          <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+        </div>
+        <h1 className="text-[22px] font-semibold text-white mb-2 tracking-tight">
+          Study Planner
+        </h1>
+        <p className="text-zinc-400 text-[14px] mb-6">
+          The study planner builds a personalised week-by-week revision schedule based on your exam date and weak topics. This is a Pro feature.
+        </p>
+        <Link
+          href="/pricing"
+          className="inline-block bg-indigo-500 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[14px]"
+        >
+          Upgrade to Pro — $19.99/mo
+        </Link>
+        <div className="mt-4">
+          <Link href="/dashboard" className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors">
+            Back to dashboard
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   if (!plan) return <PlanCreateForm />;
   return <PlanView plan={plan} />;
 }

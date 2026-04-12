@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Exam, Question } from "@/lib/types";
 import { saveCustomExam, generateCustomExamId } from "@/lib/customExams";
+import { useTier, isUnlimited } from "@/hooks/useTier";
+import UpgradeModal from "@/components/UpgradeModal";
 
 const YEAR_LEVELS = [
   { value: 10, label: "Year 10", ncea: 0 },
@@ -63,13 +65,16 @@ const LOADING_MESSAGES = [
 
 export default function SubjectsPage() {
   const router = useRouter();
+  const { tier, limits, usage, refresh } = useTier();
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
   const [topic, setTopic] = useState<string>("");
-  const [questionCount, setQuestionCount] = useState<number>(10);
+  const maxQ = limits.maxQuestions;
+  const [questionCount, setQuestionCount] = useState<number>(Math.min(10, maxQ));
   const [loading, setLoading] = useState(false);
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [showUpgrade, setShowUpgrade] = useState(false);
 
   const availableSubjects = yearLevel != null
     ? SUBJECTS.filter((s) => s.years.includes(yearLevel))
@@ -122,6 +127,13 @@ export default function SubjectsPage() {
 
   async function handleStart() {
     if (!canStart || yearLevel == null || subject == null) return;
+
+    // Check exam limit
+    if (!isUnlimited(limits.examsPerWeek) && usage.examsThisWeek >= limits.examsPerWeek) {
+      setShowUpgrade(true);
+      return;
+    }
+
     setError(null);
     setLoading(true);
     const stopCycle = startLoadingCycle();
@@ -161,6 +173,7 @@ export default function SubjectsPage() {
       };
 
       saveCustomExam(exam);
+      refresh(); // Update usage cache after generating
       stopCycle();
       router.push(`/exam/${id}?mode=practice`);
     } catch (err) {
@@ -292,17 +305,22 @@ export default function SubjectsPage() {
           id="qcount-slider"
           type="range"
           min={4}
-          max={20}
+          max={maxQ}
           step={1}
-          value={questionCount}
+          value={Math.min(questionCount, maxQ)}
           onChange={(e) => setQuestionCount(Number(e.target.value))}
           className="w-full accent-indigo-500"
         />
         <div className="flex justify-between text-[10px] text-zinc-600 mt-1">
           <span>Short (4)</span>
-          <span>Standard (10)</span>
-          <span>Full mock (20)</span>
+          {maxQ >= 10 && <span>Standard (10)</span>}
+          <span>Max ({maxQ})</span>
         </div>
+        {maxQ < 20 && (
+          <p className="text-[11px] text-indigo-400/70 mt-1.5">
+            Upgrade to {maxQ < 12 ? "Student" : "Pro"} for up to {maxQ < 12 ? 12 : 20} questions per exam.
+          </p>
+        )}
 
         {/* Why longer is better */}
         <div className="mt-4 p-3.5 rounded-lg bg-indigo-500/[0.06] border border-indigo-500/15">
@@ -314,11 +332,29 @@ export default function SubjectsPage() {
         </div>
       </div>
 
+      {/* Free tier usage indicator */}
+      {!isUnlimited(limits.examsPerWeek) && (
+        <div className="mb-4 px-4 py-3 rounded-lg bg-zinc-900/60 border border-zinc-800 text-[12px] text-zinc-400">
+          <span className="text-zinc-300 font-medium">{usage.examsThisWeek}/{limits.examsPerWeek}</span> exams used this week
+          {usage.examsThisWeek >= limits.examsPerWeek && (
+            <span className="text-amber-400 ml-2">— limit reached</span>
+          )}
+        </div>
+      )}
+
       {/* Error */}
       {error && (
         <div className="mb-4 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-[13px] text-red-300">
           {error}
         </div>
+      )}
+
+      {/* Upgrade modal */}
+      {showUpgrade && (
+        <UpgradeModal
+          message={`You've used your ${limits.examsPerWeek} free exams this week. Upgrade to keep practising.`}
+          onClose={() => setShowUpgrade(false)}
+        />
       )}
 
       {/* Start button */}
