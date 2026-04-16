@@ -520,8 +520,17 @@ Requirements:
 - Mix of Achievement, Merit, and Excellence level questions
 - Include multi-choice, calculation, and extended-response questions
 - Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
-- All calculations must be mathematically/scientifically correct
-- Verify expectedAnswer matches the working in markingGuide
+
+CRITICAL — ACCURACY CHECKS (students will memorise these answers):
+- For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
+- For multi-choice: verify the correct option is genuinely correct and all distractors are plausible but definitively wrong. The expectedAnswer MUST be one of the strings in the options array.
+- For science/chemistry/biology: ensure all facts, formulas, and units are scientifically accurate. Check chemical equations are balanced.
+- For statistics: verify all statistical calculations (means, standard deviations, confidence intervals, test statistics, p-values) by computing them step by step. Use the correct formula — population SD uses n, sample SD uses n-1. State which you are using.
+- For regression: slope b = r × (sy/sx), intercept a = ȳ - b×x̄. Verify by substituting back.
+- The expectedAnswer field MUST exactly match the final answer derived in the markingGuide working. If they differ, fix one of them.
+- Marks must be between 1 and 8 inclusive.
+- Every question must have non-empty text, expectedAnswer, and markingGuide.
+- Question setups must be internally consistent — do not state a result that contradicts the given data.
 
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
@@ -533,9 +542,9 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       "marks": <1-8>,
       "gradeLevel": "achieved" | "merit" | "excellence",
       "answerType": "text" | "number" | "multi-choice" | "working",
-      "options": ["opt1","opt2","opt3","opt4"],  // only for multi-choice
-      "expectedAnswer": "<answer>",
-      "markingGuide": "<step-by-step solution>"
+      "options": ["opt1","opt2","opt3","opt4"],  // only for multi-choice, exactly 4 options
+      "expectedAnswer": "<answer — must match the final result of the markingGuide working>",
+      "markingGuide": "<step-by-step solution with all working shown>"
     }
   ]
 }`;
@@ -560,12 +569,82 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       if (!parsed.title || !Array.isArray(parsed.questions) || parsed.questions.length === 0) {
         throw new Error("Generated paper has invalid structure");
       }
-      // Validate each question has required fields
+
+      // ── Post-generation validation ──
+      // Remove questions that fail quality checks rather than serving bad content
+      const validQuestions: typeof parsed.questions = [];
       for (const q of parsed.questions) {
-        if (!q.text || !q.markingGuide || typeof q.marks !== "number") {
-          throw new Error("Generated question is missing required fields");
+        const issues: string[] = [];
+
+        // Required fields
+        if (!q.text || typeof q.text !== "string" || q.text.trim().length === 0) {
+          issues.push("missing or empty question text");
+        }
+        if (!q.markingGuide || typeof q.markingGuide !== "string" || q.markingGuide.trim().length === 0) {
+          issues.push("missing or empty markingGuide");
+        }
+        if (!q.expectedAnswer || typeof q.expectedAnswer !== "string" || q.expectedAnswer.trim().length === 0) {
+          issues.push("missing or empty expectedAnswer");
+        }
+
+        // Marks range
+        if (typeof q.marks !== "number" || q.marks < 1 || q.marks > 8) {
+          issues.push(`marks out of range: ${q.marks}`);
+        }
+
+        // Valid gradeLevel
+        if (!["achieved", "merit", "excellence"].includes(q.gradeLevel)) {
+          issues.push(`invalid gradeLevel: ${q.gradeLevel}`);
+        }
+
+        // Valid answerType
+        if (!["text", "number", "multi-choice", "working"].includes(q.answerType)) {
+          issues.push(`invalid answerType: ${q.answerType}`);
+        }
+
+        // Multi-choice specific validation
+        if (q.answerType === "multi-choice") {
+          if (!Array.isArray(q.options) || q.options.length !== 4) {
+            issues.push(`multi-choice must have exactly 4 options, got ${Array.isArray(q.options) ? q.options.length : 0}`);
+          } else {
+            // Check that expectedAnswer is one of the options (or a letter A-D referencing them)
+            const answer = (q.expectedAnswer ?? "").trim();
+            const isOptionText = q.options.some(
+              (opt: string) => opt.trim().toLowerCase() === answer.toLowerCase()
+            );
+            const isLetter = /^[A-Da-d]\.?$/.test(answer);
+            if (!isOptionText && !isLetter) {
+              issues.push(`expectedAnswer "${answer.slice(0, 50)}" does not match any option or A-D letter`);
+            }
+          }
+        }
+
+        // Numeric answer sanity check — if answerType is "number", expectedAnswer should be parseable
+        if (q.answerType === "number") {
+          const numVal = Number(q.expectedAnswer?.replace(/[^0-9.\-]/g, ""));
+          if (isNaN(numVal)) {
+            issues.push(`numeric answer is not parseable: "${q.expectedAnswer}"`);
+          }
+        }
+
+        if (issues.length > 0) {
+          console.warn(`[generatePracticePaper] Dropping Q${q.number} — validation failed:`, issues.join("; "));
+        } else {
+          validQuestions.push(q);
         }
       }
+
+      if (validQuestions.length === 0) {
+        throw new Error("All generated questions failed validation");
+      }
+
+      if (validQuestions.length < parsed.questions.length) {
+        console.warn(
+          `[generatePracticePaper] ${parsed.questions.length - validQuestions.length} question(s) removed by validation, ${validQuestions.length} remaining`
+        );
+      }
+
+      parsed.questions = validQuestions;
       return parsed;
     } catch (err) {
       lastErr = err;

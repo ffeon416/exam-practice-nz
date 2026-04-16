@@ -1,24 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useTier } from "@/hooks/useTier";
+import type { Tier } from "@/lib/tierLimits";
 
 type Plan = {
   name: string;
+  tier: Tier;
   tagline: string;
-  price: number | "free";
+  monthlyPrice: number | "free";
   badge?: string;
   highlight?: boolean;
   features: { text: string; included: boolean; bold?: boolean }[];
-  cta: string;
-  ctaHref: string;
 };
 
 const PLANS: Plan[] = [
   {
     name: "Free",
+    tier: "free",
     tagline: "See how it works",
-    price: "free",
+    monthlyPrice: "free",
     features: [
       { text: "2 practice exams per week", included: true },
       { text: "Basic AI marking", included: true },
@@ -31,13 +33,12 @@ const PLANS: Plan[] = [
       { text: "All 19 subjects", included: false },
       { text: "Study planner", included: false },
     ],
-    cta: "Start free",
-    ctaHref: "/subjects",
   },
   {
     name: "Student",
+    tier: "student",
     tagline: "Pass with confidence",
-    price: 9.99,
+    monthlyPrice: 9.99,
     features: [
       { text: "20 practice exams per week", included: true, bold: true },
       { text: "Full AI marking on every question", included: true },
@@ -50,13 +51,12 @@ const PLANS: Plan[] = [
       { text: "Personal study planner", included: false },
       { text: "Deep English essay marking", included: false },
     ],
-    cta: "Get Student",
-    ctaHref: "/subjects",
   },
   {
     name: "Pro",
+    tier: "pro",
     tagline: "Built to chase Excellence",
-    price: 19.99,
+    monthlyPrice: 19.99,
     badge: "Best value",
     highlight: true,
     features: [
@@ -67,26 +67,97 @@ const PLANS: Plan[] = [
       { text: "Personal study planner (week by week)", included: true },
       { text: "Deep English essay marking (4-pass)", included: true },
       { text: "Mock exam mode (timed, fullscreen)", included: true },
-      { text: "Priority generation (3× faster)", included: true },
+      { text: "Priority generation (3x faster)", included: true },
       { text: "Email exam date reminders", included: true },
       { text: "30-day money back guarantee", included: true },
     ],
-    cta: "Get Pro",
-    ctaHref: "/subjects",
   },
 ];
 
 export default function PricingPage() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+  const [loadingTier, setLoadingTier] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const { tier: currentTier, loading: tierLoading } = useTier();
 
   function getPrice(p: Plan): { display: string; sub?: string } {
-    if (p.price === "free") return { display: "Free", sub: "Forever" };
+    if (p.monthlyPrice === "free") return { display: "Free", sub: "Forever" };
     if (billing === "yearly") {
-      const annual = Math.round(p.price * 12 * 0.7 * 100) / 100; // 30% off
+      const annual = Math.round(p.monthlyPrice * 12 * 0.7 * 100) / 100; // 30% off
       const perMonth = Math.round((annual / 12) * 100) / 100;
       return { display: `$${perMonth.toFixed(2)}`, sub: `per month, billed yearly ($${annual.toFixed(0)}/yr)` };
     }
-    return { display: `$${p.price.toFixed(2)}`, sub: "per month" };
+    return { display: `$${p.monthlyPrice.toFixed(2)}`, sub: "per month" };
+  }
+
+  const handleCheckout = useCallback(async (tier: "student" | "pro") => {
+    setError(null);
+    setLoadingTier(tier);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tier, billing }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "Something went wrong.");
+        return;
+      }
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch {
+      setError("Failed to start checkout. Please try again.");
+    } finally {
+      setLoadingTier(null);
+    }
+  }, [billing]);
+
+  const handleManageSubscription = useCallback(async () => {
+    setError(null);
+    setLoadingTier("manage");
+    try {
+      const res = await fetch("/api/customer-portal", {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "Something went wrong.");
+        return;
+      }
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch {
+      setError("Failed to open subscription portal. Please try again.");
+    } finally {
+      setLoadingTier(null);
+    }
+  }, []);
+
+  function getCta(plan: Plan): { label: string; action: () => void; isLink?: boolean; href?: string; disabled?: boolean } {
+    // Free plan always links to subjects
+    if (plan.tier === "free") {
+      return { label: "Start free", action: () => {}, isLink: true, href: "/subjects" };
+    }
+
+    // If user is already on this tier
+    if (!tierLoading && currentTier === plan.tier) {
+      return { label: "Manage subscription", action: handleManageSubscription };
+    }
+
+    // If user is on a higher tier
+    if (!tierLoading && currentTier === "pro" && plan.tier === "student") {
+      return { label: "Current: Pro", action: () => {}, disabled: true };
+    }
+
+    // Default: purchase
+    return {
+      label: loadingTier === plan.tier ? "Redirecting..." : `Get ${plan.name}`,
+      action: () => handleCheckout(plan.tier as "student" | "pro"),
+      disabled: loadingTier !== null,
+    };
   }
 
   return (
@@ -139,11 +210,22 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Error banner */}
+      {error && (
+        <div className="max-w-6xl mx-auto px-4 sm:px-5 mb-4">
+          <div className="rounded-lg bg-red-500/10 border border-red-500/20 px-4 py-3 text-sm text-red-300 text-center">
+            {error}
+          </div>
+        </div>
+      )}
+
       {/* Pricing cards */}
       <section className="max-w-6xl mx-auto px-4 sm:px-5 pb-16 sm:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {PLANS.map((plan) => {
             const price = getPrice(plan);
+            const cta = getCta(plan);
+            const isCurrentPlan = !tierLoading && currentTier === plan.tier && plan.tier !== "free";
             return (
               <div
                 key={plan.name}
@@ -161,6 +243,15 @@ export default function PricingPage() {
                   </div>
                 )}
 
+                {/* Current plan badge */}
+                {isCurrentPlan && (
+                  <div className="mb-3">
+                    <span className="inline-block px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">
+                      Current plan
+                    </span>
+                  </div>
+                )}
+
                 {/* Plan name + tagline */}
                 <div className="mb-5">
                   <h3 className="text-white font-bold text-[20px]">{plan.name}</h3>
@@ -170,29 +261,37 @@ export default function PricingPage() {
                 {/* Price */}
                 <div className="mb-7">
                   <div className="flex items-baseline gap-1">
-                    {plan.price !== "free" && (
+                    {plan.monthlyPrice !== "free" && (
                       <span className="text-zinc-400 text-[18px] font-medium">$</span>
                     )}
-                    <span className={`font-bold text-white tabular-nums ${plan.price === "free" ? "text-[36px]" : "text-[42px]"}`}>
-                      {plan.price === "free" ? "Free" : price.display.replace("$", "")}
+                    <span className={`font-bold text-white tabular-nums ${plan.monthlyPrice === "free" ? "text-[36px]" : "text-[42px]"}`}>
+                      {plan.monthlyPrice === "free" ? "Free" : price.display.replace("$", "")}
                     </span>
                   </div>
                   <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub} NZD</p>
                 </div>
 
                 {/* CTA */}
-                <Link
-                  href={plan.ctaHref}
-                  className={`block w-full text-center py-3 rounded-lg font-semibold text-[14px] mb-7 transition-all ${
-                    plan.highlight
-                      ? "bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/20"
-                      : plan.price === "free"
-                      ? "bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1]"
-                      : "bg-white text-[#0a0a0f] hover:bg-zinc-100"
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
+                {cta.isLink ? (
+                  <Link
+                    href={cta.href ?? "/subjects"}
+                    className="block w-full text-center py-3 rounded-lg font-semibold text-[14px] mb-7 transition-all bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1]"
+                  >
+                    {cta.label}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={cta.action}
+                    disabled={cta.disabled}
+                    className={`block w-full text-center py-3 rounded-lg font-semibold text-[14px] mb-7 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
+                      plan.highlight
+                        ? "bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/20"
+                        : "bg-white text-[#0a0a0f] hover:bg-zinc-100"
+                    }`}
+                  >
+                    {cta.label}
+                  </button>
+                )}
 
                 {/* Features */}
                 <ul className="space-y-3">

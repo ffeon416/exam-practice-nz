@@ -13,6 +13,7 @@ import {
 
 const links = [
   { href: "/subjects", label: "Exams" },
+  { href: "/learn", label: "Learn" },
   { href: "/practice", label: "Fix Weak Spots" },
   { href: "/review", label: "Review" },
   { href: "/dashboard", label: "Dashboard" },

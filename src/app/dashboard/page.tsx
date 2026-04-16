@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
@@ -35,10 +35,14 @@ import {
 } from "@/lib/studyPlanner";
 import { useSyncExternalStore } from "react";
 import type { StudentProgress } from "@/lib/types";
+import { useTier } from "@/hooks/useTier";
+import { TIER_LABELS } from "@/lib/tierLimits";
 
 export default function DashboardPage() {
   const [progress, setProgress] = useState<StudentProgress | null>(null);
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
+  const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
+  const { tier, loading: tierLoading, refresh: refreshTier } = useTier();
   // `mounted` gates every localStorage-derived value below so the first
   // client render matches the server render (empty) and only refreshes
   // after hydration. Without this guard, returning users would trigger a
@@ -88,6 +92,21 @@ export default function DashboardPage() {
     if (!mounted) return null;
     return getCurrentWeek();
   })();
+
+  useEffect(() => {
+    // Check for payment success
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("payment") === "success") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setShowPaymentSuccess(true);
+      refreshTier();
+      // Clean up the URL
+      window.history.replaceState({}, "", "/dashboard");
+      // Auto-dismiss after 8 seconds
+      const timer = setTimeout(() => setShowPaymentSuccess(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [refreshTier]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -155,8 +174,30 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      {/* Payment success banner */}
+      {showPaymentSuccess && (
+        <div className="mb-6 rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-5 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <svg className="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="text-sm text-emerald-200">
+              Payment successful! You&apos;re now on the <span className="font-semibold">{TIER_LABELS[tier]}</span> plan. All features are unlocked.
+            </p>
+          </div>
+          <button onClick={() => setShowPaymentSuccess(false)} className="text-emerald-400/60 hover:text-emerald-300 transition-colors p-1">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
+
       <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Dashboard</h1>
       <p className="text-sm sm:text-base text-slate-400 mb-8">Track your progress and find your weak spots.</p>
+
+      {/* Subscription card */}
+      <SubscriptionCard tier={tier} tierLoading={tierLoading} />
 
       <TodaysTasksWidget week={currentWeek} />
 
@@ -757,6 +798,79 @@ function DashboardTaskRow({ task }: { task: StudyTask }) {
         </Link>
       ) : (
         body
+      )}
+    </div>
+  );
+}
+
+// ── Subscription card ─────────────────────────────────────────────────
+
+function SubscriptionCard({ tier, tierLoading }: { tier: "free" | "student" | "pro"; tierLoading: boolean }) {
+  const [portalLoading, setPortalLoading] = useState(false);
+
+  const handleManage = useCallback(async () => {
+    setPortalLoading(true);
+    try {
+      const res = await fetch("/api/customer-portal", { method: "POST" });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch {
+      // Silently fail — user can try again
+    } finally {
+      setPortalLoading(false);
+    }
+  }, []);
+
+  if (tierLoading) return null;
+
+  const isPaid = tier !== "free";
+
+  return (
+    <div className="bg-card border border-card-border rounded-lg p-4 mb-6 flex items-center justify-between gap-4">
+      <div className="flex items-center gap-3 min-w-0">
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
+          tier === "pro"
+            ? "bg-indigo-500/20 text-indigo-300"
+            : tier === "student"
+            ? "bg-emerald-500/20 text-emerald-300"
+            : "bg-zinc-700/40 text-zinc-400"
+        }`}>
+          {tier === "pro" ? (
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
+            </svg>
+          ) : (
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+          )}
+        </div>
+        <div className="min-w-0">
+          <p className="text-sm text-white font-medium">
+            {TIER_LABELS[tier]} plan
+          </p>
+          <p className="text-xs text-slate-400">
+            {isPaid ? "Active subscription" : "Free forever — upgrade for more features"}
+          </p>
+        </div>
+      </div>
+      {isPaid ? (
+        <button
+          onClick={handleManage}
+          disabled={portalLoading}
+          className="shrink-0 px-4 py-2 rounded text-xs font-medium border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors disabled:opacity-50"
+        >
+          {portalLoading ? "Loading..." : "Manage subscription"}
+        </button>
+      ) : (
+        <Link
+          href="/pricing"
+          className="shrink-0 px-4 py-2 rounded text-xs font-medium bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+        >
+          Upgrade
+        </Link>
       )}
     </div>
   );

@@ -17,6 +17,7 @@ import { recordReview } from "@/lib/spacedRepetition";
 import { updateRating } from "@/lib/adaptiveDifficulty";
 import type { Exam, MarkingResult } from "@/lib/types";
 import TopicTag from "@/components/TopicTag";
+import { hasGuide } from "@/lib/learnContent";
 
 // Multi-pass English essay feedback payload is stuffed into the feedback
 // string with this prefix, after a plain-text summary, by /api/mark. We
@@ -917,6 +918,19 @@ export default function ResultsPage({
           {q.expectedAnswer ?? "(See working above)"}
         </p>
       </div>
+
+      {/* Study guide link */}
+      {exam && hasGuide(exam.subject) && (
+        <Link
+          href={`/learn/${exam.subject}`}
+          className="inline-flex items-center gap-1 text-indigo-400 hover:text-indigo-300 text-[12px] font-medium mb-4 transition-colors"
+        >
+          Study this topic
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </Link>
+      )}
 
       {/* Feedback */}
       {r && !isFullMarks && (() => {
