@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
-import { useAuth, UserButton } from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
 import {
   getDueCount,
   getReviewsVersion,
@@ -11,9 +11,8 @@ import {
   subscribeReviews,
 } from "@/lib/spacedRepetition";
 
-const links = [
+const authedLinks = [
   { href: "/subjects", label: "Exams" },
-  { href: "/learn", label: "Learn" },
   { href: "/practice", label: "Fix Weak Spots" },
   { href: "/review", label: "Review" },
   { href: "/dashboard", label: "Dashboard" },
@@ -21,9 +20,17 @@ const links = [
   { href: "/pricing", label: "Pricing" },
 ];
 
+const publicLinks = [
+  { href: "/demo", label: "Try Demo" },
+  { href: "/schools", label: "Schools" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Navbar() {
   const pathname = usePathname();
   const { isSignedIn } = useAuth();
+  const { user } = useUser();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const version = useSyncExternalStore(
@@ -39,6 +46,8 @@ export default function Navbar() {
     if (!mounted) return 0;
     return getDueCount();
   }, [version, mounted]);
+
+  const links = isSignedIn ? authedLinks : publicLinks;
 
   // Close menu when route changes
   useEffect(() => {
@@ -90,11 +99,18 @@ export default function Navbar() {
             {/* Auth (desktop) */}
             <div className="hidden md:flex items-center gap-2">
               {isSignedIn ? (
-                <UserButton
-                  appearance={{
-                    elements: { avatarBox: "w-7 h-7" },
-                  }}
-                />
+                <Link
+                  href="/profile"
+                  className="w-7 h-7 rounded-full overflow-hidden border border-white/[0.1] hover:border-indigo-500/50 transition-colors shrink-0"
+                >
+                  {user?.imageUrl ? (
+                    <img src={user.imageUrl} alt="Profile" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-indigo-500/20 flex items-center justify-center text-indigo-300 text-[11px] font-bold">
+                      {(user?.firstName?.[0] || "?").toUpperCase()}
+                    </div>
+                  )}
+                </Link>
               ) : (
                 <>
                   <Link
@@ -116,17 +132,24 @@ export default function Navbar() {
             {/* Mobile: user button (when signed in) */}
             <div className="md:hidden flex items-center gap-2">
               {isSignedIn && (
-                <UserButton
-                  appearance={{
-                    elements: { avatarBox: "w-7 h-7" },
-                  }}
-                />
+                <Link
+                  href="/profile"
+                  className="w-7 h-7 rounded-full overflow-hidden border border-white/[0.1] hover:border-indigo-500/50 transition-colors shrink-0"
+                >
+                  {user?.imageUrl ? (
+                    <img src={user.imageUrl} alt="Profile" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-indigo-500/20 flex items-center justify-center text-indigo-300 text-[11px] font-bold">
+                      {(user?.firstName?.[0] || "?").toUpperCase()}
+                    </div>
+                  )}
+                </Link>
               )}
 
               {/* Hamburger button */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="relative w-9 h-9 flex items-center justify-center rounded-md text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                className="relative w-10 h-10 flex items-center justify-center rounded-md text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
                 aria-label="Toggle menu"
               >
                 {menuOpen ? (

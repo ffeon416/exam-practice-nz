@@ -68,10 +68,6 @@ export function addExamAttempt(attempt: ExamAttempt): StudentProgress {
     for (const topic of result.topicsToReview) {
       updateTopicScore(progress, topic, result);
     }
-    // Also track topics where student did well
-    if (result.marksAwarded === result.maxMarks) {
-      // Student got full marks — topics are strong
-    }
   }
 
   saveProgress(progress);

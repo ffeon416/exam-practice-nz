@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
 import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
 import { getTopicLabel } from "@/data/topics";
+import { getExam } from "@/data/exams";
 import {
   listCustomExams,
   deleteCustomExam,
+  getCustomExam,
+  isCustomExamId,
   type CustomExamMeta,
 } from "@/lib/customExams";
 import {
@@ -17,259 +21,412 @@ import {
   subscribeReviews,
 } from "@/lib/spacedRepetition";
 import {
-  getAllRatings,
-  getRatingsVersion,
-  getServerRatingsVersion,
-  ratingToLevel,
-  subscribeRatings,
-} from "@/lib/adaptiveDifficulty";
-import {
   getCurrentWeek,
   getPlanVersion,
   getServerPlanVersion,
   loadPlan,
   markTaskComplete,
   subscribePlan,
+  getDaysUntilExam,
   type StudyTask,
   type StudyWeek,
 } from "@/lib/studyPlanner";
-import { useSyncExternalStore } from "react";
 import type { StudentProgress } from "@/lib/types";
 import { useTier } from "@/hooks/useTier";
 import { TIER_LABELS } from "@/lib/tierLimits";
 
+function getGreeting(): string {
+  const h = new Date().getHours();
+  if (h < 12) return "Good morning";
+  if (h < 17) return "Good afternoon";
+  return "Good evening";
+}
+
+function getMotivation(avgPct: number, streak: number, total: number): string {
+  if (total === 0) return "Let's get started!";
+  if (streak >= 7) return "A whole week straight — legend.";
+  if (streak >= 3) return "You're on a roll. Keep it up!";
+  if (avgPct >= 80) return "You're crushing it.";
+  if (avgPct >= 60) return "Solid progress. Keep pushing.";
+  if (total >= 5) return "The more you practise, the easier it gets.";
+  return "Great start. Every exam counts.";
+}
+
 export default function DashboardPage() {
+  const { user } = useUser();
   const [progress, setProgress] = useState<StudentProgress | null>(null);
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
   const { tier, loading: tierLoading, refresh: refreshTier } = useTier();
-  // `mounted` gates every localStorage-derived value below so the first
-  // client render matches the server render (empty) and only refreshes
-  // after hydration. Without this guard, returning users would trigger a
-  // hydration mismatch on every dashboard load.
   const [mounted, setMounted] = useState(false);
 
-  // Reactive spaced-review stats via useSyncExternalStore — updates
-  // automatically whenever reviews are added or completed.
-  const reviewsVersion = useSyncExternalStore(
-    subscribeReviews,
-    getReviewsVersion,
-    getServerReviewsVersion
-  );
+  const reviewsVersion = useSyncExternalStore(subscribeReviews, getReviewsVersion, getServerReviewsVersion);
   const reviewStats = (() => {
     void reviewsVersion;
-    if (!mounted) {
-      return { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
-    }
+    if (!mounted) return { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
     return getReviewStats();
   })();
 
-  // Live adaptive-rating snapshot. Bumps whenever updateRating() is called.
-  const ratingsVersion = useSyncExternalStore(
-    subscribeRatings,
-    getRatingsVersion,
-    getServerRatingsVersion
-  );
-  const ratings = (() => {
-    void ratingsVersion;
-    if (!mounted) return {} as Record<string, number>;
-    return getAllRatings();
-  })();
-  const sortedRatings = Object.entries(ratings).sort((a, b) => b[1] - a[1]);
-  const topRatings = sortedRatings.slice(0, 5);
-  const bottomRatings = sortedRatings.slice(-3).reverse();
-  const hasRatings = sortedRatings.length > 0;
-
-  // Live study plan snapshot — the dashboard widget below refreshes any
-  // time a plan is created, cleared, or a task is toggled.
-  const planVersion = useSyncExternalStore(
-    subscribePlan,
-    getPlanVersion,
-    getServerPlanVersion
-  );
-  const currentWeek: StudyWeek | null = (() => {
+  const planVersion = useSyncExternalStore(subscribePlan, getPlanVersion, getServerPlanVersion);
+  const plan = (() => {
     void planVersion;
+    if (!mounted) return null;
+    return loadPlan();
+  })();
+  const currentWeek: StudyWeek | null = (() => {
     if (!mounted) return null;
     return getCurrentWeek();
   })();
+  const daysLeft = plan ? getDaysUntilExam(plan) : null;
 
   useEffect(() => {
-    // Check for payment success
     const params = new URLSearchParams(window.location.search);
     if (params.get("payment") === "success") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowPaymentSuccess(true);
       refreshTier();
-      // Clean up the URL
       window.history.replaceState({}, "", "/dashboard");
-      // Auto-dismiss after 8 seconds
       const timer = setTimeout(() => setShowPaymentSuccess(false), 8000);
       return () => clearTimeout(timer);
     }
   }, [refreshTier]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProgress(loadProgress());
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCustomExams(listCustomExams());
 
-    // Background fetch from database for cross-device sync
     fetch("/api/progress")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!data || (!data.examAttempts?.length && !Object.keys(data.topicScores || {}).length)) return;
         const local = loadProgress();
-
-        // Merge: use whichever source has more attempts
         const dbAttempts = data.examAttempts ?? [];
         if (dbAttempts.length > local.examAttempts.length) {
-          const merged: StudentProgress = {
+          setProgress({
             examAttempts: dbAttempts,
             topicScores: { ...local.topicScores, ...data.topicScores },
             totalExamsTaken: dbAttempts.length,
             streakDays: Math.max(local.streakDays, data.streakDays ?? 0),
             lastActiveDate: local.lastActiveDate,
-          };
-          // eslint-disable-next-line react-hooks/set-state-in-effect
-          setProgress(merged);
+          });
         }
       })
       .catch(() => {});
   }, []);
 
   function handleDeleteCustom(id: string) {
-    if (!confirm("Delete this generated paper? This cannot be undone.")) return;
+    if (!confirm("Delete this paper?")) return;
     deleteCustomExam(id);
     setCustomExams(listCustomExams());
   }
 
-  if (!progress) return null;
-
-  const hasData = progress.totalExamsTaken > 0;
-  const weakTopics = getWeakTopics(progress, 6);
-  const allTopics = Object.values(progress.topicScores).sort(
-    (a, b) => b.attempts - a.attempts
+  if (!progress) return (
+    <div className="max-w-xl mx-auto px-5 pt-16 pb-20">
+      <div className="animate-pulse space-y-4">
+        <div className="h-8 bg-white/[0.04] rounded-lg w-48" />
+        <div className="h-4 bg-white/[0.04] rounded-lg w-64" />
+        <div className="h-32 bg-white/[0.04] rounded-2xl w-full mt-8" />
+        <div className="h-20 bg-white/[0.04] rounded-2xl w-full" />
+      </div>
+    </div>
   );
 
-  // Calculate average score
+  const hasData = progress.totalExamsTaken > 0;
+  const weakTopics = getWeakTopics(progress, 3);
+  const firstName = user?.firstName || "there";
+
+  // Check if streak should be reset (student missed a day)
+  const displayStreak = (() => {
+    if (!progress.lastActiveDate || progress.streakDays === 0) return 0;
+    const last = new Date(progress.lastActiveDate);
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const diff = Math.floor((now.getTime() - last.getTime()) / (1000 * 60 * 60 * 24));
+    // 0 = today, 1 = yesterday (streak still alive), >1 = broken
+    if (diff > 1) return 0;
+    return progress.streakDays;
+  })();
+
   const avgPct =
     progress.examAttempts.length > 0
       ? Math.round(
           (progress.examAttempts.reduce(
             (s, a) => s + (a.maxMarks > 0 ? a.totalMarks / a.maxMarks : 0),
             0
-          ) /
-            progress.examAttempts.length) *
-            100
+          ) / progress.examAttempts.length) * 100
         )
       : 0;
 
-  // Recent attempts
-  const recentAttempts = [...progress.examAttempts]
-    .reverse()
-    .slice(0, 10);
+  const recentAttempts = [...progress.examAttempts].reverse().slice(0, 5);
+  const lastGrade = recentAttempts[0]?.overallGrade;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Payment success banner */}
-      {showPaymentSuccess && (
-        <div className="mb-6 rounded-lg bg-emerald-500/10 border border-emerald-500/30 px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <svg className="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p className="text-sm text-emerald-200">
-              Payment successful! You&apos;re now on the <span className="font-semibold">{TIER_LABELS[tier]}</span> plan. All features are unlocked.
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-14 pb-20">
+        {/* Payment success */}
+        {showPaymentSuccess && (
+          <div className="mb-6 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 px-5 py-3 flex items-center justify-between">
+            <p className="text-[13px] text-emerald-200">
+              You&apos;re on the <span className="font-semibold">{TIER_LABELS[tier]}</span> plan!
             </p>
+            <button onClick={() => setShowPaymentSuccess(false)} className="text-emerald-400/60 hover:text-emerald-300 p-1">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
-          <button onClick={() => setShowPaymentSuccess(false)} className="text-emerald-400/60 hover:text-emerald-300 transition-colors p-1">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      )}
+        )}
 
-      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Dashboard</h1>
-      <p className="text-sm sm:text-base text-slate-400 mb-8">Track your progress and find your weak spots.</p>
-
-      {/* Subscription card */}
-      <SubscriptionCard tier={tier} tierLoading={tierLoading} />
-
-      <TodaysTasksWidget week={currentWeek} />
-
-      {!hasData && customExams.length === 0 ? (
-        <div className="bg-card border border-card-border rounded-lg p-6 sm:p-12 text-center">
-          <h2 className="text-lg sm:text-xl font-semibold text-white mb-2">
-            No exams taken yet
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 mb-4">
-            Take your first exam to start tracking progress.
+        {/* Greeting */}
+        <div className="mb-8">
+          <h1 className="text-[24px] sm:text-[32px] font-bold text-white tracking-tight mb-1">
+            {getGreeting()}, {firstName}
+          </h1>
+          <p className="text-zinc-500 text-[14px]">
+            {getMotivation(avgPct, displayStreak, progress.totalExamsTaken)}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/subjects"
-              className="inline-flex items-center justify-center w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors"
-            >
-              Browse Exams
-            </Link>
-            <Link
-              href="/generate"
-              className="inline-flex items-center justify-center w-full sm:w-auto bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-500 transition-colors"
-            >
-              Generate Paper
-            </Link>
-          </div>
         </div>
-      ) : !hasData ? (
-        <>
-          {/* Custom generated papers (no exam history yet) */}
-          <div className="bg-card border border-card-border rounded-lg p-5">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h2 className="text-lg font-semibold text-white">Generated Papers</h2>
-                <p className="text-xs text-slate-400">Custom AI-built papers saved to this browser</p>
+
+        {/* Hero action — what to do right now */}
+        {!hasData ? (
+          // First time
+          <Link
+            href="/subjects"
+            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-purple-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all"
+          >
+            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-500/30 transition-colors">
+              <svg className="w-6 h-6 text-indigo-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white font-semibold text-[16px]">Take your first exam</p>
+              <p className="text-zinc-400 text-[13px]">Pick a subject and we&apos;ll generate a practice paper for you.</p>
+            </div>
+            <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </Link>
+        ) : reviewStats.due > 0 ? (
+          // Reviews due
+          <Link
+            href="/review"
+            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-amber-500/[0.1] to-orange-500/[0.05] border border-amber-500/20 p-6 mb-6 hover:border-amber-500/40 transition-all"
+          >
+            <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0">
+              <span className="text-amber-300 text-[18px] font-bold">{reviewStats.due}</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white font-semibold text-[16px]">Review time</p>
+              <p className="text-zinc-400 text-[13px]">
+                {reviewStats.due === 1 ? "1 question" : `${reviewStats.due} questions`} ready to review — keep it fresh.
+              </p>
+            </div>
+            <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </Link>
+        ) : (
+          // Default: do another exam
+          <Link
+            href="/subjects"
+            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-purple-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all"
+          >
+            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-500/30 transition-colors">
+              <svg className="w-6 h-6 text-indigo-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white font-semibold text-[16px]">Practise another exam</p>
+              <p className="text-zinc-400 text-[13px]">
+                {weakTopics.length > 0
+                  ? `Try focusing on ${getTopicLabel(weakTopics[0].topic)} — it's your weakest area.`
+                  : "Keep building your skills across all topics."}
+              </p>
+            </div>
+            <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </Link>
+        )}
+
+        {/* Stats strip */}
+        {hasData && (
+          <div className="flex items-center justify-between rounded-2xl bg-white/[0.02] border border-white/[0.06] px-3 sm:px-5 py-4 mb-6">
+            <div className="text-center flex-1">
+              <div className="text-[22px] font-bold text-white">{progress.totalExamsTaken}</div>
+              <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">Exams</div>
+            </div>
+            <div className="w-px h-8 bg-white/[0.06]" />
+            <div className="text-center flex-1">
+              <div className={`text-[22px] font-bold ${avgPct >= 70 ? "text-emerald-400" : avgPct >= 40 ? "text-yellow-400" : "text-red-400"}`}>
+                {avgPct}%
               </div>
-              <Link
-                href="/generate"
-                className="text-xs px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
-              >
-                + New
+              <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">Average</div>
+            </div>
+            <div className="w-px h-8 bg-white/[0.06]" />
+            <div className="text-center flex-1">
+              <div className={`text-[22px] font-bold ${displayStreak >= 3 ? "text-orange-400" : displayStreak >= 1 ? "text-white" : "text-zinc-600"}`}>
+                {displayStreak > 0 ? `${displayStreak}d` : "—"}
+              </div>
+              <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">
+                {displayStreak >= 3 ? "Streak!" : "Streak"}
+              </div>
+            </div>
+            {lastGrade && (
+              <>
+                <div className="w-px h-8 bg-white/[0.06]" />
+                <div className="text-center flex-1">
+                  <div className={`text-[13px] sm:text-[16px] font-bold ${gradeColor(lastGrade)}`}>
+                    {gradeLabel(lastGrade)}
+                  </div>
+                  <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">Last grade</div>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Exam countdown */}
+        {plan && daysLeft !== null && daysLeft > 0 && (
+          <Link
+            href="/plan"
+            className="flex items-center gap-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] px-5 py-4 mb-6 hover:bg-white/[0.04] transition-colors"
+          >
+            <div className="w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center shrink-0">
+              <span className="text-indigo-300 text-[14px] font-bold">{daysLeft}</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white text-[14px] font-medium">
+                {daysLeft} {daysLeft === 1 ? "day" : "days"} until your exam
+              </p>
+              <p className="text-zinc-600 text-[12px]">
+                {currentWeek ? `This week: ${currentWeek.focus}` : "View your study plan"}
+              </p>
+            </div>
+            <svg className="w-4 h-4 text-zinc-600 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </Link>
+        )}
+
+        {/* This week's tasks */}
+        {currentWeek && currentWeek.tasks.some((t) => !t.completed) && (
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+            <h2 className="text-white font-semibold text-[14px] mb-3">This week&apos;s tasks</h2>
+            <div className="space-y-2">
+              {currentWeek.tasks.filter((t) => !t.completed).map((task) => (
+                <TaskRow key={task.id} task={task} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Weak spots */}
+        {weakTopics.length > 0 && (
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-white font-semibold text-[14px]">Focus on these</h2>
+              <Link href="/practice" className="text-indigo-400 text-[12px] font-medium hover:text-indigo-300 transition-colors">
+                Practise &rarr;
               </Link>
             </div>
             <div className="space-y-2">
-              {customExams.map((ex) => (
-                <div
-                  key={ex.id}
-                  className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0"
-                >
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-white truncate">{ex.title}</p>
-                    <p className="text-xs text-slate-500 truncate">
-                      {ex.subject}
-                      {ex.level > 0 ? ` · NCEA L${ex.level}` : " · Year 10"}
-                      {" · "}
-                      {ex.questionCount} questions
-                      {ex.topic ? ` · ${ex.topic}` : ""}
-                    </p>
+              {weakTopics.map((t) => {
+                const pct = Math.round(t.correctRate * 100);
+                return (
+                  <div key={t.topic} className="flex items-center gap-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between text-[12px] mb-1">
+                        <span className="text-zinc-300 truncate">{getTopicLabel(t.topic)}</span>
+                        <span className={pct >= 40 ? "text-yellow-400" : "text-red-400"}>{pct}%</span>
+                      </div>
+                      <div className="w-full bg-white/[0.06] rounded-full h-1.5">
+                        <div
+                          className={`h-1.5 rounded-full transition-all duration-700 ${pct >= 40 ? "bg-yellow-500" : "bg-red-500"}`}
+                          style={{ width: `${Math.max(pct, 3)}%` }}
+                        />
+                      </div>
+                    </div>
                   </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Recent exams */}
+        {recentAttempts.length > 0 && (
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+            <h2 className="text-white font-semibold text-[14px] mb-3">Recent</h2>
+            <div className="space-y-2">
+              {recentAttempts.map((attempt, i) => {
+                const pct = attempt.maxMarks > 0 ? Math.round((attempt.totalMarks / attempt.maxMarks) * 100) : 0;
+                // Look up the real title
+                let title: string;
+                if (isCustomExamId(attempt.examId)) {
+                  const custom = getCustomExam(attempt.examId);
+                  title = custom?.title ?? "Practice exam";
+                } else {
+                  const catalog = getExam(attempt.examId);
+                  title = catalog?.title ?? attempt.examId;
+                }
+                return (
+                  <Link
+                    key={i}
+                    href={`/exam/${attempt.examId}/results`}
+                    className="flex items-center justify-between py-2 hover:bg-white/[0.02] -mx-2 px-2 rounded-lg transition-colors"
+                  >
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[13px] text-zinc-300 truncate">{title}</p>
+                      <p className="text-[11px] text-zinc-600">
+                        {new Date(attempt.date).toLocaleDateString("en-NZ", { day: "numeric", month: "short" })}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="text-[12px] text-zinc-500 tabular-nums">{pct}%</span>
+                      <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border ${
+                        attempt.overallGrade === "excellence" ? "text-yellow-400 bg-yellow-500/10 border-yellow-500/30" :
+                        attempt.overallGrade === "merit" ? "text-blue-400 bg-blue-500/10 border-blue-500/30" :
+                        attempt.overallGrade === "achieved" ? "text-green-400 bg-green-500/10 border-green-500/30" :
+                        "text-red-400 bg-red-500/10 border-red-500/30"
+                      }`}>
+                        {gradeLabel(attempt.overallGrade)}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Saved papers */}
+        {customExams.length > 0 && (
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+            <h2 className="text-white font-semibold text-[14px] mb-3">Your papers</h2>
+            <div className="space-y-2">
+              {customExams.slice(0, 4).map((ex) => (
+                <div key={ex.id} className="flex items-center justify-between py-1.5">
+                  <p className="text-[13px] text-zinc-300 truncate flex-1 min-w-0 mr-3">{ex.title}</p>
                   <div className="flex items-center gap-2 shrink-0">
                     <Link
                       href={`/exam/${ex.id}?mode=practice`}
-                      className="text-xs px-3 py-1.5 rounded bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] hover:text-white transition-colors"
+                      className="text-[11px] px-2.5 py-1 rounded-lg bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] transition-colors"
                     >
                       Start
                     </Link>
                     <button
                       onClick={() => handleDeleteCustom(ex.id)}
-                      aria-label={`Delete ${ex.title}`}
-                      className="text-xs p-1.5 rounded text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                      className="p-1 text-zinc-600 hover:text-red-400 transition-colors"
                     >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </button>
                   </div>
@@ -277,482 +434,60 @@ export default function DashboardPage() {
               ))}
             </div>
           </div>
-        </>
-      ) : (
-        <>
-          {/* Stats row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-            <div className="bg-card border border-card-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-white">
-                {progress.totalExamsTaken}
-              </div>
-              <div className="text-xs text-slate-400 mt-1">Exams Taken</div>
-            </div>
-            <div className="bg-card border border-card-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-white">{avgPct}%</div>
-              <div className="text-xs text-slate-400 mt-1">Average Score</div>
-            </div>
-            <div className="bg-card border border-card-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-white">
-                {progress.streakDays}
-              </div>
-              <div className="text-xs text-slate-400 mt-1">Day Streak</div>
-            </div>
-            <div className="bg-card border border-card-border rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-white">
-                {allTopics.length}
-              </div>
-              <div className="text-xs text-slate-400 mt-1">Topics Covered</div>
-            </div>
-          </div>
+        )}
 
-          {/* Spaced review summary */}
-          {reviewStats.total > 0 && (
-            <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
-              <div className="flex items-start justify-between mb-4 gap-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-white mb-1">
-                    Spaced review
-                  </h2>
-                  <p className="text-slate-400 text-sm">
-                    {reviewStats.due > 0
-                      ? `${reviewStats.due} ${
-                          reviewStats.due === 1 ? "question" : "questions"
-                        } due for review today.`
-                      : "You're all caught up — nothing due right now."}
-                  </p>
-                </div>
-                <Link
-                  href="/review"
-                  className={`shrink-0 px-4 py-2 rounded text-sm font-medium transition-colors ${
-                    reviewStats.due > 0
-                      ? "bg-indigo-500 text-white hover:bg-indigo-400"
-                      : "border border-slate-700 text-slate-300 hover:bg-slate-800"
-                  }`}
-                >
-                  {reviewStats.due > 0 ? "Start reviewing" : "View queue"}
-                </Link>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
-                  <div className="text-xl font-bold text-white">{reviewStats.due}</div>
-                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
-                    due
-                  </div>
-                </div>
-                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
-                  <div className="text-xl font-bold text-indigo-300">
-                    {reviewStats.new}
-                  </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
-                    new
-                  </div>
-                </div>
-                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
-                  <div className="text-xl font-bold text-amber-300">
-                    {reviewStats.learning}
-                  </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
-                    learning
-                  </div>
-                </div>
-                <div className="bg-slate-900/50 border border-slate-800 rounded p-3 text-center">
-                  <div className="text-xl font-bold text-emerald-300">
-                    {reviewStats.mastered}
-                  </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5 uppercase tracking-wide">
-                    mastered
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Adaptive skill ratings */}
-          {hasRatings && (
-            <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
-              <div className="flex items-start justify-between mb-4 gap-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-white mb-1">
-                    Skill ratings
-                  </h2>
-                  <p className="text-slate-400 text-sm">
-                    Adaptive difficulty — the harder you beat, the higher you climb.
-                  </p>
-                </div>
-                <Link
-                  href="/practice"
-                  className="shrink-0 px-4 py-2 rounded text-sm font-medium transition-colors bg-indigo-500 text-white hover:bg-indigo-400"
-                >
-                  Practice
-                </Link>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {/* Top 5 */}
-                <div>
-                  <h3 className="text-[11px] uppercase tracking-wide text-slate-500 mb-2">
-                    Strongest topics
-                  </h3>
-                  <div className="space-y-1.5">
-                    {topRatings.map(([topic, rating]) => {
-                      const level = ratingToLevel(rating);
-                      const levelColor =
-                        level === "excellence"
-                          ? "text-indigo-300"
-                          : level === "merit"
-                          ? "text-emerald-300"
-                          : "text-slate-300";
-                      return (
-                        <div
-                          key={topic}
-                          className="flex items-center justify-between bg-slate-900/50 border border-slate-800 rounded px-3 py-2"
-                        >
-                          <span className="text-sm text-white truncate mr-2">
-                            {getTopicLabel(topic)}
-                          </span>
-                          <span className="text-xs shrink-0 tabular-nums">
-                            <span className="text-white font-semibold">{rating}</span>
-                            <span className="text-slate-600 mx-1.5">·</span>
-                            <span className={`capitalize ${levelColor}`}>{level}</span>
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Bottom 3 */}
-                <div>
-                  <h3 className="text-[11px] uppercase tracking-wide text-slate-500 mb-2">
-                    Needs work
-                  </h3>
-                  {bottomRatings.length === 0 ? (
-                    <p className="text-sm text-slate-500">
-                      Nothing flagged — keep practising.
-                    </p>
-                  ) : (
-                    <div className="space-y-1.5">
-                      {bottomRatings.map(([topic, rating]) => {
-                        const level = ratingToLevel(rating);
-                        return (
-                          <div
-                            key={topic}
-                            className="flex items-center justify-between bg-red-950/20 border border-red-900/20 rounded px-3 py-2"
-                          >
-                            <span className="text-sm text-white truncate mr-2">
-                              {getTopicLabel(topic)}
-                            </span>
-                            <span className="text-xs shrink-0 tabular-nums">
-                              <span className="text-red-300 font-semibold">{rating}</span>
-                              <span className="text-slate-600 mx-1.5">·</span>
-                              <span className="text-red-400 capitalize">{level}</span>
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {/* Topic heatmap */}
-            <div className="bg-card border border-card-border rounded-lg p-5">
-              <h2 className="text-lg font-semibold text-white mb-4">
-                Topic Strength
-              </h2>
-              {allTopics.length === 0 ? (
-                <p className="text-sm text-slate-400">
-                  Take some exams to see topic data.
-                </p>
-              ) : (
-                <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
-                  {allTopics.map((t, idx) => {
-                    const pct = Math.round(t.correctRate * 100);
-                    return (
-                      <div key={t.topic}>
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-slate-300 truncate mr-2">
-                            {getTopicLabel(t.topic)}
-                          </span>
-                          <span
-                            className={`shrink-0 ${
-                              pct >= 70
-                                ? "text-green-400"
-                                : pct >= 40
-                                ? "text-yellow-400"
-                                : "text-red-400"
-                            }`}
-                          >
-                            {pct}%
-                            {t.trend === "improving" && " ↑"}
-                            {t.trend === "declining" && " ↓"}
-                          </span>
-                        </div>
-                        <div className="w-full bg-slate-800 rounded-full h-2">
-                          <div
-                            className={`h-2 rounded-full transition-all duration-700 ease-out ${
-                              pct >= 70
-                                ? "bg-green-500"
-                                : pct >= 40
-                                ? "bg-yellow-500"
-                                : "bg-red-500"
-                            }`}
-                            style={{ width: `${pct}%`, transitionDelay: `${idx * 60}ms` }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* Weak areas */}
-            <div className="bg-card border border-card-border rounded-lg p-5">
-              <h2 className="text-lg font-semibold text-white mb-4">
-                Focus Areas
-              </h2>
-              {weakTopics.length === 0 ? (
-                <p className="text-sm text-slate-400">No weak areas detected yet.</p>
-              ) : (
-                <div className="space-y-3">
-                  {weakTopics.map((t) => {
-                    const pct = Math.round(t.correctRate * 100);
-                    return (
-                      <div
-                        key={t.topic}
-                        className="flex items-center justify-between gap-3 p-3 bg-red-950/20 border border-red-900/20 rounded"
-                      >
-                        <div className="min-w-0 flex-1">
-                          <span className="block text-sm text-white truncate">
-                            {getTopicLabel(t.topic)}
-                          </span>
-                          <span className="block text-xs text-slate-400">
-                            {t.attempts} attempts
-                          </span>
-                        </div>
-                        <span className="text-sm text-red-400 font-medium shrink-0">
-                          {pct}%
-                        </span>
-                      </div>
-                    );
-                  })}
-                  <Link
-                    href="/practice"
-                    className="block text-center mt-3 text-sm text-blue-400 hover:text-blue-300 underline"
-                  >
-                    Practice these topics
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Custom generated papers */}
-          {customExams.length > 0 && (
-            <div className="bg-card border border-card-border rounded-lg p-5 mb-6">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-white">Generated Papers</h2>
-                  <p className="text-xs text-slate-400">Custom AI-built papers saved to this browser</p>
-                </div>
-                <Link
-                  href="/generate"
-                  className="text-xs px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
-                >
-                  + New
-                </Link>
-              </div>
-              <div className="space-y-2">
-                {customExams.map((ex) => (
-                  <div
-                    key={ex.id}
-                    className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm text-white truncate">{ex.title}</p>
-                      <p className="text-xs text-slate-500 truncate">
-                        {ex.subject}
-                        {ex.level > 0 ? ` · NCEA L${ex.level}` : " · Year 10"}
-                        {" · "}
-                        {ex.questionCount} questions
-                        {ex.topic ? ` · ${ex.topic}` : ""}
-                        {ex.createdAt && ex.createdAt !== new Date(0).toISOString() && (
-                          <> · {new Date(ex.createdAt).toLocaleDateString()}</>
-                        )}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <Link
-                        href={`/exam/${ex.id}?mode=practice`}
-                        className="text-xs px-3 py-1.5 rounded bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] hover:text-white transition-colors"
-                      >
-                        Start
-                      </Link>
-                      <button
-                        onClick={() => handleDeleteCustom(ex.id)}
-                        aria-label={`Delete ${ex.title}`}
-                        className="text-xs p-1.5 rounded text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Recent attempts */}
-          <div className="bg-card border border-card-border rounded-lg p-5">
-            <h2 className="text-lg font-semibold text-white mb-4">
-              Recent Exams
-            </h2>
-            <div className="space-y-2">
-              {recentAttempts.map((attempt, i) => {
-                const pct =
-                  attempt.maxMarks > 0
-                    ? Math.round(
-                        (attempt.totalMarks / attempt.maxMarks) * 100
-                      )
-                    : 0;
-                return (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0"
-                  >
-                    <div className="min-w-0 flex-1">
-                      <span className="block text-sm text-white truncate">
-                        {attempt.examId}
-                      </span>
-                      <span className="block text-xs text-slate-400">
-                        {attempt.mode} &middot;{" "}
-                        {new Date(attempt.date).toLocaleDateString()}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-                      <span className="text-xs sm:text-sm text-slate-300 tabular-nums">
-                        {attempt.totalMarks}/{attempt.maxMarks} ({pct}%)
-                      </span>
-                      <span
-                        className={`text-xs font-medium ${gradeColor(attempt.overallGrade)}`}
-                      >
-                        {gradeLabel(attempt.overallGrade)}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </>
-      )}
-    </div>
-  );
-}
-
-// ── Today's tasks widget ───────────────────────────────────────────────
-// Shows the current week's tasks from the active study plan. Clicking a
-// task jumps straight to the exam or review page. If there's no plan the
-// widget shows a CTA to create one.
-
-function TodaysTasksWidget({ week }: { week: StudyWeek | null }) {
-  if (!week) {
-    return (
-      <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-1">
-              Today&apos;s tasks
-            </h2>
-            <p className="text-sm text-slate-400">
-              Build a study plan to see week-by-week tasks here.
-            </p>
-          </div>
+        {/* Plan CTA */}
+        {!plan && hasData && (
           <Link
             href="/plan"
-            className="shrink-0 px-4 py-2 rounded text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+            className="group flex items-center gap-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6 hover:bg-white/[0.04] transition-all"
           >
-            Create plan
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <p className="text-white text-[14px] font-medium">Set up your exam countdown</p>
+              <p className="text-zinc-500 text-[12px]">We&apos;ll plan your revision week by week.</p>
+            </div>
+            <svg className="w-4 h-4 text-zinc-600 shrink-0 group-hover:text-indigo-400 transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
           </Link>
-        </div>
-      </div>
-    );
-  }
+        )}
 
-  const done = week.tasks.filter((t) => t.completed).length;
-  const total = week.tasks.length;
-  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-
-  return (
-    <div className="bg-card border border-card-border rounded-lg p-5 mb-8">
-      <div className="flex items-start justify-between mb-4 gap-4">
-        <div>
-          <h2 className="text-lg font-semibold text-white mb-1">
-            Today&apos;s tasks
-          </h2>
-          <p className="text-sm text-slate-400">
-            Week {week.weekNumber} · {week.focus} · {done}/{total} done ({pct}%)
-          </p>
-        </div>
-        <Link
-          href="/plan"
-          className="shrink-0 px-3 py-1.5 rounded text-xs font-medium border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors"
-        >
-          Open plan
-        </Link>
-      </div>
-      <div className="w-full bg-zinc-800 rounded-full h-1.5 mb-4">
-        <div
-          className="bg-indigo-500 h-1.5 rounded-full transition-all duration-700 ease-out"
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-      <div className="space-y-1.5">
-        {week.tasks.map((task) => (
-          <DashboardTaskRow key={task.id} task={task} />
-        ))}
+        {/* Tier badge — minimal */}
+        {!tierLoading && tier === "free" && hasData && (
+          <Link
+            href="/pricing"
+            className="flex items-center justify-center gap-2 text-zinc-600 text-[12px] hover:text-zinc-400 transition-colors py-3"
+          >
+            Free plan — upgrade for more features
+          </Link>
+        )}
       </div>
     </div>
   );
 }
 
-function DashboardTaskRow({ task }: { task: StudyTask }) {
-  const href = (() => {
-    if (task.examId) {
-      const mode = task.type === "exam" ? "mock" : "practice";
-      return `/exam/${task.examId}?mode=${mode}`;
-    }
-    if (task.type === "review") return "/review";
-    if (task.subject) return "/subjects";
-    return null;
-  })();
+/* ━━━ Task row ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-  const body = (
-    <span
-      className={`text-sm flex-1 min-w-0 truncate ${
-        task.completed ? "line-through text-zinc-500" : "text-zinc-200"
-      }`}
-    >
-      {task.description}
-    </span>
-  );
+function TaskRow({ task }: { task: StudyTask }) {
+  const href = task.examId
+    ? `/exam/${task.examId}?mode=practice`
+    : task.type === "review"
+    ? "/review"
+    : task.subject
+    ? `/subjects?subject=${task.subject}`
+    : "/subjects";
 
   return (
-    <div className="flex items-center gap-3 py-1">
+    <div className="flex items-center gap-3 py-0.5">
       <button
         type="button"
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
+        onClick={() => {
           markTaskComplete(task.id);
-          // Fire-and-forget: sync updated plan to database
           const updatedPlan = loadPlan();
           if (updatedPlan) {
             fetch("/api/plan", {
@@ -762,116 +497,24 @@ function DashboardTaskRow({ task }: { task: StudyTask }) {
             }).catch(() => {});
           }
         }}
-        aria-label={task.completed ? "Mark incomplete" : "Mark complete"}
-        className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
-          task.completed
-            ? "bg-indigo-500 border-indigo-500"
-            : "border-zinc-600 hover:border-indigo-400"
+        className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-all ${
+          task.completed ? "bg-indigo-500 border-indigo-500" : "border-zinc-700 hover:border-indigo-400"
         }`}
       >
         {task.completed && (
-          <svg
-            className="w-3 h-3 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={3}
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         )}
       </button>
-      <span
-        className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0 ${
-          task.type === "exam"
-            ? "bg-indigo-500/15 text-indigo-300"
-            : task.type === "practice"
-            ? "bg-emerald-500/15 text-emerald-300"
-            : "bg-amber-500/15 text-amber-300"
+      <Link
+        href={href}
+        className={`text-[13px] flex-1 min-w-0 truncate transition-colors ${
+          task.completed ? "line-through text-zinc-600" : "text-zinc-300 hover:text-indigo-300"
         }`}
       >
-        {task.type}
-      </span>
-      {href ? (
-        <Link href={href} className="flex-1 min-w-0 hover:text-indigo-300 transition-colors">
-          {body}
-        </Link>
-      ) : (
-        body
-      )}
-    </div>
-  );
-}
-
-// ── Subscription card ─────────────────────────────────────────────────
-
-function SubscriptionCard({ tier, tierLoading }: { tier: "free" | "student" | "pro"; tierLoading: boolean }) {
-  const [portalLoading, setPortalLoading] = useState(false);
-
-  const handleManage = useCallback(async () => {
-    setPortalLoading(true);
-    try {
-      const res = await fetch("/api/customer-portal", { method: "POST" });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    } catch {
-      // Silently fail — user can try again
-    } finally {
-      setPortalLoading(false);
-    }
-  }, []);
-
-  if (tierLoading) return null;
-
-  const isPaid = tier !== "free";
-
-  return (
-    <div className="bg-card border border-card-border rounded-lg p-4 mb-6 flex items-center justify-between gap-4">
-      <div className="flex items-center gap-3 min-w-0">
-        <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-          tier === "pro"
-            ? "bg-indigo-500/20 text-indigo-300"
-            : tier === "student"
-            ? "bg-emerald-500/20 text-emerald-300"
-            : "bg-zinc-700/40 text-zinc-400"
-        }`}>
-          {tier === "pro" ? (
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-            </svg>
-          ) : (
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-            </svg>
-          )}
-        </div>
-        <div className="min-w-0">
-          <p className="text-sm text-white font-medium">
-            {TIER_LABELS[tier]} plan
-          </p>
-          <p className="text-xs text-slate-400">
-            {isPaid ? "Active subscription" : "Free forever — upgrade for more features"}
-          </p>
-        </div>
-      </div>
-      {isPaid ? (
-        <button
-          onClick={handleManage}
-          disabled={portalLoading}
-          className="shrink-0 px-4 py-2 rounded text-xs font-medium border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors disabled:opacity-50"
-        >
-          {portalLoading ? "Loading..." : "Manage subscription"}
-        </button>
-      ) : (
-        <Link
-          href="/pricing"
-          className="shrink-0 px-4 py-2 rounded text-xs font-medium bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
-        >
-          Upgrade
-        </Link>
-      )}
+        {task.description}
+      </Link>
     </div>
   );
 }

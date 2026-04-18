@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useCallback } from "react";
+import { useAuth } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
 import type { Tier } from "@/lib/tierLimits";
 
@@ -75,6 +76,7 @@ const PLANS: Plan[] = [
 ];
 
 export default function PricingPage() {
+  const { isSignedIn } = useAuth();
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const [loadingTier, setLoadingTier] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -139,7 +141,7 @@ export default function PricingPage() {
   function getCta(plan: Plan): { label: string; action: () => void; isLink?: boolean; href?: string; disabled?: boolean } {
     // Free plan always links to subjects
     if (plan.tier === "free") {
-      return { label: "Start free", action: () => {}, isLink: true, href: "/subjects" };
+      return { label: "Start free", action: () => {}, isLink: true, href: isSignedIn ? "/subjects" : "/sign-up" };
     }
 
     // If user is already on this tier
@@ -268,7 +270,7 @@ export default function PricingPage() {
                       {plan.monthlyPrice === "free" ? "Free" : price.display.replace("$", "")}
                     </span>
                   </div>
-                  <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub} NZD</p>
+                  <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub}{plan.monthlyPrice !== "free" ? " NZD" : ""}</p>
                 </div>
 
                 {/* CTA */}
@@ -384,10 +386,10 @@ export default function PricingPage() {
               Build your first practice exam in 30 seconds. No credit card required.
             </p>
             <Link
-              href="/subjects"
+              href={isSignedIn ? "/subjects" : "/sign-up"}
               className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-semibold px-8 py-3.5 rounded-lg hover:bg-zinc-100 transition-all hover:scale-[1.02] shadow-2xl text-[15px]"
             >
-              Start practising
+              {isSignedIn ? "Start practising" : "Sign up free"}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

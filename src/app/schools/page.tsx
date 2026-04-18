@@ -1,0 +1,406 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+
+export default function SchoolsPage() {
+  const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormState("loading");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      school: (form.elements.namedItem("school") as HTMLInputElement).value,
+      role: (form.elements.namedItem("role") as HTMLSelectElement).value || undefined,
+      students: (form.elements.namedItem("students") as HTMLSelectElement).value || undefined,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value || undefined,
+    };
+
+    try {
+      const res = await fetch("/api/school-enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const body = await res.json();
+        setErrorMessage(body.error || "Something went wrong. Please try again.");
+        setFormState("error");
+        return;
+      }
+
+      setFormState("success");
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+      setFormState("error");
+    }
+  }
+
+  return (
+    <div className="relative overflow-hidden">
+      {/* Background gradient effect */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
+        <div className="absolute top-[300px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
+      </div>
+
+      {/* HERO */}
+      <section className="max-w-4xl mx-auto px-5 pt-12 sm:pt-20 pb-16 sm:pb-24 text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          For teachers &amp; schools
+        </div>
+
+        <h1 className="text-[32px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-5 sm:mb-6">
+          Bring StudyAce to
+          <br />
+          <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            your classroom
+          </span>
+        </h1>
+
+        <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2">
+          Free for teachers to trial. Give your students unlimited NCEA practice
+          with instant AI marking — and see exactly where they need help.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="#contact"
+            className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
+          >
+            Request a free trial
+            <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href="#how-it-works"
+            className="text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-lg border border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.02] transition-all text-[15px]"
+          >
+            See how it works
+          </a>
+        </div>
+      </section>
+
+      {/* BENEFITS GRID */}
+      <section className="max-w-5xl mx-auto px-5 pb-24">
+        <div className="text-center mb-12">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Why teachers love it</p>
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
+            Built for the classroom
+          </h2>
+          <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
+            Less marking, more teaching. Better data, better outcomes.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <BenefitCard
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            }
+            title="See where students struggle"
+            desc="Real-time visibility into which topics and standards each student finds hardest. No more guessing what to revise."
+          />
+          <BenefitCard
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            }
+            title="Save hours of marking"
+            desc="AI marks every answer instantly with detailed feedback and worked solutions. You focus on teaching, not ticking."
+          />
+          <BenefitCard
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+            }
+            title="Aligned to NCEA standards"
+            desc="Questions match real NZQA exam style and difficulty. Covers all 19 subjects from Year 10 through Level 3."
+          />
+          <BenefitCard
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+              </svg>
+            }
+            title="Students actually use it"
+            desc="Streaks, progress tracking, and adaptive difficulty keep students coming back. Built for how teens actually study."
+          />
+          <BenefitCard
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+              </svg>
+            }
+            title="Works on any device"
+            desc="Phone, tablet, laptop, Chromebook — no app to install, no IT setup required. Students just open a browser."
+          />
+          <BenefitCard
+            icon={
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+              </svg>
+            }
+            title="Free to trial"
+            desc="Start with a free teacher account. No credit card, no contracts, no commitment. See the impact before you decide."
+          />
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section id="how-it-works" className="max-w-4xl mx-auto px-5 pb-24">
+        <div className="text-center mb-12">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">How it works</p>
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
+            Up and running in minutes
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Step
+            number="01"
+            title="Sign up free"
+            desc="Create a teacher account in 30 seconds. No approval process, no IT department needed."
+          />
+          <Step
+            number="02"
+            title="Students practise"
+            desc="Share the link with your class. Students sign up, pick their subjects, and start practising immediately."
+          />
+          <Step
+            number="03"
+            title="Track progress"
+            desc="See which students are practising and where they're struggling. Use the data to target your teaching."
+          />
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section className="max-w-4xl mx-auto px-5 pb-24">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-zinc-500">
+          <div className="flex items-center gap-1.5">
+            <span className="text-white font-semibold">19</span> subjects
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-white font-semibold">Years 10&ndash;13</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-white font-semibold">Instant</span> AI marking
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-white font-semibold">100+</span> exam papers
+          </div>
+        </div>
+      </section>
+
+      {/* SCHOOLS CTA */}
+      <section className="max-w-4xl mx-auto px-5 pb-24">
+        <div className="text-center mb-12">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Join us</p>
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
+            Be an early adopter
+          </h2>
+        </div>
+
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-8 text-center">
+          <p className="text-zinc-400 text-[15px] mb-4">
+            We&apos;re working with schools across New Zealand to bring StudyAce to their students.
+          </p>
+          <p className="text-zinc-300 text-[14px] font-medium">
+            Want to be one of the first? Get in touch below.
+          </p>
+        </div>
+      </section>
+
+      {/* CONTACT FORM */}
+      <section id="contact" className="max-w-2xl mx-auto px-5 pb-24">
+        <div className="text-center mb-10">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Get started</p>
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
+            Get started with your class
+          </h2>
+          <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
+            Tell us about your school and we&apos;ll set you up with a free trial.
+          </p>
+        </div>
+
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 sm:p-8">
+          {formState === "success" ? (
+            <div className="rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-8 text-center">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mb-4">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <h3 className="text-white font-semibold text-[17px] mb-2">Thanks for your interest!</h3>
+              <p className="text-zinc-400 text-[13px]">We&apos;ve received your enquiry and will be in touch soon.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+                  Name <span className="text-red-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+                  Email <span className="text-red-400">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  placeholder="you@school.nz"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="school" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+                  School name <span className="text-red-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="school"
+                  name="school"
+                  required
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  placeholder="e.g. Mount Maunganui College"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="role" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+                    Role
+                  </label>
+                  <select
+                    id="role"
+                    name="role"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
+                    defaultValue=""
+                  >
+                    <option value="" disabled className="text-zinc-600 bg-[#0a0a0f]">Select your role</option>
+                    <option value="Teacher" className="bg-[#0a0a0f]">Teacher</option>
+                    <option value="Head of Department" className="bg-[#0a0a0f]">Head of Department</option>
+                    <option value="Deputy Principal" className="bg-[#0a0a0f]">Deputy Principal</option>
+                    <option value="Principal" className="bg-[#0a0a0f]">Principal</option>
+                    <option value="Other" className="bg-[#0a0a0f]">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="students" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+                    Number of students
+                  </label>
+                  <select
+                    id="students"
+                    name="students"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
+                    defaultValue=""
+                  >
+                    <option value="" disabled className="text-zinc-600 bg-[#0a0a0f]">Select range</option>
+                    <option value="1-30" className="bg-[#0a0a0f]">1-30</option>
+                    <option value="31-100" className="bg-[#0a0a0f]">31-100</option>
+                    <option value="101-300" className="bg-[#0a0a0f]">101-300</option>
+                    <option value="300+" className="bg-[#0a0a0f]">300+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600 resize-none"
+                  placeholder="Tell us about how you'd like to use StudyAce..."
+                />
+              </div>
+
+              {formState === "error" && errorMessage && (
+                <p className="text-red-400 text-[13px]">{errorMessage}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={formState === "loading"}
+                className="w-full bg-indigo-500 hover:bg-indigo-400 disabled:bg-indigo-500/50 disabled:cursor-not-allowed text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.01] shadow-lg shadow-indigo-500/20 text-[15px]"
+              >
+                {formState === "loading" ? "Submitting..." : "Request free trial"}
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function BenefitCard({
+  icon,
+  title,
+  desc,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="group rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
+      <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 mb-4 group-hover:bg-indigo-500/15 transition-colors">
+        {icon}
+      </div>
+      <h3 className="text-white font-semibold text-[15px] mb-1.5">{title}</h3>
+      <p className="text-zinc-500 text-[13px] leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+function Step({
+  number,
+  title,
+  desc,
+}: {
+  number: string;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="text-center">
+      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold text-[14px] mb-4 shadow-lg shadow-indigo-500/20">
+        {number}
+      </div>
+      <h3 className="text-white font-semibold text-[17px] mb-2">{title}</h3>
+      <p className="text-zinc-500 text-[13px] leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+

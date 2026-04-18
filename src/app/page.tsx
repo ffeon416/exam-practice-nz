@@ -2,19 +2,25 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAuth } from "@clerk/nextjs";
 import { loadProgress } from "@/lib/storage";
 import { gradeLabel } from "@/lib/scoring";
 import type { StudentProgress } from "@/lib/types";
 
 export default function HomePage() {
+  const { isSignedIn } = useAuth();
   const [progress, setProgress] = useState<StudentProgress | null>(null);
+  const [email, setEmail] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setProgress(loadProgress());
-  }, []);
+    if (isSignedIn) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setProgress(loadProgress());
+    }
+  }, [isSignedIn]);
 
-  const hasHistory = progress && progress.totalExamsTaken > 0;
+  const hasHistory = isSignedIn && progress && progress.totalExamsTaken > 0;
 
   return (
     <div className="relative overflow-hidden">
@@ -25,15 +31,15 @@ export default function HomePage() {
       </div>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto px-5 pt-12 sm:pt-20 pb-16 sm:pb-24 text-center">
+      <section className="max-w-4xl mx-auto px-5 pt-8 sm:pt-20 pb-10 sm:pb-24 text-center">
         {/* Pre-headline badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-5 sm:mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          Built for NZ NCEA students &middot; Free
+          Built for NZ NCEA students &middot; Free to start
         </div>
 
         {/* Headline */}
-        <h1 className="text-[32px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-5 sm:mb-6">
+        <h1 className="text-[28px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6">
           Practise smarter.
           <br />
           <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
@@ -42,32 +48,54 @@ export default function HomePage() {
         </h1>
 
         {/* Subhead */}
-        <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2">
+        <p className="text-zinc-400 text-[13px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 px-1">
           Unlimited NCEA practice exams, generated and marked instantly by AI.
           Built for NZ students from Year 10 to Year 13.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-          <Link
-            href="/subjects"
-            className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
-          >
-            Build my exam
-            <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
-          <Link
-            href="/dashboard"
-            className="text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-lg border border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.02] transition-all text-[15px]"
-          >
-            See my progress
-          </Link>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 sm:mb-12">
+          {isSignedIn ? (
+            <>
+              <Link
+                href="/subjects"
+                className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
+              >
+                Build my exam
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/dashboard"
+                className="text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-lg border border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.02] transition-all text-[15px]"
+              >
+                See my progress
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/demo"
+                className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
+              >
+                Try it free — no sign-up
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/pricing"
+                className="text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-lg border border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.02] transition-all text-[15px]"
+              >
+                See pricing
+              </Link>
+            </>
+          )}
         </div>
 
-        {/* Stats row */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-zinc-500">
+        {/* Stats row — hidden on mobile to reduce scroll */}
+        <div className="hidden sm:flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-zinc-500">
           <div className="flex items-center gap-1.5">
             <span className="text-white font-semibold">Unlimited</span> practice exams
           </div>
@@ -80,6 +108,20 @@ export default function HomePage() {
           <div className="flex items-center gap-1.5">
             <span className="text-white font-semibold">AI marking</span>
           </div>
+        </div>
+
+        {/* Social proof */}
+        <div className="mt-5 sm:mt-8 flex items-center justify-center gap-2">
+          <div className="flex -space-x-2">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] text-white font-bold">
+                {["R", "M", "J", "S"][i]}
+              </div>
+            ))}
+          </div>
+          <p className="text-zinc-500 text-[12px]">
+            Built by students, for students
+          </p>
         </div>
       </section>
 
@@ -118,15 +160,62 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* PRODUCT SHOWCASE */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16">
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Example marked answer */}
+            <div>
+              <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">AI marking in action</p>
+              <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4 space-y-3">
+                <div>
+                  <p className="text-zinc-500 text-[11px] uppercase tracking-wider mb-1">Question</p>
+                  <p className="text-zinc-300 text-[13px]">Explain why photosynthesis is important for life on Earth.</p>
+                </div>
+                <div>
+                  <p className="text-zinc-500 text-[11px] uppercase tracking-wider mb-1">Student&apos;s answer</p>
+                  <p className="text-zinc-300 text-[13px]">Plants make oxygen and food from sunlight which animals need to survive.</p>
+                </div>
+                <div className="rounded-lg bg-emerald-500/[0.08] border border-emerald-500/20 p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-emerald-400 text-[12px] font-semibold">2/3 marks — Achieved</span>
+                  </div>
+                  <p className="text-zinc-300 text-[12px] leading-relaxed">Good start! You correctly identified that plants produce oxygen and food. To get full marks, mention the specific reactants (CO₂ and water) and that sunlight energy drives the process.</p>
+                </div>
+              </div>
+            </div>
+            {/* Features list */}
+            <div>
+              <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">What you get</p>
+              <div className="space-y-3">
+                {[
+                  { icon: "✓", text: "Marks and feedback on every answer in seconds" },
+                  { icon: "✓", text: "Worked solutions showing the correct approach" },
+                  { icon: "✓", text: "Exam tips specific to each question" },
+                  { icon: "✓", text: "AI tutor to help when you're stuck" },
+                  { icon: "✓", text: "Tracks your weak topics automatically" },
+                  { icon: "✓", text: "Spaced review so you don't forget" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-emerald-400 text-[14px] font-bold shrink-0 mt-0.5">{item.icon}</span>
+                    <span className="text-zinc-300 text-[14px]">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FEATURES GRID */}
-      <section className="max-w-5xl mx-auto px-5 pb-24">
-        <div className="text-center mb-12">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">What you get</p>
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
+      <section className="max-w-5xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-12">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2 sm:mb-3">What you get</p>
+          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-2 sm:mb-3">
             Everything you need to ace it
           </h2>
-          <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
-            Real exam questions. Instant AI marking. Personalised study plans. All free.
+          <p className="text-zinc-500 text-[13px] sm:text-[15px] max-w-lg mx-auto">
+            Real exam questions. Instant AI marking. Personalised study plans.
           </p>
         </div>
 
@@ -165,15 +254,15 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="max-w-4xl mx-auto px-5 pb-24">
-        <div className="text-center mb-12">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">How it works</p>
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-12">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2 sm:mb-3">How it works</p>
+          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
             Three steps. That&apos;s it.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-3 gap-4 sm:gap-6">
           <Step
             number="01"
             title="Pick a paper"
@@ -193,10 +282,10 @@ export default function HomePage() {
       </section>
 
       {/* SUBJECTS GRID */}
-      <section className="max-w-4xl mx-auto px-5 pb-24">
-        <div className="text-center mb-10">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">19 subjects covered</p>
-          <h2 className="text-[24px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight">
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
+        <div className="text-center mb-6 sm:mb-10">
+          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2 sm:mb-3">19 subjects covered</p>
+          <h2 className="text-[20px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight">
             Whatever you&apos;re sitting, we&apos;ve got it
           </h2>
         </div>
@@ -218,14 +307,60 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* EMAIL CAPTURE */}
+      {!isSignedIn && (
+        <section className="max-w-3xl mx-auto px-5 pb-16">
+          <div className="rounded-2xl bg-gradient-to-br from-indigo-500/[0.08] to-purple-500/[0.04] border border-indigo-500/15 p-6 sm:p-8 text-center">
+            <h2 className="text-[20px] sm:text-[24px] font-bold text-white tracking-tight mb-2">
+              Not ready to sign up yet?
+            </h2>
+            <p className="text-zinc-400 text-[14px] mb-5 max-w-md mx-auto">
+              Get free exam tips and study advice straight to your inbox. No spam, unsubscribe anytime.
+            </p>
+            {emailSent ? (
+              <p className="text-emerald-400 text-[14px] font-medium">You&apos;re in! Check your inbox.</p>
+            ) : (
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!email.trim()) return;
+                  await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name: "Email subscriber", email: email.trim(), type: "subscribe", message: "Subscribed from homepage" }),
+                  }).catch(() => {});
+                  setEmailSent(true);
+                }}
+                className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your.email@school.nz"
+                  required
+                  className="flex-1 bg-white/[0.06] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] placeholder-zinc-600 focus:border-indigo-500 focus:outline-none transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px] whitespace-nowrap"
+                >
+                  Get tips
+                </button>
+              </form>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* FINAL CTA */}
-      <section className="max-w-3xl mx-auto px-5 pb-24">
-        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-10 sm:p-14 text-center relative overflow-hidden">
+      <section className="max-w-3xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
+        <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-7 sm:p-14 text-center relative overflow-hidden">
           {/* Decorative glow */}
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
 
           <div className="relative">
-            <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-4">
+            <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3 sm:mb-4">
               Your next exam is coming.
               <br />
               Be ready.
@@ -234,16 +369,16 @@ export default function HomePage() {
               Join the students using Study Ace to practise smarter, not harder.
             </p>
             <Link
-              href="/subjects"
+              href={isSignedIn ? "/subjects" : "/sign-up"}
               className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-semibold px-8 py-3.5 rounded-lg hover:bg-zinc-100 transition-all hover:scale-[1.02] shadow-2xl text-[15px]"
             >
-              Start practising free
+              {isSignedIn ? "Build my exam" : "Start practising free"}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
             <p className="text-[11px] text-zinc-600 mt-5">
-              Free forever &middot; No sign up &middot; Made in NZ
+              Free tier available &middot; No credit card required &middot; Made in NZ
             </p>
           </div>
         </div>
@@ -256,10 +391,22 @@ export default function HomePage() {
             study<span className="text-indigo-400">ace</span> &middot; Built for NZ NCEA students
           </div>
           <div className="flex gap-5">
-            <Link href="/subjects" className="hover:text-zinc-400 transition-colors">Exams</Link>
-            <Link href="/practice" className="hover:text-zinc-400 transition-colors">Fix Weak Spots</Link>
-            <Link href="/dashboard" className="hover:text-zinc-400 transition-colors">Dashboard</Link>
-            <Link href="/plan" className="hover:text-zinc-400 transition-colors">Plan</Link>
+            {isSignedIn ? (
+              <>
+                <Link href="/subjects" className="hover:text-zinc-400 transition-colors">Exams</Link>
+                <Link href="/dashboard" className="hover:text-zinc-400 transition-colors">Dashboard</Link>
+                <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
+                <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
+                <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
+              </>
+            ) : (
+              <>
+                <Link href="/pricing" className="hover:text-zinc-400 transition-colors">Pricing</Link>
+                <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
+                <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
+                <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
+              </>
+            )}
           </div>
         </div>
       </footer>
@@ -298,11 +445,11 @@ function Step({
 }) {
   return (
     <div className="text-center">
-      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold text-[14px] mb-4 shadow-lg shadow-indigo-500/20">
+      <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold text-[12px] sm:text-[14px] mb-3 sm:mb-4 shadow-lg shadow-indigo-500/20">
         {number}
       </div>
-      <h3 className="text-white font-semibold text-[17px] mb-2">{title}</h3>
-      <p className="text-zinc-500 text-[13px] leading-relaxed">{desc}</p>
+      <h3 className="text-white font-semibold text-[14px] sm:text-[17px] mb-1 sm:mb-2">{title}</h3>
+      <p className="text-zinc-500 text-[11px] sm:text-[13px] leading-relaxed">{desc}</p>
     </div>
   );
 }

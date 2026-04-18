@@ -9,7 +9,7 @@ import {
   calculateOverallGrade,
   gradeLabel,
   gradeColor,
-  gradeBgColor,
+
   analyzeGaps,
 } from "@/lib/scoring";
 import { addExamAttempt } from "@/lib/storage";
@@ -17,7 +17,8 @@ import { recordReview } from "@/lib/spacedRepetition";
 import { updateRating } from "@/lib/adaptiveDifficulty";
 import type { Exam, MarkingResult } from "@/lib/types";
 import TopicTag from "@/components/TopicTag";
-import { hasGuide } from "@/lib/learnContent";
+import ShareResultCard from "@/components/ShareResultCard";
+
 
 // Multi-pass English essay feedback payload is stuffed into the feedback
 // string with this prefix, after a plain-text summary, by /api/mark. We
@@ -63,13 +64,13 @@ function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
     <div className="space-y-4">
       <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4">
         <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Overall Feedback</h4>
-        <p className="text-slate-300 text-sm whitespace-pre-wrap">{data.overallFeedback}</p>
+        <p className="text-zinc-300 text-sm whitespace-pre-wrap">{data.overallFeedback}</p>
       </div>
 
-      <div className="bg-card border border-card-border rounded-lg p-4 space-y-3">
-        <h4 className="text-xs font-medium text-slate-400 mb-1 uppercase">Dimension Breakdown</h4>
+      <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-4 space-y-3">
+        <h4 className="text-xs font-medium text-zinc-400 mb-1 uppercase">Dimension Breakdown</h4>
         {dimensions.map(({ label, d }) => (
-          <div key={label} className="border-t border-slate-700 pt-3 first:border-t-0 first:pt-0">
+          <div key={label} className="border-t border-white/[0.08] pt-3 first:border-t-0 first:pt-0">
             <div className="flex items-baseline justify-between mb-1">
               <span className="text-sm font-semibold text-white">{label}</span>
               <span
@@ -84,7 +85,7 @@ function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
                 {d.score}/2
               </span>
             </div>
-            <p className="text-slate-300 text-sm">{d.feedback}</p>
+            <p className="text-zinc-300 text-sm">{d.feedback}</p>
           </div>
         ))}
       </div>
@@ -94,7 +95,7 @@ function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
           <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Things to Improve</h4>
           <ul className="space-y-2">
             {data.improvements.map((imp, i) => (
-              <li key={i} className="flex gap-2 text-slate-300 text-sm">
+              <li key={i} className="flex gap-2 text-zinc-300 text-sm">
                 <span className="text-blue-400 shrink-0">{i + 1}.</span>
                 <span>{imp}</span>
               </li>
@@ -416,14 +417,19 @@ export default function ResultsPage({
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div className="animate-pulse">
-          <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span className="text-2xl text-white">AI</span>
+        <div className="flex flex-col items-center">
+          <div className="relative inline-flex items-center justify-center w-16 h-16 mb-6">
+            <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
+            <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-2xl shadow-indigo-500/30">
+              <svg className="w-7 h-7 text-white animate-pulse" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+              </svg>
+            </div>
           </div>
           <h2 className="text-xl font-semibold text-white mb-2">
             Marking your exam...
           </h2>
-          <p className="text-slate-400">
+          <p className="text-zinc-400">
             AI is reviewing each answer against the marking schedule
           </p>
         </div>
@@ -467,7 +473,8 @@ export default function ResultsPage({
   // ── SUMMARY VIEW ──
   if (view === "summary") {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="relative max-w-3xl mx-auto px-4 py-8">
+        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
         {/* Two circles side by side */}
         {(() => {
           const radius = 50;
@@ -502,13 +509,13 @@ export default function ResultsPage({
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                       <span className="text-2xl sm:text-3xl font-bold text-white">{answeredCount}</span>
-                      <span className="text-[10px] sm:text-xs text-slate-400">of {total}</span>
+                      <span className="text-[10px] sm:text-xs text-zinc-400">of {total}</span>
                     </div>
                   </div>
                   <span className="text-xs font-medium text-white mb-1">Answered</span>
                   <div className="flex items-center gap-3 text-[10px]">
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500" /><span className="text-slate-400">{answeredCount} answered</span></span>
-                    <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-slate-600" /><span className="text-slate-400">{unansweredCount} skipped</span></span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500" /><span className="text-zinc-400">{answeredCount} answered</span></span>
+                    <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-zinc-600" /><span className="text-zinc-400">{unansweredCount} skipped</span></span>
                   </div>
                 </div>
 
@@ -524,11 +531,11 @@ export default function ResultsPage({
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                       {selfMarked && assessedCount === 0 ? (
-                        <span className="text-lg font-bold text-slate-500">?</span>
+                        <span className="text-lg font-bold text-zinc-500">?</span>
                       ) : (
                         <>
                           <span className="text-2xl sm:text-3xl font-bold text-white">{rightCount}</span>
-                          <span className="text-[10px] sm:text-xs text-slate-400">of {total}</span>
+                          <span className="text-[10px] sm:text-xs text-zinc-400">of {total}</span>
                         </>
                       )}
                     </div>
@@ -536,13 +543,13 @@ export default function ResultsPage({
                   <span className="text-xs font-medium text-white mb-1">Correct</span>
                   <div className="flex items-center gap-3 text-[10px]">
                     {selfMarked && assessedCount === 0 ? (
-                      <span className="text-slate-500">Review questions below</span>
+                      <span className="text-zinc-500">Review questions below</span>
                     ) : (
                       <>
-                        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500" /><span className="text-slate-400">{rightCount} right</span></span>
-                        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500 opacity-50" /><span className="text-slate-400">{wrongCount} wrong</span></span>
+                        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500" /><span className="text-zinc-400">{rightCount} right</span></span>
+                        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500 opacity-50" /><span className="text-zinc-400">{wrongCount} wrong</span></span>
                         {selfMarked && assessedCount < total && (
-                          <span className="text-slate-500">({total - assessedCount} left)</span>
+                          <span className="text-zinc-500">({total - assessedCount} left)</span>
                         )}
                       </>
                     )}
@@ -557,11 +564,25 @@ export default function ResultsPage({
                     {gradeLabel(overallGrade)} — {pct}%
                   </h1>
                 )}
-                <p className="text-slate-500 text-xs mt-1">{exam.title}</p>
+                <p className="text-zinc-500 text-xs mt-1">{exam.title}</p>
               </div>
             </div>
           );
         })()}
+
+        {/* Share result card */}
+        {!selfMarked && (
+          <div className="mb-6">
+            <ShareResultCard
+              subject={exam.subject}
+              level={exam.level}
+              grade={overallGrade}
+              totalMarks={totalMarks}
+              maxMarks={maxMarks}
+              examTitle={exam.title}
+            />
+          </div>
+        )}
 
         {/* What to work on — only topics that exist in this exam */}
         {!selfMarked && (() => {
@@ -571,11 +592,11 @@ export default function ResultsPage({
           const strong = gaps.filter((g) => g.pct >= 70 && examTopics.has(g.topic));
           if (weak.length === 0 && strong.length === 0) return null;
           return (
-            <div className="bg-card border border-card-border rounded-lg p-5 mb-6">
+            <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 mb-6">
               {weak.length > 0 && (
                 <>
                   <h2 className="text-sm font-semibold text-red-400 mb-1">Work on these</h2>
-                  <p className="text-slate-500 text-xs mb-2">You scored under 70% on these topics — practise them to improve</p>
+                  <p className="text-zinc-500 text-xs mb-2">You scored under 70% on these topics — practise them to improve</p>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {weak.map((g) => (
                       <span key={g.topic} className="text-xs px-2 py-1 rounded border bg-red-600/10 border-red-700/30 text-red-400">
@@ -588,10 +609,10 @@ export default function ResultsPage({
               {strong.length > 0 && (
                 <>
                   <h2 className="text-sm font-semibold text-green-400 mb-1">{weak.length > 0 ? "Looking good on" : "Nice work on"}</h2>
-                  <p className="text-slate-500 text-xs mb-2">You scored 70%+ on these — keep it up</p>
+                  <p className="text-zinc-500 text-xs mb-2">You scored 70%+ on these — keep it up</p>
                   <div className="flex flex-wrap gap-1.5">
                     {strong.map((g) => (
-                      <span key={g.topic} className="text-xs px-2 py-1 rounded border bg-green-600/10 border-green-700/30 text-green-400">
+                      <span key={g.topic} className="text-xs px-2 py-1 rounded border bg-emerald-500/10 border-green-700/30 text-green-400">
                         {getTopicLabel(g.topic)}
                       </span>
                     ))}
@@ -603,9 +624,9 @@ export default function ResultsPage({
         })()}
 
         {/* Question grid + inline answer reveal */}
-        <div className="bg-card border border-card-border rounded-lg p-5 mb-6">
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-5 mb-6">
           <h2 className="text-sm font-semibold text-white mb-1">Learn From Your Mistakes</h2>
-          <p className="text-slate-500 text-xs mb-3">Tap any question to see the correct answer</p>
+          <p className="text-zinc-500 text-xs mb-3">Tap any question to see the correct answer</p>
           <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-2 mb-3">
             {exam.questions.map((question, i) => {
               const result = results[i];
@@ -621,19 +642,19 @@ export default function ResultsPage({
                   onClick={() => setExpandedQ(isSelected ? null : question.id)}
                   className={`min-h-[44px] py-2 px-1 rounded text-xs font-medium transition-colors ${
                     isSelected
-                      ? "bg-blue-600 text-white border border-blue-400 ring-1 ring-blue-400"
+                      ? "bg-indigo-500 text-white border border-blue-400 ring-1 ring-blue-400"
                       : selfMarked && assessed === true
-                      ? "bg-green-600/20 text-green-400 border border-green-700/30 hover:bg-green-600/30"
+                      ? "bg-emerald-500/20 text-green-400 border border-green-700/30 hover:bg-emerald-500/30"
                       : selfMarked && assessed === false
                       ? "bg-red-600/20 text-red-400 border border-red-700/30 hover:bg-red-600/30"
                       : full
-                      ? "bg-green-600/20 text-green-400 border border-green-700/30 hover:bg-green-600/30"
+                      ? "bg-emerald-500/20 text-green-400 border border-green-700/30 hover:bg-emerald-500/30"
                       : partial
                       ? "bg-orange-600/25 text-orange-300 border border-orange-600/40 hover:bg-orange-600/35"
                       : selfMarked && answered
-                      ? "bg-blue-600/20 text-blue-400 border border-blue-700/30 hover:bg-blue-600/30"
+                      ? "bg-indigo-500/20 text-blue-400 border border-blue-700/30 hover:bg-indigo-500/30"
                       : selfMarked && !answered
-                      ? "bg-slate-800 text-slate-500 border border-slate-700 hover:bg-slate-700"
+                      ? "bg-white/[0.06] text-zinc-500 border border-white/[0.08] hover:bg-white/[0.08]"
                       : "bg-red-600/20 text-red-400 border border-red-700/30 hover:bg-red-600/30"
                   }`}
                 >
@@ -652,18 +673,18 @@ export default function ResultsPage({
             const myAns = (answers[qq.id] ?? "").trim();
 
             return (
-              <div className="border-t border-slate-700 pt-3 mt-1 space-y-3">
+              <div className="border-t border-white/[0.08] pt-3 mt-1 space-y-3">
                 {/* Question text */}
                 <div>
-                  <p className="text-xs text-slate-400 mb-1">Q{qq.number}</p>
-                  <p className="text-sm text-slate-300 whitespace-pre-wrap">{qq.text.replace(/\[Diagram:[^\]]+\]/g, "").trim()}</p>
+                  <p className="text-xs text-zinc-400 mb-1">Q{qq.number}</p>
+                  <p className="text-sm text-zinc-300 whitespace-pre-wrap">{qq.text.replace(/\[Diagram:[^\]]+\]/g, "").trim()}</p>
                 </div>
 
                 {/* Your working */}
                 {answers[`${qq.id}_working`] && (
                   <div>
-                    <p className="text-xs text-slate-400 mb-1">Your working</p>
-                    <p className="text-sm text-white bg-slate-900 border border-slate-700 rounded p-2.5 whitespace-pre-wrap">
+                    <p className="text-xs text-zinc-400 mb-1">Your working</p>
+                    <p className="text-sm text-white bg-white/[0.03] border border-white/[0.08] rounded p-2.5 whitespace-pre-wrap">
                       {answers[`${qq.id}_working`]}
                     </p>
                   </div>
@@ -671,8 +692,8 @@ export default function ResultsPage({
 
                 {/* Your final answer */}
                 <div>
-                  <p className="text-xs text-slate-400 mb-1">Your final answer</p>
-                  <p className="text-sm text-white bg-slate-900 border border-slate-700 rounded p-2.5 whitespace-pre-wrap">
+                  <p className="text-xs text-zinc-400 mb-1">Your final answer</p>
+                  <p className="text-sm text-white bg-white/[0.03] border border-white/[0.08] rounded p-2.5 whitespace-pre-wrap">
                     {myAns || "(No answer)"}
                   </p>
                 </div>
@@ -700,8 +721,8 @@ export default function ResultsPage({
 
         {/* Next grade hint */}
         {!selfMarked && overallGrade !== "excellence" && exam.cutScores && (
-          <div className="bg-amber-950/20 border border-amber-700/30 rounded-lg p-4 mb-6">
-            <p className="text-slate-300 text-sm">
+          <div className="bg-amber-950/20 border border-amber-700/30 rounded-2xl p-4 mb-6">
+            <p className="text-zinc-300 text-sm">
               You need{" "}
               <span className="font-bold text-white">
                 {(overallGrade === "not-achieved"
@@ -739,24 +760,30 @@ export default function ResultsPage({
               setCurrentQ(0);
               setView("review");
             }}
-            className="w-full py-3 rounded bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
+            className="w-full py-3 rounded bg-indigo-500 text-white font-medium hover:bg-indigo-400 transition-colors"
           >
             Review All Questions
           </button>
           <div className="flex gap-3">
             <Link
               href="/subjects"
-              className="flex-1 text-center py-3 rounded border border-slate-600 text-slate-300 hover:bg-slate-800 transition-colors"
+              className="flex-1 text-center py-3 rounded border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors"
             >
               Try Another Exam
             </Link>
             <Link
               href="/practice"
-              className="flex-1 text-center py-3 rounded bg-green-600 text-white hover:bg-green-700 transition-colors"
+              className="flex-1 text-center py-3 rounded bg-emerald-500 text-white hover:bg-emerald-400 transition-colors"
             >
               Practice Weak Areas
             </Link>
           </div>
+        </div>
+
+        <div className="text-center mt-8">
+          <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            &larr; Back to dashboard
+          </Link>
         </div>
       </div>
     );
@@ -764,16 +791,17 @@ export default function ResultsPage({
 
   // ── REVIEW VIEW (one question at a time) ──
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="relative max-w-3xl mx-auto px-4 py-6">
+      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
       {/* Top bar */}
       <div className="flex items-center justify-between mb-4">
         <button
           onClick={() => setView("summary")}
-          className="text-sm text-slate-400 hover:text-white transition-colors"
+          className="text-sm text-zinc-400 hover:text-white transition-colors"
         >
           &larr; Back to summary
         </button>
-        <span className="text-sm text-slate-400">
+        <span className="text-sm text-zinc-400">
           {currentQ + 1} / {exam.questions.length}
         </span>
         {!selfMarked && r && (
@@ -790,7 +818,7 @@ export default function ResultsPage({
           </span>
         )}
         {selfMarked && (
-          <span className="text-sm text-slate-400">{q.marks} marks</span>
+          <span className="text-sm text-zinc-400">{q.marks} marks</span>
         )}
       </div>
 
@@ -821,7 +849,7 @@ export default function ResultsPage({
                   : partial
                   ? "bg-yellow-500"
                   : selfMarked
-                  ? "bg-slate-600"
+                  ? "bg-zinc-600"
                   : "bg-red-500"
               }`}
             />
@@ -830,10 +858,10 @@ export default function ResultsPage({
       </div>
 
       {/* Question card */}
-      <div className="bg-card border border-card-border rounded-lg overflow-hidden mb-4">
+      <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden mb-4">
         {/* Question header */}
-        <div className="px-5 py-3 border-b border-slate-700 flex items-center justify-between">
-          <span className="text-white font-semibold">{currentQ + 1}. <span className="text-slate-400 font-normal text-sm">Q{q.number}</span></span>
+        <div className="px-5 py-3 border-b border-white/[0.08] flex items-center justify-between">
+          <span className="text-white font-semibold">{currentQ + 1}. <span className="text-zinc-400 font-normal text-sm">Q{q.number}</span></span>
           <div className="flex gap-1.5">
             {q.topics.map((t) => (
               <TopicTag key={t} topicId={t} />
@@ -844,7 +872,7 @@ export default function ResultsPage({
         <div className="px-5 py-4 space-y-4">
           {/* Diagram */}
           {q.image && (
-            <div className="rounded-lg overflow-hidden border border-slate-700 bg-white p-2">
+            <div className="rounded-lg overflow-hidden border border-white/[0.08] bg-white p-2">
               <img
                 src={q.image}
                 alt={`Diagram for Question ${q.number}`}
@@ -861,13 +889,13 @@ export default function ResultsPage({
                   q.image ? null : (
                     <div
                       key={j}
-                      className="bg-slate-800/60 border border-slate-700 rounded px-3 py-2 mb-2 text-xs text-slate-400 italic"
+                      className="bg-white/[0.04] border border-white/[0.08] rounded px-3 py-2 mb-2 text-xs text-zinc-400 italic"
                     >
                       {part.slice(1, -1)}
                     </div>
                   )
                 ) : (
-                  <p key={j} className="text-slate-300 whitespace-pre-wrap">
+                  <p key={j} className="text-zinc-300 whitespace-pre-wrap">
                     {part}
                   </p>
                 )
@@ -879,24 +907,24 @@ export default function ResultsPage({
 
       {/* Your working */}
       {answers[`${q.id}_working`] && (
-        <div className="bg-card border border-card-border rounded-lg p-4 mb-4">
-          <h4 className="text-xs font-medium text-slate-400 mb-2 uppercase">Your Working</h4>
-          <p className="text-sm text-white bg-slate-900 rounded p-3 whitespace-pre-wrap">
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-4 mb-4">
+          <h4 className="text-xs font-medium text-zinc-400 mb-2 uppercase">Your Working</h4>
+          <p className="text-sm text-white bg-white/[0.03] rounded p-3 whitespace-pre-wrap">
             {answers[`${q.id}_working`]}
           </p>
         </div>
       )}
 
       {/* Your final answer */}
-      <div className="bg-card border border-card-border rounded-lg p-4 mb-4">
-        <h4 className="text-xs font-medium text-slate-400 mb-2 uppercase">Your Final Answer</h4>
+      <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-4 mb-4">
+        <h4 className="text-xs font-medium text-zinc-400 mb-2 uppercase">Your Final Answer</h4>
         <p
           className={`text-sm whitespace-pre-wrap rounded p-3 ${
             !hasAnswer
-              ? "text-slate-500 italic bg-slate-900"
+              ? "text-zinc-500 italic bg-white/[0.03]"
               : isFullMarks
               ? "text-white bg-green-950/20 border border-green-900/20"
-              : "text-white bg-slate-900"
+              : "text-white bg-white/[0.03]"
           }`}
         >
           {answers[q.id] || "(No answer)"}
@@ -904,7 +932,7 @@ export default function ResultsPage({
       </div>
 
       {/* Correct working */}
-      <div className="bg-green-950/20 border border-green-900/30 rounded-lg p-4 mb-4">
+      <div className="bg-green-950/20 border border-green-900/30 rounded-2xl p-4 mb-4">
         <h4 className="text-xs font-semibold text-green-400 mb-2 uppercase tracking-wide">Correct Working</h4>
         <p className="text-white text-sm whitespace-pre-wrap">
           {q.markingGuide.replace(/\n*Final answer:.*$/i, "").trim()}
@@ -912,25 +940,13 @@ export default function ResultsPage({
       </div>
 
       {/* Correct final answer */}
-      <div className="bg-green-950/30 border border-green-700/40 rounded-lg p-4 mb-4">
+      <div className="bg-green-950/30 border border-green-700/40 rounded-2xl p-4 mb-4">
         <h4 className="text-xs font-semibold text-green-400 mb-2 uppercase tracking-wide">Correct Final Answer</h4>
         <p className="text-white text-base whitespace-pre-wrap font-bold">
           {q.expectedAnswer ?? "(See working above)"}
         </p>
       </div>
 
-      {/* Study guide link */}
-      {exam && hasGuide(exam.subject) && (
-        <Link
-          href={`/learn/${exam.subject}`}
-          className="inline-flex items-center gap-1 text-indigo-400 hover:text-indigo-300 text-[12px] font-medium mb-4 transition-colors"
-        >
-          Study this topic
-          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </Link>
-      )}
 
       {/* Feedback */}
       {r && !isFullMarks && (() => {
@@ -944,16 +960,16 @@ export default function ResultsPage({
         }
         return (
           <>
-            <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4 mb-4">
+            <div className="bg-amber-950/15 border border-amber-900/20 rounded-2xl p-4 mb-4">
               <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Feedback</h4>
-              <p className="text-slate-300 text-sm whitespace-pre-wrap">
+              <p className="text-zinc-300 text-sm whitespace-pre-wrap">
                 {selfMarked ? r.examTip : r.feedback}
               </p>
             </div>
             {!selfMarked && (
-              <div className="bg-blue-950/20 border border-blue-900/20 rounded-lg p-4 mb-4">
+              <div className="bg-blue-950/20 border border-blue-900/20 rounded-2xl p-4 mb-4">
                 <h4 className="text-xs font-medium text-blue-400 mb-2 uppercase">Exam Tip</h4>
-                <p className="text-slate-300 text-sm">{r.examTip}</p>
+                <p className="text-zinc-300 text-sm">{r.examTip}</p>
               </div>
             )}
           </>
@@ -965,25 +981,31 @@ export default function ResultsPage({
         <button
           onClick={() => setCurrentQ((c) => Math.max(0, c - 1))}
           disabled={currentQ === 0}
-          className="flex-1 py-3 rounded border border-slate-600 text-slate-300 hover:bg-slate-800 transition-colors disabled:opacity-30 disabled:hover:bg-transparent"
+          className="flex-1 py-3 rounded border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:hover:bg-transparent"
         >
           &larr; Previous
         </button>
         {currentQ < exam.questions.length - 1 ? (
           <button
             onClick={() => setCurrentQ((c) => c + 1)}
-            className="flex-1 py-3 rounded bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
+            className="flex-1 py-3 rounded bg-indigo-500 text-white font-medium hover:bg-indigo-400 transition-colors"
           >
             Next &rarr;
           </button>
         ) : (
           <button
             onClick={() => setView("summary")}
-            className="flex-1 py-3 rounded bg-green-600 text-white font-medium hover:bg-green-700 transition-colors"
+            className="flex-1 py-3 rounded bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors"
           >
             Done — View Summary
           </button>
         )}
+      </div>
+
+      <div className="text-center mt-8">
+        <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+          &larr; Back to dashboard
+        </Link>
       </div>
     </div>
   );

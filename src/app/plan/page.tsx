@@ -2,16 +2,14 @@
 
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { useTier } from "@/hooks/useTier";
 import {
   clearPlan,
   createPlan,
   getCurrentWeek,
   getDaysUntilExam,
+  getWeekProgress,
   getPlanVersion,
   getServerPlanVersion,
-  getWeekProgress,
-  getWeeksUntilExam,
   loadPlan,
   markTaskComplete,
   savePlan,
@@ -22,8 +20,6 @@ import {
   type StudyWeek,
 } from "@/lib/studyPlanner";
 
-// Subjects offered by the plan form. Keep the list aligned with the
-// /generate page so students see familiar options.
 const SUBJECTS: Array<{ value: string; label: string; years: number[] }> = [
   { value: "mathematics", label: "Mathematics", years: [10, 11, 12, 13] },
   { value: "science", label: "Science", years: [10, 11] },
@@ -47,21 +43,23 @@ const SUBJECTS: Array<{ value: string; label: string; years: number[] }> = [
 ];
 
 export default function PlanPage() {
-  const { limits, loading: tierLoading } = useTier();
-
-  // Drive all reads through useSyncExternalStore so the page re-renders
-  // whenever the plan is saved, cleared, or tasks are toggled.
   const version = useSyncExternalStore(
     subscribePlan,
     getPlanVersion,
     getServerPlanVersion
   );
 
-  // Gate the first client render behind `mounted` so returning users don't
-  // get a hydration mismatch between SSR (no plan) and the stored plan.
   const [mounted, setMounted] = useState(false);
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    // Force-clear old plans from before the v2 rebuild
+    if (!localStorage.getItem("plan-v2-cleared-2")) {
+      clearPlan();
+      localStorage.setItem("plan-v2-cleared-2", "1");
+      localStorage.setItem("plan-v2-skip-sync", "1");
+    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   const plan = useMemo<StudyPlan | null>(() => {
     void version;
@@ -69,15 +67,16 @@ export default function PlanPage() {
     return loadPlan();
   }, [version, mounted]);
 
-  // Background fetch from database for cross-device sync
+  // Sync from database (only if user hasn't just cleared their plan)
   useEffect(() => {
     if (!mounted) return;
+    // Skip sync if we just force-cleared — let user set up fresh
+    if (localStorage.getItem("plan-v2-skip-sync")) return;
     fetch("/api/plan")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!data?.plan) return;
         const local = loadPlan();
-        // If no local plan but DB has one, import it
         if (!local && data.plan) {
           savePlan({
             examDate: data.plan.examDate,
@@ -91,62 +90,30 @@ export default function PlanPage() {
       .catch(() => {});
   }, [mounted]);
 
-  // Keep the initial client render identical to SSR by showing a neutral
-  // placeholder until the mount effect flips `mounted`.
-  if (!mounted || tierLoading) {
+  if (!mounted) {
     return (
-      <div className="max-w-2xl mx-auto px-4 py-16 text-center text-zinc-500 text-sm">
-        Loading plan…
+      <div className="max-w-2xl mx-auto px-5 py-16 text-center text-zinc-500 text-sm">
+        Loading...
       </div>
     );
   }
 
-  // Gate: study planner is Pro-only
-  if (!limits.studyPlanner) {
-    return (
-      <div className="max-w-md mx-auto px-5 py-16 text-center">
-        <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
-          <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-          </svg>
-        </div>
-        <h1 className="text-[22px] font-semibold text-white mb-2 tracking-tight">
-          Study Planner
-        </h1>
-        <p className="text-zinc-400 text-[14px] mb-6">
-          The study planner builds a personalised week-by-week revision schedule based on your exam date and weak topics. This is a Pro feature.
-        </p>
-        <Link
-          href="/pricing"
-          className="inline-block bg-indigo-500 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[14px]"
-        >
-          Upgrade to Pro — $19.99/mo
-        </Link>
-        <div className="mt-4">
-          <Link href="/dashboard" className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors">
-            Back to dashboard
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  if (!plan) return <PlanCreateForm />;
+  if (!plan) return <PlanSetup />;
   return <PlanView plan={plan} />;
 }
 
-// ── Create form ────────────────────────────────────────────────────────
+/* ━━━ Setup ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-function PlanCreateForm() {
+function PlanSetup() {
   const defaultDate = (() => {
     const d = new Date();
-    d.setDate(d.getDate() + 42); // ~6 weeks out
+    d.setDate(d.getDate() + 42);
     return d.toISOString().slice(0, 10);
   })();
 
   const [examDate, setExamDate] = useState(defaultDate);
   const [yearLevel, setYearLevel] = useState<number>(11);
-  const [subjects, setSubjects] = useState<string[]>(["mathematics", "english"]);
+  const [subjects, setSubjects] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const availableSubjects = SUBJECTS.filter((s) => s.years.includes(yearLevel));
@@ -159,10 +126,7 @@ function PlanCreateForm() {
 
   function handleYearChange(year: number) {
     setYearLevel(year);
-    // Drop any subjects that aren't offered at the new year level.
-    const allowed = SUBJECTS.filter((s) => s.years.includes(year)).map(
-      (s) => s.value
-    );
+    const allowed = SUBJECTS.filter((s) => s.years.includes(year)).map((s) => s.value);
     setSubjects((prev) => prev.filter((v) => allowed.includes(v)));
   }
 
@@ -170,26 +134,17 @@ function PlanCreateForm() {
     e.preventDefault();
     setError(null);
 
-    if (!examDate) {
-      setError("Pick an exam date.");
-      return;
-    }
-    if (subjects.length === 0) {
-      setError("Select at least one subject.");
-      return;
-    }
+    if (!examDate) { setError("Pick your exam date."); return; }
+    if (subjects.length === 0) { setError("Pick at least one subject."); return; }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const exam = new Date(examDate);
-    if (exam < today) {
-      setError("Exam date must be in the future.");
-      return;
-    }
+    if (new Date(examDate) < today) { setError("Exam date needs to be in the future."); return; }
 
     const plan = createPlan(examDate, subjects, yearLevel);
     savePlan(plan);
+    localStorage.removeItem("plan-v2-skip-sync");
 
-    // Fire-and-forget: sync plan to database
     fetch("/api/plan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -198,305 +153,386 @@ function PlanCreateForm() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
-      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Study Planner</h1>
-      <p className="text-sm sm:text-base text-zinc-400 mb-8">
-        Tell us when your exam is and we&apos;ll build a week-by-week plan —
-        weakest topics first.
-      </p>
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+      </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="bg-card border border-card-border rounded-lg p-6 space-y-6"
-      >
-        <div>
-          <label
-            htmlFor="examDate"
-            className="block text-sm font-medium text-zinc-300 mb-2"
-          >
-            Exam date
-          </label>
-          <input
-            id="examDate"
-            type="date"
-            value={examDate}
-            onChange={(e) => setExamDate(e.target.value)}
-            className="w-full bg-zinc-900 border border-zinc-800 rounded px-3 py-2 text-white focus:outline-none focus:border-indigo-500"
-            required
-          />
+      <div className="max-w-xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
+        {/* Explainer */}
+        <div className="text-center mb-10">
+          <h1 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight mb-3">
+            Exam countdown
+          </h1>
+          <p className="text-zinc-400 text-[15px] max-w-md mx-auto leading-relaxed">
+            Tell us when your exams are and what subjects you&apos;re sitting.
+            We&apos;ll build you a week-by-week plan that focuses on your weakest
+            topics first — so you spend your time where it matters most.
+          </p>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-zinc-300 mb-2">
-            Year level
-          </label>
-          <div className="grid grid-cols-4 gap-2">
-            {[10, 11, 12, 13].map((y) => (
-              <button
-                key={y}
-                type="button"
-                onClick={() => handleYearChange(y)}
-                className={`px-3 py-2 rounded text-sm font-medium transition-colors ${
-                  yearLevel === y
-                    ? "bg-indigo-600 text-white"
-                    : "bg-zinc-900 text-zinc-400 hover:bg-zinc-800 border border-zinc-800"
-                }`}
-              >
-                Year {y}
-              </button>
-            ))}
+        {/* How it works */}
+        <div className="grid grid-cols-3 gap-3 mb-10">
+          <div className="text-center">
+            <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">1</div>
+            <p className="text-zinc-500 text-[11px]">Set your exam date</p>
+          </div>
+          <div className="text-center">
+            <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">2</div>
+            <p className="text-zinc-500 text-[11px]">Pick your subjects</p>
+          </div>
+          <div className="text-center">
+            <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">3</div>
+            <p className="text-zinc-500 text-[11px]">Follow your plan</p>
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-zinc-300 mb-2">
-            Subjects ({subjects.length} selected)
-          </label>
-          <div className="grid grid-cols-2 gap-2">
-            {availableSubjects.map((s) => {
-              const active = subjects.includes(s.value);
-              return (
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 space-y-6"
+        >
+          {/* Exam date */}
+          <div>
+            <label htmlFor="examDate" className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+              When is your first exam?
+            </label>
+            <input
+              id="examDate"
+              type="date"
+              value={examDate}
+              onChange={(e) => setExamDate(e.target.value)}
+              onClick={(e) => {
+                try { (e.currentTarget as HTMLInputElement).showPicker(); } catch {}
+              }}
+              className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors cursor-pointer"
+              required
+            />
+          </div>
+
+          {/* Year level */}
+          <div>
+            <label className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+              Year level
+            </label>
+            <div className="grid grid-cols-4 gap-2">
+              {[10, 11, 12, 13].map((y) => (
                 <button
-                  key={s.value}
+                  key={y}
                   type="button"
-                  onClick={() => toggleSubject(s.value)}
-                  className={`px-3 py-2 rounded text-sm text-left transition-colors border ${
-                    active
-                      ? "bg-indigo-600/20 border-indigo-500/60 text-white"
-                      : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:bg-zinc-800"
+                  onClick={() => handleYearChange(y)}
+                  className={`min-h-[44px] py-2.5 rounded-lg text-[13px] font-medium transition-all ${
+                    yearLevel === y
+                      ? "bg-indigo-500 text-white"
+                      : "bg-white/[0.04] border border-white/[0.1] text-zinc-400 hover:bg-white/[0.08]"
                   }`}
                 >
-                  <span
-                    className={`inline-block w-3 h-3 mr-2 rounded-sm border align-middle ${
-                      active
-                        ? "bg-indigo-500 border-indigo-500"
-                        : "border-zinc-600"
-                    }`}
-                  />
-                  {s.label}
+                  Year {y}
                 </button>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {error && (
-          <div className="text-sm text-red-400 bg-red-950/30 border border-red-900/40 rounded px-3 py-2">
-            {error}
+          {/* Subjects */}
+          <div>
+            <label className="block text-zinc-400 text-[13px] font-medium mb-1.5">
+              What subjects are you sitting? <span className="text-zinc-600">({subjects.length} selected)</span>
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              {availableSubjects.map((s) => {
+                const active = subjects.includes(s.value);
+                return (
+                  <button
+                    key={s.value}
+                    type="button"
+                    onClick={() => toggleSubject(s.value)}
+                    className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-[13px] text-left transition-all ${
+                      active
+                        ? "bg-indigo-500/15 border border-indigo-500/40 text-white"
+                        : "bg-white/[0.04] border border-white/[0.1] text-zinc-400 hover:bg-white/[0.08]"
+                    }`}
+                  >
+                    <span className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
+                      active ? "bg-indigo-500 border-indigo-500" : "border-zinc-600"
+                    }`}>
+                      {active && (
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                    </span>
+                    {s.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        )}
 
-        <button
-          type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-4 py-2.5 rounded transition-colors"
-        >
-          Create plan
-        </button>
-      </form>
+          {error && (
+            <p className="text-red-400 text-[13px] bg-red-500/[0.08] border border-red-500/20 rounded-lg px-4 py-2.5">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={subjects.length === 0}
+            className="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold py-3 rounded-lg transition-all text-[14px] disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Create my plan
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
 
-// ── Existing plan view ─────────────────────────────────────────────────
+/* ━━━ Plan view ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 function PlanView({ plan }: { plan: StudyPlan }) {
   const current = getCurrentWeek();
   const daysLeft = getDaysUntilExam(plan);
-  const weeksLeft = getWeeksUntilExam(plan);
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const pastWeeks = plan.weeks.filter((w) => {
-    const end = new Date(w.endDate);
-    return end < today && (!current || w.weekNumber !== current.weekNumber);
-  });
-  const futureWeeks = plan.weeks.filter((w) => {
-    const start = new Date(w.startDate);
-    return start > today && (!current || w.weekNumber !== current.weekNumber);
-  });
-
-  function handleReset() {
-    if (
-      !confirm(
-        "Reset your study plan? This will delete all weeks and task progress."
-      )
-    )
-      return;
-    clearPlan();
-
-    // Fire-and-forget: delete plan from database
-    fetch("/api/plan", { method: "DELETE" }).catch(() => {});
-  }
 
   const totalTasks = plan.weeks.reduce((n, w) => n + w.tasks.length, 0);
   const doneTasks = plan.weeks.reduce(
     (n, w) => n + w.tasks.filter((t) => t.completed).length,
     0
   );
-  const overallPct =
-    totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
+  const overallPct = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
+
+  // Split weeks
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const futureWeeks = plan.weeks.filter((w) => {
+    const end = new Date(w.endDate);
+    return end >= today && (!current || w.weekNumber !== current.weekNumber);
+  });
+  const pastWeeks = plan.weeks.filter((w) => {
+    const end = new Date(w.endDate);
+    return end < today && (!current || w.weekNumber !== current.weekNumber);
+  });
+
+  function handleReset() {
+    if (!confirm("Start over? This will delete your current plan and all progress.")) return;
+    clearPlan();
+    fetch("/api/plan", { method: "DELETE" }).catch(() => {});
+  }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">Study Planner</h1>
-        <p className="text-sm sm:text-base text-zinc-400">
-          {daysLeft === 0
-            ? "Your exam is today — good luck!"
-            : weeksLeft <= 1
-            ? `${daysLeft} ${daysLeft === 1 ? "day" : "days"} until your exam`
-            : `${weeksLeft} weeks until your exam`}
-          {" · "}
-          {plan.subjects.map(subjectLabel).join(", ")}
-        </p>
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      {/* Overall progress */}
-      <div className="bg-card border border-card-border rounded-lg p-4 mb-6">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-zinc-300">Overall progress</span>
-          <span className="text-sm text-white font-medium">
-            {doneTasks}/{totalTasks} tasks ({overallPct}%)
-          </span>
-        </div>
-        <div className="w-full bg-zinc-800 rounded-full h-2">
-          <div
-            className="bg-indigo-500 h-2 rounded-full transition-all duration-700 ease-out"
-            style={{ width: `${overallPct}%` }}
-          />
-        </div>
-      </div>
-
-      {/* Current week */}
-      {current && (
-        <div className="mb-8">
-          <div className="text-xs uppercase tracking-wider text-indigo-400 font-medium mb-2">
-            This week
+      <div className="max-w-2xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
+        {/* Countdown header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-5">
+            {plan.subjects.map(subjectLabel).join(", ")}
           </div>
-          <WeekCard week={current} expanded highlight />
+          <h1 className="text-[36px] sm:text-[48px] font-bold text-white tracking-tight mb-1">
+            {daysLeft === 0 ? (
+              "Exam day"
+            ) : (
+              <>
+                <span className="bg-gradient-to-r from-indigo-300 to-purple-400 bg-clip-text text-transparent">
+                  {daysLeft}
+                </span>{" "}
+                {daysLeft === 1 ? "day" : "days"} to go
+              </>
+            )}
+          </h1>
+          <p className="text-zinc-500 text-[14px]">
+            Exam: {new Date(plan.examDate).toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}
+          </p>
         </div>
-      )}
 
-      {/* Future weeks */}
-      {futureWeeks.length > 0 && (
-        <div className="mb-8">
-          <h2 className="text-sm uppercase tracking-wider text-zinc-500 font-medium mb-3">
-            Upcoming
-          </h2>
-          <div className="space-y-3">
-            {futureWeeks.map((w) => (
-              <WeekCard key={w.weekNumber} week={w} />
-            ))}
+        {/* Overall progress */}
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-zinc-400 text-[13px]">Overall progress</span>
+            <span className="text-white text-[13px] font-medium">
+              {doneTasks}/{totalTasks} tasks done
+            </span>
           </div>
+          <div className="w-full bg-white/[0.06] rounded-full h-2.5">
+            <div
+              className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2.5 rounded-full transition-all duration-700 ease-out"
+              style={{ width: `${overallPct}%` }}
+            />
+          </div>
+          <p className="text-zinc-600 text-[11px] mt-2">
+            {overallPct === 100
+              ? "You've completed everything!"
+              : overallPct >= 50
+              ? "You're on track. Keep going!"
+              : "Tick off tasks as you complete them."}
+          </p>
         </div>
-      )}
 
-      {/* Past weeks */}
-      {pastWeeks.length > 0 && (
-        <div className="mb-8">
-          <h2 className="text-sm uppercase tracking-wider text-zinc-500 font-medium mb-3">
-            Completed
-          </h2>
-          <div className="space-y-2">
-            {pastWeeks.map((w) => {
-              const { done, total, pct } = getWeekProgress(w);
-              return (
-                <div
-                  key={w.weekNumber}
-                  className="bg-card border border-card-border rounded p-3 flex items-center justify-between text-sm"
-                >
-                  <div className="text-zinc-400">
-                    Week {w.weekNumber} — {w.focus}
+        {/* Completion state */}
+        {overallPct === 100 && (
+          <div className="rounded-2xl bg-gradient-to-br from-emerald-500/[0.08] to-indigo-500/[0.05] border border-emerald-500/20 p-8 sm:p-10 text-center mb-8">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
+              <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+            </div>
+            <h2 className="text-[24px] sm:text-[28px] font-bold text-white tracking-tight mb-2">
+              You&apos;re ready!
+            </h2>
+            <p className="text-zinc-400 text-[15px] max-w-md mx-auto mb-6 leading-relaxed">
+              You&apos;ve completed every task in your study plan.
+              {daysLeft > 0
+                ? ` You've still got ${daysLeft} ${daysLeft === 1 ? "day" : "days"} — use them for light review and rest.`
+                : " Good luck in your exam today — you've put in the work."}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/subjects"
+                className="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px]"
+              >
+                Do one more practice exam
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/review"
+                className="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.12] text-white font-medium px-6 py-3 rounded-lg border border-white/[0.1] transition-all text-[14px]"
+              >
+                Quick review session
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* This week */}
+        {current && (
+          <div className="mb-6">
+            <h2 className="text-[13px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">
+              This week — {current.focus}
+            </h2>
+            <WeekCard week={current} defaultOpen highlight />
+          </div>
+        )}
+
+        {/* Coming up */}
+        {futureWeeks.length > 0 && (
+          <div className="mb-6">
+            <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-3">
+              Coming up
+            </h2>
+            <div className="space-y-2">
+              {futureWeeks.map((w) => (
+                <WeekCard key={w.weekNumber} week={w} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Done */}
+        {pastWeeks.length > 0 && (
+          <div className="mb-6">
+            <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-3">
+              Done
+            </h2>
+            <div className="space-y-2">
+              {pastWeeks.map((w) => {
+                const { done, total, pct } = getWeekProgress(w);
+                return (
+                  <div
+                    key={w.weekNumber}
+                    className="rounded-xl bg-white/[0.02] border border-white/[0.06] px-4 py-3 flex items-center justify-between"
+                  >
+                    <span className="text-zinc-500 text-[13px]">
+                      Week {w.weekNumber} — {w.focus}
+                    </span>
+                    <span className={`text-[12px] font-medium ${pct === 100 ? "text-emerald-400" : "text-zinc-500"}`}>
+                      {done}/{total}
+                    </span>
                   </div>
-                  <div className="text-zinc-500">
-                    {done}/{total} ({pct}%)
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="border-t border-zinc-800 pt-6 mt-8">
-        <button
-          onClick={handleReset}
-          className="text-sm text-zinc-500 hover:text-red-400 transition-colors"
-        >
-          Reset plan
-        </button>
+        {/* Actions */}
+        <div className="flex items-center justify-between pt-6 border-t border-white/[0.06]">
+          <button
+            onClick={handleReset}
+            className="text-[13px] text-zinc-600 hover:text-red-400 transition-colors"
+          >
+            Start over
+          </button>
+          <Link
+            href="/subjects"
+            className="text-[13px] text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+          >
+            Build an exam &rarr;
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
 
+/* ━━━ Week card ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 function WeekCard({
   week,
-  expanded: initialExpanded = false,
+  defaultOpen = false,
   highlight = false,
 }: {
   week: StudyWeek;
-  expanded?: boolean;
+  defaultOpen?: boolean;
   highlight?: boolean;
 }) {
-  const [expanded, setExpanded] = useState(initialExpanded);
+  const [open, setOpen] = useState(defaultOpen);
   const { done, total, pct } = getWeekProgress(week);
+
+  const dateRange = (() => {
+    const fmt = (d: Date) => d.toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
+    return `${fmt(new Date(week.startDate))} – ${fmt(new Date(week.endDate))}`;
+  })();
 
   return (
     <div
-      className={`border rounded-lg overflow-hidden ${
+      className={`rounded-xl overflow-hidden transition-colors ${
         highlight
-          ? "bg-indigo-950/20 border-indigo-500/40"
-          : "bg-card border-card-border"
+          ? "bg-indigo-500/[0.06] border border-indigo-500/20"
+          : "bg-white/[0.02] border border-white/[0.06]"
       }`}
     >
       <button
         type="button"
-        onClick={() => setExpanded((v) => !v)}
-        className="w-full px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-white/[0.02] transition-colors min-h-[56px]"
+        onClick={() => setOpen((v) => !v)}
+        className="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-left hover:bg-white/[0.02] transition-colors"
       >
         <div className="min-w-0 flex-1">
-          <div className="text-white font-medium text-sm truncate">
-            Week {week.weekNumber} · {week.focus}
-          </div>
-          <div className="text-xs text-zinc-500 mt-0.5">
-            {formatDateRange(week.startDate, week.endDate)}
-          </div>
+          <p className="text-white font-medium text-[14px]">
+            Week {week.weekNumber} — {week.focus}
+          </p>
+          <p className="text-zinc-600 text-[11px] mt-0.5">{dateRange}</p>
         </div>
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <span className="text-xs text-zinc-400 tabular-nums">
+        <div className="flex items-center gap-3 shrink-0">
+          <span className={`text-[12px] font-medium tabular-nums ${
+            pct === 100 ? "text-emerald-400" : "text-zinc-500"
+          }`}>
             {done}/{total}
           </span>
-          <div className="hidden sm:block w-16 bg-zinc-800 rounded-full h-1.5">
-            <div
-              className={`h-1.5 rounded-full ${
-                highlight ? "bg-indigo-400" : "bg-zinc-500"
-              }`}
-              style={{ width: `${pct}%` }}
-            />
-          </div>
           <svg
-            className={`w-4 h-4 text-zinc-500 transition-transform ${
-              expanded ? "rotate-180" : ""
-            }`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
+            className={`w-4 h-4 text-zinc-600 transition-transform ${open ? "rotate-180" : ""}`}
+            fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
       </button>
 
-      {expanded && (
-        <div className="border-t border-white/[0.05] px-4 py-3 space-y-2">
+      {open && (
+        <div className="border-t border-white/[0.04] px-4 py-3 space-y-1.5">
           {week.tasks.map((t) => (
             <TaskRow key={t.id} task={t} />
           ))}
@@ -506,29 +542,17 @@ function WeekCard({
   );
 }
 
+/* ━━━ Task row ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
 function TaskRow({ task }: { task: StudyTask }) {
   const link = taskLink(task);
-  const typeBadge = (
-    <span
-      className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded ${
-        task.type === "exam"
-          ? "bg-indigo-500/15 text-indigo-300"
-          : task.type === "practice"
-          ? "bg-emerald-500/15 text-emerald-300"
-          : "bg-amber-500/15 text-amber-300"
-      }`}
-    >
-      {task.type}
-    </span>
-  );
 
   return (
-    <div className="flex items-start gap-3 py-1.5">
+    <div className="flex items-start gap-3 py-1">
       <button
         type="button"
         onClick={() => {
           markTaskComplete(task.id);
-          // Fire-and-forget: sync updated plan to database
           const updatedPlan = loadPlan();
           if (updatedPlan) {
             fetch("/api/plan", {
@@ -538,45 +562,43 @@ function TaskRow({ task }: { task: StudyTask }) {
             }).catch(() => {});
           }
         }}
-        aria-label={
-          task.completed ? "Mark task incomplete" : "Mark task complete"
-        }
-        className={`mt-0.5 w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
+        className={`mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-all ${
           task.completed
             ? "bg-indigo-500 border-indigo-500"
             : "border-zinc-600 hover:border-indigo-400"
         }`}
       >
         {task.completed && (
-          <svg
-            className="w-3 h-3 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={3}
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         )}
       </button>
+
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          {typeBadge}
+          <span className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded font-medium ${
+            task.type === "exam"
+              ? "bg-indigo-500/15 text-indigo-300"
+              : task.type === "practice"
+              ? "bg-emerald-500/15 text-emerald-300"
+              : "bg-amber-500/15 text-amber-300"
+          }`}>
+            {task.type}
+          </span>
           {link ? (
             <Link
               href={link}
-              className={`text-sm hover:text-indigo-300 transition-colors ${
-                task.completed ? "line-through text-zinc-500" : "text-zinc-200"
+              className={`text-[13px] hover:text-indigo-300 transition-colors ${
+                task.completed ? "line-through text-zinc-600" : "text-zinc-300"
               }`}
             >
               {task.description}
             </Link>
           ) : (
-            <span
-              className={`text-sm ${
-                task.completed ? "line-through text-zinc-500" : "text-zinc-200"
-              }`}
-            >
+            <span className={`text-[13px] ${
+              task.completed ? "line-through text-zinc-600" : "text-zinc-300"
+            }`}>
               {task.description}
             </span>
           )}
@@ -587,19 +609,8 @@ function TaskRow({ task }: { task: StudyTask }) {
 }
 
 function taskLink(task: StudyTask): string | null {
-  if (task.examId) {
-    const mode = task.type === "exam" ? "mock" : "practice";
-    return `/exam/${task.examId}?mode=${mode}`;
-  }
+  if (task.examId) return `/exam/${task.examId}?mode=practice`;
   if (task.type === "review") return "/review";
-  if (task.subject) return "/subjects";
-  return null;
-}
-
-function formatDateRange(start: string, end: string): string {
-  const s = new Date(start);
-  const e = new Date(end);
-  const fmt = (d: Date) =>
-    d.toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
-  return `${fmt(s)} – ${fmt(e)}`;
+  if (task.subject) return `/subjects?subject=${task.subject}`;
+  return "/subjects";
 }

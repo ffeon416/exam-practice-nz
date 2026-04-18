@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { markAnswer, markEnglishEssay } from "@/lib/claude";
 import { checkTier } from "@/lib/checkTier";
+import { rateLimit } from "@/lib/rateLimit";
 
 // Structured-feedback marker used when an English question is marked by the
 // multi-pass essay pipeline. The results page detects this prefix to render
@@ -9,6 +10,12 @@ import { checkTier } from "@/lib/checkTier";
 const ESSAY_FEEDBACK_PREFIX = "__ENGLISH_ESSAY__";
 
 export async function POST(request: NextRequest) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const { ok } = rateLimit(ip, 10, 60_000);
+  if (!ok) {
+    return NextResponse.json({ error: "Too many requests. Please wait a moment." }, { status: 429 });
+  }
+
   try {
     // ── Tier check for deep essay marking ──
     const { limits } = await checkTier();

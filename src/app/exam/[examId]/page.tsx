@@ -83,6 +83,12 @@ export default function ExamPage({
 
   const handleSubmit = useCallback(async () => {
     if (!exam || submitting) return;
+    const unanswered = exam.questions.filter(q => !(answers[q.id]?.trim())).length;
+    if (unanswered > 0) {
+      if (!confirm(`You have ${unanswered} unanswered question${unanswered === 1 ? '' : 's'}. Submit anyway?`)) {
+        return;
+      }
+    }
     setSubmitting(true);
 
     // Store answers in sessionStorage for the results page
@@ -101,7 +107,8 @@ export default function ExamPage({
   if (!exam) {
     if (examNotFound) {
       return (
-        <div className="max-w-md mx-auto px-5 py-20 text-center">
+        <div className="relative overflow-hidden max-w-md mx-auto px-5 py-20 text-center">
+          <div className="absolute inset-0 -z-10"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" /></div>
           <h1 className="text-2xl font-semibold text-white mb-3">Exam not found</h1>
           <p className="text-zinc-400 text-sm mb-2">
             We couldn&apos;t find this exam on this device.
@@ -119,7 +126,8 @@ export default function ExamPage({
       );
     }
     return (
-      <div className="max-w-md mx-auto px-5 py-20 text-center">
+      <div className="relative overflow-hidden max-w-md mx-auto px-5 py-20 text-center">
+        <div className="absolute inset-0 -z-10"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" /></div>
         <div className="inline-flex items-center justify-center w-12 h-12 mb-4">
           <div className="w-6 h-6 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
         </div>
@@ -132,10 +140,11 @@ export default function ExamPage({
   if (!started) {
     const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
     return (
-      <div className="max-w-2xl mx-auto px-4 py-12 sm:py-16">
-        <div className="bg-card border border-card-border rounded-lg p-5 sm:p-8 text-center">
+      <div className="relative overflow-hidden max-w-2xl mx-auto px-4 py-12 sm:py-16">
+        <div className="absolute inset-0 -z-10"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" /></div>
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 sm:p-8 text-center">
           <h1 className="text-xl sm:text-2xl font-bold text-white mb-2">{exam.title}</h1>
-          <p className="text-slate-400 mb-6">
+          <p className="text-zinc-400 mb-6">
             {exam.questions.length} questions &middot; {totalMarks} marks
             &middot; {exam.timeMinutes} minutes
           </p>
@@ -143,8 +152,8 @@ export default function ExamPage({
           <div
             className={`inline-block px-4 py-2 rounded text-sm font-medium mb-6 ${
               mode === "mock"
-                ? "bg-red-500/10 text-red-400 border border-red-500/30"
-                : "bg-blue-500/10 text-blue-400 border border-blue-500/30"
+                ? "bg-red-500/10 text-red-400 border border-red-500/[0.06]"
+                : "bg-indigo-500/10 text-indigo-400 border border-indigo-500/[0.06]"
             }`}
           >
             {mode === "mock"
@@ -152,7 +161,7 @@ export default function ExamPage({
               : "Practice Mode — Take your time, learn as you go"}
           </div>
 
-          <div className="space-y-2 text-sm text-slate-400 mb-8 text-left max-w-sm mx-auto">
+          <div className="space-y-2 text-sm text-zinc-400 mb-8 text-left max-w-sm mx-auto">
             {mode === "mock" ? (
               <>
                 <p>
@@ -173,7 +182,7 @@ export default function ExamPage({
 
           <button
             onClick={() => setStarted(true)}
-            className="bg-blue-600 text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-indigo-500 text-white text-lg font-semibold px-8 py-3 rounded-xl hover:bg-indigo-400 shadow-lg shadow-indigo-500/20 transition-colors"
           >
             Start Exam
           </button>
@@ -191,10 +200,10 @@ export default function ExamPage({
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
       {/* Header bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 pb-4 border-b border-slate-700">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
         <div className="min-w-0">
           <h1 className="text-base sm:text-lg font-semibold text-white truncate">{exam.title}</h1>
-          <p className="text-xs sm:text-sm text-slate-400">
+          <p className="text-xs sm:text-sm text-zinc-400">
             {answeredCount}/{exam.questions.length} answered
           </p>
         </div>
@@ -209,7 +218,7 @@ export default function ExamPage({
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="bg-green-600 text-white px-4 py-2.5 rounded text-sm font-medium hover:bg-green-700 transition-colors disabled:opacity-50 min-h-[44px]"
+            className="bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-emerald-400 transition-colors disabled:opacity-50 min-h-[44px]"
           >
             {submitting ? "Submitting..." : "Submit Exam"}
           </button>
@@ -224,10 +233,10 @@ export default function ExamPage({
             onClick={() => setCurrentQ(i)}
             className={`w-10 h-10 sm:w-9 sm:h-9 rounded text-xs font-medium transition-colors ${
               i === currentQ
-                ? "bg-blue-600 text-white"
+                ? "bg-indigo-500 text-white"
                 : answers[q.id]?.trim()
-                ? "bg-green-600/20 text-green-400 border border-green-600/30"
-                : "bg-slate-800 text-slate-400 hover:bg-slate-700"
+                ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                : "bg-white/[0.04] text-zinc-500 hover:bg-white/[0.08]"
             }`}
           >
             {i + 1}
@@ -236,14 +245,14 @@ export default function ExamPage({
       </div>
 
       {/* Current question */}
-      <div className="bg-card border border-card-border rounded-lg p-4 sm:p-6">
+      <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6">
         <div className="flex items-start justify-between mb-4">
-          <span className="text-sm font-medium text-blue-400">
+          <span className="text-sm font-medium text-indigo-400">
             Question {question.number}
           </span>
           <div className="flex items-center gap-2">
             <span
-              className={`text-xs px-2 py-0.5 rounded ${
+              className={`text-xs px-2 py-0.5 rounded-full ${
                 question.gradeLevel === "excellence"
                   ? "bg-yellow-500/10 text-yellow-400"
                   : question.gradeLevel === "merit"
@@ -254,7 +263,7 @@ export default function ExamPage({
               {question.gradeLevel.charAt(0).toUpperCase() +
                 question.gradeLevel.slice(1)}
             </span>
-            <span className="text-xs text-slate-400">
+            <span className="text-xs text-zinc-400">
               {question.marks} mark{question.marks !== 1 ? "s" : ""}
             </span>
           </div>
@@ -265,7 +274,7 @@ export default function ExamPage({
 
         {/* Diagram image */}
         {question.image && (
-          <div className="mb-4 rounded-lg overflow-hidden border border-slate-700 bg-white p-2">
+          <div className="mb-4 rounded-lg overflow-hidden border border-white/[0.06] bg-white p-2">
             <img
               src={question.image}
               alt={`Diagram for Question ${question.number}`}
@@ -280,7 +289,7 @@ export default function ExamPage({
               question.image ? null : (
                 <div
                   key={i}
-                  className="bg-slate-800/60 border border-slate-700 rounded px-4 py-3 mb-3 text-sm text-slate-400 italic"
+                  className="bg-white/[0.04] border border-white/[0.08] rounded px-4 py-3 mb-3 text-sm text-zinc-400 italic"
                 >
                   {part.slice(1, -1)}
                 </div>
@@ -302,7 +311,7 @@ export default function ExamPage({
         {/* Answer input */}
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="block text-sm text-slate-400">
+            <label className="block text-sm text-zinc-400">
               Your answer:
             </label>
             {mode === "practice" && (
@@ -379,7 +388,7 @@ export default function ExamPage({
               {/* Working out box (1 mark) */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Working out <span className="text-zinc-600 normal-case font-normal">(1 mark)</span>
+                  Working out <span className="text-zinc-600 normal-case font-normal">(show your method)</span>
                 </label>
                 <textarea
                   value={answers[`${question.id}_working`] ?? ""}
@@ -391,14 +400,14 @@ export default function ExamPage({
                   }
                   placeholder="Show your working here..."
                   rows={question.answerType === "working" ? 6 : 4}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 resize-y text-sm"
+                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
                 />
               </div>
 
               {/* Final answer box (1 mark) */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Final answer <span className="text-zinc-600 normal-case font-normal">(1 mark)</span>
+                  Final answer <span className="text-zinc-600 normal-case font-normal">({question.marks} {question.marks === 1 ? "mark" : "marks"})</span>
                 </label>
                 <textarea
                   value={answers[question.id] ?? ""}
@@ -410,7 +419,7 @@ export default function ExamPage({
                   }
                   placeholder="Your final answer..."
                   rows={2}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-blue-500 resize-y text-sm"
+                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
                 />
               </div>
             </div>
@@ -423,11 +432,11 @@ export default function ExamPage({
         <button
           onClick={() => setCurrentQ((q) => Math.max(0, q - 1))}
           disabled={currentQ === 0}
-          className="px-3 sm:px-4 py-2.5 rounded text-sm border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors disabled:opacity-30 min-h-[44px]"
+          className="px-3 sm:px-4 py-2.5 rounded-xl text-sm border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-30 min-h-[44px]"
         >
           Previous
         </button>
-        <span className="text-[11px] sm:text-sm text-slate-400 text-center">
+        <span className="text-[11px] sm:text-sm text-zinc-400 text-center">
           <span className="block sm:inline">{currentQ + 1} of {exam.questions.length}</span>
           <span className="hidden sm:inline"> &middot; </span>
           <span className="block sm:inline">{totalMarks} marks total</span>
@@ -436,7 +445,7 @@ export default function ExamPage({
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="px-3 sm:px-4 py-2.5 rounded text-sm bg-green-600 text-white hover:bg-green-700 transition-colors disabled:opacity-50 min-h-[44px]"
+            className="px-3 sm:px-4 py-2.5 rounded-xl text-sm bg-emerald-500 text-white hover:bg-emerald-400 transition-colors disabled:opacity-50 min-h-[44px]"
           >
             {submitting ? "Submitting..." : "Submit"}
           </button>
@@ -445,7 +454,7 @@ export default function ExamPage({
             onClick={() =>
               setCurrentQ((q) => Math.min(exam.questions.length - 1, q + 1))
             }
-            className="px-3 sm:px-4 py-2.5 rounded text-sm bg-blue-600 text-white hover:bg-blue-700 transition-colors min-h-[44px]"
+            className="px-3 sm:px-4 py-2.5 rounded-xl text-sm bg-indigo-500 text-white hover:bg-indigo-400 transition-colors min-h-[44px]"
           >
             Next
           </button>

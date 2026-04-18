@@ -216,57 +216,64 @@ function buildWeekTasks(
 ): StudyTask[] {
   const tasks: StudyTask[] = [];
   let taskIdx = 0;
-
   const newId = (kind: string) => `w${weekNumber}-${kind}-${taskIdx++}`;
+  const level = yearLevelToNceaLevel(yearLevel);
+  const levelLabel = level === 0 ? `Year ${yearLevel}` : `Level ${level}`;
 
   for (const subject of weekSubjects) {
-    const examsInSubject = examsForSubject(subject, yearLevel);
-    if (examsInSubject.length === 0) {
+    const label = subjectLabel(subject);
+    const exams = examsForSubject(subject, yearLevel);
+
+    // Primary task: a practice exam — link to a catalog paper if available,
+    // otherwise link to the AI exam builder.
+    if (exams.length > 0) {
+      const paper = exams[weekIndex % exams.length];
+      tasks.push({
+        id: newId("exam"),
+        description: `${label} ${levelLabel} — complete a practice exam`,
+        type: "exam",
+        subject,
+        examId: paper.id,
+        completed: false,
+      });
+    } else {
+      tasks.push({
+        id: newId("exam"),
+        description: `${label} ${levelLabel} — generate a practice exam`,
+        type: "exam",
+        subject,
+        completed: false,
+      });
+    }
+
+    // Second task: targeted practice on a different paper or via the builder
+    if (exams.length > 1) {
+      const second = exams[(weekIndex + 1) % exams.length];
       tasks.push({
         id: newId("practice"),
-        description: `Practice ${subjectLabel(subject)} — open the exam catalogue`,
+        description: `${label} — practise a different topic area`,
+        type: "practice",
+        subject,
+        examId: second.id !== exams[weekIndex % exams.length].id ? second.id : undefined,
+        completed: false,
+      });
+    } else {
+      tasks.push({
+        id: newId("practice"),
+        description: `${label} — build a custom practice paper`,
         type: "practice",
         subject,
         completed: false,
       });
-      continue;
-    }
-
-    // Rotate through available papers so different weeks pick different ones.
-    const paper = examsInSubject[weekIndex % examsInSubject.length];
-    tasks.push({
-      id: newId("exam"),
-      description: `Complete ${paper.title} (${subjectLabel(subject)})`,
-      type: "exam",
-      subject,
-      examId: paper.id,
-      completed: false,
-    });
-
-    // Include a practice round for an additional paper if available.
-    if (examsInSubject.length > 1) {
-      const second = examsInSubject[(weekIndex + 1) % examsInSubject.length];
-      if (second.id !== paper.id) {
-        tasks.push({
-          id: newId("practice"),
-          description: `Practice questions from ${second.title}`,
-          type: "practice",
-          subject,
-          examId: second.id,
-          completed: false,
-        });
-      }
     }
   }
 
-  // Pull in a review task for a weak topic — earliest weeks target the
-  // weakest topics first, so by the mid-plan the student has churned
-  // through their worst areas.
+  // Review task — target weak topics first, then general review
   const weak = weakTopics[weekIndex % Math.max(weakTopics.length, 1)];
   if (weak) {
     tasks.push({
       id: newId("review"),
-      description: `Review weak topic: ${weak.label}`,
+      description: `Review: ${weak.label} (your weakest area)`,
       type: "review",
       topic: weak.topic,
       completed: false,
@@ -274,15 +281,12 @@ function buildWeekTasks(
   } else {
     tasks.push({
       id: newId("review"),
-      description: `Review notes & flashcards for ${weekSubjects
-        .map(subjectLabel)
-        .join(", ")}`,
+      description: `Review your marked answers from this week`,
       type: "review",
       completed: false,
     });
   }
 
-  // Cap the week at 5 tasks so it stays achievable.
   return tasks.slice(0, 5);
 }
 
@@ -294,35 +298,36 @@ function buildFinalWeekTasks(
   const tasks: StudyTask[] = [];
   let taskIdx = 0;
   const newId = (kind: string) => `w${weekNumber}-final-${kind}-${taskIdx++}`;
+  const level = yearLevelToNceaLevel(yearLevel);
+  const levelLabel = level === 0 ? `Year ${yearLevel}` : `Level ${level}`;
 
-  // Mock exam for each subject — pick the newest paper we have.
+  // One mock exam per subject
   for (const subject of subjects) {
-    const examsInSubject = examsForSubject(subject, yearLevel).slice().sort(
+    const label = subjectLabel(subject);
+    const exams = examsForSubject(subject, yearLevel).slice().sort(
       (a, b) => b.year - a.year
     );
-    const paper = examsInSubject[0];
-    if (paper) {
-      tasks.push({
-        id: newId("mock"),
-        description: `Mock exam: ${paper.title}`,
-        type: "exam",
-        subject,
-        examId: paper.id,
-        completed: false,
-      });
-    }
+    const paper = exams[0];
+    tasks.push({
+      id: newId("mock"),
+      description: `${label} ${levelLabel} — timed mock exam`,
+      type: "exam",
+      subject,
+      examId: paper?.id,
+      completed: false,
+    });
   }
 
   tasks.push({
     id: newId("light"),
-    description: "Light review — skim notes, no new material",
+    description: "Light review only — skim your notes, no new material",
     type: "review",
     completed: false,
   });
 
   tasks.push({
     id: newId("rest"),
-    description: "Rest the day before the exam — hydrate and sleep well",
+    description: "Rest the day before — eat well, hydrate, sleep early",
     type: "review",
     completed: false,
   });

@@ -16,9 +16,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Study Ace — Master NCEA Exams",
+  title: "StudyAce — Master NCEA Exams",
   description:
     "Unlimited NCEA practice exams with instant AI marking. Built for NZ students from Year 10 to Year 13.",
+  metadataBase: new URL("https://studyace.co.nz"),
+  openGraph: {
+    title: "StudyAce — Master NCEA Exams",
+    description:
+      "Unlimited NCEA practice exams with instant AI marking. Built for NZ students.",
+    siteName: "StudyAce",
+    locale: "en_NZ",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StudyAce — Master NCEA Exams",
+    description:
+      "Unlimited NCEA practice exams with instant AI marking. Built for NZ students.",
+  },
+  keywords: [
+    "NCEA",
+    "practice exams",
+    "NZ students",
+    "AI marking",
+    "study",
+    "Year 10",
+    "Year 11",
+    "Year 12",
+    "Year 13",
+    "NZQA",
+  ],
 };
 
 export default function RootLayout({

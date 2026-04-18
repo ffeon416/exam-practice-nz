@@ -17,8 +17,6 @@ import { getExam } from "@/data/exams";
 import { getTopicLabel } from "@/data/topics";
 import type { Question } from "@/lib/types";
 
-type Phase = "intro" | "session" | "done";
-
 interface EnrichedItem {
   review: ReviewItem;
   question: Question | null;
@@ -30,44 +28,26 @@ function enrich(review: ReviewItem): EnrichedItem {
   return { review, question };
 }
 
+type Phase = "home" | "session" | "done";
+
 export default function ReviewPage() {
   const { limits, loading: tierLoading } = useTier();
-  const [phase, setPhase] = useState<Phase>("intro");
-  // Snapshot taken when the session starts — we intentionally don't update
-  // this as the user grades items, because advancing `index` through a
-  // snapshot is what makes a session feel like a session rather than an
-  // ever-shrinking live list.
+  const [phase, setPhase] = useState<Phase>("home");
   const [sessionItems, setSessionItems] = useState<EnrichedItem[]>([]);
-
-  // Session state
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState("");
-  const [working, setWorking] = useState("");
   const [revealed, setRevealed] = useState(false);
-  const [sessionCount, setSessionCount] = useState({ right: 0, partial: 0, wrong: 0 });
+  const [results, setResults] = useState({ right: 0, partial: 0, wrong: 0 });
 
-  // Reactive access to the review store via useSyncExternalStore — this is
-  // the React-19-blessed pattern for reading external state (localStorage)
-  // without calling setState inside a useEffect body.
-  const version = useSyncExternalStore(
-    subscribeReviews,
-    getReviewsVersion,
-    getServerReviewsVersion
-  );
-
-  // Derived data — re-reads on every version bump (cheap, localStorage).
-  // `mounted` keeps the first client render empty (matching SSR) to avoid a
-  // hydration mismatch when the user already has reviews queued.
+  const version = useSyncExternalStore(subscribeReviews, getReviewsVersion, getServerReviewsVersion);
   const [mounted, setMounted] = useState(false);
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
-  void version; // keep this in scope so lint sees it's used
-  const stats = mounted
-    ? getReviewStats()
-    : { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
+
+  void version;
+  const stats = mounted ? getReviewStats() : { total: 0, due: 0, mastered: 0, learning: 0, new: 0 };
   const dueItems: EnrichedItem[] = mounted ? getDueReviews().map(enrich) : [];
 
-  // Next-due date for the intro + done screens.
   let nextDueDate: Date | null = null;
   if (mounted) {
     const nowIso = new Date().toISOString();
@@ -83,9 +63,8 @@ export default function ReviewPage() {
     setPhase("session");
     setIndex(0);
     setAnswer("");
-    setWorking("");
     setRevealed(false);
-    setSessionCount({ right: 0, partial: 0, wrong: 0 });
+    setResults({ right: 0, partial: 0, wrong: 0 });
   }
 
   function handleGrade(quality: 0 | 3 | 5) {
@@ -100,7 +79,7 @@ export default function ReviewPage() {
       quality
     );
 
-    // Fire-and-forget: sync updated review to database
+    // Sync to database
     {
       const r = current.review;
       const now = new Date();
@@ -146,7 +125,7 @@ export default function ReviewPage() {
       }).catch(() => {});
     }
 
-    setSessionCount((c) => ({
+    setResults((c) => ({
       right: c.right + (quality === 5 ? 1 : 0),
       partial: c.partial + (quality === 3 ? 1 : 0),
       wrong: c.wrong + (quality === 0 ? 1 : 0),
@@ -155,452 +134,417 @@ export default function ReviewPage() {
     if (index + 1 < sessionItems.length) {
       setIndex(index + 1);
       setAnswer("");
-      setWorking("");
       setRevealed(false);
     } else {
       setPhase("done");
     }
   }
 
-  // ── UPGRADE GATE ──
+  // ── Upgrade gate ──
   if (!tierLoading && !limits.spacedRepetition) {
     return (
-      <div className="max-w-md mx-auto px-5 py-16 text-center">
-        <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
-          <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-          </svg>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
-        <h1 className="text-[22px] font-semibold text-white mb-2 tracking-tight">
-          Spaced Repetition
-        </h1>
-        <p className="text-zinc-400 text-[14px] mb-6">
-          Spaced review automatically resurfaces questions you got wrong at increasing intervals until you master them. Upgrade to Student or Pro to unlock this feature.
-        </p>
-        <Link
-          href="/pricing"
-          className="inline-block bg-indigo-500 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[14px]"
-        >
-          View plans
-        </Link>
-        <div className="mt-4">
-          <Link href="/dashboard" className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors">
-            Back to dashboard
+        <div className="max-w-md mx-auto px-5 pt-16 pb-20 text-center">
+          <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
+            <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+          </div>
+          <h1 className="text-[24px] font-bold text-white mb-3 tracking-tight">Review</h1>
+          <p className="text-zinc-400 text-[14px] mb-6 max-w-sm mx-auto leading-relaxed">
+            Questions you get wrong come back automatically until you master them.
+            Upgrade to unlock this feature.
+          </p>
+          <Link
+            href="/pricing"
+            className="inline-block bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-400 transition-all text-[14px]"
+          >
+            See plans
           </Link>
         </div>
       </div>
     );
   }
 
-  // ── INTRO / DASHBOARD VIEW ──
-  if (phase === "intro") {
+  // ── Home ──
+  if (phase === "home") {
     const dueCount = dueItems.length;
+    const totalReviewed = stats.mastered + stats.learning;
 
     return (
-      <div className="max-w-2xl mx-auto px-5 py-10">
-        <div className="mb-8">
-          <h1 className="text-[22px] font-semibold text-white mb-1 tracking-tight">
-            Spaced review
-          </h1>
-          <p className="text-zinc-500 text-[13px]">
-            Questions you got wrong come back at increasing intervals until you master them.
-          </p>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
 
-        {/* Due today hero */}
-        <div className="border border-zinc-800 rounded-lg bg-zinc-900/40 p-6 mb-5">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-1">
-                Due today
-              </p>
-              <p className="text-4xl font-semibold text-white">
-                {dueCount}
-                <span className="text-[13px] text-zinc-500 font-normal ml-2">
-                  {dueCount === 1 ? "question" : "questions"}
-                </span>
-              </p>
-            </div>
-            <div className="shrink-0">
-              {dueCount > 0 ? (
-                <span className="inline-flex items-center gap-1.5 text-[11px] text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                  Ready
-                </span>
-              ) : (
-                <span className="text-[11px] text-zinc-600 px-2.5 py-1">All clear</span>
-              )}
-            </div>
+        <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-14 pb-20">
+          <div className="mb-8">
+            <h1 className="text-[24px] sm:text-[32px] font-bold text-white tracking-tight mb-1">
+              Review
+            </h1>
+            <p className="text-zinc-500 text-[14px]">
+              Questions you got wrong come back until you nail them.
+            </p>
           </div>
 
+          {/* Main action */}
           {dueCount > 0 ? (
             <button
               onClick={startSession}
-              className="w-full py-3 rounded-lg bg-indigo-500 text-white font-medium text-[13px] hover:bg-indigo-400 transition-colors"
+              className="w-full group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-purple-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all text-left"
             >
-              Start review session
-            </button>
-          ) : (
-            <div className="text-center py-2">
-              <p className="text-zinc-500 text-[13px] mb-1">
-                Nothing due right now — nice work.
-              </p>
-              {nextDueDate && (
-                <p className="text-zinc-600 text-[11px]">
-                  Next review: {nextDueDate.toLocaleDateString(undefined, {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "short",
-                  })}
+              <div className="w-14 h-14 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0">
+                <span className="text-indigo-300 text-[22px] font-bold">{dueCount}</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-white font-semibold text-[16px]">
+                  {dueCount === 1 ? "1 question" : `${dueCount} questions`} ready
                 </p>
-              )}
+                <p className="text-zinc-400 text-[13px]">Tap to start your review session</p>
+              </div>
+              <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          ) : stats.total === 0 ? (
+            <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-8 text-center mb-6">
+              <div className="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+              </div>
+              <h2 className="text-white font-semibold text-[16px] mb-2">No questions yet</h2>
+              <p className="text-zinc-500 text-[13px] mb-5 max-w-xs mx-auto">
+                Take a practice exam first — any questions you get wrong will show up here for review.
+              </p>
+              <Link
+                href="/subjects"
+                className="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-5 py-2.5 rounded-lg transition-all text-[13px]"
+              >
+                Take an exam
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          ) : (
+            <div className="rounded-2xl bg-gradient-to-r from-emerald-500/[0.08] to-green-500/[0.04] border border-emerald-500/20 p-6 text-center mb-6">
+              <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-3">
+                <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <p className="text-white font-semibold text-[16px] mb-1">All caught up!</p>
+              <p className="text-zinc-400 text-[13px]">
+                {nextDueDate
+                  ? `Next review: ${nextDueDate.toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "short" })}`
+                  : "Come back later for more reviews."}
+              </p>
             </div>
           )}
-        </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-zinc-800/50 rounded-lg overflow-hidden mb-6">
-          <StatCell label="tracked" value={stats.total} />
-          <StatCell label="new" value={stats.new} accent="indigo" />
-          <StatCell label="learning" value={stats.learning} accent="amber" />
-          <StatCell label="mastered" value={stats.mastered} accent="emerald" />
-        </div>
+          {/* Progress */}
+          {stats.total > 0 && (
+            <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+              <h2 className="text-white font-semibold text-[14px] mb-4">Your progress</h2>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex-1 bg-white/[0.06] rounded-full h-3 overflow-hidden flex">
+                  {stats.mastered > 0 && (
+                    <div
+                      className="bg-emerald-500 h-full transition-all duration-700"
+                      style={{ width: `${(stats.mastered / stats.total) * 100}%` }}
+                    />
+                  )}
+                  {stats.learning > 0 && (
+                    <div
+                      className="bg-amber-500 h-full transition-all duration-700"
+                      style={{ width: `${(stats.learning / stats.total) * 100}%` }}
+                    />
+                  )}
+                  {stats.new > 0 && (
+                    <div
+                      className="bg-zinc-600 h-full transition-all duration-700"
+                      style={{ width: `${(stats.new / stats.total) * 100}%` }}
+                    />
+                  )}
+                </div>
+                <span className="text-zinc-500 text-[12px] shrink-0 tabular-nums">{stats.total}</span>
+              </div>
+              <div className="flex items-center gap-5 text-[12px]">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                  <span className="text-zinc-400">Mastered {stats.mastered}</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                  <span className="text-zinc-400">Learning {stats.learning}</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600" />
+                  <span className="text-zinc-400">New {stats.new}</span>
+                </span>
+              </div>
+            </div>
+          )}
 
-        {/* How it works */}
-        <div className="border border-zinc-800 rounded-lg p-5 mb-6">
-          <h2 className="text-[12px] font-medium text-white mb-3">How spaced review works</h2>
-          <ol className="space-y-2 text-[12px] text-zinc-400 leading-relaxed">
-            <li className="flex gap-2.5">
-              <span className="text-indigo-400/80 font-mono w-3 shrink-0">1</span>
-              <span>Finish an exam — wrong answers get added automatically.</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span className="text-indigo-400/80 font-mono w-3 shrink-0">2</span>
-              <span>Come back each day and work through what&rsquo;s due.</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span className="text-indigo-400/80 font-mono w-3 shrink-0">3</span>
-              <span>
-                Get it right, and the interval grows: 1&nbsp;day → 3&nbsp;days →
-                1&nbsp;week → 2&nbsp;weeks → &hellip; until you own it.
-              </span>
-            </li>
-          </ol>
-        </div>
-
-        <div className="text-center">
-          <Link
-            href="/dashboard"
-            className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors"
-          >
-            &larr; Back to dashboard
-          </Link>
+          {/* How it works */}
+          {stats.total === 0 && (
+            <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+              <h2 className="text-white font-semibold text-[14px] mb-3">How it works</h2>
+              <div className="space-y-3 text-[13px] text-zinc-400">
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</div>
+                  <p>Take a practice exam — wrong answers get added here automatically</p>
+                </div>
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</div>
+                  <p>Come back and review what&apos;s due — try the question again</p>
+                </div>
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</div>
+                  <p>Get it right and it comes back later. Get it wrong and it comes back sooner. Until you master it.</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
   }
 
-  // ── SESSION VIEW ──
+  // ── Session ──
   if (phase === "session") {
     const current = sessionItems[index];
-    if (!current) {
-      return (
-        <div className="max-w-2xl mx-auto px-5 py-16 text-center text-zinc-500 text-[13px]">
-          No review item loaded.
-        </div>
-      );
-    }
+    if (!current) return null;
 
     const { review, question } = current;
     const correctAnswer = question?.expectedAnswer ?? "(See marking guide)";
     const markingGuide = question?.markingGuide ?? "";
     const topicLabels = review.topics.map((t) => getTopicLabel(t));
+    const progress = ((index) / sessionItems.length) * 100;
 
     return (
-      <div className="max-w-2xl mx-auto px-5 py-6">
-        {/* Top bar */}
-        <div className="flex items-center justify-between mb-4">
-          <button
-            onClick={() => setPhase("intro")}
-            className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors"
-          >
-            &larr; Exit
-          </button>
-          <span className="text-[12px] text-zinc-500">
-            {index + 1} of {sessionItems.length}
-          </span>
-          <span className="text-[11px] text-zinc-600">
-            {review.repetitions === 0
-              ? "new"
-              : review.repetitions >= 5
-              ? "mastered"
-              : `rep ${review.repetitions}`}
-          </span>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
 
-        {/* Progress bar */}
-        <div className="w-full h-1 bg-zinc-800 rounded-full overflow-hidden mb-6">
-          <div
-            className="h-full bg-indigo-500 transition-all duration-300"
-            style={{ width: `${(index / sessionItems.length) * 100}%` }}
-          />
-        </div>
-
-        {/* Question card */}
-        <div className="border border-zinc-800 rounded-lg mb-4">
-          <div className="px-4 py-3 border-b border-zinc-800/50 flex items-center justify-between">
-            <span className="text-[12px] font-medium text-white">Question</span>
-            <div className="flex gap-1.5 flex-wrap justify-end">
-              {topicLabels.slice(0, 3).map((t) => (
-                <span
-                  key={t}
-                  className="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/10 text-indigo-300/80 border border-indigo-500/15"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+        <div className="max-w-xl mx-auto px-5 pt-6 pb-20">
+          {/* Top bar */}
+          <div className="flex items-center justify-between mb-3">
+            <button
+              onClick={() => setPhase("home")}
+              className="text-[12px] text-zinc-600 hover:text-zinc-300 transition-colors"
+            >
+              Exit
+            </button>
+            <span className="text-[13px] text-zinc-400 font-medium">
+              {index + 1} / {sessionItems.length}
+            </span>
+            <div className="w-10" /> {/* spacer */}
           </div>
-          <div className="px-4 py-4">
+
+          {/* Progress bar */}
+          <div className="w-full h-1.5 bg-white/[0.06] rounded-full overflow-hidden mb-8">
+            <div
+              className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+
+          {/* Topic tags */}
+          <div className="flex gap-1.5 flex-wrap mb-3">
+            {topicLabels.slice(0, 3).map((t) => (
+              <span
+                key={t}
+                className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300/80 border border-indigo-500/15"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          {/* Question */}
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-5">
             {question?.image && (
-              <div className="rounded-lg overflow-hidden border border-zinc-800 bg-white p-2 mb-4">
+              <div className="rounded-xl overflow-hidden border border-white/[0.06] bg-white p-2 mb-4">
                 <img
                   src={question.image}
                   alt="Question diagram"
-                  className="max-w-full h-auto mx-auto max-h-[400px] object-contain"
+                  className="max-w-full h-auto mx-auto max-h-[300px] object-contain"
                 />
               </div>
             )}
-            <p className="text-zinc-300 text-[13px] whitespace-pre-wrap leading-relaxed">
+            <p className="text-zinc-200 text-[14px] whitespace-pre-wrap leading-relaxed">
               {review.questionText.replace(/\[Diagram:[^\]]+\]/g, "").trim()}
             </p>
           </div>
-        </div>
 
-        {/* Working + answer input */}
-        {!revealed && (
-          <>
-            <div className="border border-zinc-800 rounded-lg p-4 mb-3">
-              <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-2">
-                Your working
-              </p>
-              <textarea
-                value={working}
-                onChange={(e) => setWorking(e.target.value)}
-                placeholder="Work through the problem step by step..."
-                rows={5}
-                className="w-full bg-transparent border border-zinc-800 rounded-md px-3 py-2 text-white text-[13px] placeholder-zinc-700 focus:outline-none focus:border-zinc-600 resize-y"
-              />
-            </div>
-            <div className="border border-zinc-800 rounded-lg p-4 mb-4">
-              <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-2">
-                Your final answer
-              </p>
+          {/* Answer input */}
+          {!revealed && (
+            <>
               <textarea
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
-                placeholder="Your answer..."
-                rows={2}
-                className="w-full bg-transparent border border-zinc-800 rounded-md px-3 py-2 text-white text-[13px] placeholder-zinc-700 focus:outline-none focus:border-zinc-600 resize-y"
+                placeholder="Type your answer..."
+                rows={4}
+                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-[14px] placeholder-zinc-600 focus:border-indigo-500 focus:outline-none transition-colors resize-y mb-4"
               />
-            </div>
-            <button
-              onClick={() => setRevealed(true)}
-              className="w-full py-3 rounded-lg bg-indigo-500 text-white font-medium text-[13px] hover:bg-indigo-400 transition-colors"
-            >
-              Check answer
-            </button>
-          </>
-        )}
-
-        {/* Revealed answer + self-grade */}
-        {revealed && (
-          <>
-            {working && (
-              <div className="border border-zinc-800 rounded-lg p-4 mb-3">
-                <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-2">
-                  Your working
-                </p>
-                <p className="text-zinc-300 text-[13px] whitespace-pre-wrap leading-relaxed">
-                  {working}
-                </p>
-              </div>
-            )}
-            {answer && (
-              <div className="border border-zinc-800 rounded-lg p-4 mb-3">
-                <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-2">
-                  Your answer
-                </p>
-                <p className="text-zinc-300 text-[13px] whitespace-pre-wrap leading-relaxed">
-                  {answer}
-                </p>
-              </div>
-            )}
-
-            <div className="border border-emerald-800/40 bg-emerald-950/20 rounded-lg p-4 mb-3">
-              <p className="text-[11px] text-emerald-400 uppercase tracking-wide mb-2 font-semibold">
-                Correct answer
-              </p>
-              <p className="text-white text-[14px] whitespace-pre-wrap leading-relaxed font-semibold">
-                {correctAnswer}
-              </p>
-            </div>
-
-            {markingGuide && (
-              <div className="border border-zinc-800 rounded-lg p-4 mb-5">
-                <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-2">
-                  Marking guide
-                </p>
-                <p className="text-zinc-400 text-[12px] whitespace-pre-wrap leading-relaxed">
-                  {markingGuide}
-                </p>
-              </div>
-            )}
-
-            <p className="text-[11px] text-zinc-500 text-center mb-3">How did you do?</p>
-            <div className="grid grid-cols-3 gap-2">
               <button
-                onClick={() => handleGrade(0)}
-                className="py-3 rounded-lg border border-red-900/40 bg-red-950/20 text-red-300 text-[12px] font-medium hover:bg-red-950/40 transition-colors"
+                onClick={() => setRevealed(true)}
+                className="w-full py-3.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-[14px] transition-all"
               >
-                Got it wrong
-                <span className="block text-[10px] text-red-400/60 mt-0.5">
-                  back tomorrow
-                </span>
+                Show answer
               </button>
-              <button
-                onClick={() => handleGrade(3)}
-                className="py-3 rounded-lg border border-amber-900/40 bg-amber-950/20 text-amber-300 text-[12px] font-medium hover:bg-amber-950/40 transition-colors"
-              >
-                Partially correct
-                <span className="block text-[10px] text-amber-400/60 mt-0.5">
-                  short interval
-                </span>
-              </button>
-              <button
-                onClick={() => handleGrade(5)}
-                className="py-3 rounded-lg border border-emerald-900/40 bg-emerald-950/20 text-emerald-300 text-[12px] font-medium hover:bg-emerald-950/40 transition-colors"
-              >
-                Got it right
-                <span className="block text-[10px] text-emerald-400/60 mt-0.5">
-                  longer interval
-                </span>
-              </button>
-            </div>
-          </>
-        )}
+            </>
+          )}
+
+          {/* Revealed */}
+          {revealed && (
+            <>
+              {/* Student's answer */}
+              {answer.trim() && (
+                <div className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-4 mb-3">
+                  <p className="text-zinc-600 text-[11px] uppercase tracking-wider font-medium mb-1.5">You wrote</p>
+                  <p className="text-zinc-300 text-[13px] whitespace-pre-wrap">{answer}</p>
+                </div>
+              )}
+
+              {/* Correct answer */}
+              <div className="rounded-xl bg-emerald-500/[0.06] border border-emerald-500/20 p-4 mb-3">
+                <p className="text-emerald-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">Correct answer</p>
+                <p className="text-white text-[14px] whitespace-pre-wrap leading-relaxed">{correctAnswer}</p>
+              </div>
+
+              {/* Marking guide */}
+              {markingGuide && (
+                <details className="rounded-xl bg-white/[0.02] border border-white/[0.06] mb-5">
+                  <summary className="px-4 py-3 text-zinc-500 text-[12px] font-medium cursor-pointer hover:text-zinc-300 transition-colors">
+                    Marking guide
+                  </summary>
+                  <div className="px-4 pb-4">
+                    <p className="text-zinc-400 text-[12px] whitespace-pre-wrap leading-relaxed">{markingGuide}</p>
+                  </div>
+                </details>
+              )}
+
+              {/* Grade buttons */}
+              <p className="text-zinc-500 text-[13px] text-center mb-3">How did you go?</p>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  onClick={() => handleGrade(0)}
+                  className="py-4 rounded-xl bg-red-500/[0.08] border border-red-500/20 hover:bg-red-500/[0.15] transition-all text-center"
+                >
+                  <span className="text-red-400 text-[14px] font-semibold block">Wrong</span>
+                  <span className="text-red-400/50 text-[11px] block mt-0.5">See it again soon</span>
+                </button>
+                <button
+                  onClick={() => handleGrade(3)}
+                  className="py-4 rounded-xl bg-amber-500/[0.08] border border-amber-500/20 hover:bg-amber-500/[0.15] transition-all text-center"
+                >
+                  <span className="text-amber-400 text-[14px] font-semibold block">Close</span>
+                  <span className="text-amber-400/50 text-[11px] block mt-0.5">Almost had it</span>
+                </button>
+                <button
+                  onClick={() => handleGrade(5)}
+                  className="py-4 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 hover:bg-emerald-500/[0.15] transition-all text-center"
+                >
+                  <span className="text-emerald-400 text-[14px] font-semibold block">Nailed it</span>
+                  <span className="text-emerald-400/50 text-[11px] block mt-0.5">See it later</span>
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     );
   }
 
-  // ── DONE VIEW ──
+  // ── Done ──
+  const totalDone = results.right + results.partial + results.wrong;
+
   return (
-    <div className="max-w-2xl mx-auto px-5 py-16 text-center">
-      <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/20 mx-auto mb-5 flex items-center justify-center">
-        <span className="text-emerald-400 text-[22px]">&#10003;</span>
-      </div>
-      <h1 className="text-[22px] font-semibold text-white mb-2 tracking-tight">
-        Session complete
-      </h1>
-      <p className="text-zinc-500 text-[13px] mb-8">
-        You reviewed {sessionCount.right + sessionCount.partial + sessionCount.wrong}{" "}
-        {sessionCount.right + sessionCount.partial + sessionCount.wrong === 1
-          ? "question"
-          : "questions"}
-        .
-      </p>
-
-      <div className="grid grid-cols-3 gap-px bg-zinc-800/50 rounded-lg overflow-hidden mb-6">
-        <StatCell label="right" value={sessionCount.right} accent="emerald" />
-        <StatCell label="partial" value={sessionCount.partial} accent="amber" />
-        <StatCell label="wrong" value={sessionCount.wrong} accent="red" />
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <div className="border border-zinc-800 rounded-lg p-5 mb-6 text-left">
-        <p className="text-[11px] text-zinc-500 uppercase tracking-wide mb-3">
-          Your queue
+      <div className="max-w-xl mx-auto px-5 pt-16 pb-20 text-center">
+        {/* Celebration */}
+        <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
+          <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+
+        <h1 className="text-[28px] font-bold text-white tracking-tight mb-2">
+          {results.right === totalDone ? "Perfect session!" :
+           results.right >= totalDone * 0.7 ? "Great session!" :
+           "Session complete"}
+        </h1>
+        <p className="text-zinc-500 text-[14px] mb-8">
+          You reviewed {totalDone} {totalDone === 1 ? "question" : "questions"}
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-          <div>
-            <p className="text-lg font-semibold text-white">{stats.total}</p>
-            <p className="text-[10px] text-zinc-600 mt-0.5">tracked</p>
+
+        {/* Results */}
+        <div className="flex items-center justify-center gap-6 mb-8">
+          <div className="text-center">
+            <div className="text-[28px] font-bold text-emerald-400">{results.right}</div>
+            <div className="text-zinc-600 text-[11px] uppercase tracking-wider mt-0.5">Nailed it</div>
           </div>
-          <div>
-            <p className="text-lg font-semibold text-indigo-300">{stats.new}</p>
-            <p className="text-[10px] text-zinc-600 mt-0.5">new</p>
+          <div className="w-px h-10 bg-white/[0.06]" />
+          <div className="text-center">
+            <div className="text-[28px] font-bold text-amber-400">{results.partial}</div>
+            <div className="text-zinc-600 text-[11px] uppercase tracking-wider mt-0.5">Close</div>
           </div>
-          <div>
-            <p className="text-lg font-semibold text-amber-300">{stats.learning}</p>
-            <p className="text-[10px] text-zinc-600 mt-0.5">learning</p>
-          </div>
-          <div>
-            <p className="text-lg font-semibold text-emerald-300">{stats.mastered}</p>
-            <p className="text-[10px] text-zinc-600 mt-0.5">mastered</p>
+          <div className="w-px h-10 bg-white/[0.06]" />
+          <div className="text-center">
+            <div className="text-[28px] font-bold text-red-400">{results.wrong}</div>
+            <div className="text-zinc-600 text-[11px] uppercase tracking-wider mt-0.5">Wrong</div>
           </div>
         </div>
-      </div>
 
-      {nextDueDate && (
-        <p className="text-zinc-500 text-[12px] mb-6">
-          Next review:{" "}
-          <span className="text-zinc-300">
-            {nextDueDate.toLocaleDateString(undefined, {
-              weekday: "long",
-              day: "numeric",
-              month: "short",
-            })}
-          </span>
-        </p>
-      )}
-
-      <div className="flex gap-2.5 justify-center">
-        {dueItems.length > 0 ? (
-          <button
-            onClick={startSession}
-            className="bg-indigo-500 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[13px]"
-          >
-            Keep going ({dueItems.length} left)
-          </button>
-        ) : (
-          <Link
-            href="/subjects"
-            className="bg-indigo-500 text-white font-medium px-5 py-2.5 rounded-lg hover:bg-indigo-400 transition-colors text-[13px]"
-          >
-            Take another exam
-          </Link>
+        {/* Next review */}
+        {nextDueDate && (
+          <p className="text-zinc-500 text-[13px] mb-8">
+            Next review:{" "}
+            <span className="text-zinc-300">
+              {nextDueDate.toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "short" })}
+            </span>
+          </p>
         )}
-        <Link
-          href="/dashboard"
-          className="text-zinc-400 font-medium px-5 py-2.5 rounded-lg border border-zinc-800 hover:border-zinc-600 hover:text-zinc-200 transition-colors text-[13px]"
-        >
-          Dashboard
-        </Link>
-      </div>
-    </div>
-  );
-}
 
-// ── Small stat cell component ──
-function StatCell({
-  label,
-  value,
-  accent = "zinc",
-}: {
-  label: string;
-  value: number;
-  accent?: "zinc" | "indigo" | "amber" | "emerald" | "red";
-}) {
-  const accentColors: Record<string, string> = {
-    zinc: "text-white",
-    indigo: "text-indigo-300",
-    amber: "text-amber-300",
-    emerald: "text-emerald-300",
-    red: "text-red-300",
-  };
-  return (
-    <div className="bg-[#141419] p-4 text-center">
-      <div className={`text-lg font-semibold ${accentColors[accent]}`}>{value}</div>
-      <div className="text-[11px] text-zinc-600 mt-0.5">{label}</div>
+        {/* Actions */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          {dueItems.length > 0 ? (
+            <button
+              onClick={startSession}
+              className="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px]"
+            >
+              Keep going ({dueItems.length} left)
+            </button>
+          ) : (
+            <Link
+              href="/subjects"
+              className="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px]"
+            >
+              Take another exam
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          )}
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center justify-center bg-white/[0.06] hover:bg-white/[0.12] text-white font-medium px-6 py-3 rounded-lg border border-white/[0.1] transition-all text-[14px]"
+          >
+            Dashboard
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

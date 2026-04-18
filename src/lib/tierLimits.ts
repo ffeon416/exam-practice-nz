@@ -8,9 +8,9 @@ export const TIER_LIMITS = {
     allSubjects: false,
     spacedRepetition: false,
     adaptiveDifficulty: false,
-    studyPlanner: false,
+    studyPlanner: true,
     deepEssayMarking: false,
-    mockExamMode: false,
+    mockExamMode: true,
   },
   student: {
     examsPerWeek: 20,
@@ -19,9 +19,9 @@ export const TIER_LIMITS = {
     allSubjects: true,
     spacedRepetition: true,
     adaptiveDifficulty: false,
-    studyPlanner: false,
+    studyPlanner: true,
     deepEssayMarking: false,
-    mockExamMode: false,
+    mockExamMode: true,
   },
   pro: {
     examsPerWeek: Infinity,
