@@ -207,48 +207,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FEATURES GRID */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
-        <div className="text-center mb-8 sm:mb-12">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2 sm:mb-3">What you get</p>
-          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-2 sm:mb-3">
+      {/* FEATURES GRID — desktop only, mobile gets the checklist above */}
+      <section className="hidden sm:block max-w-5xl mx-auto px-5 pb-24">
+        <div className="text-center mb-12">
+          <h2 className="text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
             Everything you need to ace it
           </h2>
-          <p className="text-zinc-500 text-[13px] sm:text-[15px] max-w-lg mx-auto">
+          <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
             Real exam questions. Instant AI marking. Personalised study plans.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>}
             title="Unlimited practice exams"
-            desc="Pick a subject and topic, AI builds you a fresh NCEA-style paper in seconds. Never run out of practice."
+            desc="Pick a subject and topic, AI builds you a fresh NCEA-style paper in seconds."
           />
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" /></svg>}
             title="Instant AI marking"
-            desc="Submit your answers and get marks, feedback, and worked solutions in seconds — not days."
+            desc="Get marks, feedback, and worked solutions in seconds — not days."
           />
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>}
-            title="AI tutor on every question"
-            desc="Stuck? Get Socratic-style hints that guide you to the answer instead of giving it away."
+            title="AI tutor"
+            desc="Stuck? Get hints that guide you to the answer instead of giving it away."
           />
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>}
             title="Adaptive difficulty"
-            desc="The site learns where you're strong and where you're weak, then serves the right questions for your level."
+            desc="Questions adjust to your level as you improve."
           />
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>}
             title="Spaced repetition"
-            desc="Wrong answers come back at the right time so you actually remember them — same system Anki and Duolingo use."
+            desc="Wrong answers come back until you master them."
           />
           <FeatureCard
             icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" /></svg>}
-            title="Personal study planner"
-            desc="Tell us your exam date and we'll build you a week-by-week plan focused on your weakest topics."
+            title="Study planner"
+            desc="Week-by-week plan focused on your weakest topics."
           />
         </div>
       </section>
@@ -281,8 +280,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SUBJECTS GRID */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
+      {/* SUBJECTS GRID — hidden on mobile */}
+      <section className="hidden sm:block max-w-4xl mx-auto px-5 pb-24">
         <div className="text-center mb-6 sm:mb-10">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2 sm:mb-3">19 subjects covered</p>
           <h2 className="text-[20px] sm:text-[32px] md:text-[36px] font-bold text-white tracking-tight">
@@ -309,13 +308,13 @@ export default function HomePage() {
 
       {/* EMAIL CAPTURE */}
       {!isSignedIn && (
-        <section className="max-w-3xl mx-auto px-5 pb-16">
-          <div className="rounded-2xl bg-gradient-to-br from-indigo-500/[0.08] to-purple-500/[0.04] border border-indigo-500/15 p-6 sm:p-8 text-center">
-            <h2 className="text-[20px] sm:text-[24px] font-bold text-white tracking-tight mb-2">
+        <section className="max-w-3xl mx-auto px-4 sm:px-5 pb-10 sm:pb-16">
+          <div className="rounded-2xl bg-gradient-to-br from-indigo-500/[0.08] to-purple-500/[0.04] border border-indigo-500/15 p-5 sm:p-8 text-center">
+            <h2 className="text-[18px] sm:text-[24px] font-bold text-white tracking-tight mb-2">
               Not ready to sign up yet?
             </h2>
-            <p className="text-zinc-400 text-[14px] mb-5 max-w-md mx-auto">
-              Get free exam tips and study advice straight to your inbox. No spam, unsubscribe anytime.
+            <p className="text-zinc-400 text-[13px] sm:text-[14px] mb-4 sm:mb-5 max-w-md mx-auto">
+              Get free exam tips straight to your inbox.
             </p>
             {emailSent ? (
               <p className="text-emerald-400 text-[14px] font-medium">You&apos;re in! Check your inbox.</p>
@@ -365,8 +364,8 @@ export default function HomePage() {
               <br />
               Be ready.
             </h2>
-            <p className="text-zinc-400 text-[15px] mb-8 max-w-md mx-auto">
-              Join the students using Study Ace to practise smarter, not harder.
+            <p className="text-zinc-400 text-[13px] sm:text-[15px] mb-6 sm:mb-8 max-w-md mx-auto">
+              Join the students using StudyAce to practise smarter, not harder.
             </p>
             <Link
               href={isSignedIn ? "/subjects" : "/sign-up"}
