@@ -416,7 +416,7 @@ export default function ResultsPage({
 
   if (loading) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-10 sm:pt-16 pb-16 sm:pb-20 text-center">
         <div className="flex flex-col items-center">
           <div className="relative inline-flex items-center justify-center w-16 h-16 mb-6">
             <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
@@ -439,7 +439,7 @@ export default function ResultsPage({
 
   if (error) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+      <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-10 sm:pt-16 pb-16 sm:pb-20 text-center">
         <p className="text-red-400 mb-4">{error}</p>
         <Link
           href="/subjects"
@@ -473,7 +473,7 @@ export default function ResultsPage({
   // ── SUMMARY VIEW ──
   if (view === "summary") {
     return (
-      <div className="relative max-w-3xl mx-auto px-4 py-8">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-8 pb-12 sm:pb-16">
         <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
         {/* Two circles side by side */}
         {(() => {
@@ -760,20 +760,20 @@ export default function ResultsPage({
               setCurrentQ(0);
               setView("review");
             }}
-            className="w-full py-3 rounded bg-indigo-500 text-white font-medium hover:bg-indigo-400 transition-colors"
+            className="w-full py-3.5 rounded-xl bg-indigo-500 text-white font-semibold text-[14px] hover:bg-indigo-400 transition-colors min-h-[48px]"
           >
             Review All Questions
           </button>
           <div className="flex gap-3">
             <Link
               href="/subjects"
-              className="flex-1 text-center py-3 rounded border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors"
+              className="flex-1 text-center py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors min-h-[44px] flex items-center justify-center"
             >
               Try Another Exam
             </Link>
             <Link
               href="/practice"
-              className="flex-1 text-center py-3 rounded bg-emerald-500 text-white hover:bg-emerald-400 transition-colors"
+              className="flex-1 text-center py-3 rounded-xl bg-emerald-500 text-white text-[14px] font-medium hover:bg-emerald-400 transition-colors min-h-[44px] flex items-center justify-center"
             >
               Practice Weak Areas
             </Link>
@@ -791,7 +791,7 @@ export default function ResultsPage({
 
   // ── REVIEW VIEW (one question at a time) ──
   return (
-    <div className="relative max-w-3xl mx-auto px-4 py-6">
+    <div className="relative max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-12 sm:pb-16">
       <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
       {/* Top bar */}
       <div className="flex items-center justify-between mb-4">
@@ -981,21 +981,21 @@ export default function ResultsPage({
         <button
           onClick={() => setCurrentQ((c) => Math.max(0, c - 1))}
           disabled={currentQ === 0}
-          className="flex-1 py-3 rounded border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:hover:bg-transparent"
+          className="flex-1 py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors disabled:opacity-30 disabled:hover:bg-transparent min-h-[48px]"
         >
           &larr; Previous
         </button>
         {currentQ < exam.questions.length - 1 ? (
           <button
             onClick={() => setCurrentQ((c) => c + 1)}
-            className="flex-1 py-3 rounded bg-indigo-500 text-white font-medium hover:bg-indigo-400 transition-colors"
+            className="flex-1 py-3 rounded-xl bg-indigo-500 text-white text-[14px] font-semibold hover:bg-indigo-400 transition-colors min-h-[48px]"
           >
             Next &rarr;
           </button>
         ) : (
           <button
             onClick={() => setView("summary")}
-            className="flex-1 py-3 rounded bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition-colors"
+            className="flex-1 py-3 rounded-xl bg-emerald-500 text-white text-[14px] font-semibold hover:bg-emerald-400 transition-colors min-h-[48px]"
           >
             Done — View Summary
           </button>

@@ -147,13 +147,13 @@ export default function ReviewPage() {
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
-        <div className="max-w-md mx-auto px-5 pt-16 pb-20 text-center">
+        <div className="max-w-md mx-auto px-5 pt-8 sm:pt-16 pb-16 sm:pb-20 text-center">
           <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
             <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
           </div>
-          <h1 className="text-[24px] font-bold text-white mb-3 tracking-tight">Review</h1>
+          <h1 className="text-[24px] font-extrabold text-white mb-3 tracking-tight">Review</h1>
           <p className="text-zinc-400 text-[14px] mb-6 max-w-sm mx-auto leading-relaxed">
             Questions you get wrong come back automatically until you master them.
             Upgrade to unlock this feature.
@@ -180,9 +180,9 @@ export default function ReviewPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
 
-        <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-14 pb-20">
-          <div className="mb-8">
-            <h1 className="text-[24px] sm:text-[32px] font-bold text-white tracking-tight mb-1">
+        <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-[24px] sm:text-[32px] font-extrabold text-white tracking-tight mb-1">
               Review
             </h1>
             <p className="text-zinc-500 text-[14px]">
@@ -436,21 +436,21 @@ export default function ReviewPage() {
               <div className="grid grid-cols-3 gap-2">
                 <button
                   onClick={() => handleGrade(0)}
-                  className="py-4 rounded-xl bg-red-500/[0.08] border border-red-500/20 hover:bg-red-500/[0.15] transition-all text-center"
+                  className="py-4 rounded-xl bg-red-500/[0.08] border border-red-500/20 hover:bg-red-500/[0.15] transition-all text-center min-h-[60px]"
                 >
                   <span className="text-red-400 text-[14px] font-semibold block">Wrong</span>
                   <span className="text-red-400/50 text-[11px] block mt-0.5">See it again soon</span>
                 </button>
                 <button
                   onClick={() => handleGrade(3)}
-                  className="py-4 rounded-xl bg-amber-500/[0.08] border border-amber-500/20 hover:bg-amber-500/[0.15] transition-all text-center"
+                  className="py-4 rounded-xl bg-amber-500/[0.08] border border-amber-500/20 hover:bg-amber-500/[0.15] transition-all text-center min-h-[60px]"
                 >
                   <span className="text-amber-400 text-[14px] font-semibold block">Close</span>
                   <span className="text-amber-400/50 text-[11px] block mt-0.5">Almost had it</span>
                 </button>
                 <button
                   onClick={() => handleGrade(5)}
-                  className="py-4 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 hover:bg-emerald-500/[0.15] transition-all text-center"
+                  className="py-4 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 hover:bg-emerald-500/[0.15] transition-all text-center min-h-[60px]"
                 >
                   <span className="text-emerald-400 text-[14px] font-semibold block">Nailed it</span>
                   <span className="text-emerald-400/50 text-[11px] block mt-0.5">See it later</span>
@@ -472,7 +472,7 @@ export default function ReviewPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-xl mx-auto px-5 pt-16 pb-20 text-center">
+      <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-16 pb-16 sm:pb-20 text-center">
         {/* Celebration */}
         <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
           <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -480,7 +480,7 @@ export default function ReviewPage() {
           </svg>
         </div>
 
-        <h1 className="text-[28px] font-bold text-white tracking-tight mb-2">
+        <h1 className="text-[24px] sm:text-[28px] font-extrabold text-white tracking-tight mb-2">
           {results.right === totalDone ? "Perfect session!" :
            results.right >= totalDone * 0.7 ? "Great session!" :
            "Session complete"}

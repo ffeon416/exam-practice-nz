@@ -48,9 +48,9 @@ export default function ContactPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <section className="max-w-2xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
+      <section className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-6">
             <svg
               className="w-3.5 h-3.5 text-indigo-400"
@@ -67,7 +67,7 @@ export default function ContactPage() {
             </svg>
             Get in touch
           </div>
-          <h1 className="text-[28px] sm:text-[40px] md:text-[48px] font-bold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-[24px] sm:text-[40px] md:text-[48px] font-extrabold text-white tracking-tight leading-tight mb-3 sm:mb-4">
             Contact us
           </h1>
           <p className="text-zinc-400 text-[15px] sm:text-[17px] max-w-lg mx-auto leading-relaxed">
@@ -77,7 +77,7 @@ export default function ContactPage() {
         </div>
 
         {/* Form card */}
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 sm:p-8">
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-8">
           {formState === "success" ? (
             <div className="rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mb-4">
@@ -199,7 +199,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={formState === "sending"}
-                className="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold py-3 rounded-lg transition-all text-[14px] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold py-3 rounded-lg transition-all text-[14px] disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
               >
                 {formState === "sending" ? "Sending..." : "Send message"}
               </button>

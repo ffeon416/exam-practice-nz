@@ -237,9 +237,9 @@ export default function PracticePage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
 
-        <div className="max-w-xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
-          <div className="text-center mb-10">
-            <h1 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight mb-2">
+        <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
+          <div className="text-center mb-8 sm:mb-10">
+            <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-2">
               Fix your weak spots
             </h1>
             <p className="text-zinc-400 text-[15px] max-w-md mx-auto">
@@ -249,7 +249,7 @@ export default function PracticePage() {
           </div>
 
           {/* How it works */}
-          <div className="grid grid-cols-3 gap-3 mb-10">
+          <div className="grid grid-cols-3 gap-3 mb-6 sm:mb-10">
             <div className="text-center">
               <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">1</div>
               <p className="text-zinc-500 text-[11px]">Pick a topic</p>
@@ -264,7 +264,7 @@ export default function PracticePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6">
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6">
             {/* Year level */}
             <label className="block text-zinc-400 text-[13px] font-medium mb-2">Year level</label>
             <div className="grid grid-cols-4 gap-2 mb-6">
@@ -358,7 +358,7 @@ export default function PracticePage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
         </div>
 
-        <div className="max-w-md mx-auto px-5 pt-24 pb-20 text-center">
+        <div className="max-w-md mx-auto px-5 pt-16 sm:pt-24 pb-16 sm:pb-20 text-center">
           <div className="relative inline-flex items-center justify-center w-16 h-16 mb-6">
             <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
             <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-2xl shadow-indigo-500/30">
@@ -367,7 +367,7 @@ export default function PracticePage() {
               </svg>
             </div>
           </div>
-          <h2 className="text-[20px] font-bold text-white mb-2">Building your lesson...</h2>
+          <h2 className="text-[20px] font-extrabold text-white mb-2">Building your lesson...</h2>
           <p className="text-zinc-400 text-[14px] mb-6 min-h-[20px]">
             {LOADING_TIPS[loadingTip]}
           </p>

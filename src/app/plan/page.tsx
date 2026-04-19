@@ -158,10 +158,10 @@ function PlanSetup() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
+      <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Explainer */}
-        <div className="text-center mb-10">
-          <h1 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight mb-3">
+        <div className="text-center mb-8 sm:mb-10">
+          <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-3">
             Exam countdown
           </h1>
           <p className="text-zinc-400 text-[15px] max-w-md mx-auto leading-relaxed">
@@ -172,7 +172,7 @@ function PlanSetup() {
         </div>
 
         {/* How it works */}
-        <div className="grid grid-cols-3 gap-3 mb-10">
+        <div className="grid grid-cols-3 gap-3 mb-6 sm:mb-10">
           <div className="text-center">
             <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">1</div>
             <p className="text-zinc-500 text-[11px]">Set your exam date</p>
@@ -190,7 +190,7 @@ function PlanSetup() {
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 space-y-6"
+          className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 space-y-5 sm:space-y-6"
         >
           {/* Exam date */}
           <div>
@@ -324,13 +324,13 @@ function PlanView({ plan }: { plan: StudyPlan }) {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-2xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
+      <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Countdown header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-5">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-4 sm:mb-5">
             {plan.subjects.map(subjectLabel).join(", ")}
           </div>
-          <h1 className="text-[36px] sm:text-[48px] font-bold text-white tracking-tight mb-1">
+          <h1 className="text-[32px] sm:text-[48px] font-extrabold text-white tracking-tight mb-1">
             {daysLeft === 0 ? (
               "Exam day"
             ) : (

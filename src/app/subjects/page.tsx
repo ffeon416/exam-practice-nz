@@ -194,7 +194,7 @@ export default function SubjectsPage() {
   // ── Loading screen ──
   if (loading) {
     return (
-      <div className="max-w-md mx-auto px-5 py-24">
+      <div className="max-w-md mx-auto px-5 pt-16 sm:pt-24 pb-16 sm:pb-20">
         <div className="text-center">
           <div className="relative inline-flex items-center justify-center w-20 h-20 mb-8">
             <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
@@ -204,7 +204,7 @@ export default function SubjectsPage() {
               </svg>
             </div>
           </div>
-          <h1 className="text-[24px] font-bold text-white mb-3">Building your exam…</h1>
+          <h1 className="text-[24px] font-extrabold text-white mb-3">Building your exam…</h1>
           <p className="text-zinc-400 text-[14px] mb-8 min-h-[20px]">
             {LOADING_MESSAGES[loadingMsgIdx]}
           </p>
@@ -229,16 +229,16 @@ export default function SubjectsPage() {
 
   // ── Main form ──
   return (
-    <div className="max-w-lg mx-auto px-5 py-12">
-      <h1 className="text-[28px] sm:text-[34px] font-bold text-white tracking-tight text-center mb-2">
+    <div className="max-w-lg mx-auto px-5 pt-6 sm:pt-12 pb-16 sm:pb-20">
+      <h1 className="text-[24px] sm:text-[34px] font-extrabold text-white tracking-tight text-center mb-2">
         Practise an exam
       </h1>
-      <p className="text-zinc-500 text-center text-[14px] mb-12">
+      <p className="text-zinc-500 text-center text-[14px] mb-8 sm:mb-12">
         Tell us what to test you on. We&apos;ll build a fresh paper in seconds.
       </p>
 
       {/* Year level */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           Year level
         </label>
@@ -260,7 +260,7 @@ export default function SubjectsPage() {
       </div>
 
       {/* Subject */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           Subject
         </label>
@@ -288,7 +288,7 @@ export default function SubjectsPage() {
       </div>
 
       {/* Topic (optional) */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <label htmlFor="topic-input" className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           Specific topic? <span className="text-zinc-600 normal-case font-normal tracking-normal">(optional)</span>
         </label>
@@ -304,7 +304,7 @@ export default function SubjectsPage() {
       </div>
 
       {/* Question count */}
-      <div className="mb-10">
+      <div className="mb-6 sm:mb-10">
         <label htmlFor="qcount-slider" className="flex items-center justify-between text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           <span>Length</span>
           <span className="text-indigo-400 tabular-nums normal-case tracking-normal">{questionCount} questions</span>

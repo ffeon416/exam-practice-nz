@@ -97,17 +97,17 @@ export default function ProfilePage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-2xl mx-auto px-5 pt-12 sm:pt-16 pb-20">
+      <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Header */}
-        <h1 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight mb-1">
+        <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-1">
           My account
         </h1>
-        <p className="text-zinc-500 text-[14px] mb-10">
+        <p className="text-zinc-500 text-[14px] mb-6 sm:mb-10">
           Manage your profile, plan, and preferences.
         </p>
 
         {/* Profile info */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 mb-4">
+        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
           <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
             Profile
           </h2>
@@ -234,7 +234,7 @@ export default function ProfilePage() {
         </section>
 
         {/* Plan */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 mb-4">
+        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
           <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
             Plan
           </h2>
@@ -293,7 +293,7 @@ export default function ProfilePage() {
         </section>
 
         {/* What's included */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 mb-4">
+        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
           <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
             What&apos;s included
           </h2>
@@ -317,7 +317,7 @@ export default function ProfilePage() {
         </section>
 
         {/* Quick links */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 mb-4">
+        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
           <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
             Quick links
           </h2>
@@ -333,7 +333,7 @@ export default function ProfilePage() {
         {/* Sign out */}
         <button
           onClick={handleSignOut}
-          className="w-full mt-2 py-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-zinc-400 hover:text-red-400 hover:border-red-500/20 hover:bg-red-500/[0.04] text-[14px] font-medium transition-all"
+          className="w-full mt-2 py-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-zinc-400 hover:text-red-400 hover:border-red-500/20 hover:bg-red-500/[0.04] text-[14px] font-medium transition-all min-h-[48px]"
         >
           Sign out
         </button>

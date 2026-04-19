@@ -140,34 +140,34 @@ export default function ExamPage({
   if (!started) {
     const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
     return (
-      <div className="relative overflow-hidden max-w-2xl mx-auto px-4 py-12 sm:py-16">
-        <div className="absolute inset-0 -z-10"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" /></div>
+      <div className="relative overflow-hidden max-w-2xl mx-auto px-5 pt-8 sm:pt-16 pb-16 sm:pb-20">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.1] blur-[120px] rounded-full" />
+          <div className="absolute top-[200px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
+        </div>
         <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 sm:p-8 text-center">
-          <h1 className="text-xl sm:text-2xl font-bold text-white mb-2">{exam.title}</h1>
-          <p className="text-zinc-400 mb-6">
-            {exam.questions.length} questions &middot; {totalMarks} marks
-            &middot; {exam.timeMinutes} minutes
-          </p>
-
-          <div
-            className={`inline-block px-4 py-2 rounded text-sm font-medium mb-6 ${
-              mode === "mock"
-                ? "bg-red-500/10 text-red-400 border border-red-500/[0.06]"
-                : "bg-indigo-500/10 text-indigo-400 border border-indigo-500/[0.06]"
-            }`}
-          >
-            {mode === "mock"
-              ? "Mock Exam — Timed, no hints"
-              : "Practice Mode — Take your time, learn as you go"}
+          <div className={`inline-block px-3 py-1.5 rounded-full text-[11px] font-semibold mb-4 ${
+            mode === "mock"
+              ? "bg-red-500/10 text-red-400 border border-red-500/20"
+              : "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+          }`}>
+            {mode === "mock" ? "Mock Exam" : "Practice Mode"}
           </div>
 
-          <div className="space-y-2 text-sm text-zinc-400 mb-8 text-left max-w-sm mx-auto">
+          <h1 className="text-[22px] sm:text-[28px] font-extrabold text-white mb-2 tracking-tight">{exam.title}</h1>
+
+          <div className="flex items-center justify-center gap-4 text-[13px] text-zinc-400 mb-6">
+            <span>{exam.questions.length} questions</span>
+            <span className="w-1 h-1 rounded-full bg-zinc-600" />
+            <span>{totalMarks} marks</span>
+            <span className="w-1 h-1 rounded-full bg-zinc-600" />
+            <span>{exam.timeMinutes} min</span>
+          </div>
+
+          <div className="space-y-2 text-[13px] text-zinc-400 mb-6 text-left max-w-sm mx-auto">
             {mode === "mock" ? (
               <>
-                <p>
-                  &bull; You have {exam.timeMinutes} minutes to complete this
-                  exam
-                </p>
+                <p>&bull; You have {exam.timeMinutes} minutes to complete this exam</p>
                 <p>&bull; No feedback until you submit</p>
                 <p>&bull; Simulates real exam conditions</p>
               </>
@@ -182,7 +182,7 @@ export default function ExamPage({
 
           <button
             onClick={() => setStarted(true)}
-            className="bg-indigo-500 text-white text-lg font-semibold px-8 py-3 rounded-xl hover:bg-indigo-400 shadow-lg shadow-indigo-500/20 transition-colors"
+            className="w-full sm:w-auto bg-indigo-500 text-white text-[15px] font-semibold px-8 py-3.5 rounded-xl hover:bg-indigo-400 shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02] min-h-[48px]"
           >
             Start Exam
           </button>
@@ -198,7 +198,7 @@ export default function ExamPage({
   ).length;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-16 sm:pb-20">
       {/* Header bar */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
         <div className="min-w-0">

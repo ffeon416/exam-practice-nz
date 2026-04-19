@@ -8,31 +8,31 @@ export default function NotFound() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full bg-indigo-500/[0.07] blur-[120px]" />
       </div>
 
-      <div className="max-w-md w-full text-center">
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] px-8 py-12">
+      <div className="max-w-md w-full text-center px-1">
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] px-6 sm:px-8 py-10 sm:py-12">
           {/* Large 404 */}
-          <h1 className="text-[96px] font-bold leading-none tracking-tight bg-gradient-to-b from-indigo-400 to-indigo-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-[72px] sm:text-[96px] font-extrabold leading-none tracking-tight bg-gradient-to-b from-indigo-400 to-indigo-600 bg-clip-text text-transparent mb-4">
             404
           </h1>
 
-          <h2 className="text-xl font-semibold text-white mb-2">
+          <h2 className="text-[18px] sm:text-xl font-extrabold text-white mb-2">
             Page not found
           </h2>
 
-          <p className="text-zinc-400 text-sm mb-10">
+          <p className="text-zinc-400 text-[13px] sm:text-sm mb-8 sm:mb-10">
             That page doesn&apos;t exist — let&apos;s get you back on track.
           </p>
 
           <div className="flex flex-col gap-3">
             <Link
               href="/"
-              className="w-full py-3 rounded-lg bg-indigo-500 text-white font-medium text-sm hover:bg-indigo-400 transition-colors"
+              className="w-full py-3 rounded-xl bg-indigo-500 text-white font-semibold text-[14px] hover:bg-indigo-400 transition-colors min-h-[48px] flex items-center justify-center"
             >
               Go home
             </Link>
             <Link
               href="/subjects"
-              className="w-full py-3 rounded-lg border border-white/[0.1] text-zinc-300 font-medium text-sm hover:bg-white/[0.04] transition-colors"
+              className="w-full py-3 rounded-xl border border-white/[0.1] text-zinc-300 font-semibold text-[14px] hover:bg-white/[0.04] transition-colors min-h-[48px] flex items-center justify-center"
             >
               Take an exam
             </Link>

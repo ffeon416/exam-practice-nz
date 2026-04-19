@@ -51,13 +51,13 @@ export default function SchoolsPage() {
       </div>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto px-5 pt-12 sm:pt-20 pb-16 sm:pb-24 text-center">
+      <section className="max-w-4xl mx-auto px-5 pt-6 sm:pt-20 pb-10 sm:pb-24 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           For teachers &amp; schools
         </div>
 
-        <h1 className="text-[32px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-5 sm:mb-6">
+        <h1 className="text-[28px] sm:text-[48px] md:text-[56px] font-extrabold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6">
           Bring StudyAce to
           <br />
           <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
@@ -90,10 +90,10 @@ export default function SchoolsPage() {
       </section>
 
       {/* BENEFITS GRID */}
-      <section className="max-w-5xl mx-auto px-5 pb-24">
-        <div className="text-center mb-12">
+      <section className="max-w-5xl mx-auto px-5 pb-12 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-12">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Why teachers love it</p>
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
+          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight mb-3">
             Built for the classroom
           </h2>
           <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
@@ -162,10 +162,10 @@ export default function SchoolsPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="max-w-4xl mx-auto px-5 pb-24">
-        <div className="text-center mb-12">
+      <section id="how-it-works" className="max-w-4xl mx-auto px-5 pb-12 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-12">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">How it works</p>
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
+          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight">
             Up and running in minutes
           </h2>
         </div>
@@ -190,7 +190,7 @@ export default function SchoolsPage() {
       </section>
 
       {/* STATS BAR */}
-      <section className="max-w-4xl mx-auto px-5 pb-24">
+      <section className="max-w-4xl mx-auto px-5 pb-10 sm:pb-24">
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-zinc-500">
           <div className="flex items-center gap-1.5">
             <span className="text-white font-semibold">19</span> subjects
@@ -208,10 +208,10 @@ export default function SchoolsPage() {
       </section>
 
       {/* SCHOOLS CTA */}
-      <section className="max-w-4xl mx-auto px-5 pb-24">
-        <div className="text-center mb-12">
+      <section className="max-w-4xl mx-auto px-5 pb-10 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-12">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Join us</p>
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight">
+          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight">
             Be an early adopter
           </h2>
         </div>
@@ -227,10 +227,10 @@ export default function SchoolsPage() {
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contact" className="max-w-2xl mx-auto px-5 pb-24">
-        <div className="text-center mb-10">
+      <section id="contact" className="max-w-2xl mx-auto px-5 pb-16 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-10">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Get started</p>
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-tight mb-3">
+          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight mb-3">
             Get started with your class
           </h2>
           <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
@@ -238,7 +238,7 @@ export default function SchoolsPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-6 sm:p-8">
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-8">
           {formState === "success" ? (
             <div className="rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mb-4">
@@ -374,7 +374,7 @@ function BenefitCard({
   desc: string;
 }) {
   return (
-    <div className="group rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
+    <div className="group rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
       <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 mb-4 group-hover:bg-indigo-500/15 transition-colors">
         {icon}
       </div>

@@ -121,13 +121,13 @@ export default function DemoPage() {
           <div className="absolute top-[300px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
         </div>
 
-        <section className="max-w-3xl mx-auto px-5 pt-16 sm:pt-28 pb-24 text-center">
+        <section className="max-w-3xl mx-auto px-5 pt-8 sm:pt-28 pb-16 sm:pb-24 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             No sign-up needed
           </div>
 
-          <h1 className="text-[32px] sm:text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-5 sm:mb-6">
+          <h1 className="text-[28px] sm:text-[48px] md:text-[56px] font-extrabold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6">
             See how AI marks
             <br />
             <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
@@ -177,14 +177,14 @@ export default function DemoPage() {
     const levelLabels = ["Year 11", "Year 11", "Year 11"];
 
     return (
-      <div className="max-w-3xl mx-auto px-5 pt-8 sm:pt-12 pb-24">
+      <div className="max-w-3xl mx-auto px-5 pt-4 sm:pt-12 pb-16 sm:pb-24">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
           <div>
             <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-1">
               {levelLabels[currentQ]} {subjectLabels[currentQ]}
             </p>
-            <h2 className="text-white font-bold text-[20px] sm:text-[24px]">
+            <h2 className="text-white font-extrabold text-[20px] sm:text-[24px]">
               Question {currentQ + 1} of 3
             </h2>
           </div>
@@ -203,7 +203,7 @@ export default function DemoPage() {
         </div>
 
         {/* Question card */}
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-5 sm:p-7 mb-6">
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4 sm:p-7 mb-4 sm:mb-6">
           {showPassage && passage ? (
             <>
               <p className="text-zinc-300 text-[14px] sm:text-[15px] leading-relaxed mb-4">
@@ -333,7 +333,7 @@ export default function DemoPage() {
   // ── MARKING ──
   if (step === "marking") {
     return (
-      <div className="max-w-lg mx-auto px-5 pt-24 sm:pt-32 pb-24 text-center">
+      <div className="max-w-lg mx-auto px-5 pt-16 sm:pt-32 pb-16 sm:pb-24 text-center">
         {/* Pulse animation */}
         <div className="relative w-16 h-16 mx-auto mb-8">
           <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
@@ -354,7 +354,7 @@ export default function DemoPage() {
           </div>
         </div>
 
-        <h2 className="text-white font-bold text-[22px] sm:text-[26px] mb-2">
+        <h2 className="text-white font-extrabold text-[22px] sm:text-[26px] mb-2">
           AI is marking your answers...
         </h2>
         <p className="text-zinc-500 text-[14px] mb-10">
@@ -405,13 +405,13 @@ export default function DemoPage() {
     const totalMax = results.reduce((s, r) => s + r.maxMarks, 0);
 
     return (
-      <div className="max-w-3xl mx-auto px-5 pt-8 sm:pt-12 pb-24">
+      <div className="max-w-3xl mx-auto px-5 pt-4 sm:pt-12 pb-16 sm:pb-24">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8 sm:mb-10">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2">
             Demo Results
           </p>
-          <h1 className="text-[28px] sm:text-[36px] font-bold text-white tracking-tight mb-3">
+          <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-3">
             Your results are in
           </h1>
           <p className="text-zinc-400 text-[15px]">
@@ -424,7 +424,7 @@ export default function DemoPage() {
         </div>
 
         {/* Result cards */}
-        <div className="space-y-4 mb-12">
+        <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
           {results.map((result, i) => {
             const q = demoQuestions[i];
             const isExpanded = expandedAnswer[i] ?? false;
@@ -538,11 +538,11 @@ export default function DemoPage() {
         </div>
 
         {/* CTA section */}
-        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-8 sm:p-12 text-center relative overflow-hidden">
+        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-5 sm:p-12 text-center relative overflow-hidden">
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
 
           <div className="relative">
-            <h2 className="text-[24px] sm:text-[32px] font-bold text-white tracking-tight mb-3">
+            <h2 className="text-[22px] sm:text-[32px] font-extrabold text-white tracking-tight mb-3">
               Like what you see?
             </h2>
             <p className="text-zinc-400 text-[14px] sm:text-[15px] mb-8 max-w-md mx-auto">

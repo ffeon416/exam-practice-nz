@@ -166,7 +166,7 @@ export default function DashboardPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-14 pb-20">
+      <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
         {/* Payment success */}
         {showPaymentSuccess && (
           <div className="mb-6 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 px-5 py-3 flex items-center justify-between">
@@ -183,7 +183,7 @@ export default function DashboardPage() {
 
         {/* Greeting */}
         <div className="mb-8">
-          <h1 className="text-[24px] sm:text-[32px] font-bold text-white tracking-tight mb-1">
+          <h1 className="text-[24px] sm:text-[32px] font-extrabold text-white tracking-tight mb-1">
             {getGreeting()}, {firstName}
           </h1>
           <p className="text-zinc-500 text-[14px]">
