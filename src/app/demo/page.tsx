@@ -115,7 +115,7 @@ export default function DemoPage() {
   // ── INTRO ──
   if (step === "intro") {
     return (
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden bg-[#06060a]">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
           <div className="absolute top-[300px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
@@ -140,29 +140,40 @@ export default function DemoPage() {
             explanations, and exam tips &mdash; in seconds.
           </p>
 
-          <button
-            onClick={() => setStep("answering")}
-            className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
-          >
-            Start Demo
-            <svg
-              className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
+          <div className="relative inline-block mb-6">
+            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 opacity-50 blur-md animate-pulse" />
+            <button
+              onClick={() => setStep("answering")}
+              className="relative group bg-white text-[#06060a] font-bold px-10 py-4 rounded-xl transition-all hover:scale-[1.02] shadow-2xl shadow-white/10 text-[16px] inline-flex items-center justify-center gap-2"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </button>
+              Start Demo
+              <svg
+                className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </button>
+          </div>
 
-          <p className="text-[12px] text-zinc-600 mt-6">
-            3 questions &middot; ~5 minutes &middot; Instant AI marking
-          </p>
+          <div className="flex items-center justify-center gap-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] text-zinc-400">
+              3 questions
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] text-zinc-400">
+              ~5 minutes
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] text-zinc-400">
+              Instant AI marking
+            </span>
+          </div>
         </section>
       </div>
     );

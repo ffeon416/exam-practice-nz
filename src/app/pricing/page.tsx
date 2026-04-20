@@ -163,10 +163,11 @@ export default function PricingPage() {
   }
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden bg-[#06060a]">
       {/* Background glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
+        <div className="absolute top-[400px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
       </div>
 
       {/* Header */}
@@ -231,15 +232,21 @@ export default function PricingPage() {
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl p-5 sm:p-7 transition-all ${
+                className={`relative rounded-2xl transition-all ${
                   plan.highlight
-                    ? "bg-gradient-to-b from-indigo-500/15 to-purple-500/5 border border-indigo-500/40 shadow-2xl shadow-indigo-500/10"
+                    ? "bg-gradient-to-b from-indigo-500/[0.02] to-purple-500/[0.02] shadow-2xl shadow-indigo-500/10"
                     : "bg-white/[0.02] border border-white/[0.08]"
                 }`}
               >
+                {plan.highlight && (
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 p-[1px]">
+                    <div className="w-full h-full rounded-2xl bg-[#06060a]" />
+                  </div>
+                )}
+                <div className={`relative ${plan.highlight ? "p-5 sm:p-7" : "p-5 sm:p-7"}`}>
                 {plan.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                    <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/30">
                       {plan.badge}
                     </span>
                   </div>
@@ -256,7 +263,7 @@ export default function PricingPage() {
 
                 {/* Plan name + tagline */}
                 <div className="mb-5">
-                  <h3 className="text-white font-bold text-[20px]">{plan.name}</h3>
+                  <h3 className="text-white font-extrabold text-[24px] sm:text-[20px]">{plan.name}</h3>
                   <p className="text-zinc-500 text-[13px] mt-1">{plan.tagline}</p>
                 </div>
 
@@ -285,10 +292,10 @@ export default function PricingPage() {
                   <button
                     onClick={cta.action}
                     disabled={cta.disabled}
-                    className={`block w-full text-center py-3 rounded-lg font-semibold text-[14px] mb-6 sm:mb-7 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] ${
+                    className={`block w-full text-center py-3 rounded-lg font-bold text-[14px] mb-6 sm:mb-7 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] ${
                       plan.highlight
-                        ? "bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/20"
-                        : "bg-white text-[#0a0a0f] hover:bg-zinc-100"
+                        ? "bg-white text-[#06060a] hover:bg-zinc-100 shadow-2xl shadow-white/10"
+                        : "bg-white text-[#06060a] hover:bg-zinc-100"
                     }`}
                   >
                     {cta.label}
@@ -322,6 +329,7 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
               </div>
             );
           })}

@@ -194,7 +194,7 @@ export default function SubjectsPage() {
   // ── Loading screen ──
   if (loading) {
     return (
-      <div className="max-w-md mx-auto px-5 pt-16 sm:pt-24 pb-16 sm:pb-20">
+      <div className="max-w-md mx-auto px-5 pt-16 sm:pt-24 pb-16 sm:pb-20 bg-[#06060a] min-h-screen">
         <div className="text-center">
           <div className="relative inline-flex items-center justify-center w-20 h-20 mb-8">
             <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
@@ -229,7 +229,11 @@ export default function SubjectsPage() {
 
   // ── Main form ──
   return (
-    <div className="max-w-lg mx-auto px-5 pt-6 sm:pt-12 pb-16 sm:pb-20">
+    <div className="relative max-w-lg mx-auto px-5 pt-6 sm:pt-12 pb-16 sm:pb-20 bg-[#06060a] min-h-screen">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.06] blur-[120px] rounded-full" />
+        <div className="absolute top-[300px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
+      </div>
       <h1 className="text-[24px] sm:text-[34px] font-extrabold text-white tracking-tight text-center mb-2">
         Practise an exam
       </h1>
@@ -249,7 +253,7 @@ export default function SubjectsPage() {
               onClick={() => { setYearLevel(yl.value); setSubject(null); }}
               className={`min-h-[44px] py-3 rounded-lg text-[13px] font-medium transition-all border ${
                 yearLevel === yl.value
-                  ? "bg-indigo-500 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
+                  ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                   : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
               }`}
             >
@@ -276,7 +280,7 @@ export default function SubjectsPage() {
                 onClick={() => setSubject(s.value)}
                 className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-all border ${
                   subject === s.value
-                    ? "bg-indigo-500 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
+                    ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                     : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
                 }`}
               >
@@ -369,13 +373,13 @@ export default function SubjectsPage() {
       <button
         onClick={handleStart}
         disabled={!canStart}
-        className={`w-full py-4 rounded-lg text-[15px] font-semibold transition-all ${
+        className={`w-full py-4 rounded-xl text-[16px] font-bold transition-all ${
           canStart
-            ? "bg-indigo-500 text-white hover:bg-indigo-400 hover:scale-[1.01] shadow-lg shadow-indigo-500/20"
+            ? "bg-white text-[#06060a] hover:bg-zinc-100 hover:scale-[1.01] shadow-2xl shadow-white/10"
             : "bg-white/[0.04] text-zinc-600 cursor-not-allowed"
         }`}
       >
-        {canStart ? "Build my exam →" : "Pick a year and subject"}
+        {canStart ? "Build my exam \u2192" : "Pick a year and subject"}
       </button>
 
       <div className="mt-6 text-center">

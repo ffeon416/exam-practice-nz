@@ -121,7 +121,7 @@ export default function DashboardPage() {
   }
 
   if (!progress) return (
-    <div className="max-w-xl mx-auto px-5 pt-16 pb-20">
+    <div className="max-w-xl mx-auto px-5 pt-16 pb-20 bg-[#06060a] min-h-screen">
       <div className="animate-pulse space-y-4">
         <div className="h-8 bg-white/[0.04] rounded-lg w-48" />
         <div className="h-4 bg-white/[0.04] rounded-lg w-64" />
@@ -161,9 +161,10 @@ export default function DashboardPage() {
   const lastGrade = recentAttempts[0]?.overallGrade;
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden bg-[#06060a]">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+        <div className="absolute top-[200px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
@@ -196,15 +197,15 @@ export default function DashboardPage() {
           // First time
           <Link
             href="/subjects"
-            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-purple-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all"
+            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/25 p-6 mb-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
           >
-            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-500/30 transition-colors">
-              <svg className="w-6 h-6 text-indigo-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
+              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white font-semibold text-[16px]">Take your first exam</p>
+              <p className="text-white font-bold text-[16px]">Take your first exam</p>
               <p className="text-zinc-400 text-[13px]">Pick a subject and we&apos;ll generate a practice paper for you.</p>
             </div>
             <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -215,10 +216,10 @@ export default function DashboardPage() {
           // Reviews due
           <Link
             href="/review"
-            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-amber-500/[0.1] to-orange-500/[0.05] border border-amber-500/20 p-6 mb-6 hover:border-amber-500/40 transition-all"
+            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-amber-500/[0.12] to-orange-500/[0.06] border border-amber-500/25 p-6 mb-6 hover:border-amber-500/40 transition-all shadow-lg shadow-amber-500/[0.05]"
           >
-            <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0">
-              <span className="text-amber-300 text-[18px] font-bold">{reviewStats.due}</span>
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20">
+              <span className="text-white text-[20px] font-extrabold">{reviewStats.due}</span>
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-semibold text-[16px]">Review time</p>
@@ -234,15 +235,15 @@ export default function DashboardPage() {
           // Default: do another exam
           <Link
             href="/subjects"
-            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-purple-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all"
+            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/25 p-6 mb-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
           >
-            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-500/30 transition-colors">
-              <svg className="w-6 h-6 text-indigo-300" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
+              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white font-semibold text-[16px]">Practise another exam</p>
+              <p className="text-white font-bold text-[16px]">Practise another exam</p>
               <p className="text-zinc-400 text-[13px]">
                 {weakTopics.length > 0
                   ? `Try focusing on ${getTopicLabel(weakTopics[0].topic)} — it's your weakest area.`
@@ -257,38 +258,33 @@ export default function DashboardPage() {
 
         {/* Stats strip */}
         {hasData && (
-          <div className="flex items-center justify-between rounded-2xl bg-white/[0.02] border border-white/[0.06] px-3 sm:px-5 py-4 mb-6">
-            <div className="text-center flex-1">
-              <div className="text-[22px] font-bold text-white">{progress.totalExamsTaken}</div>
-              <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">Exams</div>
+          <div className="grid grid-cols-3 gap-2 mb-6">
+            <div className="text-center rounded-2xl bg-gradient-to-br from-indigo-500/[0.15] to-indigo-600/[0.05] border border-indigo-500/20 px-2 py-4">
+              <div className="text-[28px] sm:text-[22px] font-extrabold text-white">{progress.totalExamsTaken}</div>
+              <div className="text-indigo-300/60 text-[10px] uppercase tracking-wider mt-0.5">Exams</div>
             </div>
-            <div className="w-px h-8 bg-white/[0.06]" />
-            <div className="text-center flex-1">
-              <div className={`text-[22px] font-bold ${avgPct >= 70 ? "text-emerald-400" : avgPct >= 40 ? "text-yellow-400" : "text-red-400"}`}>
+            <div className="text-center rounded-2xl bg-gradient-to-br from-emerald-500/[0.12] to-yellow-500/[0.05] border border-emerald-500/15 px-2 py-4">
+              <div className={`text-[28px] sm:text-[22px] font-extrabold ${avgPct >= 70 ? "text-emerald-400" : avgPct >= 40 ? "text-yellow-400" : "text-red-400"}`}>
                 {avgPct}%
               </div>
-              <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">Average</div>
+              <div className="text-zinc-500 text-[10px] uppercase tracking-wider mt-0.5">Average</div>
             </div>
-            <div className="w-px h-8 bg-white/[0.06]" />
-            <div className="text-center flex-1">
-              <div className={`text-[22px] font-bold ${displayStreak >= 3 ? "text-orange-400" : displayStreak >= 1 ? "text-white" : "text-zinc-600"}`}>
-                {displayStreak > 0 ? `${displayStreak}d` : "—"}
+            <div className="text-center rounded-2xl bg-gradient-to-br from-orange-500/[0.12] to-amber-500/[0.05] border border-orange-500/15 px-2 py-4">
+              <div className={`text-[28px] sm:text-[22px] font-extrabold ${displayStreak >= 3 ? "text-orange-400" : displayStreak >= 1 ? "text-white" : "text-zinc-600"}`}>
+                {displayStreak > 0 ? `${displayStreak}d` : "\u2014"}
               </div>
-              <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">
+              <div className="text-orange-300/50 text-[10px] uppercase tracking-wider mt-0.5">
                 {displayStreak >= 3 ? "Streak!" : "Streak"}
               </div>
             </div>
-            {lastGrade && (
-              <>
-                <div className="w-px h-8 bg-white/[0.06]" />
-                <div className="text-center flex-1">
-                  <div className={`text-[13px] sm:text-[16px] font-bold ${gradeColor(lastGrade)}`}>
-                    {gradeLabel(lastGrade)}
-                  </div>
-                  <div className="text-zinc-600 text-[10px] uppercase tracking-wider mt-0.5">Last grade</div>
-                </div>
-              </>
-            )}
+          </div>
+        )}
+        {hasData && lastGrade && (
+          <div className="flex items-center justify-center gap-2 mb-6 -mt-3">
+            <span className="text-zinc-600 text-[11px]">Last grade:</span>
+            <span className={`text-[13px] font-bold ${gradeColor(lastGrade)}`}>
+              {gradeLabel(lastGrade)}
+            </span>
           </div>
         )}
 
@@ -318,7 +314,7 @@ export default function DashboardPage() {
         {/* This week's tasks */}
         {currentWeek && currentWeek.tasks.some((t) => !t.completed) && (
           <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
-            <h2 className="text-white font-semibold text-[14px] mb-3">This week&apos;s tasks</h2>
+            <h2 className="text-white font-extrabold text-[14px] mb-3">This week&apos;s tasks</h2>
             <div className="space-y-2">
               {currentWeek.tasks.filter((t) => !t.completed).map((task) => (
                 <TaskRow key={task.id} task={task} />
@@ -331,7 +327,7 @@ export default function DashboardPage() {
         {weakTopics.length > 0 && (
           <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-white font-semibold text-[14px]">Focus on these</h2>
+              <h2 className="text-white font-extrabold text-[14px]">Focus on these</h2>
               <Link href="/practice" className="text-indigo-400 text-[12px] font-medium hover:text-indigo-300 transition-colors">
                 Practise &rarr;
               </Link>
@@ -340,11 +336,11 @@ export default function DashboardPage() {
               {weakTopics.map((t) => {
                 const pct = Math.round(t.correctRate * 100);
                 return (
-                  <div key={t.topic} className="flex items-center gap-3">
+                  <div key={t.topic} className={`flex items-center gap-3 pl-3 border-l-2 ${pct >= 40 ? "border-yellow-500" : "border-red-500"}`}>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between text-[12px] mb-1">
                         <span className="text-zinc-300 truncate">{getTopicLabel(t.topic)}</span>
-                        <span className={pct >= 40 ? "text-yellow-400" : "text-red-400"}>{pct}%</span>
+                        <span className={`font-bold ${pct >= 40 ? "text-yellow-400" : "text-red-400"}`}>{pct}%</span>
                       </div>
                       <div className="w-full bg-white/[0.06] rounded-full h-1.5">
                         <div
@@ -363,7 +359,7 @@ export default function DashboardPage() {
         {/* Recent exams */}
         {recentAttempts.length > 0 && (
           <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
-            <h2 className="text-white font-semibold text-[14px] mb-3">Recent</h2>
+            <h2 className="text-white font-extrabold text-[14px] mb-3">Recent</h2>
             <div className="space-y-2">
               {recentAttempts.map((attempt, i) => {
                 const pct = attempt.maxMarks > 0 ? Math.round((attempt.totalMarks / attempt.maxMarks) * 100) : 0;
@@ -380,7 +376,12 @@ export default function DashboardPage() {
                   <Link
                     key={i}
                     href={`/exam/${attempt.examId}/results`}
-                    className="flex items-center justify-between py-2 hover:bg-white/[0.02] -mx-2 px-2 rounded-lg transition-colors"
+                    className={`flex items-center justify-between py-2 hover:bg-white/[0.02] -mx-2 px-2 rounded-lg transition-colors border-l-2 pl-3 ${
+                      attempt.overallGrade === "excellence" ? "border-yellow-500" :
+                      attempt.overallGrade === "merit" ? "border-blue-500" :
+                      attempt.overallGrade === "achieved" ? "border-green-500" :
+                      "border-red-500"
+                    }`}
                   >
                     <div className="min-w-0 flex-1">
                       <p className="text-[13px] text-zinc-300 truncate">{title}</p>
@@ -409,7 +410,7 @@ export default function DashboardPage() {
         {/* Saved papers */}
         {customExams.length > 0 && (
           <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
-            <h2 className="text-white font-semibold text-[14px] mb-3">Your papers</h2>
+            <h2 className="text-white font-extrabold text-[14px] mb-3">Your papers</h2>
             <div className="space-y-2">
               {customExams.slice(0, 4).map((ex) => (
                 <div key={ex.id} className="flex items-center justify-between py-1.5">
