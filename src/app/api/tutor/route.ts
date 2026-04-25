@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { tutorChat } from "@/lib/claude";
 import { checkTier } from "@/lib/checkTier";
-import { incrementUsage } from "@/lib/db";
+import { incrementUsage, logApiUsage } from "@/lib/db";
 import { isUnlimited } from "@/lib/tierLimits";
 import { rateLimit } from "@/lib/rateLimit";
 
@@ -19,12 +19,15 @@ export async function POST(request: NextRequest) {
     // ── Tier gate ──
     const { userId, limits, usage } = await checkTier();
 
-    const limitVal = limits.tutorMessagesPerDay === Infinity ? -1 : limits.tutorMessagesPerDay;
-    if (!isUnlimited(limitVal) && usage.tutorMessagesToday >= limits.tutorMessagesPerDay) {
+    const limitVal = limits.tutorMessagesPerWeek === Infinity ? -1 : limits.tutorMessagesPerWeek;
+    if (!isUnlimited(limitVal) && usage.tutorMessagesThisWeek >= limits.tutorMessagesPerWeek) {
       return NextResponse.json(
         {
           error: "limit_reached",
-          message: `You've used your ${limits.tutorMessagesPerDay} tutor messages for today. Upgrade to continue.`,
+          message:
+            limits.tutorMessagesPerWeek === 0
+              ? "The AI tutor is available on the Pro plan."
+              : `You've used your ${limits.tutorMessagesPerWeek} tutor chats for this week. Upgrade or come back next week.`,
           upgradeUrl: "/pricing",
         },
         { status: 403 }
@@ -38,12 +41,14 @@ export async function POST(request: NextRequest) {
       studentAnswer?: string;
     };
 
-    const reply = await tutorChat(question, messages, studentAnswer);
+    const { reply, usage: callUsage } = await tutorChat(question, messages, studentAnswer);
 
     // ── Increment usage (Step 10) ──
     if (userId) {
       await incrementUsage(userId, "tutor_messages");
     }
+    // Log per-call token cost for the admin dashboard
+    await logApiUsage(userId, "tutor", callUsage);
 
     return NextResponse.json({ reply });
   } catch (error) {

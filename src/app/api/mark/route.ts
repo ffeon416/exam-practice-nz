@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { markAnswer, markEnglishEssay } from "@/lib/claude";
+import { markAnswer, markEnglishEssay, addUsage, zeroUsage, type Usage } from "@/lib/claude";
 import { checkTier } from "@/lib/checkTier";
+import { logApiUsage } from "@/lib/db";
 import { rateLimit } from "@/lib/rateLimit";
 
 // Structured-feedback marker used when an English question is marked by the
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
 
   try {
     // ── Tier check for deep essay marking ──
-    const { limits } = await checkTier();
+    const { userId, limits } = await checkTier();
 
     const body = await request.json();
     const { questions, answers, subject } = body as {
@@ -36,6 +37,10 @@ export async function POST(request: NextRequest) {
     };
 
     const isEnglish = subject === "english";
+
+    // Track per-feature usage so the admin dashboard can split "mark" vs "essay"
+    let markUsage: Usage = zeroUsage();
+    let essayUsage: Usage = zeroUsage();
 
     // Mark all questions in parallel — each question is wrapped in its own
     // try/catch so one failure doesn't take down the whole exam.
@@ -67,6 +72,7 @@ export async function POST(request: NextRequest) {
               q.marks,
               combinedAnswer
             );
+            essayUsage = addUsage(essayUsage, essay.usage);
             const packed =
               essay.overallFeedback +
               "\n\n" +
@@ -100,6 +106,7 @@ export async function POST(request: NextRequest) {
             q.markingGuide,
             combinedAnswer
           );
+          markUsage = addUsage(markUsage, result.usage);
 
           return {
             questionId: q.id,
@@ -130,6 +137,14 @@ export async function POST(request: NextRequest) {
         }
       })
     );
+
+    // Log one combined row per feature used in this mark request
+    if (markUsage.inputTokens + markUsage.outputTokens > 0) {
+      await logApiUsage(userId, "mark", markUsage);
+    }
+    if (essayUsage.inputTokens + essayUsage.outputTokens > 0) {
+      await logApiUsage(userId, "essay", essayUsage);
+    }
 
     return NextResponse.json({ results });
   } catch (error) {

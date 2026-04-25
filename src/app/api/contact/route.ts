@@ -36,7 +36,9 @@ export async function POST(req: NextRequest) {
       message: message.trim(),
     };
 
-    // Store in Supabase
+    // Store in Supabase — the success of this call is what determines whether
+    // the message survives. Email notification is a nice-to-have on top.
+    let stored = false;
     const supabase = getSupabase();
     if (supabase) {
       const { error: dbError } = await supabase
@@ -44,23 +46,30 @@ export async function POST(req: NextRequest) {
         .insert(contact);
       if (dbError) {
         console.error("[CONTACT] Supabase insert failed:", dbError.message);
+      } else {
+        stored = true;
       }
     }
 
-    // Send notification email via Resend
+    // Email notification is handled client-side from the contact form (the
+    // browser POSTs directly to FormSubmit). Server-side calls get blocked by
+    // Cloudflare when they originate from Vercel's data-center IPs.
+
+    // Send notification email via Resend (optional — skip silently if not configured)
     const resendKey = process.env.RESEND_API_KEY;
     const notifyEmail = process.env.NOTIFY_EMAIL;
     if (resendKey && notifyEmail) {
       try {
-        await fetch("https://api.resend.com/emails", {
+        const r = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: "StudyAce <noreply@studyace.co.nz>",
+            from: "StudyAce <onboarding@resend.dev>",
             to: notifyEmail,
+            reply_to: contact.email,
             subject: `[${contact.type}] New message from ${contact.name}`,
             html: `
               <h2>New Contact Message</h2>
@@ -73,14 +82,25 @@ export async function POST(req: NextRequest) {
             `,
           }),
         });
+        if (!r.ok) {
+          console.error("[CONTACT] Resend responded", r.status, await r.text().catch(() => ""));
+        }
       } catch (emailErr) {
         console.error("[CONTACT] Email send failed:", emailErr);
       }
     }
 
     console.log(
-      `[CONTACT] ${contact.type} | ${contact.name} | ${contact.email} | ${contact.message.slice(0, 100)}`
+      `[CONTACT] stored=${stored} | ${contact.type} | ${contact.name} | ${contact.email} | ${contact.message.slice(0, 100)}`
     );
+
+    // Only claim success if the message actually landed somewhere durable.
+    if (!stored) {
+      return NextResponse.json(
+        { error: "Couldn't save your message right now. Please email us directly at ffeon.io@gmail.com." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch {

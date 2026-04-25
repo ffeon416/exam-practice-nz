@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generatePracticePaper } from "@/lib/claude";
 import { checkTier } from "@/lib/checkTier";
-import { incrementUsage } from "@/lib/db";
-import { isUnlimited } from "@/lib/tierLimits";
+import { incrementUsage, logApiUsage } from "@/lib/db";
+import { isUnlimited, isSubjectAvailable } from "@/lib/tierLimits";
 import { rateLimit } from "@/lib/rateLimit";
 
 // Allow up to 5 minutes for paper generation
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
 
   try {
     // ── Tier gate ──
-    const { userId, limits, usage } = await checkTier();
+    const { userId, tier, limits, usage } = await checkTier();
 
     const limitVal = limits.examsPerWeek === Infinity ? -1 : limits.examsPerWeek;
     if (!isUnlimited(limitVal) && usage.examsThisWeek >= limits.examsPerWeek) {
@@ -40,6 +40,18 @@ export async function POST(request: NextRequest) {
       questionCount?: number;
     };
 
+    // Subject gate — Free tier can only use the sample-subject whitelist.
+    if (!isSubjectAvailable(subject, tier)) {
+      return NextResponse.json(
+        {
+          error: "subject_locked",
+          message: "This subject is on the Student and Pro plans. Upgrade to unlock all 19 NCEA subjects.",
+          upgradeUrl: "/pricing",
+        },
+        { status: 403 }
+      );
+    }
+
     // Cap question count to tier limit
     const cappedCount = Math.min(questionCount ?? 8, limits.maxQuestions);
 
@@ -54,8 +66,13 @@ export async function POST(request: NextRequest) {
     if (userId) {
       await incrementUsage(userId, "exams_generated");
     }
+    // Log per-call token cost for the admin dashboard
+    await logApiUsage(userId, "generate_paper", paper.usage);
 
-    return NextResponse.json({ paper });
+    // Strip usage from the paper payload before returning to the client
+    const { usage: _usage, ...paperPayload } = paper;
+    void _usage;
+    return NextResponse.json({ paper: paperPayload });
   } catch (error) {
     console.error("Paper generation error:", error);
     const message = error instanceof Error ? error.message : "Unknown error";

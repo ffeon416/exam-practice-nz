@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { loadProgress, getWeakTopics } from "@/lib/storage";
+import { loadOnboarding } from "@/lib/onboarding";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
 import { getTopicLabel } from "@/data/topics";
 import { getExam } from "@/data/exams";
@@ -32,8 +34,30 @@ import {
   type StudyWeek,
 } from "@/lib/studyPlanner";
 import type { StudentProgress } from "@/lib/types";
-import { useTier } from "@/hooks/useTier";
+import { useTier, isUnlimited } from "@/hooks/useTier";
 import { TIER_LABELS } from "@/lib/tierLimits";
+
+const SUBJECT_LABELS: Record<string, string> = {
+  mathematics: "Mathematics",
+  english: "English",
+  science: "Science",
+  statistics: "Statistics",
+  biology: "Biology",
+  chemistry: "Chemistry",
+  physics: "Physics",
+  history: "History",
+  geography: "Geography",
+  "te-reo": "Te Reo Māori",
+  economics: "Economics",
+  accounting: "Accounting",
+  health: "Health",
+  "digital-tech": "Digital Technologies",
+  "social-studies": "Social Studies",
+  "media-studies": "Media Studies",
+  "classical-studies": "Classical Studies",
+  "art-history": "Art History",
+  "business-studies": "Business Studies",
+};
 
 function getGreeting(): string {
   const h = new Date().getHours();
@@ -54,10 +78,14 @@ function getMotivation(avgPct: number, streak: number, total: number): string {
 
 export default function DashboardPage() {
   const { user } = useUser();
+  const router = useRouter();
   const [progress, setProgress] = useState<StudentProgress | null>(null);
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
+  const [onboarding, setOnboarding] = useState<ReturnType<typeof loadOnboarding>>(null);
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
-  const { tier, loading: tierLoading, refresh: refreshTier } = useTier();
+  const { tier, limits, usage, loading: tierLoading, refresh: refreshTier } = useTier();
+  const tierRef = useRef(tier);
+  tierRef.current = tier;
   const [mounted, setMounted] = useState(false);
 
   const reviewsVersion = useSyncExternalStore(subscribeReviews, getReviewsVersion, getServerReviewsVersion);
@@ -83,17 +111,40 @@ export default function DashboardPage() {
     const params = new URLSearchParams(window.location.search);
     if (params.get("payment") === "success") {
       setShowPaymentSuccess(true);
-      refreshTier();
       window.history.replaceState({}, "", "/dashboard");
-      const timer = setTimeout(() => setShowPaymentSuccess(false), 8000);
-      return () => clearTimeout(timer);
+
+      // Stripe redirect can beat the webhook. Poll until tier flips to a paid plan.
+      let cancelled = false;
+      const poll = async () => {
+        for (let i = 0; i < 10 && !cancelled; i++) {
+          refreshTier();
+          await new Promise((r) => setTimeout(r, 1500));
+          if (tierRef.current !== "free") return;
+        }
+      };
+      poll();
+
+      const timer = setTimeout(() => setShowPaymentSuccess(false), 15000);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+      };
     }
   }, [refreshTier]);
 
   useEffect(() => {
     setMounted(true);
-    setProgress(loadProgress());
+    const existingProgress = loadProgress();
+    const existingOnboarding = loadOnboarding();
+    setProgress(existingProgress);
     setCustomExams(listCustomExams());
+    setOnboarding(existingOnboarding);
+
+    // First-time user with no data and no onboarding: send them to /welcome
+    if (!existingOnboarding && existingProgress.totalExamsTaken === 0) {
+      router.replace("/welcome");
+      return;
+    }
 
     fetch("/api/progress")
       .then((res) => (res.ok ? res.json() : null))
@@ -133,7 +184,7 @@ export default function DashboardPage() {
 
   const hasData = progress.totalExamsTaken > 0;
   const weakTopics = getWeakTopics(progress, 3);
-  const firstName = user?.firstName || "there";
+  const firstName = user?.firstName?.trim() || null;
 
   // Check if streak should be reset (student missed a day)
   const displayStreak = (() => {
@@ -168,8 +219,8 @@ export default function DashboardPage() {
       </div>
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
-        {/* Payment success */}
-        {showPaymentSuccess && (
+        {/* Payment success — only show once tier has refreshed to a paid plan */}
+        {showPaymentSuccess && !tierLoading && tier !== "free" && (
           <div className="mb-6 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 px-5 py-3 flex items-center justify-between">
             <p className="text-[13px] text-emerald-200">
               You&apos;re on the <span className="font-semibold">{TIER_LABELS[tier]}</span> plan!
@@ -185,7 +236,7 @@ export default function DashboardPage() {
         {/* Greeting */}
         <div className="mb-8">
           <h1 className="text-[24px] sm:text-[32px] font-extrabold text-white tracking-tight mb-1">
-            {getGreeting()}, {firstName}
+            {firstName ? `${getGreeting()}, ${firstName}` : getGreeting()}
           </h1>
           <p className="text-zinc-500 text-[14px]">
             {getMotivation(avgPct, displayStreak, progress.totalExamsTaken)}
@@ -194,24 +245,14 @@ export default function DashboardPage() {
 
         {/* Hero action — what to do right now */}
         {!hasData ? (
-          // First time
-          <Link
-            href="/subjects"
-            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/25 p-6 mb-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
-          >
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-white font-bold text-[16px]">Take your first exam</p>
-              <p className="text-zinc-400 text-[13px]">Pick a subject and we&apos;ll generate a practice paper for you.</p>
-            </div>
-            <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </Link>
+          // First time — rich empty state
+          <FirstTimeDashboard
+            onboarding={onboarding}
+            tier={tier}
+            tierLoading={tierLoading}
+            examsUsed={usage.examsThisWeek}
+            examsLimit={limits.examsPerWeek}
+          />
         ) : reviewStats.due > 0 ? (
           // Reviews due
           <Link
@@ -517,5 +558,220 @@ function TaskRow({ task }: { task: StudyTask }) {
         {task.description}
       </Link>
     </div>
+  );
+}
+
+/* ━━━ First-time dashboard (empty state) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+function FirstTimeDashboard({
+  onboarding,
+  tier,
+  tierLoading,
+  examsUsed,
+  examsLimit,
+}: {
+  onboarding: ReturnType<typeof loadOnboarding>;
+  tier: "free" | "student" | "pro";
+  tierLoading: boolean;
+  examsUsed: number;
+  examsLimit: number;
+}) {
+  const pickedSubjects = onboarding?.subjects ?? [];
+  const yearLevel = onboarding?.yearLevel ?? null;
+
+  return (
+    <div className="space-y-6 mb-6">
+      {/* Primary CTA: start first exam (deep-linked if onboarded) */}
+      <Link
+        href={
+          pickedSubjects.length > 0 && yearLevel != null
+            ? `/subjects?subject=${pickedSubjects[0]}&year=${yearLevel}`
+            : "/subjects"
+        }
+        className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/25 p-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
+      >
+        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
+          <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-white font-bold text-[16px]">Take your first exam</p>
+          <p className="text-zinc-400 text-[13px]">
+            {pickedSubjects.length > 0
+              ? `We'll build a ${SUBJECT_LABELS[pickedSubjects[0]] ?? "practice"} paper just for you.`
+              : "Pick a subject and we'll generate a practice paper for you."}
+          </p>
+        </div>
+        <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </Link>
+
+      {/* How it works — 3-step reassurance strip */}
+      <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+        <h2 className="text-white font-extrabold text-[14px] mb-4">How it works</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <HowStep
+            n={1}
+            title="Pick a subject"
+            body="Choose your year level and what to practise."
+          />
+          <HowStep
+            n={2}
+            title="Get a real-style paper"
+            body="AI builds a fresh NZQA-style paper in seconds."
+          />
+          <HowStep
+            n={3}
+            title="Learn from feedback"
+            body="Your answers get marked, weak spots get surfaced."
+          />
+        </div>
+      </div>
+
+      {/* Your subjects (quick launch) */}
+      {pickedSubjects.length > 0 && yearLevel != null && (
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-white font-extrabold text-[14px]">Your subjects</h2>
+            <span className="text-[11px] text-zinc-500">Year {yearLevel}</span>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {pickedSubjects.map((s) => (
+              <Link
+                key={s}
+                href={`/subjects?subject=${s}&year=${yearLevel}`}
+                className="flex items-center justify-between px-3.5 py-3 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-indigo-500/30 transition-all group"
+              >
+                <span className="text-[13px] text-zinc-200 font-medium truncate">
+                  {SUBJECT_LABELS[s] ?? s}
+                </span>
+                <svg
+                  className="w-3.5 h-3.5 text-zinc-600 group-hover:text-indigo-400 shrink-0 transition-colors"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Tier / usage card */}
+      {!tierLoading && (
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+          <div className="flex items-start justify-between gap-4 mb-3">
+            <div>
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="text-white font-bold text-[14px]">{TIER_LABELS[tier]} plan</span>
+                {tier === "free" && (
+                  <span className="text-[10px] uppercase tracking-wider text-indigo-300 bg-indigo-500/15 border border-indigo-500/25 px-2 py-0.5 rounded-full">
+                    Free
+                  </span>
+                )}
+              </div>
+              <p className="text-zinc-500 text-[12px]">
+                {tier === "free"
+                  ? "Upgrade for unlimited exams and more."
+                  : "Thanks for supporting StudyAce."}
+              </p>
+            </div>
+            {tier === "free" && (
+              <Link
+                href="/pricing"
+                className="shrink-0 text-[12px] font-semibold text-indigo-300 hover:text-indigo-200 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/25 px-3 py-1.5 rounded-lg transition-colors"
+              >
+                Upgrade
+              </Link>
+            )}
+          </div>
+          {!isUnlimited(examsLimit) && (
+            <div>
+              <div className="flex items-center justify-between text-[11px] text-zinc-500 mb-1.5">
+                <span>Exams this week</span>
+                <span className="text-zinc-300 tabular-nums font-medium">
+                  {examsUsed} / {examsLimit}
+                </span>
+              </div>
+              <div className="w-full h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                  style={{ width: `${Math.min(100, (examsUsed / examsLimit) * 100)}%` }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* What's next checklist */}
+      <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+        <h2 className="text-white font-extrabold text-[14px] mb-3">What&apos;s next</h2>
+        <ul className="space-y-2.5">
+          <ChecklistItem
+            done={onboarding !== null}
+            label="Tell us your year and subjects"
+          />
+          <ChecklistItem done={false} label="Take your first practice exam" />
+          <ChecklistItem done={false} label="Review your marked answers" />
+          <ChecklistItem
+            done={false}
+            label="Set up a study plan for your exam date"
+          />
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function HowStep({ n, title, body }: { n: number; title: string; body: string }) {
+  return (
+    <div className="flex sm:flex-col gap-3 sm:gap-2">
+      <div className="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center shrink-0">
+        <span className="text-indigo-300 text-[12px] font-bold">{n}</span>
+      </div>
+      <div className="min-w-0">
+        <p className="text-white font-semibold text-[13px] mb-0.5">{title}</p>
+        <p className="text-zinc-500 text-[12px] leading-snug">{body}</p>
+      </div>
+    </div>
+  );
+}
+
+function ChecklistItem({ done, label }: { done: boolean; label: string }) {
+  return (
+    <li className="flex items-center gap-3">
+      <div
+        className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-all ${
+          done
+            ? "bg-indigo-500 border-indigo-500"
+            : "border-zinc-700"
+        }`}
+      >
+        {done && (
+          <svg
+            className="w-3 h-3 text-white"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={3}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        )}
+      </div>
+      <span
+        className={`text-[13px] ${
+          done ? "line-through text-zinc-600" : "text-zinc-300"
+        }`}
+      >
+        {label}
+      </span>
+    </li>
   );
 }

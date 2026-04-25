@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Exam, Question } from "@/lib/types";
 import { saveCustomExam, generateCustomExamId } from "@/lib/customExams";
 import { useTier, isUnlimited } from "@/hooks/useTier";
 import UpgradeModal from "@/components/UpgradeModal";
+import { loadOnboarding } from "@/lib/onboarding";
+import { FREE_SUBJECTS } from "@/lib/tierLimits";
+
+const FREE_SUBJECT_SET = new Set<string>(FREE_SUBJECTS);
 
 const YEAR_LEVELS = [
   { value: 10, label: "Year 10", ncea: 0 },
@@ -68,13 +72,43 @@ export default function SubjectsPage() {
   const { tier, limits, usage, refresh } = useTier();
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
+
+  // Pre-fill from onboarding on first load (reads from URL first, then localStorage)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlSubject = params.get("subject");
+    const urlYear = params.get("year");
+    const onboarding = loadOnboarding();
+
+    const preYear = urlYear ? Number(urlYear) : onboarding?.yearLevel ?? null;
+    if (preYear && [10, 11, 12, 13].includes(preYear)) {
+      setYearLevel(preYear);
+    }
+
+    // Prefer the first onboarding subject the user is actually allowed to pick
+    // (so free users don't land on a locked subject as the default).
+    const candidates = [
+      urlSubject,
+      ...(onboarding?.subjects ?? []),
+    ].filter((s): s is string => !!s);
+
+    for (const candidate of candidates) {
+      const match = SUBJECTS.find(
+        (s) => s.value === candidate && preYear && s.years.includes(preYear)
+      );
+      if (!match) continue;
+      if (!limits.allSubjects && !FREE_SUBJECT_SET.has(match.value)) continue;
+      setSubject(match.value);
+      break;
+    }
+  }, [limits.allSubjects]);
   const [topic, setTopic] = useState<string>("");
   const maxQ = limits.maxQuestions;
   const [questionCount, setQuestionCount] = useState<number>(Math.min(10, maxQ));
   const [loading, setLoading] = useState(false);
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
-  const [showUpgrade, setShowUpgrade] = useState(false);
+  const [showUpgrade, setShowUpgrade] = useState<null | "exams" | "subject">(null);
 
   const availableSubjects = yearLevel != null
     ? SUBJECTS.filter((s) => s.years.includes(yearLevel))
@@ -130,7 +164,13 @@ export default function SubjectsPage() {
 
     // Check exam limit
     if (!isUnlimited(limits.examsPerWeek) && usage.examsThisWeek >= limits.examsPerWeek) {
-      setShowUpgrade(true);
+      setShowUpgrade("exams");
+      return;
+    }
+
+    // Check subject is available for this tier (belt-and-braces; UI should already have gated)
+    if (!limits.allSubjects && subject && !FREE_SUBJECT_SET.has(subject)) {
+      setShowUpgrade("subject");
       return;
     }
 
@@ -274,19 +314,40 @@ export default function SubjectsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-2">
-            {availableSubjects.map((s) => (
-              <button
-                key={s.value}
-                onClick={() => setSubject(s.value)}
-                className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-all border ${
-                  subject === s.value
-                    ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
-                    : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
+            {availableSubjects.map((s) => {
+              const locked = !limits.allSubjects && !FREE_SUBJECT_SET.has(s.value);
+              return (
+                <button
+                  key={s.value}
+                  onClick={() => {
+                    if (locked) {
+                      setShowUpgrade("subject");
+                      return;
+                    }
+                    setSubject(s.value);
+                  }}
+                  className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-all border relative ${
+                    subject === s.value
+                      ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
+                      : locked
+                      ? "bg-white/[0.02] border-white/[0.06] text-zinc-500 hover:border-indigo-500/30 hover:bg-indigo-500/[0.04]"
+                      : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span>{s.label}</span>
+                    {locked && (
+                      <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-indigo-300/80 bg-indigo-500/10 border border-indigo-500/25 px-1.5 py-0.5 rounded">
+                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                        Student
+                      </span>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
@@ -362,10 +423,16 @@ export default function SubjectsPage() {
       )}
 
       {/* Upgrade modal */}
-      {showUpgrade && (
+      {showUpgrade === "exams" && (
         <UpgradeModal
           message={`You've used your ${limits.examsPerWeek} free exams this week. Upgrade to keep practising.`}
-          onClose={() => setShowUpgrade(false)}
+          onClose={() => setShowUpgrade(null)}
+        />
+      )}
+      {showUpgrade === "subject" && (
+        <UpgradeModal
+          message="This subject is available on the Student and Pro plans. Upgrade to practise all 19 NCEA subjects."
+          onClose={() => setShowUpgrade(null)}
         />
       )}
 

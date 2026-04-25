@@ -68,6 +68,23 @@ export async function POST(req: NextRequest) {
           }
         }
 
+        // Cancel any prior active subscription so the user isn't billed twice
+        const { data: existingProfile } = await supabase
+          .from("profiles")
+          .select("stripe_subscription_id")
+          .eq("user_id", userId)
+          .single();
+
+        const priorSubId = existingProfile?.stripe_subscription_id;
+        if (priorSubId && priorSubId !== subscriptionId) {
+          try {
+            await stripe.subscriptions.cancel(priorSubId);
+            console.log(`Cancelled prior subscription ${priorSubId} for user ${userId}`);
+          } catch (err) {
+            console.error(`Failed to cancel prior subscription ${priorSubId}:`, err);
+          }
+        }
+
         await supabase
           .from("profiles")
           .update({
@@ -139,6 +156,20 @@ export async function POST(req: NextRequest) {
 
         if (!userId) {
           console.error("subscription.deleted missing userId in metadata");
+          break;
+        }
+
+        // Only downgrade if the cancelled sub is the user's CURRENT one.
+        // If they upgraded and we cancelled the old sub, that deletion event
+        // shouldn't wipe out the new active subscription.
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("stripe_subscription_id")
+          .eq("user_id", userId)
+          .single();
+
+        if (profile?.stripe_subscription_id !== subscription.id) {
+          console.log(`Ignoring deletion of stale sub ${subscription.id} for user ${userId} (current: ${profile?.stripe_subscription_id})`);
           break;
         }
 

@@ -58,6 +58,8 @@ export interface Profile {
 /**
  * Fetch a profile, creating it if it doesn't exist.
  * Called whenever a Clerk user hits the API for the first time.
+ * If the row already exists but is missing an email (historical rows
+ * created before we populated it from Clerk), backfill the email now.
  */
 export async function getOrCreateProfile(
   userId: string,
@@ -72,7 +74,18 @@ export async function getOrCreateProfile(
     .eq("user_id", userId)
     .single();
 
-  if (existing) return existing as Profile;
+  if (existing) {
+    // Opportunistic backfill — if we've just learned the email and the row
+    // doesn't have one saved yet, update it so the admin dashboard can show it.
+    if (email && !existing.email) {
+      await supabase
+        .from("profiles")
+        .update({ email, updated_at: new Date().toISOString() })
+        .eq("user_id", userId);
+      return { ...(existing as Profile), email };
+    }
+    return existing as Profile;
+  }
 
   const { data: created, error } = await supabase
     .from("profiles")

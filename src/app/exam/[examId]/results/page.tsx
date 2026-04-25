@@ -18,6 +18,8 @@ import { updateRating } from "@/lib/adaptiveDifficulty";
 import type { Exam, MarkingResult } from "@/lib/types";
 import TopicTag from "@/components/TopicTag";
 import ShareResultCard from "@/components/ShareResultCard";
+import UpgradeNudge from "@/components/UpgradeNudge";
+import { useTier } from "@/hooks/useTier";
 
 
 // Multi-pass English essay feedback payload is stuffed into the feedback
@@ -161,6 +163,7 @@ export default function ResultsPage({
   params: Promise<{ examId: string }>;
 }) {
   const { examId } = use(params);
+  const { limits: tierLimits } = useTier();
   const [exam, setExam] = useState<Exam | null>(null);
   const [results, setResults] = useState<MarkingResult[] | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -205,6 +208,8 @@ export default function ResultsPage({
   // counts as correct, partial marks as correct (you got the concept), zero
   // as incorrect. One update per (question, topic).
   useEffect(() => {
+    // Adaptive difficulty is Pro-only — skip ELO rating updates otherwise.
+    if (!tierLimits.adaptiveDifficulty) return;
     if (!exam || !results || selfMarked || ratingsUpdatedRef.current) return;
     results.forEach((res) => {
       const q = exam.questions.find((qq) => qq.id === res.questionId);
@@ -215,11 +220,12 @@ export default function ResultsPage({
       });
     });
     ratingsUpdatedRef.current = true;
-  }, [exam, results, selfMarked]);
+  }, [exam, results, selfMarked, tierLimits.adaptiveDifficulty]);
 
   // Same rating update path for self-marked attempts — gated on autoScored
   // so we only count questions the user actually assessed.
   useEffect(() => {
+    if (!tierLimits.adaptiveDifficulty) return;
     if (!exam || !results || !selfMarked || !autoScored || ratingsUpdatedRef.current) return;
     exam.questions.forEach((q) => {
       const correct = selfAssess[q.id];
@@ -229,7 +235,7 @@ export default function ResultsPage({
       });
     });
     ratingsUpdatedRef.current = true;
-  }, [exam, results, selfMarked, autoScored, selfAssess]);
+  }, [exam, results, selfMarked, autoScored, selfAssess, tierLimits.adaptiveDifficulty]);
 
   // For self-marked results, queue reviews from the auto-scored / manual
   // self-assessment. We wait until autoScored is set (which happens alongside
@@ -430,7 +436,7 @@ export default function ResultsPage({
             Marking your exam...
           </h2>
           <p className="text-zinc-400">
-            AI is reviewing each answer against the marking schedule
+            StudyAce is reviewing each answer against the marking schedule
           </p>
         </div>
       </div>
@@ -778,6 +784,13 @@ export default function ResultsPage({
               Practice Weak Areas
             </Link>
           </div>
+        </div>
+
+        <div className="mt-8">
+          <UpgradeNudge
+            headline="Nice work — want more?"
+            body="Free gets you 2 exams a week. Upgrade for 20+ exams, essay marking, and a personal tutor with 50+ chats a day."
+          />
         </div>
 
         <div className="text-center mt-8">

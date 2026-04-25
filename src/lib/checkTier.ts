@@ -1,6 +1,6 @@
 // Server-side tier checker. Use in API routes and server components.
 
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { getOrCreateProfile, getTier } from "./supabase";
 import { TIER_LIMITS, type Tier, type TierLimits } from "./tierLimits";
 import { getUsage } from "./db";
@@ -10,7 +10,7 @@ export interface TierInfo {
   limits: TierLimits;
   usage: {
     examsThisWeek: number;
-    tutorMessagesToday: number;
+    tutorMessagesThisWeek: number;
   };
 }
 
@@ -26,12 +26,20 @@ export async function checkTier(): Promise<TierInfo & { userId: string | null }>
       userId: null,
       tier: "free",
       limits: TIER_LIMITS.free,
-      usage: { examsThisWeek: 0, tutorMessagesToday: 0 },
+      usage: { examsThisWeek: 0, tutorMessagesThisWeek: 0 },
     };
   }
 
-  // Ensure profile exists (creates with "free" tier if new)
-  await getOrCreateProfile(userId, null);
+  // Ensure profile exists (creates with "free" tier if new).
+  // Pull email from Clerk so the profile row has it — used in the admin dashboard.
+  let email: string | null = null;
+  try {
+    const user = await currentUser();
+    email = user?.emailAddresses?.[0]?.emailAddress ?? null;
+  } catch {
+    // currentUser() can fail in edge contexts — profile lookup still works without email
+  }
+  await getOrCreateProfile(userId, email);
 
   const tier = await getTier(userId);
   const limits = TIER_LIMITS[tier];
@@ -47,7 +55,7 @@ export async function checkTier(): Promise<TierInfo & { userId: string | null }>
     limits,
     usage: {
       examsThisWeek: examUsage.count,
-      tutorMessagesToday: tutorUsage.count,
+      tutorMessagesThisWeek: tutorUsage.count,
     },
   };
 }

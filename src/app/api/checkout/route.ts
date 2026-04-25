@@ -77,7 +77,9 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       customer: stripeCustomerId,
       mode: "subscription",
+      payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],
+      allow_promotion_codes: true,
       success_url: `${origin}/dashboard?payment=success`,
       cancel_url: `${origin}/pricing`,
       metadata: { userId, tier },
@@ -89,8 +91,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Checkout error:", error);
+    const message = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "Failed to create checkout session." },
+      { error: `Failed to create checkout session: ${message}` },
       { status: 500 }
     );
   }

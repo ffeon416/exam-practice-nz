@@ -3,6 +3,7 @@
 
 import { getSupabase } from "./supabase";
 import type { Exam, ExamAttempt, TopicScore } from "./types";
+import type { Usage } from "./claude";
 
 // ── Custom exams ──
 
@@ -235,6 +236,37 @@ export async function getDueReviews(userId: string): Promise<DbReview[]> {
   }));
 }
 
+// ── API usage logging (for cost tracking / admin dashboard) ──
+
+export type ApiFeature = "tutor" | "mark" | "generate_paper" | "essay" | "practice_question";
+
+/**
+ * Fire-and-forget: records one Claude API call's tokens + cost against a user.
+ * Swallows errors so a logging failure never blocks the response to the student.
+ */
+export async function logApiUsage(
+  userId: string | null,
+  feature: ApiFeature,
+  usage: Usage
+): Promise<void> {
+  const supabase = getSupabase();
+  if (!supabase) return;
+  if (usage.inputTokens === 0 && usage.outputTokens === 0) return; // fallback/skip rows
+
+  try {
+    await supabase.from("api_usage").insert({
+      user_id: userId,
+      feature,
+      model: usage.model,
+      input_tokens: usage.inputTokens,
+      output_tokens: usage.outputTokens,
+      cost_usd: usage.costUsd,
+    });
+  } catch (err) {
+    console.error("logApiUsage failed:", err);
+  }
+}
+
 // ── Usage tracking (for free-tier limits) ──
 
 export async function incrementUsage(userId: string, feature: string): Promise<number> {
@@ -253,10 +285,9 @@ export async function incrementUsage(userId: string, feature: string): Promise<n
   const periodStart = existing ? new Date(existing.period_start) : now;
   const periodAge = now.getTime() - periodStart.getTime();
   const weekMs = 7 * 24 * 60 * 60 * 1000;
-  const dayMs = 24 * 60 * 60 * 1000;
 
-  // Reset weekly for "exams_generated", daily for "tutor_messages"
-  const resetMs = feature === "tutor_messages" ? dayMs : weekMs;
+  // Both "exams_generated" and "tutor_messages" reset weekly.
+  const resetMs = weekMs;
   const shouldReset = periodAge > resetMs;
 
   const newCount = shouldReset ? 1 : (existing?.count ?? 0) + 1;
@@ -286,10 +317,8 @@ export async function getUsage(userId: string, feature: string): Promise<{ count
   if (!data) return { count: 0, resetsAt: new Date().toISOString() };
 
   const periodStart = new Date(data.period_start);
-  const dayMs = 24 * 60 * 60 * 1000;
-  const weekMs = 7 * dayMs;
-  const resetMs = feature === "tutor_messages" ? dayMs : weekMs;
-  const resetsAt = new Date(periodStart.getTime() + resetMs).toISOString();
+  const weekMs = 7 * 24 * 60 * 60 * 1000;
+  const resetsAt = new Date(periodStart.getTime() + weekMs).toISOString();
 
   return { count: data.count, resetsAt };
 }

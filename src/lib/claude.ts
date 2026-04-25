@@ -13,6 +13,41 @@ const isProxy = !process.env.ANTHROPIC_API_KEY;
 const MODEL_FAST = isProxy ? "claude-haiku-4" : "claude-haiku-4-5-20251001";
 const MODEL_SMART = isProxy ? "claude-sonnet-4" : "claude-sonnet-4-5-20250929";
 
+// Per-million-token prices in USD (Anthropic public list, Apr 2026).
+// Keep these in sync with https://www.anthropic.com/pricing
+const MODEL_PRICING: Record<string, { inPerM: number; outPerM: number }> = {
+  "claude-haiku-4-5-20251001": { inPerM: 0.8, outPerM: 4 },
+  "claude-haiku-4": { inPerM: 0.8, outPerM: 4 },
+  "claude-sonnet-4-5-20250929": { inPerM: 3, outPerM: 15 },
+  "claude-sonnet-4": { inPerM: 3, outPerM: 15 },
+};
+
+export interface Usage {
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+  costUsd: number;
+}
+
+export function zeroUsage(model: string = MODEL_FAST): Usage {
+  return { model, inputTokens: 0, outputTokens: 0, costUsd: 0 };
+}
+
+export function addUsage(a: Usage, b: Usage): Usage {
+  return {
+    // Prefer the non-empty model id; callers aggregate across the same call path
+    model: a.model || b.model,
+    inputTokens: a.inputTokens + b.inputTokens,
+    outputTokens: a.outputTokens + b.outputTokens,
+    costUsd: a.costUsd + b.costUsd,
+  };
+}
+
+function computeCost(model: string, inputTokens: number, outputTokens: number): number {
+  const p = MODEL_PRICING[model] ?? MODEL_PRICING[MODEL_FAST];
+  return (inputTokens * p.inPerM + outputTokens * p.outPerM) / 1_000_000;
+}
+
 // Sleep helper
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -47,7 +82,12 @@ async function withRetry<T>(
   throw lastError;
 }
 
-async function chatCompletionOnce(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
+interface ChatResult {
+  text: string;
+  usage: Usage;
+}
+
+async function chatCompletionOnce(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<ChatResult> {
   const model = options.smart ? MODEL_SMART : MODEL_FAST;
   const maxTokens = options.maxTokens ?? 1024;
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -81,7 +121,12 @@ async function chatCompletionOnce(prompt: string, options: { smart?: boolean; ma
       const data = await res.json();
       const text = data.content?.[0]?.text ?? "";
       if (!text) throw new Error("Empty response from Anthropic API");
-      return text;
+      const inputTokens = Number(data.usage?.input_tokens ?? 0);
+      const outputTokens = Number(data.usage?.output_tokens ?? 0);
+      return {
+        text,
+        usage: { model, inputTokens, outputTokens, costUsd: computeCost(model, inputTokens, outputTokens) },
+      };
     } finally {
       clearTimeout(timeoutId);
     }
@@ -113,13 +158,19 @@ async function chatCompletionOnce(prompt: string, options: { smart?: boolean; ma
     const data = await res.json();
     const text = data.choices?.[0]?.message?.content ?? "";
     if (!text) throw new Error("Empty response from proxy");
-    return text;
+    // OpenAI-compat proxies return usage as prompt_tokens / completion_tokens
+    const inputTokens = Number(data.usage?.prompt_tokens ?? 0);
+    const outputTokens = Number(data.usage?.completion_tokens ?? 0);
+    return {
+      text,
+      usage: { model, inputTokens, outputTokens, costUsd: computeCost(model, inputTokens, outputTokens) },
+    };
   } finally {
     clearTimeout(timeoutId);
   }
 }
 
-async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<string> {
+async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<ChatResult> {
   return withRetry(() => chatCompletionOnce(prompt, options), { label: options.smart ? "smart" : "fast" });
 }
 
@@ -136,6 +187,7 @@ export async function markAnswer(
   correctApproach: string;
   examTip: string;
   topicsToReview: string[];
+  usage: Usage;
 }> {
   const prompt = `You are a friendly NCEA examiner. You mark like a real exam — passable working gets full marks. Don't be picky.
 
@@ -183,8 +235,10 @@ Respond ONLY with valid JSON (no markdown, no code fences):
 
   // Use fast model for marking — it's basically checking, not generating
   // chatCompletion has built-in retry, so this rarely fails
+  let usage: Usage = zeroUsage(MODEL_FAST);
   try {
-    const text = await chatCompletion(prompt, { smart: false });
+    const { text, usage: u } = await chatCompletion(prompt, { smart: false });
+    usage = u;
     // Strip markdown fences if present
     const cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
     const parsed = JSON.parse(cleaned);
@@ -195,7 +249,7 @@ Respond ONLY with valid JSON (no markdown, no code fences):
     if (!parsed.correctApproach) parsed.correctApproach = markingGuide;
     if (!parsed.examTip) parsed.examTip = "Always show your working clearly.";
     if (!Array.isArray(parsed.topicsToReview)) parsed.topicsToReview = [];
-    return parsed;
+    return { ...parsed, usage };
   } catch (err) {
     // Last-resort fallback — give them benefit of the doubt rather than 0
     console.error("Marking fallback triggered:", err);
@@ -206,6 +260,7 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       correctApproach: markingGuide,
       examTip: "Always show your working clearly.",
       topicsToReview: [],
+      usage,
     };
   }
 }
@@ -238,7 +293,7 @@ async function markEssayDimension(
   questionText: string,
   markingGuide: string,
   studentEssay: string
-): Promise<EssayDimensionResult> {
+): Promise<EssayDimensionResult & { usage: Usage }> {
   const dimensionPrompts: Record<typeof dimension, { title: string; rubric: string }> = {
     thesis: {
       title: "THESIS AND STRUCTURE",
@@ -306,14 +361,14 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   "feedback": "<2-3 sentence specific, actionable feedback on THIS dimension only. Quote briefly from the essay if useful.>"
 }`;
 
-  const text = await chatCompletion(prompt, { smart: true, maxTokens: 600 });
+  const { text, usage } = await chatCompletion(prompt, { smart: true, maxTokens: 600 });
   const parsed = safeParseJson<EssayDimensionResult>(text, {
     score: 0,
     feedback: "Unable to evaluate this dimension — please try again.",
   });
   // Clamp score to 0..2 in case the model returns something odd
   const score = Math.max(0, Math.min(2, Math.round(Number(parsed.score) || 0)));
-  return { score, feedback: String(parsed.feedback ?? "") };
+  return { score, feedback: String(parsed.feedback ?? ""), usage };
 }
 
 export async function markEnglishEssay(
@@ -329,6 +384,7 @@ export async function markEnglishEssay(
   evidenceUse: { score: number; feedback: string };
   languageAndStyle: { score: number; feedback: string };
   improvements: string[];
+  usage: Usage;
 }> {
   // Run the three dimension passes in parallel — they are independent.
   const [thesisAndStructure, evidenceUse, languageAndStyle] = await Promise.all([
@@ -365,7 +421,10 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   "improvements": ["<improvement 1>", "<improvement 2>", "<improvement 3>"]
 }`;
 
-  const synthesisText = await chatCompletion(synthesisPrompt, { smart: true, maxTokens: 600 });
+  const { text: synthesisText, usage: synthesisUsage } = await chatCompletion(
+    synthesisPrompt,
+    { smart: true, maxTokens: 600 }
+  );
   const synthesis = safeParseJson<{ overallFeedback: string; improvements: string[] }>(
     synthesisText,
     {
@@ -378,6 +437,14 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       ],
     }
   );
+
+  // Aggregate token usage across the 4 passes (3 dimensions + synthesis)
+  const totalUsage: Usage = [
+    thesisAndStructure.usage,
+    evidenceUse.usage,
+    languageAndStyle.usage,
+    synthesisUsage,
+  ].reduce(addUsage, zeroUsage(MODEL_SMART));
 
   // Total raw score out of 6, rescaled to the question's mark total.
   const rawTotal = thesisAndStructure.score + evidenceUse.score + languageAndStyle.score;
@@ -402,10 +469,11 @@ Respond ONLY with valid JSON (no markdown, no code fences):
     marksAwarded,
     grade,
     overallFeedback: String(synthesis.overallFeedback ?? ""),
-    thesisAndStructure,
-    evidenceUse,
-    languageAndStyle,
+    thesisAndStructure: { score: thesisAndStructure.score, feedback: thesisAndStructure.feedback },
+    evidenceUse: { score: evidenceUse.score, feedback: evidenceUse.feedback },
+    languageAndStyle: { score: languageAndStyle.score, feedback: languageAndStyle.feedback },
     improvements,
+    usage: totalUsage,
   };
 }
 
@@ -417,6 +485,7 @@ export async function generatePracticeQuestion(
   text: string;
   marks: number;
   markingGuide: string;
+  usage: Usage;
 }> {
   const prompt = `Generate a single NCEA Level ${level} exam question on the topic "${topic}".
 
@@ -431,8 +500,8 @@ Respond ONLY with valid JSON (no markdown, no code fences):
 }`;
 
   // Use smart model for generation — quality matters
-  const text = await chatCompletion(prompt, { smart: true });
-  return JSON.parse(text);
+  const { text, usage } = await chatCompletion(prompt, { smart: true });
+  return { ...JSON.parse(text), usage };
 }
 
 // ── AI Tutor Chat ──
@@ -441,7 +510,7 @@ export async function tutorChat(
   question: { text: string; markingGuide: string; expectedAnswer?: string },
   studentMessages: { role: "user" | "assistant"; content: string }[],
   studentAnswerSoFar?: string
-): Promise<string> {
+): Promise<{ reply: string; usage: Usage }> {
   const history = studentMessages
     .map((m) => `${m.role === "user" ? "Student" : "Tutor"}: ${m.content}`)
     .join("\n\n");
@@ -470,16 +539,20 @@ ${history}
 
 Respond as the tutor with just your next message. Keep it short and helpful.`;
 
+  // Haiku 4.5 is fast + cheap and works great for conversational tutoring.
   // chatCompletion has built-in retry. If even that fails, return a friendly message
   // rather than throwing — students should never see a hard error from the tutor.
   try {
-    const reply = await chatCompletion(prompt, { smart: true, maxTokens: 300 });
-    if (!reply || reply.trim().length === 0) {
-      return "Sorry, I lost my train of thought! Can you try asking that again?";
+    const { text, usage } = await chatCompletion(prompt, { smart: false, maxTokens: 300 });
+    if (!text || text.trim().length === 0) {
+      return { reply: "Sorry, I lost my train of thought! Can you try asking that again?", usage };
     }
-    return reply;
+    return { reply: text, usage };
   } catch {
-    return "Sorry, I'm having trouble connecting right now. Try asking again in a moment, or check the marking guide below the question.";
+    return {
+      reply: "Sorry, I'm having trouble connecting right now. Try asking again in a moment, or check the marking guide below the question.",
+      usage: zeroUsage(MODEL_FAST),
+    };
   }
 }
 
@@ -502,6 +575,7 @@ export async function generatePracticePaper(
     expectedAnswer?: string;
     markingGuide: string;
   }>;
+  usage: Usage;
 }> {
   const topicLine = topic ? `Focus on the topic: ${topic}` : `Cover a range of core topics for this subject/level.`;
 
@@ -509,11 +583,27 @@ export async function generatePracticePaper(
   const seed = Math.random().toString(36).slice(2, 10);
   const variantNote = `Variation seed: ${seed} — generate completely original questions, do not reuse questions from previous generations.`;
 
-  const prompt = `Generate a practice exam paper for NCEA ${subject} Level ${level}.
+  // Year 10 is pre-NCEA (NZ curriculum / CAA Numeracy foundation work).
+  // Levels 1-3 are NCEA proper.
+  const levelLabel =
+    level === 0
+      ? `Year 10 ${subject} (pre-NCEA foundation, aligned with the NZ Curriculum Level 5 and CAA Numeracy standards)`
+      : `NCEA ${subject} Level ${level}`;
+  const styleLabel =
+    level === 0
+      ? `Match the style, difficulty, and question types of NZ Year 10 end-of-year assessments and CAA Numeracy papers (NOT NCEA — Year 10 students do not sit NCEA).`
+      : `Match the style, difficulty, and question types of real NZQA ${subject} exams.`;
+  const titleInstruction =
+    level === 0
+      ? `The "title" field should start with "Year 10" — e.g. "Year 10 Mathematics Practice Paper". Do NOT include "NCEA" or "Level 1" in the title.`
+      : `The "title" field should follow the pattern "NCEA ${subject[0].toUpperCase() + subject.slice(1)} Level ${level} Practice Paper".`;
+
+  const prompt = `Generate a practice exam paper for ${levelLabel}.
 
 ${topicLine}
 Number of questions: ${questionCount}
-Match the style, difficulty, and question types of real NZQA ${subject} exams.
+${styleLabel}
+${titleInstruction}
 ${variantNote}
 
 Requirements:
@@ -553,9 +643,11 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   // JSON parse errors specifically — if the model returns malformed JSON,
   // we ask it to regenerate up to 3 times.
   let lastErr: unknown;
+  let totalUsage: Usage = zeroUsage(MODEL_SMART);
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const text = await chatCompletion(prompt, { smart: true, maxTokens: 8192 });
+      const { text, usage } = await chatCompletion(prompt, { smart: true, maxTokens: 8192 });
+      totalUsage = addUsage(totalUsage, usage);
       // Strip markdown code fences if present, and any leading/trailing prose
       let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
       // Try to extract JSON object if the model wrapped it in prose
@@ -645,7 +737,7 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       }
 
       parsed.questions = validQuestions;
-      return parsed;
+      return { ...parsed, usage: totalUsage };
     } catch (err) {
       lastErr = err;
       console.log(`[generatePracticePaper] attempt ${attempt} failed:`, err instanceof Error ? err.message : String(err));

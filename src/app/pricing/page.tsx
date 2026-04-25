@@ -24,14 +24,14 @@ const PLANS: Plan[] = [
     monthlyPrice: "free",
     features: [
       { text: "2 practice exams per week", included: true },
-      { text: "Basic AI marking", included: true },
-      { text: "3 AI tutor messages per day", included: true },
-      { text: "1 subject at a time", included: true },
+      { text: "Mathematics & English subjects", included: true },
+      { text: "Basic StudyAce marking", included: true },
       { text: "Maximum 8 questions per exam", included: true },
       { text: "Basic dashboard", included: true },
-      { text: "Spaced repetition", included: false },
-      { text: "Adaptive difficulty", included: false },
       { text: "All 19 subjects", included: false },
+      { text: "StudyAce tutor chat", included: false },
+      { text: "Spaced repetition", included: false },
+      { text: "Mock exam mode", included: false },
       { text: "Study planner", included: false },
     ],
   },
@@ -42,15 +42,16 @@ const PLANS: Plan[] = [
     monthlyPrice: 9.99,
     features: [
       { text: "20 practice exams per week", included: true, bold: true },
-      { text: "Full AI marking on every question", included: true },
-      { text: "50 AI tutor messages per day", included: true },
+      { text: "Full StudyAce marking on every question", included: true },
       { text: "All 19 subjects", included: true },
       { text: "Up to 12 questions per exam", included: true },
       { text: "Spaced repetition review", included: true },
+      { text: "Personal study planner (week by week)", included: true },
+      { text: "Deep English essay marking (4-pass)", included: true },
+      { text: "Mock exam mode (timed, fullscreen)", included: true },
       { text: "Full dashboard with analytics", included: true },
-      { text: "Adaptive difficulty", included: false },
-      { text: "Personal study planner", included: false },
-      { text: "Deep English essay marking", included: false },
+      { text: "StudyAce tutor chat", included: false },
+      { text: "Adaptive difficulty (auto-tuned to you)", included: false },
     ],
   },
   {
@@ -62,14 +63,13 @@ const PLANS: Plan[] = [
     highlight: true,
     features: [
       { text: "UNLIMITED practice exams", included: true, bold: true },
-      { text: "UNLIMITED AI tutor chat", included: true, bold: true },
-      { text: "Up to 20 questions (full mock exams)", included: true, bold: true },
-      { text: "Adaptive difficulty (auto-tuned to you)", included: true },
+      { text: "100 StudyAce tutor chats per week", included: true, bold: true },
+      { text: "Adaptive difficulty (auto-tuned to you)", included: true, bold: true },
+      { text: "Up to 20 questions (full mock exams)", included: true },
+      { text: "Everything in Student", included: true },
       { text: "Personal study planner (week by week)", included: true },
       { text: "Deep English essay marking (4-pass)", included: true },
       { text: "Mock exam mode (timed, fullscreen)", included: true },
-      { text: "Priority generation (3x faster)", included: true },
-      { text: "Email exam date reminders", included: true },
       { text: "30-day money back guarantee", included: true },
     ],
   },
@@ -104,14 +104,27 @@ export default function PricingPage() {
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? "Something went wrong.");
+        setLoadingTier(null);
         return;
       }
       if (data.url) {
-        window.location.href = data.url;
+        // Mobile Safari can drop window.location.href after an await.
+        // An anchor click is treated as a user gesture and always navigates.
+        const a = document.createElement("a");
+        a.href = data.url;
+        a.rel = "noopener";
+        document.body.appendChild(a);
+        a.click();
+        // Fallback in case the click doesn't navigate
+        setTimeout(() => {
+          window.location.assign(data.url);
+        }, 100);
+      } else {
+        setError("Checkout URL missing. Please try again.");
+        setLoadingTier(null);
       }
     } catch {
       setError("Failed to start checkout. Please try again.");
-    } finally {
       setLoadingTier(null);
     }
   }, [billing]);
@@ -142,6 +155,16 @@ export default function PricingPage() {
     // Free plan always links to subjects
     if (plan.tier === "free") {
       return { label: "Start free", action: () => {}, isLink: true, href: isSignedIn ? "/subjects" : "/sign-up" };
+    }
+
+    // Signed-out users must sign up before checkout
+    if (!isSignedIn) {
+      return {
+        label: `Get ${plan.name}`,
+        action: () => {},
+        isLink: true,
+        href: `/sign-up?redirect_url=${encodeURIComponent(`/pricing`)}`,
+      };
     }
 
     // If user is already on this tier
@@ -357,7 +380,7 @@ export default function PricingPage() {
         <div className="space-y-3">
           <Faq
             q="Will this actually help me pass?"
-            a="Yes — practising real exam-style questions is the single most effective way to improve marks. Study Ace gives you unlimited practice with instant feedback, AI tutoring when you're stuck, and spaced repetition so you actually remember what you learn."
+            a="Yes — practising real exam-style questions is the single most effective way to improve marks. Study Ace gives you unlimited practice with instant feedback, StudyAce tutoring when you're stuck, and spaced repetition so you actually remember what you learn."
           />
           <Faq
             q="Can I cancel anytime?"

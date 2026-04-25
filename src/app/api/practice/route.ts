@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generatePracticeQuestion } from "@/lib/claude";
 import { markAnswer } from "@/lib/claude";
+import { auth } from "@clerk/nextjs/server";
+import { logApiUsage } from "@/lib/db";
 
 export async function POST(request: NextRequest) {
   try {
+    const { userId } = await auth();
     const body = await request.json();
     const { action } = body as { action: string };
 
@@ -20,12 +23,15 @@ export async function POST(request: NextRequest) {
         level,
         gradeLevel
       );
+      await logApiUsage(userId, "practice_question", question.usage);
 
+      const { usage: _u, ...qPayload } = question;
+      void _u;
       return NextResponse.json({
         id: `practice-${Date.now()}`,
         topic,
         gradeLevel,
-        ...question,
+        ...qPayload,
       });
     }
 
@@ -47,8 +53,11 @@ export async function POST(request: NextRequest) {
         markingGuide,
         studentAnswer
       );
+      await logApiUsage(userId, "mark", result.usage);
 
-      return NextResponse.json(result);
+      const { usage: _u, ...resultPayload } = result;
+      void _u;
+      return NextResponse.json(resultPayload);
     }
 
     return NextResponse.json({ error: "Invalid action" }, { status: 400 });

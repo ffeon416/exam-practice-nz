@@ -7,6 +7,8 @@ import { getTopicLabel, TOPICS } from "@/data/topics";
 import type { Question } from "@/lib/types";
 import Graph from "@/components/Graph";
 import TutorChat, { type Message as TutorMessage } from "@/components/TutorChat";
+import TutorUpgradeModal from "@/components/TutorUpgradeModal";
+import { useTier } from "@/hooks/useTier";
 import {
   getRecommendedLevel,
   getTopicRating,
@@ -40,7 +42,10 @@ export default function PracticePage() {
   const [loadingTip, setLoadingTip] = useState(0);
   const [showLesson, setShowLesson] = useState(true);
   const [tutorOpen, setTutorOpen] = useState(false);
+  const [showTutorUpgrade, setShowTutorUpgrade] = useState(false);
   const [tutorHistory, setTutorHistory] = useState<Record<string, TutorMessage[]>>({});
+  const { limits: tierLimits, usage: tierUsage } = useTier();
+  const tutorLockedForTier = tierLimits.tutorMessagesPerWeek === 0;
 
   function normalize(s: string): string {
     return s.toLowerCase().replace(/\s+/g, " ").replace(/[×·*]/g, "*").replace(/[–—−-]/g, "-").replace(/[''`]/g, "").replace(/[,.]/g, "").trim();
@@ -88,8 +93,17 @@ export default function PracticePage() {
     return hit?.id ?? null;
   })();
 
-  const recommendedLevel = matchedTopicId ? getRecommendedLevel(matchedTopicId) : null;
-  const topicRating = matchedTopicId ? getTopicRating(matchedTopicId) : null;
+  // Adaptive difficulty is a Pro-only feature — only compute recommended level /
+  // topic rating for users whose tier has it enabled. Free + Student get
+  // standard random questions at the picked level.
+  const recommendedLevel =
+    matchedTopicId && tierLimits.adaptiveDifficulty
+      ? getRecommendedLevel(matchedTopicId)
+      : null;
+  const topicRating =
+    matchedTopicId && tierLimits.adaptiveDifficulty
+      ? getTopicRating(matchedTopicId)
+      : null;
 
   const filteredQuestions = ALL_QUESTIONS.filter((q) => {
     if (q.level !== level) return false;
@@ -222,7 +236,7 @@ export default function PracticePage() {
       }
     } catch {
       setIsCorrect(false);
-      setFeedback("AI marking unavailable. Compare your answer with the marking guide below.");
+      setFeedback("StudyAce marking unavailable. Compare your answer with the marking guide below.");
     } finally {
       setChecking(false);
       setChecked(true);
@@ -244,7 +258,7 @@ export default function PracticePage() {
             </h1>
             <p className="text-zinc-400 text-[15px] max-w-md mx-auto">
               Pick a topic you&apos;re struggling with. We&apos;ll teach you the concept,
-              then test you on it — with an AI tutor to help if you get stuck.
+              then test you on it — with the StudyAce tutor to help if you get stuck.
             </p>
           </div>
 
@@ -451,13 +465,19 @@ export default function PracticePage() {
             {/* Tutor button */}
             {!checked && (
               <button
-                onClick={() => setTutorOpen(true)}
+                onClick={() => {
+                  if (tutorLockedForTier) {
+                    setShowTutorUpgrade(true);
+                  } else {
+                    setTutorOpen(true);
+                  }
+                }}
                 className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1.5 rounded-lg border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 transition-colors"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
                 </svg>
-                Stuck? Ask tutor
+                {tutorLockedForTier ? "Ask tutor (Pro)" : "Stuck? Ask tutor"}
               </button>
             )}
           </div>
@@ -543,7 +563,7 @@ export default function PracticePage() {
               {/* AI feedback */}
               {feedback && (
                 <div className="rounded-xl bg-indigo-500/[0.04] border border-indigo-500/15 p-4">
-                  <p className="text-indigo-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">AI feedback</p>
+                  <p className="text-indigo-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">StudyAce feedback</p>
                   <p className="text-zinc-300 text-[13px] whitespace-pre-wrap leading-relaxed">{feedback}</p>
                 </div>
               )}
@@ -594,7 +614,13 @@ export default function PracticePage() {
             setTutorHistory((prev) => ({ ...prev, [question.id]: msgs }))
           }
           onClose={() => setTutorOpen(false)}
+          tutorUsage={tierUsage.tutorMessagesThisWeek}
+          tutorLimit={tierLimits.tutorMessagesPerWeek}
         />
+      )}
+
+      {showTutorUpgrade && (
+        <TutorUpgradeModal onClose={() => setShowTutorUpgrade(false)} />
       )}
     </div>
   );

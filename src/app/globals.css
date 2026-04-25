@@ -31,3 +31,128 @@ body {
 ::selection {
   background: rgba(99, 102, 241, 0.3);
 }
+
+/* ── Animated background blobs ── */
+@keyframes blob-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(18%, -12%, 0) scale(1.2); }
+  66% { transform: translate3d(-12%, 16%, 0) scale(0.9); }
+}
+@keyframes blob-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-20%, -15%, 0) scale(1.25); }
+}
+@keyframes blob-drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  25% { transform: translate3d(15%, 18%, 0) scale(0.85); }
+  75% { transform: translate3d(-18%, -10%, 0) scale(1.2); }
+}
+@keyframes grid-shift {
+  from { background-position: 0 0; }
+  to { background-position: 80px 80px; }
+}
+@keyframes aurora-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.animate-blob-a { animation: blob-drift-a 12s ease-in-out infinite; will-change: transform; }
+.animate-blob-b { animation: blob-drift-b 15s ease-in-out infinite; will-change: transform; }
+.animate-blob-c { animation: blob-drift-c 14s ease-in-out infinite; will-change: transform; }
+.animate-grid-shift { animation: grid-shift 18s linear infinite; }
+.animate-aurora { animation: aurora-spin 28s linear infinite; will-change: transform; }
+
+.bg-grid-faint {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.mask-radial-fade {
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-a,
+  .animate-blob-b,
+  .animate-blob-c,
+  .animate-grid-shift,
+  .animate-aurora {
+    animation: none;
+  }
+}
+
+/* Force Clerk dark-mode contrast — Clerk's own styles win specificity battles otherwise */
+.cl-rootBox,
+.cl-card {
+  background: #0c0c12 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+.cl-headerTitle {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+.cl-headerSubtitle {
+  color: #a1a1aa !important;
+}
+.cl-socialButtonsBlockButton {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+.cl-socialButtonsBlockButton:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+.cl-socialButtonsBlockButtonText,
+.cl-socialButtonsBlockButton__google,
+.cl-socialButtonsBlockButton * {
+  color: #ffffff !important;
+}
+.cl-dividerLine {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+.cl-dividerText {
+  color: #a1a1aa !important;
+}
+.cl-formFieldLabel {
+  color: #d4d4d8 !important;
+  font-weight: 500 !important;
+}
+.cl-formFieldInput {
+  background: #141419 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f4f4f5 !important;
+}
+.cl-formFieldInput::placeholder {
+  color: #71717a !important;
+}
+.cl-formButtonPrimary {
+  background: #6366f1 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+.cl-formButtonPrimary:hover {
+  background: #818cf8 !important;
+}
+.cl-footerActionText {
+  color: #a1a1aa !important;
+}
+.cl-footerActionLink {
+  color: #818cf8 !important;
+  font-weight: 500 !important;
+}
+.cl-footerActionLink:hover {
+  color: #a5b4fc !important;
+}
+.cl-identityPreviewText,
+.cl-formFieldSuccessText,
+.cl-otpCodeFieldInput {
+  color: #f4f4f5 !important;
+}
+.cl-internal-b3fm6y,
+.cl-footer {
+  background: transparent !important;
+}

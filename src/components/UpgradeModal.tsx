@@ -42,11 +42,11 @@ export default function UpgradeModal({ message, onClose }: UpgradeModalProps) {
           <ul className="space-y-2 text-[13px] text-zinc-400">
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>
-              <span><strong className="text-zinc-200">Student ($9.99/mo)</strong> — 20 exams/week, 50 tutor messages/day, all subjects, spaced repetition</span>
+              <span><strong className="text-zinc-200">Student ($9.99/mo)</strong> — 20 exams/week, all subjects, spaced repetition, study planner, deep essay marking (no tutor)</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>
-              <span><strong className="text-zinc-200">Pro ($19.99/mo)</strong> — Unlimited exams &amp; tutor, adaptive difficulty, study planner, deep essay marking</span>
+              <span><strong className="text-zinc-200">Pro ($19.99/mo)</strong> — Unlimited exams, 100 tutor chats/week, adaptive difficulty, plus everything in Student</span>
             </li>
           </ul>
         </div>

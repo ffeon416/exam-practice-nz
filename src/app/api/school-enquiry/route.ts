@@ -56,7 +56,8 @@ export async function POST(req: NextRequest) {
       message: message?.trim() || null,
     };
 
-    // 1. Store in Supabase (if configured)
+    // 1. Store in Supabase (if configured) — this is the durable record
+    let stored = false;
     const supabase = getSupabase();
     if (supabase) {
       const { error: dbError } = await supabase
@@ -64,23 +65,30 @@ export async function POST(req: NextRequest) {
         .insert(enquiry);
       if (dbError) {
         console.error("[SCHOOL ENQUIRY] Supabase insert failed:", dbError.message);
+      } else {
+        stored = true;
       }
     }
 
-    // 2. Send notification email via Resend (if configured)
+    // Email notification is handled client-side from the schools form (the
+    // browser POSTs directly to FormSubmit). Server-side calls get blocked by
+    // Cloudflare when they originate from Vercel's data-center IPs.
+
+    // 2b. Send notification email via Resend (optional — skip silently if not configured)
     const resendKey = process.env.RESEND_API_KEY;
     const notifyEmail = process.env.NOTIFY_EMAIL;
     if (resendKey && notifyEmail) {
       try {
-        await fetch("https://api.resend.com/emails", {
+        const r = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: "StudyAce <noreply@studyace.co.nz>",
+            from: "StudyAce <onboarding@resend.dev>",
             to: notifyEmail,
+            reply_to: enquiry.email,
             subject: `New school enquiry from ${enquiry.name} at ${enquiry.school}`,
             html: `
               <h2>New School Enquiry</h2>
@@ -95,6 +103,9 @@ export async function POST(req: NextRequest) {
             `,
           }),
         });
+        if (!r.ok) {
+          console.error("[SCHOOL ENQUIRY] Resend responded", r.status, await r.text().catch(() => ""));
+        }
       } catch (emailErr) {
         console.error("[SCHOOL ENQUIRY] Email send failed:", emailErr);
       }
@@ -102,8 +113,15 @@ export async function POST(req: NextRequest) {
 
     // 3. Always log as backup
     console.log(
-      `[SCHOOL ENQUIRY] ${enquiry.name} | ${enquiry.email} | ${enquiry.school} | Role: ${enquiry.role || "N/A"} | Students: ${enquiry.students || "N/A"} | Message: ${enquiry.message || "N/A"}`
+      `[SCHOOL ENQUIRY] stored=${stored} | ${enquiry.name} | ${enquiry.email} | ${enquiry.school} | Role: ${enquiry.role || "N/A"} | Students: ${enquiry.students || "N/A"} | Message: ${enquiry.message || "N/A"}`
     );
+
+    if (!stored) {
+      return NextResponse.json(
+        { error: "Couldn't save your enquiry right now. Please email us directly at ffeon.io@gmail.com." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch {

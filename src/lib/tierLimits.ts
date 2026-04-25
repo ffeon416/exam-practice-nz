@@ -1,32 +1,42 @@
 export type Tier = "free" | "student" | "pro";
 
+// Subjects available on the Free tier. Everything else requires Student or Pro.
+// Kept deliberately narrow — core, highest-enrolment subjects that let a free
+// user try the product properly before upgrading.
+export const FREE_SUBJECTS = ["mathematics", "english"] as const;
+
+export function isSubjectAvailable(subject: string, tier: Tier): boolean {
+  if (tier === "student" || tier === "pro") return true;
+  return (FREE_SUBJECTS as readonly string[]).includes(subject);
+}
+
 export const TIER_LIMITS = {
   free: {
     examsPerWeek: 2,
     maxQuestions: 8,
-    tutorMessagesPerDay: 3,
+    tutorMessagesPerWeek: 0, // Tutor is Pro-only
     allSubjects: false,
     spacedRepetition: false,
     adaptiveDifficulty: false,
-    studyPlanner: true,
+    studyPlanner: false,
     deepEssayMarking: false,
-    mockExamMode: true,
+    mockExamMode: false,
   },
   student: {
     examsPerWeek: 20,
     maxQuestions: 12,
-    tutorMessagesPerDay: 50,
+    tutorMessagesPerWeek: 0, // Student tier has no tutor — upgrade to Pro for that
     allSubjects: true,
     spacedRepetition: true,
     adaptiveDifficulty: false,
     studyPlanner: true,
-    deepEssayMarking: false,
+    deepEssayMarking: true,
     mockExamMode: true,
   },
   pro: {
     examsPerWeek: Infinity,
     maxQuestions: 20,
-    tutorMessagesPerDay: Infinity,
+    tutorMessagesPerWeek: 100,
     allSubjects: true,
     spacedRepetition: true,
     adaptiveDifficulty: true,

@@ -87,9 +87,11 @@ export default function ProfilePage() {
     ? "Unlimited"
     : `${Math.max(0, limits.examsPerWeek - usage.examsThisWeek)} of ${limits.examsPerWeek}`;
 
-  const tutorLeft = isUnlimited(limits.tutorMessagesPerDay)
+  const tutorLeft = isUnlimited(limits.tutorMessagesPerWeek)
     ? "Unlimited"
-    : `${Math.max(0, limits.tutorMessagesPerDay - usage.tutorMessagesToday)} of ${limits.tutorMessagesPerDay}`;
+    : limits.tutorMessagesPerWeek === 0
+    ? "Pro only"
+    : `${Math.max(0, limits.tutorMessagesPerWeek - usage.tutorMessagesThisWeek)} of ${limits.tutorMessagesPerWeek} this week`;
 
   return (
     <div className="relative overflow-hidden">
@@ -285,7 +287,7 @@ export default function ProfilePage() {
             </div>
             <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
               <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-1">
-                Tutor messages today
+                Tutor chats this week
               </p>
               <p className="text-white font-semibold text-[18px]">{tutorLeft}</p>
             </div>

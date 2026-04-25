@@ -42,7 +42,8 @@ export default function TutorChat({
   tutorLimit = -1,
 }: TutorChatProps) {
   const isLimited = tutorLimit !== -1;
-  const isOverLimit = isLimited && tutorUsage >= tutorLimit;
+  const [limitHit, setLimitHit] = useState(false);
+  const isOverLimit = limitHit || (isLimited && tutorUsage >= tutorLimit);
   const [messages, setMessages] = useState<Message[]>(
     initialMessages && initialMessages.length > 0
       ? initialMessages
@@ -107,13 +108,41 @@ export default function TutorChat({
         }),
       });
 
+      const data = (await res
+        .json()
+        .catch(() => ({}))) as { reply?: string; error?: string; message?: string };
+
       if (!res.ok) {
-        throw new Error(`Tutor request failed (${res.status})`);
+        if (res.status === 403 && data.error === "limit_reached") {
+          setLimitHit(true);
+          setError(null);
+          // Drop a friendly synthetic "goodbye" message so the chat doesn't
+          // just freeze. No API call — $0 cost.
+          const isPro = tutorLimit >= 100;
+          const farewell: Message = {
+            role: "assistant",
+            content: isPro
+              ? `Big session! That was your ${tutorLimit} tutor chats for the week. 👋\n\nGrab some rest and come back next week — I'll be right here.`
+              : `I'd love to keep helping — but that was your last free chat for the week. 👋\n\nUpgrade to Pro for 100 tutor chats a week (plus unlimited exams + essay marking), or come back next week for your free refresh.`,
+          };
+          setMessages((prev) => {
+            const updated = [...prev, farewell];
+            emitMessages(updated);
+            return updated;
+          });
+          return;
+        }
+        if (res.status === 429) {
+          throw new Error("Whoa — slow down a touch. Try again in a few seconds.");
+        }
+        if (res.status >= 500) {
+          throw new Error("The tutor is taking a quick breather. Try that again in a moment?");
+        }
+        throw new Error(data.message ?? data.error ?? "Hmm, that didn't go through. Try again?");
       }
 
-      const data = (await res.json()) as { reply?: string; error?: string };
       if (!data.reply) {
-        throw new Error(data.error ?? "No reply from tutor");
+        throw new Error("The tutor didn't reply — give it another go.");
       }
 
       setMessages((prev) => {
@@ -166,10 +195,10 @@ export default function TutorChat({
         <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900/95">
           <div className="flex items-center gap-3">
             <div className="h-9 w-9 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white font-semibold">
-              AI
+              SA
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-white">AI Tutor</h2>
+              <h2 className="text-sm font-semibold text-white">StudyAce Tutor</h2>
               <p className="text-xs text-zinc-400">
                 Here to help you think it through
               </p>
@@ -245,10 +274,34 @@ export default function TutorChat({
         {/* Input */}
         <div className="border-t border-zinc-800 bg-zinc-900 px-3 py-3">
           {isOverLimit && (
-            <div className="mb-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[12px] text-amber-300">
-              You&apos;ve used your {tutorLimit} free tutor messages for today. Upgrade to Student for 50/day or Pro for unlimited.{" "}
-              <a href="/pricing" className="underline text-indigo-400 hover:text-indigo-300">View plans</a>
-            </div>
+            tutorLimit >= 100 ? (
+              <div className="mb-2 rounded-xl bg-white/[0.04] border border-white/[0.08] p-3.5">
+                <p className="text-[13px] text-white font-semibold mb-1">
+                  That&apos;s your {tutorLimit} chats for the week.
+                </p>
+                <p className="text-[12px] text-zinc-400">
+                  The tutor resets every week — come back then and we&apos;ll keep going.
+                </p>
+              </div>
+            ) : (
+              <div className="mb-2 rounded-xl bg-gradient-to-br from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/30 p-3.5">
+                <p className="text-[13px] text-white font-semibold mb-1">
+                  You&apos;ve used your {tutorLimit} free tutor chats this week.
+                </p>
+                <p className="text-[12px] text-zinc-400 mb-3">
+                  Upgrade to <span className="text-zinc-200 font-medium">Pro ($19.99/mo)</span> for 100 tutor chats a week, or come back next week for your free refresh.
+                </p>
+                <a
+                  href="/pricing"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white text-[12px] font-semibold transition-colors"
+                >
+                  See plans
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </a>
+              </div>
+            )
           )}
           <div className="flex items-end gap-2">
             <textarea

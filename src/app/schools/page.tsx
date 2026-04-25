@@ -35,6 +35,21 @@ export default function SchoolsPage() {
         return;
       }
 
+      // Client-side FormSubmit notification — see contact page for rationale.
+      fetch("https://formsubmit.co/ajax/ffeon.io@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New school enquiry from ${data.name} at ${data.school}`,
+          name: data.name,
+          email: data.email,
+          school: data.school,
+          role: data.role || "—",
+          students: data.students || "—",
+          message: data.message || "—",
+        }),
+      }).catch(() => {});
+
       setFormState("success");
     } catch {
       setErrorMessage("Network error. Please check your connection and try again.");
@@ -66,8 +81,8 @@ export default function SchoolsPage() {
         </h1>
 
         <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2">
-          Free for teachers to trial. Give your students unlimited NCEA practice
-          with instant AI marking — and see exactly where they need help.
+          Bulk pricing for NCEA practice. Give your students unlimited exam
+          reps with instant marking — across every subject, every level.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -75,7 +90,7 @@ export default function SchoolsPage() {
             href="#contact"
             className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
           >
-            Request a free trial
+            Enquire for your school
             <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
@@ -105,12 +120,11 @@ export default function SchoolsPage() {
           <BenefitCard
             icon={
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3M3.75 21h16.5M16.5 3.75h.008v.008H16.5V3.75z" />
               </svg>
             }
-            title="See where students struggle"
-            desc="Real-time visibility into which topics and standards each student finds hardest. No more guessing what to revise."
+            title="Covers the whole syllabus"
+            desc="Every NCEA standard, every level. 150+ real past papers plus unlimited fresh practice across 19 subjects."
           />
           <BenefitCard
             icon={
@@ -118,8 +132,8 @@ export default function SchoolsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             }
-            title="Save hours of marking"
-            desc="AI marks every answer instantly with detailed feedback and worked solutions. You focus on teaching, not ticking."
+            title="Students self-mark"
+            desc="Every answer gets detailed feedback and worked solutions instantly. No marking pile on your desk — students practise between your classes, not during them."
           />
           <BenefitCard
             icon={
@@ -155,8 +169,8 @@ export default function SchoolsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
               </svg>
             }
-            title="Free to trial"
-            desc="Start with a free teacher account. No credit card, no contracts, no commitment. See the impact before you decide."
+            title="Bulk pricing for classes"
+            desc="Discounted licenses for whole classes, departments, or the full school. Get in touch and we’ll work out a plan that fits your budget."
           />
         </div>
       </section>
@@ -166,25 +180,25 @@ export default function SchoolsPage() {
         <div className="text-center mb-8 sm:mb-12">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">How it works</p>
           <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight">
-            Up and running in minutes
+            Simple for schools
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Step
             number="01"
-            title="Sign up free"
-            desc="Create a teacher account in 30 seconds. No approval process, no IT department needed."
+            title="Get in touch"
+            desc="Tell us about your school and what you’re teaching. We’ll come back with a plan that fits your budget."
           />
           <Step
             number="02"
-            title="Students practise"
-            desc="Share the link with your class. Students sign up, pick their subjects, and start practising immediately."
+            title="Students train"
+            desc="Students sign up, pick their subjects, and start training on exam-style papers straight away."
           />
           <Step
             number="03"
-            title="Track progress"
-            desc="See which students are practising and where they're struggling. Use the data to target your teaching."
+            title="Exam day ready"
+            desc="By exam time your students have trained on the actual format dozens of times. They walk in knowing what to expect."
           />
         </div>
       </section>
@@ -199,7 +213,7 @@ export default function SchoolsPage() {
             <span className="text-white font-semibold">Years 10&ndash;13</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-white font-semibold">Instant</span> AI marking
+            <span className="text-white font-semibold">Instant</span> StudyAce marking
           </div>
           <div className="flex items-center gap-1.5">
             <span className="text-white font-semibold">100+</span> exam papers
@@ -231,10 +245,10 @@ export default function SchoolsPage() {
         <div className="text-center mb-8 sm:mb-10">
           <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Get started</p>
           <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight mb-3">
-            Get started with your class
+            Talk to us about your school
           </h2>
           <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
-            Tell us about your school and we&apos;ll set you up with a free trial.
+            Tell us about your school. We&apos;ll come back with the right plan for you.
           </p>
         </div>
 
@@ -354,7 +368,7 @@ export default function SchoolsPage() {
                 disabled={formState === "loading"}
                 className="w-full bg-indigo-500 hover:bg-indigo-400 disabled:bg-indigo-500/50 disabled:cursor-not-allowed text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.01] shadow-lg shadow-indigo-500/20 text-[15px]"
               >
-                {formState === "loading" ? "Submitting..." : "Request free trial"}
+                {formState === "loading" ? "Sending..." : "Send enquiry"}
               </button>
             </form>
           )}

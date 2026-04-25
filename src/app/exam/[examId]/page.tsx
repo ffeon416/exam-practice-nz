@@ -9,6 +9,8 @@ import Timer from "@/components/Timer";
 import TopicTag from "@/components/TopicTag";
 import Graph from "@/components/Graph";
 import TutorChat, { type Message as TutorMessage } from "@/components/TutorChat";
+import TutorUpgradeModal from "@/components/TutorUpgradeModal";
+import { useTier } from "@/hooks/useTier";
 
 export default function ExamPage({
   params,
@@ -18,7 +20,7 @@ export default function ExamPage({
   const { examId } = use(params);
   const searchParams = useSearchParams();
   const router = useRouter();
-  const mode = (searchParams.get("mode") ?? "practice") as
+  const rawMode = (searchParams.get("mode") ?? "practice") as
     | "practice"
     | "mock";
 
@@ -29,9 +31,15 @@ export default function ExamPage({
   const [submitting, setSubmitting] = useState(false);
   const [started, setStarted] = useState(false);
   const [tutorOpen, setTutorOpen] = useState(false);
+  const [showTutorUpgrade, setShowTutorUpgrade] = useState(false);
   const [tutorHistory, setTutorHistory] = useState<
     Record<string, TutorMessage[]>
   >({});
+  const { limits: tierLimits, usage: tierUsage } = useTier();
+  const tutorLockedForTier = tierLimits.tutorMessagesPerWeek === 0;
+  // Mock exam mode is Student+Pro only — downgrade Free users silently to practice.
+  const mode: "practice" | "mock" =
+    rawMode === "mock" && !tierLimits.mockExamMode ? "practice" : rawMode;
 
   useEffect(() => {
     // Run on mount only — wait for the next tick so localStorage is hydrated
@@ -97,7 +105,9 @@ export default function ExamPage({
       JSON.stringify({ answers, mode })
     );
 
-    router.push(`/exam/${exam.id}/results`);
+    // replace (not push) — otherwise browser back from results returns to
+    // the exam and lets the user re-answer / re-submit, re-hitting /api/mark.
+    router.replace(`/exam/${exam.id}/results`);
   }, [exam, answers, mode, submitting, router]);
 
   const handleTimeUp = useCallback(() => {
@@ -174,7 +184,7 @@ export default function ExamPage({
             ) : (
               <>
                 <p className="flex items-center gap-2"><span className="text-[16px]">{"\u23F1"}</span> No time limit — take as long as you need</p>
-                <p className="flex items-center gap-2"><span className="text-[16px]">{"\uD83D\uDCDD"}</span> Answer all questions then submit for AI marking</p>
+                <p className="flex items-center gap-2"><span className="text-[16px]">{"\uD83D\uDCDD"}</span> Answer all questions then submit for StudyAce marking</p>
                 <p className="flex items-center gap-2"><span className="text-[16px]">{"\uD83C\uDFAF"}</span> You&apos;ll get detailed feedback on every answer</p>
               </>
             )}
@@ -319,7 +329,13 @@ export default function ExamPage({
             {mode === "practice" && (
               <button
                 type="button"
-                onClick={() => setTutorOpen(true)}
+                onClick={() => {
+                  if (tutorLockedForTier) {
+                    setShowTutorUpgrade(true);
+                  } else {
+                    setTutorOpen(true);
+                  }
+                }}
                 className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-indigo-500/40 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400 transition-colors"
               >
                 <svg
@@ -337,6 +353,11 @@ export default function ExamPage({
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
                 Ask tutor
+                {tutorLockedForTier && (
+                  <svg className="w-3 h-3 ml-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                  </svg>
+                )}
               </button>
             )}
           </div>
@@ -484,7 +505,13 @@ export default function ExamPage({
             setTutorHistory((prev) => ({ ...prev, [question.id]: msgs }))
           }
           onClose={() => setTutorOpen(false)}
+          tutorUsage={tierUsage.tutorMessagesThisWeek}
+          tutorLimit={tierLimits.tutorMessagesPerWeek}
         />
+      )}
+
+      {showTutorUpgrade && (
+        <TutorUpgradeModal onClose={() => setShowTutorUpgrade(false)} />
       )}
     </div>
   );

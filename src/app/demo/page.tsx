@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { demoQuestions, demoResults } from "@/data/demoQuestions";
 import type { MarkingResult } from "@/lib/types";
@@ -69,6 +69,10 @@ export default function DemoPage() {
   const [markingDone, setMarkingDone] = useState<boolean[]>([false, false, false]);
   const [expandedAnswer, setExpandedAnswer] = useState<Record<number, boolean>>({});
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step, currentQ]);
+
   const question = demoQuestions[currentQ];
   const isLastQ = currentQ === demoQuestions.length - 1;
   const currentHasAnswer = (answers[question.id] ?? "").trim().length > 0;
@@ -115,64 +119,148 @@ export default function DemoPage() {
   // ── INTRO ──
   if (step === "intro") {
     return (
-      <div className="relative overflow-hidden bg-[#06060a]">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
-          <div className="absolute top-[300px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
+      <div className="relative overflow-hidden bg-[#06060a] isolate">
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 bg-grid-faint animate-grid-shift mask-radial-fade" />
+          <div
+            className="absolute top-[40%] left-1/2 w-[1200px] h-[1200px] animate-aurora"
+            style={{
+              background:
+                "conic-gradient(from 90deg, transparent 0%, rgba(99,102,241,0.5) 20%, transparent 40%, rgba(236,72,153,0.45) 60%, transparent 80%, rgba(168,85,247,0.4) 95%, transparent 100%)",
+              filter: "blur(80px)",
+            }}
+          />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/40 blur-[120px] rounded-full animate-blob-a" />
+          <div className="absolute top-[500px] right-0 w-[500px] h-[500px] bg-purple-500/30 blur-[120px] rounded-full animate-blob-b" />
+          <div className="absolute top-[300px] -left-20 w-[400px] h-[400px] bg-pink-500/25 blur-[100px] rounded-full animate-blob-c" />
         </div>
 
-        <section className="max-w-3xl mx-auto px-5 pt-8 sm:pt-28 pb-16 sm:pb-24 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            No sign-up needed
-          </div>
+        <section className="max-w-5xl mx-auto px-5 pt-12 sm:pt-20 pb-16 sm:pb-24">
+          {/* Hero */}
+          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
+            <h1 className="text-[34px] sm:text-[56px] md:text-[64px] font-extrabold text-white tracking-tight leading-[1.05] mb-6">
+              See how we mark
+              <br />
+              <span className="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                your answers
+              </span>
+            </h1>
 
-          <h1 className="text-[28px] sm:text-[48px] md:text-[56px] font-extrabold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6">
-            See how AI marks
-            <br />
-            <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              your answers
-            </span>
-          </h1>
+            <p className="text-zinc-300 text-[16px] sm:text-[19px] leading-relaxed max-w-xl mx-auto mb-10">
+              Answer 3 real NCEA questions. Get instant marks, feedback, and exam tips &mdash; no account needed.
+            </p>
 
-          <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2">
-            Try 3 real NCEA questions. Get instant feedback with marks,
-            explanations, and exam tips &mdash; in seconds.
-          </p>
-
-          <div className="relative inline-block mb-6">
-            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 opacity-50 blur-md animate-pulse" />
-            <button
-              onClick={() => setStep("answering")}
-              className="relative group bg-white text-[#06060a] font-bold px-10 py-4 rounded-xl transition-all hover:scale-[1.02] shadow-2xl shadow-white/10 text-[16px] inline-flex items-center justify-center gap-2"
-            >
-              Start Demo
-              <svg
-                className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2.5}
-                stroke="currentColor"
+            <div className="relative inline-block mb-8">
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-60 blur-lg animate-pulse" />
+              <button
+                onClick={() => setStep("answering")}
+                className="relative group bg-white text-[#06060a] font-bold px-12 py-5 rounded-xl transition-all hover:scale-[1.03] active:scale-[0.99] shadow-2xl shadow-white/20 text-[17px] inline-flex items-center justify-center gap-2"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
+                Start Demo
+                <svg
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[13px] text-zinc-200">
+                <svg className="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                3 questions
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[13px] text-zinc-200">
+                <svg className="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                ~3 minutes
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[13px] text-zinc-200">
+                <svg className="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Instant marking
+              </span>
+            </div>
           </div>
 
-          <div className="flex items-center justify-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] text-zinc-400">
-              3 questions
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] text-zinc-400">
-              ~5 minutes
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[12px] text-zinc-400">
-              Instant AI marking
-            </span>
+          {/* Preview card */}
+          <div className="mb-16 sm:mb-24">
+            <div className="text-center mb-6 sm:mb-8">
+              <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2">Preview</p>
+              <h2 className="text-white font-bold text-[22px] sm:text-[28px] tracking-tight">
+                Here&rsquo;s what you&rsquo;ll get
+              </h2>
+            </div>
+
+            <div className="relative max-w-xl mx-auto">
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-indigo-500/25 via-purple-500/15 to-transparent blur-xl" />
+              <div className="relative rounded-2xl bg-[#0c0c12] border border-white/[0.1] overflow-hidden shadow-2xl shadow-black/50">
+                <div className="px-5 sm:px-6 py-4 border-b border-white/[0.06] flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="text-[11px] text-zinc-500 mb-1">Question 1 &middot; NCEA Science</p>
+                    <p className="text-zinc-200 text-[14px] leading-relaxed">
+                      Describe what happens during photosynthesis&hellip;
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <span className="text-[18px] sm:text-[20px] font-bold tabular-nums text-emerald-400">3/3</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full border font-medium text-green-400 bg-green-500/15 border-green-500/30">
+                      Achieved
+                    </span>
+                  </div>
+                </div>
+                <div className="px-5 sm:px-6 py-4 space-y-4">
+                  <div>
+                    <p className="text-[11px] text-zinc-500 font-semibold mb-1.5 uppercase tracking-wider">Feedback</p>
+                    <p className="text-zinc-200 text-[13px] leading-relaxed">
+                      Great answer! You&rsquo;ve correctly described photosynthesis and explained why it matters.
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-indigo-500/[0.1] border border-indigo-500/25 px-4 py-3">
+                    <p className="text-[11px] text-indigo-300 font-semibold mb-1 uppercase tracking-wider">Exam tip</p>
+                    <p className="text-zinc-200 text-[13px] leading-relaxed">
+                      Always include the equation when explaining photosynthesis &mdash; it&rsquo;s an easy mark.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* How it works */}
+          <div>
+            <div className="text-center mb-8 sm:mb-10">
+              <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2">How it works</p>
+              <h2 className="text-white font-bold text-[22px] sm:text-[28px] tracking-tight">
+                Three simple steps
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
+              {[
+                { n: "01", t: "Answer", d: "Three real NCEA questions from Science, Maths, and English." },
+                { n: "02", t: "Get marked", d: "Instant marks, a grade, and detailed feedback in seconds." },
+                { n: "03", t: "Learn", d: "See the correct approach and a tip to nail it in the exam." },
+              ].map((s) => (
+                <div key={s.n} className="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6 hover:bg-white/[0.05] hover:border-white/[0.12] transition-colors">
+                  <div className="text-[11px] text-indigo-400 font-bold tracking-wider mb-3">{s.n}</div>
+                  <h3 className="text-white font-semibold text-[16px] mb-2">{s.t}</h3>
+                  <p className="text-zinc-400 text-[13px] leading-relaxed">{s.d}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
@@ -321,7 +409,7 @@ export default function DemoPage() {
                 : "bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1]"
             }`}
           >
-            {isLastQ ? "Submit for AI Marking" : "Next question"}
+            {isLastQ ? "Submit for marking" : "Next question"}
             <svg
               className="w-4 h-4"
               fill="none"
@@ -366,9 +454,9 @@ export default function DemoPage() {
         </div>
 
         <h2 className="text-white font-extrabold text-[22px] sm:text-[26px] mb-2">
-          AI is marking your answers...
+          Marking your answers&hellip;
         </h2>
-        <p className="text-zinc-500 text-[14px] mb-10">
+        <p className="text-zinc-400 text-[14px] mb-10">
           Analysing your responses and generating feedback
         </p>
 

@@ -19,6 +19,7 @@ import {
   type StudyTask,
   type StudyWeek,
 } from "@/lib/studyPlanner";
+import { useTier } from "@/hooks/useTier";
 
 const SUBJECTS: Array<{ value: string; label: string; years: number[] }> = [
   { value: "mathematics", label: "Mathematics", years: [10, 11, 12, 13] },
@@ -43,6 +44,7 @@ const SUBJECTS: Array<{ value: string; label: string; years: number[] }> = [
 ];
 
 export default function PlanPage() {
+  const { limits: tierLimits, loading: tierLoading } = useTier();
   const version = useSyncExternalStore(
     subscribePlan,
     getPlanVersion,
@@ -90,7 +92,7 @@ export default function PlanPage() {
       .catch(() => {});
   }, [mounted]);
 
-  if (!mounted) {
+  if (!mounted || tierLoading) {
     return (
       <div className="max-w-2xl mx-auto px-5 py-16 text-center text-zinc-500 text-sm">
         Loading...
@@ -98,8 +100,96 @@ export default function PlanPage() {
     );
   }
 
+  // Tier gate — Study planner is Student+Pro.
+  if (!tierLimits.studyPlanner) {
+    return <PlanUpgradeGate />;
+  }
+
   if (!plan) return <PlanSetup />;
   return <PlanView plan={plan} />;
+}
+
+/* ━━━ Upgrade gate ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+function PlanUpgradeGate() {
+  return (
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-md mx-auto px-5 pt-8 sm:pt-14 pb-16 sm:pb-20">
+        {/* Hero icon with plan badge */}
+        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          <span className="absolute -top-1.5 -right-1.5 text-[9px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-500 to-purple-500 px-1.5 py-0.5 rounded-md shadow-md">
+            Student
+          </span>
+        </div>
+
+        <h1 className="text-[26px] sm:text-[30px] font-extrabold text-white tracking-tight text-center mb-3 leading-tight">
+          Stop guessing what to study next.
+        </h1>
+        <p className="text-zinc-400 text-[14px] sm:text-[15px] text-center mb-7 leading-relaxed max-w-sm mx-auto">
+          Tell us your exam date and subjects — we&apos;ll build you a week-by-week plan that <em>actually</em> gets you ready, targeting the topics you keep getting wrong.
+        </p>
+
+        {/* Benefits */}
+        <ul className="space-y-2.5 mb-6">
+          <Benefit text="Personalised week-by-week schedule from today until exam day" />
+          <Benefit text="Targets your weakest topics first — no wasted study time" />
+          <Benefit text="Schedules mock exams in the final weeks so you peak at the right time" />
+          <Benefit text="Tick off tasks as you go and watch your progress climb" />
+        </ul>
+
+        {/* Price card */}
+        <div className="rounded-xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
+          <p className="text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
+          <p className="text-white">
+            <span className="text-[28px] font-extrabold tracking-tight">$9.99</span>
+            <span className="text-zinc-400 text-[13px] ml-1">/month</span>
+          </p>
+          <p className="text-zinc-500 text-[11px] mt-1">Cancel anytime · All subjects unlocked</p>
+        </div>
+
+        {/* Actions */}
+        <div className="flex flex-col gap-2.5">
+          <Link
+            href="/pricing"
+            className="w-full py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white font-semibold text-[14px] text-center transition-all shadow-lg shadow-indigo-500/20"
+          >
+            Unlock my study plan
+          </Link>
+          <Link
+            href="/dashboard"
+            className="w-full py-3 rounded-lg text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
+          >
+            Maybe later
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Benefit({ text }: { text: string }) {
+  return (
+    <li className="flex items-start gap-2.5">
+      <svg
+        className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2.5}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+      <span className="text-[13px] text-zinc-300 leading-snug">{text}</span>
+    </li>
+  );
 }
 
 /* ━━━ Setup ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */

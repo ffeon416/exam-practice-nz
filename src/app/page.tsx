@@ -10,8 +10,6 @@ import type { StudentProgress } from "@/lib/types";
 export default function HomePage() {
   const { isSignedIn } = useAuth();
   const [progress, setProgress] = useState<StudentProgress | null>(null);
-  const [email, setEmail] = useState("");
-  const [emailSent, setEmailSent] = useState(false);
 
   useEffect(() => {
     if (isSignedIn) {
@@ -22,12 +20,12 @@ export default function HomePage() {
   const hasHistory = isSignedIn && progress && progress.totalExamsTaken > 0;
 
   return (
-    <div className="relative overflow-hidden bg-[#06060a]">
-      {/* Ambient glows */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-indigo-600/[0.12] blur-[150px] rounded-full" />
-        <div className="absolute top-[400px] -right-[200px] w-[500px] h-[500px] bg-purple-600/[0.08] blur-[130px] rounded-full" />
-        <div className="absolute top-[800px] -left-[200px] w-[400px] h-[400px] bg-indigo-500/[0.06] blur-[120px] rounded-full" />
+    <div className="relative overflow-hidden bg-[#06060a] isolate">
+      {/* Ambient animated background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-indigo-600/20 blur-[140px] rounded-full animate-blob-a" />
+        <div className="absolute top-[400px] -right-[200px] w-[600px] h-[600px] bg-purple-600/15 blur-[130px] rounded-full animate-blob-b" />
+        <div className="absolute top-[800px] -left-[200px] w-[500px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full animate-blob-c" />
       </div>
 
       {/* ═══ HERO ═══ */}
@@ -39,21 +37,21 @@ export default function HomePage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
             </span>
-            NCEA exam prep &middot; AI-powered &middot; Free to start
+            Stop studying. Start training.
           </div>
 
           {/* Headline */}
           <h1 className="text-[36px] sm:text-[56px] md:text-[72px] font-extrabold text-white tracking-tight leading-[1.05] mb-5 sm:mb-7">
-            Your exams.
+            The kids who ace NCEA
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Your advantage.
+              know a secret.
             </span>
           </h1>
 
           {/* Subhead */}
           <p className="text-zinc-400 text-[15px] sm:text-[18px] md:text-[20px] leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10">
-            AI generates unlimited NCEA practice exams, marks your answers in seconds, and shows you exactly how to improve.
+            It&apos;s not that they&apos;re smarter. They&apos;ve just done the exam 50 times before exam day. StudyAce is how you do the same — unlimited NCEA practice papers, marked in seconds, tuned to you.
           </p>
 
           {/* CTAs */}
@@ -97,10 +95,6 @@ export default function HomePage() {
             )}
           </div>
 
-          {/* Trust line */}
-          <p className="text-zinc-600 text-[12px] sm:text-[13px]">
-            No sign-up needed to try &middot; 19 subjects &middot; Years 10–13
-          </p>
         </div>
       </section>
 
@@ -134,7 +128,8 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ═══ LIVE DEMO PREVIEW ═══ */}
+      {/* ═══ LIVE DEMO PREVIEW (guests only) ═══ */}
+      {!isSignedIn && (
       <section className="max-w-3xl mx-auto px-4 sm:px-5 pb-16 sm:pb-24">
         {/* Phone-style mockup */}
         <div className="relative mx-auto max-w-sm sm:max-w-lg">
@@ -144,7 +139,7 @@ export default function HomePage() {
           <div className="relative rounded-3xl bg-[#0c0c14] border border-white/[0.08] overflow-hidden shadow-2xl shadow-indigo-500/10">
             {/* Top bar */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
-              <span className="text-[11px] text-indigo-400 font-semibold uppercase tracking-wider">AI Marking</span>
+              <span className="text-[11px] text-indigo-400 font-semibold uppercase tracking-wider">StudyAce Marking</span>
               <span className="text-[10px] text-zinc-600">Year 11 Science</span>
             </div>
 
@@ -193,54 +188,34 @@ export default function HomePage() {
 
         {/* Caption */}
         <p className="text-center text-zinc-600 text-[12px] mt-6">
-          Real AI marking — instant feedback on every answer
+          This is what training looks like. Every answer, marked in seconds, with exactly what&apos;s missing.
         </p>
       </section>
+      )}
 
-      {/* ═══ FEATURES — compact on mobile, grid on desktop ═══ */}
+      {/* ═══ FEATURES ═══ */}
       <section className="max-w-5xl mx-auto px-5 pb-16 sm:pb-24">
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-[24px] sm:text-[40px] font-extrabold text-white tracking-tight mb-3">
-            Everything you need to pass
+            Built like a training system, not a textbook.
           </h2>
           <p className="text-zinc-500 text-[14px] sm:text-[16px]">
-            Practice. Get marked. Improve. Repeat.
+            Because the exam isn&apos;t a textbook test. It&apos;s a performance.
           </p>
         </div>
 
-        {/* Mobile: compact list */}
-        <div className="sm:hidden space-y-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {[
-            { emoji: "⚡", title: "Unlimited exams", desc: "Fresh papers generated instantly for any subject" },
-            { emoji: "🎯", title: "AI marking", desc: "Marks, feedback, and worked solutions in seconds" },
-            { emoji: "💬", title: "AI tutor", desc: "Get hints when you're stuck — not just the answer" },
-            { emoji: "📈", title: "Tracks your progress", desc: "See your weak spots and watch yourself improve" },
-            { emoji: "🔄", title: "Spaced review", desc: "Wrong answers come back until you master them" },
-            { emoji: "📅", title: "Exam countdown", desc: "Week-by-week plan based on your exam date" },
+            { emoji: "⚡", title: "Unlimited reps", desc: "Pick any subject and topic. Fresh NCEA-style paper in seconds. Do it again tomorrow with new questions." },
+            { emoji: "🎯", title: "Real marks, real feedback", desc: "Not “right or wrong.” You get marks, specific feedback on what was missing, and a worked solution — so you know exactly what to fix next rep." },
+            { emoji: "💬", title: "A coach, not a cheat sheet", desc: "Stuck? Get Socratic hints that walk you to the answer. You learn the move, not just the result." },
+            { emoji: "📈", title: "Difficulty that tracks you", desc: "Strong topics get harder. Weak ones get focused. You’re always training at the edge of your ability." },
+            { emoji: "🔄", title: "Mistakes come back", desc: "Every wrong answer returns at spaced intervals until you actually know it. No more “I knew this last week.”" },
+            { emoji: "📅", title: "Train for exam day", desc: "Enter your exam date. Get a week-by-week plan that peaks you at exactly the right moment." },
           ].map((f, i) => (
-            <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
-              <span className="text-[20px] shrink-0 mt-0.5">{f.emoji}</span>
-              <div>
-                <h3 className="text-white font-semibold text-[14px] mb-0.5">{f.title}</h3>
-                <p className="text-zinc-500 text-[12px] leading-relaxed">{f.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Desktop: grid */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { emoji: "⚡", title: "Unlimited exams", desc: "Pick any subject and topic. AI generates a fresh NCEA-style paper in seconds." },
-            { emoji: "🎯", title: "Instant AI marking", desc: "Get marks, detailed feedback, and worked solutions — not just right or wrong." },
-            { emoji: "💬", title: "AI tutor", desc: "Stuck on a question? Get Socratic-style hints that guide you to the answer." },
-            { emoji: "📈", title: "Adaptive difficulty", desc: "Questions adjust to your level. Strong topics get harder, weak ones get focused." },
-            { emoji: "🔄", title: "Spaced repetition", desc: "Wrong answers come back at increasing intervals until you actually know them." },
-            { emoji: "📅", title: "Exam countdown", desc: "Enter your exam date. Get a personalised week-by-week study plan." },
-          ].map((f, i) => (
-            <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12] transition-all group">
-              <span className="text-[28px] block mb-4">{f.emoji}</span>
-              <h3 className="text-white font-bold text-[16px] mb-2">{f.title}</h3>
+            <div key={i} className="p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12] transition-all group">
+              <span className="text-[24px] sm:text-[28px] block mb-3 sm:mb-4">{f.emoji}</span>
+              <h3 className="text-white font-bold text-[15px] sm:text-[16px] mb-1.5 sm:mb-2">{f.title}</h3>
               <p className="text-zinc-500 text-[13px] leading-relaxed">{f.desc}</p>
             </div>
           ))}
@@ -250,16 +225,19 @@ export default function HomePage() {
       {/* ═══ HOW IT WORKS ═══ */}
       <section className="max-w-4xl mx-auto px-5 pb-16 sm:pb-24">
         <div className="text-center mb-10 sm:mb-14">
-          <h2 className="text-[24px] sm:text-[40px] font-extrabold text-white tracking-tight">
-            Three steps. That&apos;s it.
+          <h2 className="text-[24px] sm:text-[40px] font-extrabold text-white tracking-tight mb-3">
+            How you actually get good.
           </h2>
+          <p className="text-zinc-500 text-[14px] sm:text-[16px]">
+            Same way any athlete does.
+          </p>
         </div>
 
         <div className="grid grid-cols-3 gap-3 sm:gap-8">
           {[
-            { n: "01", title: "Pick", desc: "Choose a subject and year level" },
-            { n: "02", title: "Practise", desc: "Answer real exam-style questions" },
-            { n: "03", title: "Learn", desc: "Get marked instantly with feedback" },
+            { n: "01", title: "See the patterns", desc: "Every NCEA exam repeats the same question types. We’ve mapped them all." },
+            { n: "02", title: "Train the reps", desc: "Do them until they’re automatic. Marked in seconds, every time." },
+            { n: "03", title: "Walk in ready", desc: "Exam day is just another rep. You’ve already done it 50 times." },
           ].map((s, i) => (
             <div key={i} className="text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-extrabold text-[14px] sm:text-[18px] mb-3 sm:mb-5 shadow-lg shadow-indigo-500/30">
@@ -276,8 +254,11 @@ export default function HomePage() {
       <section className="hidden sm:block max-w-4xl mx-auto px-5 pb-24">
         <div className="text-center mb-10">
           <h2 className="text-[36px] font-extrabold text-white tracking-tight mb-3">
-            19 subjects. Every level.
+            Every NCEA subject. Same training system.
           </h2>
+          <p className="text-zinc-500 text-[16px]">
+            Years 10 through 13. All 19 subjects. One way to train.
+          </p>
         </div>
         <div className="flex flex-wrap justify-center gap-2">
           {[
@@ -293,48 +274,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ EMAIL CAPTURE ═══ */}
-      {!isSignedIn && (
-        <section className="max-w-lg mx-auto px-5 pb-12 sm:pb-20">
-          <div className="rounded-2xl bg-gradient-to-br from-indigo-500/[0.1] to-purple-500/[0.05] border border-indigo-500/20 p-6 sm:p-8 text-center">
-            <h2 className="text-[18px] sm:text-[22px] font-bold text-white tracking-tight mb-2">
-              Not ready yet?
-            </h2>
-            <p className="text-zinc-400 text-[13px] mb-5">
-              Get free exam tips in your inbox.
+      {/* ═══ WHY THIS WORKS ═══ */}
+      <section className="max-w-2xl mx-auto px-5 pb-16 sm:pb-24">
+        <div className="text-center">
+          <h2 className="text-[24px] sm:text-[40px] font-extrabold text-white tracking-tight mb-8 sm:mb-10 leading-tight">
+            Why this works when textbooks don&apos;t.
+          </h2>
+          <div className="space-y-5 sm:space-y-6 text-zinc-300 text-[15px] sm:text-[18px] leading-relaxed">
+            <p>
+              Textbooks teach you a subject. The exam tests whether you can perform under pressure, in a specific format, against a clock.
             </p>
-            {emailSent ? (
-              <p className="text-emerald-400 text-[14px] font-semibold">You&apos;re in!</p>
-            ) : (
-              <form
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  if (!email.trim()) return;
-                  await fetch("/api/contact", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name: "Email subscriber", email: email.trim(), type: "subscribe", message: "Subscribed from homepage" }),
-                  }).catch(() => {});
-                  setEmailSent(true);
-                }}
-                className="flex flex-col sm:flex-row gap-2"
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="flex-1 bg-white/[0.06] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] placeholder-zinc-600 focus:border-indigo-500 focus:outline-none transition-colors"
-                />
-                <button type="submit" className="bg-indigo-500 hover:bg-indigo-400 text-white font-bold px-6 py-3 rounded-xl transition-all text-[14px]">
-                  Subscribe
-                </button>
-              </form>
-            )}
+            <p className="text-white font-semibold">
+              Those are two different skills.
+            </p>
+            <p>
+              Reading about swimming doesn&apos;t make you a swimmer. Reading about NCEA doesn&apos;t make you good at NCEA. Reps do.
+            </p>
+            <p className="text-white font-bold text-[18px] sm:text-[22px] pt-2">
+              StudyAce is reps.
+            </p>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="max-w-3xl mx-auto px-5 pb-16 sm:pb-24">
@@ -345,24 +306,24 @@ export default function HomePage() {
 
           <div className="relative p-8 sm:p-16 text-center">
             <h2 className="text-[24px] sm:text-[44px] font-extrabold text-white tracking-tight mb-3 sm:mb-5 leading-tight">
-              Your exam is coming.
+              Exam day is coming.
               <br />
-              <span className="bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Be ready.</span>
+              <span className="bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Be the kid who trained.</span>
             </h2>
             <p className="text-zinc-400 text-[14px] sm:text-[16px] mb-8 max-w-md mx-auto">
-              Join students across NZ using StudyAce to practise smarter.
+              Free to start. No credit card. 30 seconds to your first practice exam.
             </p>
             <Link
               href={isSignedIn ? "/subjects" : "/sign-up"}
               className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-bold px-10 py-4 rounded-xl hover:scale-[1.02] transition-all shadow-2xl text-[16px]"
             >
-              {isSignedIn ? "Build my exam" : "Start free"}
+              {isSignedIn ? "Build my exam" : "Start training free"}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
             <p className="text-zinc-600 text-[11px] mt-5">
-              No credit card required &middot; Made in NZ
+              Made in NZ &middot; Built for NCEA
             </p>
           </div>
         </div>

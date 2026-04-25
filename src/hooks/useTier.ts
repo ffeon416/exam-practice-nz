@@ -6,7 +6,7 @@ import type { Tier } from "@/lib/tierLimits";
 export interface TierLimitsClient {
   examsPerWeek: number; // -1 means unlimited
   maxQuestions: number;
-  tutorMessagesPerDay: number; // -1 means unlimited
+  tutorMessagesPerWeek: number; // -1 means unlimited, 0 means no access
   allSubjects: boolean;
   spacedRepetition: boolean;
   adaptiveDifficulty: boolean;
@@ -17,7 +17,7 @@ export interface TierLimitsClient {
 
 export interface TierUsage {
   examsThisWeek: number;
-  tutorMessagesToday: number;
+  tutorMessagesThisWeek: number;
 }
 
 export interface UseTierResult {
@@ -32,7 +32,7 @@ export interface UseTierResult {
 const FREE_DEFAULTS: TierLimitsClient = {
   examsPerWeek: 2,
   maxQuestions: 8,
-  tutorMessagesPerDay: 3,
+  tutorMessagesPerWeek: 3,
   allSubjects: false,
   spacedRepetition: false,
   adaptiveDifficulty: false,
@@ -49,7 +49,7 @@ let cachedAt = 0;
 export function useTier(): UseTierResult {
   const [tier, setTier] = useState<Tier>(cachedData?.tier ?? "free");
   const [limits, setLimits] = useState<TierLimitsClient>(cachedData?.limits ?? FREE_DEFAULTS);
-  const [usage, setUsage] = useState<TierUsage>(cachedData?.usage ?? { examsThisWeek: 0, tutorMessagesToday: 0 });
+  const [usage, setUsage] = useState<TierUsage>(cachedData?.usage ?? { examsThisWeek: 0, tutorMessagesThisWeek: 0 });
   const [loading, setLoading] = useState(!cachedData);
   const fetchingRef = useRef(false);
 

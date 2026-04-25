@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { markEnglishEssay } from "@/lib/claude";
+import { auth } from "@clerk/nextjs/server";
+import { logApiUsage } from "@/lib/db";
 
 export async function POST(request: NextRequest) {
   try {
+    const { userId } = await auth();
     const body = await request.json();
     const { questionText, markingGuide, marks, studentEssay } = body as {
       questionText: string;
@@ -24,8 +27,11 @@ export async function POST(request: NextRequest) {
       marks,
       studentEssay ?? ""
     );
+    await logApiUsage(userId, "essay", result.usage);
 
-    return NextResponse.json(result);
+    const { usage: _u, ...payload } = result;
+    void _u;
+    return NextResponse.json(payload);
   } catch (error) {
     console.error("Essay marking error:", error);
     return NextResponse.json(

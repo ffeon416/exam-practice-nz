@@ -13,7 +13,8 @@ export async function GET() {
         ...limits,
         // JSON can't serialize Infinity — use -1 as "unlimited"
         examsPerWeek: limits.examsPerWeek === Infinity ? -1 : limits.examsPerWeek,
-        tutorMessagesPerDay: limits.tutorMessagesPerDay === Infinity ? -1 : limits.tutorMessagesPerDay,
+        tutorMessagesPerWeek:
+          limits.tutorMessagesPerWeek === Infinity ? -1 : limits.tutorMessagesPerWeek,
       },
       usage,
     });
@@ -25,7 +26,7 @@ export async function GET() {
       limits: {
         examsPerWeek: 2,
         maxQuestions: 8,
-        tutorMessagesPerDay: 3,
+        tutorMessagesPerWeek: 3,
         allSubjects: false,
         spacedRepetition: false,
         adaptiveDifficulty: false,
@@ -33,7 +34,7 @@ export async function GET() {
         deepEssayMarking: false,
         mockExamMode: false,
       },
-      usage: { examsThisWeek: 0, tutorMessagesToday: 0 },
+      usage: { examsThisWeek: 0, tutorMessagesThisWeek: 0 },
     });
   }
 }

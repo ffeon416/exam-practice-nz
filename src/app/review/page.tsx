@@ -145,25 +145,120 @@ export default function ReviewPage() {
     return (
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
         </div>
-        <div className="max-w-md mx-auto px-5 pt-8 sm:pt-16 pb-16 sm:pb-20 text-center">
-          <div className="w-14 h-14 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-5 flex items-center justify-center">
-            <svg className="w-7 h-7 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-            </svg>
+
+        <div className="max-w-md mx-auto px-5 pt-8 sm:pt-14 pb-16 sm:pb-20">
+          {/* Hero: forgetting-curve chart */}
+          <div className="relative mx-auto mb-6 w-full max-w-[280px]">
+            <div className="relative rounded-2xl bg-gradient-to-br from-indigo-500/[0.12] to-purple-500/[0.05] border border-indigo-500/20 p-4 pb-3">
+              <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-500 to-purple-500 px-2 py-0.5 rounded-md shadow-md">
+                Student
+              </span>
+
+              <svg viewBox="0 0 240 110" className="w-full h-auto" aria-hidden="true">
+                <defs>
+                  <linearGradient id="spacedLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#10b981" />
+                    <stop offset="100%" stopColor="#818cf8" />
+                  </linearGradient>
+                  <linearGradient id="spacedFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#818cf8" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#818cf8" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+
+                {/* Grid */}
+                <line x1="10" y1="30" x2="230" y2="30" stroke="white" strokeOpacity="0.04" strokeDasharray="2 3" />
+                <line x1="10" y1="60" x2="230" y2="60" stroke="white" strokeOpacity="0.04" strokeDasharray="2 3" />
+                <line x1="10" y1="90" x2="230" y2="90" stroke="white" strokeOpacity="0.04" strokeDasharray="2 3" />
+
+                {/* Without review (exponential decay) */}
+                <path
+                  d="M 10,22 C 30,30 45,60 70,78 C 100,95 150,100 230,102"
+                  fill="none"
+                  stroke="#ef4444"
+                  strokeOpacity="0.5"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeDasharray="4 3"
+                />
+
+                {/* With spaced review (sawtooth, staying high) + area fill */}
+                <path
+                  d="M 10,22 L 38,42 L 42,20 L 78,38 L 82,18 L 125,32 L 129,15 L 178,26 L 182,12 L 230,20 L 230,105 L 10,105 Z"
+                  fill="url(#spacedFill)"
+                />
+                <path
+                  d="M 10,22 L 38,42 L 42,20 L 78,38 L 82,18 L 125,32 L 129,15 L 178,26 L 182,12 L 230,20"
+                  fill="none"
+                  stroke="url(#spacedLineGrad)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Review markers */}
+                <circle cx="42" cy="20" r="2.5" fill="#818cf8" />
+                <circle cx="82" cy="18" r="2.5" fill="#818cf8" />
+                <circle cx="129" cy="15" r="2.5" fill="#818cf8" />
+                <circle cx="182" cy="12" r="2.5" fill="#818cf8" />
+              </svg>
+
+              {/* Legend */}
+              <div className="flex items-center justify-center gap-4 mt-1 text-[10px]">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-[2px] rounded-full bg-gradient-to-r from-emerald-400 to-indigo-400" />
+                  <span className="text-zinc-400">With review</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-3 h-[2px] rounded-full bg-red-500/60 [border-top:1px_dashed]" style={{ background: "repeating-linear-gradient(to right, rgb(239 68 68 / 0.6) 0 3px, transparent 3px 5px)" }} />
+                  <span className="text-zinc-500">Without</span>
+                </span>
+              </div>
+            </div>
           </div>
-          <h1 className="text-[24px] font-extrabold text-white mb-3 tracking-tight">Review</h1>
-          <p className="text-zinc-400 text-[14px] mb-6 max-w-sm mx-auto leading-relaxed">
-            Questions you get wrong come back automatically until you master them.
-            Upgrade to unlock this feature.
+
+          <h1 className="text-[26px] sm:text-[30px] font-extrabold text-white tracking-tight text-center mb-3 leading-tight">
+            Remember what you got wrong.
+          </h1>
+          <p className="text-zinc-400 text-[14px] sm:text-[15px] text-center mb-7 leading-relaxed max-w-sm mx-auto">
+            You forget <span className="text-white font-semibold">70% of what you learn within 24 hours</span>. Spaced review brings each question back right before you&apos;re about to forget — and locks it in for exam day.
           </p>
-          <Link
-            href="/pricing"
-            className="inline-block bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-400 transition-all text-[14px]"
-          >
-            See plans
-          </Link>
+
+          {/* Benefits */}
+          <ul className="space-y-2.5 mb-6">
+            <ReviewBenefit text="Wrong answers queue up automatically — zero setup" />
+            <ReviewBenefit text="Algorithm picks the perfect moment to test you again" />
+            <ReviewBenefit text="Track which topics are mastered vs. still shaky" />
+            <ReviewBenefit text="Walk into the exam with every weak spot already fixed" />
+          </ul>
+
+          {/* Price card */}
+          <div className="rounded-xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
+            <p className="text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
+            <p className="text-white">
+              <span className="text-[28px] font-extrabold tracking-tight">$9.99</span>
+              <span className="text-zinc-400 text-[13px] ml-1">/month</span>
+            </p>
+            <p className="text-zinc-500 text-[11px] mt-1">Cancel anytime · All subjects unlocked</p>
+          </div>
+
+          {/* Actions */}
+          <div className="flex flex-col gap-2.5">
+            <Link
+              href="/pricing"
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white font-semibold text-[14px] text-center transition-all shadow-lg shadow-indigo-500/20"
+            >
+              Start remembering everything
+            </Link>
+            <Link
+              href="/dashboard"
+              className="w-full py-3 rounded-lg text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
+            >
+              Maybe later
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -546,5 +641,23 @@ export default function ReviewPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+function ReviewBenefit({ text }: { text: string }) {
+  return (
+    <li className="flex items-start gap-2.5">
+      <svg
+        className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2.5}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+      <span className="text-[13px] text-zinc-300 leading-snug">{text}</span>
+    </li>
   );
 }

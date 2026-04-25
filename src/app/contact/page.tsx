@@ -34,6 +34,23 @@ export default function ContactPage() {
         setFormState("error");
         return;
       }
+
+      // FormSubmit email notification — fired from the browser so it comes
+      // from the real user IP (Cloudflare blocks server-side calls from
+      // Vercel's data-center IPs). This is best-effort — the /api/contact
+      // above is what guarantees the message is stored.
+      fetch("https://formsubmit.co/ajax/ffeon.io@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `[${payload.type || "general"}] New message from ${payload.name}`,
+          name: payload.name,
+          email: payload.email,
+          type: payload.type || "general",
+          message: payload.message,
+        }),
+      }).catch(() => {});
+
       setFormState("success");
     } catch {
       setErrorMsg("Failed to send. Please try again.");
