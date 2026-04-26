@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { demoQuestions, demoResults } from "@/data/demoQuestions";
 import type { MarkingResult } from "@/lib/types";
+import { Markdown } from "@/components/Markdown";
 
 type Step = "intro" | "answering" | "marking" | "results";
 
@@ -606,9 +607,7 @@ export default function DemoPage() {
                     <p className="text-[12px] text-zinc-500 font-medium mb-1.5">
                       Feedback
                     </p>
-                    <p className="text-zinc-300 text-[13px] leading-relaxed">
-                      {result.feedback}
-                    </p>
+                    <Markdown text={result.feedback} className="text-zinc-300 text-[13px] leading-relaxed" compact />
                   </div>
 
                   {/* Correct approach */}

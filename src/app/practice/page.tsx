@@ -8,6 +8,7 @@ import type { Question } from "@/lib/types";
 import Graph from "@/components/Graph";
 import TutorChat, { type Message as TutorMessage } from "@/components/TutorChat";
 import TutorUpgradeModal from "@/components/TutorUpgradeModal";
+import { Markdown } from "@/components/Markdown";
 import { useTier } from "@/hooks/useTier";
 import {
   getRecommendedLevel,
@@ -501,8 +502,8 @@ export default function PracticePage() {
               </svg>
             </button>
             {showLesson && (
-              <div className="px-5 pb-5 border-t border-indigo-500/10">
-                <p className="text-zinc-300 text-[13px] whitespace-pre-wrap leading-relaxed pt-4">{lesson}</p>
+              <div className="px-5 pb-5 border-t border-indigo-500/10 pt-4">
+                <Markdown text={lesson} className="text-zinc-300 text-[13px] leading-relaxed" compact />
               </div>
             )}
           </div>
@@ -624,7 +625,7 @@ export default function PracticePage() {
               {feedback && (
                 <div className="rounded-xl bg-indigo-500/[0.04] border border-indigo-500/15 p-4">
                   <p className="text-indigo-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">StudyAce feedback</p>
-                  <p className="text-zinc-300 text-[13px] whitespace-pre-wrap leading-relaxed">{feedback}</p>
+                  <Markdown text={feedback} className="text-zinc-300 text-[13px] leading-relaxed" compact />
                 </div>
               )}
 

@@ -16,6 +16,7 @@ import { addExamAttempt } from "@/lib/storage";
 import { recordReview } from "@/lib/spacedRepetition";
 import { updateRating } from "@/lib/adaptiveDifficulty";
 import type { Exam, MarkingResult } from "@/lib/types";
+import { Markdown } from "@/components/Markdown";
 import TopicTag from "@/components/TopicTag";
 import ShareResultCard from "@/components/ShareResultCard";
 import UpgradeNudge from "@/components/UpgradeNudge";
@@ -66,7 +67,7 @@ function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
     <div className="space-y-4">
       <div className="bg-amber-950/15 border border-amber-900/20 rounded-lg p-4">
         <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Overall Feedback</h4>
-        <p className="text-zinc-300 text-sm whitespace-pre-wrap">{data.overallFeedback}</p>
+        <Markdown text={data.overallFeedback} className="text-zinc-300 text-sm leading-relaxed" compact />
       </div>
 
       <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-4 space-y-3">
@@ -87,7 +88,7 @@ function EssayFeedbackCard({ data }: { data: EssayFeedback }) {
                 {d.score}/2
               </span>
             </div>
-            <p className="text-zinc-300 text-sm">{d.feedback}</p>
+            <Markdown text={d.feedback} className="text-zinc-300 text-sm leading-relaxed" compact />
           </div>
         ))}
       </div>
@@ -975,9 +976,7 @@ export default function ResultsPage({
           <>
             <div className="bg-amber-950/15 border border-amber-900/20 rounded-2xl p-4 mb-4">
               <h4 className="text-xs font-medium text-amber-400 mb-2 uppercase">Feedback</h4>
-              <p className="text-zinc-300 text-sm whitespace-pre-wrap">
-                {selfMarked ? r.examTip : r.feedback}
-              </p>
+              <Markdown text={selfMarked ? r.examTip : r.feedback} className="text-zinc-300 text-sm leading-relaxed" compact />
             </div>
             {!selfMarked && (
               <div className="bg-blue-950/20 border border-blue-900/20 rounded-2xl p-4 mb-4">
