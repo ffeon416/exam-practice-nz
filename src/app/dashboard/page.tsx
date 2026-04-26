@@ -361,13 +361,13 @@ export default function DashboardPage() {
   // mid-render doesn't burn the user's one shot at seeing it.
   useEffect(() => {
     if (tierLoading) return;
-    const key = `studyace-welcome-seen-${tier}`;
+    const key = `studyace-welcome-seen-v2-${tier}`;
     if (localStorage.getItem(key)) return;
     setShowPaymentSuccess(true);
   }, [tier, tierLoading]);
 
   function dismissWelcome() {
-    const key = `studyace-welcome-seen-${tier}`;
+    const key = `studyace-welcome-seen-v2-${tier}`;
     localStorage.setItem(key, new Date().toISOString());
     setShowPaymentSuccess(false);
   }
