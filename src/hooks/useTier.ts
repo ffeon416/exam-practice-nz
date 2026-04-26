@@ -32,7 +32,7 @@ export interface UseTierResult {
 const FREE_DEFAULTS: TierLimitsClient = {
   examsPerWeek: 2,
   maxQuestions: 8,
-  tutorMessagesPerWeek: 3,
+  tutorMessagesPerWeek: 0,
   allSubjects: false,
   spacedRepetition: false,
   adaptiveDifficulty: false,

@@ -62,6 +62,13 @@ export async function POST(request: NextRequest) {
       cappedCount
     );
 
+    // Hard-cap the AI's output. The model occasionally returns one more
+    // question than asked; slicing here guarantees the tier limit is never
+    // exceeded on the client.
+    if (paper.questions.length > cappedCount) {
+      paper.questions = paper.questions.slice(0, cappedCount);
+    }
+
     // ── Increment usage (Step 10) ──
     if (userId) {
       await incrementUsage(userId, "exams_generated");

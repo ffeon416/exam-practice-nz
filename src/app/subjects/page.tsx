@@ -58,13 +58,23 @@ type ApiPaper = {
 };
 
 const LOADING_MESSAGES = [
-  "Reading your selection…",
   "Pulling together exam-style questions…",
   "Calibrating Achievement, Merit and Excellence…",
   "Adding worked solutions…",
   "Adding that NZ flavour…",
   "Polishing the marking guide…",
   "Almost there…",
+];
+
+const HYPE_LINES = [
+  "Lock in.",
+  "Time to crush it.",
+  "Trust the work.",
+  "You've got this.",
+  "Game time.",
+  "Show up. Show out.",
+  "One paper closer.",
+  "No room for doubt.",
 ];
 
 export default function SubjectsPage() {
@@ -107,6 +117,7 @@ export default function SubjectsPage() {
   const [questionCount, setQuestionCount] = useState<number>(Math.min(10, maxQ));
   const [loading, setLoading] = useState(false);
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
+  const [hypeIdx, setHypeIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [showUpgrade, setShowUpgrade] = useState<null | "exams" | "subject">(null);
 
@@ -118,12 +129,21 @@ export default function SubjectsPage() {
 
   function startLoadingCycle() {
     setLoadingMsgIdx(0);
+    setHypeIdx(Math.floor(Math.random() * HYPE_LINES.length));
     let idx = 0;
-    const iv = setInterval(() => {
+    let hi = Math.floor(Math.random() * HYPE_LINES.length);
+    const statusIv = setInterval(() => {
       idx = (idx + 1) % LOADING_MESSAGES.length;
       setLoadingMsgIdx(idx);
     }, 4000);
-    return () => clearInterval(iv);
+    const hypeIv = setInterval(() => {
+      hi = (hi + 1) % HYPE_LINES.length;
+      setHypeIdx(hi);
+    }, 2200);
+    return () => {
+      clearInterval(statusIv);
+      clearInterval(hypeIv);
+    };
   }
 
   async function fetchPaperWithRetry(activeSubject: string, ncea: number): Promise<ApiPaper> {
@@ -233,36 +253,73 @@ export default function SubjectsPage() {
 
   // ── Loading screen ──
   if (loading) {
+    const subjectLabel = subject
+      ? subject.charAt(0).toUpperCase() + subject.slice(1).replace(/-/g, " ")
+      : "your paper";
     return (
-      <div className="max-w-md mx-auto px-5 pt-16 sm:pt-24 pb-16 sm:pb-20 bg-[#06060a] min-h-screen">
-        <div className="text-center">
-          <div className="relative inline-flex items-center justify-center w-20 h-20 mb-8">
-            <div className="absolute inset-0 rounded-full bg-indigo-500/20 animate-ping" />
-            <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-2xl shadow-indigo-500/30">
-              <svg className="w-8 h-8 text-white animate-pulse" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+      <div className="relative bg-[#06060a] min-h-screen overflow-hidden flex items-center justify-center px-5">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-indigo-500/[0.12] blur-[140px] rounded-full animate-pulse" />
+          <div className="absolute top-1/2 right-0 w-[500px] h-[400px] bg-fuchsia-500/[0.10] blur-[140px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-amber-500/[0.07] blur-[140px] rounded-full" />
+        </div>
+
+        <div className="text-center max-w-md mx-auto -mt-12">
+          {/* Subject pill */}
+          <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500 font-bold mb-6">
+            {yearLevel ? `Year ${yearLevel}` : ""} {yearLevel && subject ? "·" : ""} {subjectLabel}
+          </p>
+
+          {/* Animated icon stack */}
+          <div className="relative inline-flex items-center justify-center w-24 h-24 mb-10">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 opacity-30 blur-xl animate-pulse" />
+            <div className="absolute inset-2 rounded-full border-2 border-indigo-500/30 animate-ping" />
+            <div className="absolute inset-4 rounded-full border-2 border-fuchsia-500/40" style={{ animation: "spin 3s linear infinite" }} />
+            <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-amber-400 flex items-center justify-center shadow-2xl shadow-fuchsia-500/40">
+              <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
           </div>
-          <h1 className="text-[24px] font-extrabold text-white mb-3">Building your exam…</h1>
-          <p className="text-zinc-400 text-[14px] mb-8 min-h-[20px]">
+
+          {/* Hype headline */}
+          <h1 className="text-[40px] sm:text-[56px] font-extrabold tracking-tight leading-[1.05] mb-4 bg-gradient-to-br from-white via-white to-zinc-400 bg-clip-text text-transparent">
+            {HYPE_LINES[hypeIdx]}
+          </h1>
+
+          {/* Subhead */}
+          <p className="text-zinc-300 text-[15px] mb-2 font-medium">
+            Cooking up your {subjectLabel} paper.
+          </p>
+
+          {/* Status (smaller, secondary) */}
+          <p className="text-zinc-500 text-[13px] mb-10 min-h-[18px]">
             {LOADING_MESSAGES[loadingMsgIdx]}
           </p>
 
-          <div className="space-y-2 max-w-xs mx-auto">
-            <div className="flex items-center justify-between text-[11px] text-zinc-500">
-              <span>Estimated time</span>
-              <span className="text-zinc-300 font-medium">30–90 seconds</span>
+          {/* Real animated progress bar — fills over ~60s */}
+          <div className="max-w-xs mx-auto">
+            <div className="w-full h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 rounded-full"
+                style={{
+                  animation: "loadingFill 60s cubic-bezier(0.2, 0.8, 0.4, 1) forwards",
+                }}
+              />
             </div>
-            <div className="w-full h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full animate-pulse" style={{ width: "60%" }} />
-            </div>
+            <p className="text-[11px] text-zinc-600 mt-3">
+              30–90 seconds. Don&apos;t close this tab.
+            </p>
           </div>
-
-          <p className="text-zinc-600 text-[11px] mt-8">
-            Please don&apos;t close this page.
-          </p>
         </div>
+
+        <style jsx>{`
+          @keyframes loadingFill {
+            0% { width: 0%; }
+            70% { width: 88%; }
+            100% { width: 95%; }
+          }
+        `}</style>
       </div>
     );
   }

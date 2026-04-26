@@ -26,7 +26,7 @@ export async function GET() {
       limits: {
         examsPerWeek: 2,
         maxQuestions: 8,
-        tutorMessagesPerWeek: 3,
+        tutorMessagesPerWeek: 0,
         allSubjects: false,
         spacedRepetition: false,
         adaptiveDifficulty: false,

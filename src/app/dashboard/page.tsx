@@ -76,6 +76,224 @@ function getMotivation(avgPct: number, streak: number, total: number): string {
   return "Great start. Every exam counts.";
 }
 
+type WelcomeFeature = { title: string; sub: string; href: string; icon: React.ReactNode };
+
+function PaymentWelcome({
+  tier,
+  firstName,
+  onClose,
+}: {
+  tier: "free" | "student" | "pro";
+  firstName: string | null;
+  onClose: () => void;
+}) {
+  const isPro = tier === "pro";
+  const isFree = tier === "free";
+  const accent =
+    tier === "pro"
+      ? "from-fuchsia-500 via-pink-500 to-amber-400"
+      : tier === "student"
+      ? "from-indigo-500 via-violet-500 to-sky-400"
+      : "from-emerald-500 via-teal-500 to-cyan-400";
+  const glow =
+    tier === "pro"
+      ? "shadow-pink-500/30"
+      : tier === "student"
+      ? "shadow-violet-500/30"
+      : "shadow-emerald-500/30";
+
+  const features: WelcomeFeature[] = isFree
+    ? [
+        {
+          title: "Take a real exam",
+          sub: "Past NZQA papers, AI marks every answer.",
+          href: "/subjects",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Quick demo",
+          sub: "3 questions, no commitment.",
+          href: "/demo",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Unlock everything",
+          sub: "All 19 subjects, AI tutor, unlimited papers.",
+          href: "/pricing",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          ),
+        },
+      ]
+    : isPro
+    ? [
+        {
+          title: "Study Ace tutor",
+          sub: "Get help mid-exam, instantly.",
+          href: "/subjects",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.8L3 21l1.4-4.2A8.18 8.18 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Fix Weak Spots",
+          sub: "Drill the topics holding you back.",
+          href: "/practice",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8" />
+            </svg>
+          ),
+        },
+        {
+          title: "Unlimited exams",
+          sub: "Practice as much as you want, every day.",
+          href: "/subjects",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Study planner",
+          sub: "Week-by-week plan to your exam.",
+          href: "/plan",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          ),
+        },
+      ]
+    : [
+        {
+          title: "All 19 subjects",
+          sub: "Every NCEA subject, Y10 to L3.",
+          href: "/subjects",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          ),
+        },
+        {
+          title: "Study planner",
+          sub: "Week-by-week plan to your exam.",
+          href: "/plan",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Deep essay marking",
+          sub: "4-pass English marking with real feedback.",
+          href: "/subjects",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Spaced review",
+          sub: "Wrong answers come back so they stick.",
+          href: "/review",
+          icon: (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          ),
+        },
+      ];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 bg-black/80 backdrop-blur-md overflow-y-auto">
+      <div className={`relative w-full max-w-md rounded-3xl bg-[#0a0a12] border border-white/10 shadow-2xl ${glow} my-auto`}>
+        <div className={`absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br ${accent} opacity-20 blur-2xl`} />
+
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-zinc-500 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
+          aria-label="Close"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div className="px-6 pt-10 pb-6 text-center">
+          <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${accent} shadow-lg mb-5`}>
+            <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <p className={`text-xs font-bold uppercase tracking-[0.18em] bg-gradient-to-r ${accent} bg-clip-text text-transparent mb-2`}>
+            {isFree ? "Hey there" : "You're in"}
+          </p>
+          <h2 className="text-[28px] sm:text-[32px] font-extrabold text-white tracking-tight leading-tight">
+            {isFree
+              ? <>Welcome to Study Ace{firstName ? `, ${firstName}` : ""}</>
+              : <>Welcome to {TIER_LABELS[tier]}{firstName ? `, ${firstName}` : ""}</>}
+          </h2>
+          <p className="text-zinc-400 text-[14px] mt-2">
+            {isFree
+              ? "Here's how to get started. Tap anything to jump in."
+              : "Here's everything you just unlocked. Tap anything to jump in."}
+          </p>
+        </div>
+
+        <div className="px-6 pb-6 grid gap-2.5">
+          {features.map((f) => (
+            <Link
+              key={f.title}
+              href={f.href}
+              className="group flex items-center gap-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/15 hover:bg-white/[0.05] px-4 py-3.5 transition-all"
+            >
+              <div className={`shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br ${accent} bg-opacity-20 flex items-center justify-center text-white shadow-md`}>
+                {f.icon}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-white font-semibold text-[14px]">{f.title}</p>
+                <p className="text-zinc-500 text-[12px] leading-snug">{f.sub}</p>
+              </div>
+              <svg className="w-4 h-4 text-zinc-600 group-hover:text-white transition-colors shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          ))}
+        </div>
+
+        <div className="px-6 pb-8">
+          <button
+            onClick={onClose}
+            className={`w-full rounded-xl bg-gradient-to-r ${accent} text-white font-bold text-[15px] py-3.5 shadow-lg hover:opacity-95 transition-opacity`}
+          >
+            Let&apos;s go
+          </button>
+          <p className="text-center text-zinc-600 text-[11px] mt-3">
+            {isFree ? "Upgrade any time for more." : "30-day money back if you change your mind."}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function DashboardPage() {
   const { user } = useUser();
   const router = useRouter();
@@ -83,6 +301,7 @@ export default function DashboardPage() {
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
   const [onboarding, setOnboarding] = useState<ReturnType<typeof loadOnboarding>>(null);
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
+  const [previewTier, setPreviewTier] = useState<"free" | "student" | "pro" | null>(null);
   const { tier, limits, usage, loading: tierLoading, refresh: refreshTier } = useTier();
   const tierRef = useRef(tier);
   tierRef.current = tier;
@@ -109,6 +328,12 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    const preview = params.get("preview-welcome");
+    if (preview === "free" || preview === "student" || preview === "pro") {
+      setPreviewTier(preview);
+      window.history.replaceState({}, "", "/dashboard");
+      return;
+    }
     if (params.get("payment") === "success") {
       setShowPaymentSuccess(true);
       window.history.replaceState({}, "", "/dashboard");
@@ -124,13 +349,28 @@ export default function DashboardPage() {
       };
       poll();
 
-      const timer = setTimeout(() => setShowPaymentSuccess(false), 15000);
       return () => {
         cancelled = true;
-        clearTimeout(timer);
       };
     }
   }, [refreshTier]);
+
+  // Auto-show welcome once per tier — covers fresh signups (free) and
+  // anyone who upgraded but missed the post-checkout redirect. The flag
+  // is set in the close handler, not here, so a redirect to /welcome
+  // mid-render doesn't burn the user's one shot at seeing it.
+  useEffect(() => {
+    if (tierLoading) return;
+    const key = `studyace-welcome-seen-${tier}`;
+    if (localStorage.getItem(key)) return;
+    setShowPaymentSuccess(true);
+  }, [tier, tierLoading]);
+
+  function dismissWelcome() {
+    const key = `studyace-welcome-seen-${tier}`;
+    localStorage.setItem(key, new Date().toISOString());
+    setShowPaymentSuccess(false);
+  }
 
   useEffect(() => {
     setMounted(true);
@@ -219,18 +459,12 @@ export default function DashboardPage() {
       </div>
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
-        {/* Payment success — only show once tier has refreshed to a paid plan */}
-        {showPaymentSuccess && !tierLoading && tier !== "free" && (
-          <div className="mb-6 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 px-5 py-3 flex items-center justify-between">
-            <p className="text-[13px] text-emerald-200">
-              You&apos;re on the <span className="font-semibold">{TIER_LABELS[tier]}</span> plan!
-            </p>
-            <button onClick={() => setShowPaymentSuccess(false)} className="text-emerald-400/60 hover:text-emerald-300 p-1">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+        {/* Welcome modal — paid users get a celebration, free users get an intro */}
+        {showPaymentSuccess && !tierLoading && (
+          <PaymentWelcome tier={tier} firstName={firstName} onClose={dismissWelcome} />
+        )}
+        {previewTier && (
+          <PaymentWelcome tier={previewTier} firstName={firstName} onClose={() => setPreviewTier(null)} />
         )}
 
         {/* Greeting */}

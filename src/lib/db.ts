@@ -318,8 +318,18 @@ export async function getUsage(userId: string, feature: string): Promise<{ count
 
   const periodStart = new Date(data.period_start);
   const weekMs = 7 * 24 * 60 * 60 * 1000;
-  const resetsAt = new Date(periodStart.getTime() + weekMs).toISOString();
+  const periodAge = Date.now() - periodStart.getTime();
 
+  // If the stored period is stale (older than a week), the current week's
+  // count is effectively 0 — the next incrementUsage call will reset it.
+  // Without this, a user who used their full quota in week 1 would still
+  // appear maxed-out in week 2 until they tried (and were blocked from)
+  // another action, which would never trigger the reset.
+  if (periodAge > weekMs) {
+    return { count: 0, resetsAt: new Date(Date.now() + weekMs).toISOString() };
+  }
+
+  const resetsAt = new Date(periodStart.getTime() + weekMs).toISOString();
   return { count: data.count, resetsAt };
 }
 

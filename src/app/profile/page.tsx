@@ -85,13 +85,13 @@ export default function ProfilePage() {
 
   const examsLeft = isUnlimited(limits.examsPerWeek)
     ? "Unlimited"
-    : `${Math.max(0, limits.examsPerWeek - usage.examsThisWeek)} of ${limits.examsPerWeek}`;
+    : `${usage.examsThisWeek} / ${limits.examsPerWeek} used`;
 
   const tutorLeft = isUnlimited(limits.tutorMessagesPerWeek)
     ? "Unlimited"
     : limits.tutorMessagesPerWeek === 0
     ? "Pro only"
-    : `${Math.max(0, limits.tutorMessagesPerWeek - usage.tutorMessagesThisWeek)} of ${limits.tutorMessagesPerWeek} this week`;
+    : `${usage.tutorMessagesThisWeek} / ${limits.tutorMessagesPerWeek} used`;
 
   return (
     <div className="relative overflow-hidden">
