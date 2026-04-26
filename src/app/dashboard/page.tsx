@@ -476,7 +476,7 @@ export default function DashboardPage() {
         )}
 
         {/* Greeting */}
-        <div className="mb-6">
+        <div className="mb-8">
           <h1 className="text-[24px] sm:text-[32px] font-extrabold text-white tracking-tight mb-1">
             {firstName ? `${getGreeting()}, ${firstName}` : getGreeting()}
           </h1>
@@ -484,26 +484,6 @@ export default function DashboardPage() {
             {getMotivation(avgPct, displayStreak, progress.totalExamsTaken)}
           </p>
         </div>
-
-        {/* Referral nudge — only really valuable while we're growing the user
-            base. Slim, always-visible, takes one tap to /refer. */}
-        <Link
-          href="/refer"
-          className="group flex items-center gap-3 rounded-xl bg-gradient-to-r from-indigo-500/[0.10] via-fuchsia-500/[0.08] to-amber-500/[0.06] border border-indigo-500/20 hover:border-indigo-400/40 px-4 py-3 mb-6 transition-colors"
-        >
-          <div className="shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-fuchsia-500 flex items-center justify-center shadow-md">
-            <svg className="w-4.5 h-4.5 text-white" width="18" height="18" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-            </svg>
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-white text-[13px] sm:text-[14px] font-semibold leading-tight">Invite a friend, earn free Student</p>
-            <p className="text-zinc-400 text-[11px] sm:text-[12px] leading-tight mt-0.5">14 days per friend who takes their first exam.</p>
-          </div>
-          <svg className="w-4 h-4 text-zinc-500 shrink-0 group-hover:text-white group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
 
         {/* Hero action — what to do right now */}
         {!hasData ? (
@@ -770,6 +750,17 @@ export default function DashboardPage() {
             Free plan — upgrade for more features
           </Link>
         )}
+
+        {/* Subtle referral link — easy to find if you look, easy to ignore */}
+        <Link
+          href="/refer"
+          className="flex items-center justify-center gap-1.5 text-zinc-600 text-[12px] hover:text-zinc-400 transition-colors py-2"
+        >
+          Invite friends, earn free Student
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
       </div>
     </div>
   );
