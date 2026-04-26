@@ -53,8 +53,9 @@ export interface Profile {
   current_period_end: string | null;
   referrer_id: string | null;
   referrals_count: number;
-  pro_until: string | null;
+  student_until: string | null;
   bonus_exams_remaining: number;
+  referral_credited: boolean;
   created_at: string;
   updated_at: string;
 }
@@ -106,9 +107,9 @@ export async function getOrCreateProfile(
 }
 
 /**
- * Get a user's effective tier — honours referral-granted Pro time.
- * If pro_until is in the future and the paid tier is "free", returns "pro".
- * Defaults to 'free' if no profile exists yet.
+ * Get a user's effective tier — honours referral-granted Student time.
+ * Referrals only ever grant Student (cheap for us, no tutor calls).
+ * If the user is already on a paid tier we return that as-is.
  */
 export async function getTier(userId: string): Promise<"free" | "student" | "pro"> {
   const supabase = getSupabase();
@@ -116,28 +117,25 @@ export async function getTier(userId: string): Promise<"free" | "student" | "pro
 
   const { data } = await supabase
     .from("profiles")
-    .select("tier, pro_until")
+    .select("tier, student_until")
     .eq("user_id", userId)
     .single();
 
   const baseTier = (data?.tier as "free" | "student" | "pro") ?? "free";
   if (baseTier !== "free") return baseTier;
 
-  // Referral-granted Pro overrides free
-  if (data?.pro_until && new Date(data.pro_until).getTime() > Date.now()) {
-    return "pro";
+  if (data?.student_until && new Date(data.student_until).getTime() > Date.now()) {
+    return "student";
   }
   return baseTier;
 }
 
 /**
- * Atomically claim a referral. Validates that:
- *  - referrerId exists and is not the same as newUserId
- *  - newUserId hasn't already been referred (referrer_id is null)
- * On success: sets referrer_id on the new user, increments referrer's
- * referrals_count, pushes referrer's pro_until forward by 7 days, and
- * gives the new user 5 bonus exams.
- * Returns true if claimed, false if rejected (duplicate, self-ref, etc).
+ * Attribute a new signup to a referrer. Sets referee.referrer_id and gives
+ * them 5 bonus exams immediately so they're nudged into the product.
+ * The referrer is NOT credited yet — that happens via maybeCreditReferrer
+ * once the referee actually completes their first exam (anti-fraud).
+ * Returns true on success, false if rejected (duplicate, self-ref, etc).
  */
 export async function claimReferral(
   newUserId: string,
@@ -147,7 +145,6 @@ export async function claimReferral(
   if (!supabase) return false;
   if (newUserId === referrerId) return false;
 
-  // Make sure both profiles exist and the new user isn't already attributed.
   const { data: newUser } = await supabase
     .from("profiles")
     .select("user_id, referrer_id")
@@ -155,24 +152,14 @@ export async function claimReferral(
     .single();
   if (!newUser || newUser.referrer_id) return false;
 
+  // Verify the referrer profile exists before attributing.
   const { data: referrer } = await supabase
     .from("profiles")
-    .select("user_id, pro_until, referrals_count")
+    .select("user_id")
     .eq("user_id", referrerId)
     .single();
   if (!referrer) return false;
 
-  // Push referrer's Pro window forward by 7 days. Stack on existing future date if any.
-  const now = Date.now();
-  const currentEnd =
-    referrer.pro_until && new Date(referrer.pro_until).getTime() > now
-      ? new Date(referrer.pro_until).getTime()
-      : now;
-  const newProUntil = new Date(currentEnd + 7 * 24 * 60 * 60 * 1000).toISOString();
-
-  // Apply both updates. If the second fails after the first succeeds we'd
-  // have a partial state, but the worst case is the new user gets bonus
-  // exams without crediting the referrer — much less bad than the inverse.
   const { error: refereeErr } = await supabase
     .from("profiles")
     .update({
@@ -187,42 +174,101 @@ export async function claimReferral(
     return false;
   }
 
-  const { error: referrerErr } = await supabase
-    .from("profiles")
-    .update({
-      referrals_count: (referrer.referrals_count ?? 0) + 1,
-      pro_until: newProUntil,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("user_id", referrerId);
-  if (referrerErr) {
-    console.error("claimReferral: failed to credit referrer", referrerErr);
-    // Don't return false — the referee already got their bonus, and rolling
-    // back leaves them worse off than the partial-credit state above.
-  }
-
   return true;
 }
 
 /**
- * Get referral stats for the /refer page.
+ * Idempotent: if this user was referred and we haven't yet credited the
+ * referrer, do it now. Called from /api/mark after a successful exam mark.
+ * Grants the referrer 14 days of Student tier per qualifying referral
+ * (stacks on any existing future student_until).
+ *
+ * The referral_credited flag is set BEFORE the referrer update so a retry
+ * after a partial failure won't double-credit. Worst case: the credit fails
+ * and the referrer never gets their reward — better than double-paying.
  */
-export async function getReferralStats(
-  userId: string
-): Promise<{ referralsCount: number; proUntil: string | null; bonusExamsRemaining: number }> {
+export async function maybeCreditReferrer(refereeUserId: string): Promise<void> {
   const supabase = getSupabase();
-  if (!supabase) return { referralsCount: 0, proUntil: null, bonusExamsRemaining: 0 };
+  if (!supabase) return;
+
+  const { data: referee } = await supabase
+    .from("profiles")
+    .select("referrer_id, referral_credited")
+    .eq("user_id", refereeUserId)
+    .single();
+
+  if (!referee || !referee.referrer_id || referee.referral_credited) return;
+
+  // Mark credited first to make this call idempotent under retry. Race-safe:
+  // only flips if still false, so two concurrent calls can't both proceed.
+  const { data: claimed, error: claimErr } = await supabase
+    .from("profiles")
+    .update({ referral_credited: true, updated_at: new Date().toISOString() })
+    .eq("user_id", refereeUserId)
+    .eq("referral_credited", false)
+    .select("user_id")
+    .single();
+  if (claimErr || !claimed) return; // someone else credited first
+
+  const { data: referrer } = await supabase
+    .from("profiles")
+    .select("student_until, referrals_count")
+    .eq("user_id", referee.referrer_id)
+    .single();
+  if (!referrer) return;
+
+  const now = Date.now();
+  const currentEnd =
+    referrer.student_until && new Date(referrer.student_until).getTime() > now
+      ? new Date(referrer.student_until).getTime()
+      : now;
+  const newStudentUntil = new Date(currentEnd + 14 * 24 * 60 * 60 * 1000).toISOString();
+
+  await supabase
+    .from("profiles")
+    .update({
+      referrals_count: (referrer.referrals_count ?? 0) + 1,
+      student_until: newStudentUntil,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("user_id", referee.referrer_id);
+}
+
+/**
+ * Get referral stats for the /refer page.
+ * pendingReferrals = friends who signed up but haven't taken an exam yet.
+ */
+export async function getReferralStats(userId: string): Promise<{
+  referralsCount: number;
+  studentUntil: string | null;
+  bonusExamsRemaining: number;
+  pendingReferrals: number;
+}> {
+  const supabase = getSupabase();
+  if (!supabase) {
+    return { referralsCount: 0, studentUntil: null, bonusExamsRemaining: 0, pendingReferrals: 0 };
+  }
 
   const { data } = await supabase
     .from("profiles")
-    .select("referrals_count, pro_until, bonus_exams_remaining")
+    .select("referrals_count, student_until, bonus_exams_remaining")
     .eq("user_id", userId)
     .single();
 
+  // Count referees who signed up but haven't yet been credited (i.e.
+  // haven't taken their first exam). This is the "pending" count we
+  // surface so the user can see referrals are in flight.
+  const { count: pendingCount } = await supabase
+    .from("profiles")
+    .select("user_id", { count: "exact", head: true })
+    .eq("referrer_id", userId)
+    .eq("referral_credited", false);
+
   return {
     referralsCount: data?.referrals_count ?? 0,
-    proUntil: data?.pro_until ?? null,
+    studentUntil: data?.student_until ?? null,
     bonusExamsRemaining: data?.bonus_exams_remaining ?? 0,
+    pendingReferrals: pendingCount ?? 0,
   };
 }
 

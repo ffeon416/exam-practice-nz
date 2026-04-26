@@ -12,20 +12,28 @@ create table if not exists profiles (
   subscription_status text,
   current_period_end timestamptz,
   -- Referral system: who invited this user, how many they've invited,
-  -- and time-bounded rewards (Pro for the referrer, bonus exams for the referee).
+  -- and time-bounded Student-tier reward (cheap for us — no tutor calls).
+  -- referral_credited gates the referrer's reward behind the referee
+  -- actually using the product (taking their first marked exam) to
+  -- prevent farming.
   referrer_id text,
   referrals_count int not null default 0,
-  pro_until timestamptz,
+  student_until timestamptz,
   bonus_exams_remaining int not null default 0,
+  referral_credited boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
 -- Idempotent migration for existing deployments — run after schema is in place.
+-- pro_until was the v1 reward column; replaced by student_until so referrals
+-- don't grant the expensive AI-tutor tier.
+alter table profiles drop column if exists pro_until;
 alter table profiles add column if not exists referrer_id text;
 alter table profiles add column if not exists referrals_count int not null default 0;
-alter table profiles add column if not exists pro_until timestamptz;
+alter table profiles add column if not exists student_until timestamptz;
 alter table profiles add column if not exists bonus_exams_remaining int not null default 0;
+alter table profiles add column if not exists referral_credited boolean not null default false;
 create index if not exists profiles_referrer_idx on profiles(referrer_id);
 
 -- ── CUSTOM EXAMS ─────────────────────────────────────────

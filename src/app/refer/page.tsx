@@ -6,8 +6,9 @@ import Link from "next/link";
 
 interface ReferralStats {
   referralsCount: number;
-  proUntil: string | null;
+  studentUntil: string | null;
   bonusExamsRemaining: number;
+  pendingReferrals: number;
 }
 
 function daysFromNow(iso: string | null): number {
@@ -48,8 +49,9 @@ export default function ReferPage() {
       ? `${window.location.origin}/sign-up?ref=${user.id}`
       : `https://studyace.co/sign-up?ref=${user.id}`;
 
-  const proDaysLeft = daysFromNow(stats?.proUntil ?? null);
+  const studentDaysLeft = daysFromNow(stats?.studentUntil ?? null);
   const referralsCount = stats?.referralsCount ?? 0;
+  const pending = stats?.pendingReferrals ?? 0;
 
   const shareMessage = `I'm using Study Ace to practise for NCEA — sign up here and get 5 bonus exams: ${referralLink}`;
 
@@ -104,24 +106,37 @@ export default function ReferPage() {
         </Link>
 
         <h1 className="text-[28px] sm:text-[40px] font-extrabold text-white tracking-tight mb-2">
-          Get free Pro by inviting friends
+          Earn free Student
         </h1>
         <p className="text-zinc-400 text-[15px] mb-8 sm:mb-10 leading-relaxed">
-          Every friend who signs up unlocks <span className="text-white font-semibold">7 days of Pro</span> for you,
-          and gets <span className="text-white font-semibold">5 bonus exams</span> on the house.
+          Every friend who signs up <span className="text-white font-semibold">and takes their first exam</span> unlocks{" "}
+          <span className="text-white font-semibold">14 days of Student</span> for you. Stacks for every friend. They get{" "}
+          <span className="text-white font-semibold">5 bonus exams</span> on the house.
         </p>
 
-        {/* Stats row — only render once loaded so the zero state isn't a flash */}
         {stats && (
-          <div className="grid grid-cols-2 gap-3 mb-6">
+          <div className="grid grid-cols-2 gap-3 mb-3">
             <div className="rounded-2xl bg-gradient-to-br from-indigo-500/[0.08] to-indigo-500/[0.02] border border-indigo-500/15 p-4 sm:p-5">
-              <p className="text-[11px] text-indigo-400 uppercase tracking-[0.18em] font-bold mb-2">Friends joined</p>
+              <p className="text-[11px] text-indigo-400 uppercase tracking-[0.18em] font-bold mb-2">Friends counted</p>
               <p className="text-[32px] sm:text-[40px] font-extrabold text-white leading-none">{referralsCount}</p>
             </div>
             <div className="rounded-2xl bg-gradient-to-br from-fuchsia-500/[0.08] to-fuchsia-500/[0.02] border border-fuchsia-500/15 p-4 sm:p-5">
-              <p className="text-[11px] text-fuchsia-400 uppercase tracking-[0.18em] font-bold mb-2">Pro days left</p>
-              <p className="text-[32px] sm:text-[40px] font-extrabold text-white leading-none">{proDaysLeft}</p>
+              <p className="text-[11px] text-fuchsia-400 uppercase tracking-[0.18em] font-bold mb-2">Student days</p>
+              <p className="text-[32px] sm:text-[40px] font-extrabold text-white leading-none">{studentDaysLeft}</p>
             </div>
+          </div>
+        )}
+
+        {/* Pending strip — only render if there's something pending */}
+        {stats && pending > 0 && (
+          <div className="mb-6 rounded-xl bg-amber-500/[0.06] border border-amber-500/15 px-4 py-3 flex items-center gap-3">
+            <svg className="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="text-amber-200 text-[13px] leading-snug">
+              {pending === 1 ? "1 friend signed up" : `${pending} friends signed up`} but {pending === 1 ? "hasn't" : "haven't"} taken{" "}
+              {pending === 1 ? "their" : "their"} first exam yet — nudge them and you'll get credit.
+            </p>
           </div>
         )}
 
@@ -154,15 +169,14 @@ export default function ReferPage() {
           </div>
         </section>
 
-        {/* How it works */}
         <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6">
           <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
             How it works
           </h2>
           <div className="space-y-4">
             <Step number={1} text="Share your link with a friend studying for NCEA" />
-            <Step number={2} text="They sign up and instantly get 5 bonus exams" />
-            <Step number={3} text="You get 7 days of Pro added to your account — stacks for every friend" />
+            <Step number={2} text="They sign up — instantly get 5 bonus exams to use" />
+            <Step number={3} text="They take their first exam — that's when you get 14 days of Student tier added (stacks per friend)" />
           </div>
         </section>
       </div>

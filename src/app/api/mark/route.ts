@@ -3,6 +3,7 @@ import { markAnswer, markEnglishEssay, addUsage, zeroUsage, type Usage } from "@
 import { checkTier } from "@/lib/checkTier";
 import { logApiUsage } from "@/lib/db";
 import { rateLimit } from "@/lib/rateLimit";
+import { maybeCreditReferrer } from "@/lib/supabase";
 
 // Structured-feedback marker used when an English question is marked by the
 // multi-pass essay pipeline. The results page detects this prefix to render
@@ -144,6 +145,14 @@ export async function POST(request: NextRequest) {
     }
     if (essayUsage.inputTokens + essayUsage.outputTokens > 0) {
       await logApiUsage(userId, "essay", essayUsage);
+    }
+
+    // First-exam referral credit: if this user was referred and we haven't
+    // credited the referrer yet, do it now. Idempotent + race-safe.
+    if (userId) {
+      maybeCreditReferrer(userId).catch((err) => {
+        console.error("maybeCreditReferrer failed:", err);
+      });
     }
 
     return NextResponse.json({ results });
