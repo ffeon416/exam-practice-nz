@@ -360,14 +360,15 @@ export default function DashboardPage() {
   // is set in the close handler, not here, so a redirect to /welcome
   // mid-render doesn't burn the user's one shot at seeing it.
   useEffect(() => {
-    if (tierLoading) return;
-    const key = `studyace-welcome-seen-v2-${tier}`;
+    // Don't wait for /api/user — show on mount with default tier ("free");
+    // re-renders to the correct accent if the user turns out to be paid.
+    const key = `studyace-welcome-seen-v3-${tier}`;
     if (localStorage.getItem(key)) return;
     setShowPaymentSuccess(true);
-  }, [tier, tierLoading]);
+  }, [tier]);
 
   function dismissWelcome() {
-    const key = `studyace-welcome-seen-v2-${tier}`;
+    const key = `studyace-welcome-seen-v3-${tier}`;
     localStorage.setItem(key, new Date().toISOString());
     setShowPaymentSuccess(false);
   }
@@ -413,6 +414,12 @@ export default function DashboardPage() {
 
   if (!progress) return (
     <div className="max-w-xl mx-auto px-5 pt-16 pb-20 bg-[#06060a] min-h-screen">
+      {showPaymentSuccess && (
+        <PaymentWelcome tier={tier} firstName={firstName} onClose={dismissWelcome} />
+      )}
+      {previewTier && (
+        <PaymentWelcome tier={previewTier} firstName={firstName} onClose={() => setPreviewTier(null)} />
+      )}
       <div className="animate-pulse space-y-4">
         <div className="h-8 bg-white/[0.04] rounded-lg w-48" />
         <div className="h-4 bg-white/[0.04] rounded-lg w-64" />
@@ -460,7 +467,7 @@ export default function DashboardPage() {
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
         {/* Welcome modal — paid users get a celebration, free users get an intro */}
-        {showPaymentSuccess && !tierLoading && (
+        {showPaymentSuccess && (
           <PaymentWelcome tier={tier} firstName={firstName} onClose={dismissWelcome} />
         )}
         {previewTier && (
