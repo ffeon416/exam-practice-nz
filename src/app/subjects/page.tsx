@@ -482,8 +482,9 @@ export default function SubjectsPage() {
       {/* Upgrade modal */}
       {showUpgrade === "exams" && (
         <UpgradeModal
-          message={`You've used your ${limits.examsPerWeek} free exams this week. Upgrade to keep practising.`}
+          message={`You've used your ${limits.examsPerWeek} free exams this week. Upgrade to keep practising — or invite a friend for 5 bonus exams.`}
           onClose={() => setShowUpgrade(null)}
+          showReferral
         />
       )}
       {showUpgrade === "subject" && (

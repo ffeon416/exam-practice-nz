@@ -6,9 +6,12 @@ interface UpgradeModalProps {
   /** What limit they hit, e.g. "You've used your 2 free exams this week" */
   message: string;
   onClose: () => void;
+  /** Show a "Invite friends for bonus exams" alternative (used for the
+   *  weekly-exams limit; doesn't make sense for e.g. subject locks). */
+  showReferral?: boolean;
 }
 
-export default function UpgradeModal({ message, onClose }: UpgradeModalProps) {
+export default function UpgradeModal({ message, onClose, showReferral = false }: UpgradeModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
       {/* Backdrop */}
@@ -59,6 +62,14 @@ export default function UpgradeModal({ message, onClose }: UpgradeModalProps) {
           >
             View plans
           </Link>
+          {showReferral && (
+            <Link
+              href="/refer"
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-fuchsia-500/[0.15] to-amber-500/[0.10] border border-fuchsia-500/30 text-fuchsia-200 font-medium text-[14px] text-center hover:border-fuchsia-400/50 hover:text-white transition-colors"
+            >
+              Or invite a friend for bonus exams →
+            </Link>
+          )}
           <button
             onClick={onClose}
             className="w-full py-3 rounded-lg border border-zinc-800 text-zinc-400 font-medium text-[14px] hover:border-zinc-600 hover:text-zinc-200 transition-colors"
