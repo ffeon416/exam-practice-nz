@@ -751,13 +751,18 @@ export default function DashboardPage() {
           </Link>
         )}
 
-        {/* Subtle referral link — easy to find if you look, easy to ignore */}
+        {/* Referral link — visible at the bottom but not a banner. Indigo
+            accent so it catches the eye in scan; text-link form so it doesn't
+            compete with the primary actions higher up. */}
         <Link
           href="/refer"
-          className="flex items-center justify-center gap-1.5 text-zinc-600 text-[12px] hover:text-zinc-400 transition-colors py-2"
+          className="group flex items-center justify-center gap-2 text-indigo-300 text-[14px] font-medium hover:text-white transition-colors py-3"
         >
+          <svg className="w-4 h-4 text-indigo-400 group-hover:text-fuchsia-300 transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
           Invite friends, earn free Student
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </Link>
