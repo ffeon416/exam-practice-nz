@@ -174,6 +174,10 @@ async function chatCompletion(prompt: string, options: { smart?: boolean; maxTok
   return withRetry(() => chatCompletionOnce(prompt, options), { label: options.smart ? "smart" : "fast" });
 }
 
+// Exported so other API routes (e.g. practice-tutor) get the same env-aware
+// API/proxy fallback chain instead of hardcoding localhost.
+export { chatCompletion };
+
 export async function markAnswer(
   questionText: string,
   marks: number,

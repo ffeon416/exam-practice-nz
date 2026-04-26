@@ -1,26 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const PROXY_URL = "http://localhost:3456/v1/chat/completions";
-const MODEL = "claude-sonnet-4";
-
-async function chat(prompt: string): Promise<string> {
-  const res = await fetch(PROXY_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer not-needed-proxy-auth",
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      messages: [{ role: "user", content: prompt }],
-      max_tokens: 1500,
-    }),
-  });
-
-  if (!res.ok) throw new Error(`Proxy error ${res.status}`);
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content ?? "";
-}
+import { chatCompletion } from "@/lib/claude";
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,7 +10,7 @@ export async function POST(request: NextRequest) {
 
       const levelName = level === 0 ? "Year 10 CAA Numeracy" : `NCEA Level ${level}`;
 
-      const text = await chat(`You are a friendly maths tutor helping a New Zealand student prepare for ${levelName}.
+      const prompt = `You are a friendly maths tutor helping a New Zealand student prepare for ${levelName}.
 
 The student is about to attempt this exam question:
 "${questionText}"
@@ -50,8 +29,9 @@ Rules:
 - Use simple language a teenager would understand
 - End with a tip like "Now try the question below using this method"
 
-Just write the lesson text directly, no JSON, no markdown headers.`);
+Just write the lesson text directly, no JSON, no markdown headers.`;
 
+      const { text } = await chatCompletion(prompt, { smart: true, maxTokens: 1500 });
       return NextResponse.json({ lesson: text });
     }
 
