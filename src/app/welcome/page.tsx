@@ -53,6 +53,35 @@ export default function WelcomePage() {
     setCheckedExisting(true);
   }, [router]);
 
+  // Claim a pending referral once Clerk has finished loading + we know
+  // the user is signed in. Fire-and-forget — the API is idempotent for
+  // the second-claim case (rejected as duplicate) so retries are safe.
+  useEffect(() => {
+    if (!isLoaded || !user) return;
+    let pending: string | null = null;
+    try {
+      pending = window.localStorage.getItem("studyace-pending-ref");
+    } catch {
+      return;
+    }
+    if (!pending) return;
+    fetch("/api/refer/claim", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ referrerId: pending }),
+    })
+      .catch(() => {
+        /* network errors are non-fatal — user can still use the app */
+      })
+      .finally(() => {
+        try {
+          window.localStorage.removeItem("studyace-pending-ref");
+        } catch {
+          /* ignore */
+        }
+      });
+  }, [isLoaded, user]);
+
   const availableSubjects = yearLevel != null
     ? SUBJECTS.filter((s) => s.years.includes(yearLevel))
     : [];

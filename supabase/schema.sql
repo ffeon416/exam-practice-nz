@@ -11,9 +11,22 @@ create table if not exists profiles (
   stripe_subscription_id text,
   subscription_status text,
   current_period_end timestamptz,
+  -- Referral system: who invited this user, how many they've invited,
+  -- and time-bounded rewards (Pro for the referrer, bonus exams for the referee).
+  referrer_id text,
+  referrals_count int not null default 0,
+  pro_until timestamptz,
+  bonus_exams_remaining int not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+-- Idempotent migration for existing deployments — run after schema is in place.
+alter table profiles add column if not exists referrer_id text;
+alter table profiles add column if not exists referrals_count int not null default 0;
+alter table profiles add column if not exists pro_until timestamptz;
+alter table profiles add column if not exists bonus_exams_remaining int not null default 0;
+create index if not exists profiles_referrer_idx on profiles(referrer_id);
 
 -- ── CUSTOM EXAMS ─────────────────────────────────────────
 -- Generated practice exams. Persists across devices.

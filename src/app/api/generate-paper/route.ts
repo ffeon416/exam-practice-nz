@@ -4,6 +4,7 @@ import { checkTier } from "@/lib/checkTier";
 import { incrementUsage, logApiUsage } from "@/lib/db";
 import { isUnlimited, isSubjectAvailable } from "@/lib/tierLimits";
 import { rateLimit } from "@/lib/rateLimit";
+import { consumeBonusExam } from "@/lib/supabase";
 
 // Allow up to 5 minutes for paper generation
 export const maxDuration = 300;
@@ -22,14 +23,20 @@ export async function POST(request: NextRequest) {
 
     const limitVal = limits.examsPerWeek === Infinity ? -1 : limits.examsPerWeek;
     if (!isUnlimited(limitVal) && usage.examsThisWeek >= limits.examsPerWeek) {
-      return NextResponse.json(
-        {
-          error: "limit_reached",
-          message: `You've used your ${limits.examsPerWeek} free exams this week. Upgrade to continue.`,
-          upgradeUrl: "/pricing",
-        },
-        { status: 403 }
-      );
+      // Free user is over their weekly cap — try to spend a referral bonus
+      // before returning the upgrade prompt. Consumes one bonus exam if any
+      // are remaining; otherwise blocks as before.
+      const bonusUsed = userId ? await consumeBonusExam(userId) : false;
+      if (!bonusUsed) {
+        return NextResponse.json(
+          {
+            error: "limit_reached",
+            message: `You've used your ${limits.examsPerWeek} free exams this week. Upgrade to continue, or invite a friend for bonus exams.`,
+            upgradeUrl: "/pricing",
+          },
+          { status: 403 }
+        );
+      }
     }
 
     const body = await request.json();
