@@ -227,12 +227,19 @@ STUDENT'S ANSWER: ${studentAnswer || "(No answer provided)"}
 
 Mark this answer generously. Focus on whether the student got the right answer with valid reasoning, not on whether their wording matches the guide exactly.
 
+ACCURACY for the correctApproach field:
+- The correctApproach field is what the student sees as "the right answer" — it MUST be correct
+- Base it on the marking guide above, but rewrite as clean step-by-step working
+- Verify every arithmetic step before including it
+- The final answer at the end of correctApproach must match the marking guide's expected answer
+- If the marking guide itself looks wrong, prefer the student's correct answer; don't propagate errors
+
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
   "marksAwarded": <number 0 to ${marks} — be generous, full marks if answer is correct>,
   "grade": "<not-achieved|achieved|merit|excellence>",
   "feedback": "<encouraging feedback. If correct, say so clearly and praise their working. If wrong, explain what went wrong gently>",
-  "correctApproach": "<step-by-step correct solution>",
+  "correctApproach": "<step-by-step correct solution — verified arithmetic, ends with the right final answer>",
   "examTip": "<one practical exam technique tip>",
   "topicsToReview": [<topic slugs only if the student got the question wrong>]
 }`;
@@ -496,11 +503,22 @@ export async function generatePracticeQuestion(
 Difficulty level: ${gradeLevel}
 Style it exactly like a real NZQA exam question — clear, concise, with context where appropriate.
 
+CRITICAL — ACCURACY CHECKS (students study from this; wrong answers cause real harm):
+- Work the question yourself, step by step, before writing the markingGuide
+- Show every arithmetic step in markingGuide and verify each one is correct
+- The final numeric/text answer derived in markingGuide MUST be reproducible by following its own steps
+- For multi-choice, verify the correct option is genuinely correct and distractors are plausible but wrong
+- For science/maths: verify formulas, units, balanced equations, valid identities
+- For statistics: state n vs n-1 explicitly; verify slope b = r × (sy/sx), intercept a = ȳ - b×x̄ if regression
+- Question setups must be internally consistent — never state a number that contradicts the given data
+- If your worked example produces a weird/negative/contradictory result, the question is broken — pick different numbers
+- Pick numbers that produce clean answers (whole numbers when possible) for clarity
+
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
   "text": "<the question text>",
   "marks": <number of marks, typically 2-5>,
-  "markingGuide": "<detailed marking schedule showing how marks are allocated>"
+  "markingGuide": "<step-by-step worked solution with all arithmetic verified — this is the source of truth>"
 }`;
 
   // Use smart model for generation — quality matters
@@ -530,6 +548,13 @@ CRITICAL RULES:
 6. Use simple language, not jargon
 7. If they explicitly give up and ask for the answer after trying, give a step-by-step walkthrough
 8. Never lecture — keep it conversational
+
+ACCURACY (do not skip):
+- Every formula, calculation, fact, or hint you give MUST be correct
+- Mentally verify any arithmetic before sending it
+- If the marking guide and your own working disagree, recheck both — never pass on a wrong hint
+- Better to say "let me think about that" than guess; never make up a fact
+- If asked for the final answer, base it on the marking guide, but verify the steps yourself first
 
 QUESTION THEY'RE WORKING ON:
 ${question.text}
