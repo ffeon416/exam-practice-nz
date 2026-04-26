@@ -42,12 +42,21 @@ const FREE_DEFAULTS: TierLimitsClient = {
 };
 
 const CACHE_TTL = 60_000; // 60 seconds
+const LAST_TIER_KEY = "studyace-last-tier";
 
 let cachedData: { tier: Tier; limits: TierLimitsClient; usage: TierUsage } | null = null;
 let cachedAt = 0;
 
+// Read the most recent tier from localStorage so paid users don't see a
+// flash of "free" styling on hard refresh while /api/user is in flight.
+function readLastTier(): Tier {
+  if (typeof window === "undefined") return "free";
+  const v = window.localStorage.getItem(LAST_TIER_KEY);
+  return v === "student" || v === "pro" ? v : "free";
+}
+
 export function useTier(): UseTierResult {
-  const [tier, setTier] = useState<Tier>(cachedData?.tier ?? "free");
+  const [tier, setTier] = useState<Tier>(cachedData?.tier ?? readLastTier());
   const [limits, setLimits] = useState<TierLimitsClient>(cachedData?.limits ?? FREE_DEFAULTS);
   const [usage, setUsage] = useState<TierUsage>(cachedData?.usage ?? { examsThisWeek: 0, tutorMessagesThisWeek: 0 });
   const [loading, setLoading] = useState(!cachedData);
@@ -79,6 +88,12 @@ export function useTier(): UseTierResult {
 
       cachedData = newData;
       cachedAt = Date.now();
+
+      try {
+        window.localStorage.setItem(LAST_TIER_KEY, newData.tier);
+      } catch {
+        /* localStorage may be unavailable in private mode */
+      }
 
       setTier(newData.tier);
       setLimits(newData.limits);
