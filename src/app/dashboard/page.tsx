@@ -412,6 +412,8 @@ export default function DashboardPage() {
     setCustomExams(listCustomExams());
   }
 
+  const firstName = user?.firstName?.trim() || null;
+
   if (!progress) return (
     <div className="max-w-xl mx-auto px-5 pt-16 pb-20 bg-[#06060a] min-h-screen">
       {showPaymentSuccess && (
@@ -431,7 +433,6 @@ export default function DashboardPage() {
 
   const hasData = progress.totalExamsTaken > 0;
   const weakTopics = getWeakTopics(progress, 3);
-  const firstName = user?.firstName?.trim() || null;
 
   // Check if streak should be reset (student missed a day)
   const displayStreak = (() => {
