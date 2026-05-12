@@ -19,8 +19,24 @@ export default function HomePage() {
 
   const hasHistory = isSignedIn && progress && progress.totalExamsTaken > 0;
 
+  const softwareApplicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "StudyAce",
+    applicationCategory: "EducationalApplication",
+    description:
+      "AI-powered NCEA exam practice for NZ students. Generates exam-style practice questions tailored to your syllabus, marks them honestly, and surfaces weak topics.",
+    operatingSystem: "Web",
+    url: "https://studyace.co",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "NZD" },
+  };
+
   return (
     <div className="relative overflow-hidden bg-[#06060a] isolate">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+      />
       {/* Ambient animated background */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-indigo-600/20 blur-[140px] rounded-full animate-blob-a" />
