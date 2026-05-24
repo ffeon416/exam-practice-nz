@@ -1,3 +1,5 @@
+import type { GraphData } from "./types";
+
 // Three ways to call Claude:
 // 1. ANTHROPIC_API_KEY set → use the real Anthropic API (production w/ API key)
 // 2. CLAUDE_PROXY_URL set → use a custom OpenAI-compatible proxy (e.g. ngrok tunnel
@@ -195,9 +197,11 @@ export async function markAnswer(
 }> {
   const prompt = `You are a friendly NCEA examiner. You mark like a real exam — passable working gets full marks. Don't be picky.
 
-The student's response may have TWO parts:
-- WORKING: how they solved the problem (worth 1 mark)
-- FINAL ANSWER: their final answer (worth 1 mark)
+The student's response may be a single extended response, OR may have TWO parts:
+- WORKING: how they solved the problem (when present, worth 1 mark out of the total)
+- FINAL ANSWER: their final answer (worth the remaining marks)
+
+For extended-response questions (essays, evaluations, written explanations), there is NO separate working — the response is marked as a whole against the marking guide, out of ${marks} marks. Allocate marks based on how many of the required points the student covers with valid reasoning.
 
 CRITICAL MARKING RULES — BE VERY LENIENT:
 1. **Working out is JUST about showing the method.** Any valid calculation that leads to the right answer = FULL marks for working. Examples that all get full marks:
@@ -262,12 +266,11 @@ Respond ONLY with valid JSON (no markdown, no code fences):
     if (!Array.isArray(parsed.topicsToReview)) parsed.topicsToReview = [];
     return { ...parsed, usage };
   } catch (err) {
-    // Last-resort fallback — give them benefit of the doubt rather than 0
     console.error("Marking fallback triggered:", err);
     return {
-      marksAwarded: Math.floor(marks / 2), // partial marks rather than zero
-      grade: "achieved" as const,
-      feedback: "We had trouble auto-marking this one. Compare your answer with the marking guide below.",
+      marksAwarded: 0,
+      grade: "not-achieved" as const,
+      feedback: "We had trouble auto-marking this one. Compare your answer with the marking guide below — if you got it right, mark it yourself.",
       correctApproach: markingGuide,
       examTip: "Always show your working clearly.",
       topicsToReview: [],
@@ -488,6 +491,231 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   };
 }
 
+// ── Shared rules for AI generation about graphs/charts/tables/diagrams ──
+// Students sit the exam on a screen with a keyboard — they can SEE embedded
+// graphs but CANNOT draw or upload. Every visual a question refers to must be
+// included in the question itself as a `graph` JSON object. Injected verbatim
+// into the prompts for generatePracticeQuestion and generatePracticePaper.
+const GRAPH_RULES = `═══════════════════════════════════════════════════════════
+GRAPHS, CHARTS, TABLES, AND DIAGRAMS — STRICT RULES
+═══════════════════════════════════════════════════════════
+Students take this exam on a screen with a keyboard. They can SEE graphs you embed in a question, but they CANNOT draw or upload anything. Every visual a question refers to MUST be embedded in the question itself, in the optional \`graph\` field, with data that EXACTLY matches what the question is asking about.
+
+ABSOLUTE RULES:
+1. If a question would benefit from OR requires a graph/chart/table/diagram to be answered or interpreted, INCLUDE the \`graph\` field. Never reference a visual ("the graph above", "the chart", "the table", "the diagram", "the figure", "as shown", "from the graph", "use the graph", "interpret the chart", "in the diagram") without ALSO providing it as a \`graph\` object.
+2. Never instruct the student to draw, sketch, plot, or construct anything (graph, chart, diagram, curve, line of best fit, parabola, points, histogram, axes, number line). Students cannot draw. Reframe the task as "identify", "calculate", "describe", "determine", "compare", or "interpret" — using a graph YOU provide.
+3. The graph you provide must be EXACTLY what the question needs:
+   - Numeric values on the graph match numeric values in the question (e.g. if the question says "the supply curve passes through (2, 4) and (8, 16)", those exact points must lie on your series)
+   - Labels (axis labels, units, series names, titles) match what the question discusses
+   - For "shift" / "before vs after" questions: include BOTH curves as separate series (e.g. "Demand 2023" and "Demand 2024", or "Supply" and "New Supply")
+   - For equilibrium / intersection questions: the two curves must actually cross at the stated equilibrium point
+   - For function graphs (parabolas, exponentials, trig): use ≥15 xValues across the domain so the curve looks smooth
+   - For data interpretation: every figure the question asks the student to read off must be present on the graph
+4. Choose the right \`type\` for the data:
+   - line — continuous data, functions, time-series, supply/demand, motion graphs, titration curves
+   - bar — categorical comparisons, climate (monthly rainfall), population pyramids
+   - pie — parts of a whole (only with ≥2 slices summing to a meaningful whole)
+   - scatter — independent (x,y) pairs for correlation/regression
+   - box-plot — five-number summaries (min, Q1, median, Q3, max — EXACTLY 5 entries in that order)
+   - histogram — binned frequencies (labels are bin ranges)
+   - table — structured rows / multi-column data (financial statements, dates, raw frequencies)
+   - number-line — intervals, inequalities, single points on a 1D line
+
+WHEN A GRAPH IS LIKELY NEEDED (by subject):
+- Economics: supply & demand, market equilibrium, shifts in S/D, PPF, AD/AS, cost curves (MC, AVC, ATC), Lorenz curves, GDP/CPI/inflation time-series.
+- Statistics: descriptive distributions (histogram, box-plot), bivariate (scatter + regression), two-way frequency (table), time-series (line).
+- Mathematics / calculus: function graphs (parabola, cubic, exponential, log, trig), inequalities on a number line, vector/coordinate diagrams.
+- Physics: motion (d–t, v–t, a–t), force–extension, wave displacement–time, current–voltage, projectile trajectories.
+- Chemistry: titration curves, reaction rate vs time, energy profile diagrams, concentration vs time.
+- Biology: population growth, enzyme rate vs temperature/pH, predator–prey curves, allele frequency over generations.
+- Geography: climographs (monthly rainfall bar chart), population pyramids (bar), demographic tables.
+- Accounting / business: income statements, balance-sheet extracts, ratios, year-over-year comparisons → table.
+- Health / social-studies / media-studies / classical-studies / art-history / business-studies: survey results, frequency tables → bar or table.
+- English / history / te-reo: usually no graph; a table of dates, events, characters, or short text extracts can occasionally help.
+NEVER attempt maps — there is no map renderer. Reframe map questions as data tables or text descriptions.
+
+GRAPH DATA SCHEMA — copy these shapes exactly. Property names use double quotes. Numbers must be numbers, not strings.
+
+bar:
+{"type":"bar","title":"...","xLabel":"...","data":[{"label":"A","value":12},{"label":"B","value":18}]}
+
+line (functions / time-series / multi-series like supply+demand):
+{"type":"line","title":"...","xLabel":"Quantity","yLabel":"Price ($)","xValues":[0,2,4,6,8,10],"series":[{"name":"Demand","values":[10,8,6,4,2,0]},{"name":"Supply","values":[0,2,4,6,8,10]}]}
+For smooth function curves (parabolas, exponentials), use 15–30 xValues across the relevant domain.
+
+pie:
+{"type":"pie","title":"...","data":[{"label":"A","value":40},{"label":"B","value":60}]}
+
+scatter:
+{"type":"scatter","title":"...","xLabel":"x","yLabel":"y","data":[[1,2.3],[2,4.1],[3,5.8],[4,7.9]]}
+
+box-plot (EXACTLY 5 entries in order: min, Q1, median, Q3, max):
+{"type":"box-plot","title":"...","xLabel":"...","data":[{"label":"min","value":4},{"label":"Q1","value":7},{"label":"median","value":10},{"label":"Q3","value":13},{"label":"max","value":18}]}
+
+histogram (labels are bin ranges):
+{"type":"histogram","title":"...","xLabel":"Score","yLabel":"Frequency","data":[{"label":"0–10","value":3},{"label":"10–20","value":7},{"label":"20–30","value":12}]}
+
+table:
+{"type":"table","title":"...","data":{"headers":["Year","Revenue","Profit"],"rows":[["2023","$12,000","$3,000"],["2024","$15,000","$4,200"]]}}
+
+number-line (xValues = [leftEnd, rightEnd] of the visible line; data = marked points):
+{"type":"number-line","title":"...","xValues":[-5,5],"data":[{"label":"x","value":2}]}
+
+VERIFICATION CHECKLIST — run mentally before submitting each question:
+[ ] Does my question text mention a graph/chart/table/diagram/figure/curve? → graph field MUST be present.
+[ ] Does the graph data match what the question references? (numbers, labels, scales, direction of shift)
+[ ] Did I write "draw", "sketch", "plot", or "construct" anywhere? → rewrite as identify/calculate/describe/interpret.
+[ ] For multi-curve scenarios (supply/demand shifts, before/after) — are ALL referenced curves included as separate series?
+[ ] Is the \`type\` correct for the data?
+[ ] Are the numbers in the graph EXACTLY consistent with the working in markingGuide?`;
+
+// Detects question text that refers to a visual that wasn't provided, or that
+// instructs the student to draw/sketch/plot something they can't actually draw.
+function validateGraphReferences(q: { text?: string; graph?: unknown; image?: string }): string[] {
+  const issues: string[] = [];
+  const text = String(q.text ?? "");
+  const visualReferences: RegExp[] = [
+    /\bthe\s+(graph|chart|diagram|figure|table|histogram|scatter\s*plot|box[-\s]?plot|number\s*line|pie\s*chart)\b/i,
+    /\b(graph|chart|diagram|table|figure)\s+(above|below|to\s+the\s+(right|left)|shown)\b/i,
+    /\b(above|below)\s+(shows|illustrates|displays|depicts|gives)\b/i,
+    /\bas\s+shown\b/i,
+    /\bshown\s+(above|below|in\s+the)\b/i,
+    /\bfrom\s+the\s+(graph|chart|table|figure|diagram|histogram|scatter)\b/i,
+    /\buse\s+the\s+(graph|chart|table|figure|diagram)\b/i,
+    /\binterpret\s+the\s+(graph|chart|table|figure|diagram)\b/i,
+    /\bin\s+the\s+(graph|chart|table|figure|diagram)\b/i,
+    /\busing\s+the\s+(graph|chart|table|figure|diagram)\b/i,
+    /\bcomplete\s+the\s+table\b/i,
+  ];
+  const references = visualReferences.some((rx) => rx.test(text));
+  if (references && !q.graph && !q.image) {
+    issues.push("question references a graph/chart/table/diagram but no graph or image is provided");
+  }
+  const askToDrawPattern =
+    /\b(draw|sketch|plot|construct)\s+(?:a\s+|an\s+|the\s+|its\s+|their\s+|your\s+|on\s+(?:the\s+)?)?(?:\w+\s+)?(graph|chart|diagram|curve|histogram|box[-\s]?plot|scatter\s*plot|number\s*line|parabola|hyperbola|function|axes|line\s+of\s+best\s+fit|points?)\b/i;
+  if (askToDrawPattern.test(text)) {
+    issues.push("question asks the student to draw/sketch/plot — students cannot draw");
+  }
+  return issues;
+}
+
+// Validates that a `graph` object actually matches the shape its `type` expects.
+// Returns a list of problems, or an empty array if the graph is well-formed.
+function validateGraphShape(graph: unknown): string[] {
+  if (!graph || typeof graph !== "object") return ["graph must be an object"];
+  const g = graph as Record<string, unknown>;
+  const type = g.type;
+  const validTypes = ["bar", "line", "pie", "scatter", "box-plot", "histogram", "table", "number-line"];
+  if (typeof type !== "string" || !validTypes.includes(type)) {
+    return [`graph.type "${String(type)}" is not one of: ${validTypes.join(", ")}`];
+  }
+  const issues: string[] = [];
+  const data = g.data;
+  switch (type) {
+    case "bar":
+    case "pie":
+    case "histogram":
+    case "number-line": {
+      if (!Array.isArray(data) || data.length === 0) {
+        issues.push(`${type} graph: data must be a non-empty array of {label,value}`);
+        break;
+      }
+      const okShape = (data as unknown[]).every(
+        (d) =>
+          d &&
+          typeof d === "object" &&
+          typeof (d as Record<string, unknown>).label === "string" &&
+          typeof (d as Record<string, unknown>).value === "number"
+      );
+      if (!okShape) issues.push(`${type} graph: every data item must have a string label and numeric value`);
+      break;
+    }
+    case "line": {
+      const xValues = g.xValues;
+      const series = g.series;
+      if (!Array.isArray(xValues) || xValues.length === 0) {
+        issues.push("line graph: xValues must be a non-empty array of numbers");
+      } else if (!(xValues as unknown[]).every((v) => typeof v === "number")) {
+        issues.push("line graph: xValues must all be numbers");
+      }
+      if (!Array.isArray(series) || series.length === 0) {
+        issues.push("line graph: series must be a non-empty array of {name, values}");
+      } else {
+        const xLen = Array.isArray(xValues) ? xValues.length : 0;
+        for (let i = 0; i < (series as unknown[]).length; i++) {
+          const s = (series as unknown[])[i] as Record<string, unknown> | null;
+          if (!s || typeof s !== "object") {
+            issues.push(`line graph: series[${i}] must be an object`);
+            continue;
+          }
+          if (typeof s.name !== "string") issues.push(`line graph: series[${i}].name must be a string`);
+          const vals = s.values as unknown;
+          if (!Array.isArray(vals) || !(vals as unknown[]).every((v) => typeof v === "number")) {
+            issues.push(`line graph: series[${i}].values must be an array of numbers`);
+          } else if (xLen && (vals as unknown[]).length !== xLen) {
+            issues.push(
+              `line graph: series[${i}].values length (${(vals as unknown[]).length}) must equal xValues length (${xLen})`
+            );
+          }
+        }
+      }
+      break;
+    }
+    case "scatter": {
+      if (!Array.isArray(data) || data.length === 0) {
+        issues.push("scatter graph: data must be a non-empty array of [x,y] number pairs");
+        break;
+      }
+      const okPairs = (data as unknown[]).every(
+        (p) => Array.isArray(p) && p.length === 2 && typeof p[0] === "number" && typeof p[1] === "number"
+      );
+      if (!okPairs) issues.push("scatter graph: every data entry must be a [x,y] number pair");
+      break;
+    }
+    case "box-plot": {
+      if (!Array.isArray(data) || data.length < 5) {
+        issues.push("box-plot graph: data must have at least 5 entries (min, Q1, median, Q3, max)");
+        break;
+      }
+      const values = (data as unknown[])
+        .slice(0, 5)
+        .map((d) => (d && typeof d === "object" ? (d as Record<string, unknown>).value : undefined));
+      if (!values.every((v) => typeof v === "number")) {
+        issues.push("box-plot graph: every data.value must be a number");
+      } else {
+        const nums = values as number[];
+        for (let i = 1; i < 5; i++) {
+          if (nums[i] < nums[i - 1]) {
+            issues.push("box-plot graph: values must be non-decreasing (min ≤ Q1 ≤ median ≤ Q3 ≤ max)");
+            break;
+          }
+        }
+      }
+      break;
+    }
+    case "table": {
+      const t = data as { headers?: unknown; rows?: unknown } | null;
+      if (!t || typeof t !== "object") {
+        issues.push("table graph: data must be an object with headers and rows");
+        break;
+      }
+      if (!Array.isArray(t.headers) || (t.headers as unknown[]).some((h) => typeof h !== "string")) {
+        issues.push("table graph: data.headers must be an array of strings");
+      }
+      if (
+        !Array.isArray(t.rows) ||
+        (t.rows as unknown[]).some(
+          (r) => !Array.isArray(r) || (r as unknown[]).some((c) => typeof c !== "string")
+        )
+      ) {
+        issues.push("table graph: data.rows must be an array of string arrays");
+      }
+      break;
+    }
+  }
+  return issues;
+}
+
 export async function generatePracticeQuestion(
   topic: string,
   level: number,
@@ -496,6 +724,7 @@ export async function generatePracticeQuestion(
   text: string;
   marks: number;
   markingGuide: string;
+  graph?: GraphData;
   usage: Usage;
 }> {
   const prompt = `Generate a single NCEA Level ${level} exam question on the topic "${topic}".
@@ -514,16 +743,63 @@ CRITICAL — ACCURACY CHECKS (students study from this; wrong answers cause real
 - If your worked example produces a weird/negative/contradictory result, the question is broken — pick different numbers
 - Pick numbers that produce clean answers (whole numbers when possible) for clarity
 
+${GRAPH_RULES}
+
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
   "text": "<the question text>",
   "marks": <number of marks, typically 2-5>,
-  "markingGuide": "<step-by-step worked solution with all arithmetic verified — this is the source of truth>"
+  "markingGuide": "<step-by-step worked solution with all arithmetic verified — this is the source of truth>",
+  "graph": { /* optional GraphData — INCLUDE whenever the question text references or relies on a graph/chart/table/diagram. OMIT only when no visual is needed. See GRAPH SCHEMA above. */ }
 }`;
 
-  // Use smart model for generation — quality matters
-  const { text, usage } = await chatCompletion(prompt, { smart: true });
-  return { ...JSON.parse(text), usage };
+  // Try up to 2 times. If validation fails on the first attempt we ask again
+  // (the second prompt is identical — the model's stochasticity does the work).
+  let totalUsage: Usage = zeroUsage(MODEL_SMART);
+  let lastIssues: string[] = [];
+  let lastParsed: { text?: string; marks?: number; markingGuide?: string; graph?: GraphData } | null = null;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const { text, usage } = await chatCompletion(prompt, { smart: true });
+    totalUsage = addUsage(totalUsage, usage);
+    let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+    const jsonStart = cleaned.indexOf("{");
+    const jsonEnd = cleaned.lastIndexOf("}");
+    if (jsonStart >= 0 && jsonEnd > jsonStart) cleaned = cleaned.slice(jsonStart, jsonEnd + 1);
+    const parsed = JSON.parse(cleaned) as { text?: string; marks?: number; markingGuide?: string; graph?: GraphData };
+    lastParsed = parsed;
+    const refIssues = validateGraphReferences(parsed);
+    const shapeIssues = parsed.graph ? validateGraphShape(parsed.graph) : [];
+    lastIssues = [...refIssues, ...shapeIssues];
+    if (lastIssues.length === 0) {
+      // Same enrichment pass as the full-paper path: add a graph if useful,
+      // and recompute line-type values mathematically. See graphEnricher.ts.
+      const { enrichQuestionGraphs } = await import("./graphEnricher");
+      const stubQuestion = {
+        id: "practice-single",
+        number: "1",
+        text: parsed.text ?? "",
+        marks: parsed.marks ?? 1,
+        gradeLevel: gradeLevel as "achieved" | "merit" | "excellence",
+        topics: [topic],
+        answerType: "working" as const,
+        markingGuide: parsed.markingGuide ?? "",
+        graph: parsed.graph,
+      };
+      const enriched = await enrichQuestionGraphs(stubQuestion, { subject: topic, level });
+      if (enriched.usage) totalUsage = addUsage(totalUsage, enriched.usage);
+      const finalParsed = { ...parsed, graph: enriched.question.graph };
+      return { ...finalParsed, usage: totalUsage } as { text: string; marks: number; markingGuide: string; graph?: GraphData; usage: Usage };
+    }
+    console.warn(`[generatePracticeQuestion] attempt ${attempt} graph validation failed:`, lastIssues.join("; "));
+  }
+  // Final attempt: salvage what we can rather than 500. If the only issue was
+  // a malformed `graph` shape, strip it. If the question references a missing
+  // visual we still bail — that one's not safe to ship to students.
+  if (lastParsed && lastIssues.every((i) => i.startsWith("scatter graph") || i.includes("graph:"))) {
+    delete lastParsed.graph;
+    return { ...lastParsed, usage: totalUsage } as { text: string; marks: number; markingGuide: string; graph?: GraphData; usage: Usage };
+  }
+  throw new Error(`Practice question failed graph validation: ${lastIssues.join("; ")}`);
 }
 
 // ── AI Tutor Chat ──
@@ -603,6 +879,7 @@ export async function generatePracticePaper(
     options?: string[];
     expectedAnswer?: string;
     markingGuide: string;
+    graph?: GraphData;
   }>;
   usage: Usage;
 }> {
@@ -630,7 +907,7 @@ export async function generatePracticePaper(
   const prompt = `Generate a practice exam paper for ${levelLabel}.
 
 ${topicLine}
-Number of questions: ${questionCount}
+Number of questions: EXACTLY ${questionCount} — your "questions" array MUST contain exactly ${questionCount} items, neither more nor fewer. If you run out of room, prefer shorter markingGuides over fewer questions. Do not omit questions for any reason.
 ${styleLabel}
 ${titleInstruction}
 ${variantNote}
@@ -651,6 +928,8 @@ CRITICAL — ACCURACY CHECKS (students will memorise these answers):
 - Every question must have non-empty text, expectedAnswer, and markingGuide.
 - Question setups must be internally consistent — do not state a result that contradicts the given data.
 
+${GRAPH_RULES}
+
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
   "title": "<paper title>",
@@ -663,19 +942,104 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       "answerType": "text" | "number" | "multi-choice" | "working",
       "options": ["opt1","opt2","opt3","opt4"],  // only for multi-choice, exactly 4 options
       "expectedAnswer": "<answer — must match the final result of the markingGuide working>",
-      "markingGuide": "<step-by-step solution with all working shown>"
+      "markingGuide": "<step-by-step solution with all working shown>",
+      "graph": { /* optional GraphData — INCLUDE whenever the question text references or relies on a graph/chart/table/diagram. OMIT only when no visual is needed. See GRAPH SCHEMA above. */ }
     }
   ]
 }`;
 
+  // Per-question validation, used both on initial generation and on top-ups.
+  // Returns a list of human-readable issues; empty list means the question is good.
+  // NOTE: may mutate `q` by stripping a malformed graph when the text doesn't
+  // require one (same behaviour as the original inline logic).
+  const validateQuestion = (q: {
+    number?: string;
+    text?: string;
+    marks?: number;
+    gradeLevel?: string;
+    answerType?: string;
+    options?: string[];
+    expectedAnswer?: string;
+    markingGuide?: string;
+    graph?: unknown;
+    image?: string;
+  }): string[] => {
+    const issues: string[] = [];
+
+    if (!q.text || typeof q.text !== "string" || q.text.trim().length === 0) {
+      issues.push("missing or empty question text");
+    }
+    if (!q.markingGuide || typeof q.markingGuide !== "string" || q.markingGuide.trim().length === 0) {
+      issues.push("missing or empty markingGuide");
+    }
+    if (!q.expectedAnswer || typeof q.expectedAnswer !== "string" || q.expectedAnswer.trim().length === 0) {
+      issues.push("missing or empty expectedAnswer");
+    }
+    if (typeof q.marks !== "number" || q.marks < 1 || q.marks > 8) {
+      issues.push(`marks out of range: ${q.marks}`);
+    }
+    if (!["achieved", "merit", "excellence"].includes(q.gradeLevel ?? "")) {
+      issues.push(`invalid gradeLevel: ${q.gradeLevel}`);
+    }
+    if (!["text", "number", "multi-choice", "working"].includes(q.answerType ?? "")) {
+      issues.push(`invalid answerType: ${q.answerType}`);
+    }
+    if (q.answerType === "multi-choice") {
+      if (!Array.isArray(q.options) || q.options.length !== 4) {
+        issues.push(`multi-choice must have exactly 4 options, got ${Array.isArray(q.options) ? q.options.length : 0}`);
+      } else {
+        const answer = (q.expectedAnswer ?? "").trim();
+        const isOptionText = q.options.some(
+          (opt: string) => opt.trim().toLowerCase() === answer.toLowerCase()
+        );
+        const isLetter = /^[A-Da-d]\.?$/.test(answer);
+        if (!isOptionText && !isLetter) {
+          issues.push(`expectedAnswer "${answer.slice(0, 50)}" does not match any option or A-D letter`);
+        }
+      }
+    }
+    if (q.answerType === "number") {
+      const numVal = Number(q.expectedAnswer?.replace(/[^0-9.\-]/g, ""));
+      if (isNaN(numVal)) {
+        issues.push(`numeric answer is not parseable: "${q.expectedAnswer}"`);
+      }
+    }
+    issues.push(...validateGraphReferences(q as { text?: string; graph?: unknown; image?: string }));
+    if (q.graph) {
+      const shapeIssues = validateGraphShape(q.graph);
+      if (shapeIssues.length > 0) {
+        const refIssues = validateGraphReferences({ text: q.text, image: q.image });
+        const textNeedsGraph = refIssues.some((m) => m.includes("references a graph"));
+        if (textNeedsGraph) {
+          issues.push(...shapeIssues);
+        } else {
+          console.warn(
+            `[generatePracticePaper] Stripping malformed graph from Q${q.number}:`,
+            shapeIssues.join("; ")
+          );
+          delete q.graph;
+        }
+      }
+    }
+    return issues;
+  };
+
+  // Scale max output tokens with question count. At ~1500 tokens per question
+  // (text + full markingGuide working + options + optional graph), 8192 was
+  // truncating Sonnet mid-JSON for 8+ question papers, causing the parser to
+  // recover only the first few questions. Capped at 32k to stay well under
+  // the model's 64k output limit and keep cost predictable.
+  const initialMaxTokens = Math.min(32768, Math.max(12000, questionCount * 1500));
+
   // chatCompletion has built-in retry. We add an additional layer here for
   // JSON parse errors specifically — if the model returns malformed JSON,
-  // we ask it to regenerate up to 3 times.
+  // we ask it to regenerate up to 3 times. Within each attempt we also
+  // top-up missing questions if validation drops some.
   let lastErr: unknown;
   let totalUsage: Usage = zeroUsage(MODEL_SMART);
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const { text, usage } = await chatCompletion(prompt, { smart: true, maxTokens: 8192 });
+      const { text, usage } = await chatCompletion(prompt, { smart: true, maxTokens: initialMaxTokens });
       totalUsage = addUsage(totalUsage, usage);
       // Strip markdown code fences if present, and any leading/trailing prose
       let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
@@ -692,62 +1056,10 @@ Respond ONLY with valid JSON (no markdown, no code fences):
       }
 
       // ── Post-generation validation ──
-      // Remove questions that fail quality checks rather than serving bad content
+      // Drop questions that fail quality checks rather than serving bad content.
       const validQuestions: typeof parsed.questions = [];
       for (const q of parsed.questions) {
-        const issues: string[] = [];
-
-        // Required fields
-        if (!q.text || typeof q.text !== "string" || q.text.trim().length === 0) {
-          issues.push("missing or empty question text");
-        }
-        if (!q.markingGuide || typeof q.markingGuide !== "string" || q.markingGuide.trim().length === 0) {
-          issues.push("missing or empty markingGuide");
-        }
-        if (!q.expectedAnswer || typeof q.expectedAnswer !== "string" || q.expectedAnswer.trim().length === 0) {
-          issues.push("missing or empty expectedAnswer");
-        }
-
-        // Marks range
-        if (typeof q.marks !== "number" || q.marks < 1 || q.marks > 8) {
-          issues.push(`marks out of range: ${q.marks}`);
-        }
-
-        // Valid gradeLevel
-        if (!["achieved", "merit", "excellence"].includes(q.gradeLevel)) {
-          issues.push(`invalid gradeLevel: ${q.gradeLevel}`);
-        }
-
-        // Valid answerType
-        if (!["text", "number", "multi-choice", "working"].includes(q.answerType)) {
-          issues.push(`invalid answerType: ${q.answerType}`);
-        }
-
-        // Multi-choice specific validation
-        if (q.answerType === "multi-choice") {
-          if (!Array.isArray(q.options) || q.options.length !== 4) {
-            issues.push(`multi-choice must have exactly 4 options, got ${Array.isArray(q.options) ? q.options.length : 0}`);
-          } else {
-            // Check that expectedAnswer is one of the options (or a letter A-D referencing them)
-            const answer = (q.expectedAnswer ?? "").trim();
-            const isOptionText = q.options.some(
-              (opt: string) => opt.trim().toLowerCase() === answer.toLowerCase()
-            );
-            const isLetter = /^[A-Da-d]\.?$/.test(answer);
-            if (!isOptionText && !isLetter) {
-              issues.push(`expectedAnswer "${answer.slice(0, 50)}" does not match any option or A-D letter`);
-            }
-          }
-        }
-
-        // Numeric answer sanity check — if answerType is "number", expectedAnswer should be parseable
-        if (q.answerType === "number") {
-          const numVal = Number(q.expectedAnswer?.replace(/[^0-9.\-]/g, ""));
-          if (isNaN(numVal)) {
-            issues.push(`numeric answer is not parseable: "${q.expectedAnswer}"`);
-          }
-        }
-
+        const issues = validateQuestion(q);
         if (issues.length > 0) {
           console.warn(`[generatePracticePaper] Dropping Q${q.number} — validation failed:`, issues.join("; "));
         } else {
@@ -765,7 +1077,128 @@ Respond ONLY with valid JSON (no markdown, no code fences):
         );
       }
 
-      parsed.questions = validQuestions;
+      // ── Top-up loop ──
+      // If we have fewer questions than requested (because the model produced
+      // fewer, or because validation dropped some), ask Claude for just the
+      // missing ones rather than regenerating the entire paper. This is the
+      // mechanism that guarantees the user gets the count they asked for.
+      const MAX_TOP_UPS = 3;
+      for (let topUp = 1; topUp <= MAX_TOP_UPS && validQuestions.length < questionCount; topUp++) {
+        const missing = questionCount - validQuestions.length;
+        const existingSummary = validQuestions
+          .map((q: { text: string }, i: number) => `${i + 1}. ${q.text.slice(0, 160).replace(/\s+/g, " ")}`)
+          .join("\n");
+        const topUpPrompt = `You are extending an in-progress practice paper for ${levelLabel}.
+${topicLine}
+
+You have already produced ${validQuestions.length} questions. Generate ${missing} ADDITIONAL questions to bring the paper to exactly ${questionCount}. Do not duplicate, paraphrase, or closely mirror any of the existing questions below — pick different sub-topics, scenarios, and numeric values.
+
+EXISTING QUESTIONS (do not repeat):
+${existingSummary}
+
+${styleLabel}
+Variation seed: ${seed}-topup${topUp}
+
+Same accuracy and schema rules as the original paper:
+- Marks 1-8, gradeLevel achieved|merit|excellence, answerType text|number|multi-choice|working.
+- Multi-choice MUST have exactly 4 options and expectedAnswer must match one of them.
+- expectedAnswer must equal the final result of markingGuide working. Verify every arithmetic step.
+- Mix of Achievement / Merit / Excellence levels across the ${missing} new questions.
+
+${GRAPH_RULES}
+
+Respond ONLY with a JSON array (no wrapper object, no markdown, no prose) of exactly ${missing} question objects:
+[
+  {
+    "number": "${validQuestions.length + 1}",
+    "text": "<question text>",
+    "marks": <1-8>,
+    "gradeLevel": "achieved" | "merit" | "excellence",
+    "answerType": "text" | "number" | "multi-choice" | "working",
+    "options": ["opt1","opt2","opt3","opt4"],
+    "expectedAnswer": "<answer>",
+    "markingGuide": "<full step-by-step working>",
+    "graph": { /* optional, same GraphData schema as before */ }
+  }
+]`;
+
+        try {
+          const topUpTokens = Math.min(16384, Math.max(4096, missing * 1500));
+          const { text: topUpText, usage: topUpUsage } = await chatCompletion(topUpPrompt, {
+            smart: true,
+            maxTokens: topUpTokens,
+          });
+          totalUsage = addUsage(totalUsage, topUpUsage);
+
+          let topUpClean = topUpText.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+          const arrStart = topUpClean.indexOf("[");
+          const arrEnd = topUpClean.lastIndexOf("]");
+          if (arrStart < 0 || arrEnd <= arrStart) {
+            throw new Error("top-up response missing JSON array");
+          }
+          topUpClean = topUpClean.slice(arrStart, arrEnd + 1);
+          const newQs = JSON.parse(topUpClean);
+          if (!Array.isArray(newQs)) throw new Error("top-up did not return an array");
+
+          let added = 0;
+          for (const q of newQs) {
+            if (validQuestions.length >= questionCount) break;
+            const issues = validateQuestion(q);
+            if (issues.length === 0) {
+              validQuestions.push(q);
+              added++;
+            } else {
+              console.warn(
+                `[generatePracticePaper top-up ${topUp}] Dropping Q — validation failed:`,
+                issues.join("; ")
+              );
+            }
+          }
+          console.log(
+            `[generatePracticePaper] top-up ${topUp}: requested ${missing}, got ${newQs.length}, accepted ${added}; ${validQuestions.length}/${questionCount} total`
+          );
+        } catch (topUpErr) {
+          console.warn(
+            `[generatePracticePaper] top-up attempt ${topUp} failed:`,
+            topUpErr instanceof Error ? topUpErr.message : String(topUpErr)
+          );
+        }
+      }
+
+      // Belt and braces — if the model overshot during top-up, trim back to N.
+      if (validQuestions.length > questionCount) {
+        validQuestions.length = questionCount;
+      }
+
+      // Hard guarantee — if we still don't have N questions after the
+      // top-up loop, throw so the outer attempt loop retries the whole paper.
+      // If the outer loop also exhausts, the route returns a 500 so the UI
+      // shows a real error rather than silently delivering fewer questions.
+      if (validQuestions.length < questionCount) {
+        throw new Error(
+          `Could not generate ${questionCount} questions after ${MAX_TOP_UPS} top-ups (got ${validQuestions.length})`
+        );
+      }
+
+      // Renumber sequentially — original numbers may be wrong after drops + top-ups.
+      validQuestions.forEach((q: { number: string }, i: number) => {
+        q.number = String(i + 1);
+      });
+
+      // Post-validation enrichment — runs IN PARALLEL across all questions:
+      //   (1) Adds a graph to any Q where one would meaningfully help.
+      //   (2) For every line-type graph, replaces the LLM's y-values with
+      //       Node-computed values from a JS function expression. This is the
+      //       only way to guarantee math correctness on function curves —
+      //       LLM arithmetic on cubics / exponentials / trig is unreliable.
+      // If enrichment fails for a Q, the original Q is kept (never breaks).
+      const { enrichPaperGraphs } = await import("./graphEnricher");
+      const enriched = await enrichPaperGraphs(
+        validQuestions as Parameters<typeof enrichPaperGraphs>[0],
+        { subject, level, standard: parsed.standard }
+      );
+      for (const u of enriched.usages) totalUsage = addUsage(totalUsage, u);
+      parsed.questions = enriched.questions;
       return { ...parsed, usage: totalUsage };
     } catch (err) {
       lastErr = err;
