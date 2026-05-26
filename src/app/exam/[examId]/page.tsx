@@ -232,10 +232,6 @@ export default function ExamPage({
   const answeredCount = exam.questions.filter(
     (q) => (answers[q.id] ?? "").trim() !== ""
   ).length;
-  const isExtendedResponse =
-    question.answerType === "text" || question.marks >= 4;
-  const workingMarks = isExtendedResponse ? 0 : 1;
-  const answerMarks = Math.max(1, question.marks - workingMarks);
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-16 sm:pb-20">
@@ -434,29 +430,12 @@ export default function ExamPage({
                 </div>
               );
             })()
-          ) : isExtendedResponse ? (
-            <div>
-              <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                Your response <span className="text-zinc-600 normal-case font-normal">({question.marks} {question.marks === 1 ? "mark" : "marks"})</span>
-              </label>
-              <textarea
-                value={answers[question.id] ?? ""}
-                onChange={(e) =>
-                  setAnswers((prev) => ({
-                    ...prev,
-                    [question.id]: e.target.value,
-                  }))
-                }
-                placeholder="Write your full response here..."
-                rows={12}
-                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
-              />
-            </div>
           ) : (
             <div className="space-y-4">
+              {/* Working out box */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Working out <span className="text-zinc-600 normal-case font-normal">({workingMarks} mark)</span>
+                  Working out <span className="text-zinc-600 normal-case font-normal">(show your method)</span>
                 </label>
                 <textarea
                   value={answers[`${question.id}_working`] ?? ""}
@@ -472,9 +451,10 @@ export default function ExamPage({
                 />
               </div>
 
+              {/* Final answer box */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Final answer <span className="text-zinc-600 normal-case font-normal">({answerMarks} {answerMarks === 1 ? "mark" : "marks"})</span>
+                  Final answer <span className="text-zinc-600 normal-case font-normal">({question.marks} {question.marks === 1 ? "mark" : "marks"})</span>
                 </label>
                 <textarea
                   value={answers[question.id] ?? ""}
