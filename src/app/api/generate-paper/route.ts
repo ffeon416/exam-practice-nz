@@ -69,11 +69,21 @@ export async function POST(request: NextRequest) {
       cappedCount
     );
 
-    // Hard-cap the AI's output. The model occasionally returns one more
-    // question than asked; slicing here guarantees the tier limit is never
-    // exceeded on the client.
+    // Belt: trim if the generator overshot (shouldn't happen — it has its own
+    // trim — but defensive).
     if (paper.questions.length > cappedCount) {
       paper.questions = paper.questions.slice(0, cappedCount);
+    }
+
+    // Braces: HARD THROW if the count is wrong in either direction. The
+    // generator's internal top-up loop should make this impossible, but if
+    // anything ever slips through, the route returns 500 so the client retries
+    // rather than serving a paper that doesn't match the requested length.
+    // Per the no-silent-undercount rule — better an error than a wrong count.
+    if (paper.questions.length !== cappedCount) {
+      throw new Error(
+        `Generator returned ${paper.questions.length} questions, expected exactly ${cappedCount}. This indicates a generator bug.`,
+      );
     }
 
     // ── Increment usage (Step 10) ──
@@ -83,10 +93,14 @@ export async function POST(request: NextRequest) {
     // Log per-call token cost for the admin dashboard
     await logApiUsage(userId, "generate_paper", paper.usage);
 
-    // Strip usage from the paper payload before returning to the client
+    // Strip usage from the paper payload before returning to the client.
+    // `requested` echoes the server-side capped count so the client can
+    // independently verify the count it received matches what the server
+    // actually produced — a cross-check against any client-side tier-cache
+    // drift.
     const { usage: _usage, ...paperPayload } = paper;
     void _usage;
-    return NextResponse.json({ paper: paperPayload });
+    return NextResponse.json({ paper: paperPayload, requested: cappedCount });
   } catch (error) {
     console.error("Paper generation error:", error);
     const message = error instanceof Error ? error.message : "Unknown error";

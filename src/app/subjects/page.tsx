@@ -117,6 +117,18 @@ export default function SubjectsPage() {
   const [topic, setTopic] = useState<string>("");
   const maxQ = limits.maxQuestions;
   const [questionCount, setQuestionCount] = useState<number>(Math.min(10, maxQ));
+
+  // Keep questionCount within the live tier cap whenever maxQ changes (e.g.
+  // user upgrades / downgrades or tier loads after mount). Without this, the
+  // displayed "{questionCount} questions" label can drift above the server's
+  // capped value, so the user would see a paper shorter than the label
+  // promised. Clamping here keeps display = sent = received.
+  useEffect(() => {
+    setQuestionCount((current) => {
+      const clamped = Math.max(4, Math.min(current, maxQ));
+      return clamped === current ? current : clamped;
+    });
+  }, [maxQ]);
   const [loading, setLoading] = useState(false);
   const [loadingMsgIdx, setLoadingMsgIdx] = useState(0);
   const [hypeIdx, setHypeIdx] = useState(0);
@@ -148,27 +160,45 @@ export default function SubjectsPage() {
     };
   }
 
-  async function fetchPaperWithRetry(activeSubject: string, ncea: number): Promise<ApiPaper> {
+  async function fetchPaperWithRetry(
+    activeSubject: string,
+    ncea: number,
+    requestedCount: number,
+  ): Promise<ApiPaper> {
     let lastErr: Error | null = null;
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
         const res = await fetch("/api/generate-paper", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            // Disable any intermediate caching of the generation result.
+            "Cache-Control": "no-cache, no-store",
+          },
           body: JSON.stringify({
             subject: activeSubject,
             level: ncea,
             topic: topic.trim() || undefined,
-            questionCount,
+            questionCount: requestedCount,
           }),
         });
         if (!res.ok) {
           const body = await res.json().catch(() => ({}));
           throw new Error(body.error ?? `Request failed (${res.status})`);
         }
-        const data = (await res.json()) as { paper: ApiPaper };
+        const data = (await res.json()) as { paper: ApiPaper; requested?: number };
         if (!data.paper || !Array.isArray(data.paper.questions) || data.paper.questions.length === 0) {
           throw new Error("Empty paper");
+        }
+        // Count guard — if the server returned a different count than we
+        // asked for (or echoed back a different `requested` because of a
+        // tier-cap drift between client and server), treat it as a failed
+        // attempt and retry. Better to retry than to ever ship the wrong count.
+        const serverRequested = typeof data.requested === "number" ? data.requested : requestedCount;
+        if (data.paper.questions.length !== requestedCount) {
+          throw new Error(
+            `Count mismatch: asked for ${requestedCount}, got ${data.paper.questions.length} (server reported requested=${serverRequested})`,
+          );
         }
         return data.paper;
       } catch (err) {
@@ -202,17 +232,16 @@ export default function SubjectsPage() {
 
     try {
       const yearMeta = YEAR_LEVELS.find((y) => y.value === yearLevel)!;
-      const paper = await fetchPaperWithRetry(subject, yearMeta.ncea);
+      // Single source of truth for the requested count: clamp once here, then
+      // pass the same number to the server, use the same number for the post-
+      // generation check, and use the same number when verifying the saved
+      // exam. Eliminates any drift between display, request, and verification.
+      const requestedCount = Math.max(4, Math.min(questionCount, limits.maxQuestions));
+      const paper = await fetchPaperWithRetry(subject, yearMeta.ncea, requestedCount);
 
-      // Hard guarantee: the user asked for N questions, the paper must have N.
-      // The server caps to tier max (limits.maxQuestions); we cap the same way
-      // so a 20-question request from a free user (max 8) doesn't false-fail.
-      // If the backend ever silently underdelivers, this surfaces a real error
-      // rather than landing a shorter paper in front of the student.
-      const expectedCount = Math.min(questionCount, limits.maxQuestions);
-      if (paper.questions.length !== expectedCount) {
+      if (paper.questions.length !== requestedCount) {
         throw new Error(
-          `Generator returned ${paper.questions.length} questions, expected ${expectedCount}. Please try again.`,
+          `Generator returned ${paper.questions.length} questions, expected ${requestedCount}. Please try again.`,
         );
       }
 
@@ -249,6 +278,19 @@ export default function SubjectsPage() {
       };
 
       saveCustomExam(exam);
+
+      // Final post-save verification — read the exam back from the store and
+      // confirm the question count matches what we asked for. If saveCustomExam
+      // ever silently drops anything (it now throws BrokenExamError instead,
+      // but defence in depth), this catches it before the user is navigated
+      // to a wrong-count paper.
+      const { getCustomExam } = await import("@/lib/customExams");
+      const persisted = getCustomExam(id);
+      if (!persisted || persisted.questions.length !== requestedCount) {
+        throw new Error(
+          `Saved exam has ${persisted?.questions.length ?? 0} questions, expected ${requestedCount}. Please try again.`,
+        );
+      }
 
       // Fire-and-forget: save to database for cross-device sync
       fetch("/api/exams", {
@@ -447,7 +489,7 @@ export default function SubjectsPage() {
       <div className="mb-6 sm:mb-10">
         <label htmlFor="qcount-slider" className="flex items-center justify-between text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           <span>Length</span>
-          <span className="text-indigo-400 tabular-nums normal-case tracking-normal">{questionCount} questions</span>
+          <span className="text-indigo-400 tabular-nums normal-case tracking-normal">{Math.max(4, Math.min(questionCount, maxQ))} questions</span>
         </label>
         <input
           id="qcount-slider"
