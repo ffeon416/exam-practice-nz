@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import type { Exam, Question } from "@/lib/types";
+import type { Exam, Question, GraphData } from "@/lib/types";
 import { saveCustomExam, generateCustomExamId } from "@/lib/customExams";
 import { useTier, isUnlimited } from "@/hooks/useTier";
 import UpgradeModal from "@/components/UpgradeModal";
@@ -50,6 +50,8 @@ type ApiQuestion = {
   options?: string[];
   expectedAnswer?: string;
   markingGuide: string;
+  graph?: GraphData;
+  image?: string;
 };
 
 type ApiPaper = {
@@ -79,7 +81,7 @@ const HYPE_LINES = [
 
 export default function SubjectsPage() {
   const router = useRouter();
-  const { tier, limits, usage, refresh } = useTier();
+  const { limits, usage, loading: tierLoading, refresh } = useTier();
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
 
@@ -202,10 +204,22 @@ export default function SubjectsPage() {
       const yearMeta = YEAR_LEVELS.find((y) => y.value === yearLevel)!;
       const paper = await fetchPaperWithRetry(subject, yearMeta.ncea);
 
+      // Hard guarantee: the user asked for N questions, the paper must have N.
+      // The server caps to tier max (limits.maxQuestions); we cap the same way
+      // so a 20-question request from a free user (max 8) doesn't false-fail.
+      // If the backend ever silently underdelivers, this surfaces a real error
+      // rather than landing a shorter paper in front of the student.
+      const expectedCount = Math.min(questionCount, limits.maxQuestions);
+      if (paper.questions.length !== expectedCount) {
+        throw new Error(
+          `Generator returned ${paper.questions.length} questions, expected ${expectedCount}. Please try again.`,
+        );
+      }
+
       const id = generateCustomExamId();
       const questions: Question[] = paper.questions.map((q, i) => ({
         id: `${id}-q${i + 1}`,
-        number: q.number ?? String(i + 1),
+        number: String(i + 1),
         text: q.text,
         marks: typeof q.marks === "number" ? q.marks : 2,
         gradeLevel: q.gradeLevel ?? "achieved",
@@ -214,6 +228,8 @@ export default function SubjectsPage() {
         options: q.options,
         expectedAnswer: q.expectedAnswer,
         markingGuide: q.markingGuide ?? "",
+        graph: q.graph,
+        image: q.image,
       }));
 
       const totalMarks = questions.reduce((s, q) => s + q.marks, 0);
@@ -372,7 +388,9 @@ export default function SubjectsPage() {
         ) : (
           <div className="grid grid-cols-2 gap-2">
             {availableSubjects.map((s) => {
-              const locked = !limits.allSubjects && !FREE_SUBJECT_SET.has(s.value);
+              // Until tier resolves, render all subjects as unlocked so a Pro
+              // user doesn't see padlocks flash on every non-free subject.
+              const locked = !tierLoading && !limits.allSubjects && !FREE_SUBJECT_SET.has(s.value);
               return (
                 <button
                   key={s.value}
@@ -462,8 +480,9 @@ export default function SubjectsPage() {
         </div>
       </div>
 
-      {/* Free tier usage indicator */}
-      {!isUnlimited(limits.examsPerWeek) && (
+      {/* Free / Student tier usage indicator — hidden until tier resolves so
+          Pro users never see a "2/2 exams used" flash on hard refresh. */}
+      {!tierLoading && !isUnlimited(limits.examsPerWeek) && (
         <div className="mb-4 px-4 py-3 rounded-lg bg-zinc-900/60 border border-zinc-800 text-[12px] text-zinc-400">
           <span className="text-zinc-300 font-medium">{usage.examsThisWeek}/{limits.examsPerWeek}</span> exams used this week
           {usage.examsThisWeek >= limits.examsPerWeek && (

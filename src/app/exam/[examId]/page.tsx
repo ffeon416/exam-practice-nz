@@ -2,7 +2,6 @@
 
 import { use, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { getExam } from "@/data/exams";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import type { Exam, Question } from "@/lib/types";
 import Timer from "@/components/Timer";
@@ -35,8 +34,12 @@ export default function ExamPage({
   const [tutorHistory, setTutorHistory] = useState<
     Record<string, TutorMessage[]>
   >({});
-  const { limits: tierLimits, usage: tierUsage } = useTier();
-  const tutorLockedForTier = tierLimits.tutorMessagesPerWeek === 0;
+  const { limits: tierLimits, usage: tierUsage, loading: tierLoading } = useTier();
+  // While the tier is still loading, optimistically treat the tutor as
+  // unlocked so paid users never see a "Ask tutor (Pro)" lock flash on hard
+  // refresh. The /api/tutor route is the source of truth and will gate
+  // any actual call.
+  const tutorLockedForTier = !tierLoading && tierLimits.tutorMessagesPerWeek === 0;
   // Mock exam mode is Student+Pro only — downgrade Free users silently to practice.
   const mode: "practice" | "mock" =
     rawMode === "mock" && !tierLimits.mockExamMode ? "practice" : rawMode;
@@ -48,8 +51,12 @@ export default function ExamPage({
       if (cancelled) return;
       if (typeof window === "undefined") return;
 
-      // Try localStorage first (fast)
-      const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
+      // All exams are AI-generated custom papers — try localStorage first.
+      if (!isCustomExamId(examId)) {
+        if (!cancelled) setExamNotFound(true);
+        return;
+      }
+      const e = getCustomExam(examId);
       if (e) {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setExam(e);
@@ -62,7 +69,24 @@ export default function ExamPage({
         if (res.ok) {
           const data = await res.json();
           if (data.exam) {
-            // Cache locally for next time
+            // Do NOT silently filter broken questions here — a silent strip
+            // is what caused 6-question papers to land as 3. If the DB copy
+            // has any broken question, treat the exam as corrupted and let
+            // the user regenerate, rather than handing them a shorter paper
+            // they didn't ask for.
+            const { isQuestionBroken } = await import("@/lib/questionGuard");
+            const brokenCount = data.exam.questions.filter(
+              (q: Parameters<typeof isQuestionBroken>[0]) => isQuestionBroken(q),
+            ).length;
+            if (brokenCount > 0) {
+              console.error(
+                `[exam load] ${brokenCount}/${data.exam.questions.length} questions in ${examId} reference a missing visual — refusing to load a corrupted paper.`,
+              );
+              if (!cancelled) setExamNotFound(true);
+              return;
+            }
+            // Cache locally for next time (will throw if corrupted, but we
+            // just verified it isn't).
             if (isCustomExamId(examId)) {
               const { saveCustomExam } = await import("@/lib/customExams");
               saveCustomExam(data.exam);
@@ -205,9 +229,13 @@ export default function ExamPage({
 
   const question: Question = exam.questions[currentQ];
   const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
-  const answeredCount = Object.keys(answers).filter(
-    (k) => answers[k].trim() !== ""
+  const answeredCount = exam.questions.filter(
+    (q) => (answers[q.id] ?? "").trim() !== ""
   ).length;
+  const isExtendedResponse =
+    question.answerType === "text" || question.marks >= 4;
+  const workingMarks = isExtendedResponse ? 0 : 1;
+  const answerMarks = Math.max(1, question.marks - workingMarks);
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-16 sm:pb-20">
@@ -260,7 +288,7 @@ export default function ExamPage({
       <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6">
         <div className="flex items-start justify-between mb-4">
           <span className="text-sm font-medium text-indigo-400">
-            Question {question.number}
+            Question {currentQ + 1}
           </span>
           <div className="flex items-center gap-2">
             <span
@@ -289,7 +317,7 @@ export default function ExamPage({
           <div className="mb-4 rounded-lg overflow-hidden border border-white/[0.06] bg-white p-2">
             <img
               src={question.image}
-              alt={`Diagram for Question ${question.number}`}
+              alt={`Diagram for Question ${currentQ + 1}`}
               className="max-w-full h-auto mx-auto max-h-[500px] object-contain"
             />
           </div>
@@ -406,12 +434,29 @@ export default function ExamPage({
                 </div>
               );
             })()
+          ) : isExtendedResponse ? (
+            <div>
+              <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
+                Your response <span className="text-zinc-600 normal-case font-normal">({question.marks} {question.marks === 1 ? "mark" : "marks"})</span>
+              </label>
+              <textarea
+                value={answers[question.id] ?? ""}
+                onChange={(e) =>
+                  setAnswers((prev) => ({
+                    ...prev,
+                    [question.id]: e.target.value,
+                  }))
+                }
+                placeholder="Write your full response here..."
+                rows={12}
+                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
+              />
+            </div>
           ) : (
             <div className="space-y-4">
-              {/* Working out box (1 mark) */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Working out <span className="text-zinc-600 normal-case font-normal">(show your method)</span>
+                  Working out <span className="text-zinc-600 normal-case font-normal">({workingMarks} mark)</span>
                 </label>
                 <textarea
                   value={answers[`${question.id}_working`] ?? ""}
@@ -427,10 +472,9 @@ export default function ExamPage({
                 />
               </div>
 
-              {/* Final answer box (1 mark) */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Final answer <span className="text-zinc-600 normal-case font-normal">({question.marks} {question.marks === 1 ? "mark" : "marks"})</span>
+                  Final answer <span className="text-zinc-600 normal-case font-normal">({answerMarks} {answerMarks === 1 ? "mark" : "marks"})</span>
                 </label>
                 <textarea
                   value={answers[question.id] ?? ""}

@@ -1,6 +1,23 @@
 import type { Exam } from "./types";
+import { isQuestionBroken } from "./questionGuard";
 
 const STORAGE_KEY = "custom-exams";
+
+// Hard guarantee: an exam being written to the store must have ZERO broken
+// questions (references a visual we don't have / asks the student to draw).
+// We don't silently filter — silent filtering caused a 6-question request to
+// land as a 3-question paper because the API mapping had stripped graph data
+// and the sanitizer then dropped the now-graphless questions. If any question
+// is broken at save time, throw so the caller surfaces a visible error and we
+// never silently shrink a paper again.
+class BrokenExamError extends Error {
+  constructor(public exam: Exam, public brokenCount: number) {
+    super(
+      `Refusing to save exam ${exam.id}: ${brokenCount}/${exam.questions.length} questions reference a missing visual or ask the student to draw. This indicates a generator or mapping bug — fix upstream rather than silently shrinking the paper.`,
+    );
+    this.name = "BrokenExamError";
+  }
+}
 
 export interface CustomExamMeta {
   id: string;
@@ -43,6 +60,10 @@ export function generateCustomExamId(): string {
 }
 
 export function saveCustomExam(exam: Exam): Exam {
+  const brokenCount = exam.questions.filter((q) => isQuestionBroken(q)).length;
+  if (brokenCount > 0) {
+    throw new BrokenExamError(exam, brokenCount);
+  }
   const store = readStore();
   store[exam.id] = exam;
   writeStore(store);
