@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,6 +48,19 @@ export const metadata: Metadata = {
     "Year 13",
     "NZQA",
   ],
+  // Installed-to-home-screen (iOS): full-screen standalone, app title, and a
+  // black status bar that blends into the #06060a app background.
+  appleWebApp: {
+    capable: true,
+    title: "StudyAce",
+    statusBarStyle: "black",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#06060a",
 };
 
 export default function RootLayout({
@@ -101,6 +115,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Analytics />
+          <ServiceWorkerRegister />
         </body>
       </html>
     </ClerkProvider>

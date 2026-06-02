@@ -36,23 +36,23 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "mark") {
-      const { questionText, marks, gradeLevel, markingGuide, studentAnswer } =
+      const { questionText, markingGuide, answerType, studentAnswer } =
         body as {
           action: string;
           questionText: string;
-          marks: number;
-          gradeLevel: string;
           markingGuide: string;
+          answerType?: string;
           studentAnswer: string;
         };
 
-      const result = await markAnswer(
+      const result = await markAnswer({
         questionText,
-        marks,
-        gradeLevel,
         markingGuide,
-        studentAnswer
-      );
+        answerType,
+        // Single practice box doubles as working + answer.
+        studentWorking: studentAnswer,
+        studentAnswer,
+      });
       await logApiUsage(userId, "mark", result.usage);
 
       const { usage: _u, ...resultPayload } = result;

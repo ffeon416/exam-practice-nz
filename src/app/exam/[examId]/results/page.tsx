@@ -2,14 +2,13 @@
 
 import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { getExam } from "@/data/exams";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
 import {
   calculateOverallGrade,
   gradeLabel,
   gradeColor,
-
+  questionMaxMarks,
   analyzeGaps,
 } from "@/lib/scoring";
 import { addExamAttempt } from "@/lib/storage";
@@ -257,7 +256,7 @@ export default function ResultsPage({
   }, [exam, results, selfMarked, autoScored, selfAssess, examId]);
 
   useEffect(() => {
-    const e = isCustomExamId(examId) ? getCustomExam(examId) : getExam(examId);
+    const e = isCustomExamId(examId) ? getCustomExam(examId) : null;
     if (!e) return;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setExam(e);
@@ -279,7 +278,7 @@ export default function ResultsPage({
         return {
           questionId: q.id,
           marksAwarded: 0,
-          maxMarks: q.marks,
+          maxMarks: questionMaxMarks(q.answerType),
           grade: "not-achieved" as const,
           feedback: hasAnswer
             ? "Compare your answer with the correct approach below. Did you include all the key steps?"
@@ -683,7 +682,7 @@ export default function ResultsPage({
               <div className="border-t border-white/[0.08] pt-3 mt-1 space-y-3">
                 {/* Question text */}
                 <div>
-                  <p className="text-xs text-zinc-400 mb-1">Q{qq.number}</p>
+                  <p className="text-xs text-zinc-400 mb-1">Q{qIdx + 1}</p>
                   <p className="text-sm text-zinc-300 whitespace-pre-wrap">{qq.text.replace(/\[Diagram:[^\]]+\]/g, "").trim()}</p>
                 </div>
 
@@ -726,39 +725,25 @@ export default function ResultsPage({
         </div>
 
 
-        {/* Next grade hint */}
-        {!selfMarked && overallGrade !== "excellence" && exam.cutScores && (
-          <div className="bg-amber-950/20 border border-amber-700/30 rounded-2xl p-4 mb-6">
-            <p className="text-zinc-300 text-sm">
-              You need{" "}
-              <span className="font-bold text-white">
-                {(overallGrade === "not-achieved"
-                  ? exam.cutScores.achieved.min
-                  : overallGrade === "achieved"
-                  ? exam.cutScores.merit.min
-                  : exam.cutScores.excellence.min) - totalMarks}
-              </span>{" "}
-              more mark
-              {(overallGrade === "not-achieved"
-                ? exam.cutScores.achieved.min
-                : overallGrade === "achieved"
-                ? exam.cutScores.merit.min
-                : exam.cutScores.excellence.min) -
-                totalMarks !==
-              1
-                ? "s"
-                : ""}{" "}
-              to reach{" "}
-              <span className="font-bold text-white">
-                {overallGrade === "not-achieved"
-                  ? "Achieved"
-                  : overallGrade === "achieved"
-                  ? "Merit"
-                  : "Excellence"}
-              </span>
-            </p>
-          </div>
-        )}
+        {/* Next grade hint — grade boundaries are 40% (Achieved), 65% (Merit),
+            85% (Excellence) of the paper total under the uniform 1+1 scheme. */}
+        {!selfMarked && overallGrade !== "excellence" && maxMarks > 0 && (() => {
+          const nextPct =
+            overallGrade === "not-achieved" ? 0.4 : overallGrade === "achieved" ? 0.65 : 0.85;
+          const nextLabel =
+            overallGrade === "not-achieved" ? "Achieved" : overallGrade === "achieved" ? "Merit" : "Excellence";
+          const needed = Math.max(1, Math.ceil(nextPct * maxMarks) - totalMarks);
+          return (
+            <div className="bg-amber-950/20 border border-amber-700/30 rounded-2xl p-4 mb-6">
+              <p className="text-zinc-300 text-sm">
+                You need{" "}
+                <span className="font-bold text-white">{needed}</span> more mark
+                {needed !== 1 ? "s" : ""} to reach{" "}
+                <span className="font-bold text-white">{nextLabel}</span>
+              </p>
+            </div>
+          );
+        })()}
 
         {/* Actions */}
         <div className="space-y-3">
@@ -832,7 +817,7 @@ export default function ResultsPage({
           </span>
         )}
         {selfMarked && (
-          <span className="text-sm text-zinc-400">{q.marks} marks</span>
+          <span className="text-sm text-zinc-400">{questionMaxMarks(q.answerType)} marks</span>
         )}
       </div>
 
@@ -875,7 +860,7 @@ export default function ResultsPage({
       <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden mb-4">
         {/* Question header */}
         <div className="px-5 py-3 border-b border-white/[0.08] flex items-center justify-between">
-          <span className="text-white font-semibold">{currentQ + 1}. <span className="text-zinc-400 font-normal text-sm">Q{q.number}</span></span>
+          <span className="text-white font-semibold">Question {currentQ + 1}</span>
           <div className="flex gap-1.5">
             {q.topics.map((t) => (
               <TopicTag key={t} topicId={t} />
@@ -889,7 +874,7 @@ export default function ResultsPage({
             <div className="rounded-lg overflow-hidden border border-white/[0.08] bg-white p-2">
               <img
                 src={q.image}
-                alt={`Diagram for Question ${q.number}`}
+                alt={`Diagram for Question ${currentQ + 1}`}
                 className="max-w-full h-auto mx-auto max-h-[500px] object-contain"
               />
             </div>
@@ -922,7 +907,14 @@ export default function ResultsPage({
       {/* Your working */}
       {answers[`${q.id}_working`] && (
         <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-4 mb-4">
-          <h4 className="text-xs font-medium text-zinc-400 mb-2 uppercase">Your Working</h4>
+          <div className="flex items-center justify-between mb-2">
+            <h4 className="text-xs font-medium text-zinc-400 uppercase">Your Working</h4>
+            {!selfMarked && r && typeof r.workingMark === "number" && (
+              <span className={`text-xs font-bold tabular-nums ${r.workingMark > 0 ? "text-green-400" : "text-red-400"}`}>
+                {r.workingMark > 0 ? "✓" : "✗"} Working {r.workingMark}/1
+              </span>
+            )}
+          </div>
           <p className="text-sm text-white bg-white/[0.03] rounded p-3 whitespace-pre-wrap">
             {answers[`${q.id}_working`]}
           </p>
@@ -931,7 +923,14 @@ export default function ResultsPage({
 
       {/* Your final answer */}
       <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-4 mb-4">
-        <h4 className="text-xs font-medium text-zinc-400 mb-2 uppercase">Your Final Answer</h4>
+        <div className="flex items-center justify-between mb-2">
+          <h4 className="text-xs font-medium text-zinc-400 uppercase">Your Final Answer</h4>
+          {!selfMarked && r && typeof r.answerMark === "number" && (
+            <span className={`text-xs font-bold tabular-nums ${r.answerMark > 0 ? "text-green-400" : "text-red-400"}`}>
+              {r.answerMark > 0 ? "✓" : "✗"} Answer {r.answerMark}/1
+            </span>
+          )}
+        </div>
         <p
           className={`text-sm whitespace-pre-wrap rounded p-3 ${
             !hasAnswer

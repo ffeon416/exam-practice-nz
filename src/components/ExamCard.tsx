@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { Exam } from "@/lib/types";
 import { STANDARDS } from "@/data/topics";
+import { questionMaxMarks } from "@/lib/scoring";
 
 interface ExamCardProps {
   exam: Exam;
@@ -11,7 +12,7 @@ interface ExamCardProps {
 
 export default function ExamCard({ exam, bestGrade }: ExamCardProps) {
   const standardInfo = STANDARDS[exam.standard];
-  const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
+  const totalMarks = exam.questions.reduce((s, q) => s + questionMaxMarks(q.answerType), 0);
 
   return (
     <div className="bg-card border border-card-border rounded-lg p-5 hover:border-blue-500/50 transition-colors">

@@ -250,7 +250,7 @@ export default function SubjectsPage() {
         id: `${id}-q${i + 1}`,
         number: String(i + 1),
         text: q.text,
-        marks: typeof q.marks === "number" ? q.marks : 2,
+        marks: (q.answerType ?? "working") === "multi-choice" ? 1 : 2,
         gradeLevel: q.gradeLevel ?? "achieved",
         topics: topic.trim() ? [topic.trim()] : [subject],
         answerType: q.answerType ?? "working",

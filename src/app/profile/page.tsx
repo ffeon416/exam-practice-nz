@@ -242,24 +242,42 @@ export default function ProfilePage() {
           </h2>
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-3">
-              <span
-                className={`text-[13px] font-semibold px-3 py-1 rounded-full border ${
-                  tier === "pro"
-                    ? "text-yellow-400 bg-yellow-500/10 border-yellow-500/30"
-                    : tier === "student"
-                    ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/30"
-                    : "text-zinc-400 bg-white/[0.04] border-white/[0.1]"
-                }`}
-              >
-                {tierLoading ? "..." : TIER_LABELS[tier]}
-              </span>
-              {tier === "free" && (
-                <span className="text-zinc-600 text-[12px]">
-                  Limited features
+              {tierLoading ? (
+                <span
+                  className="text-[13px] font-semibold px-3 py-1 rounded-full border text-transparent bg-white/[0.04] border-white/[0.06] animate-pulse select-none"
+                  aria-hidden="true"
+                >
+                  Loading
                 </span>
+              ) : (
+                <>
+                  <span
+                    className={`text-[13px] font-semibold px-3 py-1 rounded-full border ${
+                      tier === "pro"
+                        ? "text-yellow-400 bg-yellow-500/10 border-yellow-500/30"
+                        : tier === "student"
+                        ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/30"
+                        : "text-zinc-400 bg-white/[0.04] border-white/[0.1]"
+                    }`}
+                  >
+                    {TIER_LABELS[tier]}
+                  </span>
+                  {tier === "free" && (
+                    <span className="text-zinc-600 text-[12px]">
+                      Limited features
+                    </span>
+                  )}
+                </>
               )}
             </div>
-            {tier === "free" ? (
+            {tierLoading ? (
+              <span
+                className="text-[13px] font-medium text-transparent bg-white/[0.04] rounded animate-pulse select-none px-1"
+                aria-hidden="true"
+              >
+                Loading
+              </span>
+            ) : tier === "free" ? (
               <Link
                 href="/pricing"
                 className="text-[13px] font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
@@ -300,15 +318,36 @@ export default function ProfilePage() {
             What&apos;s included
           </h2>
           <div className="space-y-2.5">
-            <FeatureRow label="Max questions per exam" value={String(limits.maxQuestions)} />
-            <FeatureRow label="All 19 subjects" included={limits.allSubjects} />
-            <FeatureRow label="Spaced repetition" included={limits.spacedRepetition} />
-            <FeatureRow label="Adaptive difficulty" included={limits.adaptiveDifficulty} />
-            <FeatureRow label="Study planner" included={limits.studyPlanner} />
-            <FeatureRow label="Deep essay marking" included={limits.deepEssayMarking} />
-            <FeatureRow label="Mock exam mode" included={limits.mockExamMode} />
+            {tierLoading ? (
+              <>
+                {[
+                  "Max questions per exam",
+                  "All 19 subjects",
+                  "Spaced repetition",
+                  "Adaptive difficulty",
+                  "Study planner",
+                  "Deep essay marking",
+                  "Mock exam mode",
+                ].map((label) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-zinc-400 text-[13px]">{label}</span>
+                    <span className="h-4 w-6 rounded bg-white/[0.05] animate-pulse" aria-hidden="true" />
+                  </div>
+                ))}
+              </>
+            ) : (
+              <>
+                <FeatureRow label="Max questions per exam" value={String(limits.maxQuestions)} />
+                <FeatureRow label="All 19 subjects" included={limits.allSubjects} />
+                <FeatureRow label="Spaced repetition" included={limits.spacedRepetition} />
+                <FeatureRow label="Adaptive difficulty" included={limits.adaptiveDifficulty} />
+                <FeatureRow label="Study planner" included={limits.studyPlanner} />
+                <FeatureRow label="Deep essay marking" included={limits.deepEssayMarking} />
+                <FeatureRow label="Mock exam mode" included={limits.mockExamMode} />
+              </>
+            )}
           </div>
-          {tier !== "pro" && (
+          {!tierLoading && tier !== "pro" && (
             <Link
               href="/pricing"
               className="mt-5 block text-center text-[13px] font-medium text-indigo-400 hover:text-indigo-300 py-2.5 rounded-lg bg-indigo-500/[0.08] hover:bg-indigo-500/[0.12] transition-colors"

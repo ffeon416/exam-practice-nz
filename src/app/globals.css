@@ -84,6 +84,20 @@ body {
   }
 }
 
+/* Prevent iOS Safari from auto-zooming when a form field is focused.
+   Safari zooms (and never zooms back) whenever the computed font-size of
+   an input/textarea/select is below 16px. Scoping to touch devices keeps
+   desktop sizing unchanged. Covers Clerk inputs via .cl-formFieldInput. */
+@media (hover: none) and (pointer: coarse) {
+  input,
+  textarea,
+  select,
+  .cl-formFieldInput,
+  .cl-otpCodeFieldInput {
+    font-size: 16px !important;
+  }
+}
+
 /* Force Clerk dark-mode contrast — Clerk's own styles win specificity battles otherwise */
 .cl-rootBox,
 .cl-card {

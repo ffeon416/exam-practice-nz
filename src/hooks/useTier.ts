@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useUser } from "@clerk/nextjs";
 import type { Tier } from "@/lib/tierLimits";
 
 export interface TierLimitsClient {
@@ -41,30 +42,69 @@ const FREE_DEFAULTS: TierLimitsClient = {
   mockExamMode: false,
 };
 
-const CACHE_TTL = 60_000; // 60 seconds
-const LAST_TIER_KEY = "studyace-last-tier";
+const CACHE_TTL = 60_000; // 60 seconds — module cache (same session only)
 
+// Module-level cache so client-side navigation between pages doesn't re-fetch
+// every time. Scoped by Clerk userId so two accounts on the same browser
+// cannot see each other's cached tier. NOT persisted across page reloads —
+// localStorage was deliberately removed from the display path because a stale
+// cached tier (e.g. user upgraded or downgraded between visits) would cause
+// the wrong plan to render briefly before /api/user could correct it. The
+// only acceptable source of truth for `loading=false` is a /api/user response
+// or this same-session module cache.
+let cachedUserId: string | null = null;
 let cachedData: { tier: Tier; limits: TierLimitsClient; usage: TierUsage } | null = null;
 let cachedAt = 0;
 
-// Read the most recent tier from localStorage so paid users don't see a
-// flash of "free" styling on hard refresh while /api/user is in flight.
-function readLastTier(): Tier {
-  if (typeof window === "undefined") return "free";
-  const v = window.localStorage.getItem(LAST_TIER_KEY);
-  return v === "student" || v === "pro" ? v : "free";
+function isTier(v: unknown): v is Tier {
+  return v === "free" || v === "student" || v === "pro";
 }
 
 export function useTier(): UseTierResult {
-  const [tier, setTier] = useState<Tier>(cachedData?.tier ?? readLastTier());
-  const [limits, setLimits] = useState<TierLimitsClient>(cachedData?.limits ?? FREE_DEFAULTS);
-  const [usage, setUsage] = useState<TierUsage>(cachedData?.usage ?? { examsThisWeek: 0, tutorMessagesThisWeek: 0 });
-  const [loading, setLoading] = useState(!cachedData);
-  const fetchingRef = useRef(false);
+  const { user, isLoaded: userLoaded } = useUser();
+  const userId = user?.id ?? null;
 
-  const doFetch = useCallback(async (force = false) => {
-    // Use cache if fresh
-    if (!force && cachedData && Date.now() - cachedAt < CACHE_TTL) {
+  // Initial state is deterministic on both SSR and first client render —
+  // tier="free", loading=true. This avoids hydration mismatches. After mount,
+  // the effect either uses a fresh same-session module cache (no fetch) or
+  // hits /api/user (skeleton while loading, then real tier). Consumers gating
+  // on `loading` will only ever see the authoritative tier — never a stale
+  // optimistic value.
+  const [tier, setTier] = useState<Tier>(() => cachedData?.tier ?? "free");
+  const [limits, setLimits] = useState<TierLimitsClient>(() => cachedData?.limits ?? FREE_DEFAULTS);
+  const [usage, setUsage] = useState<TierUsage>(() => cachedData?.usage ?? { examsThisWeek: 0, tutorMessagesThisWeek: 0 });
+  // If we have a fresh module cache (same user, within TTL), trust it from
+  // the start so client-side navigation doesn't show a loading flash.
+  const [loading, setLoading] = useState(() => {
+    return !cachedData;
+  });
+
+  const fetchingRef = useRef(false);
+  // Used to discard responses from a fetch that started before the user changed.
+  const requestSeqRef = useRef(0);
+
+  useEffect(() => {
+    // Wait for Clerk to tell us who the user is. Until then, loading=true.
+    if (!userLoaded) {
+      setLoading(true);
+      return;
+    }
+
+    // Signed out — show free defaults, but resolve loading.
+    if (!userId) {
+      cachedUserId = null;
+      cachedData = null;
+      setTier("free");
+      setLimits(FREE_DEFAULTS);
+      setUsage({ examsThisWeek: 0, tutorMessagesThisWeek: 0 });
+      setLoading(false);
+      return;
+    }
+
+    // Only fast path: module cache for THIS user, and fresh. This survives
+    // SPA navigation but NOT page reloads, so it can only ever hold a value
+    // that was just fetched from /api/user — never stale across sessions.
+    if (cachedUserId === userId && cachedData && Date.now() - cachedAt < CACHE_TTL) {
       setTier(cachedData.tier);
       setLimits(cachedData.limits);
       setUsage(cachedData.usage);
@@ -72,49 +112,81 @@ export function useTier(): UseTierResult {
       return;
     }
 
+    // No fresh same-session cache — must fetch. Stay in loading state until
+    // /api/user answers; consumers gating on `loading` will render skeletons,
+    // never a wrong plan.
+    setLoading(true);
+
     if (fetchingRef.current) return;
     fetchingRef.current = true;
+    const seq = ++requestSeqRef.current;
 
-    try {
-      const res = await fetch("/api/user");
-      if (!res.ok) throw new Error("Failed to fetch tier");
-      const data = await res.json();
-
-      const newData = {
-        tier: data.tier as Tier,
-        limits: data.limits as TierLimitsClient,
-        usage: data.usage as TierUsage,
-      };
-
-      cachedData = newData;
-      cachedAt = Date.now();
-
+    (async () => {
       try {
-        window.localStorage.setItem(LAST_TIER_KEY, newData.tier);
+        const res = await fetch("/api/user");
+        if (!res.ok) throw new Error("Failed to fetch tier");
+        const data = await res.json();
+        if (!isTier(data.tier)) throw new Error("Invalid tier payload");
+
+        // Drop stale responses if user changed during the request.
+        if (seq !== requestSeqRef.current) return;
+
+        const newData = {
+          tier: data.tier as Tier,
+          limits: data.limits as TierLimitsClient,
+          usage: data.usage as TierUsage,
+        };
+        cachedUserId = userId;
+        cachedData = newData;
+        cachedAt = Date.now();
+
+        setTier(newData.tier);
+        setLimits(newData.limits);
+        setUsage(newData.usage);
+        setLoading(false);
       } catch {
-        /* localStorage may be unavailable in private mode */
+        // On error, fall back to free defaults and resolve loading so the
+        // UI doesn't hang on a skeleton forever. The user can refresh.
+        if (seq === requestSeqRef.current) {
+          setTier("free");
+          setLimits(FREE_DEFAULTS);
+          setUsage({ examsThisWeek: 0, tutorMessagesThisWeek: 0 });
+          setLoading(false);
+        }
+      } finally {
+        fetchingRef.current = false;
       }
-
-      setTier(newData.tier);
-      setLimits(newData.limits);
-      setUsage(newData.usage);
-    } catch {
-      // Keep defaults on error
-    } finally {
-      setLoading(false);
-      fetchingRef.current = false;
-    }
-  }, []);
-
-  useEffect(() => {
-    doFetch();
-  }, [doFetch]);
+    })();
+  }, [userId, userLoaded]);
 
   const refresh = useCallback(() => {
+    if (!userId) return;
     cachedData = null;
     cachedAt = 0;
-    doFetch(true);
-  }, [doFetch]);
+    fetchingRef.current = false;
+    setLoading(true);
+    const seq = ++requestSeqRef.current;
+    fetch("/api/user")
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("fetch failed"))))
+      .then((data) => {
+        if (seq !== requestSeqRef.current) return;
+        if (!isTier(data.tier)) return;
+        cachedUserId = userId;
+        cachedData = {
+          tier: data.tier,
+          limits: data.limits,
+          usage: data.usage,
+        };
+        cachedAt = Date.now();
+        setTier(data.tier);
+        setLimits(data.limits);
+        setUsage(data.usage);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (seq === requestSeqRef.current) setLoading(false);
+      });
+  }, [userId]);
 
   return { tier, limits, usage, loading, refresh };
 }

@@ -180,14 +180,20 @@ async function chatCompletion(prompt: string, options: { smart?: boolean; maxTok
 // API/proxy fallback chain instead of hardcoding localhost.
 export { chatCompletion };
 
-export async function markAnswer(
-  questionText: string,
-  marks: number,
-  gradeLevel: string,
-  markingGuide: string,
-  studentAnswer: string
-): Promise<{
+// Site-wide marking scheme: 1 mark for correct working + 1 mark for the correct
+// final answer (max 2). Multiple-choice has no working, so it is marked out of 1
+// (the answer mark only). Working and answer marks are awarded independently.
+export async function markAnswer(args: {
+  questionText: string;
+  markingGuide: string;
+  answerType?: string;
+  studentWorking?: string;
+  studentAnswer: string;
+}): Promise<{
+  workingMark: number | null;
+  answerMark: number;
   marksAwarded: number;
+  maxMarks: number;
   grade: string;
   feedback: string;
   correctApproach: string;
@@ -195,80 +201,106 @@ export async function markAnswer(
   topicsToReview: string[];
   usage: Usage;
 }> {
-  const prompt = `You are a friendly NCEA examiner. You mark like a real exam — passable working gets full marks. Don't be picky.
+  const {
+    questionText,
+    markingGuide,
+    answerType,
+    studentWorking = "",
+    studentAnswer,
+  } = args;
 
-The student's response may be a single extended response, OR may have TWO parts:
-- WORKING: how they solved the problem (when present, worth 1 mark out of the total)
-- FINAL ANSWER: their final answer (worth the remaining marks)
+  const isMultiChoice = answerType === "multi-choice";
+  const maxMarks = isMultiChoice ? 1 : 2;
 
-For extended-response questions (essays, evaluations, written explanations), there is NO separate working — the response is marked as a whole against the marking guide, out of ${marks} marks. Allocate marks based on how many of the required points the student covers with valid reasoning.
+  const prompt = isMultiChoice
+    ? `You are an NCEA examiner marking ONE multiple-choice question. There is no working to show, so award a single mark:
 
-CRITICAL MARKING RULES — BE VERY LENIENT:
-1. **Working out is JUST about showing the method.** Any valid calculation that leads to the right answer = FULL marks for working. Examples that all get full marks:
-   - "3x6=18"
-   - "3 × 6 = 18"
-   - "3*6=18"
-   - "1 nest × 3 chicks × 6 years = 18"
-   - "3 chicks per year times 6 years equals 18"
-   They are ALL correct working — they all show the method.
-2. **Don't require explanation sentences.** A bare calculation like "3x6=18" is enough. The student doesn't need to write "I multiplied 3 by 6 because there are 3 chicks per year and 6 years".
-3. **Don't require multiple steps if one calculation is enough.** If the answer comes from one multiplication, one line of working is enough.
-4. **Spelling, grammar, punctuation, capitalisation NEVER affect marks** — even on text/written answers (unless the question is specifically about spelling).
-5. **Word count NEVER matters.** Short = fine if it's correct.
-6. **Final answer marks**: If the answer is right (in any form/wording), FULL marks. "18", "18 chicks", "eighteen", "≈18" all get full marks.
-7. **If both working leads to correct answer AND final answer is correct → FULL MARKS, no questions asked.**
-8. **For estimation questions**: any answer within the reasonable range is correct.
-9. **For essays**: pass if they hit the main points, even briefly. Don't penalise for being concise.
-10. **When in doubt, mark it CORRECT.** Students get penalised enough in real exams — this is practice.
+ANSWER MARK (1 mark): award 1 if the student selected the correct option, 0 otherwise. A hedge, guess phrased as uncertain, or blank scores 0.
 
 QUESTION: ${questionText}
-
-MARKS AVAILABLE: ${marks}
-GRADE LEVEL: ${gradeLevel}
-MARKING GUIDE (for reference — students may express the answer differently): ${markingGuide}
-
-STUDENT'S ANSWER: ${studentAnswer || "(No answer provided)"}
-
-Mark this answer generously. Focus on whether the student got the right answer with valid reasoning, not on whether their wording matches the guide exactly.
-
-ACCURACY for the correctApproach field:
-- The correctApproach field is what the student sees as "the right answer" — it MUST be correct
-- Base it on the marking guide above, but rewrite as clean step-by-step working
-- Verify every arithmetic step before including it
-- The final answer at the end of correctApproach must match the marking guide's expected answer
-- If the marking guide itself looks wrong, prefer the student's correct answer; don't propagate errors
+CORRECT OPTION / MARKING GUIDE: ${markingGuide}
+STUDENT'S SELECTION: ${studentAnswer || "(No answer provided)"}
 
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
-  "marksAwarded": <number 0 to ${marks} — be generous, full marks if answer is correct>,
-  "grade": "<not-achieved|achieved|merit|excellence>",
-  "feedback": "<encouraging feedback. If correct, say so clearly and praise their working. If wrong, explain what went wrong gently>",
-  "correctApproach": "<step-by-step correct solution — verified arithmetic, ends with the right final answer>",
+  "answerMark": <0 or 1>,
+  "feedback": "<one line: confirm correct, or state the right option and why it's right>",
+  "correctApproach": "<the correct option with a one-line reason>",
+  "examTip": "<one practical exam tip>",
+  "topicsToReview": [<topic slugs only if the student got it wrong>]
+}`
+    : `You are an NCEA examiner marking ONE exam question. Award TWO independent marks — 1 for working, 1 for the final answer.
+
+WORKING MARK (1 mark): award 1 if the student's working shows a valid method that genuinely leads to the correct answer. Any valid method counts — a bare calculation like "3×6=18" is enough; no explanation sentences required, one line is fine if one step solves it. If the question needs no working (simple recall/definition), award this mark when the answer itself demonstrates correct understanding. Award 0 if the working is absent, irrelevant, or uses a wrong method.
+
+ANSWER MARK (1 mark): award 1 if the final answer is correct in ANY equivalent form ("18", "18 chicks", "eighteen", "≈18" all count). Award 0 if it is wrong, missing, or a hedge.
+
+HONESTY RULES — do not break these:
+- Wrong is wrong. Never award a mark for an incorrect answer or invalid working, however confident or effortful it looks. No "close enough", no sympathy marks.
+- Hedge / non-answers ("idk", "idek", "dunno", "not sure", "don't know", "no idea", "maybe", "perhaps", "probably", "guess", a lone "?", a lone "-", "n/a", blank) score 0 working AND 0 answer.
+- Mark ONLY on correctness — spelling, grammar, punctuation, capitalisation, wording, length and notation NEVER affect either mark (unless the question is specifically about spelling).
+- The two marks are independent: valid working + wrong final answer = working mark only; correct answer with no/invalid working = answer mark only.
+
+QUESTION: ${questionText}
+MARKING GUIDE (reference — the student may phrase the answer differently): ${markingGuide}
+STUDENT'S WORKING: ${studentWorking || "(none provided)"}
+STUDENT'S FINAL ANSWER: ${studentAnswer || "(No answer provided)"}
+
+For "correctApproach": give the clean, verified step-by-step solution ending in the correct final answer. Verify every arithmetic step. If the marking guide itself is wrong, silently fix it — never propagate an error to the student.
+
+Respond ONLY with valid JSON (no markdown, no code fences):
+{
+  "workingMark": <0 or 1>,
+  "answerMark": <0 or 1>,
+  "feedback": "<encouraging in tone but honest in content. If correct, say so and note the good method. If wrong, name the actual mistake and how to fix it — never validate a wrong answer.>",
+  "correctApproach": "<verified step-by-step solution ending in the correct final answer>",
   "examTip": "<one practical exam technique tip>",
-  "topicsToReview": [<topic slugs only if the student got the question wrong>]
+  "topicsToReview": [<topic slugs only if the student lost a mark>]
 }`;
 
-  // Use fast model for marking — it's basically checking, not generating
-  // chatCompletion has built-in retry, so this rarely fails
+  // 0/1 coercion — accept number, numeric string, or boolean; anything else → 0.
+  const bit = (v: unknown): number =>
+    v === 1 || v === "1" || v === true ? 1 : 0;
+
+  // Use fast model for marking — it's basically checking, not generating.
+  // chatCompletion has built-in retry, so this rarely fails.
   let usage: Usage = zeroUsage(MODEL_FAST);
   try {
     const { text, usage: u } = await chatCompletion(prompt, { smart: false });
     usage = u;
-    // Strip markdown fences if present
     const cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
     const parsed = JSON.parse(cleaned);
-    // Sanity-check the result
-    if (typeof parsed.marksAwarded !== "number") parsed.marksAwarded = 0;
-    if (!parsed.grade) parsed.grade = "not-achieved";
-    if (!parsed.feedback) parsed.feedback = "Your answer has been recorded.";
-    if (!parsed.correctApproach) parsed.correctApproach = markingGuide;
-    if (!parsed.examTip) parsed.examTip = "Always show your working clearly.";
-    if (!Array.isArray(parsed.topicsToReview)) parsed.topicsToReview = [];
-    return { ...parsed, usage };
+
+    const answerMark = bit(parsed.answerMark);
+    const workingMark = isMultiChoice ? null : bit(parsed.workingMark);
+    const marksAwarded = answerMark + (workingMark ?? 0);
+    const grade =
+      marksAwarded >= maxMarks
+        ? "excellence"
+        : marksAwarded > 0
+        ? "achieved"
+        : "not-achieved";
+
+    return {
+      workingMark,
+      answerMark,
+      marksAwarded,
+      maxMarks,
+      grade,
+      feedback: parsed.feedback || "Your answer has been recorded.",
+      correctApproach: parsed.correctApproach || markingGuide,
+      examTip: parsed.examTip || "Always show your working clearly.",
+      topicsToReview: Array.isArray(parsed.topicsToReview) ? parsed.topicsToReview : [],
+      usage,
+    };
   } catch (err) {
+    // Parse failure → 0 marks (never partial credit on a fallback) + self-mark.
     console.error("Marking fallback triggered:", err);
     return {
+      workingMark: isMultiChoice ? null : 0,
+      answerMark: 0,
       marksAwarded: 0,
+      maxMarks,
       grade: "not-achieved" as const,
       feedback: "We had trouble auto-marking this one. Compare your answer with the marking guide below — if you got it right, mark it yourself.",
       correctApproach: markingGuide,
@@ -748,7 +780,7 @@ ${GRAPH_RULES}
 Respond ONLY with valid JSON (no markdown, no code fences):
 {
   "text": "<the question text>",
-  "marks": <number of marks, typically 2-5>,
+  "marks": 2,
   "markingGuide": "<step-by-step worked solution with all arithmetic verified — this is the source of truth>",
   "graph": { /* optional GraphData — INCLUDE whenever the question text references or relies on a graph/chart/table/diagram. OMIT only when no visual is needed. See GRAPH SCHEMA above. */ }
 }`;
@@ -778,7 +810,7 @@ Respond ONLY with valid JSON (no markdown, no code fences):
         id: "practice-single",
         number: "1",
         text: parsed.text ?? "",
-        marks: parsed.marks ?? 1,
+        marks: 2,
         gradeLevel: gradeLevel as "achieved" | "merit" | "excellence",
         topics: [topic],
         answerType: "working" as const,
@@ -924,7 +956,7 @@ CRITICAL — ACCURACY CHECKS (students will memorise these answers):
 - For statistics: verify all statistical calculations (means, standard deviations, confidence intervals, test statistics, p-values) by computing them step by step. Use the correct formula — population SD uses n, sample SD uses n-1. State which you are using.
 - For regression: slope b = r × (sy/sx), intercept a = ȳ - b×x̄. Verify by substituting back.
 - The expectedAnswer field MUST exactly match the final answer derived in the markingGuide working. If they differ, fix one of them.
-- Marks must be between 1 and 8 inclusive.
+- MARKS: every question is worth exactly 2 marks — 1 for correct working and 1 for the correct final answer. The ONLY exception is multi-choice questions, which are worth 1 mark (the answer only — there is no working). So set "marks" to 2 for text/number/working questions and 1 for multi-choice.
 - Every question must have non-empty text, expectedAnswer, and markingGuide.
 - Question setups must be internally consistent — do not state a result that contradicts the given data.
 
@@ -937,7 +969,7 @@ Respond ONLY with valid JSON (no markdown, no code fences):
     {
       "number": "1",
       "text": "<question text>",
-      "marks": <1-8>,
+      "marks": <2 for text/number/working questions, 1 for multi-choice>,
       "gradeLevel": "achieved" | "merit" | "excellence",
       "answerType": "text" | "number" | "multi-choice" | "working",
       "options": ["opt1","opt2","opt3","opt4"],  // only for multi-choice, exactly 4 options
@@ -975,9 +1007,10 @@ Respond ONLY with valid JSON (no markdown, no code fences):
     if (!q.expectedAnswer || typeof q.expectedAnswer !== "string" || q.expectedAnswer.trim().length === 0) {
       issues.push("missing or empty expectedAnswer");
     }
-    if (typeof q.marks !== "number" || q.marks < 1 || q.marks > 8) {
-      issues.push(`marks out of range: ${q.marks}`);
-    }
+    // Uniform marking scheme: 2 marks (1 working + 1 answer), 1 for multi-choice.
+    // Coerce rather than reject so a stray `marks` value never fails validation
+    // and shrinks the paper (see the exact-count guarantee).
+    q.marks = q.answerType === "multi-choice" ? 1 : 2;
     if (!["achieved", "merit", "excellence"].includes(q.gradeLevel ?? "")) {
       issues.push(`invalid gradeLevel: ${q.gradeLevel}`);
     }
@@ -1100,7 +1133,7 @@ ${styleLabel}
 Variation seed: ${seed}-topup${topUp}
 
 Same accuracy and schema rules as the original paper:
-- Marks 1-8, gradeLevel achieved|merit|excellence, answerType text|number|multi-choice|working.
+- Marks: 2 for text/number/working questions (1 working + 1 answer), 1 for multi-choice. gradeLevel achieved|merit|excellence, answerType text|number|multi-choice|working.
 - Multi-choice MUST have exactly 4 options and expectedAnswer must match one of them.
 - expectedAnswer must equal the final result of markingGuide working. Verify every arithmetic step.
 - Mix of Achievement / Merit / Excellence levels across the ${missing} new questions.
@@ -1112,7 +1145,7 @@ Respond ONLY with a JSON array (no wrapper object, no markdown, no prose) of exa
   {
     "number": "${validQuestions.length + 1}",
     "text": "<question text>",
-    "marks": <1-8>,
+    "marks": <2 for text/number/working, 1 for multi-choice>,
     "gradeLevel": "achieved" | "merit" | "excellence",
     "answerType": "text" | "number" | "multi-choice" | "working",
     "options": ["opt1","opt2","opt3","opt4"],

@@ -3,6 +3,7 @@
 import { use, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
+import { questionMaxMarks } from "@/lib/scoring";
 import type { Exam, Question } from "@/lib/types";
 import Timer from "@/components/Timer";
 import TopicTag from "@/components/TopicTag";
@@ -172,7 +173,7 @@ export default function ExamPage({
 
   // Pre-exam screen
   if (!started) {
-    const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
+    const totalMarks = exam.questions.reduce((s, q) => s + questionMaxMarks(q.answerType), 0);
     return (
       <div className="relative overflow-hidden max-w-2xl mx-auto px-5 pt-8 sm:pt-16 pb-16 sm:pb-20 bg-[#06060a]">
         <div className="absolute inset-0 -z-10">
@@ -228,7 +229,7 @@ export default function ExamPage({
   }
 
   const question: Question = exam.questions[currentQ];
-  const totalMarks = exam.questions.reduce((s, q) => s + q.marks, 0);
+  const totalMarks = exam.questions.reduce((s, q) => s + questionMaxMarks(q.answerType), 0);
   const answeredCount = exam.questions.filter(
     (q) => (answers[q.id] ?? "").trim() !== ""
   ).length;
@@ -300,7 +301,7 @@ export default function ExamPage({
                 question.gradeLevel.slice(1)}
             </span>
             <span className="text-xs text-zinc-400">
-              {question.marks} mark{question.marks !== 1 ? "s" : ""}
+              {questionMaxMarks(question.answerType)} mark{questionMaxMarks(question.answerType) !== 1 ? "s" : ""}
             </span>
           </div>
         </div>
@@ -435,7 +436,7 @@ export default function ExamPage({
               {/* Working out box */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Working out <span className="text-zinc-600 normal-case font-normal">(show your method)</span>
+                  Working out <span className="text-zinc-600 normal-case font-normal">(1 mark — show your method)</span>
                 </label>
                 <textarea
                   value={answers[`${question.id}_working`] ?? ""}
@@ -454,7 +455,7 @@ export default function ExamPage({
               {/* Final answer box */}
               <div>
                 <label className="block text-xs text-zinc-500 mb-1.5 uppercase tracking-wide font-medium">
-                  Final answer <span className="text-zinc-600 normal-case font-normal">({question.marks} {question.marks === 1 ? "mark" : "marks"})</span>
+                  Final answer <span className="text-zinc-600 normal-case font-normal">(1 mark)</span>
                 </label>
                 <textarea
                   value={answers[question.id] ?? ""}

@@ -13,7 +13,7 @@ import {
   subscribeReviews,
   type ReviewItem,
 } from "@/lib/spacedRepetition";
-import { getExam } from "@/data/exams";
+import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
 import type { Question } from "@/lib/types";
 
@@ -23,7 +23,8 @@ interface EnrichedItem {
 }
 
 function enrich(review: ReviewItem): EnrichedItem {
-  const exam = getExam(review.examId);
+  // Static exams are gone — only resolve reviews from custom (AI-generated) exams.
+  const exam = isCustomExamId(review.examId) ? getCustomExam(review.examId) : null;
   const question = exam?.questions.find((q) => q.id === review.questionId) ?? null;
   return { review, question };
 }

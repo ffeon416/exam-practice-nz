@@ -57,6 +57,11 @@ export interface MarkingResult {
   questionId: string;
   marksAwarded: number;
   maxMarks: number;
+  // Site-wide marking scheme: 1 mark for correct working + 1 mark for the
+  // correct final answer. `workingMark` is null for question types with no
+  // working to show (e.g. multi-choice), where only `answerMark` applies.
+  workingMark?: number | null;
+  answerMark?: number;
   grade: Grade;
   feedback: string;
   correctApproach: string;

@@ -3,6 +3,7 @@ import { markAnswer, markEnglishEssay, addUsage, zeroUsage, type Usage } from "@
 import { checkTier } from "@/lib/checkTier";
 import { logApiUsage } from "@/lib/db";
 import { rateLimit } from "@/lib/rateLimit";
+import { questionMaxMarks } from "@/lib/scoring";
 import { maybeCreditReferrer } from "@/lib/supabase";
 
 // Structured-feedback marker used when an English question is marked by the
@@ -56,21 +57,28 @@ export async function POST(request: NextRequest) {
             ? `WORKING:\n${studentWorking}\n\nFINAL ANSWER:\n${studentAnswer}`
             : studentAnswer;
 
-          // Only use multi-pass essay marking for Pro users
+          // Holistic essay marking (Pro, English, extended response). Marks are
+          // now a flat 2 per question, so we can't use the old `q.marks >= 3`
+          // signal to spot essays — detect them by the original paper marks
+          // (real NZQA papers keep their counts) OR a substantial written
+          // response. The holistic result is still rescaled onto the /2 scheme.
+          const wordCount = combinedAnswer.trim().split(/\s+/).filter(Boolean).length;
           const isEssayLike =
             isEnglish &&
             limits.deepEssayMarking &&
-            q.marks >= 3 &&
             (q.answerType === undefined ||
               q.answerType === "text" ||
               q.answerType === "working") &&
-            studentAnswer.trim().length > 0;
+            studentAnswer.trim().length > 0 &&
+            (q.marks >= 3 || wordCount >= 40);
 
           if (isEssayLike) {
+            // Holistic 4-pass essay marker, rescaled onto the uniform /2 scheme
+            // (1 mark argument/content + 1 mark structure/evidence).
             const essay = await markEnglishEssay(
               q.text,
               q.markingGuide,
-              q.marks,
+              2,
               combinedAnswer
             );
             essayUsage = addUsage(essayUsage, essay.usage);
@@ -88,8 +96,8 @@ export async function POST(request: NextRequest) {
 
             return {
               questionId: q.id,
-              marksAwarded: Math.min(essay.marksAwarded, q.marks),
-              maxMarks: q.marks,
+              marksAwarded: Math.min(essay.marksAwarded, 2),
+              maxMarks: 2,
               grade: essay.grade,
               feedback: packed,
               correctApproach: q.markingGuide,
@@ -100,19 +108,21 @@ export async function POST(request: NextRequest) {
             };
           }
 
-          const result = await markAnswer(
-            q.text,
-            q.marks,
-            q.gradeLevel,
-            q.markingGuide,
-            combinedAnswer
-          );
+          const result = await markAnswer({
+            questionText: q.text,
+            markingGuide: q.markingGuide,
+            answerType: q.answerType,
+            studentWorking,
+            studentAnswer,
+          });
           markUsage = addUsage(markUsage, result.usage);
 
           return {
             questionId: q.id,
-            marksAwarded: Math.min(result.marksAwarded, q.marks),
-            maxMarks: q.marks,
+            marksAwarded: result.marksAwarded,
+            maxMarks: result.maxMarks,
+            workingMark: result.workingMark,
+            answerMark: result.answerMark,
             grade: result.grade,
             feedback: result.feedback,
             correctApproach: result.correctApproach,
@@ -128,8 +138,8 @@ export async function POST(request: NextRequest) {
           return {
             questionId: q.id,
             marksAwarded: 0,
-            maxMarks: q.marks,
-            grade: "achieved" as const,
+            maxMarks: questionMaxMarks(q.answerType),
+            grade: "not-achieved" as const,
             feedback: "Auto-marking unavailable for this question. Compare your answer with the marking guide.",
             correctApproach: q.markingGuide,
             examTip: "Always show your working clearly.",
@@ -161,13 +171,13 @@ export async function POST(request: NextRequest) {
     // can still see their answers and the marking guide.
     console.error("Marking error:", error);
     const { questions } = (await request.clone().json().catch(() => ({ questions: [] }))) as {
-      questions?: Array<{ id: string; marks: number; markingGuide: string; topics: string[] }>;
+      questions?: Array<{ id: string; marks: number; markingGuide: string; topics: string[]; answerType?: string }>;
     };
     const fallbackResults = (questions ?? []).map((q) => ({
       questionId: q.id,
       marksAwarded: 0,
-      maxMarks: q.marks,
-      grade: "achieved" as const,
+      maxMarks: questionMaxMarks(q.answerType),
+      grade: "not-achieved" as const,
       feedback:
         "Auto-marking is temporarily unavailable. Compare your answer with the marking guide below to mark yourself.",
       correctApproach: q.markingGuide,

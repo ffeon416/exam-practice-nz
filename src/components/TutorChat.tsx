@@ -177,7 +177,7 @@ export default function TutorChat({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center sm:justify-end pointer-events-none"
+      className="fixed inset-x-0 top-0 h-[100dvh] z-50 flex items-end sm:items-center sm:justify-end pointer-events-none"
       aria-modal="true"
       role="dialog"
     >
@@ -190,17 +190,17 @@ export default function TutorChat({
 
       {/* Panel */}
       <div
-        className="relative pointer-events-auto w-full sm:w-[420px] h-[85vh] sm:h-[80vh] sm:mr-6 sm:mb-0 mb-0 bg-zinc-900 border border-zinc-800 sm:rounded-2xl rounded-t-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right"
+        className="relative pointer-events-auto w-full sm:w-[420px] h-[85dvh] sm:h-[80vh] sm:mr-6 sm:mb-0 mb-0 bg-zinc-900 border border-zinc-800 sm:rounded-2xl rounded-t-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900/95">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white font-semibold">
+        <div className="flex items-center justify-between px-4 py-2 sm:py-3 border-b border-zinc-800 bg-zinc-900/95">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white font-semibold text-[13px] sm:text-sm">
               SA
             </div>
             <div>
-              <h2 className="text-sm font-semibold text-white">StudyAce Tutor</h2>
-              <p className="text-xs text-zinc-400">
+              <h2 className="text-sm font-semibold text-white leading-tight">StudyAce Tutor</h2>
+              <p className="text-[11px] sm:text-xs text-zinc-400 leading-tight">
                 Here to help you think it through
               </p>
             </div>
@@ -230,7 +230,7 @@ export default function TutorChat({
         {/* Messages */}
         <div
           ref={scrollRef}
-          className="flex-1 overflow-y-auto px-4 py-4 space-y-4 bg-zinc-950/50"
+          className="flex-1 overflow-y-auto px-3 sm:px-4 py-3 sm:py-4 space-y-3 sm:space-y-4 bg-zinc-950/50"
         >
           {messages.map((msg, i) => (
             <div
@@ -277,7 +277,7 @@ export default function TutorChat({
         </div>
 
         {/* Input */}
-        <div className="border-t border-zinc-800 bg-zinc-900 px-3 py-3">
+        <div className="border-t border-zinc-800 bg-zinc-900 px-3 py-2 sm:py-3">
           {isOverLimit && (
             tutorLimit >= 100 ? (
               <div className="mb-2 rounded-xl bg-white/[0.04] border border-white/[0.08] p-3.5">
@@ -341,7 +341,7 @@ export default function TutorChat({
               </svg>
             </button>
           </div>
-          <p className="text-[10px] text-zinc-500 mt-1.5 px-1">
+          <p className="hidden sm:block text-[10px] text-zinc-500 mt-1.5 px-1">
             Enter to send &middot; Shift + Enter for newline
           </p>
         </div>

@@ -8,7 +8,6 @@ import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { loadOnboarding } from "@/lib/onboarding";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
 import { getTopicLabel } from "@/data/topics";
-import { getExam } from "@/data/exams";
 import {
   listCustomExams,
   deleteCustomExam,
@@ -647,14 +646,8 @@ export default function DashboardPage() {
               {recentAttempts.map((attempt, i) => {
                 const pct = attempt.maxMarks > 0 ? Math.round((attempt.totalMarks / attempt.maxMarks) * 100) : 0;
                 // Look up the real title
-                let title: string;
-                if (isCustomExamId(attempt.examId)) {
-                  const custom = getCustomExam(attempt.examId);
-                  title = custom?.title ?? "Practice exam";
-                } else {
-                  const catalog = getExam(attempt.examId);
-                  title = catalog?.title ?? attempt.examId;
-                }
+                const custom = isCustomExamId(attempt.examId) ? getCustomExam(attempt.examId) : null;
+                const title = custom?.title ?? "Practice exam";
                 return (
                   <Link
                     key={i}

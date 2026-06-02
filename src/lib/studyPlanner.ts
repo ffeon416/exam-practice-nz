@@ -4,7 +4,6 @@
 // so the dashboard, navbar, and /plan page all stay in sync without anyone
 // calling setState inside an effect.
 
-import { ALL_EXAMS } from "@/data/exams";
 import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { getTopicLabel } from "@/data/topics";
 import type { Exam } from "@/lib/types";
@@ -106,15 +105,9 @@ function startOfWeek(date: Date): Date {
 
 // ── Exam catalog lookup ────────────────────────────────────────────────
 
-function examsForSubject(subject: string, yearLevel: number): Exam[] {
-  const level = yearLevelToNceaLevel(yearLevel);
-  // Match subject, prefer exams at the student's NCEA level, but fall back
-  // to adjacent levels when there aren't enough papers for that subject.
-  const atLevel = ALL_EXAMS.filter(
-    (e) => e.subject === subject && e.level === level
-  );
-  if (atLevel.length > 0) return atLevel;
-  return ALL_EXAMS.filter((e) => e.subject === subject);
+function examsForSubject(_subject: string, _yearLevel: number): Exam[] {
+  // No static exam catalog — every plan task routes through the AI builder.
+  return [];
 }
 
 // ── Plan generation ────────────────────────────────────────────────────

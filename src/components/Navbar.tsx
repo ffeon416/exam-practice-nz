@@ -14,7 +14,6 @@ import { useTier } from "@/hooks/useTier";
 
 const authedLinks = [
   { href: "/subjects", label: "Exams" },
-  { href: "/practice", label: "Fix Weak Spots" },
   { href: "/review", label: "Review" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/plan", label: "Plan" },
