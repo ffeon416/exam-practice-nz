@@ -919,7 +919,6 @@ export async function generatePracticePaper(
 
   // Random seed forces fresh content even if same inputs are given twice
   const seed = Math.random().toString(36).slice(2, 10);
-  const variantNote = `Variation seed: ${seed} — generate completely original questions, do not reuse questions from previous generations.`;
 
   // Year 10 is pre-NCEA (NZ curriculum / CAA Numeracy foundation work).
   // Levels 1-3 are NCEA proper.
@@ -931,54 +930,14 @@ export async function generatePracticePaper(
     level === 0
       ? `Match the style, difficulty, and question types of NZ Year 10 end-of-year assessments and CAA Numeracy papers (NOT NCEA — Year 10 students do not sit NCEA).`
       : `Match the style, difficulty, and question types of real NZQA ${subject} exams.`;
-  const titleInstruction =
+  // The title is deterministic, so we build it in code rather than asking the
+  // model for it — this lets every generation call return a bare JSON array of
+  // questions (faster to stream/parse) instead of a wrapper object.
+  const subjectLabel = subject[0].toUpperCase() + subject.slice(1);
+  const title =
     level === 0
-      ? `The "title" field should start with "Year 10" — e.g. "Year 10 Mathematics Practice Paper". Do NOT include "NCEA" or "Level 1" in the title.`
-      : `The "title" field should follow the pattern "NCEA ${subject[0].toUpperCase() + subject.slice(1)} Level ${level} Practice Paper".`;
-
-  const prompt = `Generate a practice exam paper for ${levelLabel}.
-
-${topicLine}
-Number of questions: EXACTLY ${questionCount} — your "questions" array MUST contain exactly ${questionCount} items, neither more nor fewer. If you run out of room, prefer shorter markingGuides over fewer questions. Do not omit questions for any reason.
-${styleLabel}
-${titleInstruction}
-${variantNote}
-
-Requirements:
-- Mix of Achievement, Merit, and Excellence level questions
-- Include multi-choice, calculation, and extended-response questions
-- Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
-
-CRITICAL — ACCURACY CHECKS (students will memorise these answers):
-- For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
-- For multi-choice: verify the correct option is genuinely correct and all distractors are plausible but definitively wrong. The expectedAnswer MUST be one of the strings in the options array.
-- For science/chemistry/biology: ensure all facts, formulas, and units are scientifically accurate. Check chemical equations are balanced.
-- For statistics: verify all statistical calculations (means, standard deviations, confidence intervals, test statistics, p-values) by computing them step by step. Use the correct formula — population SD uses n, sample SD uses n-1. State which you are using.
-- For regression: slope b = r × (sy/sx), intercept a = ȳ - b×x̄. Verify by substituting back.
-- The expectedAnswer field MUST exactly match the final answer derived in the markingGuide working. If they differ, fix one of them.
-- MARKS: every question is worth exactly 2 marks — 1 for correct working and 1 for the correct final answer. The ONLY exception is multi-choice questions, which are worth 1 mark (the answer only — there is no working). So set "marks" to 2 for text/number/working questions and 1 for multi-choice.
-- Every question must have non-empty text, expectedAnswer, and markingGuide.
-- Question setups must be internally consistent — do not state a result that contradicts the given data.
-
-${GRAPH_RULES}
-
-Respond ONLY with valid JSON (no markdown, no code fences):
-{
-  "title": "<paper title>",
-  "questions": [
-    {
-      "number": "1",
-      "text": "<question text>",
-      "marks": <2 for text/number/working questions, 1 for multi-choice>,
-      "gradeLevel": "achieved" | "merit" | "excellence",
-      "answerType": "text" | "number" | "multi-choice" | "working",
-      "options": ["opt1","opt2","opt3","opt4"],  // only for multi-choice, exactly 4 options
-      "expectedAnswer": "<answer — must match the final result of the markingGuide working>",
-      "markingGuide": "<step-by-step solution with all working shown>",
-      "graph": { /* optional GraphData — INCLUDE whenever the question text references or relies on a graph/chart/table/diagram. OMIT only when no visual is needed. See GRAPH SCHEMA above. */ }
-    }
-  ]
-}`;
+      ? `Year 10 ${subjectLabel} Practice Paper`
+      : `NCEA ${subjectLabel} Level ${level} Practice Paper`;
 
   // Per-question validation, used both on initial generation and on top-ups.
   // Returns a list of human-readable issues; empty list means the question is good.
@@ -1057,57 +1016,187 @@ Respond ONLY with valid JSON (no markdown, no code fences):
     return issues;
   };
 
-  // Scale max output tokens with question count. At ~1500 tokens per question
-  // (text + full markingGuide working + options + optional graph), 8192 was
-  // truncating Sonnet mid-JSON for 8+ question papers, causing the parser to
-  // recover only the first few questions. Capped at 32k to stay well under
-  // the model's 64k output limit and keep cost predictable.
-  const initialMaxTokens = Math.min(32768, Math.max(12000, questionCount * 1500));
+  type GenQuestion = {
+    number: string;
+    text: string;
+    marks: number;
+    gradeLevel: string;
+    answerType: string;
+    options?: string[];
+    expectedAnswer?: string;
+    markingGuide: string;
+    graph?: unknown;
+    image?: string;
+  };
 
-  // chatCompletion has built-in retry. We add an additional layer here for
-  // JSON parse errors specifically — if the model returns malformed JSON,
-  // we ask it to regenerate up to 3 times. Within each attempt we also
-  // top-up missing questions if validation drops some.
+  // ── Shared batch prompt ──
+  // Every parallel batch AND every top-up call gets the SAME accuracy / marks /
+  // graph rules, so output quality is identical no matter how the paper is
+  // sliced up. `want` = how many questions this call returns; `existingSummary`
+  // lists questions already in the paper so the model won't duplicate them
+  // (empty for the first parallel wave); `batchSeed` forces fresh content;
+  // `roleNote` says whether this is one slice of a parallel paper or a top-up.
+  const buildBatchPrompt = (
+    want: number,
+    existingSummary: string,
+    batchSeed: string,
+    roleNote: string
+  ): string => `You are writing questions for a practice exam paper for ${levelLabel}.
+${topicLine}
+${roleNote}
+
+Generate EXACTLY ${want} question${want === 1 ? "" : "s"} — your JSON array MUST contain exactly ${want} item${want === 1 ? "" : "s"}, neither more nor fewer. If you run out of room, prefer shorter markingGuides over fewer questions. Do not omit questions for any reason.
+${styleLabel}
+Variation seed: ${batchSeed} — generate completely original questions.
+${existingSummary ? `\nDo NOT duplicate, paraphrase, or closely mirror any of these questions already in the paper — pick different sub-topics, scenarios, and numeric values:\n${existingSummary}\n` : ""}
+Requirements:
+- Spread Achievement, Merit, and Excellence difficulty across these ${want} question${want === 1 ? "" : "s"}.
+- Include a mix of multi-choice, calculation, and extended-response styles.
+- Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
+
+CRITICAL — ACCURACY CHECKS (students will memorise these answers):
+- For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
+- For multi-choice: verify the correct option is genuinely correct and all distractors are plausible but definitively wrong. The expectedAnswer MUST be one of the strings in the options array.
+- For science/chemistry/biology: ensure all facts, formulas, and units are scientifically accurate. Check chemical equations are balanced.
+- For statistics: verify all statistical calculations (means, standard deviations, confidence intervals, test statistics, p-values) by computing them step by step. Use the correct formula — population SD uses n, sample SD uses n-1. State which you are using.
+- For regression: slope b = r × (sy/sx), intercept a = ȳ - b×x̄. Verify by substituting back.
+- The expectedAnswer field MUST exactly match the final answer derived in the markingGuide working. If they differ, fix one of them.
+- MARKS: every question is worth exactly 2 marks — 1 for correct working and 1 for the correct final answer. The ONLY exception is multi-choice questions, which are worth 1 mark (the answer only — there is no working). So set "marks" to 2 for text/number/working questions and 1 for multi-choice.
+- Every question must have non-empty text, expectedAnswer, and markingGuide.
+- Question setups must be internally consistent — do not state a result that contradicts the given data.
+
+${GRAPH_RULES}
+
+Respond ONLY with a JSON array (no wrapper object, no markdown, no code fences) of exactly ${want} question object${want === 1 ? "" : "s"}:
+[
+  {
+    "number": "1",
+    "text": "<question text>",
+    "marks": <2 for text/number/working questions, 1 for multi-choice>,
+    "gradeLevel": "achieved" | "merit" | "excellence",
+    "answerType": "text" | "number" | "multi-choice" | "working",
+    "options": ["opt1","opt2","opt3","opt4"],
+    "expectedAnswer": "<answer — must match the final result of the markingGuide working>",
+    "markingGuide": "<step-by-step solution with all working shown>",
+    "graph": { /* optional GraphData — INCLUDE whenever the question references a graph/chart/table/diagram. OMIT otherwise. See GRAPH SCHEMA above. */ }
+  }
+]`;
+
+  // Extract a JSON array of questions from a model response (tolerates code
+  // fences / surrounding prose). Throws if no array is present.
+  //
+  // LLM JSON for maths/science breaks JSON.parse most often via (a) LaTeX
+  // backslashes (`\frac`, `\(`, `\times`) that aren't valid JSON escapes, and
+  // (b) trailing commas. So if a strict parse fails we apply a targeted repair
+  // and try once more before giving up — far cheaper than re-calling the model.
+  const parseQuestionArray = (text: string): unknown[] => {
+    let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+    const arrStart = cleaned.indexOf("[");
+    const arrEnd = cleaned.lastIndexOf("]");
+    if (arrStart < 0 || arrEnd <= arrStart) throw new Error("response missing JSON array");
+    cleaned = cleaned.slice(arrStart, arrEnd + 1);
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(cleaned);
+    } catch {
+      const repaired = cleaned
+        // Escape lone backslashes that aren't a valid JSON escape (LaTeX, etc.)
+        .replace(/\\(?!["\\/bfnrtu])/g, "\\\\")
+        // Drop trailing commas before a closing ] or }
+        .replace(/,(\s*[}\]])/g, "$1");
+      parsed = JSON.parse(repaired);
+    }
+    if (!Array.isArray(parsed)) throw new Error("response did not parse to an array");
+    return parsed;
+  };
+
+  // Normalised signature for cross-batch duplicate detection. Parallel batches
+  // can't see each other's output, so two could independently land on a
+  // near-identical question — compare the first chunk of stripped text.
+  const sigOf = (q: { text?: string }): string =>
+    (q.text ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().slice(0, 80);
+
+  // Scale output tokens with the questions THIS call asks for (~1700 each, with
+  // headroom), capped well under the model's output limit.
+  const tokensFor = (want: number) => Math.min(32768, Math.max(4096, want * 1700));
+
+  // Generate one batch of `want` validated questions. A single attempt keeps
+  // each batch to roughly one generation's wall-clock (the point of running
+  // them in parallel). chatCompletion already retries transient network errors,
+  // parseQuestionArray repairs malformed JSON, and any shortfall is the top-up
+  // loop's job — so there is no need to retry the whole batch here.
+  const runBatch = async (
+    want: number,
+    roleNote: string,
+    batchSeed: string,
+    existingSummary: string
+  ): Promise<{ questions: GenQuestion[]; usage: Usage }> => {
+    try {
+      const { text, usage } = await chatCompletion(
+        buildBatchPrompt(want, existingSummary, batchSeed, roleNote),
+        { smart: true, maxTokens: tokensFor(want) }
+      );
+      const valid = parseQuestionArray(text).filter(
+        (q) => validateQuestion(q as GenQuestion).length === 0
+      ) as GenQuestion[];
+      return { questions: valid, usage };
+    } catch (err) {
+      console.warn(
+        `[generatePracticePaper] batch failed (${roleNote.slice(0, 32)}):`,
+        err instanceof Error ? err.message : String(err)
+      );
+      return { questions: [], usage: zeroUsage(MODEL_SMART) };
+    }
+  };
+
+  // ── Batch split ──
+  // The wait is dominated by serial output-token generation within one call, so
+  // we split the paper into ≤5-question batches generated CONCURRENTLY. Wall
+  // clock drops to roughly the slowest single batch instead of the whole paper;
+  // total tokens (and cost) are essentially unchanged.
+  const BATCH_SIZE = 5;
+  const batchCount = Math.max(1, Math.ceil(questionCount / BATCH_SIZE));
+  const batchWants: number[] = [];
+  for (let i = 0; i < batchCount; i++) {
+    batchWants.push(Math.floor(questionCount / batchCount) + (i < questionCount % batchCount ? 1 : 0));
+  }
+
   let lastErr: unknown;
   let totalUsage: Usage = zeroUsage(MODEL_SMART);
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const { text, usage } = await chatCompletion(prompt, { smart: true, maxTokens: initialMaxTokens });
-      totalUsage = addUsage(totalUsage, usage);
-      // Strip markdown code fences if present, and any leading/trailing prose
-      let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
-      // Try to extract JSON object if the model wrapped it in prose
-      const jsonStart = cleaned.indexOf("{");
-      const jsonEnd = cleaned.lastIndexOf("}");
-      if (jsonStart > 0 && jsonEnd > jsonStart) {
-        cleaned = cleaned.slice(jsonStart, jsonEnd + 1);
-      }
-      const parsed = JSON.parse(cleaned);
-      // Validate structure
-      if (!parsed.title || !Array.isArray(parsed.questions) || parsed.questions.length === 0) {
-        throw new Error("Generated paper has invalid structure");
-      }
+      totalUsage = zeroUsage(MODEL_SMART);
 
-      // ── Post-generation validation ──
-      // Drop questions that fail quality checks rather than serving bad content.
-      const validQuestions: typeof parsed.questions = [];
-      for (const q of parsed.questions) {
-        const issues = validateQuestion(q);
-        if (issues.length > 0) {
-          console.warn(`[generatePracticePaper] Dropping Q${q.number} — validation failed:`, issues.join("; "));
-        } else {
+      // Fire every batch in parallel.
+      const roleFor = (i: number) =>
+        batchCount > 1
+          ? `This is part ${i + 1} of ${batchCount} of one paper being assembled in parallel. Cover DISTINCT sub-topics and scenarios from the other parts so the finished paper has no repeats.`
+          : `Write a complete, well-rounded paper.`;
+      const batchResults = await Promise.all(
+        batchWants.map((want, i) => runBatch(want, roleFor(i), `${seed}-b${i}-try${attempt}`, ""))
+      );
+      for (const r of batchResults) totalUsage = addUsage(totalUsage, r.usage);
+
+      // Merge + de-duplicate across batches (they're blind to each other). Any
+      // shortfall from a failed batch or dropped duplicate is filled by the
+      // exact-count top-up loop below.
+      const validQuestions: GenQuestion[] = [];
+      const seen = new Set<string>();
+      for (const r of batchResults) {
+        for (const q of r.questions) {
+          if (validQuestions.length >= questionCount) break;
+          const sig = sigOf(q);
+          if (sig && seen.has(sig)) {
+            console.warn(`[generatePracticePaper] dropped a cross-batch duplicate question`);
+            continue;
+          }
+          if (sig) seen.add(sig);
           validQuestions.push(q);
         }
       }
 
       if (validQuestions.length === 0) {
         throw new Error("All generated questions failed validation");
-      }
-
-      if (validQuestions.length < parsed.questions.length) {
-        console.warn(
-          `[generatePracticePaper] ${parsed.questions.length - validQuestions.length} question(s) removed by validation, ${validQuestions.length} remaining`
-        );
       }
 
       // ── Top-up loop ──
@@ -1163,15 +1252,7 @@ Respond ONLY with a JSON array (no wrapper object, no markdown, no prose) of exa
           });
           totalUsage = addUsage(totalUsage, topUpUsage);
 
-          let topUpClean = topUpText.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
-          const arrStart = topUpClean.indexOf("[");
-          const arrEnd = topUpClean.lastIndexOf("]");
-          if (arrStart < 0 || arrEnd <= arrStart) {
-            throw new Error("top-up response missing JSON array");
-          }
-          topUpClean = topUpClean.slice(arrStart, arrEnd + 1);
-          const newQs = JSON.parse(topUpClean);
-          if (!Array.isArray(newQs)) throw new Error("top-up did not return an array");
+          const newQs = parseQuestionArray(topUpText) as GenQuestion[];
 
           let added = 0;
           for (const q of newQs) {
@@ -1228,11 +1309,10 @@ Respond ONLY with a JSON array (no wrapper object, no markdown, no prose) of exa
       const { enrichPaperGraphs } = await import("./graphEnricher");
       const enriched = await enrichPaperGraphs(
         validQuestions as Parameters<typeof enrichPaperGraphs>[0],
-        { subject, level, standard: parsed.standard }
+        { subject, level }
       );
       for (const u of enriched.usages) totalUsage = addUsage(totalUsage, u);
-      parsed.questions = enriched.questions;
-      return { ...parsed, usage: totalUsage };
+      return { title, questions: enriched.questions, usage: totalUsage };
     } catch (err) {
       lastErr = err;
       console.log(`[generatePracticePaper] attempt ${attempt} failed:`, err instanceof Error ? err.message : String(err));
