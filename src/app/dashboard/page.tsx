@@ -300,6 +300,10 @@ export default function DashboardPage() {
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
   const [onboarding, setOnboarding] = useState<ReturnType<typeof loadOnboarding>>(null);
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
+  // The plan the user just checked out (from ?plan= on the Stripe success
+  // redirect). The celebration modal only ever shows for THIS plan, once the
+  // live tier confirms it applied — never on a normal revisit, never a wrong plan.
+  const [purchasedPlan, setPurchasedPlan] = useState<"student" | "pro" | null>(null);
   const [previewTier, setPreviewTier] = useState<"free" | "student" | "pro" | null>(null);
   const { tier, limits, usage, loading: tierLoading, refresh: refreshTier } = useTier();
   const tierRef = useRef(tier);
@@ -334,16 +338,21 @@ export default function DashboardPage() {
       return;
     }
     if (params.get("payment") === "success") {
+      const planParam = params.get("plan");
+      if (planParam === "student" || planParam === "pro") setPurchasedPlan(planParam);
       setShowPaymentSuccess(true);
       window.history.replaceState({}, "", "/dashboard");
 
-      // Stripe redirect can beat the webhook. Poll until tier flips to a paid plan.
+      // Stripe redirect can beat the webhook. Poll until the live tier reflects
+      // the plan that was just purchased (or any paid plan if no ?plan= given),
+      // so the modal can confirm the right plan before celebrating.
+      const target = planParam === "student" || planParam === "pro" ? planParam : null;
       let cancelled = false;
       const poll = async () => {
         for (let i = 0; i < 10 && !cancelled; i++) {
           refreshTier();
           await new Promise((r) => setTimeout(r, 1500));
-          if (tierRef.current !== "free") return;
+          if (target ? tierRef.current === target : tierRef.current !== "free") return;
         }
       };
       poll();
@@ -354,21 +363,13 @@ export default function DashboardPage() {
     }
   }, [refreshTier]);
 
-  // Auto-show welcome once per tier — covers fresh signups (free) and
-  // anyone who upgraded but missed the post-checkout redirect. The flag
-  // is set in the close handler, not here, so a redirect to /welcome
-  // mid-render doesn't burn the user's one shot at seeing it.
-  useEffect(() => {
-    // Don't wait for /api/user — show on mount with default tier ("free");
-    // re-renders to the correct accent if the user turns out to be paid.
-    const key = `studyace-welcome-seen-v3-${tier}`;
-    if (localStorage.getItem(key)) return;
-    setShowPaymentSuccess(true);
-  }, [tier]);
+  // NOTE: the celebration modal is shown ONLY by the ?payment=success redirect
+  // above (right after a real Stripe checkout), gated below on the live tier
+  // matching the purchased plan. It must NOT auto-show on ordinary revisits or
+  // for free users — that previously fired on every device that lacked a
+  // per-tier localStorage flag and flashed the wrong plan during tier load.
 
   function dismissWelcome() {
-    const key = `studyace-welcome-seen-v3-${tier}`;
-    localStorage.setItem(key, new Date().toISOString());
     setShowPaymentSuccess(false);
   }
 
@@ -415,7 +416,7 @@ export default function DashboardPage() {
 
   if (!progress) return (
     <div className="max-w-xl mx-auto px-5 pt-16 pb-20 bg-[#06060a] min-h-screen">
-      {showPaymentSuccess && (
+      {showPaymentSuccess && !tierLoading && tier !== "free" && (!purchasedPlan || tier === purchasedPlan) && (
         <PaymentWelcome tier={tier} firstName={firstName} onClose={dismissWelcome} />
       )}
       {previewTier && (
@@ -467,7 +468,7 @@ export default function DashboardPage() {
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
         {/* Welcome modal — paid users get a celebration, free users get an intro */}
-        {showPaymentSuccess && (
+        {showPaymentSuccess && !tierLoading && tier !== "free" && (!purchasedPlan || tier === purchasedPlan) && (
           <PaymentWelcome tier={tier} firstName={firstName} onClose={dismissWelcome} />
         )}
         {previewTier && (
