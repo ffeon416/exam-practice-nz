@@ -50,6 +50,26 @@ function computeCost(model: string, inputTokens: number, outputTokens: number): 
   return (inputTokens * p.inPerM + outputTokens * p.outPerM) / 1_000_000;
 }
 
+// Prompt-caching-aware cost. Cache writes bill at 1.25× input, cache reads at
+// 0.1× input (Anthropic ephemeral cache pricing). `inputTokens` here is the
+// uncached remainder only.
+function computeCostCached(
+  model: string,
+  inputTokens: number,
+  outputTokens: number,
+  cacheWriteTokens: number,
+  cacheReadTokens: number
+): number {
+  const p = MODEL_PRICING[model] ?? MODEL_PRICING[MODEL_FAST];
+  return (
+    (inputTokens * p.inPerM +
+      cacheWriteTokens * p.inPerM * 1.25 +
+      cacheReadTokens * p.inPerM * 0.1 +
+      outputTokens * p.outPerM) /
+    1_000_000
+  );
+}
+
 // Sleep helper
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -89,9 +109,10 @@ interface ChatResult {
   usage: Usage;
 }
 
-async function chatCompletionOnce(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<ChatResult> {
+async function chatCompletionOnce(prompt: string, options: { smart?: boolean; maxTokens?: number; system?: string } = {}): Promise<ChatResult> {
   const model = options.smart ? MODEL_SMART : MODEL_FAST;
   const maxTokens = options.maxTokens ?? 1024;
+  const system = options.system;
   const apiKey = process.env.ANTHROPIC_API_KEY;
   const proxyUrl = process.env.CLAUDE_PROXY_URL || DEFAULT_PROXY_URL;
 
@@ -110,6 +131,11 @@ async function chatCompletionOnce(prompt: string, options: { smart?: boolean; ma
         body: JSON.stringify({
           model,
           max_tokens: maxTokens,
+          // A cacheable system prompt: identical across calls, so repeated
+          // requests within the cache TTL read it at ~0.1× instead of re-paying.
+          ...(system
+            ? { system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }] }
+            : {}),
           messages: [{ role: "user", content: prompt }],
         }),
         signal: controller.signal,
@@ -124,10 +150,21 @@ async function chatCompletionOnce(prompt: string, options: { smart?: boolean; ma
       const text = data.content?.[0]?.text ?? "";
       if (!text) throw new Error("Empty response from Anthropic API");
       const inputTokens = Number(data.usage?.input_tokens ?? 0);
+      const cacheWriteTokens = Number(data.usage?.cache_creation_input_tokens ?? 0);
+      const cacheReadTokens = Number(data.usage?.cache_read_input_tokens ?? 0);
       const outputTokens = Number(data.usage?.output_tokens ?? 0);
+      if (process.env.LOG_CACHE === "1") {
+        console.log(`[cache] model=${model} input=${inputTokens} cacheWrite=${cacheWriteTokens} cacheRead=${cacheReadTokens} output=${outputTokens}`);
+      }
       return {
         text,
-        usage: { model, inputTokens, outputTokens, costUsd: computeCost(model, inputTokens, outputTokens) },
+        usage: {
+          model,
+          // Total input volume for reporting; cost below applies cache discounts.
+          inputTokens: inputTokens + cacheWriteTokens + cacheReadTokens,
+          outputTokens,
+          costUsd: computeCostCached(model, inputTokens, outputTokens, cacheWriteTokens, cacheReadTokens),
+        },
       };
     } finally {
       clearTimeout(timeoutId);
@@ -146,7 +183,11 @@ async function chatCompletionOnce(prompt: string, options: { smart?: boolean; ma
       },
       body: JSON.stringify({
         model,
-        messages: [{ role: "user", content: prompt }],
+        // OpenAI-compatible proxies don't support Anthropic prompt caching;
+        // pass the system prompt as a system-role message instead.
+        messages: system
+          ? [{ role: "system", content: system }, { role: "user", content: prompt }]
+          : [{ role: "user", content: prompt }],
         max_tokens: maxTokens,
       }),
       signal: controller.signal,
@@ -172,7 +213,7 @@ async function chatCompletionOnce(prompt: string, options: { smart?: boolean; ma
   }
 }
 
-async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number } = {}): Promise<ChatResult> {
+async function chatCompletion(prompt: string, options: { smart?: boolean; maxTokens?: number; system?: string } = {}): Promise<ChatResult> {
   return withRetry(() => chatCompletionOnce(prompt, options), { label: options.smart ? "smart" : "fast" });
 }
 
@@ -600,6 +641,46 @@ VERIFICATION CHECKLIST — run mentally before submitting each question:
 [ ] For multi-curve scenarios (supply/demand shifts, before/after) — are ALL referenced curves included as separate series?
 [ ] Is the \`type\` correct for the data?
 [ ] Are the numbers in the graph EXACTLY consistent with the working in markingGuide?`;
+
+// Static system prompt for paper generation. It is byte-identical on EVERY
+// generation call (all subjects, levels, batches, and top-ups), so Anthropic
+// prompt caching serves it at ~0.1× after the first request within the cache
+// TTL. Everything that varies per call (level, subject, topic, count, seed,
+// existing-question anchors) lives in the user message — keep it OUT of here,
+// or the prefix changes and the cache misses.
+const GENERATION_SYSTEM = `You are an expert NZQA / NCEA exam author. You write original practice exam questions and return them as a JSON array — nothing else.
+
+For the set of questions you are asked to write:
+- Spread Achievement, Merit, and Excellence difficulty across them.
+- Include a mix of multi-choice, calculation, and extended-response styles.
+- Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
+
+CRITICAL — ACCURACY CHECKS (students will memorise these answers):
+- For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
+- For multi-choice: verify the correct option is genuinely correct and all distractors are plausible but definitively wrong. The expectedAnswer MUST be one of the strings in the options array.
+- For science/chemistry/biology: ensure all facts, formulas, and units are scientifically accurate. Check chemical equations are balanced.
+- For statistics: verify all statistical calculations (means, standard deviations, confidence intervals, test statistics, p-values) by computing them step by step. Use the correct formula — population SD uses n, sample SD uses n-1. State which you are using.
+- For regression: slope b = r × (sy/sx), intercept a = ȳ - b×x̄. Verify by substituting back.
+- The expectedAnswer field MUST exactly match the final answer derived in the markingGuide working. If they differ, fix one of them.
+- MARKS: every question is worth exactly 2 marks — 1 for correct working and 1 for the correct final answer. The ONLY exception is multi-choice questions, which are worth 1 mark (the answer only — there is no working). So set "marks" to 2 for text/number/working questions and 1 for multi-choice.
+- Every question must have non-empty text, expectedAnswer, and markingGuide.
+- Question setups must be internally consistent — do not state a result that contradicts the given data.
+
+${GRAPH_RULES}
+
+Respond ONLY with a JSON array (no wrapper object, no markdown, no code fences). Each element is a question object of this shape:
+{
+  "number": "1",
+  "text": "<question text>",
+  "marks": <2 for text/number/working questions, 1 for multi-choice>,
+  "gradeLevel": "achieved" | "merit" | "excellence",
+  "answerType": "text" | "number" | "multi-choice" | "working",
+  "options": ["opt1","opt2","opt3","opt4"],
+  "expectedAnswer": "<answer — must match the final result of the markingGuide working>",
+  "markingGuide": "<step-by-step solution with all working shown>",
+  "graph": { /* optional GraphData — INCLUDE whenever the question references a graph/chart/table/diagram. OMIT otherwise. See GRAPH SCHEMA above. */ }
+}
+Your array MUST contain EXACTLY the number of questions requested in the user message — neither more nor fewer. If you run out of room, prefer shorter markingGuides over fewer questions. Never omit a question.`;
 
 // Detects question text that refers to a visual that wasn't provided, or that
 // instructs the student to draw/sketch/plot something they can't actually draw.
@@ -1036,51 +1117,21 @@ export async function generatePracticePaper(
   // lists questions already in the paper so the model won't duplicate them
   // (empty for the first parallel wave); `batchSeed` forces fresh content;
   // `roleNote` says whether this is one slice of a parallel paper or a top-up.
+  // Dynamic per-call USER message only. All the fixed rules + JSON schema live
+  // in the cached `GENERATION_SYSTEM`; keep them out of here so the cached
+  // prefix stays byte-identical and every call after the first reads it cheaply.
   const buildBatchPrompt = (
     want: number,
     existingSummary: string,
     batchSeed: string,
     roleNote: string
-  ): string => `You are writing questions for a practice exam paper for ${levelLabel}.
+  ): string => `Write ${want} practice exam question${want === 1 ? "" : "s"} for ${levelLabel}.
 ${topicLine}
-${roleNote}
-
-Generate EXACTLY ${want} question${want === 1 ? "" : "s"} — your JSON array MUST contain exactly ${want} item${want === 1 ? "" : "s"}, neither more nor fewer. If you run out of room, prefer shorter markingGuides over fewer questions. Do not omit questions for any reason.
 ${styleLabel}
+${roleNote}
 Variation seed: ${batchSeed} — generate completely original questions.
 ${existingSummary ? `\nDo NOT duplicate, paraphrase, or closely mirror any of these questions already in the paper — pick different sub-topics, scenarios, and numeric values:\n${existingSummary}\n` : ""}
-Requirements:
-- Spread Achievement, Merit, and Excellence difficulty across these ${want} question${want === 1 ? "" : "s"}.
-- Include a mix of multi-choice, calculation, and extended-response styles.
-- Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
-
-CRITICAL — ACCURACY CHECKS (students will memorise these answers):
-- For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
-- For multi-choice: verify the correct option is genuinely correct and all distractors are plausible but definitively wrong. The expectedAnswer MUST be one of the strings in the options array.
-- For science/chemistry/biology: ensure all facts, formulas, and units are scientifically accurate. Check chemical equations are balanced.
-- For statistics: verify all statistical calculations (means, standard deviations, confidence intervals, test statistics, p-values) by computing them step by step. Use the correct formula — population SD uses n, sample SD uses n-1. State which you are using.
-- For regression: slope b = r × (sy/sx), intercept a = ȳ - b×x̄. Verify by substituting back.
-- The expectedAnswer field MUST exactly match the final answer derived in the markingGuide working. If they differ, fix one of them.
-- MARKS: every question is worth exactly 2 marks — 1 for correct working and 1 for the correct final answer. The ONLY exception is multi-choice questions, which are worth 1 mark (the answer only — there is no working). So set "marks" to 2 for text/number/working questions and 1 for multi-choice.
-- Every question must have non-empty text, expectedAnswer, and markingGuide.
-- Question setups must be internally consistent — do not state a result that contradicts the given data.
-
-${GRAPH_RULES}
-
-Respond ONLY with a JSON array (no wrapper object, no markdown, no code fences) of exactly ${want} question object${want === 1 ? "" : "s"}:
-[
-  {
-    "number": "1",
-    "text": "<question text>",
-    "marks": <2 for text/number/working questions, 1 for multi-choice>,
-    "gradeLevel": "achieved" | "merit" | "excellence",
-    "answerType": "text" | "number" | "multi-choice" | "working",
-    "options": ["opt1","opt2","opt3","opt4"],
-    "expectedAnswer": "<answer — must match the final result of the markingGuide working>",
-    "markingGuide": "<step-by-step solution with all working shown>",
-    "graph": { /* optional GraphData — INCLUDE whenever the question references a graph/chart/table/diagram. OMIT otherwise. See GRAPH SCHEMA above. */ }
-  }
-]`;
+Return a JSON array of EXACTLY ${want} question object${want === 1 ? "" : "s"}, following the schema and rules in the system prompt.`;
 
   // Extract a JSON array of questions from a model response (tolerates code
   // fences / surrounding prose). Throws if no array is present.
@@ -1134,7 +1185,7 @@ Respond ONLY with a JSON array (no wrapper object, no markdown, no code fences) 
     try {
       const { text, usage } = await chatCompletion(
         buildBatchPrompt(want, existingSummary, batchSeed, roleNote),
-        { smart: true, maxTokens: tokensFor(want) }
+        { smart: true, maxTokens: tokensFor(want), system: GENERATION_SYSTEM }
       );
       const valid = parseQuestionArray(text).filter(
         (q) => validateQuestion(q as GenQuestion).length === 0
@@ -1208,75 +1259,30 @@ Respond ONLY with a JSON array (no wrapper object, no markdown, no code fences) 
       for (let topUp = 1; topUp <= MAX_TOP_UPS && validQuestions.length < questionCount; topUp++) {
         const missing = questionCount - validQuestions.length;
         const existingSummary = validQuestions
-          .map((q: { text: string }, i: number) => `${i + 1}. ${q.text.slice(0, 160).replace(/\s+/g, " ")}`)
+          .map((q, i) => `${i + 1}. ${String((q as { text?: string }).text ?? "").slice(0, 160).replace(/\s+/g, " ")}`)
           .join("\n");
-        const topUpPrompt = `You are extending an in-progress practice paper for ${levelLabel}.
-${topicLine}
-
-You have already produced ${validQuestions.length} questions. Generate ${missing} ADDITIONAL questions to bring the paper to exactly ${questionCount}. Do not duplicate, paraphrase, or closely mirror any of the existing questions below — pick different sub-topics, scenarios, and numeric values.
-
-EXISTING QUESTIONS (do not repeat):
-${existingSummary}
-
-${styleLabel}
-Variation seed: ${seed}-topup${topUp}
-
-Same accuracy and schema rules as the original paper:
-- Marks: 2 for text/number/working questions (1 working + 1 answer), 1 for multi-choice. gradeLevel achieved|merit|excellence, answerType text|number|multi-choice|working.
-- Multi-choice MUST have exactly 4 options and expectedAnswer must match one of them.
-- expectedAnswer must equal the final result of markingGuide working. Verify every arithmetic step.
-- Mix of Achievement / Merit / Excellence levels across the ${missing} new questions.
-
-${GRAPH_RULES}
-
-Respond ONLY with a JSON array (no wrapper object, no markdown, no prose) of exactly ${missing} question objects:
-[
-  {
-    "number": "${validQuestions.length + 1}",
-    "text": "<question text>",
-    "marks": <2 for text/number/working, 1 for multi-choice>,
-    "gradeLevel": "achieved" | "merit" | "excellence",
-    "answerType": "text" | "number" | "multi-choice" | "working",
-    "options": ["opt1","opt2","opt3","opt4"],
-    "expectedAnswer": "<answer>",
-    "markingGuide": "<full step-by-step working>",
-    "graph": { /* optional, same GraphData schema as before */ }
-  }
-]`;
-
-        try {
-          const topUpTokens = Math.min(16384, Math.max(4096, missing * 1500));
-          const { text: topUpText, usage: topUpUsage } = await chatCompletion(topUpPrompt, {
-            smart: true,
-            maxTokens: topUpTokens,
-          });
-          totalUsage = addUsage(totalUsage, topUpUsage);
-
-          const newQs = parseQuestionArray(topUpText) as GenQuestion[];
-
-          let added = 0;
-          for (const q of newQs) {
-            if (validQuestions.length >= questionCount) break;
-            const issues = validateQuestion(q);
-            if (issues.length === 0) {
-              validQuestions.push(q);
-              added++;
-            } else {
-              console.warn(
-                `[generatePracticePaper top-up ${topUp}] Dropping Q — validation failed:`,
-                issues.join("; ")
-              );
-            }
-          }
-          console.log(
-            `[generatePracticePaper] top-up ${topUp}: requested ${missing}, got ${newQs.length}, accepted ${added}; ${validQuestions.length}/${questionCount} total`
-          );
-        } catch (topUpErr) {
-          console.warn(
-            `[generatePracticePaper] top-up attempt ${topUp} failed:`,
-            topUpErr instanceof Error ? topUpErr.message : String(topUpErr)
-          );
+        // Same path (and same cached system prompt) as the parallel batches —
+        // just asks for the missing count with the existing questions as
+        // anti-duplication anchors.
+        const { questions: topUpQs, usage: topUpUsage } = await runBatch(
+          missing,
+          `You are filling the last ${missing} question${missing === 1 ? "" : "s"} of an in-progress paper.`,
+          `${seed}-topup${topUp}`,
+          existingSummary
+        );
+        totalUsage = addUsage(totalUsage, topUpUsage);
+        let added = 0;
+        for (const q of topUpQs) {
+          if (validQuestions.length >= questionCount) break;
+          const sig = sigOf(q);
+          if (sig && seen.has(sig)) continue;
+          if (sig) seen.add(sig);
+          validQuestions.push(q);
+          added++;
         }
+        console.log(
+          `[generatePracticePaper] top-up ${topUp}: requested ${missing}, accepted ${added}; ${validQuestions.length}/${questionCount} total`
+        );
       }
 
       // Belt and braces — if the model overshot during top-up, trim back to N.
