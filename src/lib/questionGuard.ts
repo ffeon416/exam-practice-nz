@@ -55,3 +55,39 @@ export function questionAsksStudentToDraw(q: Pick<Question, "text" | "graph" | "
 export function isQuestionBroken(q: Pick<Question, "text" | "graph" | "image">): boolean {
   return questionReferencesMissingVisual(q) || questionAsksStudentToDraw(q);
 }
+
+// Visual nouns that can carry a positional reference ("the graph below").
+const FIGURE_NOUNS =
+  "graph|chart|diagram|table|histogram|plot|figure|grid|scatterplot|scatter plot|boxplot|box plot|number line|pie chart|bar chart|line graph|dot plot|stem[-\\s]?and[-\\s]?leaf";
+// Directional words that assert WHERE the figure sits relative to the text.
+const DIRECTION = "below|above|to the right|to the left|on the right|on the left|opposite|overleaf";
+
+// Strip the positional word from references to an embedded figure, so the
+// question text never claims a position that can disagree with where the figure
+// actually renders. "The graph below shows…" → "The graph shows…"; "the diagram
+// above" → "the diagram"; "shown below" → "shown". DISPLAY-ONLY — it never
+// touches stored question data, graph data, or the text used for marking; it
+// only removes a direction word, never changes the maths or the figure. This is
+// the single source of truth that makes the mismatch impossible across every
+// exam (the 168 NZQA papers and all AI-generated ones), now and in future.
+// A trailing word that means the direction is GEOMETRIC ("graph below the
+// x-axis", "region above the line", "values below 5"), not a layout pointer.
+// When the direction word is followed by one of these, we must NOT strip it.
+const GEOMETRIC_AFTER = "the|a|an|this|that|these|those|its|their|each|x-?axis|y-?axis|axis|line|origin|point|curve|zero|mean|median|\\d";
+
+export function neutralizeFigureReferences(text: string): string {
+  if (!text) return text;
+  const notGeometric = `(?!\\s+(?:${GEOMETRIC_AFTER})\\b)`;
+  return text
+    // "<figure> [shown] <direction>" → "<figure>", but only when the direction
+    // is a layout pointer (followed by a verb/punctuation/end), never geometric.
+    .replace(new RegExp(`\\b(${FIGURE_NOUNS})\\s+(?:shown\\s+)?(?:${DIRECTION})\\b${notGeometric}`, "gi"), "$1")
+    // bare "shown <direction>" (e.g. "the data shown below") → "shown"
+    .replace(new RegExp(`\\bshown\\s+(?:${DIRECTION})\\b${notGeometric}`, "gi"), "shown")
+    // "following <figure>" (implies below) → "<figure>"
+    .replace(new RegExp(`\\bfollowing\\s+(${FIGURE_NOUNS})\\b`, "gi"), "$1")
+    // tidy any spacing the removals left behind
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/\s+([.,;:])/g, "$1")
+    .trim();
+}

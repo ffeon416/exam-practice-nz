@@ -20,6 +20,7 @@ import TopicTag from "@/components/TopicTag";
 import ShareResultCard from "@/components/ShareResultCard";
 import UpgradeNudge from "@/components/UpgradeNudge";
 import { useTier } from "@/hooks/useTier";
+import { neutralizeFigureReferences } from "@/lib/questionGuard";
 
 
 // Multi-pass English essay feedback payload is stuffed into the feedback
@@ -683,7 +684,7 @@ export default function ResultsPage({
                 {/* Question text */}
                 <div>
                   <p className="text-xs text-zinc-400 mb-1">Q{qIdx + 1}</p>
-                  <p className="text-sm text-zinc-300 whitespace-pre-wrap">{qq.text.replace(/\[Diagram:[^\]]+\]/g, "").trim()}</p>
+                  <p className="text-sm text-zinc-300 whitespace-pre-wrap">{neutralizeFigureReferences(qq.text).replace(/\[Diagram:[^\]]+\]/g, "").trim()}</p>
                 </div>
 
                 {/* Your working */}
@@ -883,7 +884,7 @@ export default function ResultsPage({
           {/* Question text */}
           <div>
             <div className="text-sm">
-              {q.text.split(/(\[Diagram:[^\]]+\])/).map((part, j) =>
+              {neutralizeFigureReferences(q.text).split(/(\[Diagram:[^\]]+\])/).map((part, j) =>
                 part.startsWith("[Diagram:") ? (
                   q.image ? null : (
                     <div

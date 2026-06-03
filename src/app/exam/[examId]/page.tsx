@@ -8,6 +8,7 @@ import type { Exam, Question } from "@/lib/types";
 import Timer from "@/components/Timer";
 import TopicTag from "@/components/TopicTag";
 import Graph from "@/components/Graph";
+import { neutralizeFigureReferences } from "@/lib/questionGuard";
 import TutorChat, { type Message as TutorMessage } from "@/components/TutorChat";
 import TutorUpgradeModal from "@/components/TutorUpgradeModal";
 import { useTier } from "@/hooks/useTier";
@@ -321,7 +322,7 @@ export default function ExamPage({
         )}
 
         <div className="mb-4 leading-relaxed">
-          {question.text.split(/(\[Diagram:[^\]]+\])/).map((part, i) =>
+          {neutralizeFigureReferences(question.text).split(/(\[Diagram:[^\]]+\])/).map((part, i) =>
             part.startsWith("[Diagram:") ? (
               question.image ? null : (
                 <div
