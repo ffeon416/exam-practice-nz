@@ -118,17 +118,28 @@ export async function getTier(userId: string): Promise<"free" | "student" | "pro
   const supabase = getSupabase();
   if (!supabase) return "free";
 
-  const { data } = await supabase
+  let { data, error } = await supabase
     .from("profiles")
     .select("tier, student_until, pro_until")
     .eq("user_id", userId)
     .single();
 
+  // Resilience: if the pro_until column doesn't exist yet (migration not yet
+  // applied), Postgres returns 42703 (undefined_column). Fall back to the
+  // pre-pro_until select so existing tiers still resolve correctly.
+  if (error && (error as { code?: string }).code === "42703") {
+    ({ data } = await supabase
+      .from("profiles")
+      .select("tier, student_until")
+      .eq("user_id", userId)
+      .single());
+  }
+
   const baseTier = (data?.tier as "free" | "student" | "pro") ?? "free";
   if (baseTier !== "free") return baseTier;
 
   const now = Date.now();
-  if (data?.pro_until && new Date(data.pro_until).getTime() > now) {
+  if ((data as { pro_until?: string | null })?.pro_until && new Date((data as { pro_until: string }).pro_until).getTime() > now) {
     return "pro";
   }
   if (data?.student_until && new Date(data.student_until).getTime() > now) {
