@@ -148,3 +148,43 @@ create policy "service_all_topics" on topic_scores for all using (true) with che
 create policy "service_all_reviews" on reviews for all using (true) with check (true);
 create policy "service_all_plans" on study_plans for all using (true) with check (true);
 create policy "service_all_usage" on usage for all using (true) with check (true);
+
+-- ── ACCESS CODES (free-trial / school codes) ─────────────
+-- A redeemable code grants a time-boxed tier (e.g. Pro for 30 days) with NO
+-- payment. Used to hand a school 50 free Pro trials via a single code.
+-- pro_until mirrors student_until: getTier() returns 'pro' while it's in the
+-- future, then the grant simply lapses (no charge, nothing to cancel).
+alter table profiles add column if not exists pro_until timestamptz;
+
+create table if not exists access_codes (
+  code text primary key,
+  tier text not null default 'pro' check (tier in ('student', 'pro')),
+  days int not null default 30,                 -- length of the grant per redeem
+  max_redemptions int not null default 50,      -- how many students can use it
+  redemptions_count int not null default 0,     -- display-only running tally
+  label text,                                   -- e.g. 'Noosa school pilot'
+  expires_at timestamptz,                       -- when the CODE itself stops working
+  created_at timestamptz not null default now()
+);
+
+create table if not exists code_redemptions (
+  code text not null references access_codes(code) on delete cascade,
+  user_id text not null,
+  redeemed_at timestamptz not null default now(),
+  primary key (code, user_id)                   -- one redeem per user per code
+);
+create index if not exists code_redemptions_user_idx on code_redemptions(user_id);
+
+alter table access_codes enable row level security;
+alter table code_redemptions enable row level security;
+drop policy if exists "service_all_access_codes" on access_codes;
+drop policy if exists "service_all_code_redemptions" on code_redemptions;
+create policy "service_all_access_codes" on access_codes for all using (true) with check (true);
+create policy "service_all_code_redemptions" on code_redemptions for all using (true) with check (true);
+
+-- The Noosa school pilot code: 50 students, 30 days of Pro each.
+-- The code itself stops working after 60 days (a window for the school to roll
+-- it out); each student who redeems gets a full 30 days from their redeem date.
+insert into access_codes (code, tier, days, max_redemptions, label, expires_at)
+values ('NOOSA-PRO', 'pro', 30, 50, 'Noosa school pilot', now() + interval '60 days')
+on conflict (code) do nothing;

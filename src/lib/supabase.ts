@@ -54,6 +54,7 @@ export interface Profile {
   referrer_id: string | null;
   referrals_count: number;
   student_until: string | null;
+  pro_until: string | null;
   bonus_exams_remaining: number;
   referral_credited: boolean;
   created_at: string;
@@ -107,9 +108,11 @@ export async function getOrCreateProfile(
 }
 
 /**
- * Get a user's effective tier — honours referral-granted Student time.
- * Referrals only ever grant Student (cheap for us, no tutor calls).
- * If the user is already on a paid tier we return that as-is.
+ * Get a user's effective tier — honours time-boxed grants.
+ * A paid tier (Stripe) always wins. Otherwise we check, in order:
+ *   1. pro_until    — a time-boxed Pro grant (e.g. a school trial code)
+ *   2. student_until — a referral-granted Student window (cheap, no tutor)
+ * Both lapse on their own with no charge — getTier just stops returning them.
  */
 export async function getTier(userId: string): Promise<"free" | "student" | "pro"> {
   const supabase = getSupabase();
@@ -117,17 +120,105 @@ export async function getTier(userId: string): Promise<"free" | "student" | "pro
 
   const { data } = await supabase
     .from("profiles")
-    .select("tier, student_until")
+    .select("tier, student_until, pro_until")
     .eq("user_id", userId)
     .single();
 
   const baseTier = (data?.tier as "free" | "student" | "pro") ?? "free";
   if (baseTier !== "free") return baseTier;
 
-  if (data?.student_until && new Date(data.student_until).getTime() > Date.now()) {
+  const now = Date.now();
+  if (data?.pro_until && new Date(data.pro_until).getTime() > now) {
+    return "pro";
+  }
+  if (data?.student_until && new Date(data.student_until).getTime() > now) {
     return "student";
   }
   return baseTier;
+}
+
+/** Result of redeeming an access code. */
+export type RedeemResult =
+  | { ok: true; tier: "student" | "pro"; until: string }
+  | { ok: false; reason: "invalid" | "expired" | "full" | "already" | "error" };
+
+/**
+ * Redeem an access code (e.g. a school's free-trial code) for the given user.
+ * Grants the code's tier for `days` days, stacking on any existing future
+ * grant. Caps total redemptions at the code's limit and prevents the same
+ * user redeeming twice. No payment is ever involved — the grant simply lapses
+ * when `pro_until` / `student_until` passes.
+ */
+export async function redeemCode(userId: string, rawCode: string): Promise<RedeemResult> {
+  const supabase = getSupabase();
+  if (!supabase) return { ok: false, reason: "error" };
+
+  const code = rawCode.trim().toUpperCase();
+  if (!code) return { ok: false, reason: "invalid" };
+
+  // 1. Look up the code.
+  const { data: ac } = await supabase
+    .from("access_codes")
+    .select("code, tier, days, max_redemptions, redemptions_count, expires_at")
+    .eq("code", code)
+    .single();
+  if (!ac) return { ok: false, reason: "invalid" };
+
+  const now = Date.now();
+  if (ac.expires_at && new Date(ac.expires_at).getTime() < now) {
+    return { ok: false, reason: "expired" };
+  }
+
+  // 2. Claim a redemption slot. The (code, user_id) primary key makes this
+  // idempotent — a repeat by the same user hits a unique violation, so we
+  // report "already" instead of granting twice.
+  const { error: redErr } = await supabase
+    .from("code_redemptions")
+    .insert({ code, user_id: userId });
+  if (redErr) {
+    if ((redErr as { code?: string }).code === "23505") {
+      return { ok: false, reason: "already" }; // unique_violation
+    }
+    console.error("redeemCode: redemption insert failed", redErr);
+    return { ok: false, reason: "error" };
+  }
+
+  // 3. Enforce the cap. The count includes the row we just inserted; if we've
+  // gone past the limit, roll our row back and report full. Race-safe enough
+  // for a pilot — the (limit+1)th concurrent redeemer is the one that backs out.
+  const { count } = await supabase
+    .from("code_redemptions")
+    .select("user_id", { count: "exact", head: true })
+    .eq("code", code);
+  if ((count ?? 0) > (ac.max_redemptions ?? 0)) {
+    await supabase.from("code_redemptions").delete().eq("code", code).eq("user_id", userId);
+    return { ok: false, reason: "full" };
+  }
+
+  // 4. Grant the tier for `days` days, stacking on any existing future grant.
+  const days = ac.days ?? 30;
+  const column = ac.tier === "pro" ? "pro_until" : "student_until";
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select(column)
+    .eq("user_id", userId)
+    .single();
+  const existing = (profile as Record<string, string | null> | null)?.[column] ?? null;
+  const base = existing && new Date(existing).getTime() > now ? new Date(existing).getTime() : now;
+  const until = new Date(base + days * 24 * 60 * 60 * 1000).toISOString();
+
+  await supabase
+    .from("profiles")
+    .update({ [column]: until, updated_at: new Date().toISOString() })
+    .eq("user_id", userId);
+
+  // 5. Keep the code's visible counter roughly in sync (display only).
+  await supabase
+    .from("access_codes")
+    .update({ redemptions_count: count ?? 0 })
+    .eq("code", code);
+
+  return { ok: true, tier: ac.tier as "student" | "pro", until };
 }
 
 /**
