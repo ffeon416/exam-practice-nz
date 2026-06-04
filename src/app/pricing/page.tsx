@@ -39,7 +39,7 @@ const PLANS: Plan[] = [
     name: "Student",
     tier: "student",
     tagline: "Pass with confidence",
-    monthlyPrice: 9.99,
+    monthlyPrice: 15,
     features: [
       { text: "20 practice exams per week", included: true, bold: true },
       { text: "Full StudyAce marking on every question", included: true },

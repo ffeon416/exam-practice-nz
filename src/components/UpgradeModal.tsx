@@ -45,7 +45,7 @@ export default function UpgradeModal({ message, onClose, showReferral = false }:
           <ul className="space-y-2 text-[13px] text-zinc-400">
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>
-              <span><strong className="text-zinc-200">Student ($9.99/mo)</strong> — 20 exams/week, all subjects, spaced repetition, study planner, deep essay marking (no tutor)</span>
+              <span><strong className="text-zinc-200">Student ($15/mo)</strong> — 20 exams/week, all subjects, spaced repetition, study planner, deep essay marking (no tutor)</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>

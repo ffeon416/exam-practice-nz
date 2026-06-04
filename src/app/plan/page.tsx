@@ -148,7 +148,7 @@ function PlanUpgradeGate() {
         <div className="rounded-xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
           <p className="text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
           <p className="text-white">
-            <span className="text-[28px] font-extrabold tracking-tight">$9.99</span>
+            <span className="text-[28px] font-extrabold tracking-tight">$15</span>
             <span className="text-zinc-400 text-[13px] ml-1">/month</span>
           </p>
           <p className="text-zinc-500 text-[11px] mt-1">Cancel anytime · All subjects unlocked</p>

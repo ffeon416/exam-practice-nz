@@ -58,7 +58,7 @@ export const TIER_LABELS: Record<Tier, string> = {
 /** Monthly prices */
 export const TIER_PRICES: Record<Tier, number | null> = {
   free: null,
-  student: 9.99,
+  student: 15,
   pro: 19.99,
 };
 
