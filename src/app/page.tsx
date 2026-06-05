@@ -356,6 +356,7 @@ export default function HomePage() {
               <>
                 <Link href="/subjects" className="hover:text-zinc-400 transition-colors">Exams</Link>
                 <Link href="/dashboard" className="hover:text-zinc-400 transition-colors">Dashboard</Link>
+                <Link href="/redeem" className="hover:text-zinc-400 transition-colors">Redeem code</Link>
                 <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
                 <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
                 <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
@@ -363,6 +364,7 @@ export default function HomePage() {
             ) : (
               <>
                 <Link href="/pricing" className="hover:text-zinc-400 transition-colors">Pricing</Link>
+                <Link href="/redeem" className="hover:text-zinc-400 transition-colors">Redeem code</Link>
                 <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
                 <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
                 <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>

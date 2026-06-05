@@ -182,9 +182,9 @@ drop policy if exists "service_all_code_redemptions" on code_redemptions;
 create policy "service_all_access_codes" on access_codes for all using (true) with check (true);
 create policy "service_all_code_redemptions" on code_redemptions for all using (true) with check (true);
 
--- The Noosa school pilot code: 50 students, 30 days of Pro each.
+-- Te Kura school pilot code: 55 students, 30 days of Pro each.
 -- The code itself stops working after 60 days (a window for the school to roll
 -- it out); each student who redeems gets a full 30 days from their redeem date.
 insert into access_codes (code, tier, days, max_redemptions, label, expires_at)
-values ('NOOSA-PRO', 'pro', 30, 50, 'Noosa school pilot', now() + interval '60 days')
+values ('TEKURA11', 'pro', 30, 55, 'Te Kura school pilot', now() + interval '60 days')
 on conflict (code) do nothing;
