@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { loadOnboarding } from "@/lib/onboarding";
+import { setScopeUserId } from "@/lib/userScope";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
 import { getTopicLabel } from "@/data/topics";
 import {
@@ -294,7 +295,7 @@ function PaymentWelcome({
 }
 
 export default function DashboardPage() {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
   const router = useRouter();
   const [progress, setProgress] = useState<StudentProgress | null>(null);
   const [customExams, setCustomExams] = useState<CustomExamMeta[]>([]);
@@ -374,37 +375,55 @@ export default function DashboardPage() {
   }
 
   useEffect(() => {
+    // Wait for Clerk so every read below is namespaced to THIS account. Until
+    // then the dashboard shows a neutral skeleton (progress stays null), never
+    // another user's data. setScopeUserId must run before any loadProgress().
+    if (!isLoaded) return;
+    setScopeUserId(user?.id ?? null);
     setMounted(true);
+
     const existingProgress = loadProgress();
     const existingOnboarding = loadOnboarding();
     setProgress(existingProgress);
     setCustomExams(listCustomExams());
     setOnboarding(existingOnboarding);
 
-    // First-time user with no data and no onboarding: send them to /welcome
-    if (!existingOnboarding && existingProgress.totalExamsTaken === 0) {
-      router.replace("/welcome");
-      return;
-    }
-
+    let cancelled = false;
     fetch("/api/progress")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (!data || (!data.examAttempts?.length && !Object.keys(data.topicScores || {}).length)) return;
-        const local = loadProgress();
-        const dbAttempts = data.examAttempts ?? [];
-        if (dbAttempts.length > local.examAttempts.length) {
+        if (cancelled) return;
+        const serverAttempts = data?.examAttempts ?? [];
+        if (serverAttempts.length > 0) {
+          // Returning account: the server (keyed by Clerk user id) is the
+          // source of truth. Merge in any locally-cached topic scores.
+          const local = loadProgress();
           setProgress({
-            examAttempts: dbAttempts,
-            topicScores: { ...local.topicScores, ...data.topicScores },
-            totalExamsTaken: dbAttempts.length,
+            examAttempts: serverAttempts,
+            topicScores: { ...local.topicScores, ...(data.topicScores || {}) },
+            totalExamsTaken: serverAttempts.length,
             streakDays: Math.max(local.streakDays, data.streakDays ?? 0),
             lastActiveDate: local.lastActiveDate,
           });
+        } else if (!existingOnboarding && existingProgress.totalExamsTaken === 0) {
+          // Genuinely new account: no local data AND no server data. Onboard.
+          // (We only decide "new" after the server confirms it — never from an
+          //  empty local namespace alone, which would wrongly bounce returning
+          //  users to /welcome.)
+          router.replace("/welcome");
         }
       })
-      .catch(() => {});
-  }, []);
+      .catch(() => {
+        if (cancelled) return;
+        if (!existingOnboarding && existingProgress.totalExamsTaken === 0) {
+          router.replace("/welcome");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isLoaded, user?.id, router]);
 
   function handleDeleteCustom(id: string) {
     if (!confirm("Delete this paper?")) return;

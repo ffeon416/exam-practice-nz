@@ -1,3 +1,5 @@
+import { scopedKey } from "./userScope";
+
 const STORAGE_KEY = "studyace-onboarding";
 
 export interface OnboardingPrefs {
@@ -9,7 +11,7 @@ export interface OnboardingPrefs {
 export function loadOnboarding(): OnboardingPrefs | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(scopedKey(STORAGE_KEY));
     if (!raw) return null;
     const parsed = JSON.parse(raw) as OnboardingPrefs;
     if (
@@ -29,7 +31,7 @@ export function saveOnboarding(prefs: Omit<OnboardingPrefs, "completedAt">) {
   if (typeof window === "undefined") return;
   try {
     const toSave: OnboardingPrefs = { ...prefs, completedAt: new Date().toISOString() };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+    localStorage.setItem(scopedKey(STORAGE_KEY), JSON.stringify(toSave));
   } catch {
     // Quota exceeded or storage disabled
   }

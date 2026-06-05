@@ -2,6 +2,8 @@
 // Questions the student got wrong come back at increasing intervals
 // until mastered — the same way Anki and Duolingo work.
 
+import { scopedKey, onScopeChange } from "./userScope";
+
 const REVIEW_KEY = "exam-practice-nz-reviews";
 
 export interface ReviewItem {
@@ -25,7 +27,7 @@ export interface ReviewStore {
 function loadStore(): ReviewStore {
   if (typeof window === "undefined") return { items: {} };
   try {
-    const raw = localStorage.getItem(REVIEW_KEY);
+    const raw = localStorage.getItem(scopedKey(REVIEW_KEY));
     if (!raw) return { items: {} };
     return JSON.parse(raw) as ReviewStore;
   } catch {
@@ -36,7 +38,7 @@ function loadStore(): ReviewStore {
 function saveStore(store: ReviewStore) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(REVIEW_KEY, JSON.stringify(store));
+    localStorage.setItem(scopedKey(REVIEW_KEY), JSON.stringify(store));
     notify();
   } catch {
     // Storage full or disabled — fail silently
@@ -184,13 +186,16 @@ export function subscribeReviews(listener: Listener): () => void {
   listeners.add(listener);
 
   const onStorage = (e: StorageEvent) => {
-    if (e.key === REVIEW_KEY) notify();
+    if (e.key?.startsWith(REVIEW_KEY)) notify();
   };
   window.addEventListener("storage", onStorage);
+  // An account switch changes the namespace — re-read under the new user.
+  const offScope = onScopeChange(notify);
 
   return () => {
     listeners.delete(listener);
     window.removeEventListener("storage", onStorage);
+    offScope();
   };
 }
 

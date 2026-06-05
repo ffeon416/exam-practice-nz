@@ -1,4 +1,5 @@
 import type { StudentProgress, ExamAttempt, TopicScore } from "./types";
+import { scopedKey } from "./userScope";
 
 const STORAGE_KEY = "exam-practice-nz-progress";
 
@@ -15,7 +16,7 @@ function defaultProgress(): StudentProgress {
 export function loadProgress(): StudentProgress {
   if (typeof window === "undefined") return defaultProgress();
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(scopedKey(STORAGE_KEY));
     if (!raw) return defaultProgress();
     const parsed = JSON.parse(raw) as StudentProgress;
     // Validate structure — if corrupted, return defaults
@@ -34,7 +35,7 @@ export function loadProgress(): StudentProgress {
 export function saveProgress(progress: StudentProgress) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    localStorage.setItem(scopedKey(STORAGE_KEY), JSON.stringify(progress));
   } catch {
     // Quota exceeded or storage disabled — silently ignore so user isn't blocked
   }

@@ -7,6 +7,7 @@
 import { loadProgress, getWeakTopics } from "@/lib/storage";
 import { getTopicLabel } from "@/data/topics";
 import type { Exam } from "@/lib/types";
+import { scopedKey, onScopeChange } from "@/lib/userScope";
 
 const PLAN_KEY = "study-plan";
 
@@ -333,7 +334,7 @@ function buildFinalWeekTasks(
 export function loadPlan(): StudyPlan | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = localStorage.getItem(PLAN_KEY);
+    const raw = localStorage.getItem(scopedKey(PLAN_KEY));
     if (!raw) return null;
     return JSON.parse(raw) as StudyPlan;
   } catch {
@@ -344,7 +345,7 @@ export function loadPlan(): StudyPlan | null {
 export function savePlan(plan: StudyPlan): void {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(PLAN_KEY, JSON.stringify(plan));
+    localStorage.setItem(scopedKey(PLAN_KEY), JSON.stringify(plan));
     notify();
   } catch {
     // Storage full or disabled — fail silently
@@ -353,7 +354,7 @@ export function savePlan(plan: StudyPlan): void {
 
 export function clearPlan(): void {
   if (typeof window === "undefined") return;
-  localStorage.removeItem(PLAN_KEY);
+  localStorage.removeItem(scopedKey(PLAN_KEY));
   notify();
 }
 
@@ -439,13 +440,16 @@ export function subscribePlan(listener: Listener): () => void {
   listeners.add(listener);
 
   const onStorage = (e: StorageEvent) => {
-    if (e.key === PLAN_KEY) notify();
+    if (e.key?.startsWith(PLAN_KEY)) notify();
   };
   window.addEventListener("storage", onStorage);
+  // An account switch changes the namespace — re-read under the new user.
+  const offScope = onScopeChange(notify);
 
   return () => {
     listeners.delete(listener);
     window.removeEventListener("storage", onStorage);
+    offScope();
   };
 }
 

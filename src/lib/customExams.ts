@@ -1,5 +1,6 @@
 import type { Exam } from "./types";
 import { isQuestionBroken } from "./questionGuard";
+import { scopedKey } from "./userScope";
 
 const STORAGE_KEY = "custom-exams";
 
@@ -36,7 +37,7 @@ function isBrowser(): boolean {
 function readStore(): Record<string, Exam> {
   if (!isBrowser()) return {};
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(scopedKey(STORAGE_KEY));
     if (!raw) return {};
     const parsed = JSON.parse(raw) as Record<string, Exam>;
     return parsed && typeof parsed === "object" ? parsed : {};
@@ -48,7 +49,7 @@ function readStore(): Record<string, Exam> {
 function writeStore(store: Record<string, Exam>): void {
   if (!isBrowser()) return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    localStorage.setItem(scopedKey(STORAGE_KEY), JSON.stringify(store));
   } catch (err) {
     console.error("Failed to write custom exams to localStorage:", err);
   }

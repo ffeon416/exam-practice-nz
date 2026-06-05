@@ -8,6 +8,8 @@
 // Storage and the external-store subscription API mirror spacedRepetition.ts
 // so React 19 components can read via useSyncExternalStore.
 
+import { scopedKey, onScopeChange } from "./userScope";
+
 const RATINGS_KEY = "adaptive-ratings";
 
 export type GradeLevel = "achieved" | "merit" | "excellence";
@@ -29,7 +31,7 @@ interface RatingsStore {
 function loadStore(): RatingsStore {
   if (typeof window === "undefined") return { ratings: {} };
   try {
-    const raw = localStorage.getItem(RATINGS_KEY);
+    const raw = localStorage.getItem(scopedKey(RATINGS_KEY));
     if (!raw) return { ratings: {} };
     const parsed = JSON.parse(raw) as Partial<RatingsStore>;
     return { ratings: parsed.ratings ?? {} };
@@ -41,7 +43,7 @@ function loadStore(): RatingsStore {
 function saveStore(store: RatingsStore) {
   if (typeof window === "undefined") return;
   try {
-    localStorage.setItem(RATINGS_KEY, JSON.stringify(store));
+    localStorage.setItem(scopedKey(RATINGS_KEY), JSON.stringify(store));
     notify();
   } catch {
     // Storage full or disabled — fail silently
@@ -149,13 +151,16 @@ export function subscribeRatings(listener: Listener): () => void {
   listeners.add(listener);
 
   const onStorage = (e: StorageEvent) => {
-    if (e.key === RATINGS_KEY) notify();
+    if (e.key?.startsWith(RATINGS_KEY)) notify();
   };
   window.addEventListener("storage", onStorage);
+  // An account switch changes the namespace — re-read under the new user.
+  const offScope = onScopeChange(notify);
 
   return () => {
     listeners.delete(listener);
     window.removeEventListener("storage", onStorage);
+    offScope();
   };
 }
 
