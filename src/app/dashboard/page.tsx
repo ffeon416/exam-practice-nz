@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
-import { loadProgress, getWeakTopics } from "@/lib/storage";
+import { loadProgress, saveProgress, getWeakTopics } from "@/lib/storage";
 import { loadOnboarding } from "@/lib/onboarding";
 import { setScopeUserId } from "@/lib/userScope";
 import { gradeLabel, gradeColor } from "@/lib/scoring";
@@ -306,6 +306,10 @@ export default function DashboardPage() {
   // live tier confirms it applied — never on a normal revisit, never a wrong plan.
   const [purchasedPlan, setPurchasedPlan] = useState<"student" | "pro" | null>(null);
   const [previewTier, setPreviewTier] = useState<"free" | "student" | "pro" | null>(null);
+  // Have we reconciled with /api/progress yet? Used to avoid flashing the empty
+  // "no exams yet" dashboard for a returning user whose data hasn't loaded — we
+  // keep the neutral skeleton until the server confirms there's genuinely none.
+  const [serverChecked, setServerChecked] = useState(false);
   const { tier, limits, usage, loading: tierLoading, refresh: refreshTier } = useTier();
   const tierRef = useRef(tier);
   tierRef.current = tier;
@@ -398,13 +402,17 @@ export default function DashboardPage() {
           // Returning account: the server (keyed by Clerk user id) is the
           // source of truth. Merge in any locally-cached topic scores.
           const local = loadProgress();
-          setProgress({
+          const merged: StudentProgress = {
             examAttempts: serverAttempts,
             topicScores: { ...local.topicScores, ...(data.topicScores || {}) },
             totalExamsTaken: serverAttempts.length,
             streakDays: Math.max(local.streakDays, data.streakDays ?? 0),
             lastActiveDate: local.lastActiveDate,
-          });
+          };
+          setProgress(merged);
+          // Cache to this user's scoped key so the next load is instant (no
+          // skeleton) instead of waiting on the server every time.
+          saveProgress(merged);
         } else if (!existingOnboarding && existingProgress.totalExamsTaken === 0) {
           // Genuinely new account: no local data AND no server data. Onboard.
           // (We only decide "new" after the server confirms it — never from an
@@ -412,12 +420,14 @@ export default function DashboardPage() {
           //  users to /welcome.)
           router.replace("/welcome");
         }
+        setServerChecked(true);
       })
       .catch(() => {
         if (cancelled) return;
         if (!existingOnboarding && existingProgress.totalExamsTaken === 0) {
           router.replace("/welcome");
         }
+        setServerChecked(true);
       });
 
     return () => {
@@ -433,7 +443,12 @@ export default function DashboardPage() {
 
   const firstName = user?.firstName?.trim() || null;
 
-  if (!progress) return (
+  // Show the neutral skeleton until we have authoritative data. Critically, if
+  // the local namespace is empty we wait for the server before rendering — so a
+  // returning user never sees a flash of the empty "no exams yet" dashboard
+  // before their real numbers load in. (Inlined so `progress` still narrows to
+  // non-null below.)
+  if (!progress || (progress.totalExamsTaken === 0 && !serverChecked)) return (
     <div className="max-w-xl mx-auto px-5 pt-16 pb-20 bg-[#06060a] min-h-screen">
       {showPaymentSuccess && !tierLoading && tier !== "free" && (!purchasedPlan || tier === purchasedPlan) && (
         <PaymentWelcome tier={tier} firstName={firstName} onClose={dismissWelcome} />
