@@ -2,7 +2,8 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import { demoQuestions, demoResults } from "@/data/demoQuestions";
+import { demoQuestions } from "@/data/demoQuestions";
+import { questionMaxMarks } from "@/lib/scoring";
 import type { MarkingResult } from "@/lib/types";
 import { Markdown } from "@/components/Markdown";
 
@@ -103,17 +104,49 @@ export default function DemoPage() {
 
   const submitForMarking = async () => {
     setMarkingDone([false, false, false]);
-    // Use pre-baked results — zero API cost, feels identical to real AI marking
+
+    // Mark the REAL typed answers through the same honest pipeline as the live
+    // exams — no canned results, no sugar-coating. Wrong answers are marked
+    // wrong. Kick the request off immediately, then play the progress reveal;
+    // we only show results once the real marking has come back.
+    const markPromise = fetch("/api/demo-mark", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ answers }),
+    })
+      .then((r) => r.json())
+      .catch(() => null);
+
     for (let i = 0; i < 3; i++) {
-      await new Promise((r) => setTimeout(r, 800 + Math.random() * 600));
+      await new Promise((r) => setTimeout(r, 600 + Math.random() * 500));
       setMarkingDone((prev) => {
         const next = [...prev];
         next[i] = true;
         return next;
       });
     }
-    await new Promise((r) => setTimeout(r, 400));
-    setResults(demoResults);
+
+    const data = await markPromise;
+    const marked: MarkingResult[] =
+      data && Array.isArray(data.results) && data.results.length === demoQuestions.length
+        ? data.results
+        : // Network/parse failure → honest self-mark, never a fake pass.
+          demoQuestions.map((q) => ({
+            questionId: q.id,
+            marksAwarded: 0,
+            maxMarks: questionMaxMarks(q.answerType),
+            workingMark: q.answerType === "multi-choice" ? null : 0,
+            answerMark: 0,
+            grade: "not-achieved" as const,
+            feedback:
+              "We couldn't reach the marker just now. Compare your answer with the correct approach below.",
+            correctApproach: q.markingGuide,
+            examTip: "Always show your working clearly.",
+            topicsToReview: q.topics,
+          }));
+
+    await new Promise((r) => setTimeout(r, 300));
+    setResults(marked);
     setStep("results");
   };
 

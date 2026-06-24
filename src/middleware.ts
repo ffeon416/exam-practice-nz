@@ -21,6 +21,7 @@ const isPublicRoute = createRouteMatcher([
   "/sitemap.xml",
   "/api/school-enquiry",
   "/api/contact",
+  "/api/demo-mark",
   "/api/stripe-webhook",
   "/api/cron(.*)",
 ]);
