@@ -19,6 +19,7 @@ interface ViewRow {
   referrer: string | null;
   visitor_id: string | null;
   device: string | null;
+  country: string | null;
   created_at: string;
 }
 
@@ -44,7 +45,7 @@ export async function GET() {
   // Pull the last 30 days once and slice in memory for each window.
   const { data, error } = await supabase
     .from("page_views")
-    .select("path, referrer, visitor_id, device, created_at")
+    .select("path, referrer, visitor_id, device, country, created_at")
     .gte("created_at", since30)
     .order("created_at", { ascending: false })
     .limit(ROW_CAP);
@@ -80,10 +81,12 @@ export async function GET() {
   // Top pages & referrers over the full 30-day window.
   const pageMap = new Map<string, number>();
   const refMap = new Map<string, number>();
+  const countryMap = new Map<string, number>();
   const deviceCount = { mobile: 0, desktop: 0 };
   for (const r of rows) {
     pageMap.set(r.path, (pageMap.get(r.path) ?? 0) + 1);
     if (r.referrer) refMap.set(r.referrer, (refMap.get(r.referrer) ?? 0) + 1);
+    if (r.country) countryMap.set(r.country, (countryMap.get(r.country) ?? 0) + 1);
     if (r.device === "mobile") deviceCount.mobile++;
     else if (r.device === "desktop") deviceCount.desktop++;
   }
@@ -92,6 +95,7 @@ export async function GET() {
 
   const topPages = sortTop(pageMap, 12);
   const topReferrers = sortTop(refMap, 10);
+  const topCountries = sortTop(countryMap, 10);
 
   // 14-day daily series (oldest → newest) for a little bar chart.
   const dailyMap = new Map<string, number>();
@@ -109,6 +113,7 @@ export async function GET() {
     totals,
     topPages,
     topReferrers,
+    topCountries,
     deviceCount,
     daily,
     truncated,

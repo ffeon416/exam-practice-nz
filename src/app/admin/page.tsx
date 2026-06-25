@@ -54,6 +54,7 @@ interface Analytics {
   totals: { today: TrafficWindow; week: TrafficWindow; month: TrafficWindow };
   topPages: { key: string; count: number }[];
   topReferrers: { key: string; count: number }[];
+  topCountries: { key: string; count: number }[];
   deviceCount: { mobile: number; desktop: number };
   daily: { date: string; views: number }[];
   truncated: boolean;
@@ -459,8 +460,23 @@ function fmtRelative(iso: string): string {
   }
 }
 
+// Country code → flag emoji + name. Vercel's edge gives a 2-letter ISO code.
+const COUNTRY_NAMES: Record<string, string> = {
+  NZ: "New Zealand", AU: "Australia", US: "United States", GB: "United Kingdom",
+  CA: "Canada", IE: "Ireland", IN: "India", ZA: "South Africa", SG: "Singapore",
+  PH: "Philippines", FJ: "Fiji", CN: "China", JP: "Japan", DE: "Germany",
+  FR: "France", NL: "Netherlands", BR: "Brazil",
+};
+function countryLabel(code: string): string {
+  if (!code || code.length !== 2 || code === "XX") return "Unknown";
+  const flag = String.fromCodePoint(
+    ...[...code.toUpperCase()].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65),
+  );
+  return `${flag} ${COUNTRY_NAMES[code.toUpperCase()] ?? code.toUpperCase()}`;
+}
+
 function Traffic({ analytics }: { analytics: Analytics }) {
-  const { totals, topPages, topReferrers, deviceCount, daily, truncated } = analytics;
+  const { totals, topPages, topReferrers, topCountries, deviceCount, daily, truncated } = analytics;
   const maxDay = Math.max(1, ...daily.map((d) => d.views));
   const deviceTotal = deviceCount.mobile + deviceCount.desktop;
   const mobilePct = deviceTotal > 0 ? Math.round((deviceCount.mobile / deviceTotal) * 100) : 0;
@@ -498,10 +514,15 @@ function Traffic({ analytics }: { analytics: Analytics }) {
         </div>
       </div>
 
-      {/* Top pages + referrers */}
+      {/* Top pages + referrers + countries */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <TrafficList title="Top pages" rows={topPages} emptyLabel="No views yet." />
         <TrafficList title="Top referrers" rows={topReferrers} emptyLabel="No external referrers yet — traffic is direct." />
+        <TrafficList
+          title="Top countries"
+          rows={topCountries.map((c) => ({ key: countryLabel(c.key), count: c.count }))}
+          emptyLabel="No location data yet."
+        />
       </div>
 
       <p className="text-zinc-600 text-[11px] mt-4">
