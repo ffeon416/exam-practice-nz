@@ -188,3 +188,28 @@ create policy "service_all_code_redemptions" on code_redemptions for all using (
 insert into access_codes (code, tier, days, max_redemptions, label, expires_at)
 values ('TEKURA11', 'pro', 30, 55, 'Te Kura school pilot', now() + interval '60 days')
 on conflict (code) do nothing;
+
+-- ── PAGE VIEWS (first-party analytics) ───────────────────
+-- Lightweight, privacy-friendly traffic tracking surfaced in /admin instead of
+-- Google Analytics. No cookies, no personal data: visitor_id is a random id the
+-- browser keeps in localStorage purely to estimate unique visitors. user_id is
+-- set only when the viewer is signed in (no FK — a view can happen before the
+-- Clerk webhook creates the profile, and we never want a missing profile to
+-- block a view insert).
+create table if not exists page_views (
+  id uuid primary key default gen_random_uuid(),
+  path text not null,                 -- e.g. '/', '/pricing', '/blog/slug'
+  referrer text,                      -- external referrer host, null for direct
+  visitor_id text,                    -- anon localStorage id (unique-visitor estimate)
+  user_id text,                       -- Clerk id if signed in, else null
+  country text,                       -- 2-letter code from the Vercel edge header
+  device text check (device in ('mobile', 'desktop')),
+  created_at timestamptz not null default now()
+);
+create index if not exists page_views_created_idx on page_views(created_at desc);
+create index if not exists page_views_visitor_idx on page_views(visitor_id);
+create index if not exists page_views_path_idx on page_views(path);
+
+alter table page_views enable row level security;
+drop policy if exists "service_all_page_views" on page_views;
+create policy "service_all_page_views" on page_views for all using (true) with check (true);

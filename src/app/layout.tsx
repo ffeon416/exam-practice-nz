@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
+import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import UserScopeSync from "@/components/UserScopeSync";
 import "./globals.css";
@@ -117,6 +118,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Analytics />
+          <PageViewTracker />
           <ServiceWorkerRegister />
         </body>
       </html>

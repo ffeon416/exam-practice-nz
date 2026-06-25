@@ -22,6 +22,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/school-enquiry",
   "/api/contact",
   "/api/demo-mark",
+  "/api/track",
   "/api/stripe-webhook",
   "/api/cron(.*)",
 ]);

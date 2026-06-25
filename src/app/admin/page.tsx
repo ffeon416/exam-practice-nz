@@ -45,6 +45,20 @@ interface Stats {
   allUsers: UserRow[];
 }
 
+interface TrafficWindow {
+  views: number;
+  visitors: number;
+}
+
+interface Analytics {
+  totals: { today: TrafficWindow; week: TrafficWindow; month: TrafficWindow };
+  topPages: { key: string; count: number }[];
+  topReferrers: { key: string; count: number }[];
+  deviceCount: { mobile: number; desktop: number };
+  daily: { date: string; views: number }[];
+  truncated: boolean;
+}
+
 function fmtMoney(n: number): string {
   if (n === 0) return "$0.00";
   if (Math.abs(n) < 0.01) return `$${n.toFixed(4)}`;
@@ -63,6 +77,7 @@ type UserSortKey = "signedUpAt" | "email" | "tier" | "lifetimeCostUsd" | "lastAc
 
 export default function AdminPage() {
   const [stats, setStats] = useState<Stats | null>(null);
+  const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [userSearch, setUserSearch] = useState("");
@@ -117,7 +132,16 @@ export default function AdminPage() {
         if (!cancelled) setLoading(false);
       }
     }
+    async function loadAnalytics() {
+      try {
+        const res = await fetch("/api/admin/analytics", { cache: "no-store" });
+        if (res.ok && !cancelled) setAnalytics((await res.json()) as Analytics);
+      } catch {
+        /* traffic panel is non-critical — ignore */
+      }
+    }
     load();
+    loadAnalytics();
     return () => {
       cancelled = true;
     };
@@ -215,6 +239,9 @@ export default function AdminPage() {
           {totalSubscribers} total signed-up users · {paidSubscribers} paying
         </p>
       </div>
+
+      {/* Traffic (first-party analytics) */}
+      {analytics && <Traffic analytics={analytics} />}
 
       {/* Feature breakdown */}
       <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-8">
@@ -430,6 +457,81 @@ function fmtRelative(iso: string): string {
   } catch {
     return "—";
   }
+}
+
+function Traffic({ analytics }: { analytics: Analytics }) {
+  const { totals, topPages, topReferrers, deviceCount, daily, truncated } = analytics;
+  const maxDay = Math.max(1, ...daily.map((d) => d.views));
+  const deviceTotal = deviceCount.mobile + deviceCount.desktop;
+  const mobilePct = deviceTotal > 0 ? Math.round((deviceCount.mobile / deviceTotal) * 100) : 0;
+
+  return (
+    <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-8">
+      <div className="flex items-baseline justify-between mb-4">
+        <h2 className="text-white font-extrabold text-[14px]">Traffic</h2>
+        <span className="text-zinc-600 text-[11px]">First-party · last 30 days</span>
+      </div>
+
+      {/* Headline windows */}
+      <div className="grid grid-cols-3 gap-3 mb-5">
+        <Stat label="Today" value={totals.today.views.toLocaleString()} sub={`${totals.today.visitors} visitors`} />
+        <Stat label="7 days" value={totals.week.views.toLocaleString()} sub={`${totals.week.visitors} visitors`} />
+        <Stat label="30 days" value={totals.month.views.toLocaleString()} sub={`${totals.month.visitors} visitors`} />
+      </div>
+
+      {/* 14-day daily views bar chart */}
+      <div className="mb-5">
+        <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-2">Views · last 14 days</p>
+        <div className="flex items-end gap-[3px] h-20">
+          {daily.map((d) => (
+            <div key={d.date} className="flex-1 flex flex-col justify-end group relative" title={`${d.date}: ${d.views}`}>
+              <div
+                className="w-full bg-gradient-to-t from-indigo-500/70 to-purple-500/70 rounded-sm min-h-[2px]"
+                style={{ height: `${(d.views / maxDay) * 100}%` }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-between text-zinc-600 text-[10px] mt-1">
+          <span>{daily[0]?.date.slice(5)}</span>
+          <span>{daily[daily.length - 1]?.date.slice(5)}</span>
+        </div>
+      </div>
+
+      {/* Top pages + referrers */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <TrafficList title="Top pages" rows={topPages} emptyLabel="No views yet." />
+        <TrafficList title="Top referrers" rows={topReferrers} emptyLabel="No external referrers yet — traffic is direct." />
+      </div>
+
+      <p className="text-zinc-600 text-[11px] mt-4">
+        {deviceTotal > 0 ? `${mobilePct}% mobile · ${100 - mobilePct}% desktop` : "No device data yet"}
+        {truncated && " · showing newest 50k views (older traffic capped)"}
+      </p>
+    </div>
+  );
+}
+
+function TrafficList({ title, rows, emptyLabel }: { title: string; rows: { key: string; count: number }[]; emptyLabel: string }) {
+  const max = Math.max(1, ...rows.map((r) => r.count));
+  return (
+    <div>
+      <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-2">{title}</p>
+      {rows.length === 0 ? (
+        <p className="text-zinc-500 text-[12px]">{emptyLabel}</p>
+      ) : (
+        <div className="space-y-1.5">
+          {rows.map((r) => (
+            <div key={r.key} className="relative flex justify-between items-center text-[12px] px-2 py-1 rounded-md overflow-hidden">
+              <div className="absolute inset-0 bg-white/[0.03] rounded-md" style={{ width: `${(r.count / max) * 100}%` }} />
+              <span className="relative text-zinc-300 truncate max-w-[78%]">{r.key}</span>
+              <span className="relative text-zinc-400 tabular-nums">{r.count.toLocaleString()}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function Stat({
