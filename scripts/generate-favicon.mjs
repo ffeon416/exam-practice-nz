@@ -1,9 +1,11 @@
-// Generates the StudyAce browser favicon — a compact monogram that stays legible
-// at 16-32px tab size (the full "studyace" wordmark turns to mush that small).
+// Generates the StudyAce browser favicon — the "ace" of studyace, drawn as a
+// clean spade pip that stays legible at 16-32px tab size (the full "studyace"
+// wordmark, and even a letter monogram, turn to mush that small).
 //
-// Mark: bold lowercase "a" in the indigo accent (#818cf8) — the same accent that
-// colours "ace" in the wordmark — on the brand near-black #06060a with the indigo +
-// purple radial glow from the OG image. Square mark scales cleanly to any size.
+// Mark: a single spade (the card-suit symbol — an original vector, not stock art)
+// in the indigo accent #818cf8, the same accent that colours "ace" in the wordmark.
+// TRANSPARENT background ("clear") so it sits on light or dark browser chrome and
+// shows the suit silhouette cleanly. Centred in a 100-unit box, scales to any size.
 //
 // Run: node scripts/generate-favicon.mjs
 // Outputs:
@@ -17,13 +19,16 @@ import sharp from "sharp";
 import fs from "node:fs";
 import path from "node:path";
 
+// Spade pip, apex up, with the classic flared stem — drawn in a 100×100 box.
+const SPADE = `M50 11
+  C 50 31 78 44 78 63 C 78 74 70 80 61 78 C 56 77 52 73 50.5 69
+  C 51 78 54 86 60 90 L 40 90 C 46 86 49 78 49.5 69
+  C 48 73 44 77 39 78 C 30 80 22 74 22 63 C 22 44 50 31 50 11 Z`;
+
 function svg(size) {
-  const fs0 = Math.round(size * 0.74); // big single glyph for small-size legibility
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-  <rect width="${size}" height="${size}" fill="#06060a"/>
-  <text x="50%" y="51%" font-family="Helvetica, Arial, sans-serif" font-weight="800"
-        font-size="${fs0}" letter-spacing="${-(fs0 * 0.03)}" fill="#818cf8"
-        text-anchor="middle" dominant-baseline="central">a</text>
+  // Transparent background; spade in the indigo "ace" accent.
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 100 100">
+  <path d="${SPADE}" fill="#818cf8"/>
 </svg>`;
 }
 
