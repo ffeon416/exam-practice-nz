@@ -35,10 +35,23 @@ const SUBJECTS = [
   { value: "business-studies", label: "Business Studies", years: [13] },
 ];
 
+// How-did-you-hear chips. `value` must stay in sync with the allowlist in
+// src/app/api/heard-about/route.ts.
+const HEARD_SOURCES = [
+  { value: "tiktok", label: "TikTok" },
+  { value: "instagram", label: "Instagram" },
+  { value: "youtube", label: "YouTube" },
+  { value: "friend", label: "A friend" },
+  { value: "school", label: "School / teacher" },
+  { value: "google", label: "Google search" },
+  { value: "reddit", label: "Reddit" },
+  { value: "other", label: "Somewhere else" },
+];
+
 export default function WelcomePage() {
   const router = useRouter();
   const { user, isLoaded } = useUser();
-  const [step, setStep] = useState<1 | 2>(1);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
   const [yearLevel, setYearLevel] = useState<10 | 11 | 12 | 13 | null>(null);
   const [subjects, setSubjects] = useState<string[]>([]);
   const [checkedExisting, setCheckedExisting] = useState(false);
@@ -92,9 +105,21 @@ export default function WelcomePage() {
     );
   }
 
-  function handleFinish() {
+  // Finish onboarding. Optionally records the attribution source first
+  // (fire-and-forget — a failed/absent write must never block reaching the app).
+  function complete(source: string | null) {
     if (!yearLevel || subjects.length === 0) return;
     saveOnboarding({ yearLevel, subjects });
+    if (source) {
+      fetch("/api/heard-about", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ source }),
+        keepalive: true,
+      }).catch(() => {
+        /* attribution is best-effort — ignore network errors */
+      });
+    }
     router.push("/dashboard");
   }
 
@@ -131,7 +156,8 @@ export default function WelcomePage() {
         {/* Progress dots */}
         <div className="flex items-center justify-center gap-2 mb-10">
           <div className={`h-1.5 rounded-full transition-all ${step === 1 ? "w-8 bg-indigo-400" : "w-1.5 bg-indigo-500"}`} />
-          <div className={`h-1.5 rounded-full transition-all ${step === 2 ? "w-8 bg-indigo-400" : "w-1.5 bg-white/10"}`} />
+          <div className={`h-1.5 rounded-full transition-all ${step === 2 ? "w-8 bg-indigo-400" : step > 2 ? "w-1.5 bg-indigo-500" : "w-1.5 bg-white/10"}`} />
+          <div className={`h-1.5 rounded-full transition-all ${step === 3 ? "w-8 bg-indigo-400" : "w-1.5 bg-white/10"}`} />
         </div>
 
         {step === 1 && (
@@ -234,7 +260,7 @@ export default function WelcomePage() {
                 &larr; Back
               </button>
               <button
-                onClick={handleFinish}
+                onClick={() => subjects.length > 0 && setStep(3)}
                 disabled={subjects.length === 0}
                 className={`py-4 rounded-xl text-[16px] font-bold transition-all ${
                   subjects.length > 0
@@ -242,7 +268,45 @@ export default function WelcomePage() {
                     : "bg-white/[0.04] text-zinc-600 cursor-not-allowed"
                 }`}
               >
-                Let&apos;s go &rarr;
+                Continue &rarr;
+              </button>
+            </div>
+          </>
+        )}
+
+        {step === 3 && (
+          <>
+            <h1 className="text-[28px] sm:text-[36px] font-extrabold text-white tracking-tight text-center mb-2">
+              One last thing
+            </h1>
+            <p className="text-zinc-400 text-center text-[15px] mb-8">
+              How did you hear about StudyAce? Tap one — it really helps us out.
+            </p>
+
+            <div className="grid grid-cols-2 gap-2 mb-6">
+              {HEARD_SOURCES.map((s) => (
+                <button
+                  key={s.value}
+                  onClick={() => complete(s.value)}
+                  className="min-h-[52px] px-4 py-3 rounded-lg text-[14px] font-medium text-zinc-200 bg-white/[0.02] border border-white/[0.08] hover:border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-500/20 hover:to-purple-500/10 hover:text-white transition-all active:scale-[0.98]"
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => setStep(2)}
+                className="py-4 rounded-xl text-[15px] font-medium text-zinc-300 bg-white/[0.04] hover:bg-white/[0.08] transition-colors"
+              >
+                &larr; Back
+              </button>
+              <button
+                onClick={() => complete(null)}
+                className="py-4 rounded-xl text-[15px] font-medium text-zinc-400 bg-white/[0.04] hover:bg-white/[0.08] transition-colors"
+              >
+                Skip &rarr;
               </button>
             </div>
           </>

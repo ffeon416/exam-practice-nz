@@ -34,6 +34,8 @@ alter table profiles add column if not exists referrals_count int not null defau
 alter table profiles add column if not exists student_until timestamptz;
 alter table profiles add column if not exists bonus_exams_remaining int not null default 0;
 alter table profiles add column if not exists referral_credited boolean not null default false;
+-- Attribution: how the user first heard about StudyAce (set once, during /welcome onboarding).
+alter table profiles add column if not exists heard_about text;
 create index if not exists profiles_referrer_idx on profiles(referrer_id);
 
 -- ── CUSTOM EXAMS ─────────────────────────────────────────

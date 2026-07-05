@@ -57,6 +57,7 @@ interface Analytics {
   topCountries: { key: string; count: number }[];
   deviceCount: { mobile: number; desktop: number };
   daily: { date: string; views: number }[];
+  heardAbout: { key: string; count: number }[];
   truncated: boolean;
 }
 
@@ -476,7 +477,11 @@ function countryLabel(code: string): string {
 }
 
 function Traffic({ analytics }: { analytics: Analytics }) {
-  const { totals, topPages, topReferrers, topCountries, deviceCount, daily, truncated } = analytics;
+  const { totals, topPages, topReferrers, topCountries, deviceCount, daily, heardAbout, truncated } = analytics;
+  const heardLabels: Record<string, string> = {
+    tiktok: "TikTok", instagram: "Instagram", youtube: "YouTube", friend: "A friend",
+    school: "School / teacher", google: "Google search", reddit: "Reddit", other: "Somewhere else",
+  };
   const maxDay = Math.max(1, ...daily.map((d) => d.views));
   const deviceTotal = deviceCount.mobile + deviceCount.desktop;
   const mobilePct = deviceTotal > 0 ? Math.round((deviceCount.mobile / deviceTotal) * 100) : 0;
@@ -522,6 +527,11 @@ function Traffic({ analytics }: { analytics: Analytics }) {
           title="Top countries"
           rows={topCountries.map((c) => ({ key: countryLabel(c.key), count: c.count }))}
           emptyLabel="No location data yet."
+        />
+        <TrafficList
+          title="How they heard"
+          rows={heardAbout.map((h) => ({ key: heardLabels[h.key] ?? h.key, count: h.count }))}
+          emptyLabel="No attribution answers yet."
         />
       </div>
 

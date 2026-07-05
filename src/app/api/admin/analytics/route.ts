@@ -109,6 +109,21 @@ export async function GET() {
   }
   const daily = [...dailyMap.entries()].map(([date, views]) => ({ date, views }));
 
+  // Attribution: how signed-up users say they first heard about StudyAce.
+  // Separate, non-critical query — resilient to the column not existing yet.
+  let heardAbout: { key: string; count: number }[] = [];
+  const { data: heardRows, error: heardErr } = await supabase
+    .from("profiles")
+    .select("heard_about")
+    .not("heard_about", "is", null);
+  if (!heardErr && heardRows) {
+    const heardMap = new Map<string, number>();
+    for (const r of heardRows as { heard_about: string | null }[]) {
+      if (r.heard_about) heardMap.set(r.heard_about, (heardMap.get(r.heard_about) ?? 0) + 1);
+    }
+    heardAbout = sortTop(heardMap, 10);
+  }
+
   return NextResponse.json({
     totals,
     topPages,
@@ -116,6 +131,7 @@ export async function GET() {
     topCountries,
     deviceCount,
     daily,
+    heardAbout,
     truncated,
   });
 }

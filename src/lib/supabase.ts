@@ -108,6 +108,26 @@ export async function getOrCreateProfile(
 }
 
 /**
+ * Record how a user first heard about StudyAce (attribution).
+ * Write-once: only sets the value if it's currently null, so a user
+ * re-running onboarding can't overwrite the original source. Fire-and-forget
+ * and resilient to the column not existing yet (42703) so it never blocks
+ * signup if the migration hasn't been applied to prod.
+ */
+export async function setHeardAbout(userId: string, source: string): Promise<void> {
+  const supabase = getSupabase();
+  if (!supabase) return;
+  const { error } = await supabase
+    .from("profiles")
+    .update({ heard_about: source, updated_at: new Date().toISOString() })
+    .eq("user_id", userId)
+    .is("heard_about", null);
+  if (error && (error as { code?: string }).code !== "42703") {
+    console.error("Failed to set heard_about:", error);
+  }
+}
+
+/**
  * Get a user's effective tier — honours time-boxed grants.
  * A paid tier (Stripe) always wins. Otherwise we check, in order:
  *   1. pro_until    — a time-boxed Pro grant (e.g. a school trial code)
