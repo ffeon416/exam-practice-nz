@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useCallback } from "react";
 import { useAuth } from "@clerk/nextjs";
+import posthog from "posthog-js";
 import { useTier } from "@/hooks/useTier";
 import type { Tier } from "@/lib/tierLimits";
 
@@ -95,6 +96,7 @@ export default function PricingPage() {
   const handleCheckout = useCallback(async (tier: "student" | "pro") => {
     setError(null);
     setLoadingTier(tier);
+    posthog.capture("checkout_started", { tier, billing });
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",

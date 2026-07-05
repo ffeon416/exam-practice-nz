@@ -3,8 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import PageViewTracker from "@/components/PageViewTracker";
+import PostHogInit from "@/components/PostHogInit";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import UserScopeSync from "@/components/UserScopeSync";
 import "./globals.css";
@@ -115,6 +117,9 @@ export default function RootLayout({
       >
         <body className="min-h-full flex flex-col">
           <UserScopeSync />
+          <Suspense fallback={null}>
+            <PostHogInit />
+          </Suspense>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Analytics />

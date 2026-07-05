@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+import posthog from "posthog-js";
 import { loadProgress, saveProgress, getWeakTopics } from "@/lib/storage";
 import { loadOnboarding } from "@/lib/onboarding";
 import { setScopeUserId } from "@/lib/userScope";
@@ -346,6 +347,7 @@ export default function DashboardPage() {
       const planParam = params.get("plan");
       if (planParam === "student" || planParam === "pro") setPurchasedPlan(planParam);
       setShowPaymentSuccess(true);
+      posthog.capture("subscription_paid", { plan: planParam ?? "unknown" });
       window.history.replaceState({}, "", "/dashboard");
 
       // Stripe redirect can beat the webhook. Poll until the live tier reflects
