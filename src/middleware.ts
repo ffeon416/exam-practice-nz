@@ -25,6 +25,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/track",
   "/api/stripe-webhook",
   "/api/cron(.*)",
+  "/ingest(.*)", // PostHog reverse proxy — must not require auth
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
