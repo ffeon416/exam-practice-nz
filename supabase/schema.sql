@@ -215,3 +215,22 @@ create index if not exists page_views_path_idx on page_views(path);
 alter table page_views enable row level security;
 drop policy if exists "service_all_page_views" on page_views;
 create policy "service_all_page_views" on page_views for all using (true) with check (true);
+
+-- ── EVENTS (conversion funnel) ───────────────────────────
+-- Server-logged product events that power the /admin conversion funnel
+-- (checkout started, subscription paid, ...). Logged fire-and-forget so a
+-- failed insert never blocks checkout or a webhook. No FK on user_id — an event
+-- can precede the profile row, and a missing profile must never block a log.
+create table if not exists events (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,                 -- 'checkout_started' | 'subscription_paid'
+  user_id text,                       -- Clerk id if known, else null
+  props jsonb,                        -- optional { tier, billing, plan, ... }
+  created_at timestamptz not null default now()
+);
+create index if not exists events_name_created_idx on events(name, created_at desc);
+create index if not exists events_user_idx on events(user_id);
+
+alter table events enable row level security;
+drop policy if exists "service_all_events" on events;
+create policy "service_all_events" on events for all using (true) with check (true);

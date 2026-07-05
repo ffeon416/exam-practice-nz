@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
-import { getSupabase } from "@/lib/supabase";
+import { getSupabase, logEvent } from "@/lib/supabase";
 import type Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
@@ -95,6 +95,10 @@ export async function POST(req: NextRequest) {
             stripe_customer_id: typeof session.customer === "string" ? session.customer : session.customer?.id ?? null,
           })
           .eq("user_id", userId);
+
+        // Funnel: authoritative "paid" event, fired only on a real completed
+        // checkout (fire-and-forget — never block the webhook ack).
+        void logEvent("subscription_paid", userId, { plan: tier });
 
         console.log(`User ${userId} upgraded to ${tier}`);
         break;

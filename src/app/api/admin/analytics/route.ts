@@ -124,6 +124,72 @@ export async function GET() {
     heardAbout = sortTop(heardMap, 10);
   }
 
+  // New vs returning visitors (30d): a returning visitor is one seen on 2+
+  // distinct days in the window. A proxy — no cookies, just the anon id.
+  const visitorDays = new Map<string, Set<string>>();
+  for (const r of rows) {
+    if (!r.visitor_id) continue;
+    let set = visitorDays.get(r.visitor_id);
+    if (!set) { set = new Set(); visitorDays.set(r.visitor_id, set); }
+    set.add(r.created_at.slice(0, 10));
+  }
+  let returningVisitors = 0;
+  for (const days of visitorDays.values()) if (days.size >= 2) returningVisitors++;
+  const newVsReturning = {
+    new: visitorDays.size - returningVisitors,
+    returning: returningVisitors,
+  };
+
+  // ── Conversion funnel ────────────────────────────────────
+  // All four steps are keyed on the Clerk user_id, so this is a genuine linked
+  // funnel (not just stage counts): Signed up → Took first exam → Started
+  // checkout → Paid. Each query is resilient — the funnel degrades to zeros
+  // rather than failing the whole panel if a table/column isn't there yet.
+  const funnel = { signedUp: 0, activated: 0, startedCheckout: 0, paid: 0 };
+  const signupDaily = [...dailyMap.keys()].map((date) => ({ date, count: 0 }));
+  try {
+    const [profRes, attemptRes, eventRes] = await Promise.all([
+      supabase.from("profiles").select("user_id, tier, created_at").limit(ROW_CAP),
+      supabase.from("exam_attempts").select("user_id").limit(ROW_CAP),
+      supabase.from("events").select("name, user_id").limit(ROW_CAP),
+    ]);
+
+    const profRows = (profRes.data ?? []) as { user_id: string; tier: string | null; created_at: string }[];
+    const signedUp = new Set(profRows.map((p) => p.user_id));
+    const paidUsers = new Set(
+      profRows.filter((p) => p.tier === "student" || p.tier === "pro").map((p) => p.user_id)
+    );
+
+    const activated = new Set<string>();
+    for (const a of (attemptRes.data ?? []) as { user_id: string | null }[]) {
+      if (a.user_id) activated.add(a.user_id);
+    }
+
+    const startedCheckout = new Set<string>();
+    for (const e of (eventRes.data ?? []) as { name: string; user_id: string | null }[]) {
+      if (!e.user_id) continue;
+      if (e.name === "checkout_started") startedCheckout.add(e.user_id);
+      // Historical payers (before event logging existed) are captured via tier
+      // above; the subscription_paid event covers everyone going forward.
+      else if (e.name === "subscription_paid") paidUsers.add(e.user_id);
+    }
+
+    funnel.signedUp = signedUp.size;
+    funnel.activated = activated.size;
+    funnel.startedCheckout = startedCheckout.size;
+    funnel.paid = paidUsers.size;
+
+    // Signups per day for the 14-day chart (aligns with the views series).
+    const sMap = new Map<string, number>(signupDaily.map((d) => [d.date, 0]));
+    for (const p of profRows) {
+      const key = p.created_at?.slice(0, 10);
+      if (key && sMap.has(key)) sMap.set(key, (sMap.get(key) ?? 0) + 1);
+    }
+    for (const d of signupDaily) d.count = sMap.get(d.date) ?? 0;
+  } catch (err) {
+    console.error("Funnel aggregation failed (non-fatal):", err);
+  }
+
   return NextResponse.json({
     totals,
     topPages,
@@ -132,6 +198,9 @@ export async function GET() {
     deviceCount,
     daily,
     heardAbout,
+    newVsReturning,
+    funnel,
+    signupDaily,
     truncated,
   });
 }

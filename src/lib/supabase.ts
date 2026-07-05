@@ -422,3 +422,22 @@ export async function consumeBonusExam(userId: string): Promise<boolean> {
 
   return true;
 }
+
+// ── Product events (conversion funnel) ──
+// Fire-and-forget server-side event log that powers the /admin funnel. NEVER
+// throws and never blocks the caller — a failed insert (or a missing `events`
+// table before the migration is applied) is swallowed. Do not await this in a
+// way that gates a user response; call it as `void logEvent(...)`.
+export async function logEvent(
+  name: string,
+  userId: string | null,
+  props?: Record<string, unknown>
+): Promise<void> {
+  try {
+    const supabase = getSupabase();
+    if (!supabase) return;
+    await supabase.from("events").insert({ name, user_id: userId, props: props ?? null });
+  } catch (err) {
+    console.error(`logEvent(${name}) failed:`, err);
+  }
+}

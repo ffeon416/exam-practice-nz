@@ -58,6 +58,9 @@ interface Analytics {
   deviceCount: { mobile: number; desktop: number };
   daily: { date: string; views: number }[];
   heardAbout: { key: string; count: number }[];
+  newVsReturning: { new: number; returning: number };
+  funnel: { signedUp: number; activated: number; startedCheckout: number; paid: number };
+  signupDaily: { date: string; count: number }[];
   truncated: boolean;
 }
 
@@ -241,6 +244,9 @@ export default function AdminPage() {
           {totalSubscribers} total signed-up users · {paidSubscribers} paying
         </p>
       </div>
+
+      {/* Conversion funnel (first-party) */}
+      {analytics && <Funnel analytics={analytics} />}
 
       {/* Traffic (first-party analytics) */}
       {analytics && <Traffic analytics={analytics} />}
@@ -474,6 +480,104 @@ function countryLabel(code: string): string {
     ...[...code.toUpperCase()].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65),
   );
   return `${flag} ${COUNTRY_NAMES[code.toUpperCase()] ?? code.toUpperCase()}`;
+}
+
+function Funnel({ analytics }: { analytics: Analytics }) {
+  const { funnel, totals, newVsReturning, signupDaily } = analytics;
+  const steps = [
+    { label: "Signed up", value: funnel.signedUp, hint: "created an account" },
+    { label: "Took first exam", value: funnel.activated, hint: "activated" },
+    { label: "Started checkout", value: funnel.startedCheckout, hint: "reached Stripe" },
+    { label: "Paid", value: funnel.paid, hint: "subscriber" },
+  ];
+  const top = Math.max(1, funnel.signedUp);
+  const visitors = totals.month.visitors;
+  const visitorToSignup = visitors > 0 ? Math.round((funnel.signedUp / visitors) * 100) : 0;
+  const signupToPaid = funnel.signedUp > 0 ? Math.round((funnel.paid / funnel.signedUp) * 1000) / 10 : 0;
+  const maxSignup = Math.max(1, ...signupDaily.map((d) => d.count));
+
+  return (
+    <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-8">
+      <div className="flex items-baseline justify-between mb-4">
+        <h2 className="text-white font-extrabold text-[14px]">Conversion funnel</h2>
+        <span className="text-zinc-600 text-[11px]">All-time · linked by user</span>
+      </div>
+
+      {/* Headline conversion rates */}
+      <div className="grid grid-cols-3 gap-3 mb-5">
+        <Stat label="Visitor → signup" value={`${visitorToSignup}%`} sub={`${visitors.toLocaleString()} visitors · 30d`} />
+        <Stat
+          label="Signup → paid"
+          value={`${signupToPaid}%`}
+          sub={`${funnel.paid.toLocaleString()} paying`}
+          emphasis={funnel.paid > 0 ? "good" : undefined}
+        />
+        <Stat
+          label="New / returning"
+          value={`${newVsReturning.new} / ${newVsReturning.returning}`}
+          sub="visitors · 30d"
+        />
+      </div>
+
+      {/* Funnel bars */}
+      <div className="space-y-2 mb-5">
+        {steps.map((s, i) => {
+          const prev = i === 0 ? s.value : steps[i - 1].value;
+          const stepPct = prev > 0 ? Math.round((s.value / prev) * 100) : 0;
+          return (
+            <div
+              key={s.label}
+              className="relative rounded-lg overflow-hidden bg-white/[0.02] border border-white/[0.04] px-3 py-2.5"
+            >
+              <div
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-indigo-500/25 to-purple-500/25"
+                style={{ width: `${(s.value / top) * 100}%` }}
+              />
+              <div className="relative flex items-center justify-between">
+                <div className="truncate">
+                  <span className="text-zinc-200 text-[13px] font-semibold">{s.label}</span>
+                  <span className="text-zinc-500 text-[11px] ml-2 hidden sm:inline">{s.hint}</span>
+                </div>
+                <div className="flex items-baseline gap-3 shrink-0">
+                  {i > 0 && (
+                    <span className="text-zinc-500 text-[11px] tabular-nums">{stepPct}% of prev</span>
+                  )}
+                  <span className="text-white font-bold text-[15px] tabular-nums">
+                    {s.value.toLocaleString()}
+                  </span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Signups per day */}
+      <div>
+        <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-2">
+          Signups · last 14 days
+        </p>
+        <div className="flex items-end gap-[3px] h-16">
+          {signupDaily.map((d) => (
+            <div
+              key={d.date}
+              className="flex-1 flex flex-col justify-end"
+              title={`${d.date}: ${d.count}`}
+            >
+              <div
+                className="w-full bg-gradient-to-t from-emerald-500/70 to-teal-500/70 rounded-sm min-h-[2px]"
+                style={{ height: `${(d.count / maxSignup) * 100}%` }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-between text-zinc-600 text-[10px] mt-1">
+          <span>{signupDaily[0]?.date.slice(5)}</span>
+          <span>{signupDaily[signupDaily.length - 1]?.date.slice(5)}</span>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function Traffic({ analytics }: { analytics: Analytics }) {

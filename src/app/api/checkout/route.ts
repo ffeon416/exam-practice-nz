@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { getStripe, PRICE_IDS } from "@/lib/stripe";
-import { getOrCreateProfile } from "@/lib/supabase";
+import { getOrCreateProfile, logEvent } from "@/lib/supabase";
 import { getSupabase } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -87,6 +87,9 @@ export async function POST(req: NextRequest) {
         metadata: { userId, tier },
       },
     });
+
+    // Funnel: record that this user reached Stripe checkout (fire-and-forget).
+    void logEvent("checkout_started", userId, { tier, billing });
 
     return NextResponse.json({ url: session.url });
   } catch (error) {
