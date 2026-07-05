@@ -294,7 +294,7 @@ export default function TutorChat({
                   You&apos;ve used your {tutorLimit} free tutor chats this week.
                 </p>
                 <p className="text-[12px] text-zinc-400 mb-3">
-                  Upgrade to <span className="text-zinc-200 font-medium">Pro ($19.99/mo)</span> for 100 tutor chats a week, or come back next week for your free refresh.
+                  Upgrade to <span className="text-zinc-200 font-medium">Pro ($20/mo)</span> for 100 tutor chats a week, or come back next week for your free refresh.
                 </p>
                 <a
                   href="/pricing"

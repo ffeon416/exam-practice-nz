@@ -59,7 +59,7 @@ export const TIER_LABELS: Record<Tier, string> = {
 export const TIER_PRICES: Record<Tier, number | null> = {
   free: null,
   student: 15,
-  pro: 19.99,
+  pro: 20,
 };
 
 /** Check if a limit value represents "unlimited" (-1 from the API, or Infinity server-side) */

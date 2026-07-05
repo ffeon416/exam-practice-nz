@@ -58,7 +58,7 @@ const PLANS: Plan[] = [
     name: "Pro",
     tier: "pro",
     tagline: "Built to chase Excellence",
-    monthlyPrice: 19.99,
+    monthlyPrice: 20,
     badge: "Best value",
     highlight: true,
     features: [
@@ -368,7 +368,7 @@ export default function PricingPage() {
           <div className="space-y-3">
             <CompareRow label="One private tutoring session (1 hour)" cost="$60–$80" />
             <CompareRow label="Workbook from Whitcoulls" cost="$25–$40" />
-            <CompareRow label="Study Ace Pro for a whole month" cost="$19.99" highlight />
+            <CompareRow label="Study Ace Pro for a whole month" cost="$20" highlight />
             <CompareRow label="Failing an exam and retaking it next year" cost="A whole year" />
           </div>
         </div>

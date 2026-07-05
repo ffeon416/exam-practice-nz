@@ -49,7 +49,7 @@ export default function UpgradeModal({ message, onClose, showReferral = false }:
             </li>
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>
-              <span><strong className="text-zinc-200">Pro ($19.99/mo)</strong> — Unlimited exams, 100 tutor chats/week, adaptive difficulty, plus everything in Student</span>
+              <span><strong className="text-zinc-200">Pro ($20/mo)</strong> — Unlimited exams, 100 tutor chats/week, adaptive difficulty, plus everything in Student</span>
             </li>
           </ul>
         </div>
