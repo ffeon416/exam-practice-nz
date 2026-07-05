@@ -147,11 +147,20 @@ export async function GET() {
   // rather than failing the whole panel if a table/column isn't there yet.
   const funnel = { signedUp: 0, activated: 0, startedCheckout: 0, paid: 0 };
   const signupDaily = [...dailyMap.keys()].map((date) => ({ date, count: 0 }));
+  // Money-moments: free/student users hitting a paywall (30d) — the strongest
+  // "would pay" signal. { total, users, byReason: [{key,count}] }.
+  let paywall = { total: 0, users: 0, byReason: [] as { key: string; count: number }[] };
+  const paywallReasonLabels: Record<string, string> = {
+    exam_limit: "Out of weekly exams",
+    subject_locked: "Locked subject",
+    tutor_locked: "AI tutor (Pro-only)",
+    tutor_limit: "Out of tutor chats",
+  };
   try {
     const [profRes, attemptRes, eventRes] = await Promise.all([
       supabase.from("profiles").select("user_id, tier, created_at").limit(ROW_CAP),
       supabase.from("exam_attempts").select("user_id").limit(ROW_CAP),
-      supabase.from("events").select("name, user_id").limit(ROW_CAP),
+      supabase.from("events").select("name, user_id, props, created_at").limit(ROW_CAP),
     ]);
 
     const profRows = (profRes.data ?? []) as { user_id: string; tier: string | null; created_at: string }[];
@@ -166,13 +175,28 @@ export async function GET() {
     }
 
     const startedCheckout = new Set<string>();
-    for (const e of (eventRes.data ?? []) as { name: string; user_id: string | null }[]) {
-      if (!e.user_id) continue;
-      if (e.name === "checkout_started") startedCheckout.add(e.user_id);
+    const paywallUsers = new Set<string>();
+    const reasonMap = new Map<string, number>();
+    type EventRow = { name: string; user_id: string | null; props: Record<string, unknown> | null; created_at: string };
+    for (const e of (eventRes.data ?? []) as EventRow[]) {
+      if (e.name === "checkout_started" && e.user_id) startedCheckout.add(e.user_id);
       // Historical payers (before event logging existed) are captured via tier
       // above; the subscription_paid event covers everyone going forward.
-      else if (e.name === "subscription_paid") paidUsers.add(e.user_id);
+      else if (e.name === "subscription_paid" && e.user_id) paidUsers.add(e.user_id);
+      else if (e.name === "paywall_hit" && new Date(e.created_at).getTime() >= now - 30 * 86_400_000) {
+        paywall.total++;
+        if (e.user_id) paywallUsers.add(e.user_id);
+        const reason = typeof e.props?.reason === "string" ? e.props.reason : "other";
+        reasonMap.set(reason, (reasonMap.get(reason) ?? 0) + 1);
+      }
     }
+    paywall = {
+      total: paywall.total,
+      users: paywallUsers.size,
+      byReason: [...reasonMap.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([key, count]) => ({ key: paywallReasonLabels[key] ?? key, count })),
+    };
 
     funnel.signedUp = signedUp.size;
     funnel.activated = activated.size;
@@ -201,6 +225,7 @@ export async function GET() {
     newVsReturning,
     funnel,
     signupDaily,
+    paywall,
     truncated,
   });
 }

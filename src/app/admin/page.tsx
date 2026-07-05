@@ -61,6 +61,7 @@ interface Analytics {
   newVsReturning: { new: number; returning: number };
   funnel: { signedUp: number; activated: number; startedCheckout: number; paid: number };
   signupDaily: { date: string; count: number }[];
+  paywall: { total: number; users: number; byReason: { key: string; count: number }[] };
   truncated: boolean;
 }
 
@@ -483,7 +484,7 @@ function countryLabel(code: string): string {
 }
 
 function Funnel({ analytics }: { analytics: Analytics }) {
-  const { funnel, totals, newVsReturning, signupDaily } = analytics;
+  const { funnel, totals, newVsReturning, signupDaily, paywall } = analytics;
   const steps = [
     { label: "Signed up", value: funnel.signedUp, hint: "created an account" },
     { label: "Took first exam", value: funnel.activated, hint: "activated" },
@@ -550,6 +551,26 @@ function Funnel({ analytics }: { analytics: Analytics }) {
             </div>
           );
         })}
+      </div>
+
+      {/* Money-moments: paywall hits */}
+      <div className="mb-5">
+        <div className="flex items-baseline justify-between mb-2">
+          <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium">
+            Paywall hits · last 30 days
+          </p>
+          <span className="text-zinc-600 text-[11px]">
+            {paywall.total.toLocaleString()} hits · {paywall.users.toLocaleString()} users
+          </span>
+        </div>
+        <TrafficList
+          title=""
+          rows={paywall.byReason}
+          emptyLabel="No one's hit a limit yet — nudge free users toward more exams."
+        />
+        <p className="text-zinc-600 text-[11px] mt-2">
+          These are users who wanted more and got blocked — your warmest upgrade leads.
+        </p>
       </div>
 
       {/* Signups per day */}
@@ -651,7 +672,7 @@ function TrafficList({ title, rows, emptyLabel }: { title: string; rows: { key: 
   const max = Math.max(1, ...rows.map((r) => r.count));
   return (
     <div>
-      <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-2">{title}</p>
+      {title && <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-2">{title}</p>}
       {rows.length === 0 ? (
         <p className="text-zinc-500 text-[12px]">{emptyLabel}</p>
       ) : (

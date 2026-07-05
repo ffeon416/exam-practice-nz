@@ -4,6 +4,7 @@ import { checkTier } from "@/lib/checkTier";
 import { incrementUsage, logApiUsage } from "@/lib/db";
 import { isUnlimited } from "@/lib/tierLimits";
 import { rateLimit } from "@/lib/rateLimit";
+import { logEvent } from "@/lib/supabase";
 
 export const maxDuration = 120;
 export const dynamic = "force-dynamic";
@@ -17,10 +18,15 @@ export async function POST(request: NextRequest) {
 
   try {
     // ── Tier gate ──
-    const { userId, limits, usage } = await checkTier();
+    const { userId, tier, limits, usage } = await checkTier();
 
     const limitVal = limits.tutorMessagesPerWeek === Infinity ? -1 : limits.tutorMessagesPerWeek;
     if (!isUnlimited(limitVal) && usage.tutorMessagesThisWeek >= limits.tutorMessagesPerWeek) {
+      // Money-moment: user wants the AI tutor but their plan blocks it.
+      void logEvent("paywall_hit", userId, {
+        reason: limits.tutorMessagesPerWeek === 0 ? "tutor_locked" : "tutor_limit",
+        tier,
+      });
       return NextResponse.json(
         {
           error: "limit_reached",

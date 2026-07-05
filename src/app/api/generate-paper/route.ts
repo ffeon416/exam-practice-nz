@@ -4,7 +4,7 @@ import { checkTier } from "@/lib/checkTier";
 import { incrementUsage, logApiUsage } from "@/lib/db";
 import { isUnlimited, isSubjectAvailable } from "@/lib/tierLimits";
 import { rateLimit } from "@/lib/rateLimit";
-import { consumeBonusExam } from "@/lib/supabase";
+import { consumeBonusExam, logEvent } from "@/lib/supabase";
 
 // Allow up to 5 minutes for paper generation
 export const maxDuration = 300;
@@ -28,6 +28,8 @@ export async function POST(request: NextRequest) {
       // are remaining; otherwise blocks as before.
       const bonusUsed = userId ? await consumeBonusExam(userId) : false;
       if (!bonusUsed) {
+        // Money-moment: a capped user wants more exams (see /admin funnel).
+        void logEvent("paywall_hit", userId, { reason: "exam_limit", tier });
         return NextResponse.json(
           {
             error: "limit_reached",
@@ -49,6 +51,8 @@ export async function POST(request: NextRequest) {
 
     // Subject gate — Free tier can only use the sample-subject whitelist.
     if (!isSubjectAvailable(subject, tier)) {
+      // Money-moment: user tapped a locked subject.
+      void logEvent("paywall_hit", userId, { reason: "subject_locked", tier, subject });
       return NextResponse.json(
         {
           error: "subject_locked",
