@@ -75,6 +75,20 @@ export default function PrivacyPage() {
                 metrics used to keep the service fast and accurate.
               </li>
               <li>
+                <strong className="text-zinc-300">Product analytics &amp; session recordings</strong> —
+                to understand how Study Ace is used and to fix problems, we
+                record anonymised analytics: pages visited, buttons and links
+                clicked, and playback recordings of on-screen activity within
+                the app.{" "}
+                <strong className="text-zinc-300">
+                  All text you type — including your answers, messages, and
+                  passwords — is automatically masked and is never captured in
+                  these recordings.
+                </strong>{" "}
+                This is used only to improve the service, never sold and never
+                used for advertising.
+              </li>
+              <li>
                 <strong className="text-zinc-300">Payment information</strong> —
                 if you subscribe to a paid tier, Stripe processes your card on
                 our behalf. We receive only a customer ID and subscription
@@ -144,6 +158,13 @@ export default function PrivacyPage() {
               <li>
                 <strong className="text-zinc-300">Vercel</strong> (USA) —
                 website hosting and infrastructure.
+              </li>
+              <li>
+                <strong className="text-zinc-300">PostHog</strong> (USA) —
+                privacy-friendly product analytics and session replay that show
+                us how the site is used and where people get stuck. Configured
+                to mask all text input, so your typed answers, messages, and
+                passwords are never recorded.
               </li>
             </ul>
           </Section>
