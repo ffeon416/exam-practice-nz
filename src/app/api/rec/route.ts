@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 // returns 204 — recording must never surface an error to a user.
 
 const BOT = /bot|crawl|spider|slurp|bing|facebookexternal|preview|headless|lighthouse|monitor|pingdom/i;
-const MAX_BYTES = 1_200_000; // ~1.2 MB per batch cap
+const MAX_BYTES = 4_000_000; // ~4 MB per batch (just under Vercel's 4.5 MB body limit)
 const RETENTION_DAYS = 30;
 
 const noContent = () => new NextResponse(null, { status: 204 });

@@ -49,14 +49,17 @@ export default function SessionRecorder() {
         path: window.location.pathname,
       });
       try {
-        if (final && navigator.sendBeacon) {
+        // sendBeacon (and fetch keepalive) cap the body at ~64KB in Chromium,
+        // and a full-page rrweb snapshot is far bigger — so the beacon is used
+        // ONLY for small final flushes on page unload. Every normal flush goes
+        // via a plain fetch, which has no such size limit.
+        if (final && navigator.sendBeacon && payload.length < 60_000) {
           navigator.sendBeacon("/api/rec", new Blob([payload], { type: "application/json" }));
         } else {
           fetch("/api/rec", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: payload,
-            keepalive: true,
           }).catch(() => {});
         }
       } catch {
@@ -80,7 +83,10 @@ export default function SessionRecorder() {
           sampling: { mousemove: 50, scroll: 150, media: 800 },
           recordCanvas: false,
         });
-        timer = setInterval(() => flush(), 5000);
+        // Land the initial full-snapshot batch quickly (in case the visitor
+        // leaves within a few seconds), then flush on a steady interval.
+        setTimeout(() => flush(), 1500);
+        timer = setInterval(() => flush(), 4000);
       } catch {
         /* rrweb failed to load — skip recording silently */
       }
