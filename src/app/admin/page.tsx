@@ -65,6 +65,17 @@ interface Analytics {
   truncated: boolean;
 }
 
+interface UserSession {
+  who: string;
+  signedIn: boolean;
+  tier: string | null;
+  country: string | null;
+  device: string | null;
+  start: number;
+  end: number;
+  steps: { time: string; kind: string; label: string }[];
+}
+
 function fmtMoney(n: number): string {
   if (n === 0) return "$0.00";
   if (Math.abs(n) < 0.01) return `$${n.toFixed(4)}`;
@@ -84,6 +95,7 @@ type UserSortKey = "signedUpAt" | "email" | "tier" | "lifetimeCostUsd" | "lastAc
 export default function AdminPage() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
+  const [sessions, setSessions] = useState<UserSession[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [userSearch, setUserSearch] = useState("");
@@ -146,8 +158,17 @@ export default function AdminPage() {
         /* traffic panel is non-critical — ignore */
       }
     }
+    async function loadSessions() {
+      try {
+        const res = await fetch("/api/admin/sessions", { cache: "no-store" });
+        if (res.ok && !cancelled) setSessions(((await res.json()) as { sessions: UserSession[] }).sessions);
+      } catch {
+        /* activity panel is non-critical — ignore */
+      }
+    }
     load();
     loadAnalytics();
+    loadSessions();
     return () => {
       cancelled = true;
     };
@@ -248,6 +269,9 @@ export default function AdminPage() {
 
       {/* Conversion funnel (first-party) */}
       {analytics && <Funnel analytics={analytics} />}
+
+      {/* Play-by-play user activity (first-party — no PostHog) */}
+      {sessions && <Activity sessions={sessions} />}
 
       {/* Traffic (first-party analytics) */}
       {analytics && <Traffic analytics={analytics} />}
@@ -481,6 +505,82 @@ function countryLabel(code: string): string {
     ...[...code.toUpperCase()].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65),
   );
   return `${flag} ${COUNTRY_NAMES[code.toUpperCase()] ?? code.toUpperCase()}`;
+}
+
+function fmtClock(iso: string): string {
+  return new Date(iso).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+}
+
+function stepColor(kind: string): string {
+  switch (kind) {
+    case "paid": return "bg-emerald-400";
+    case "checkout": return "bg-indigo-400";
+    case "paywall": return "bg-amber-400";
+    case "exam": return "bg-sky-400";
+    default: return "bg-zinc-600";
+  }
+}
+
+function Activity({ sessions }: { sessions: UserSession[] }) {
+  return (
+    <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-8">
+      <div className="flex items-baseline justify-between mb-4">
+        <h2 className="text-white font-extrabold text-[14px]">Recent activity</h2>
+        <span className="text-zinc-600 text-[11px]">Play-by-play · last 7 days</span>
+      </div>
+      {sessions.length === 0 ? (
+        <p className="text-zinc-500 text-[12px]">
+          No activity yet — this fills in as people use the site.
+        </p>
+      ) : (
+        <div className="space-y-3">
+          {sessions.map((s, i) => (
+            <div key={i} className="rounded-xl bg-white/[0.02] border border-white/[0.04] p-3.5">
+              <div className="flex items-center justify-between mb-2.5 flex-wrap gap-y-1">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="text-zinc-200 text-[13px] font-semibold truncate">{s.who}</span>
+                  {s.signedIn && s.tier && (
+                    <TierBadge tier={s.tier as "free" | "student" | "pro"} />
+                  )}
+                  {!s.signedIn && (
+                    <span className="text-[10px] text-zinc-500 uppercase tracking-wider">logged out</span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2 text-zinc-600 text-[11px]">
+                  {s.device && <span>{s.device === "mobile" ? "📱" : "💻"}</span>}
+                  {s.country && <span>{countryLabel(s.country)}</span>}
+                  <span>{fmtRelative(new Date(s.start).toISOString())}</span>
+                </div>
+              </div>
+              <ol className="space-y-1 border-l border-white/[0.06] ml-1 pl-3">
+                {s.steps.map((st, j) => (
+                  <li key={j} className="relative flex items-baseline gap-2 text-[12px]">
+                    <span
+                      className={`absolute -left-[15px] top-[6px] w-1.5 h-1.5 rounded-full ${stepColor(st.kind)}`}
+                    />
+                    <span className="text-zinc-600 text-[10px] tabular-nums shrink-0 w-11">
+                      {fmtClock(st.time)}
+                    </span>
+                    <span
+                      className={
+                        st.kind === "paid"
+                          ? "text-emerald-300 font-semibold"
+                          : st.kind === "paywall"
+                          ? "text-amber-300"
+                          : "text-zinc-300"
+                      }
+                    >
+                      {st.label}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function Funnel({ analytics }: { analytics: Analytics }) {
