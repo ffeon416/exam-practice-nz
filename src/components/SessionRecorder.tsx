@@ -74,6 +74,10 @@ export default function SessionRecorder() {
         stop = record({
           emit(event) {
             buffer.push(event);
+            // Send the initial full snapshot (rrweb event type 2) promptly so
+            // even a short visit produces a playable recording. A tiny delay
+            // lets same-tick events ride along in the same batch.
+            if ((event as { type?: number }).type === 2) setTimeout(() => flush(), 300);
             // Safety valve: flush early if a burst fills the buffer.
             if (buffer.length >= 200) flush();
           },
