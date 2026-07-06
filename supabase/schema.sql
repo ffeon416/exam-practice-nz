@@ -234,3 +234,38 @@ create index if not exists events_user_idx on events(user_id);
 alter table events enable row level security;
 drop policy if exists "service_all_events" on events;
 create policy "service_all_events" on events for all using (true) with check (true);
+
+-- ── SESSION RECORDINGS (first-party screen replay) ───────
+-- rrweb DOM recordings so we can watch what users did INSIDE /admin, with no
+-- third-party. `recording_chunks` holds the rrweb event batches; `recordings`
+-- is one metadata row per session. All text input is masked client-side, so
+-- typed answers, messages and passwords are never stored. Retention: chunks
+-- older than 30 days are pruned opportunistically in /api/rec to bound cost.
+create table if not exists recordings (
+  session_id text primary key,
+  visitor_id text,
+  user_id text,
+  page text,
+  country text,
+  device text,
+  started_at timestamptz not null default now(),
+  last_seen timestamptz not null default now()
+);
+create index if not exists recordings_last_seen_idx on recordings(last_seen desc);
+
+create table if not exists recording_chunks (
+  id uuid primary key default gen_random_uuid(),
+  session_id text not null,
+  seq int not null,
+  events jsonb not null,
+  created_at timestamptz not null default now()
+);
+create index if not exists recording_chunks_session_idx on recording_chunks(session_id, seq);
+create index if not exists recording_chunks_created_idx on recording_chunks(created_at);
+
+alter table recordings enable row level security;
+alter table recording_chunks enable row level security;
+drop policy if exists "service_all_recordings" on recordings;
+drop policy if exists "service_all_recording_chunks" on recording_chunks;
+create policy "service_all_recordings" on recordings for all using (true) with check (true);
+create policy "service_all_recording_chunks" on recording_chunks for all using (true) with check (true);

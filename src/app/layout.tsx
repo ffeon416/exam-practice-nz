@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import PageViewTracker from "@/components/PageViewTracker";
 import PostHogInit from "@/components/PostHogInit";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import SessionRecorder from "@/components/SessionRecorder";
 import UserScopeSync from "@/components/UserScopeSync";
 import "./globals.css";
 
@@ -125,6 +126,7 @@ export default function RootLayout({
           <Analytics />
           <PageViewTracker />
           <ServiceWorkerRegister />
+          <SessionRecorder />
         </body>
       </html>
     </ClerkProvider>

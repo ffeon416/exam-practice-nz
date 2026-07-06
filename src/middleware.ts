@@ -23,6 +23,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/contact",
   "/api/demo-mark",
   "/api/track",
+  "/api/rec",
   "/api/stripe-webhook",
   "/api/cron(.*)",
   "/ingest(.*)", // PostHog reverse proxy — must not require auth

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import "rrweb-player/dist/style.css";
 
 interface Totals {
   today: { cost: number; calls: number };
@@ -76,6 +77,18 @@ interface UserSession {
   steps: { time: string; kind: string; label: string }[];
 }
 
+interface UserRecording {
+  sessionId: string;
+  who: string;
+  signedIn: boolean;
+  tier: string | null;
+  page: string | null;
+  country: string | null;
+  device: string | null;
+  startedAt: string;
+  durationMs: number;
+}
+
 function fmtMoney(n: number): string {
   if (n === 0) return "$0.00";
   if (Math.abs(n) < 0.01) return `$${n.toFixed(4)}`;
@@ -96,6 +109,8 @@ export default function AdminPage() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [sessions, setSessions] = useState<UserSession[] | null>(null);
+  const [recordings, setRecordings] = useState<UserRecording[] | null>(null);
+  const [playing, setPlaying] = useState<UserRecording | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [userSearch, setUserSearch] = useState("");
@@ -166,9 +181,18 @@ export default function AdminPage() {
         /* activity panel is non-critical — ignore */
       }
     }
+    async function loadRecordings() {
+      try {
+        const res = await fetch("/api/admin/recordings", { cache: "no-store" });
+        if (res.ok && !cancelled) setRecordings(((await res.json()) as { recordings: UserRecording[] }).recordings);
+      } catch {
+        /* recordings panel is non-critical — ignore */
+      }
+    }
     load();
     loadAnalytics();
     loadSessions();
+    loadRecordings();
     return () => {
       cancelled = true;
     };
@@ -270,8 +294,14 @@ export default function AdminPage() {
       {/* Conversion funnel (first-party) */}
       {analytics && <Funnel analytics={analytics} />}
 
+      {/* Screen recordings (first-party rrweb replay — no PostHog) */}
+      {recordings && <Recordings recordings={recordings} onPlay={setPlaying} />}
+
       {/* Play-by-play user activity (first-party — no PostHog) */}
       {sessions && <Activity sessions={sessions} />}
+
+      {/* Full-screen replay player */}
+      {playing && <RecordingPlayer recording={playing} onClose={() => setPlaying(null)} />}
 
       {/* Traffic (first-party analytics) */}
       {analytics && <Traffic analytics={analytics} />}
@@ -509,6 +539,163 @@ function countryLabel(code: string): string {
 
 function fmtClock(iso: string): string {
   return new Date(iso).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+}
+
+function fmtDuration(ms: number): string {
+  const s = Math.round(ms / 1000);
+  const m = Math.floor(s / 60);
+  const rem = s % 60;
+  return m > 0 ? `${m}m ${rem}s` : `${rem}s`;
+}
+
+function Recordings({
+  recordings,
+  onPlay,
+}: {
+  recordings: UserRecording[];
+  onPlay: (r: UserRecording) => void;
+}) {
+  return (
+    <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-8">
+      <div className="flex items-baseline justify-between mb-4">
+        <h2 className="text-white font-extrabold text-[14px]">Screen recordings</h2>
+        <span className="text-zinc-600 text-[11px]">Watch real sessions · last 30 days</span>
+      </div>
+      {recordings.length === 0 ? (
+        <p className="text-zinc-500 text-[12px]">
+          No recordings yet — they appear here a few minutes after someone visits the site.
+        </p>
+      ) : (
+        <div className="space-y-1.5">
+          {recordings.map((r) => (
+            <button
+              key={r.sessionId}
+              onClick={() => onPlay(r)}
+              className="w-full flex items-center gap-3 text-left rounded-lg bg-white/[0.02] border border-white/[0.04] px-3 py-2.5 hover:bg-white/[0.05] transition-colors group"
+            >
+              <span className="w-8 h-8 rounded-full bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center shrink-0 group-hover:bg-indigo-500/25">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="text-indigo-300 ml-0.5">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-zinc-200 text-[13px] font-semibold truncate">{r.who}</span>
+                  {r.signedIn && r.tier && <TierBadge tier={r.tier as "free" | "student" | "pro"} />}
+                </div>
+                <div className="text-zinc-500 text-[11px] truncate">
+                  {r.page ?? "—"} · {fmtDuration(r.durationMs)}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-zinc-600 text-[11px] shrink-0">
+                {r.device && <span>{r.device === "mobile" ? "📱" : "💻"}</span>}
+                {r.country && <span>{countryLabel(r.country)}</span>}
+                <span>{fmtRelative(r.startedAt)}</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function RecordingPlayer({
+  recording,
+  onClose,
+}: {
+  recording: UserRecording;
+  onClose: () => void;
+}) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "error" | "empty">("loading");
+
+  useEffect(() => {
+    let cancelled = false;
+    let player: { $destroy?: () => void } | null = null;
+
+    (async () => {
+      try {
+        const res = await fetch(`/api/admin/recordings/${recording.sessionId}`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const { events } = (await res.json()) as { events: unknown[] };
+        if (cancelled) return;
+        if (!events || events.length < 2) {
+          setStatus("empty");
+          return;
+        }
+
+        const mod = await import("rrweb-player");
+        const RrwebPlayer = mod.default as unknown as new (opts: {
+          target: HTMLElement;
+          props: Record<string, unknown>;
+        }) => { $destroy?: () => void };
+        if (cancelled || !containerRef.current) return;
+        containerRef.current.innerHTML = "";
+        const width = Math.min(window.innerWidth - 64, 1024);
+        const height = Math.min(window.innerHeight - 240, Math.round((width * 9) / 16) + 80);
+        player = new RrwebPlayer({
+          target: containerRef.current,
+          props: { events, width, height, autoplay: true, showController: true },
+        });
+        setStatus("ready");
+      } catch {
+        if (!cancelled) setStatus("error");
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+      try {
+        player?.$destroy?.();
+      } catch {
+        /* noop */
+      }
+    };
+  }, [recording.sessionId]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-[#0e0e14] border border-white/10 rounded-2xl p-4 max-w-[95vw] max-h-[94vh] overflow-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between mb-3 gap-4">
+          <div className="min-w-0">
+            <p className="text-white font-bold text-[14px] truncate">{recording.who}</p>
+            <p className="text-zinc-500 text-[11px] truncate">{recording.page ?? ""}</p>
+          </div>
+          <button
+            onClick={onClose}
+            className="text-zinc-400 hover:text-white text-[13px] px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5 shrink-0"
+          >
+            Close ✕
+          </button>
+        </div>
+        {status === "loading" && (
+          <p className="text-zinc-400 text-[13px] py-10 text-center w-[60vw] max-w-[900px]">Loading recording…</p>
+        )}
+        {status === "empty" && (
+          <p className="text-zinc-400 text-[13px] py-10 text-center">This session was too short to replay.</p>
+        )}
+        {status === "error" && (
+          <p className="text-red-400 text-[13px] py-10 text-center">Couldn’t load this recording.</p>
+        )}
+        <div ref={containerRef} />
+      </div>
+    </div>
+  );
 }
 
 function stepColor(kind: string): string {
