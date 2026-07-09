@@ -708,65 +708,209 @@ function stepColor(kind: string): string {
   }
 }
 
+// Classify a session by its strongest signal so the founder can triage at a
+// glance instead of reading every step. Priority: paid > buying-intent >
+// engaged (did an exam) > browsed a few pages > bounced (one-and-done).
+type SessionCat = "paid" | "lead" | "engaged" | "browsed" | "bounced";
+
+interface SessionSummary {
+  cat: SessionCat;
+  pages: number;
+  exams: number;
+  paywall: boolean;
+  checkout: boolean;
+  paid: boolean;
+}
+
+function summarize(s: UserSession): SessionSummary {
+  let pages = 0, exams = 0, paywall = false, checkout = false, paid = false;
+  for (const st of s.steps) {
+    if (st.kind === "page") pages++;
+    else if (st.kind === "exam") exams++;
+    else if (st.kind === "paywall") paywall = true;
+    else if (st.kind === "checkout") checkout = true;
+    else if (st.kind === "paid") paid = true;
+  }
+  const cat: SessionCat = paid
+    ? "paid"
+    : checkout || paywall
+    ? "lead"
+    : exams > 0
+    ? "engaged"
+    : s.steps.length >= 3
+    ? "browsed"
+    : "bounced";
+  return { cat, pages, exams, paywall, checkout, paid };
+}
+
+const CAT_META: Record<SessionCat, { rank: number; label: string; emoji: string; badge: string }> = {
+  paid:    { rank: 0, label: "Customer",  emoji: "🎉", badge: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30" },
+  lead:    { rank: 1, label: "Hot lead",  emoji: "🔥", badge: "bg-rose-500/15 text-rose-300 border-rose-500/30" },
+  engaged: { rank: 2, label: "Engaged",   emoji: "📝", badge: "bg-sky-500/15 text-sky-300 border-sky-500/30" },
+  browsed: { rank: 3, label: "Browsing",  emoji: "👀", badge: "bg-white/[0.06] text-zinc-300 border-white/10" },
+  bounced: { rank: 4, label: "Bounced",   emoji: "👋", badge: "bg-white/[0.03] text-zinc-500 border-white/[0.06]" },
+};
+
+const CAT_ORDER: SessionCat[] = ["paid", "lead", "engaged", "browsed", "bounced"];
+
+function summaryLine(sum: SessionSummary, s: UserSession): string {
+  const parts: string[] = [`${sum.pages} page${sum.pages === 1 ? "" : "s"}`];
+  if (sum.exams > 0) parts.push(`${sum.exams} exam${sum.exams === 1 ? "" : "s"}`);
+  const dur = s.end - s.start;
+  if (dur > 1000) parts.push(fmtDuration(dur));
+  if (sum.paid) parts.push("💳 paid");
+  else if (sum.checkout) parts.push("🛒 clicked Subscribe");
+  else if (sum.paywall) parts.push("🔥 hit paywall");
+  return parts.join(" · ");
+}
+
 function Activity({ sessions }: { sessions: UserSession[] }) {
+  const [filter, setFilter] = useState<SessionCat | "all">("all");
+  const [sort, setSort] = useState<"interesting" | "recent">("interesting");
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+
+  // Precompute summaries once, keyed by original index (stable for expansion).
+  const withSummary = sessions.map((s, i) => ({ s, i, sum: summarize(s) }));
+  const counts = CAT_ORDER.reduce(
+    (acc, c) => ({ ...acc, [c]: withSummary.filter((x) => x.sum.cat === c).length }),
+    {} as Record<SessionCat, number>,
+  );
+
+  const shown = withSummary
+    .filter((x) => filter === "all" || x.sum.cat === filter)
+    .sort((a, b) =>
+      sort === "recent"
+        ? b.s.start - a.s.start
+        : CAT_META[a.sum.cat].rank - CAT_META[b.sum.cat].rank || b.s.start - a.s.start,
+    );
+
   return (
     <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-8">
-      <div className="flex items-baseline justify-between mb-4">
+      <div className="flex items-baseline justify-between mb-3 flex-wrap gap-y-1">
         <h2 className="text-white font-extrabold text-[14px]">Recent activity</h2>
         <span className="text-zinc-600 text-[11px]">Play-by-play · last 7 days</span>
       </div>
+
       {sessions.length === 0 ? (
         <p className="text-zinc-500 text-[12px]">
           No activity yet — this fills in as people use the site.
         </p>
       ) : (
-        <div className="space-y-3">
-          {sessions.map((s, i) => (
-            <div key={i} className="rounded-xl bg-white/[0.02] border border-white/[0.04] p-3.5">
-              <div className="flex items-center justify-between mb-2.5 flex-wrap gap-y-1">
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-zinc-200 text-[13px] font-semibold truncate">{s.who}</span>
-                  {s.signedIn && s.tier && (
-                    <TierBadge tier={s.tier as "free" | "student" | "pro"} />
-                  )}
-                  {!s.signedIn && (
-                    <span className="text-[10px] text-zinc-500 uppercase tracking-wider">logged out</span>
-                  )}
-                </div>
-                <div className="flex items-center gap-2 text-zinc-600 text-[11px]">
-                  {s.device && <span>{s.device === "mobile" ? "📱" : "💻"}</span>}
-                  {s.country && <span>{countryLabel(s.country)}</span>}
-                  <span>{fmtRelative(new Date(s.start).toISOString())}</span>
-                </div>
-              </div>
-              <ol className="space-y-1 border-l border-white/[0.06] ml-1 pl-3">
-                {s.steps.map((st, j) => (
-                  <li key={j} className="relative flex items-baseline gap-2 text-[12px]">
-                    <span
-                      className={`absolute -left-[15px] top-[6px] w-1.5 h-1.5 rounded-full ${stepColor(st.kind)}`}
-                    />
-                    <span className="text-zinc-600 text-[10px] tabular-nums shrink-0 w-11">
-                      {fmtClock(st.time)}
-                    </span>
-                    <span
-                      className={
-                        st.kind === "paid"
-                          ? "text-emerald-300 font-semibold"
-                          : st.kind === "paywall"
-                          ? "text-amber-300"
-                          : "text-zinc-300"
-                      }
-                    >
-                      {st.label}
-                    </span>
-                  </li>
-                ))}
-              </ol>
+        <>
+          {/* Filter chips + sort */}
+          <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <FilterChip label="All" count={sessions.length} active={filter === "all"} onClick={() => setFilter("all")} />
+              {CAT_ORDER.filter((c) => counts[c] > 0).map((c) => (
+                <FilterChip
+                  key={c}
+                  label={`${CAT_META[c].emoji} ${CAT_META[c].label}`}
+                  count={counts[c]}
+                  active={filter === c}
+                  onClick={() => setFilter(c)}
+                />
+              ))}
             </div>
-          ))}
-        </div>
+            <div className="flex items-center gap-1 text-[10px] shrink-0">
+              <span className="text-zinc-600">Sort</span>
+              <button
+                onClick={() => setSort("interesting")}
+                className={`px-2 py-1 rounded-md transition-colors ${sort === "interesting" ? "bg-white/10 text-zinc-200" : "text-zinc-500 hover:text-zinc-300"}`}
+              >
+                Interesting
+              </button>
+              <button
+                onClick={() => setSort("recent")}
+                className={`px-2 py-1 rounded-md transition-colors ${sort === "recent" ? "bg-white/10 text-zinc-200" : "text-zinc-500 hover:text-zinc-300"}`}
+              >
+                Recent
+              </button>
+            </div>
+          </div>
+
+          {shown.length === 0 ? (
+            <p className="text-zinc-500 text-[12px]">Nothing in this group yet.</p>
+          ) : (
+            <div className="space-y-3">
+              {shown.map(({ s, i, sum }) => {
+                const meta = CAT_META[sum.cat];
+                const defaultOpen = sum.cat === "paid" || sum.cat === "lead" || sum.cat === "engaged";
+                const open = expanded[i] ?? defaultOpen;
+                return (
+                  <div key={i} className="rounded-xl bg-white/[0.02] border border-white/[0.04] p-3.5">
+                    <div className="flex items-center justify-between mb-1.5 flex-wrap gap-y-1">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-md border shrink-0 ${meta.badge}`}>
+                          {meta.emoji} {meta.label}
+                        </span>
+                        <span className="text-zinc-200 text-[13px] font-semibold truncate">{s.who}</span>
+                        {s.signedIn && s.tier && (
+                          <TierBadge tier={s.tier as "free" | "student" | "pro"} />
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2 text-zinc-600 text-[11px] shrink-0">
+                        {s.device && <span>{s.device === "mobile" ? "📱" : "💻"}</span>}
+                        {s.country && <span>{countryLabel(s.country)}</span>}
+                        <span>{fmtRelative(new Date(s.start).toISOString())}</span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => setExpanded((e) => ({ ...e, [i]: !open }))}
+                      className="flex items-center gap-1.5 text-[11px] text-zinc-500 hover:text-zinc-300 transition-colors mb-1"
+                    >
+                      <span className={`inline-block transition-transform ${open ? "rotate-90" : ""}`}>›</span>
+                      <span>{summaryLine(sum, s)}</span>
+                    </button>
+
+                    {open && (
+                      <ol className="space-y-1 border-l border-white/[0.06] ml-1 pl-3 mt-2">
+                        {s.steps.map((st, j) => (
+                          <li key={j} className="relative flex items-baseline gap-2 text-[12px]">
+                            <span
+                              className={`absolute -left-[15px] top-[6px] w-1.5 h-1.5 rounded-full ${stepColor(st.kind)}`}
+                            />
+                            <span className="text-zinc-600 text-[10px] tabular-nums shrink-0 w-11">
+                              {fmtClock(st.time)}
+                            </span>
+                            <span
+                              className={
+                                st.kind === "paid"
+                                  ? "text-emerald-300 font-semibold"
+                                  : st.kind === "paywall"
+                                  ? "text-amber-300"
+                                  : "text-zinc-300"
+                              }
+                            >
+                              {st.label}
+                            </span>
+                          </li>
+                        ))}
+                      </ol>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </>
       )}
     </div>
+  );
+}
+
+function FilterChip({ label, count, active, onClick }: { label: string; count: number; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-2.5 py-1 rounded-lg text-[11px] font-medium border transition-colors ${
+        active
+          ? "bg-white/10 text-white border-white/20"
+          : "bg-transparent text-zinc-400 border-white/[0.06] hover:text-zinc-200 hover:border-white/10"
+      }`}
+    >
+      {label} <span className={active ? "text-zinc-300" : "text-zinc-600"}>{count}</span>
+    </button>
   );
 }
 
