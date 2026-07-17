@@ -69,6 +69,13 @@ body {
   background-size: 80px 80px;
 }
 
+/* Feathers the hero clip out at its edges so it reads as ambient light rather
+   than a video pasted onto the page. */
+.hero-clip-mask {
+  mask-image: radial-gradient(ellipse 100% 85% at 50% 40%, black 55%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 85% at 50% 40%, black 55%, transparent 88%);
+}
+
 .mask-radial-fade {
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);

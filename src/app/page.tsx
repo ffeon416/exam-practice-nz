@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
+import HeroVideo from "@/components/HeroVideo";
+import ScrollZoomComputer from "@/components/ScrollZoomComputer";
 import { loadProgress } from "@/lib/storage";
 import { gradeLabel } from "@/lib/scoring";
 import type { StudentProgress } from "@/lib/types";
@@ -32,13 +34,14 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#06060a] isolate">
+    <div className="relative overflow-x-clip bg-[#06060a] isolate">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
       />
       {/* Ambient animated background */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <HeroVideo />
         <div className="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-indigo-600/20 blur-[140px] rounded-full animate-blob-a" />
         <div className="absolute top-[400px] -right-[200px] w-[600px] h-[600px] bg-purple-600/15 blur-[130px] rounded-full animate-blob-b" />
         <div className="absolute top-[800px] -left-[200px] w-[500px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full animate-blob-c" />
@@ -113,6 +116,9 @@ export default function HomePage() {
 
         </div>
       </section>
+
+      {/* ═══ SCROLL-ZOOM COMPUTER ═══ */}
+      <ScrollZoomComputer />
 
       {/* ═══ RETURNING USER ═══ */}
       {hasHistory && progress && (
