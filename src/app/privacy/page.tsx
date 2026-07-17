@@ -160,11 +160,12 @@ export default function PrivacyPage() {
                 website hosting and infrastructure.
               </li>
               <li>
-                <strong className="text-zinc-300">PostHog</strong> (USA) —
-                privacy-friendly product analytics and session replay that show
-                us how the site is used and where people get stuck. Configured
-                to mask all text input, so your typed answers, messages, and
-                passwords are never recorded.
+                <strong className="text-zinc-300">Google Analytics</strong>{" "}
+                (Google LLC, USA) — aggregate website traffic measurement: which
+                pages are visited, roughly where visitors come from, and which
+                device they use. Google Analytics sets its own cookies to
+                recognise returning visitors. We do not send it your name, email
+                address, or any of your exam answers.
               </li>
             </ul>
           </Section>
@@ -272,12 +273,33 @@ export default function PrivacyPage() {
 
           <Section title="Cookies and tracking">
             <p>
-              We use essential cookies only — session cookies set by Clerk to
-              keep you signed in, and a small amount of site-functionality
-              storage. We do not use advertising cookies, cross-site
-              tracking, or third-party analytics trackers beyond privacy-friendly
-              aggregate traffic counts (Vercel Analytics, which does not use
-              cookies or collect personal identifiers).
+              We use session cookies set by Clerk to keep you signed in, and a
+              small amount of site-functionality storage. Vercel Analytics
+              measures aggregate traffic without cookies or personal
+              identifiers.
+            </p>
+            <p className="mt-3">
+              We also use <strong className="text-zinc-300">Google Analytics</strong>{" "}
+              to understand how the site is used. It sets its own analytics
+              cookie (a randomly generated visitor ID, stored for up to two
+              years) so we can tell a returning visitor from a new one. This is
+              analytics, not advertising: we do not run ads, we do not sell your
+              data, and we do not use advertising cookies or
+              audience-remarketing features.
+            </p>
+            <p className="mt-3">
+              You can opt out at any time — Google publishes a browser add-on at{" "}
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 underline"
+              >
+                tools.google.com/dlpage/gaoptout
+              </a>
+              , and any browser&apos;s tracker blocking or &quot;do not
+              track&quot; setting will also stop these scripts loading. Blocking
+              them does not affect your account or your practice exams.
             </p>
           </Section>
 

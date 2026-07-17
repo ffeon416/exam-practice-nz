@@ -3,10 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
-import { Suspense } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
 import PageViewTracker from "@/components/PageViewTracker";
-import PostHogInit from "@/components/PostHogInit";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import SessionRecorder from "@/components/SessionRecorder";
 import UserScopeSync from "@/components/UserScopeSync";
@@ -73,6 +72,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // NEXT_PUBLIC_* is inlined at build time, so this must be set in Vercel
+  // *before* the build that should carry it.
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <ClerkProvider
       appearance={{
@@ -118,9 +121,6 @@ export default function RootLayout({
       >
         <body className="min-h-full flex flex-col">
           <UserScopeSync />
-          <Suspense fallback={null}>
-            <PostHogInit />
-          </Suspense>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Analytics />
@@ -128,6 +128,10 @@ export default function RootLayout({
           <ServiceWorkerRegister />
           <SessionRecorder />
         </body>
+        {/* Google Analytics 4. Gated on the env var so local dev and preview
+            builds never pollute the property with fake traffic. Handles App
+            Router SPA route changes itself — do not add a manual page_view. */}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </html>
     </ClerkProvider>
   );
