@@ -26,7 +26,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/rec",
   "/api/stripe-webhook",
   "/api/cron(.*)",
-  "/ingest(.*)", // PostHog reverse proxy — must not require auth
+
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
@@ -41,7 +41,10 @@ export default clerkMiddleware(async (auth, req) => {
 export const config = {
   matcher: [
     // Skip Next internals and static files
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // NB: media extensions must be listed here or Clerk redirects them to
+    // /sign-in for signed-out visitors — a static asset would 307 instead of
+    // loading (this bit the hero clip: mp4/webm were missing from the list).
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|avif|png|gif|svg|mp4|webm|m4v|mov|ogv|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
     // Always run for API routes
     "/(api|trpc)(.*)",
   ],
