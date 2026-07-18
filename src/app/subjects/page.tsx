@@ -432,7 +432,12 @@ export default function SubjectsPage() {
             <p className="text-[13px] text-zinc-500">Pick a year level first ↑</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-2">
+          // sa-no-record: this grid's children are fully replaced on every year
+          // change. Left visible to the session recorder, rrweb re-serialises
+          // the whole subtree per click and input latency compounds badly
+          // (~750ms by the 40th click in testing). Blocking it keeps rapid year
+          // switching smooth; we lose only replay fidelity of the picker.
+          <div className="grid grid-cols-2 gap-2 sa-no-record">
             {availableSubjects.map((s) => {
               // Until tier resolves, render all subjects as unlocked so a Pro
               // user doesn't see padlocks flash on every non-free subject.

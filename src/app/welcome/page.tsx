@@ -220,7 +220,10 @@ export default function WelcomePage() {
               Choose the ones you want to practise. You can change these later.
             </p>
 
-            <div className="grid grid-cols-2 gap-2 mb-8">
+            {/* sa-no-record: children swap when the year changes; keep this
+                subtree out of the session recorder so rapid changes don't
+                compound rrweb serialisation cost (see /subjects for the same). */}
+            <div className="grid grid-cols-2 gap-2 mb-8 sa-no-record">
               {availableSubjects.map((s) => {
                 const picked = subjects.includes(s.value);
                 return (
