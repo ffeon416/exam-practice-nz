@@ -9,6 +9,7 @@ import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import SessionRecorder from "@/components/SessionRecorder";
 import UserScopeSync from "@/components/UserScopeSync";
+import DeferUntilIdle from "@/components/DeferUntilIdle";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -123,15 +124,20 @@ export default function RootLayout({
           <UserScopeSync />
           <Navbar />
           <main className="flex-1">{children}</main>
-          <Analytics />
-          <PageViewTracker />
           <ServiceWorkerRegister />
-          <SessionRecorder />
+          {/* Non-essential scripts are held back until the page has hydrated and
+              gone idle, so ~500KB of analytics/replay JS never competes with the
+              first interaction (e.g. picking a year level). They still run — just
+              a beat later, which analytics can afford. */}
+          <DeferUntilIdle>
+            <Analytics />
+            <PageViewTracker />
+            <SessionRecorder />
+            {/* GA4: SPA route changes handled by the component — no manual
+                page_view. Gated on the env var so dev/preview don't pollute. */}
+            {gaId && <GoogleAnalytics gaId={gaId} />}
+          </DeferUntilIdle>
         </body>
-        {/* Google Analytics 4. Gated on the env var so local dev and preview
-            builds never pollute the property with fake traffic. Handles App
-            Router SPA route changes itself — do not add a manual page_view. */}
-        {gaId && <GoogleAnalytics gaId={gaId} />}
       </html>
     </ClerkProvider>
   );
