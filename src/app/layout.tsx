@@ -7,7 +7,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
 import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
-import SessionRecorder from "@/components/SessionRecorder";
 import UserScopeSync from "@/components/UserScopeSync";
 import DeferUntilIdle from "@/components/DeferUntilIdle";
 import "./globals.css";
@@ -132,7 +131,13 @@ export default function RootLayout({
           <DeferUntilIdle>
             <Analytics />
             <PageViewTracker />
-            <SessionRecorder />
+            {/* SessionRecorder (rrweb) is OFF: it re-serialises any mutating
+                subtree on every change, which made rapid interactions (e.g. the
+                year-level picker) lag worse the more you clicked. It also
+                persists nothing right now — the `recordings`/`recording_chunks`
+                tables aren't migrated in prod — so it was pure cost. Re-enable
+                by applying that DDL, then restoring <SessionRecorder /> here;
+                the sa-no-record guards on churny grids are already in place. */}
             {/* GA4: SPA route changes handled by the component — no manual
                 page_view. Gated on the env var so dev/preview don't pollute. */}
             {gaId && <GoogleAnalytics gaId={gaId} />}
