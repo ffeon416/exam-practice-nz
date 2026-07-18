@@ -77,20 +77,26 @@ body {
 .sa-twinkle { animation: sa-twinkle 2.6s ease-in-out infinite; }
 .sa-float   { animation: sa-float 4.5s ease-in-out infinite; will-change: transform; }
 
-/* Mobile: smooth one-shot reveal (compositor-driven — no sticky/scroll jank) */
-@keyframes sa-reveal {
-  from { opacity: 0; transform: perspective(1600px) translateY(56px) rotateX(16deg) scale(0.82); }
-  to   { opacity: 1; transform: perspective(1600px) translateY(0)    rotateX(0deg)  scale(1); }
+/* Laptop zoom-in reveal — plays ONCE when it scrolls into view (JS toggles
+   .sa-in via IntersectionObserver). One compositor keyframe (transform/opacity),
+   so it's smooth everywhere and never reads/drives scroll position — it cannot
+   shake or fight scrolling the way a scroll-scrubbed transform did. */
+.sa-stage {
+  transform-origin: center 60%;
+  opacity: 0;
+  transform: perspective(1600px) translateY(60px) rotateX(24deg) scale(0.5);
+  --sa-end: 1.05;
 }
-@media (max-width: 639px) {
-  /* No !important: important author styles rank ABOVE animations in the cascade,
-     which would freeze the laptop at opacity:0 forever. The mobile JS clears the
-     inline style so this (non-important) base applies and the reveal can win. */
-  .sa-stage { opacity: 0; transform: perspective(1600px) translateY(56px) rotateX(16deg) scale(0.82); }
-  .sa-stage.sa-reveal { animation: sa-reveal 1.05s cubic-bezier(0.22, 0.7, 0.2, 1) both; }
+@media (min-width: 640px) { .sa-stage { --sa-end: 1.14; } }
+
+.sa-stage.sa-in { animation: sa-in 1.15s cubic-bezier(0.2, 0.7, 0.15, 1) forwards; }
+@keyframes sa-in {
+  from { opacity: 0; transform: perspective(1600px) translateY(60px) rotateX(24deg) scale(0.5); }
+  to   { opacity: 1; transform: perspective(1600px) translateY(0)    rotateX(0deg)  scale(var(--sa-end, 1.05)); }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .sa-stage { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .sa-stage { opacity: 1 !important; transform: none !important; animation: none !important; }
 }
 
 .bg-grid-faint {

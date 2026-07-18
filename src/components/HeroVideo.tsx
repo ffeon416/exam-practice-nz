@@ -25,7 +25,6 @@ export default function HeroVideo() {
   // still poster is visually near-identical.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (window.matchMedia("(max-width: 639px)").matches) return;
 
     const idle = window.requestIdleCallback;
     if (idle) {
