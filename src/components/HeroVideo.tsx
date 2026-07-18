@@ -20,8 +20,12 @@ export default function HeroVideo() {
 
   // Defer the fetch until after first paint so ~650KB of decoration never
   // competes with the headline for bandwidth. Reduced motion => poster only.
+  // Phones => poster only too: a decoding background video behind everything
+  // else on the hero is a real scroll/battery cost, and at phone size the
+  // still poster is visually near-identical.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 639px)").matches) return;
 
     const idle = window.requestIdleCallback;
     if (idle) {

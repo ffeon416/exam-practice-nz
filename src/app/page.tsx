@@ -42,9 +42,13 @@ export default function HomePage() {
       {/* Ambient animated background */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <HeroVideo />
-        <div className="absolute -top-[200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-indigo-600/20 blur-[140px] rounded-full animate-blob-a" />
-        <div className="absolute top-[400px] -right-[200px] w-[600px] h-[600px] bg-purple-600/15 blur-[130px] rounded-full animate-blob-b" />
-        <div className="absolute top-[800px] -left-[200px] w-[500px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full animate-blob-c" />
+        {/* Desktop only: these 120–140px blur blobs re-rasterise every scroll
+            frame on a phone (they aren't on cached GPU layers once static), which
+            was the main mobile scroll cost. On mobile the hero video poster
+            already supplies the ambient violet glow. */}
+        <div className="hidden sm:block absolute -top-[200px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-indigo-600/20 blur-[140px] rounded-full animate-blob-a" />
+        <div className="hidden sm:block absolute top-[400px] -right-[200px] w-[600px] h-[600px] bg-purple-600/15 blur-[130px] rounded-full animate-blob-b" />
+        <div className="hidden sm:block absolute top-[800px] -left-[200px] w-[500px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full animate-blob-c" />
       </div>
 
       {/* ═══ HERO ═══ */}
