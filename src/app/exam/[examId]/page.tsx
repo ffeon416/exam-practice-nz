@@ -1,7 +1,12 @@
 "use client";
 
-import { use, useCallback, useEffect, useState } from "react";
+import { use, useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+
+// useLayoutEffect warns during SSR; fall back to useEffect on the server (the
+// browser is where the pre-paint localStorage read matters anyway).
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { questionMaxMarks } from "@/lib/scoring";
 import type { Exam, Question } from "@/lib/types";
@@ -46,26 +51,28 @@ export default function ExamPage({
   const mode: "practice" | "mock" =
     rawMode === "mock" && !tierLimits.mockExamMode ? "practice" : rawMode;
 
+  // Instant path: a locally-cached exam (just generated, or revisited on the
+  // same device) is a synchronous localStorage read, so populate it BEFORE the
+  // browser paints. This is the common case and it must be instant — no
+  // "Loading your exam..." spinner flash for data that's already on the device.
+  useIsoLayoutEffect(() => {
+    if (!isCustomExamId(examId)) return;
+    const e = getCustomExam(examId);
+    if (e) setExam(e);
+  }, [examId]);
+
+  // Fallback path: not cached locally (e.g. a different device) — fetch from
+  // the DB. Only this genuinely-loading case shows the spinner.
   useEffect(() => {
-    // Run on mount only — wait for the next tick so localStorage is hydrated
     let cancelled = false;
-    async function tryLoad() {
-      if (cancelled) return;
-      if (typeof window === "undefined") return;
+    if (!isCustomExamId(examId)) {
+      setExamNotFound(true);
+      return;
+    }
+    // Already resolved synchronously above — nothing to fetch.
+    if (getCustomExam(examId)) return;
 
-      // All exams are AI-generated custom papers — try localStorage first.
-      if (!isCustomExamId(examId)) {
-        if (!cancelled) setExamNotFound(true);
-        return;
-      }
-      const e = getCustomExam(examId);
-      if (e) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setExam(e);
-        return;
-      }
-
-      // Not found locally — try database (cross-device sync)
+    async function fromDb() {
       try {
         const res = await fetch(`/api/exams/${examId}`);
         if (res.ok) {
@@ -89,27 +96,18 @@ export default function ExamPage({
             }
             // Cache locally for next time (will throw if corrupted, but we
             // just verified it isn't).
-            if (isCustomExamId(examId)) {
-              const { saveCustomExam } = await import("@/lib/customExams");
-              saveCustomExam(data.exam);
-            }
-            if (!cancelled) {
-              // eslint-disable-next-line react-hooks/set-state-in-effect
-              setExam(data.exam);
-              return;
-            }
+            const { saveCustomExam } = await import("@/lib/customExams");
+            saveCustomExam(data.exam);
+            if (!cancelled) setExam(data.exam);
+            return;
           }
         }
       } catch {
         // DB fetch failed — fall through to not-found
       }
-
-      if (!cancelled) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setExamNotFound(true);
-      }
+      if (!cancelled) setExamNotFound(true);
     }
-    tryLoad();
+    fromDb();
     return () => {
       cancelled = true;
     };

@@ -228,6 +228,10 @@ export default function SubjectsPage() {
 
     setError(null);
     setLoading(true);
+    // Warm the exam route's JS chunk during the ~35s generation wait so it's
+    // already downloaded when we navigate — the paper is instant from
+    // localStorage, so the route code shouldn't be the thing you wait on.
+    router.prefetch("/exam/prefetch");
     const stopCycle = startLoadingCycle();
 
     try {
