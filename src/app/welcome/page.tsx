@@ -174,7 +174,7 @@ export default function WelcomePage() {
                 <button
                   key={yl.value}
                   onClick={() => setYearLevel(yl.value)}
-                  className={`flex items-center justify-between px-5 py-4 rounded-xl text-left transition-all border ${
+                  className={`flex items-center justify-between px-5 py-4 rounded-xl text-left transition-colors border ${
                     yearLevel === yl.value
                       ? "bg-gradient-to-r from-indigo-500/20 to-purple-500/10 border-indigo-500/50 shadow-lg shadow-indigo-500/10"
                       : "bg-white/[0.02] border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.04]"
@@ -227,7 +227,7 @@ export default function WelcomePage() {
                   <button
                     key={s.value}
                     onClick={() => toggleSubject(s.value)}
-                    className={`min-h-[52px] px-4 py-3 rounded-lg text-[13px] font-medium text-left transition-all border ${
+                    className={`min-h-[52px] px-4 py-3 rounded-lg text-[13px] font-medium text-left transition-colors border ${
                       picked
                         ? "bg-gradient-to-r from-indigo-500/25 to-purple-500/15 border-indigo-500/50 text-white shadow-lg shadow-indigo-500/10"
                         : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
