@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
 import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
@@ -72,10 +71,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // NEXT_PUBLIC_* is inlined at build time, so this must be set in Vercel
-  // *before* the build that should carry it.
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-
   return (
     <ClerkProvider
       appearance={{
@@ -131,16 +126,15 @@ export default function RootLayout({
           <DeferUntilIdle>
             <Analytics />
             <PageViewTracker />
-            {/* SessionRecorder (rrweb) is OFF: it re-serialises any mutating
-                subtree on every change, which made rapid interactions (e.g. the
-                year-level picker) lag worse the more you clicked. It also
-                persists nothing right now — the `recordings`/`recording_chunks`
-                tables aren't migrated in prod — so it was pure cost. Re-enable
-                by applying that DDL, then restoring <SessionRecorder /> here;
-                the sa-no-record guards on churny grids are already in place. */}
-            {/* GA4: SPA route changes handled by the component — no manual
-                page_view. Gated on the env var so dev/preview don't pollute. */}
-            {gaId && <GoogleAnalytics gaId={gaId} />}
+            {/* Google Analytics was REMOVED 2026-07-19: its gtag instrumented
+                every click and added ~2s of work + a network beacon per
+                interaction — the year-level picker went from 34ms to 2000ms+
+                per click (measured, ~60x slower). Traffic is covered first-party
+                in /admin (the /api/track beacon, which does NOT hook clicks).
+                SessionRecorder (rrweb) also stays OFF — it re-serialised churny
+                subtrees and persists nothing until the recordings DDL is applied
+                (restore <SessionRecorder /> here once it is; sa-no-record guards
+                on the churny grids are already in place). */}
           </DeferUntilIdle>
         </body>
       </html>
