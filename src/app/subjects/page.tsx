@@ -411,9 +411,15 @@ export default function SubjectsPage() {
   // ── Main form ──
   return (
     <div className="relative max-w-lg mx-auto px-5 pt-6 sm:pt-12 pb-16 sm:pb-20 bg-[#06060a] min-h-screen">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.06] blur-[120px] rounded-full" />
-        <div className="absolute top-[300px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
+      {/* transform-gpu promotes each blob to its own compositor layer so it's
+          rasterised ONCE. Without this, many mobile browsers re-run the (very
+          expensive) blur on every DOM change above — which is what froze the
+          main thread for ~400ms each time the subject grid re-rendered and made
+          the whole picker feel laggy. contain:paint on the wrapper keeps these
+          repaints from ever escaping the background layer. */}
+      <div className="absolute inset-0 -z-10 [contain:paint]" aria-hidden>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.06] blur-[90px] rounded-full transform-gpu [will-change:transform]" />
+        <div className="absolute top-[300px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[90px] rounded-full transform-gpu [will-change:transform]" />
       </div>
       <h1 className="text-[24px] sm:text-[34px] font-extrabold text-white tracking-tight text-center mb-2">
         Practise an exam
