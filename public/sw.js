@@ -4,7 +4,11 @@
 // navigations — it never caches JS/CSS chunks or API responses, so it can
 // never serve a stale app. If the network is up, you always get fresh content.
 
-const CACHE = "studyace-shell-v1";
+// Bumped v1 -> v2 (2026-07-19): forces the SW to re-activate and purge the old
+// cached "/" shell so returning visitors pick up the Google-Analytics-removal
+// build (GA was adding ~2s per click). Bump this string on any deploy that must
+// invalidate the offline shell.
+const CACHE = "studyace-shell-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
