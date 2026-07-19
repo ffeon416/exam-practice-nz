@@ -1,6 +1,6 @@
 "use client";
 
-import { useDeferredValue, useEffect, useState } from "react";
+import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Exam, Question, GraphData } from "@/lib/types";
@@ -84,6 +84,12 @@ export default function SubjectsPage() {
   const { limits, usage, loading: tierLoading, refresh } = useTier();
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
+  // The year buttons are native radios (highlight is painted by the browser's
+  // :checked state, instantly, with no React in the paint path). This ref lets
+  // the prefill effect tick the right radio imperatively, since they're
+  // uncontrolled (a controlled `checked` would re-introduce the React-render
+  // wait we're deliberately avoiding).
+  const yearGroupRef = useRef<HTMLDivElement>(null);
 
   // Pre-fill from onboarding on first load (reads from URL first, then localStorage)
   useEffect(() => {
@@ -95,6 +101,12 @@ export default function SubjectsPage() {
     const preYear = urlYear ? Number(urlYear) : onboarding?.yearLevel ?? null;
     if (preYear && [10, 11, 12, 13].includes(preYear)) {
       setYearLevel(preYear);
+      // Radios are uncontrolled — tick the matching one imperatively so a
+      // prefilled year shows selected on arrival.
+      const input = yearGroupRef.current?.querySelector<HTMLInputElement>(
+        `input[value="${preYear}"]`,
+      );
+      if (input) input.checked = true;
     }
 
     // Prefer the first onboarding subject the user is actually allowed to pick
@@ -415,19 +427,26 @@ export default function SubjectsPage() {
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           Year level
         </label>
-        <div className="grid grid-cols-4 gap-2">
+        {/* Native radios: the highlight is the browser's own :checked state,
+            painted the instant the tap lands — it never waits on a React
+            re-render (which is what made this feel delayed). onChange still
+            updates React state for the subject grid / Start button; that can
+            lag freely now without affecting the highlight. */}
+        <div ref={yearGroupRef} role="radiogroup" aria-label="Year level" className="grid grid-cols-4 gap-2">
           {YEAR_LEVELS.map((yl) => (
-            <button
-              key={yl.value}
-              onClick={() => { setYearLevel(yl.value); setSubject(null); }}
-              className={`min-h-[44px] py-3 rounded-lg text-[13px] font-medium transition-colors border ${
-                yearLevel === yl.value
-                  ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
-                  : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
-              }`}
-            >
-              {yl.label}
-            </button>
+            <label key={yl.value} className="group cursor-pointer select-none touch-manipulation">
+              <input
+                type="radio"
+                name="year-level"
+                value={yl.value}
+                defaultChecked={yearLevel === yl.value}
+                onChange={() => { setYearLevel(yl.value); setSubject(null); }}
+                className="peer sr-only"
+              />
+              <span className="flex items-center justify-center min-h-[44px] py-3 rounded-lg text-[13px] font-medium border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-white/[0.2] group-hover:bg-white/[0.04] peer-checked:bg-gradient-to-r peer-checked:from-indigo-500 peer-checked:to-purple-600 peer-checked:border-indigo-500 peer-checked:text-white peer-checked:shadow-lg peer-checked:shadow-indigo-500/25">
+                {yl.label}
+              </span>
+            </label>
           ))}
         </div>
       </div>
