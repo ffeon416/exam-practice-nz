@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useDeferredValue, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Exam, Question, GraphData } from "@/lib/types";
@@ -135,8 +135,18 @@ export default function SubjectsPage() {
   const [error, setError] = useState<string | null>(null);
   const [showUpgrade, setShowUpgrade] = useState<null | "exams" | "subject">(null);
 
-  const availableSubjects = yearLevel != null
-    ? SUBJECTS.filter((s) => s.years.includes(yearLevel))
+  // Tapping a year updates `yearLevel` (urgent → the year button highlights in
+  // the very next paint) but the subject grid — up to ~13 gradient/shadow
+  // buttons that are fully swapped out on every year change — is the expensive
+  // part of the re-render. Deriving the grid from a DEFERRED copy of the year
+  // lets React commit the year-button highlight first and re-render the grid in
+  // a following, non-blocking pass. This is what makes the highlight feel
+  // instant, especially when rapidly switching years on mobile. (Previously the
+  // highlight couldn't paint until the whole grid had re-rendered in the same
+  // commit — that was the delay.)
+  const deferredYear = useDeferredValue(yearLevel);
+  const availableSubjects = deferredYear != null
+    ? SUBJECTS.filter((s) => s.years.includes(deferredYear))
     : [];
 
   const canStart = yearLevel !== null && subject !== null;
@@ -427,7 +437,7 @@ export default function SubjectsPage() {
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
           Subject
         </label>
-        {yearLevel === null ? (
+        {deferredYear === null ? (
           <div className="rounded-lg border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-6 text-center">
             <p className="text-[13px] text-zinc-500">Pick a year level first ↑</p>
           </div>
