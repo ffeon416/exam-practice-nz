@@ -9,6 +9,7 @@ import { useTier, isUnlimited } from "@/hooks/useTier";
 import UpgradeModal from "@/components/UpgradeModal";
 import { loadOnboarding } from "@/lib/onboarding";
 import { FREE_SUBJECTS } from "@/lib/tierLimits";
+import { haptic } from "@/lib/haptics";
 
 const FREE_SUBJECT_SET = new Set<string>(FREE_SUBJECTS);
 
@@ -542,7 +543,17 @@ export default function SubjectsPage() {
           max={maxQ}
           step={1}
           value={Math.min(questionCount, maxQ)}
-          onChange={(e) => setQuestionCount(Number(e.target.value))}
+          onChange={(e) => {
+            const v = Number(e.target.value);
+            // Haptic ratchet: buzz on each step, stronger the higher you push
+            // (Android scales the pulse; iOS fires a fixed tick per step). Only
+            // on a real value change so we don't double-fire.
+            if (v !== questionCount) {
+              const pct = maxQ > 4 ? (v - 4) / (maxQ - 4) : 0;
+              haptic(pct);
+            }
+            setQuestionCount(v);
+          }}
           className="sa-range"
           style={{
             // Fill the track up to the current value with indigo (see .sa-range).
