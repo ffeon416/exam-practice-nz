@@ -9,7 +9,6 @@ import { useTier, isUnlimited } from "@/hooks/useTier";
 import UpgradeModal from "@/components/UpgradeModal";
 import { loadOnboarding } from "@/lib/onboarding";
 import { FREE_SUBJECTS } from "@/lib/tierLimits";
-import { haptic, initHaptics } from "@/lib/haptics";
 
 const FREE_SUBJECT_SET = new Set<string>(FREE_SUBJECTS);
 
@@ -91,11 +90,6 @@ export default function SubjectsPage() {
   // uncontrolled (a controlled `checked` would re-introduce the React-render
   // wait we're deliberately avoiding).
   const yearGroupRef = useRef<HTMLDivElement>(null);
-
-  // Create the iOS haptic switch up front so the first buzz isn't swallowed.
-  useEffect(() => {
-    initHaptics();
-  }, []);
 
   // Pre-fill from onboarding on first load (reads from URL first, then localStorage)
   useEffect(() => {
@@ -452,7 +446,7 @@ export default function SubjectsPage() {
                 name="year-level"
                 value={yl.value}
                 defaultChecked={yearLevel === yl.value}
-                onChange={() => { haptic(0.6); setYearLevel(yl.value); setSubject(null); }}
+                onChange={() => { setYearLevel(yl.value); setSubject(null); }}
                 className="peer sr-only"
               />
               <span className="flex items-center justify-center min-h-[44px] py-3 rounded-lg text-[13px] font-medium border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-white/[0.2] group-hover:bg-white/[0.04] peer-checked:bg-gradient-to-r peer-checked:from-indigo-500 peer-checked:to-purple-600 peer-checked:border-indigo-500 peer-checked:text-white peer-checked:shadow-lg peer-checked:shadow-indigo-500/25">
@@ -548,17 +542,7 @@ export default function SubjectsPage() {
           max={maxQ}
           step={1}
           value={Math.min(questionCount, maxQ)}
-          onChange={(e) => {
-            const v = Number(e.target.value);
-            // Haptic ratchet: buzz on each step, stronger the higher you push
-            // (Android scales the pulse; iOS fires a fixed tick per step). Only
-            // on a real value change so we don't double-fire.
-            if (v !== questionCount) {
-              const pct = maxQ > 4 ? (v - 4) / (maxQ - 4) : 0;
-              haptic(pct);
-            }
-            setQuestionCount(v);
-          }}
+          onChange={(e) => setQuestionCount(Number(e.target.value))}
           className="sa-range"
           style={{
             // Fill the track up to the current value with indigo (see .sa-range).
