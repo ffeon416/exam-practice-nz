@@ -4,6 +4,16 @@
 // navigations — it never caches JS/CSS chunks or API responses, so it can
 // never serve a stale app. If the network is up, you always get fresh content.
 
+// AUTO-STAMPED per deploy by scripts/stamp-sw.mjs (replaces "dev" with the
+// Vercel commit SHA at build time). This changes the SW bytes on EVERY deploy,
+// so the browser always installs a fresh worker → controllerchange → the app
+// reloads itself into the new build. Do NOT hand-edit the value; it must stay
+// exactly `const BUILD_VERSION = "..."` for the stamp regex to match. Kept out
+// of the log-free path deliberately so it can't be tree-shaken (public/ files
+// are served verbatim, but this makes the intent explicit).
+const BUILD_VERSION = "dev";
+self.__STUDYACE_BUILD__ = BUILD_VERSION;
+
 // Bump this string on any deploy that must reach installed PWAs. Changing the
 // SW bytes makes the browser install a new worker; install() calls
 // skipWaiting() and activate() calls clients.claim(), which fires
