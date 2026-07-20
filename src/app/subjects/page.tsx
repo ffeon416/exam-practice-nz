@@ -549,10 +549,23 @@ export default function SubjectsPage() {
             "--sa-pct": `${maxQ > 4 ? ((Math.max(4, Math.min(questionCount, maxQ)) - 4) / (maxQ - 4)) * 100 : 0}%`,
           } as React.CSSProperties}
         />
-        <div className="flex justify-between text-[10px] text-zinc-600 mt-1">
-          <span>Short (4)</span>
-          {maxQ >= 10 && <span>Standard (10)</span>}
-          <span>Max ({maxQ})</span>
+        {/* Ticks are positioned at each value's true spot on the 4→maxQ track
+            (same formula as the fill --sa-pct), so a label sits exactly under
+            the thumb when it reads that value. justify-between put "Standard
+            (10)" at the visual middle (50% = value 12), which misaligned it. */}
+        <div className="relative h-3.5 mt-1.5 text-[10px] text-zinc-600">
+          <span className="absolute left-0">Short (4)</span>
+          {maxQ > 10 && (
+            <span
+              className="absolute -translate-x-1/2 whitespace-nowrap"
+              // The thumb is 18px wide, so its centre travels between 9px and
+              // (100% - 9px). Place the tick at value 10's exact thumb centre.
+              style={{ left: `calc(9px + ${(10 - 4) / (maxQ - 4)} * (100% - 18px))` }}
+            >
+              Standard (10)
+            </span>
+          )}
+          <span className="absolute right-0">Max ({maxQ})</span>
         </div>
         {maxQ < 20 && (
           <p className="text-[11px] text-indigo-400/70 mt-1.5">
