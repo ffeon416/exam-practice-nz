@@ -4,11 +4,16 @@
 // navigations — it never caches JS/CSS chunks or API responses, so it can
 // never serve a stale app. If the network is up, you always get fresh content.
 
-// Bumped v1 -> v2 (2026-07-19): forces the SW to re-activate and purge the old
-// cached "/" shell so returning visitors pick up the Google-Analytics-removal
-// build (GA was adding ~2s per click). Bump this string on any deploy that must
-// invalidate the offline shell.
-const CACHE = "studyace-shell-v2";
+// Bump this string on any deploy that must reach installed PWAs. Changing the
+// SW bytes makes the browser install a new worker; install() calls
+// skipWaiting() and activate() calls clients.claim(), which fires
+// `controllerchange` in the page — ServiceWorkerRegister then reloads the app
+// once into the fresh build. This is how a standalone iOS/Android home-screen
+// app (which otherwise resumes stale JS forever) picks up new deploys.
+//   v1 -> v2 (2026-07-19): purge stale "/" shell after the GA removal.
+//   v2 -> v3 (2026-07-20): ship the /subjects picker perf fixes + the new
+//                          self-updating registrar to installed apps.
+const CACHE = "studyace-shell-v3";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
