@@ -77,6 +77,63 @@ body {
 .sa-twinkle { animation: sa-twinkle 2.6s ease-in-out infinite; }
 .sa-float   { animation: sa-float 4.5s ease-in-out infinite; will-change: transform; }
 
+/* Dark-themed range slider — replaces the native accent-color slider, whose
+   thumb/track render white on iOS. Unfilled track is subtle white/10, the
+   filled portion is indigo (driven by the --sa-pct custom property set inline),
+   and the thumb is indigo — no white anywhere. Reuse via className="sa-range". */
+.sa-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  background: linear-gradient(
+    to right,
+    #6366f1 0%,
+    #6366f1 var(--sa-pct, 50%),
+    rgba(255, 255, 255, 0.1) var(--sa-pct, 50%),
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+.sa-range::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: transparent;
+  height: 6px;
+  border-radius: 9999px;
+}
+.sa-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  border-radius: 9999px;
+  background: #818cf8;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+.sa-range::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.sa-range::-moz-range-progress {
+  height: 6px;
+  border-radius: 9999px;
+  background: #6366f1;
+}
+.sa-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 9999px;
+  background: #818cf8;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
 /* Laptop zoom-in reveal — plays ONCE when it scrolls into view (JS toggles
    .sa-in via IntersectionObserver). One compositor keyframe (transform/opacity),
    so it's smooth everywhere and never reads/drives scroll position — it cannot

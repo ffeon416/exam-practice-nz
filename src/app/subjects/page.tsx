@@ -543,7 +543,11 @@ export default function SubjectsPage() {
           step={1}
           value={Math.min(questionCount, maxQ)}
           onChange={(e) => setQuestionCount(Number(e.target.value))}
-          className="w-full accent-indigo-500"
+          className="sa-range"
+          style={{
+            // Fill the track up to the current value with indigo (see .sa-range).
+            "--sa-pct": `${maxQ > 4 ? ((Math.max(4, Math.min(questionCount, maxQ)) - 4) / (maxQ - 4)) * 100 : 0}%`,
+          } as React.CSSProperties}
         />
         <div className="flex justify-between text-[10px] text-zinc-600 mt-1">
           <span>Short (4)</span>
