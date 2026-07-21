@@ -94,6 +94,10 @@ export default function SubjectsPage() {
   // Pre-fill from onboarding on first load (reads from URL first, then localStorage)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    // In the guided weak-topic flow we deliberately leave year + subject
+    // unselected so the student picks their own year level and is then guided
+    // to the highlighted subject. That flow does its own prefill below.
+    if (params.get("guide")) return;
     const urlSubject = params.get("subject");
     const urlYear = params.get("year");
     const onboarding = loadOnboarding();
@@ -127,6 +131,10 @@ export default function SubjectsPage() {
     }
   }, [limits.allSubjects]);
   const [topic, setTopic] = useState<string>("");
+  // Subject to visually highlight (guide) when a student arrives from the
+  // dashboard's "Focus on these" weak-topic link. Highlight only — never
+  // auto-selected. Stays null on every normal /subjects visit.
+  const [highlightSubject, setHighlightSubject] = useState<string | null>(null);
   const maxQ = limits.maxQuestions;
   const [questionCount, setQuestionCount] = useState<number>(Math.min(10, maxQ));
 
@@ -335,6 +343,27 @@ export default function SubjectsPage() {
     }
   }
 
+  // Guided weak-topic flow (dashboard "Focus on these" link). The link carries
+  // `?topic=…&guide=<subject>`. We prefill the focus topic and mark the matching
+  // subject to be *highlighted* — we never press it or auto-generate. The
+  // student still chooses their own year level, after which the highlighted
+  // subject guides them to what to tap next. Gated on `guide`, so it only ever
+  // runs for this feature — a normal /subjects visit is completely unaffected.
+  const guideAppliedRef = useRef(false);
+  useEffect(() => {
+    if (guideAppliedRef.current) return;
+    const params = new URLSearchParams(window.location.search);
+    const urlTopic = params.get("topic");
+    const guideSubject = params.get("guide");
+    if (!urlTopic && !guideSubject) return;
+    guideAppliedRef.current = true;
+    // Prefill the focus topic whenever it's supplied (works for older weak
+    // topics that don't know their subject yet). Highlight the subject only
+    // when we know which one it is (`guide`) — that's the guided visit.
+    if (urlTopic) setTopic(urlTopic);
+    if (guideSubject) setHighlightSubject(guideSubject);
+  }, []);
+
   // ── Loading screen ──
   if (loading) {
     const subjectLabel = subject
@@ -428,6 +457,15 @@ export default function SubjectsPage() {
         Tell us what to test you on. We&apos;ll build a fresh paper in seconds.
       </p>
 
+      {/* Guided weak-topic hint — only shown when arriving from "Focus on these" */}
+      {highlightSubject && (
+        <div className="-mt-4 mb-8 rounded-xl border border-indigo-400/30 bg-indigo-500/[0.08] px-4 py-3 text-center">
+          <p className="text-[13px] text-indigo-100 font-medium">
+            Let&apos;s work on <span className="font-bold">{topic || "your weak spot"}</span>. Pick your year level, then tap the highlighted subject.
+          </p>
+        </div>
+      )}
+
       {/* Year level */}
       <div className="mb-6 sm:mb-8">
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
@@ -477,6 +515,9 @@ export default function SubjectsPage() {
               // Until tier resolves, render all subjects as unlocked so a Pro
               // user doesn't see padlocks flash on every non-free subject.
               const locked = !tierLoading && !limits.allSubjects && !FREE_SUBJECT_SET.has(s.value);
+              // Guided highlight: the weak-topic flow flags this subject to draw
+              // the eye. Only while it isn't the one the student has picked yet.
+              const isSuggested = highlightSubject === s.value && subject !== s.value;
               return (
                 <button
                   key={s.value}
@@ -487,16 +528,21 @@ export default function SubjectsPage() {
                     }
                     setSubject(s.value);
                   }}
-                  className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-colors border relative ${
+                  className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-all border relative ${
                     subject === s.value
                       ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                       : locked
                       ? "bg-white/[0.02] border-white/[0.06] text-zinc-500 hover:border-indigo-500/30 hover:bg-indigo-500/[0.04]"
                       : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
-                  }`}
+                  } ${isSuggested ? "ring-2 ring-indigo-400 shadow-lg shadow-indigo-500/30 animate-pulse" : ""}`}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span>{s.label}</span>
+                    {isSuggested && !locked && (
+                      <span className="inline-flex items-center text-[9px] font-bold uppercase tracking-wider text-indigo-100 bg-indigo-500/25 border border-indigo-400/50 px-1.5 py-0.5 rounded">
+                        Suggested
+                      </span>
+                    )}
                     {locked && (
                       <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-indigo-300/80 bg-indigo-500/10 border border-indigo-500/25 px-1.5 py-0.5 rounded">
                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">

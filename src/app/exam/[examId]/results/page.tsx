@@ -335,6 +335,8 @@ export default function ResultsPage({
           totalMarks,
           maxMarks,
           mode,
+          subject: e.subject,
+          level: e.level,
         };
 
         const updatedProgress = addExamAttempt(attempt);

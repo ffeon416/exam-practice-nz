@@ -122,6 +122,27 @@ export async function listAttempts(userId: string, limit = 20): Promise<ExamAtte
 
   if (!data) return [];
 
+  // Backfill subject/level for older attempts (saved before those columns were
+  // populated) from the custom paper they were generated from. This is what
+  // lets the dashboard's guided weak-topic highlight resolve a subject on ANY
+  // device — not just the one whose localStorage still holds the paper.
+  const missingIds = [
+    ...new Set(
+      data.filter((r) => !r.subject && r.exam_id).map((r) => r.exam_id as string),
+    ),
+  ];
+  const examMeta: Record<string, { subject?: string; level?: number }> = {};
+  if (missingIds.length > 0) {
+    const { data: exams } = await supabase
+      .from("custom_exams")
+      .select("id, subject, level")
+      .eq("user_id", userId)
+      .in("id", missingIds);
+    for (const e of exams ?? []) {
+      examMeta[e.id] = { subject: e.subject, level: e.level };
+    }
+  }
+
   return data.map((row) => ({
     examId: row.exam_id,
     date: row.taken_at,
@@ -131,6 +152,8 @@ export async function listAttempts(userId: string, limit = 20): Promise<ExamAtte
     totalMarks: row.total_marks,
     maxMarks: row.max_marks,
     mode: row.mode,
+    subject: row.subject ?? examMeta[row.exam_id]?.subject,
+    level: row.level ?? examMeta[row.exam_id]?.level,
   })) as ExamAttempt[];
 }
 

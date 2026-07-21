@@ -416,46 +416,58 @@ function PlanView({ plan }: { plan: StudyPlan }) {
 
       <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Countdown header */}
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-4 sm:mb-5">
-            {plan.subjects.map(subjectLabel).join(", ")}
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-5 sm:mb-6">
+            {plan.subjects.map((s) => (
+              <span key={s} className="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400">
+                {subjectLabel(s)}
+              </span>
+            ))}
           </div>
-          <h1 className="text-[32px] sm:text-[48px] font-extrabold text-white tracking-tight mb-1">
+          <div className="relative inline-block">
+            <div aria-hidden className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 bg-indigo-500/20 blur-[70px] rounded-full -z-10" />
             {daysLeft === 0 ? (
-              "Exam day"
+              <h1 className="text-[40px] sm:text-[60px] font-black tracking-tight bg-gradient-to-br from-indigo-200 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
+                Exam day
+              </h1>
             ) : (
-              <>
-                <span className="bg-gradient-to-r from-indigo-300 to-purple-400 bg-clip-text text-transparent">
+              <div className="leading-none">
+                <span className="block text-[76px] sm:text-[104px] font-black leading-[0.9] tabular-nums bg-gradient-to-br from-indigo-200 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
                   {daysLeft}
-                </span>{" "}
-                {daysLeft === 1 ? "day" : "days"} to go
-              </>
+                </span>
+                <span className="block text-[14px] sm:text-[16px] uppercase tracking-[0.25em] text-zinc-400 font-bold mt-2">
+                  {daysLeft === 1 ? "day" : "days"} to go
+                </span>
+              </div>
             )}
-          </h1>
-          <p className="text-zinc-500 text-[14px]">
-            Exam: {new Date(plan.examDate).toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}
+          </div>
+          <p className="text-zinc-500 text-[13px] mt-5">
+            {new Date(plan.examDate).toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}
           </p>
         </div>
 
         {/* Overall progress */}
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-zinc-400 text-[13px]">Overall progress</span>
-            <span className="text-white text-[13px] font-medium">
-              {doneTasks}/{totalTasks} tasks done
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/[0.1] to-purple-500/[0.05] border border-indigo-500/20 p-5 mb-6">
+          <div className="flex items-end justify-between mb-3">
+            <div>
+              <p className="text-white font-bold text-[15px] leading-tight">Your progress</p>
+              <p className="text-zinc-500 text-[12px] mt-0.5">{doneTasks} of {totalTasks} tasks done</p>
+            </div>
+            <span className="text-[34px] font-black tabular-nums leading-none bg-gradient-to-br from-indigo-200 to-purple-400 bg-clip-text text-transparent">
+              {overallPct}%
             </span>
           </div>
-          <div className="w-full bg-white/[0.06] rounded-full h-2.5">
+          <div className="w-full bg-white/[0.06] rounded-full h-3 overflow-hidden">
             <div
-              className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2.5 rounded-full transition-all duration-700 ease-out"
-              style={{ width: `${overallPct}%` }}
+              className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 shadow-[0_0_16px_-2px_rgba(139,92,246,0.7)] transition-all duration-700 ease-out"
+              style={{ width: `${Math.max(overallPct, 2)}%` }}
             />
           </div>
-          <p className="text-zinc-600 text-[11px] mt-2">
+          <p className="text-zinc-400 text-[11px] mt-2.5 font-medium">
             {overallPct === 100
-              ? "You've completed everything!"
+              ? "🎉 You've completed everything!"
               : overallPct >= 50
-              ? "You're on track. Keep going!"
+              ? "You're over halfway — keep the momentum!"
               : "Tick off tasks as you complete them."}
           </p>
         </div>
@@ -589,9 +601,9 @@ function WeekCard({
 
   return (
     <div
-      className={`rounded-xl overflow-hidden transition-colors ${
+      className={`rounded-xl overflow-hidden transition-all ${
         highlight
-          ? "bg-indigo-500/[0.06] border border-indigo-500/20"
+          ? "bg-indigo-500/[0.07] border border-indigo-500/25 shadow-lg shadow-indigo-500/10"
           : "bg-white/[0.02] border border-white/[0.06]"
       }`}
     >
@@ -601,17 +613,33 @@ function WeekCard({
         className="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-left hover:bg-white/[0.02] transition-colors"
       >
         <div className="min-w-0 flex-1">
-          <p className="text-white font-medium text-[14px]">
+          <p className="text-white font-semibold text-[14px] truncate">
             Week {week.weekNumber} — {week.focus}
           </p>
           <p className="text-zinc-600 text-[11px] mt-0.5">{dateRange}</p>
+          {/* Per-week progress */}
+          <div className="mt-2 w-full max-w-[200px] h-1 rounded-full bg-white/[0.06] overflow-hidden">
+            <div
+              className={`h-full rounded-full transition-all duration-700 ${
+                pct === 100 ? "bg-emerald-500" : "bg-gradient-to-r from-indigo-500 to-purple-500"
+              }`}
+              style={{ width: `${Math.max(pct, 2)}%` }}
+            />
+          </div>
         </div>
-        <div className="flex items-center gap-3 shrink-0">
-          <span className={`text-[12px] font-medium tabular-nums ${
-            pct === 100 ? "text-emerald-400" : "text-zinc-500"
-          }`}>
-            {done}/{total}
-          </span>
+        <div className="flex items-center gap-2.5 shrink-0">
+          {pct === 100 ? (
+            <span className="inline-flex items-center gap-1 text-[12px] font-bold text-emerald-400">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75" />
+              </svg>
+              Done
+            </span>
+          ) : (
+            <span className="text-[12px] font-medium tabular-nums text-zinc-500">
+              {done}/{total}
+            </span>
+          )}
           <svg
             className={`w-4 h-4 text-zinc-600 transition-transform ${open ? "rotate-180" : ""}`}
             fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"
@@ -652,10 +680,10 @@ function TaskRow({ task }: { task: StudyTask }) {
             }).catch(() => {});
           }
         }}
-        className={`mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-all ${
+        className={`mt-0.5 w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-all ${
           task.completed
-            ? "bg-indigo-500 border-indigo-500"
-            : "border-zinc-600 hover:border-indigo-400"
+            ? "bg-emerald-500 border-emerald-500 shadow-[0_0_10px_-1px_rgba(16,185,129,0.7)] scale-100"
+            : "border-zinc-600 hover:border-indigo-400 hover:scale-110"
         }`}
       >
         {task.completed && (

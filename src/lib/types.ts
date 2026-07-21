@@ -90,6 +90,10 @@ export interface ExamAttempt {
   totalMarks: number;
   maxMarks: number;
   mode: "practice" | "mock";
+  // Which subject/level this attempt was for. Optional because attempts saved
+  // before these were tracked won't have them.
+  subject?: string;
+  level?: number;
 }
 
 export interface TopicScore {
@@ -100,6 +104,11 @@ export interface TopicScore {
   trend: "improving" | "stable" | "declining";
   lastAttempted: string;
   history: number[]; // last N scores as percentages
+  // The subject/level this topic was last practised under, so the dashboard can
+  // send the student straight into a fresh paper on this exact weak topic
+  // instead of the generic subject picker. Optional for older stored scores.
+  subject?: string;
+  level?: number;
 }
 
 // ── Practice question generation ──

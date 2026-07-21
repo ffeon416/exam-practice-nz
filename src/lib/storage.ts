@@ -67,7 +67,10 @@ export function addExamAttempt(attempt: ExamAttempt): StudentProgress {
   // Update topic scores from marking results
   for (const result of attempt.results) {
     for (const topic of result.topicsToReview) {
-      updateTopicScore(progress, topic, result);
+      updateTopicScore(progress, topic, result, {
+        subject: attempt.subject,
+        level: attempt.level,
+      });
     }
   }
 
@@ -78,7 +81,8 @@ export function addExamAttempt(attempt: ExamAttempt): StudentProgress {
 function updateTopicScore(
   progress: StudentProgress,
   topicId: string,
-  result: { marksAwarded: number; maxMarks: number }
+  result: { marksAwarded: number; maxMarks: number },
+  meta?: { subject?: string; level?: number }
 ) {
   const pct = result.maxMarks > 0 ? result.marksAwarded / result.maxMarks : 0;
   const existing = progress.topicScores[topicId];
@@ -108,6 +112,9 @@ function updateTopicScore(
       trend,
       lastAttempted: new Date().toISOString(),
       history,
+      // Keep the most recent subject/level this topic was practised under.
+      subject: meta?.subject ?? existing.subject,
+      level: meta?.level ?? existing.level,
     };
   } else {
     progress.topicScores[topicId] = {
@@ -118,6 +125,8 @@ function updateTopicScore(
       trend: "stable",
       lastAttempted: new Date().toISOString(),
       history: [Math.round(pct * 100)],
+      subject: meta?.subject,
+      level: meta?.level,
     };
   }
 }

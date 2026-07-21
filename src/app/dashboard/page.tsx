@@ -470,6 +470,21 @@ export default function DashboardPage() {
   const hasData = progress.totalExamsTaken > 0;
   const weakTopics = getWeakTopics(progress, 3);
 
+  // Map each topic back to the subject it was practised under, so the guided
+  // "Focus on these" highlight works even for topics recorded before the
+  // subject was stored on the score. Built from the newly-stored attempt
+  // subject when present, else the custom paper it came from (localStorage —
+  // no bundle cost). Most-recent attempt wins.
+  const topicSubjectMap = new Map<string, string>();
+  for (const a of progress.examAttempts) {
+    const subj =
+      a.subject ?? (isCustomExamId(a.examId) ? getCustomExam(a.examId)?.subject : undefined);
+    if (!subj) continue;
+    for (const r of a.results ?? []) {
+      for (const tp of r.topicsToReview ?? []) topicSubjectMap.set(tp, subj);
+    }
+  }
+
   // Check if streak should be reset (student missed a day)
   const displayStreak = (() => {
     if (!progress.lastActiveDate || progress.streakDays === 0) return 0;
@@ -535,18 +550,19 @@ export default function DashboardPage() {
           // Reviews due
           <Link
             href="/review"
-            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-amber-500/[0.12] to-orange-500/[0.06] border border-amber-500/25 p-6 mb-6 hover:border-amber-500/40 transition-all shadow-lg shadow-amber-500/[0.05]"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 p-3.5 mb-6 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:-translate-y-0.5 transition-all"
           >
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20">
-              <span className="text-white text-[20px] font-extrabold">{reviewStats.due}</span>
+            <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+            <div className="relative w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0 text-white text-[16px] font-extrabold tabular-nums">
+              {reviewStats.due}
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-white font-semibold text-[16px]">Review time</p>
-              <p className="text-zinc-400 text-[13px]">
-                {reviewStats.due === 1 ? "1 question" : `${reviewStats.due} questions`} ready to review — keep it fresh.
+            <div className="relative flex-1 min-w-0">
+              <p className="text-white font-bold text-[15px] leading-tight">Review time</p>
+              <p className="text-white/70 text-[12px] truncate">
+                {reviewStats.due === 1 ? "1 question" : `${reviewStats.due} questions`} ready — keep it fresh.
               </p>
             </div>
-            <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <svg className="relative w-5 h-5 text-white/80 shrink-0 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </Link>
@@ -554,22 +570,23 @@ export default function DashboardPage() {
           // Default: do another exam
           <Link
             href="/subjects"
-            className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/25 p-6 mb-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 p-3.5 mb-6 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all"
           >
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+            <div className="relative w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-white font-bold text-[16px]">Practise another exam</p>
-              <p className="text-zinc-400 text-[13px]">
+            <div className="relative flex-1 min-w-0">
+              <p className="text-white font-bold text-[15px] leading-tight">Practise another exam</p>
+              <p className="text-white/70 text-[12px] truncate">
                 {weakTopics.length > 0
-                  ? `Try focusing on ${getTopicLabel(weakTopics[0].topic)} — it's your weakest area.`
+                  ? `Focus on ${getTopicLabel(weakTopics[0].topic)} — your weakest area.`
                   : "Keep building your skills across all topics."}
               </p>
             </div>
-            <svg className="w-5 h-5 text-zinc-500 shrink-0 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <svg className="relative w-5 h-5 text-white/80 shrink-0 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </Link>
@@ -647,28 +664,54 @@ export default function DashboardPage() {
           <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-white font-extrabold text-[14px]">Focus on these</h2>
-              <Link href="/practice" className="text-indigo-400 text-[12px] font-medium hover:text-indigo-300 transition-colors">
-                Practise &rarr;
-              </Link>
+              <span className="text-zinc-600 text-[11px] font-medium">Tap to practise</span>
             </div>
             <div className="space-y-2">
               {weakTopics.map((t) => {
                 const pct = Math.round(t.correctRate * 100);
+                const label = getTopicLabel(t.topic);
+                // Send the student to the picker with this exact topic prefilled
+                // and — if we know which subject it belongs to — the matching
+                // subject flagged to be *highlighted* (not auto-selected) as a
+                // guide. `guide=<subject>` is what scopes the highlight behaviour
+                // to this weak-topic feature only.
+                const guideSubject = t.subject ?? topicSubjectMap.get(t.topic);
+                const params = new URLSearchParams();
+                params.set("topic", label);
+                if (guideSubject) params.set("guide", guideSubject);
+                const href = `/subjects?${params.toString()}`;
+                const subjectLabel = guideSubject
+                  ? guideSubject.charAt(0).toUpperCase() + guideSubject.slice(1).replace(/-/g, " ")
+                  : null;
+                // Weakness-tinted "heat" bar: rose when failing, amber when close.
+                const c = pct < 40
+                  ? { num: "text-rose-400", bar: "from-rose-500 to-orange-500", glow: "group-hover:shadow-rose-500/10", shadow: "shadow-[0_0_12px_-2px_rgba(244,63,94,0.6)]" }
+                  : { num: "text-amber-400", bar: "from-amber-500 to-yellow-400", glow: "group-hover:shadow-amber-500/10", shadow: "shadow-[0_0_12px_-2px_rgba(245,158,11,0.6)]" };
                 return (
-                  <div key={t.topic} className={`flex items-center gap-3 pl-3 border-l-2 ${pct >= 40 ? "border-yellow-500" : "border-red-500"}`}>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex justify-between text-[12px] mb-1">
-                        <span className="text-zinc-300 truncate">{getTopicLabel(t.topic)}</span>
-                        <span className={`font-bold ${pct >= 40 ? "text-yellow-400" : "text-red-400"}`}>{pct}%</span>
-                      </div>
-                      <div className="w-full bg-white/[0.06] rounded-full h-1.5">
-                        <div
-                          className={`h-1.5 rounded-full transition-all duration-700 ${pct >= 40 ? "bg-yellow-500" : "bg-red-500"}`}
-                          style={{ width: `${Math.max(pct, 3)}%` }}
-                        />
+                  <Link
+                    key={t.topic}
+                    href={href}
+                    className={`group relative block rounded-xl border border-white/[0.06] bg-white/[0.015] px-3 py-2.5 transition-all duration-200 hover:bg-white/[0.04] hover:border-white/[0.12] hover:shadow-lg ${c.glow}`}
+                  >
+                    {/* Title + score on one line */}
+                    <div className="flex items-center justify-between gap-3 mb-2">
+                      <p className="text-[13px] font-semibold text-white truncate min-w-0">
+                        {label}
+                        {subjectLabel && <span className="text-zinc-500 font-normal"> · {subjectLabel}</span>}
+                      </p>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <span className={`text-[15px] font-extrabold tabular-nums leading-none ${c.num}`}>{pct}%</span>
+                        <span className="text-zinc-600 group-hover:text-indigo-300 group-hover:translate-x-0.5 transition-all text-[13px]">&rarr;</span>
                       </div>
                     </div>
-                  </div>
+                    {/* Hero heat bar */}
+                    <div className="relative w-full h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r ${c.bar} ${c.shadow} transition-all duration-700`}
+                        style={{ width: `${Math.max(pct, 4)}%` }}
+                      />
+                    </div>
+                  </Link>
                 );
               })}
             </div>
@@ -678,40 +721,67 @@ export default function DashboardPage() {
         {/* Recent exams */}
         {recentAttempts.length > 0 && (
           <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
-            <h2 className="text-white font-extrabold text-[14px] mb-3">Recent</h2>
-            <div className="space-y-2">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-white font-extrabold text-[14px]">Recent</h2>
+              <span className="text-zinc-600 text-[11px] font-medium tabular-nums">
+                {recentAttempts.length} exam{recentAttempts.length > 1 ? "s" : ""}
+              </span>
+            </div>
+            <div className="space-y-2.5">
               {recentAttempts.map((attempt, i) => {
                 const pct = attempt.maxMarks > 0 ? Math.round((attempt.totalMarks / attempt.maxMarks) * 100) : 0;
-                // Look up the real title
+                // Real title from the paper if it's on this device; otherwise a
+                // friendly subject-based fallback (never a bare "Practice exam").
                 const custom = isCustomExamId(attempt.examId) ? getCustomExam(attempt.examId) : null;
-                const title = custom?.title ?? "Practice exam";
+                const subjectLabel = attempt.subject
+                  ? attempt.subject.charAt(0).toUpperCase() + attempt.subject.slice(1).replace(/-/g, " ")
+                  : null;
+                const title = custom?.title ?? (subjectLabel ? `${subjectLabel} practice` : "Practice exam");
+                const dateStr = new Date(attempt.date).toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
+                const subline = [subjectLabel && custom ? subjectLabel : null, dateStr].filter(Boolean).join(" · ");
+                const g = attempt.overallGrade;
+                const c =
+                  g === "excellence"
+                    ? { text: "text-amber-300", ring: "text-amber-400", pill: "text-amber-300 bg-amber-500/10 border-amber-500/30", glow: "group-hover:shadow-amber-500/20" }
+                    : g === "merit"
+                    ? { text: "text-sky-300", ring: "text-sky-400", pill: "text-sky-300 bg-sky-500/10 border-sky-500/30", glow: "group-hover:shadow-sky-500/20" }
+                    : g === "achieved"
+                    ? { text: "text-emerald-300", ring: "text-emerald-400", pill: "text-emerald-300 bg-emerald-500/10 border-emerald-500/30", glow: "group-hover:shadow-emerald-500/20" }
+                    : { text: "text-rose-300", ring: "text-rose-400", pill: "text-rose-300 bg-rose-500/10 border-rose-500/30", glow: "group-hover:shadow-rose-500/20" };
+                // Circumference of r=15.5 circle ≈ 97.4; fill an arc for the score.
+                const dash = (pct / 100) * 97.4;
                 return (
                   <Link
                     key={i}
                     href={`/exam/${attempt.examId}/results`}
-                    className={`flex items-center justify-between py-2 hover:bg-white/[0.02] -mx-2 px-2 rounded-lg transition-colors border-l-2 pl-3 ${
-                      attempt.overallGrade === "excellence" ? "border-yellow-500" :
-                      attempt.overallGrade === "merit" ? "border-blue-500" :
-                      attempt.overallGrade === "achieved" ? "border-green-500" :
-                      "border-red-500"
-                    }`}
+                    className={`group relative flex items-center gap-3.5 rounded-xl border border-white/[0.06] bg-white/[0.015] p-3 transition-all duration-200 hover:bg-white/[0.04] hover:border-white/[0.12] hover:-translate-y-0.5 hover:shadow-lg ${c.glow}`}
                   >
-                    <div className="min-w-0 flex-1">
-                      <p className="text-[13px] text-zinc-300 truncate">{title}</p>
-                      <p className="text-[11px] text-zinc-600">
-                        {new Date(attempt.date).toLocaleDateString("en-NZ", { day: "numeric", month: "short" })}
-                      </p>
+                    {/* Score ring */}
+                    <div className="relative w-12 h-12 shrink-0">
+                      <svg className="w-12 h-12 -rotate-90" viewBox="0 0 36 36" aria-hidden>
+                        <circle cx="18" cy="18" r="15.5" fill="none" strokeWidth="3" stroke="currentColor" className="text-white/[0.07]" />
+                        <circle
+                          cx="18" cy="18" r="15.5" fill="none" strokeWidth="3" strokeLinecap="round"
+                          stroke="currentColor"
+                          strokeDasharray={`${dash} 97.4`}
+                          className={`${c.ring} transition-all duration-700`}
+                        />
+                      </svg>
+                      <span className={`absolute inset-0 flex items-center justify-center text-[12px] font-extrabold tabular-nums ${c.text}`}>
+                        {pct}
+                      </span>
                     </div>
+                    {/* Main */}
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[13px] font-semibold text-white truncate">{title}</p>
+                      <p className="text-[11px] text-zinc-500 truncate">{subline}</p>
+                    </div>
+                    {/* Grade + arrow */}
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-[12px] text-zinc-500 tabular-nums">{pct}%</span>
-                      <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border ${
-                        attempt.overallGrade === "excellence" ? "text-yellow-400 bg-yellow-500/10 border-yellow-500/30" :
-                        attempt.overallGrade === "merit" ? "text-blue-400 bg-blue-500/10 border-blue-500/30" :
-                        attempt.overallGrade === "achieved" ? "text-green-400 bg-green-500/10 border-green-500/30" :
-                        "text-red-400 bg-red-500/10 border-red-500/30"
-                      }`}>
+                      <span className={`text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full border ${c.pill}`}>
                         {gradeLabel(attempt.overallGrade)}
                       </span>
+                      <span className="text-zinc-600 group-hover:text-white group-hover:translate-x-0.5 transition-all text-[14px]">&rarr;</span>
                     </div>
                   </Link>
                 );
