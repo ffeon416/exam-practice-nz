@@ -6,6 +6,8 @@ import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
 import {
   calculateOverallGrade,
+  curriculumBand,
+  bandToneGrade,
   gradeLabel,
   gradeColor,
   questionMaxMarks,
@@ -296,6 +298,8 @@ export default function ResultsPage({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         subject: e.subject,
+        // Exam system for the marking persona — absent on legacy NZ exams.
+        curriculum: (e as { curriculumId?: string }).curriculumId,
         questions: e.questions.map((q) => ({
           id: q.id,
           text: q.text,
@@ -463,6 +467,9 @@ export default function ResultsPage({
   if (!exam || !results) return null;
 
   const overallGrade = calculateOverallGrade(results, exam?.cutScores);
+  // Non-NCEA exams display their own grade scale (HSC bands, GCSE 9–1, AP 1–5…)
+  const band = curriculumBand((exam as { curriculumId?: string }).curriculumId, results);
+  const displayGrade = band ? bandToneGrade(band) : overallGrade;
   const totalMarks = results.reduce((s, r) => s + r.marksAwarded, 0);
   const maxMarks = results.reduce((s, r) => s + r.maxMarks, 0);
   const pct = maxMarks > 0 ? Math.round((totalMarks / maxMarks) * 100) : 0;
@@ -569,8 +576,8 @@ export default function ResultsPage({
               {/* Grade + exam title */}
               <div className="text-center">
                 {!selfMarked && (
-                  <h1 className={`text-lg font-bold ${gradeColor(overallGrade)}`}>
-                    {gradeLabel(overallGrade)} — {pct}%
+                  <h1 className={`text-lg font-bold ${gradeColor(displayGrade)}`}>
+                    {band ? band.label : gradeLabel(overallGrade)} — {pct}%
                   </h1>
                 )}
                 <p className="text-zinc-500 text-xs mt-1">{exam.title}</p>
@@ -585,7 +592,7 @@ export default function ResultsPage({
             <ShareResultCard
               subject={exam.subject}
               level={exam.level}
-              grade={overallGrade}
+              grade={displayGrade}
               totalMarks={totalMarks}
               maxMarks={maxMarks}
               examTitle={exam.title}
@@ -729,8 +736,10 @@ export default function ResultsPage({
 
 
         {/* Next grade hint — grade boundaries are 40% (Achieved), 65% (Merit),
-            85% (Excellence) of the paper total under the uniform 1+1 scheme. */}
-        {!selfMarked && overallGrade !== "excellence" && maxMarks > 0 && (() => {
+            85% (Excellence) of the paper total under the uniform 1+1 scheme.
+            NCEA-worded, so skipped for other curricula (their band ladders
+            differ; a per-curriculum version can come with the full band UI). */}
+        {!selfMarked && !band && overallGrade !== "excellence" && maxMarks > 0 && (() => {
           const nextPct =
             overallGrade === "not-achieved" ? 0.4 : overallGrade === "achieved" ? 0.65 : 0.85;
           const nextLabel =

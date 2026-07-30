@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { generatePracticePaper } from "@/lib/claude";
 import { checkTier } from "@/lib/checkTier";
 import { incrementUsage, logApiUsage } from "@/lib/db";
-import { isUnlimited, isSubjectAvailable } from "@/lib/tierLimits";
+import { isUnlimited } from "@/lib/tierLimits";
+import { resolveCurriculum, isSubjectFree } from "@/data/curricula";
 import { rateLimit } from "@/lib/rateLimit";
 import { consumeBonusExam, logEvent } from "@/lib/supabase";
 
@@ -42,21 +43,38 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { subject, level, topic, questionCount } = body as {
+    const { subject, level, topic, questionCount, curriculum: rawCurriculum } = body as {
       subject: string;
       level: number;
       topic?: string | null;
       questionCount?: number;
+      curriculum?: string;
     };
 
-    // Subject gate — Free tier can only use the sample-subject whitelist.
-    if (!isSubjectAvailable(subject, tier)) {
+    // Curriculum gate — only live/early-access systems can generate papers.
+    const curriculum = resolveCurriculum(rawCurriculum);
+    if (curriculum.status === "coming-soon") {
+      return NextResponse.json(
+        { error: "curriculum_unavailable", message: `${curriculum.system} isn't open yet — join the waitlist at /global.` },
+        { status: 400 }
+      );
+    }
+    // The subject must exist in this curriculum (stops slug-guessing across systems).
+    if (!curriculum.subjects.some((s) => s.value === subject)) {
+      return NextResponse.json(
+        { error: "invalid_subject", message: "That subject isn't available in this exam system." },
+        { status: 400 }
+      );
+    }
+
+    // Subject gate — Free tier can only use this curriculum's free whitelist.
+    if (tier === "free" && !isSubjectFree(curriculum, subject)) {
       // Money-moment: user tapped a locked subject.
       void logEvent("paywall_hit", userId, { reason: "subject_locked", tier, subject });
       return NextResponse.json(
         {
           error: "subject_locked",
-          message: "This subject is on the Student and Pro plans. Upgrade to unlock all 19 NCEA subjects.",
+          message: "This subject is on the Student and Pro plans. Upgrade to unlock every subject.",
           upgradeUrl: "/pricing",
         },
         { status: 403 }
@@ -70,7 +88,8 @@ export async function POST(request: NextRequest) {
       subject,
       level,
       topic ?? null,
-      cappedCount
+      cappedCount,
+      curriculum.id
     );
 
     // Belt: trim if the generator overshot (shouldn't happen — it has its own

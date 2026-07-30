@@ -8,38 +8,22 @@ import { saveCustomExam, generateCustomExamId } from "@/lib/customExams";
 import { useTier, isUnlimited } from "@/hooks/useTier";
 import UpgradeModal from "@/components/UpgradeModal";
 import { loadOnboarding } from "@/lib/onboarding";
-import { FREE_SUBJECTS } from "@/lib/tierLimits";
+import { resolveCurriculum, USABLE_CURRICULA } from "@/data/curricula";
 
-const FREE_SUBJECT_SET = new Set<string>(FREE_SUBJECTS);
+// Year levels + subjects are now derived from the selected curriculum (see
+// the registry in src/data/curricula.ts). `ncea` is the level value sent to
+// the API: for NCEA it's the legacy 0–3 index; for every other system it's
+// the year/grade number itself (the server maps it back via the registry).
+const CURRICULUM_LS_KEY = "studyace-curriculum";
 
-const YEAR_LEVELS = [
-  { value: 10, label: "Year 10", ncea: 0 },
-  { value: 11, label: "Year 11", ncea: 1 },
-  { value: 12, label: "Year 12", ncea: 2 },
-  { value: 13, label: "Year 13", ncea: 3 },
-];
-
-const SUBJECTS = [
-  { value: "mathematics", label: "Mathematics", years: [10, 11, 12, 13] },
-  { value: "science", label: "Science", years: [10, 11] },
-  { value: "statistics", label: "Statistics", years: [11, 12, 13] },
-  { value: "english", label: "English", years: [10, 11, 12, 13] },
-  { value: "biology", label: "Biology", years: [11, 12, 13] },
-  { value: "chemistry", label: "Chemistry", years: [12, 13] },
-  { value: "physics", label: "Physics", years: [12, 13] },
-  { value: "history", label: "History", years: [11, 13] },
-  { value: "geography", label: "Geography", years: [11, 12, 13] },
-  { value: "te-reo", label: "Te Reo Māori", years: [11, 12, 13] },
-  { value: "economics", label: "Economics", years: [11, 12, 13] },
-  { value: "accounting", label: "Accounting", years: [11, 12, 13] },
-  { value: "health", label: "Health", years: [10, 11] },
-  { value: "digital-tech", label: "Digital Technologies", years: [10] },
-  { value: "social-studies", label: "Social Studies", years: [10] },
-  { value: "media-studies", label: "Media Studies", years: [12, 13] },
-  { value: "classical-studies", label: "Classical Studies", years: [12, 13] },
-  { value: "art-history", label: "Art History", years: [12, 13] },
-  { value: "business-studies", label: "Business Studies", years: [13] },
-];
+function levelsFor(curriculumId: string) {
+  const c = resolveCurriculum(curriculumId);
+  return c.levels.map((l) => ({
+    value: l.value,
+    label: l.label,
+    ncea: c.id === "nz-ncea" ? (l.value === 10 ? 0 : l.value - 10) : l.value,
+  }));
+}
 
 type ApiQuestion = {
   number: string;
@@ -82,8 +66,39 @@ const HYPE_LINES = [
 export default function SubjectsPage() {
   const router = useRouter();
   const { limits, usage, loading: tierLoading, refresh } = useTier();
+  // Selected exam system. Defaults to NCEA; restored from URL/localStorage on
+  // mount. Everything below (levels, subjects, free gate, prompts) derives
+  // from this via the curriculum registry.
+  const [curriculumId, setCurriculumId] = useState<string>("nz-ncea");
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
+
+  const curriculum = resolveCurriculum(curriculumId);
+  const YEAR_LEVELS = levelsFor(curriculumId);
+  const SUBJECTS = curriculum.subjects;
+  const FREE_SUBJECT_SET = new Set<string>(curriculum.freeSubjects);
+
+  // Restore curriculum from ?curriculum= (e.g. arriving from /global) or the
+  // last-used one in localStorage.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get("curriculum");
+    const stored = typeof window !== "undefined" ? localStorage.getItem(CURRICULUM_LS_KEY) : null;
+    const wanted = fromUrl ?? stored;
+    if (wanted && wanted !== "nz-ncea" && USABLE_CURRICULA.some((c) => c.id === wanted)) {
+      setCurriculumId(wanted);
+    }
+  }, []);
+
+  function switchCurriculum(id: string) {
+    if (id === curriculumId) return;
+    setCurriculumId(id);
+    setYearLevel(null);
+    setSubject(null);
+    try {
+      localStorage.setItem(CURRICULUM_LS_KEY, id);
+    } catch {}
+  }
   // The year buttons are native radios (highlight is painted by the browser's
   // :checked state, instantly, with no React in the paint path). This ref lets
   // the prefill effect tick the right radio imperatively, since they're
@@ -103,7 +118,7 @@ export default function SubjectsPage() {
     const onboarding = loadOnboarding();
 
     const preYear = urlYear ? Number(urlYear) : onboarding?.yearLevel ?? null;
-    if (preYear && [10, 11, 12, 13].includes(preYear)) {
+    if (preYear && YEAR_LEVELS.some((y) => y.value === preYear)) {
       setYearLevel(preYear);
       // Radios are uncontrolled — tick the matching one imperatively so a
       // prefilled year shows selected on arrival.
@@ -210,6 +225,7 @@ export default function SubjectsPage() {
             level: ncea,
             topic: topic.trim() || undefined,
             questionCount: requestedCount,
+            curriculum: curriculumId,
           }),
         });
         if (!res.ok) {
@@ -309,6 +325,9 @@ export default function SubjectsPage() {
         createdAt: new Date().toISOString(),
         topic: topic.trim() || null,
         isCustom: true,
+        // Which exam system generated this paper — carried through to marking
+        // so the right examiner persona and grade scale are used.
+        curriculumId,
       };
 
       saveCustomExam(exam);
@@ -466,17 +485,56 @@ export default function SubjectsPage() {
         </div>
       )}
 
+      {/* Exam system (StudyAce Global) */}
+      <div className="mb-6 sm:mb-8">
+        <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
+          Exam system
+        </label>
+        <div className="flex gap-2 overflow-x-auto pb-1 sa-no-record" role="radiogroup" aria-label="Exam system">
+          {USABLE_CURRICULA.map((c) => {
+            const active = c.id === curriculumId;
+            return (
+              <button
+                key={c.id}
+                onClick={() => switchCurriculum(c.id)}
+                aria-pressed={active}
+                className={`shrink-0 inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-2 rounded-lg text-[12px] font-semibold border transition-colors ${
+                  active
+                    ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
+                    : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
+                }`}
+              >
+                <span aria-hidden>{c.flag}</span>
+                {c.system}
+                {c.status === "early-access" && (
+                  <span className={`text-[9px] font-bold uppercase tracking-wide rounded px-1 py-0.5 ${active ? "bg-white/20 text-white" : "bg-amber-500/15 text-amber-400"}`}>
+                    Beta
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        {curriculum.status === "early-access" && (
+          <p className="mt-2 text-[11px] text-amber-400/80">
+            {curriculum.system} practice is in early access — question style is still being tuned. Found something off? <Link href="/contact" className="underline">Tell us</Link>.
+          </p>
+        )}
+      </div>
+
       {/* Year level */}
       <div className="mb-6 sm:mb-8">
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
-          Year level
+          {curriculum.country === "US" || curriculum.country === "CA" ? "Grade" : "Year level"}
         </label>
         {/* Native radios: the highlight is the browser's own :checked state,
             painted the instant the tap lands — it never waits on a React
             re-render (which is what made this feel delayed). onChange still
             updates React state for the subject grid / Start button; that can
             lag freely now without affecting the highlight. */}
-        <div ref={yearGroupRef} role="radiogroup" aria-label="Year level" className="grid grid-cols-4 gap-2">
+        {/* key={curriculumId}: the radios are uncontrolled, so remount them on
+            system switch to clear any stale :checked highlight. */}
+        <div key={curriculumId} ref={yearGroupRef} role="radiogroup" aria-label="Year level" className="grid grid-cols-4 gap-2">
           {YEAR_LEVELS.map((yl) => (
             <label key={yl.value} className="group cursor-pointer select-none touch-manipulation">
               <input
@@ -648,7 +706,7 @@ export default function SubjectsPage() {
       )}
       {showUpgrade === "subject" && (
         <UpgradeModal
-          message="This subject is available on the Student and Pro plans. Upgrade to practise all 19 NCEA subjects."
+          message="This subject is available on the Student and Pro plans. Upgrade to practise every subject."
           onClose={() => setShowUpgrade(null)}
         />
       )}

@@ -1,4 +1,5 @@
 import type { GraphData } from "./types";
+import { USABLE_CURRICULA, resolveCurriculum, type Curriculum } from "@/data/curricula";
 
 // Three ways to call Claude:
 // 1. ANTHROPIC_API_KEY set → use the real Anthropic API (production w/ API key)
@@ -258,6 +259,8 @@ export async function markAnswer(args: {
   answerType?: string;
   studentWorking?: string;
   studentAnswer: string;
+  /** Which exam system's examiner persona to mark with (defaults to NCEA) */
+  curriculumId?: string;
 }): Promise<{
   workingMark: number | null;
   answerMark: number;
@@ -276,7 +279,12 @@ export async function markAnswer(args: {
     answerType,
     studentWorking = "",
     studentAnswer,
+    curriculumId,
   } = args;
+
+  // The 1+1 marking scheme and honesty rules are house style — identical in
+  // every curriculum. Only the examiner persona changes.
+  const examinerPersona = resolveCurriculum(curriculumId).promptConfig.examinerPersona;
 
   const isMultiChoice = answerType === "multi-choice";
   const maxMarks = isMultiChoice ? 1 : 2;
@@ -300,7 +308,7 @@ export async function markAnswer(args: {
   }
 
   const prompt = isMultiChoice
-    ? `You are an NCEA examiner marking ONE multiple-choice question. There is no working to show, so award a single mark:
+    ? `You are ${examinerPersona} marking ONE multiple-choice question. There is no working to show, so award a single mark:
 
 ANSWER MARK (1 mark): award 1 if the student selected the correct option, 0 otherwise. A hedge, guess phrased as uncertain, or blank scores 0.
 
@@ -316,7 +324,7 @@ Respond ONLY with valid JSON (no markdown, no code fences):
   "examTip": "<one practical exam tip>",
   "topicsToReview": [<topic slugs only if the student got it wrong>]
 }`
-    : `You are an NCEA examiner marking ONE exam question. Award TWO independent marks — 1 for working, 1 for the final answer.
+    : `You are ${examinerPersona} marking ONE exam question. Award TWO independent marks — 1 for working, 1 for the final answer.
 
 WORKING MARK (1 mark): award 1 if the student's working shows a valid method that genuinely leads to the correct answer. Any valid method counts — a bare calculation like "3×6=18" is enough; no explanation sentences required, one line is fine if one step solves it. If the question needs no working (simple recall/definition), award this mark when the answer itself demonstrates correct understanding. Award 0 if the working is absent, irrelevant, or uses a wrong method.
 
@@ -688,18 +696,19 @@ VERIFICATION CHECKLIST — run mentally before submitting each question:
 [ ] Is the \`type\` correct for the data?
 [ ] Are the numbers in the graph EXACTLY consistent with the working in markingGuide?`;
 
-// Static system prompt for paper generation. It is byte-identical on EVERY
-// generation call (all subjects, levels, batches, and top-ups), so Anthropic
-// prompt caching serves it at ~0.1× after the first request within the cache
-// TTL. Everything that varies per call (level, subject, topic, count, seed,
-// existing-question anchors) lives in the user message — keep it OUT of here,
-// or the prefix changes and the cache misses.
-const GENERATION_SYSTEM = `You are an expert NZQA / NCEA exam author. You write original practice exam questions and return them as a JSON array — nothing else.
+// Static system prompts for paper generation — ONE per curriculum, computed
+// once at module load so each is byte-identical on EVERY generation call for
+// that curriculum (all subjects, levels, batches, and top-ups). Anthropic
+// prompt caching then serves each curriculum's prefix at ~0.1× after its first
+// request within the cache TTL. Everything that varies per call (level,
+// subject, topic, count, seed, existing-question anchors) lives in the user
+// message — keep it OUT of here, or the prefix changes and the cache misses.
+const buildGenerationSystem = (c: Curriculum) => `You are ${c.promptConfig.authorPersona}. You write original practice exam questions and return them as a JSON array — nothing else.
 
 For the set of questions you are asked to write:
-- Spread Achievement, Merit, and Excellence difficulty across them.
+- ${c.promptConfig.difficultySpread}
 - Include a mix of multi-choice, calculation, and extended-response styles.
-- Use NZ contexts where natural (NZ places, NZD currency, native species, etc.)
+- ${c.promptConfig.localContext}
 
 CRITICAL — ACCURACY CHECKS (students will memorise these answers):
 - For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
@@ -727,6 +736,12 @@ Respond ONLY with a JSON array (no wrapper object, no markdown, no code fences).
   "graph": { /* optional GraphData — INCLUDE whenever the question references a graph/chart/table/diagram. OMIT otherwise. See GRAPH SCHEMA above. */ }
 }
 Your array MUST contain EXACTLY the number of questions requested in the user message — neither more nor fewer. If you run out of room, prefer shorter markingGuides over fewer questions. Never omit a question.`;
+
+// One frozen system prompt per usable curriculum (cache invariant holds
+// per-curriculum: each entry is a module-level constant).
+const GENERATION_SYSTEMS: Record<string, string> = Object.fromEntries(
+  USABLE_CURRICULA.map((c) => [c.id, buildGenerationSystem(c)])
+);
 
 // Detects question text that refers to a visual that wasn't provided, or that
 // instructs the student to draw/sketch/plot something they can't actually draw.
@@ -1026,7 +1041,8 @@ export async function generatePracticePaper(
   subject: string,
   level: number,
   topic: string | null,
-  questionCount: number = 8
+  questionCount: number = 8,
+  curriculumId: string = "nz-ncea"
 ): Promise<{
   title: string;
   questions: Array<{
@@ -1047,24 +1063,28 @@ export async function generatePracticePaper(
   // Random seed forces fresh content even if same inputs are given twice
   const seed = Math.random().toString(36).slice(2, 10);
 
-  // Year 10 is pre-NCEA (NZ curriculum / CAA Numeracy foundation work).
-  // Levels 1-3 are NCEA proper.
-  const levelLabel =
-    level === 0
-      ? `Year 10 ${subject} (pre-NCEA foundation, aligned with the NZ Curriculum Level 5 and CAA Numeracy standards)`
-      : `NCEA ${subject} Level ${level}`;
-  const styleLabel =
-    level === 0
-      ? `Match the style, difficulty, and question types of NZ Year 10 end-of-year assessments and CAA Numeracy papers (NOT NCEA — Year 10 students do not sit NCEA).`
-      : `Match the style, difficulty, and question types of real NZQA ${subject} exams.`;
+  // Resolve the curriculum (defaults to NCEA) and this level's descriptors.
+  // `level` arrives as the internal NCEA-style index (0 = Y10 foundation,
+  // 1–3 = NCEA levels) for NZ, or a year/grade value mapped by the caller for
+  // other curricula — resolveLevel handles both.
+  const curriculum = resolveCurriculum(curriculumId);
+  const isNcea = curriculum.id === "nz-ncea";
+  // NZ legacy mapping: level 0→year 10, 1→11, 2→12, 3→13. Other curricula pass
+  // the year/grade value directly.
+  const yearValue = isNcea ? (level === 0 ? 10 : level + 10) : level;
+  const curriculumLevel =
+    curriculum.levels.find((l) => l.value === yearValue) ??
+    curriculum.levels[curriculum.levels.length - 1];
+
+  const subjectDef = curriculum.subjects.find((s) => s.value === subject);
+  const subjectLabel = subjectDef?.label ?? subject[0].toUpperCase() + subject.slice(1);
+
+  const levelLabel = `${curriculumLevel.promptDescriptor} — subject: ${subjectLabel}`;
+  const styleLabel = curriculumLevel.styleNote;
   // The title is deterministic, so we build it in code rather than asking the
   // model for it — this lets every generation call return a bare JSON array of
   // questions (faster to stream/parse) instead of a wrapper object.
-  const subjectLabel = subject[0].toUpperCase() + subject.slice(1);
-  const title =
-    level === 0
-      ? `Year 10 ${subjectLabel} Practice Paper`
-      : `NCEA ${subjectLabel} Level ${level} Practice Paper`;
+  const title = `${curriculumLevel.titlePrefix} ${subjectLabel} Practice Paper`;
 
   // Per-question validation, used both on initial generation and on top-ups.
   // Returns a list of human-readable issues; empty list means the question is good.
@@ -1231,7 +1251,7 @@ Return a JSON array of EXACTLY ${want} question object${want === 1 ? "" : "s"}, 
     try {
       const { text, usage } = await chatCompletion(
         buildBatchPrompt(want, existingSummary, batchSeed, roleNote),
-        { smart: true, maxTokens: tokensFor(want), system: GENERATION_SYSTEM }
+        { smart: true, maxTokens: tokensFor(want), system: GENERATION_SYSTEMS[curriculum.id] ?? GENERATION_SYSTEMS["nz-ncea"] }
       );
       const valid = parseQuestionArray(text).filter(
         (q) => validateQuestion(q as GenQuestion).length === 0

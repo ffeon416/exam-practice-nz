@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CURRICULA, COMING_CURRICULA, type Curriculum } from "@/data/curricula";
+import { CURRICULA, COMING_CURRICULA, EARLY_ACCESS_CURRICULA, type Curriculum } from "@/data/curricula";
 
 // StudyAce Global — public waitlist for not-yet-launched exam systems.
 // Visitors from AU/UK/US/CA land here (linked from the homepage) and leave
@@ -130,6 +130,37 @@ export default function GlobalPage() {
           >
             Start practising free
           </Link>
+        </div>
+
+        {/* Early access — usable today */}
+        <h2 className="text-zinc-500 text-[11px] font-bold uppercase tracking-wider mb-3">
+          Early access — try it today
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+          {EARLY_ACCESS_CURRICULA.map((c) => (
+            <div key={c.id} className="rounded-2xl bg-white/[0.02] border border-amber-500/20 p-5 flex flex-col">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-2xl" aria-hidden>{c.flag}</span>
+                <div>
+                  <h3 className="text-white font-extrabold text-[15px] leading-tight">
+                    {c.system}
+                    <span className="text-zinc-500 font-medium"> · {c.countryLabel}</span>
+                    <span className="ml-2 align-middle text-[9px] font-bold uppercase tracking-wide text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-1.5 py-0.5">
+                      Beta
+                    </span>
+                  </h3>
+                  <p className="text-zinc-500 text-[12px]">{c.label}</p>
+                </div>
+              </div>
+              <p className="text-zinc-400 text-[13px] mb-4">{c.blurb}</p>
+              <Link
+                href={`/subjects?curriculum=${c.id}`}
+                className="mt-auto inline-flex justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 px-4 py-2.5 text-[13px] font-bold text-white"
+              >
+                Try {c.system} practice →
+              </Link>
+            </div>
+          ))}
         </div>
 
         {/* Coming soon grid */}

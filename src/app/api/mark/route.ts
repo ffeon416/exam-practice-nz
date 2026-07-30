@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     const { userId, limits } = await checkTier();
 
     const body = await request.json();
-    const { questions, answers, subject } = body as {
+    const { questions, answers, subject, curriculum } = body as {
       questions: {
         id: string;
         text: string;
@@ -40,6 +40,7 @@ export async function POST(request: NextRequest) {
       }[];
       answers: Record<string, string>;
       subject?: string;
+      curriculum?: string;
     };
     fallbackQuestions = Array.isArray(questions) ? questions : [];
 
@@ -119,6 +120,7 @@ export async function POST(request: NextRequest) {
             answerType: q.answerType,
             studentWorking,
             studentAnswer,
+            curriculumId: curriculum,
           });
           markUsage = addUsage(markUsage, result.usage);
 

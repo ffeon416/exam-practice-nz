@@ -10,14 +10,21 @@ export interface CutScores {
 export interface Exam {
   id: string;
   title: string;
-  level: 0 | 1 | 2 | 3;
+  // NCEA levels 0–3, or the year/grade value for non-NCEA curricula (9–13).
+  level: number;
   standard: string;
   year: number;
-  subject: "mathematics" | "science" | "biology" | "chemistry" | "physics" | "accounting" | "economics" | "geography" | "english" | "health" | "digital-tech" | "social-studies" | "history" | "te-reo" | "media-studies" | "classical-studies" | "art-history" | "business-studies" | "statistics";
+  // Subject slug. The canonical per-curriculum lists live in src/data/curricula.ts;
+  // this is a string (not a union) since StudyAce Global — each curriculum
+  // defines its own slugs (e.g. maths-methods, combined-science, sat-math).
+  subject: string;
   timeMinutes: number;
   questions: Question[];
   totalMarks?: number;
   cutScores?: CutScores;
+  // Which exam system this paper belongs to (registry id, e.g. "au-hsc").
+  // Absent on legacy NZ exams — treated as "nz-ncea".
+  curriculumId?: string;
 }
 
 export interface GraphData {

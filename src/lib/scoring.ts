@@ -1,4 +1,5 @@
 import type { CutScores, Grade, MarkingResult } from "./types";
+import { resolveCurriculum, bandForPct, type GradeBand } from "@/data/curricula";
 
 // Site-wide marking scheme: every question is worth 1 mark for correct working
 // + 1 mark for the correct final answer (max 2). Multiple-choice has no working
@@ -24,6 +25,34 @@ export function calculateOverallGrade(
   if (pct >= 0.65) return "merit";
   if (pct >= 0.4) return "achieved";
   return "not-achieved";
+}
+
+// ── StudyAce Global: curriculum-aware banding ──
+// Non-NCEA exams show their own grade scale (HSC Bands, GCSE 9–1, AP 1–5…).
+// Internally everything still runs on the uniform 1+1 marks; only the display
+// band changes. Returns null for NCEA/legacy exams — callers fall back to the
+// classic Grade pipeline.
+export function curriculumBand(
+  curriculumId: string | undefined,
+  results: MarkingResult[]
+): GradeBand | null {
+  if (!curriculumId || curriculumId === "nz-ncea") return null;
+  const c = resolveCurriculum(curriculumId);
+  const totalMarks = results.reduce((s, r) => s + r.marksAwarded, 0);
+  const maxMarks = results.reduce((s, r) => s + r.maxMarks, 0);
+  const pct = maxMarks > 0 ? totalMarks / maxMarks : 0;
+  return bandForPct(c, pct);
+}
+
+// Map a band's tone onto the nearest internal Grade so tone-driven UI
+// (rings, chips) works unchanged for any curriculum.
+export function bandToneGrade(band: GradeBand): Grade {
+  switch (band.tone) {
+    case "top": return "excellence";
+    case "high": return "merit";
+    case "pass": return "achieved";
+    case "fail": return "not-achieved";
+  }
 }
 
 export function gradeLabel(grade: Grade): string {
