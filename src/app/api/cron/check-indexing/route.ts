@@ -7,7 +7,8 @@ const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://studyace.co";
 
 export async function GET(request: Request) {
   const authHeader = request.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  // Refuse outright if the secret is unset — otherwise "Bearer undefined" would pass.
+  if (!process.env.CRON_SECRET || authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

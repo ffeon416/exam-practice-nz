@@ -19,6 +19,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Too many requests. Please wait a moment." }, { status: 429 });
   }
 
+  // Kept in outer scope so the catch-block's self-mark fallback can still see
+  // the questions — request.clone() after request.json() yields an empty body.
+  let fallbackQuestions: Array<{ id: string; marks: number; markingGuide: string; topics: string[]; answerType?: string }> = [];
+
   try {
     // ── Tier check for deep essay marking ──
     const { userId, limits } = await checkTier();
@@ -37,6 +41,7 @@ export async function POST(request: NextRequest) {
       answers: Record<string, string>;
       subject?: string;
     };
+    fallbackQuestions = Array.isArray(questions) ? questions : [];
 
     const isEnglish = subject === "english";
 
@@ -170,10 +175,7 @@ export async function POST(request: NextRequest) {
     // Never fail the whole exam — return self-mark fallback so the student
     // can still see their answers and the marking guide.
     console.error("Marking error:", error);
-    const { questions } = (await request.clone().json().catch(() => ({ questions: [] }))) as {
-      questions?: Array<{ id: string; marks: number; markingGuide: string; topics: string[]; answerType?: string }>;
-    };
-    const fallbackResults = (questions ?? []).map((q) => ({
+    const fallbackResults = fallbackQuestions.map((q) => ({
       questionId: q.id,
       marksAwarded: 0,
       maxMarks: questionMaxMarks(q.answerType),

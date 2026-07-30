@@ -38,6 +38,14 @@ interface UserRow {
 const STRIPE_FEE_RATE = 0.03;
 const GST_RATE = 0.15;
 
+// Accounts that hold a paid tier but don't pay real money (owner test accounts,
+// 100%-off comps). Excluded from the fleet-wide "revenue this month" total so the
+// headline number reflects actual cash, not comped/test seats.
+const REVENUE_EXCLUDED_EMAILS = new Set<string>([
+  "ffeon.io+test1@gmail.com",
+  "osullivantre2009@gmail.com",
+]);
+
 export async function GET() {
   // ── Gate: admin email only ──
   const { userId } = await auth();
@@ -111,7 +119,7 @@ export async function GET() {
     .map((u) => u.userId);
 
   // ── Join with profiles for tier + email ──
-  let profilesMap: Record<string, { email: string | null; tier: Tier }> = {};
+  const profilesMap: Record<string, { email: string | null; tier: Tier }> = {};
   if (topUserIds.length > 0) {
     const { data: profiles } = await supabase
       .from("profiles")
@@ -148,10 +156,13 @@ export async function GET() {
   // ── Fleet-wide profit: sum of all paid subscribers' net revenue − total API cost this month ──
   const { data: paidProfiles } = await supabase
     .from("profiles")
-    .select("tier")
+    .select("tier, email")
     .neq("tier", "free");
   let fleetRevenueMonth = 0;
   for (const p of paidProfiles ?? []) {
+    // Skip owner test accounts / comps — they hold a paid tier but pay no cash.
+    // Normalised to lowercase so a differently-cased profile email still matches.
+    if (p.email && REVENUE_EXCLUDED_EMAILS.has((p.email as string).toLowerCase().trim())) continue;
     const tier = (p.tier as Tier) ?? "free";
     const gross = TIER_PRICES[tier] ?? 0;
     fleetRevenueMonth += gross * (1 - STRIPE_FEE_RATE) * (1 - GST_RATE);

@@ -3,8 +3,16 @@ import { generatePracticeQuestion } from "@/lib/claude";
 import { markAnswer } from "@/lib/claude";
 import { auth } from "@clerk/nextjs/server";
 import { logApiUsage } from "@/lib/db";
+import { rateLimit } from "@/lib/rateLimit";
 
 export async function POST(request: NextRequest) {
+  // Both actions hit Claude — apply the same per-IP guard as the sibling AI routes.
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const { ok } = rateLimit(ip, 10, 60_000);
+  if (!ok) {
+    return NextResponse.json({ error: "Too many requests. Please wait a moment." }, { status: 429 });
+  }
+
   try {
     const { userId } = await auth();
     const body = await request.json();

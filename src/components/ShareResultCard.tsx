@@ -257,7 +257,7 @@ export default function ShareResultCard({
               fontWeight: 500,
             }}
           >
-            studyace.co.nz
+            studyace.co
           </div>
         </div>
       </div>

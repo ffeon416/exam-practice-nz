@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTier } from "@/hooks/useTier";
 
 type RedeemResponse =
   | { ok: true; tier: "student" | "pro"; until: string }
@@ -32,6 +33,7 @@ export default function RedeemPage() {
   const { isLoaded, isSignedIn } = useAuth();
   const { user } = useUser();
   const router = useRouter();
+  const { refresh: refreshTier } = useTier();
 
   const [code, setCode] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -53,6 +55,9 @@ export default function RedeemPage() {
       if (data.ok) {
         setGranted({ tier: data.tier, until: data.until });
         setStatus("success");
+        // Bust the 60s tier cache so the dashboard shows the new plan
+        // immediately instead of the stale "free" snapshot.
+        refreshTier();
       } else {
         setMessage(ERRORS[data.reason] ?? ERRORS.error);
         setStatus("error");

@@ -221,6 +221,34 @@ async function chatCompletion(prompt: string, options: { smart?: boolean; maxTok
 // API/proxy fallback chain instead of hardcoding localhost.
 export { chatCompletion };
 
+// ── Deterministic hedge guard ──
+// "Hedge answers always score 0" is a hard product rule. The marking prompt
+// states it, but prompts are not guarantees — this code-level backstop is.
+// Deliberately conservative: it only matches when the ENTIRE answer is a
+// hedge/non-answer, never when hedge words appear inside a substantive answer
+// (an English response may legitimately contain "probably"). Hedged guesses
+// with content ("probably 18") remain the prompt's job.
+const HEDGE_FULL_PATTERNS: RegExp[] = [
+  /^$/,                                     // blank / whitespace-only (after trim)
+  /^idk$/, /^idek$/, /^dunno$/, /^dk$/,
+  /^(i\s*)?don'?t\s*know$/,
+  /^(i'?m\s*)?not\s*(really\s*)?(sure|certain)$/,
+  /^no\s*(idea|clue)$/,
+  /^(maybe|perhaps|probably)$/,
+  /^(i\s*)?(guess|guessing)$/,
+  /^\?+$/, /^-+$/, /^n\/?a$/,
+];
+
+export function isHedgeAnswer(raw: string): boolean {
+  const normalized = raw
+    .replace(/[‘’]/g, "'") // curly → straight apostrophes
+    .toLowerCase()
+    .trim()
+    .replace(/[.!…\s]+$/g, "")       // trailing punctuation/whitespace
+    .trim();
+  return HEDGE_FULL_PATTERNS.some((re) => re.test(normalized));
+}
+
 // Site-wide marking scheme: 1 mark for correct working + 1 mark for the correct
 // final answer (max 2). Multiple-choice has no working, so it is marked out of 1
 // (the answer mark only). Working and answer marks are awarded independently.
@@ -252,6 +280,24 @@ export async function markAnswer(args: {
 
   const isMultiChoice = answerType === "multi-choice";
   const maxMarks = isMultiChoice ? 1 : 2;
+
+  // Hard backstop: a pure hedge/blank NEVER earns marks, regardless of what a
+  // model might decide — and we don't spend an API call to find that out.
+  if (isHedgeAnswer(studentAnswer)) {
+    return {
+      workingMark: isMultiChoice ? null : 0,
+      answerMark: 0,
+      marksAwarded: 0,
+      maxMarks,
+      grade: "not-achieved",
+      feedback:
+        "No real answer was given — “idk”, “maybe” or a blank always scores 0. In the exam, an honest attempt can still earn the working mark, so always try.",
+      correctApproach: markingGuide,
+      examTip: "Never leave a question blank — attempt the method even if you're unsure of the final answer.",
+      topicsToReview: [],
+      usage: zeroUsage(MODEL_FAST),
+    };
+  }
 
   const prompt = isMultiChoice
     ? `You are an NCEA examiner marking ONE multiple-choice question. There is no working to show, so award a single mark:

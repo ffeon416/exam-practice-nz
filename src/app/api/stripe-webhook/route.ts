@@ -25,7 +25,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
     }
   } else {
-    // Development mode — no signature verification
+    // Unsigned processing is a DEV-ONLY convenience. In production a missing
+    // secret must hard-fail — otherwise anyone could POST a forged
+    // checkout.session.completed and self-upgrade their tier.
+    if (process.env.NODE_ENV === "production") {
+      console.error("STRIPE_WEBHOOK_SECRET missing in production — rejecting unsigned webhook.");
+      return NextResponse.json({ error: "Webhook not configured" }, { status: 503 });
+    }
     console.warn("STRIPE_WEBHOOK_SECRET not set. Processing event without verification.");
     try {
       event = JSON.parse(body) as Stripe.Event;

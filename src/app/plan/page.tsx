@@ -390,17 +390,10 @@ function PlanView({ plan }: { plan: StudyPlan }) {
   );
   const overallPct = totalTasks > 0 ? Math.round((doneTasks / totalTasks) * 100) : 0;
 
-  // Split weeks
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const futureWeeks = plan.weeks.filter((w) => {
-    const end = new Date(w.endDate);
-    return end >= today && (!current || w.weekNumber !== current.weekNumber);
-  });
-  const pastWeeks = plan.weeks.filter((w) => {
-    const end = new Date(w.endDate);
-    return end < today && (!current || w.weekNumber !== current.weekNumber);
-  });
+  const orderedWeeks = [...plan.weeks].sort((a, b) => a.weekNumber - b.weekNumber);
+  const ringDash = (overallPct / 100) * 552.9; // circumference of the r=88 ring
 
   function handleReset() {
     if (!confirm("Start over? This will delete your current plan and all progress.")) return;
@@ -410,66 +403,70 @@ function PlanView({ plan }: { plan: StudyPlan }) {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-indigo-500/[0.1] blur-[120px] rounded-full" />
+        <div className="absolute top-40 -right-24 w-[400px] h-[400px] bg-fuchsia-500/[0.07] blur-[120px] rounded-full" />
+        <div className="absolute top-[520px] -left-24 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
-        {/* Countdown header */}
-        <div className="text-center mb-8 sm:mb-10">
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-5 sm:mb-6">
+        {/* Countdown ring hero */}
+        <div className="flex flex-col items-center mb-8 sm:mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-6">
             {plan.subjects.map((s) => (
               <span key={s} className="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400">
                 {subjectLabel(s)}
               </span>
             ))}
           </div>
-          <div className="relative inline-block">
-            <div aria-hidden className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 bg-indigo-500/20 blur-[70px] rounded-full -z-10" />
-            {daysLeft === 0 ? (
-              <h1 className="text-[40px] sm:text-[60px] font-black tracking-tight bg-gradient-to-br from-indigo-200 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
-                Exam day
-              </h1>
-            ) : (
-              <div className="leading-none">
-                <span className="block text-[76px] sm:text-[104px] font-black leading-[0.9] tabular-nums bg-gradient-to-br from-indigo-200 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
-                  {daysLeft}
+          <div className="relative w-56 h-56 sm:w-64 sm:h-64">
+            <div aria-hidden className="absolute inset-6 bg-indigo-500/20 blur-[55px] rounded-full" />
+            <svg className="relative w-full h-full -rotate-90" viewBox="0 0 200 200" aria-hidden>
+              <circle cx="100" cy="100" r="88" fill="none" strokeWidth="10" stroke="currentColor" className="text-white/[0.06]" />
+              {/* Render the progress arc only when there IS progress — a
+                  zero-length dash with a round cap paints a stray dot at 12
+                  o'clock, making a fresh plan look already-started. */}
+              {overallPct > 0 && (
+                <circle
+                  cx="100" cy="100" r="88" fill="none" strokeWidth="10" strokeLinecap="round"
+                  stroke="url(#planRing)"
+                  strokeDasharray={`${ringDash} 552.9`}
+                  className="transition-all duration-1000 ease-out"
+                />
+              )}
+              <defs>
+                <linearGradient id="planRing" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#818cf8" />
+                  <stop offset="50%" stopColor="#a855f7" />
+                  <stop offset="100%" stopColor="#e879f9" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              {daysLeft === 0 ? (
+                <span className="text-[28px] sm:text-[32px] font-black bg-gradient-to-br from-indigo-200 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
+                  Exam day
                 </span>
-                <span className="block text-[14px] sm:text-[16px] uppercase tracking-[0.25em] text-zinc-400 font-bold mt-2">
-                  {daysLeft === 1 ? "day" : "days"} to go
-                </span>
-              </div>
-            )}
-          </div>
-          <p className="text-zinc-500 text-[13px] mt-5">
-            {new Date(plan.examDate).toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}
-          </p>
-        </div>
-
-        {/* Overall progress */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/[0.1] to-purple-500/[0.05] border border-indigo-500/20 p-5 mb-6">
-          <div className="flex items-end justify-between mb-3">
-            <div>
-              <p className="text-white font-bold text-[15px] leading-tight">Your progress</p>
-              <p className="text-zinc-500 text-[12px] mt-0.5">{doneTasks} of {totalTasks} tasks done</p>
+              ) : (
+                <>
+                  <span className="text-[62px] sm:text-[76px] font-black leading-none tabular-nums bg-gradient-to-br from-white to-zinc-300 bg-clip-text text-transparent">
+                    {daysLeft}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-zinc-400 font-bold mt-1.5">
+                    {daysLeft === 1 ? "day" : "days"} to go
+                  </span>
+                </>
+              )}
             </div>
-            <span className="text-[34px] font-black tabular-nums leading-none bg-gradient-to-br from-indigo-200 to-purple-400 bg-clip-text text-transparent">
-              {overallPct}%
-            </span>
           </div>
-          <div className="w-full bg-white/[0.06] rounded-full h-3 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 shadow-[0_0_16px_-2px_rgba(139,92,246,0.7)] transition-all duration-700 ease-out"
-              style={{ width: `${Math.max(overallPct, 2)}%` }}
-            />
+          <div className="text-center mt-6">
+            <p className="text-white font-semibold text-[14px]">
+              <span className="font-black bg-gradient-to-r from-indigo-300 to-purple-400 bg-clip-text text-transparent">{overallPct}%</span> of your plan complete
+            </p>
+            <p className="text-zinc-500 text-[12px] mt-1">
+              {doneTasks}/{totalTasks} tasks · Exam {new Date(plan.examDate).toLocaleDateString("en-NZ", { day: "numeric", month: "long" })}
+            </p>
           </div>
-          <p className="text-zinc-400 text-[11px] mt-2.5 font-medium">
-            {overallPct === 100
-              ? "🎉 You've completed everything!"
-              : overallPct >= 50
-              ? "You're over halfway — keep the momentum!"
-              : "Tick off tasks as you complete them."}
-          </p>
         </div>
 
         {/* Completion state */}
@@ -509,56 +506,46 @@ function PlanView({ plan }: { plan: StudyPlan }) {
           </div>
         )}
 
-        {/* This week */}
-        {current && (
-          <div className="mb-6">
-            <h2 className="text-[13px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">
-              This week — {current.focus}
-            </h2>
-            <WeekCard week={current} defaultOpen highlight />
-          </div>
-        )}
-
-        {/* Coming up */}
-        {futureWeeks.length > 0 && (
-          <div className="mb-6">
-            <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-3">
-              Coming up
-            </h2>
-            <div className="space-y-2">
-              {futureWeeks.map((w) => (
-                <WeekCard key={w.weekNumber} week={w} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Done */}
-        {pastWeeks.length > 0 && (
-          <div className="mb-6">
-            <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-3">
-              Done
-            </h2>
-            <div className="space-y-2">
-              {pastWeeks.map((w) => {
-                const { done, total, pct } = getWeekProgress(w);
-                return (
-                  <div
-                    key={w.weekNumber}
-                    className="rounded-xl bg-white/[0.02] border border-white/[0.06] px-4 py-3 flex items-center justify-between"
-                  >
-                    <span className="text-zinc-500 text-[13px]">
-                      Week {w.weekNumber} — {w.focus}
-                    </span>
-                    <span className={`text-[12px] font-medium ${pct === 100 ? "text-emerald-400" : "text-zinc-500"}`}>
-                      {done}/{total}
-                    </span>
+        {/* Roadmap timeline */}
+        <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">Your roadmap</h2>
+        <div className="relative mb-6">
+          {/* Spine */}
+          <div aria-hidden className="absolute left-[17px] top-3 bottom-3 w-0.5 bg-gradient-to-b from-white/10 via-indigo-500/30 to-white/[0.04]" />
+          <div className="space-y-2.5">
+            {orderedWeeks.map((w) => {
+              const { pct } = getWeekProgress(w);
+              const isCurrent = !!current && w.weekNumber === current.weekNumber;
+              const isPast = !isCurrent && new Date(w.endDate) < today;
+              const isDone = pct === 100;
+              return (
+                <div key={w.weekNumber} className="relative pl-12">
+                  {/* Node */}
+                  <div className="absolute left-0 top-2.5 z-10">
+                    {isCurrent && <span aria-hidden className="absolute inset-0 rounded-full bg-indigo-500/50 animate-ping" />}
+                    <div className={`relative w-9 h-9 rounded-full flex items-center justify-center text-[13px] font-bold border-2 ${
+                      isDone
+                        ? "bg-emerald-500 border-emerald-400 text-white shadow-lg shadow-emerald-500/30"
+                        : isCurrent
+                        ? "bg-gradient-to-br from-indigo-500 to-purple-600 border-indigo-300 text-white shadow-lg shadow-indigo-500/40"
+                        : isPast
+                        ? "bg-[#0b0b12] border-amber-500/40 text-amber-400/80"
+                        : "bg-[#0b0b12] border-white/15 text-zinc-500"
+                    }`}>
+                      {isDone ? (
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      ) : (
+                        w.weekNumber
+                      )}
+                    </div>
                   </div>
-                );
-              })}
-            </div>
+                  <WeekCard week={w} defaultOpen={isCurrent} highlight={isCurrent} />
+                </div>
+              );
+            })}
           </div>
-        )}
+        </div>
 
         {/* Actions */}
         <div className="flex items-center justify-between pt-6 border-t border-white/[0.06]">

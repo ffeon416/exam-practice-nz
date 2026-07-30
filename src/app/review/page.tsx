@@ -141,8 +141,19 @@ export default function ReviewPage() {
     }
   }
 
+  // Hold the gate decision until the tier is known — otherwise free users see
+  // the unlocked review UI flash before snapping to the upgrade gate.
+  // (Same pattern as /plan; paid users still never flash the gate.)
+  if (tierLoading) {
+    return (
+      <div className="max-w-2xl mx-auto px-5 py-16 text-center text-zinc-500 text-sm">
+        Loading...
+      </div>
+    );
+  }
+
   // ── Upgrade gate ──
-  if (!tierLoading && !limits.spacedRepetition) {
+  if (!limits.spacedRepetition) {
     return (
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">

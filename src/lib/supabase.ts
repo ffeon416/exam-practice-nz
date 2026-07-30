@@ -138,11 +138,13 @@ export async function getTier(userId: string): Promise<"free" | "student" | "pro
   const supabase = getSupabase();
   if (!supabase) return "free";
 
-  let { data, error } = await supabase
+  const first = await supabase
     .from("profiles")
     .select("tier, student_until, pro_until")
     .eq("user_id", userId)
     .single();
+  let data = first.data;
+  const error = first.error;
 
   // Resilience: if the pro_until column doesn't exist yet (migration not yet
   // applied), Postgres returns 42703 (undefined_column). Fall back to the
@@ -282,7 +284,7 @@ export async function claimReferral(
     .single();
   if (!referrer) return false;
 
-  const { error: refereeErr } = await supabase
+  const { data: claimed, error: refereeErr } = await supabase
     .from("profiles")
     .update({
       referrer_id: referrerId,
@@ -290,11 +292,15 @@ export async function claimReferral(
       updated_at: new Date().toISOString(),
     })
     .eq("user_id", newUserId)
-    .is("referrer_id", null); // race-safe: only updates if still unattributed
+    .is("referrer_id", null) // race-safe: only updates if still unattributed
+    .select("user_id");
   if (refereeErr) {
     console.error("claimReferral: failed to update referee", refereeErr);
     return false;
   }
+  // Zero rows updated = the referee was already attributed (lost the race or
+  // repeat claim) — report honestly instead of a false success.
+  if (!claimed || claimed.length === 0) return false;
 
   return true;
 }
@@ -412,13 +418,20 @@ export async function consumeBonusExam(userId: string): Promise<boolean> {
   const remaining = data?.bonus_exams_remaining ?? 0;
   if (remaining <= 0) return false;
 
-  await supabase
+  // Race-safe decrement: the update only lands if the counter still holds the
+  // value we read (optimistic concurrency). Two concurrent requests can't both
+  // spend the same bonus — the loser's update matches 0 rows and returns false.
+  const { data: updated, error } = await supabase
     .from("profiles")
     .update({
       bonus_exams_remaining: remaining - 1,
       updated_at: new Date().toISOString(),
     })
-    .eq("user_id", userId);
+    .eq("user_id", userId)
+    .eq("bonus_exams_remaining", remaining)
+    .select("user_id");
+
+  if (error || !updated || updated.length === 0) return false;
 
   return true;
 }

@@ -316,6 +316,35 @@ export async function incrementUsage(userId: string, feature: string): Promise<n
   const newCount = shouldReset ? 1 : (existing?.count ?? 0) + 1;
   const newStart = shouldReset ? now.toISOString() : (existing?.period_start ?? now.toISOString());
 
+  if (existing && !shouldReset) {
+    // Race-safe increment: only lands if the count is still what we read.
+    // If a concurrent request bumped it first, re-read once and stack on top —
+    // so parallel requests can't collapse two increments into one.
+    const { data: updated } = await supabase
+      .from("usage")
+      .update({ count: newCount, period_start: newStart })
+      .eq("user_id", userId)
+      .eq("feature", feature)
+      .eq("count", existing.count)
+      .select("count");
+
+    if (updated && updated.length > 0) return newCount;
+
+    const { data: fresh } = await supabase
+      .from("usage")
+      .select("count")
+      .eq("user_id", userId)
+      .eq("feature", feature)
+      .single();
+    const retryCount = (fresh?.count ?? existing.count) + 1;
+    await supabase
+      .from("usage")
+      .update({ count: retryCount, period_start: newStart })
+      .eq("user_id", userId)
+      .eq("feature", feature);
+    return retryCount;
+  }
+
   await supabase.from("usage").upsert({
     user_id: userId,
     feature,

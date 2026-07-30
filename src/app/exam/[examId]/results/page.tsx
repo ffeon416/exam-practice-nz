@@ -121,7 +121,7 @@ function syncReviewToDb(
   // Mirror the SM-2 state that recordReview computes so the DB stays in sync.
   const now = new Date();
   let intervalDays = 0;
-  let ease = 2.5;
+  const ease = 2.5;
   let repetitions = 0;
 
   if (quality < 3) {

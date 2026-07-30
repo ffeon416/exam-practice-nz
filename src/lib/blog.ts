@@ -90,6 +90,10 @@ export function getPostBySlug(slug: string): Post | null {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
+  // Date-gate here too — the index and sitemap already hide future-dated
+  // posts, but without this a scheduled post was still readable by direct URL.
+  if (data.date && new Date(data.date) > todayCutoff()) return null;
+
   return {
     slug,
     title: data.title || "Untitled",

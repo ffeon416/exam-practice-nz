@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import { getSupabase } from "@/lib/supabase";
 import { rateLimit } from "@/lib/rateLimit";
 
@@ -65,7 +66,9 @@ export async function POST(req: NextRequest) {
       {
         session_id: sessionId,
         visitor_id: typeof body.visitorId === "string" ? body.visitorId : null,
-        user_id: typeof body.userId === "string" ? body.userId : null,
+        // Attribute to the authenticated session, never the client-supplied id —
+        // a body field could misattribute recordings to arbitrary users.
+        user_id: await auth().then((a) => a.userId).catch(() => null),
         page: typeof body.path === "string" ? body.path.slice(0, 200) : null,
         country,
         device,

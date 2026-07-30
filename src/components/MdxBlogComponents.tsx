@@ -71,7 +71,7 @@ export const blogMdxComponents: MDXComponents = {
       {children}
     </pre>
   ),
-  // eslint-disable-next-line @next/next/no-img-element
+   
   img: ({ src, alt }) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img

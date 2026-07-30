@@ -49,9 +49,13 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(request)
       .then((response) => {
-        // Keep a fresh copy of the landing page for offline use.
-        const copy = response.clone();
-        caches.open(CACHE).then((c) => c.put("/", copy)).catch(() => {});
+        // Keep a fresh copy of the landing page for offline use — only when
+        // this navigation actually IS the landing page. Caching every page
+        // under "/" made the offline fallback "whatever you last visited".
+        if (new URL(request.url).pathname === "/") {
+          const copy = response.clone();
+          caches.open(CACHE).then((c) => c.put("/", copy)).catch(() => {});
+        }
         return response;
       })
       .catch(() => caches.match(request).then((cached) => cached || caches.match("/"))),

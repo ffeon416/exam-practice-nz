@@ -68,7 +68,7 @@ export function recordReview(
   const now = new Date();
 
   let ease = existing?.ease ?? 2.5;
-  let interval = existing?.interval ?? 1;
+  const interval = existing?.interval ?? 1;
   let repetitions = existing?.repetitions ?? 0;
 
   // Use fractional intervals (in days) so we can schedule "review now"

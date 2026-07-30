@@ -45,7 +45,7 @@ function buildEvaluator(expr: string): (x: number) => number {
   if (stripped.length > 0) {
     throw new Error(`unsafe tokens "${stripped}" in expression "${expr}"`);
   }
-  // eslint-disable-next-line no-new-func
+   
   return new Function("x", `"use strict"; return (${expr});`) as (x: number) => number;
 }
 
@@ -170,7 +170,7 @@ Take your time. Re-read the question. Pick the right decision.`;
 }
 
 function tryParse(text: string): EnrichmentDecision | null {
-  let c = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+  const c = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
   const s = c.indexOf("{"), e = c.lastIndexOf("}");
   if (s < 0 || e <= s) return null;
   try { return JSON.parse(c.slice(s, e + 1)) as EnrichmentDecision; }

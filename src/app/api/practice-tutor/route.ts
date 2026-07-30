@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { chatCompletion } from "@/lib/claude";
+import { rateLimit } from "@/lib/rateLimit";
 
 export async function POST(request: NextRequest) {
+  // This route runs Sonnet on every call — guard it like the other AI routes.
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const { ok } = rateLimit(ip, 10, 60_000);
+  if (!ok) {
+    return NextResponse.json({ error: "Too many requests. Please wait a moment." }, { status: 429 });
+  }
+
   try {
     const body = await request.json();
 
