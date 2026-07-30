@@ -13,6 +13,7 @@ const isPublicRoute = createRouteMatcher([
   "/privacy(.*)",
   "/terms(.*)",
   "/blog(.*)",
+  "/global(.*)",
   "/opengraph-image(.*)",
   "/twitter-image(.*)",
   "/icon(.*)",
@@ -24,6 +25,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/demo-mark",
   "/api/track",
   "/api/rec",
+  "/api/waitlist",
   "/api/stripe-webhook",
   "/api/cron(.*)",
 

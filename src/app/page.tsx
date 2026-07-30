@@ -355,6 +355,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══ GLOBAL WAITLIST STRIP ═══ */}
+      {/* AU is already ~half our traffic — catch overseas visitors instead of
+          letting them bounce off an NCEA-only page. */}
+      <section className="border-t border-white/[0.06] py-6">
+        <div className="max-w-4xl mx-auto px-5 text-center">
+          <Link
+            href="/global"
+            className="inline-flex flex-wrap items-center justify-center gap-2 text-[13px] text-zinc-400 hover:text-white transition-colors"
+          >
+            <span aria-hidden>🇦🇺 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🇺🇸 🇨🇦</span>
+            <span>
+              Not in NZ? <span className="font-semibold text-indigo-400">HSC, QCE, GCSE, AP &amp; more are coming</span> — join your waitlist →
+            </span>
+          </Link>
+        </div>
+      </section>
+
       {/* ═══ FOOTER ═══ */}
       <footer className="border-t border-white/[0.06] py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600">
