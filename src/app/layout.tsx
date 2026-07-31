@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description:
     "Unlimited NCEA practice exams with instant StudyAce marking. Built for NZ students from Year 10 to Year 13.",
   metadataBase: new URL("https://studyace.co"),
+  verification: {
+    google: "qkAhmFbsJe28iA0utEZdoVZwGslE3gavCX1tZ6rrUas",
+  },
   openGraph: {
     title: "StudyAce — Master NCEA Exams",
     description:
