@@ -8,6 +8,7 @@ import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import UserScopeSync from "@/components/UserScopeSync";
 import DeferUntilIdle from "@/components/DeferUntilIdle";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -126,11 +127,14 @@ export default function RootLayout({
           <DeferUntilIdle>
             <Analytics />
             <PageViewTracker />
-            {/* Google Analytics was REMOVED 2026-07-19: its gtag instrumented
-                every click and added ~2s of work + a network beacon per
-                interaction — the year-level picker went from 34ms to 2000ms+
-                per click (measured, ~60x slower). Traffic is covered first-party
-                in /admin (the /api/track beacon, which does NOT hook clicks).
+            <GoogleAnalytics />
+            {/* Google Analytics was re-added 2026-07-31. It had been removed
+                2026-07-19 because gtag's click listener collided with the heavy
+                blur backgrounds and cost ~2s per interaction (year picker: 34ms
+                -> 2000ms+, ~60x). Those blurs are GPU-promoted now, and GA loads
+                only here inside <DeferUntilIdle> (after first paint + idle), so
+                it stays off the critical path. First-party /admin tracking
+                (/api/track) stays too — GA is additive, not a replacement.
                 SessionRecorder (rrweb) also stays OFF — it re-serialised churny
                 subtrees and persists nothing until the recordings DDL is applied
                 (restore <SessionRecorder /> here once it is; sa-no-record guards
