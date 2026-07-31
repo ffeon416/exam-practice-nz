@@ -468,8 +468,8 @@ export const CURRICULA: Curriculum[] = [
     country: "US",
     countryLabel: "United States",
     flag: "🇺🇸",
-    system: "AP + SAT",
-    label: "AP courses + SAT prep · Grades 9–12",
+    system: "AP · SAT · ACT",
+    label: "AP courses + SAT/ACT prep · Grades 9–12",
     levels: [
       {
         value: 11,
@@ -498,6 +498,10 @@ export const CURRICULA: Curriculum[] = [
       S("economics", "AP Economics (Micro)", [11, 12]),
       S("sat-math", "SAT Math", [11]),
       S("sat-english", "SAT Reading & Writing", [11]),
+      S("act-math", "ACT Math", [11]),
+      S("act-english", "ACT English", [11]),
+      S("act-reading", "ACT Reading", [11]),
+      S("act-science", "ACT Science", [11]),
     ],
     freeSubjects: ["mathematics", "english"],
     gradeBands: [
@@ -516,6 +520,127 @@ export const CURRICULA: Curriculum[] = [
     },
     status: "early-access",
     blurb: "AP-style FRQs and SAT-style practice, scored honestly.",
+  },
+
+  // ─────────────────────────────────────────────── US · NY Regents (early access)
+  // The one US state with a true exam system — course-based Regents exams.
+  {
+    id: "us-ny-regents",
+    country: "US",
+    countryLabel: "United States",
+    flag: "🇺🇸",
+    system: "Regents",
+    label: "Regents Exams (New York) · Grades 9–12",
+    levels: [
+      { value: 9, label: "Grade 9", promptDescriptor: "New York Regents course, Grade 9 (e.g. Algebra I, Living Environment)", styleNote: "Match the style and question types of real New York State Regents Examinations — Part I multiple choice plus constructed-response parts.", titlePrefix: "Regents" },
+      { value: 10, label: "Grade 10", promptDescriptor: "New York Regents course, Grade 10 (e.g. Geometry, Global History)", styleNote: "Match the style and question types of real New York State Regents Examinations — Part I multiple choice plus constructed-response parts.", titlePrefix: "Regents" },
+      { value: 11, label: "Grade 11", promptDescriptor: "New York Regents course, Grade 11 (e.g. Algebra II, English, US History)", styleNote: "Match the style and question types of real New York State Regents Examinations — Part I multiple choice plus constructed-response parts.", titlePrefix: "Regents" },
+      { value: 12, label: "Grade 12", promptDescriptor: "New York Regents course, Grade 12 (e.g. Physics)", styleNote: "Match the style and question types of real New York State Regents Examinations — Part I multiple choice plus constructed-response parts.", titlePrefix: "Regents" },
+    ],
+    subjects: [
+      S("mathematics", "Algebra I", [9]),
+      S("geometry", "Geometry", [10]),
+      S("algebra-2", "Algebra II", [11]),
+      S("english", "English Language Arts", [11]),
+      S("biology", "Living Environment", [9, 10]),
+      S("earth-science", "Earth Science", [9, 10]),
+      S("chemistry", "Chemistry", [11]),
+      S("physics", "Physics", [12]),
+      S("us-history", "US History & Government", [11]),
+      S("global-history", "Global History & Geography II", [10]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "mastery", label: "Mastery (85+)", minPct: 0.85, tone: "top" },
+      { id: "proficient", label: "Proficient", minPct: 0.75, tone: "high" },
+      { id: "passing", label: "Passing (65+)", minPct: 0.65, tone: "pass" },
+      { id: "not-passing", label: "Not Passing", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Passing", merit: "Proficient", excellence: "Mastery" },
+    promptConfig: {
+      authorPersona: "an expert New York State Regents examination author (NYSED style)",
+      examinerPersona: "a New York State Regents exam scorer",
+      difficultySpread: "Spread the difficulty from routine Part I-style questions through the demanding constructed-response items Regents exams end with.",
+      localContext: "Use American contexts where natural (US places, USD currency $, US institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "Regents-style practice with the 65-pass / 85-mastery scale.",
+  },
+
+  // ─────────────────────────────────────────────── US · Texas STAAR EOC (early access)
+  {
+    id: "us-tx-staar",
+    country: "US",
+    countryLabel: "United States",
+    flag: "🇺🇸",
+    system: "STAAR",
+    label: "STAAR EOC (Texas) · Grades 9–11",
+    levels: [
+      { value: 9, label: "Grade 9", promptDescriptor: "Texas STAAR End-of-Course assessment, Grade 9 course (e.g. Algebra I, English I, Biology)", styleNote: "Match the style of STAAR EOC assessments — multiple choice with occasional griddable and short constructed-response items.", titlePrefix: "STAAR EOC" },
+      { value: 10, label: "Grade 10", promptDescriptor: "Texas STAAR End-of-Course assessment, Grade 10 course (e.g. English II)", styleNote: "Match the style of STAAR EOC assessments — multiple choice with occasional griddable and short constructed-response items.", titlePrefix: "STAAR EOC" },
+      { value: 11, label: "Grade 11", promptDescriptor: "Texas STAAR End-of-Course assessment, Grade 11 course (e.g. US History)", styleNote: "Match the style of STAAR EOC assessments — multiple choice with occasional griddable and short constructed-response items.", titlePrefix: "STAAR EOC" },
+    ],
+    subjects: [
+      S("mathematics", "Algebra I", [9]),
+      S("english", "English I & II", [9, 10]),
+      S("biology", "Biology", [9, 10]),
+      S("us-history", "US History", [11]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "masters", label: "Masters Grade Level", minPct: 0.83, tone: "top" },
+      { id: "meets", label: "Meets Grade Level", minPct: 0.62, tone: "high" },
+      { id: "approaches", label: "Approaches Grade Level", minPct: 0.42, tone: "pass" },
+      { id: "did-not-meet", label: "Did Not Meet", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Approaches", merit: "Meets", excellence: "Masters" },
+    promptConfig: {
+      authorPersona: "an expert Texas STAAR End-of-Course item writer (TEA style)",
+      examinerPersona: "a Texas STAAR EOC scorer",
+      difficultySpread: "Spread the difficulty across the range STAAR EOC assessments cover, from Approaches through Masters grade level.",
+      localContext: "Use American contexts where natural (US places, USD currency $, US institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "STAAR EOC-style practice for the five graduation-required exams.",
+  },
+
+  // ─────────────────────────────────────────────── US · Florida EOC (early access)
+  {
+    id: "us-fl-eoc",
+    country: "US",
+    countryLabel: "United States",
+    flag: "🇺🇸",
+    system: "FL EOC",
+    label: "Florida B.E.S.T. EOC · Grades 9–11",
+    levels: [
+      { value: 9, label: "Grade 9", promptDescriptor: "Florida B.E.S.T. End-of-Course assessment, Grade 9 course (e.g. Algebra 1, Biology)", styleNote: "Match the style of Florida statewide EOC assessments — multiple choice and technology-enhanced style items.", titlePrefix: "Florida EOC" },
+      { value: 10, label: "Grade 10", promptDescriptor: "Florida B.E.S.T. End-of-Course assessment, Grade 10 course (e.g. Geometry)", styleNote: "Match the style of Florida statewide EOC assessments — multiple choice and technology-enhanced style items.", titlePrefix: "Florida EOC" },
+      { value: 11, label: "Grade 11", promptDescriptor: "Florida B.E.S.T. End-of-Course assessment, Grade 11 course (e.g. US History)", styleNote: "Match the style of Florida statewide EOC assessments — multiple choice and technology-enhanced style items.", titlePrefix: "Florida EOC" },
+    ],
+    subjects: [
+      S("mathematics", "Algebra 1", [9]),
+      S("geometry", "Geometry", [10]),
+      S("english", "B.E.S.T. ELA", [9, 10]),
+      S("biology", "Biology 1", [9, 10]),
+      S("us-history", "US History", [11]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "level-5", label: "Level 5", minPct: 0.84, tone: "top" },
+      { id: "level-4", label: "Level 4", minPct: 0.7, tone: "high" },
+      { id: "level-3", label: "Level 3 (Passing)", minPct: 0.55, tone: "pass" },
+      { id: "level-2", label: "Level 2", minPct: 0.3, tone: "fail" },
+      { id: "level-1", label: "Level 1", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Level 3", merit: "Level 4", excellence: "Level 5" },
+    promptConfig: {
+      authorPersona: "an expert Florida B.E.S.T. End-of-Course item writer",
+      examinerPersona: "a Florida statewide EOC scorer",
+      difficultySpread: "Spread the difficulty across achievement Levels 3 to 5, as Florida EOC assessments do.",
+      localContext: "Use American contexts where natural (US places, USD currency $, US institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "Florida EOC-style practice for Algebra 1, Geometry, Biology and more.",
   },
 
   // ─────────────────────────────────────────────── CA · Ontario (early access)
