@@ -462,6 +462,133 @@ export const CURRICULA: Curriculum[] = [
     blurb: "GCSE-style questions with 9–1 grading across the core subjects.",
   },
 
+  // ─────────────────────────────────────────────── UK · A-Levels (early access)
+  // Sixth form (Years 12–13) — the qualification university offers hang on.
+  // Board-agnostic like GCSE (AQA/Edexcel/OCR content overlap is heavy in
+  // maths/sciences). Wales (WJEC) and NI (CCEA) use the same qualification.
+  {
+    id: "uk-alevel",
+    country: "GB",
+    countryLabel: "England",
+    flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    system: "A-Level",
+    label: "A-Levels · Years 12–13",
+    levels: [
+      {
+        value: 12,
+        label: "Year 12",
+        promptDescriptor: "A-Level course, first year (Year 12 / AS-Level standard, England)",
+        styleNote: "Match the style and question types of AS-Level and first-year A-Level examination papers (drawing on common content across AQA, Edexcel and OCR).",
+        titlePrefix: "AS / A-Level Year 12",
+      },
+      {
+        value: 13,
+        label: "Year 13",
+        promptDescriptor: "A-Level course, final year (Year 13, England)",
+        styleNote: "Match the style, difficulty, and question types of real A-Level examination papers, including multi-step synoptic questions (drawing on common content across AQA, Edexcel and OCR).",
+        titlePrefix: "A-Level",
+      },
+    ],
+    subjects: [
+      S("mathematics", "Mathematics", [12, 13]),
+      S("further-maths", "Further Mathematics", [12, 13]),
+      S("english", "English Literature", [12, 13]),
+      S("biology", "Biology", [12, 13]),
+      S("chemistry", "Chemistry", [12, 13]),
+      S("physics", "Physics", [12, 13]),
+      S("psychology", "Psychology", [12, 13]),
+      S("economics", "Economics", [12, 13]),
+      S("business-studies", "Business", [12, 13]),
+      S("history", "History", [12, 13]),
+      S("geography", "Geography", [12, 13]),
+      S("sociology", "Sociology", [12, 13]),
+      S("computer-science", "Computer Science", [12, 13]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "a-star", label: "A*", minPct: 0.9, tone: "top" },
+      { id: "a", label: "A", minPct: 0.8, tone: "high" },
+      { id: "b", label: "B", minPct: 0.7, tone: "high" },
+      { id: "c", label: "C", minPct: 0.6, tone: "pass" },
+      { id: "d", label: "D", minPct: 0.5, tone: "pass" },
+      { id: "e", label: "E", minPct: 0.4, tone: "pass" },
+      { id: "u", label: "U", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Grade C–D", merit: "Grade B", excellence: "Grade A/A*" },
+    promptConfig: {
+      authorPersona: "an expert A-Level exam author (familiar with AQA, Edexcel and OCR specifications for England)",
+      examinerPersona: "an A-Level examiner (England)",
+      difficultySpread: "Spread the difficulty from routine AS-style questions through the demanding synoptic questions A-Level papers end with.",
+      localContext: "Use British contexts where natural (UK places, GBP currency £, British institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "A-Level-style practice with A*–E grading — built for sixth form.",
+  },
+
+  // ─────────────────────────────────────────────── UK · Scotland SQA (early access)
+  // Scotland runs its own national system — National 5 (S4), Highers (S5, the
+  // university-entrance qualification), Advanced Highers (S6).
+  {
+    id: "uk-sqa",
+    country: "GB",
+    countryLabel: "Scotland",
+    flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    system: "SQA",
+    label: "National 5 & Highers (Scotland) · S4–S6",
+    levels: [
+      {
+        value: 10,
+        label: "S4 · Nat 5",
+        promptDescriptor: "SQA National 5 course (Scotland, S4)",
+        styleNote: "Match the style and question types of real SQA National 5 examination papers.",
+        titlePrefix: "National 5",
+      },
+      {
+        value: 11,
+        label: "S5 · Higher",
+        promptDescriptor: "SQA Higher course (Scotland, S5)",
+        styleNote: "Match the style and question types of real SQA Higher examination papers.",
+        titlePrefix: "Higher",
+      },
+      {
+        value: 12,
+        label: "S6 · Adv Higher",
+        promptDescriptor: "SQA Advanced Higher course (Scotland, S6)",
+        styleNote: "Match the style and question types of real SQA Advanced Higher examination papers.",
+        titlePrefix: "Advanced Higher",
+      },
+    ],
+    subjects: [
+      S("mathematics", "Mathematics", [10, 11, 12]),
+      S("english", "English", [10, 11, 12]),
+      S("biology", "Biology", [10, 11, 12]),
+      S("chemistry", "Chemistry", [10, 11, 12]),
+      S("physics", "Physics", [10, 11, 12]),
+      S("history", "History", [10, 11, 12]),
+      S("geography", "Geography", [10, 11]),
+      S("modern-studies", "Modern Studies", [10, 11]),
+      S("business-studies", "Business Management", [10, 11, 12]),
+      S("computer-science", "Computing Science", [10, 11, 12]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "a", label: "A", minPct: 0.7, tone: "top" },
+      { id: "b", label: "B", minPct: 0.6, tone: "high" },
+      { id: "c", label: "C", minPct: 0.5, tone: "pass" },
+      { id: "d", label: "D", minPct: 0.4, tone: "pass" },
+      { id: "no-award", label: "No Award", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Grade C", merit: "Grade B", excellence: "Grade A" },
+    promptConfig: {
+      authorPersona: "an expert SQA exam author (Scottish Qualifications Authority)",
+      examinerPersona: "an SQA marker (Scotland)",
+      difficultySpread: "Spread the difficulty across the range SQA papers cover, from C-grade demand through A-grade demand.",
+      localContext: "Use Scottish and British contexts where natural (Scottish places, GBP currency £, Scottish institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "Nat 5, Higher and Advanced Higher practice, SQA-style.",
+  },
+
   // ─────────────────────────────────────────────── US · AP + SAT (early access)
   {
     id: "us-ap-sat",
