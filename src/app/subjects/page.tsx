@@ -8,7 +8,7 @@ import { saveCustomExam, generateCustomExamId } from "@/lib/customExams";
 import { useTier, isUnlimited } from "@/hooks/useTier";
 import UpgradeModal from "@/components/UpgradeModal";
 import { loadOnboarding } from "@/lib/onboarding";
-import { resolveCurriculum, USABLE_CURRICULA } from "@/data/curricula";
+import { resolveCurriculum, USABLE_CURRICULA, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
 
 // Year levels + subjects are now derived from the selected curriculum (see
 // the registry in src/data/curricula.ts). `ncea` is the level value sent to
@@ -70,6 +70,8 @@ export default function SubjectsPage() {
   // mount. Everything below (levels, subjects, free gate, prompts) derives
   // from this via the curriculum registry.
   const [curriculumId, setCurriculumId] = useState<string>("nz-ncea");
+  // Two-step picker: country first, then that country's exam system.
+  const [pickedCountry, setPickedCountry] = useState<Curriculum["country"]>("NZ");
   const [yearLevel, setYearLevel] = useState<number | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
 
@@ -77,6 +79,10 @@ export default function SubjectsPage() {
   const YEAR_LEVELS = levelsFor(curriculumId);
   const SUBJECTS = curriculum.subjects;
   const FREE_SUBJECT_SET = new Set<string>(curriculum.freeSubjects);
+  const countrySystems = curriculaForCountry(pickedCountry);
+  // True while the user has tapped a country but not yet one of its systems —
+  // the selected curriculum still belongs to the previous country.
+  const countryMismatch = curriculum.country !== pickedCountry;
 
   // Restore curriculum from ?curriculum= (e.g. arriving from /global) or the
   // last-used one in localStorage.
@@ -87,17 +93,31 @@ export default function SubjectsPage() {
     const wanted = fromUrl ?? stored;
     if (wanted && wanted !== "nz-ncea" && USABLE_CURRICULA.some((c) => c.id === wanted)) {
       setCurriculumId(wanted);
+      setPickedCountry(resolveCurriculum(wanted).country);
     }
   }, []);
 
   function switchCurriculum(id: string) {
     if (id === curriculumId) return;
     setCurriculumId(id);
+    setPickedCountry(resolveCurriculum(id).country);
     setYearLevel(null);
     setSubject(null);
     try {
       localStorage.setItem(CURRICULUM_LS_KEY, id);
     } catch {}
+  }
+
+  function switchCountry(code: Curriculum["country"]) {
+    if (code === pickedCountry) return;
+    setPickedCountry(code);
+    setYearLevel(null);
+    setSubject(null);
+    const group = curriculaForCountry(code);
+    // Single-system countries (NZ) select immediately — no second step.
+    if (group.length === 1) {
+      switchCurriculum(group[0].id);
+    }
   }
   // The year buttons are native radios (highlight is painted by the browser's
   // :checked state, instantly, with no React in the paint path). This ref lets
@@ -485,37 +505,69 @@ export default function SubjectsPage() {
         </div>
       )}
 
-      {/* Exam system (StudyAce Global) */}
+      {/* Exam system — two-step: country, then that country's system/state */}
       <div className="mb-6 sm:mb-8">
         <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
-          Exam system
+          Country
         </label>
-        <div className="flex gap-2 overflow-x-auto pb-1 sa-no-record" role="radiogroup" aria-label="Exam system">
-          {USABLE_CURRICULA.map((c) => {
-            const active = c.id === curriculumId;
+        <div className="grid grid-cols-5 gap-2 sa-no-record" role="radiogroup" aria-label="Country">
+          {COUNTRIES.map((co) => {
+            const active = co.code === pickedCountry;
             return (
               <button
-                key={c.id}
-                onClick={() => switchCurriculum(c.id)}
+                key={co.code}
+                onClick={() => switchCountry(co.code)}
                 aria-pressed={active}
-                className={`shrink-0 inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-2 rounded-lg text-[12px] font-semibold border transition-colors ${
+                className={`flex flex-col items-center justify-center gap-0.5 min-h-[52px] py-2 rounded-lg text-[11px] font-semibold border transition-colors ${
                   active
                     ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                     : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
                 }`}
               >
-                <span aria-hidden>{c.flag}</span>
-                {c.system}
-                {c.status === "early-access" && (
-                  <span className={`text-[9px] font-bold uppercase tracking-wide rounded px-1 py-0.5 ${active ? "bg-white/20 text-white" : "bg-amber-500/15 text-amber-400"}`}>
-                    Beta
-                  </span>
-                )}
+                <span className="text-[17px] leading-none" aria-hidden>{co.flag}</span>
+                {co.label}
               </button>
             );
           })}
         </div>
-        {curriculum.status === "early-access" && (
+
+        {/* Step 2 — only for countries with more than one system */}
+        {countrySystems.length > 1 && (
+          <div className="mt-3">
+            <label className="block text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">
+              {pickedCountry === "AU" ? "Your state" : "Your exam"}
+            </label>
+            <div className="flex flex-wrap gap-2 sa-no-record" role="radiogroup" aria-label="Exam system">
+              {countrySystems.map((c) => {
+                const active = !countryMismatch && c.id === curriculumId;
+                return (
+                  <button
+                    key={c.id}
+                    onClick={() => switchCurriculum(c.id)}
+                    aria-pressed={active}
+                    className={`inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-2 rounded-lg text-[12px] font-semibold border transition-colors ${
+                      active
+                        ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
+                        : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
+                    }`}
+                  >
+                    {c.regionShort ? (
+                      <>
+                        <span className={active ? "text-white/80" : "text-zinc-500"}>{c.regionShort}</span>
+                        <span aria-hidden>·</span>
+                        {c.system}
+                      </>
+                    ) : (
+                      c.system
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {!countryMismatch && curriculum.status === "early-access" && (
           <p className="mt-2 text-[11px] text-amber-400/80">
             {curriculum.system} practice is in early access — question style is still being tuned. Found something off? <Link href="/contact" className="underline">Tell us</Link>.
           </p>
@@ -532,8 +584,15 @@ export default function SubjectsPage() {
             re-render (which is what made this feel delayed). onChange still
             updates React state for the subject grid / Start button; that can
             lag freely now without affecting the highlight. */}
-        {/* key={curriculumId}: the radios are uncontrolled, so remount them on
-            system switch to clear any stale :checked highlight. */}
+        {countryMismatch ? (
+          <div className="rounded-lg border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-6 text-center">
+            <p className="text-[13px] text-zinc-500">
+              Pick your {pickedCountry === "AU" ? "state" : "exam"} first ↑
+            </p>
+          </div>
+        ) : (
+        // key={curriculumId}: the radios are uncontrolled, so remount them on
+        // system switch to clear any stale :checked highlight.
         <div key={curriculumId} ref={yearGroupRef} role="radiogroup" aria-label="Year level" className="grid grid-cols-4 gap-2">
           {YEAR_LEVELS.map((yl) => (
             <label key={yl.value} className="group cursor-pointer select-none touch-manipulation">
@@ -551,6 +610,7 @@ export default function SubjectsPage() {
             </label>
           ))}
         </div>
+        )}
       </div>
 
       {/* Subject */}

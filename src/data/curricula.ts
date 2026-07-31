@@ -63,6 +63,8 @@ export interface Curriculum {
   flag: string;
   /** Short system name, e.g. "NCEA", "HSC", "GCSE" */
   system: string;
+  /** Short region tag for the state picker, e.g. "QLD", "NY", "Scotland" */
+  regionShort?: string;
   /** Full display name */
   label: string;
   levels: CurriculumLevel[];
@@ -149,6 +151,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Australia",
     flag: "🇦🇺",
     system: "QCE",
+    regionShort: "QLD",
     label: "QCE (Queensland) · Years 11–12",
     levels: [
       {
@@ -213,6 +216,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Australia",
     flag: "🇦🇺",
     system: "HSC",
+    regionShort: "NSW",
     label: "HSC (New South Wales) · Years 11–12",
     levels: [
       {
@@ -279,6 +283,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Australia",
     flag: "🇦🇺",
     system: "VCE",
+    regionShort: "VIC",
     label: "VCE (Victoria) · Years 11–12",
     levels: [
       { value: 10, label: "Year 10", promptDescriptor: "Year 10 (Victorian Curriculum, pre-VCE)", styleNote: "Match Victorian Year 10 assessment style.", titlePrefix: "Year 10 (VIC)" },
@@ -325,6 +330,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Australia",
     flag: "🇦🇺",
     system: "WACE",
+    regionShort: "WA",
     label: "WACE (Western Australia) · Years 11–12",
     levels: [
       { value: 11, label: "Year 11", promptDescriptor: "WACE Year 11 ATAR course (Western Australia)", styleNote: "Match SCSA ATAR course assessment style.", titlePrefix: "WACE Year 11" },
@@ -367,6 +373,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Australia",
     flag: "🇦🇺",
     system: "SACE",
+    regionShort: "SA · NT",
     label: "SACE (South Australia & NT) · Years 11–12",
     levels: [
       { value: 11, label: "Year 11", promptDescriptor: "SACE Stage 1 (South Australia, Year 11)", styleNote: "Match SACE Stage 1 assessment style.", titlePrefix: "SACE Stage 1" },
@@ -409,6 +416,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "England",
     flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     system: "GCSE",
+    regionShort: "England · Y10–11",
     label: "GCSE · Years 10–11",
     levels: [
       {
@@ -472,6 +480,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "England",
     flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     system: "A-Level",
+    regionShort: "England · Y12–13",
     label: "A-Levels · Years 12–13",
     levels: [
       {
@@ -534,6 +543,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Scotland",
     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
     system: "SQA",
+    regionShort: "Scotland",
     label: "National 5 & Highers (Scotland) · S4–S6",
     levels: [
       {
@@ -596,6 +606,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "United States",
     flag: "🇺🇸",
     system: "AP · SAT · ACT",
+    regionShort: "National",
     label: "AP courses + SAT/ACT prep · Grades 9–12",
     levels: [
       {
@@ -657,6 +668,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "United States",
     flag: "🇺🇸",
     system: "Regents",
+    regionShort: "New York",
     label: "Regents Exams (New York) · Grades 9–12",
     levels: [
       { value: 9, label: "Grade 9", promptDescriptor: "New York Regents course, Grade 9 (e.g. Algebra I, Living Environment)", styleNote: "Match the style and question types of real New York State Regents Examinations — Part I multiple choice plus constructed-response parts.", titlePrefix: "Regents" },
@@ -701,6 +713,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "United States",
     flag: "🇺🇸",
     system: "STAAR",
+    regionShort: "Texas",
     label: "STAAR EOC (Texas) · Grades 9–11",
     levels: [
       { value: 9, label: "Grade 9", promptDescriptor: "Texas STAAR End-of-Course assessment, Grade 9 course (e.g. Algebra I, English I, Biology)", styleNote: "Match the style of STAAR EOC assessments — multiple choice with occasional griddable and short constructed-response items.", titlePrefix: "STAAR EOC" },
@@ -738,6 +751,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "United States",
     flag: "🇺🇸",
     system: "FL EOC",
+    regionShort: "Florida",
     label: "Florida B.E.S.T. EOC · Grades 9–11",
     levels: [
       { value: 9, label: "Grade 9", promptDescriptor: "Florida B.E.S.T. End-of-Course assessment, Grade 9 course (e.g. Algebra 1, Biology)", styleNote: "Match the style of Florida statewide EOC assessments — multiple choice and technology-enhanced style items.", titlePrefix: "Florida EOC" },
@@ -777,6 +791,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Canada",
     flag: "🇨🇦",
     system: "Ontario",
+    regionShort: "Ontario",
     label: "Ontario curriculum · Grades 9–12",
     levels: [
       { value: 9, label: "Grade 9", promptDescriptor: "Ontario Grade 9 (de-streamed curriculum)", styleNote: "Match Ontario Grade 9 assessment style (including EQAO-style items for math).", titlePrefix: "Grade 9 (Ontario)" },
@@ -824,6 +839,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Canada",
     flag: "🇨🇦",
     system: "Alberta",
+    regionShort: "Alberta",
     label: "Alberta Diploma · Grades 10–12 (+ NWT/NU)",
     levels: [
       { value: 10, label: "Grade 10", promptDescriptor: "Alberta 10-level course (Grade 10)", styleNote: "Match the style of Alberta Education course assessments at the 10-level.", titlePrefix: "Alberta Grade 10" },
@@ -866,6 +882,7 @@ export const CURRICULA: Curriculum[] = [
     countryLabel: "Canada",
     flag: "🇨🇦",
     system: "BC",
+    regionShort: "BC",
     label: "British Columbia · Grades 10–12 (+ Yukon)",
     levels: [
       { value: 10, label: "Grade 10", promptDescriptor: "British Columbia Grade 10 course (including Graduation Numeracy and Literacy Assessment preparation)", styleNote: "Match the style of BC course assessments and the Graduation Numeracy/Literacy Assessments — contextual, multi-step problems.", titlePrefix: "BC Grade 10" },
@@ -907,6 +924,19 @@ export const EARLY_ACCESS_CURRICULA = CURRICULA.filter((c) => c.status === "earl
 export const COMING_CURRICULA = CURRICULA.filter((c) => c.status === "coming-soon");
 /** Curricula a student can actually generate papers in */
 export const USABLE_CURRICULA = CURRICULA.filter((c) => c.status === "live" || c.status === "early-access");
+
+/** Country groups for the two-step (country → state/system) picker */
+export const COUNTRIES: { code: Curriculum["country"]; label: string; flag: string }[] = [
+  { code: "NZ", label: "New Zealand", flag: "🇳🇿" },
+  { code: "AU", label: "Australia", flag: "🇦🇺" },
+  { code: "GB", label: "UK", flag: "🇬🇧" },
+  { code: "US", label: "USA", flag: "🇺🇸" },
+  { code: "CA", label: "Canada", flag: "🇨🇦" },
+];
+
+export function curriculaForCountry(code: Curriculum["country"]): Curriculum[] {
+  return USABLE_CURRICULA.filter((c) => c.country === code);
+}
 
 export function getCurriculum(id: string): Curriculum | undefined {
   return CURRICULA.find((c) => c.id === id);
