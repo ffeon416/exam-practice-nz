@@ -163,15 +163,19 @@ export default function GlobalPage() {
           ))}
         </div>
 
-        {/* Coming soon grid */}
-        <h2 className="text-zinc-500 text-[11px] font-bold uppercase tracking-wider mb-3">
-          Coming next — join your waitlist
-        </h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          {COMING_CURRICULA.map((c) => (
-            <WaitlistCard key={c.id} curriculum={c} />
-          ))}
-        </div>
+        {/* Coming soon grid — hidden while every defined system is usable */}
+        {COMING_CURRICULA.length > 0 && (
+          <>
+            <h2 className="text-zinc-500 text-[11px] font-bold uppercase tracking-wider mb-3">
+              Coming next — join your waitlist
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {COMING_CURRICULA.map((c) => (
+                <WaitlistCard key={c.id} curriculum={c} />
+              ))}
+            </div>
+          </>
+        )}
 
         <p className="text-zinc-600 text-[12px] text-center mt-10">
           Your email is only used to tell you when your system launches — nothing else.

@@ -314,7 +314,7 @@ export const CURRICULA: Curriculum[] = [
       difficultySpread: "Spread the difficulty from accessible questions through the demanding multi-step questions VCAA exams end with.",
       localContext: "Use Australian contexts where natural (Australian places, AUD currency, Australian species and industries, etc.)",
     },
-    status: "coming-soon",
+    status: "early-access",
     blurb: "VCE-style practice with graded feedback, ATAR-ready.",
   },
 
@@ -356,7 +356,7 @@ export const CURRICULA: Curriculum[] = [
       difficultySpread: "Spread the difficulty from straightforward through the demanding synthesis questions ATAR exams include.",
       localContext: "Use Australian contexts where natural (Australian places, AUD currency, Australian species and industries, etc.)",
     },
-    status: "coming-soon",
+    status: "early-access",
     blurb: "WACE-style practice for ATAR-pathway courses.",
   },
 
@@ -398,7 +398,7 @@ export const CURRICULA: Curriculum[] = [
       difficultySpread: "Spread the difficulty from application questions through demanding analysis, as SACE external exams do.",
       localContext: "Use Australian contexts where natural (Australian places, AUD currency, Australian species and industries, etc.)",
     },
-    status: "coming-soon",
+    status: "early-access",
     blurb: "SACE-style practice for Stage 1 & 2 subjects.",
   },
 
