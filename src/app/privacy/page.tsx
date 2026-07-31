@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "How StudyAce collects, uses, and protects your personal information, in line with the New Zealand Privacy Act 2020.",
 };
 
-const LAST_UPDATED = "22 April 2026";
+const LAST_UPDATED = "31 July 2026";
 const CONTACT_EMAIL = "ffeon.io@gmail.com";
 
 export default function PrivacyPage() {
@@ -159,6 +159,21 @@ export default function PrivacyPage() {
                 <strong className="text-zinc-300">Vercel</strong> (USA) —
                 website hosting and infrastructure.
               </li>
+              <li>
+                <strong className="text-zinc-300">Google LLC</strong> (USA) —
+                Google Analytics, which measures aggregate, anonymised site
+                usage (pages visited, device type, rough location). You can opt
+                out with Google&rsquo;s{" "}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  opt-out browser add-on
+                </a>
+                .
+              </li>
             </ul>
           </Section>
 
@@ -268,9 +283,20 @@ export default function PrivacyPage() {
               We use session cookies set by Clerk to keep you signed in, and a
               small amount of site-functionality storage. We measure aggregate
               traffic (page views, rough location, device type) using our own
-              first-party analytics and Vercel Analytics — neither uses
-              advertising cookies, cross-site tracking, or third-party ad
-              trackers, and we never sell your data.
+              first-party analytics, Vercel Analytics, and Google Analytics.
+              Google Analytics sets its own cookie (<code>_ga</code>) to count
+              returning visitors; we do not use advertising cookies, and we
+              never sell your data. You can opt out of Google Analytics with
+              Google&rsquo;s{" "}
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                opt-out browser add-on
+              </a>
+              .
             </p>
           </Section>
 
