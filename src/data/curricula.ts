@@ -687,6 +687,90 @@ export const CURRICULA: Curriculum[] = [
     status: "early-access",
     blurb: "Ontario-style course practice with levels-based feedback.",
   },
+
+  // ─────────────────────────────────────────────── CA · Alberta Diploma (early access)
+  // Canada's most exam-like system — Grade 12 Diploma Examinations.
+  // NWT and Nunavut follow the Alberta curriculum, so this card covers them too.
+  {
+    id: "ca-alberta",
+    country: "CA",
+    countryLabel: "Canada",
+    flag: "🇨🇦",
+    system: "Alberta",
+    label: "Alberta Diploma · Grades 10–12 (+ NWT/NU)",
+    levels: [
+      { value: 10, label: "Grade 10", promptDescriptor: "Alberta 10-level course (Grade 10)", styleNote: "Match the style of Alberta Education course assessments at the 10-level.", titlePrefix: "Alberta Grade 10" },
+      { value: 11, label: "Grade 11", promptDescriptor: "Alberta 20-level course (Grade 11)", styleNote: "Match the style of Alberta Education course assessments at the 20-level.", titlePrefix: "Alberta Grade 11" },
+      { value: 12, label: "Grade 12", promptDescriptor: "Alberta 30-level course with Diploma Examination (Grade 12)", styleNote: "Match the style and question types of real Alberta Diploma Examinations — machine-scored items plus written-response questions.", titlePrefix: "Alberta Diploma" },
+    ],
+    subjects: [
+      S("mathematics", "Mathematics (-1/-2)", [10, 11, 12]),
+      S("english", "English Language Arts", [10, 11, 12]),
+      S("biology", "Biology", [11, 12]),
+      S("chemistry", "Chemistry", [11, 12]),
+      S("physics", "Physics", [11, 12]),
+      S("science", "Science", [10]),
+      S("social-studies", "Social Studies", [10, 11, 12]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "excellence-standard", label: "Standard of Excellence", minPct: 0.8, tone: "top" },
+      { id: "above-acceptable", label: "Above Acceptable", minPct: 0.65, tone: "high" },
+      { id: "acceptable", label: "Acceptable Standard", minPct: 0.5, tone: "pass" },
+      { id: "below-acceptable", label: "Below Acceptable", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Acceptable", merit: "Above Acceptable", excellence: "Excellence Standard" },
+    promptConfig: {
+      authorPersona: "an expert Alberta Education Diploma Examination author",
+      examinerPersona: "an Alberta Diploma Examination marker",
+      difficultySpread: "Spread the difficulty from Acceptable Standard through Standard of Excellence, as Diploma Exams do.",
+      localContext: "Use Canadian contexts where natural (Canadian places, CAD currency $, Canadian institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "Diploma Exam-style practice with Alberta's achievement standards.",
+  },
+
+  // ─────────────────────────────────────────────── CA · British Columbia (early access)
+  // BC's Graduation Assessments (Numeracy 10, Literacy 10/12) + course practice,
+  // marked on the provincial proficiency scale. Yukon follows BC.
+  {
+    id: "ca-bc",
+    country: "CA",
+    countryLabel: "Canada",
+    flag: "🇨🇦",
+    system: "BC",
+    label: "British Columbia · Grades 10–12 (+ Yukon)",
+    levels: [
+      { value: 10, label: "Grade 10", promptDescriptor: "British Columbia Grade 10 course (including Graduation Numeracy and Literacy Assessment preparation)", styleNote: "Match the style of BC course assessments and the Graduation Numeracy/Literacy Assessments — contextual, multi-step problems.", titlePrefix: "BC Grade 10" },
+      { value: 11, label: "Grade 11", promptDescriptor: "British Columbia Grade 11 course", styleNote: "Match the style of BC Grade 11 course assessments under the redesigned curriculum.", titlePrefix: "BC Grade 11" },
+      { value: 12, label: "Grade 12", promptDescriptor: "British Columbia Grade 12 course (including Literacy 12 Assessment preparation)", styleNote: "Match the style of BC Grade 12 course assessments and the Grade 12 Literacy Assessment.", titlePrefix: "BC Grade 12" },
+    ],
+    subjects: [
+      S("mathematics", "Mathematics (FoM / Pre-Calc)", [10, 11, 12]),
+      S("english", "English Studies", [10, 11, 12]),
+      S("science", "Science", [10]),
+      S("biology", "Life Sciences / Biology", [11, 12]),
+      S("chemistry", "Chemistry", [11, 12]),
+      S("physics", "Physics", [11, 12]),
+      S("social-studies", "Social Studies", [10, 11]),
+    ],
+    freeSubjects: ["mathematics", "english"],
+    gradeBands: [
+      { id: "extending", label: "Extending", minPct: 0.85, tone: "top" },
+      { id: "proficient", label: "Proficient", minPct: 0.65, tone: "high" },
+      { id: "developing", label: "Developing", minPct: 0.4, tone: "pass" },
+      { id: "emerging", label: "Emerging", minPct: 0, tone: "fail" },
+    ],
+    difficultyLabels: { achieved: "Developing", merit: "Proficient", excellence: "Extending" },
+    promptConfig: {
+      authorPersona: "an expert British Columbia curriculum assessment author (BC Ministry of Education style)",
+      examinerPersona: "a BC assessment marker using the provincial proficiency scale",
+      difficultySpread: "Spread the difficulty across the proficiency scale from Developing through Extending.",
+      localContext: "Use Canadian contexts where natural (Canadian places, CAD currency $, Canadian institutions, etc.)",
+    },
+    status: "early-access",
+    blurb: "BC course + Graduation Assessment practice on the proficiency scale.",
+  },
 ];
 
 export const DEFAULT_CURRICULUM_ID = "nz-ncea";
