@@ -5,7 +5,7 @@ import { incrementUsage, logApiUsage } from "@/lib/db";
 import { isUnlimited } from "@/lib/tierLimits";
 import { resolveCurriculum, isSubjectFree } from "@/data/curricula";
 import { rateLimit } from "@/lib/rateLimit";
-import { consumeBonusExam, logEvent } from "@/lib/supabase";
+import { consumeBonusExam, logEvent, getSupabase } from "@/lib/supabase";
 
 // Allow up to 5 minutes for paper generation
 export const maxDuration = 300;
@@ -43,12 +43,15 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { subject, level, topic, questionCount, curriculum: rawCurriculum } = body as {
+    const { subject, level, topic, questionCount, curriculum: rawCurriculum, diagnostic } = body as {
       subject: string;
       level: number;
       topic?: string | null;
       questionCount?: number;
       curriculum?: string;
+      /** Grade Detector run — fixed 8 questions; the FIRST one bypasses the
+          free-tier subject lock so any student can get their estimate. */
+      diagnostic?: boolean;
     };
 
     // Curriculum gate — only live/early-access systems can generate papers.
@@ -67,8 +70,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Grade Detector: the user's FIRST diagnostic may be in ANY subject — the
+    // estimate is the hook and it has to work for an HSC-bio kid too. Later
+    // diagnostics follow the normal subject rules (stops the bypass becoming a
+    // free all-subjects backdoor).
+    let diagnosticBypass = false;
+    if (diagnostic === true && tier === "free" && userId) {
+      const supa = getSupabase();
+      if (supa) {
+        const { data: prior } = await supa
+          .from("events")
+          .select("id")
+          .eq("name", "diagnostic_used")
+          .eq("user_id", userId)
+          .limit(1);
+        diagnosticBypass = !prior || prior.length === 0;
+      }
+    }
+
     // Subject gate — Free tier can only use this curriculum's free whitelist.
-    if (tier === "free" && !isSubjectFree(curriculum, subject)) {
+    if (tier === "free" && !diagnosticBypass && !isSubjectFree(curriculum, subject)) {
       // Money-moment: user tapped a locked subject.
       void logEvent("paywall_hit", userId, { reason: "subject_locked", tier, subject });
       return NextResponse.json(
@@ -81,8 +102,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Cap question count to tier limit
-    const cappedCount = Math.min(questionCount ?? 8, limits.maxQuestions);
+    // Cap question count to tier limit. Diagnostics are always exactly 8 —
+    // the estimate needs a consistent sample size.
+    const cappedCount = diagnostic === true ? 8 : Math.min(questionCount ?? 8, limits.maxQuestions);
+
+    // Record the diagnostic (powers the one-free-any-subject rule + funnel stats)
+    if (diagnostic === true) {
+      void logEvent("diagnostic_used", userId, { subject, curriculum: curriculum.id, bypass: diagnosticBypass });
+    }
 
     const paper = await generatePracticePaper(
       subject,

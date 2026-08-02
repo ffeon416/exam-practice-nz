@@ -14,6 +14,7 @@ const isPublicRoute = createRouteMatcher([
   "/terms(.*)",
   "/blog(.*)",
   "/global(.*)",
+  "/grade(.*)",
   "/opengraph-image(.*)",
   "/twitter-image(.*)",
   "/icon(.*)",

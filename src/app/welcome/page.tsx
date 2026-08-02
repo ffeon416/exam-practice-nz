@@ -58,6 +58,15 @@ export default function WelcomePage() {
 
   // Skip welcome if already onboarded
   useEffect(() => {
+    // Grade Detector resume: they signed up mid-grade-check — send them
+    // straight back to /grade, which auto-starts their diagnostic. Onboarding
+    // can happen later; the funnel moment matters more.
+    try {
+      if (window.localStorage.getItem("studyace-diagnostic-pending")) {
+        router.replace("/grade");
+        return;
+      }
+    } catch {}
     const existing = loadOnboarding();
     if (existing) {
       router.replace("/dashboard");

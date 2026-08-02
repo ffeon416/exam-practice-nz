@@ -118,6 +118,16 @@ export default function HomePage() {
             )}
           </div>
 
+          {/* Grade Detector hook — the strongest question a student can be asked */}
+          {!isSignedIn && (
+            <p className="text-[13px] text-zinc-500 mb-8 -mt-3">
+              🎯 Not sure where you stand?{" "}
+              <Link href="/grade" className="text-indigo-400 font-semibold hover:underline">
+                Find out what you&apos;d get today — free →
+              </Link>
+            </p>
+          )}
+
         </div>
       </section>
 
@@ -390,6 +400,7 @@ export default function HomePage() {
               </>
             ) : (
               <>
+                <Link href="/grade" className="hover:text-zinc-400 transition-colors">Grade check</Link>
                 <Link href="/pricing" className="hover:text-zinc-400 transition-colors">Pricing</Link>
                 <Link href="/redeem" className="hover:text-zinc-400 transition-colors">Redeem code</Link>
                 <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>

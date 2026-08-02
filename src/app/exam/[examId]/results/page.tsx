@@ -4,6 +4,7 @@ import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
+import { resolveCurriculum } from "@/data/curricula";
 import {
   calculateOverallGrade,
   curriculumBand,
@@ -486,11 +487,57 @@ export default function ResultsPage({
   const isFullMarks = r && !selfMarked && r.marksAwarded === r.maxMarks;
   const hasAnswer = (answers[q?.id] ?? "").trim().length > 0;
 
+  // Grade Detector run? The reveal replaces the usual header drama.
+  const isDiagnostic = (exam as { diagnostic?: boolean }).diagnostic === true;
+  const diagCurriculum = resolveCurriculum((exam as { curriculumId?: string }).curriculumId);
+  const topBandLabel = diagCurriculum.gradeBands[0]?.label ?? "the top grade";
+  const revealLabel = band ? band.label : gradeLabel(overallGrade);
+
   // ── SUMMARY VIEW ──
   if (view === "summary") {
     return (
       <div className="relative max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-8 pb-12 sm:pb-16">
         <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
+
+        {/* ── GRADE DETECTOR REVEAL ── */}
+        {isDiagnostic && !selfMarked && (
+          <div className="mb-8 text-center rounded-3xl border border-indigo-500/25 bg-gradient-to-b from-indigo-500/[0.1] to-transparent px-5 pt-8 pb-7">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3">
+              If you sat {exam.title.replace(/ Practice Paper| Grade Check/gi, "")} today
+            </p>
+            <div className={`text-[64px] sm:text-[84px] font-black leading-none tracking-tight mb-2 ${gradeColor(displayGrade)}`}>
+              {revealLabel}
+            </div>
+            <p className="text-zinc-400 text-[13px] mb-6">
+              {pct}% · honest estimate from today&apos;s 8 questions — not a promise, a starting line.
+            </p>
+            {gaps.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-2 mb-6">
+                {gaps.slice(0, 3).map((g) => (
+                  <span key={g.topic} className="px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-300 text-[12px] font-medium">
+                    ⚠ {getTopicLabel(g.topic)}
+                  </span>
+                ))}
+              </div>
+            )}
+            {/* The sell: the schedule to the top grade is the paid product */}
+            <div className="rounded-2xl bg-white/[0.03] border border-white/[0.08] px-5 py-5 max-w-md mx-auto">
+              <p className="text-white font-extrabold text-[16px] mb-1.5">
+                Get to {topBandLabel} by exam day
+              </p>
+              <p className="text-zinc-400 text-[12.5px] mb-4">
+                A week-by-week schedule from this result to the top grade — practice lined up, weak spots first, all the way to your exam.
+              </p>
+              <Link
+                href="/plan"
+                className="inline-flex w-full justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-3.5 text-[14px] font-extrabold text-white shadow-lg shadow-indigo-500/25"
+              >
+                Build my schedule →
+              </Link>
+              <p className="text-zinc-600 text-[11px] mt-2.5">Schedules are part of the Student plan · the grade check stays free</p>
+            </div>
+          </div>
+        )}
         {/* Two circles side by side */}
         {(() => {
           const radius = 50;
