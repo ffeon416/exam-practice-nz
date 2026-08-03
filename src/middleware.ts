@@ -27,6 +27,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/track",
   "/api/rec",
   "/api/waitlist",
+  "/api/diagnostic(.*)",
   "/api/stripe-webhook",
   "/api/cron(.*)",
 

@@ -261,7 +261,7 @@ export async function getDueReviews(userId: string): Promise<DbReview[]> {
 
 // ── API usage logging (for cost tracking / admin dashboard) ──
 
-export type ApiFeature = "tutor" | "mark" | "generate_paper" | "essay" | "practice_question";
+export type ApiFeature = "tutor" | "mark" | "generate_paper" | "essay" | "practice_question" | "diagnostic_generate" | "diagnostic_mark";
 
 /**
  * Fire-and-forget: records one Claude API call's tokens + cost against a user.
