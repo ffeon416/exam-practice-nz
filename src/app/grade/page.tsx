@@ -389,30 +389,26 @@ export default function GradePage() {
   }
 
   // ── LOCKED (anonymous — email required to reveal) ──
+  // No blur, no partial grade shown — just a clean ask. The grade appears
+  // on screen AND in their inbox once they submit.
   if (phase === "locked" && results) {
-    const { bandLabel, pct, grade } = computeSummary(results);
     return (
-      <div className="max-w-md mx-auto px-5 pt-16 pb-20 text-center">
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3">Your result is ready</p>
-        <div className="relative mb-6">
-          <div className={`text-[64px] font-black leading-none blur-lg select-none ${gradeColor(grade)}`}>
-            {bandLabel}
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-3xl">🔒</span>
-          </div>
+      <div className="max-w-md mx-auto px-5 pt-20 pb-24 text-center">
+        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-[28px]">
+          🎯
         </div>
-        <p className="text-zinc-400 text-[14px] mb-6">{pct}% on today&apos;s diagnostic. Enter your email to reveal your grade — we&apos;ll send you a copy too.</p>
+        <h1 className="text-white font-extrabold text-[24px] mb-2">Your grade is ready</h1>
+        <p className="text-zinc-400 text-[14px] mb-7">Enter your email and we&apos;ll send your estimated grade straight to your inbox.</p>
         <form onSubmit={revealWithEmail} className="space-y-3">
           <input
             type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
             placeholder="you@email.com"
-            className="w-full rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3.5 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
+            className="w-full rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3.5 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 text-center"
           />
           {emailStatus === "error" && emailError && <p className="text-rose-400 text-[13px]">{emailError}</p>}
           <button type="submit" disabled={emailStatus === "sending"}
             className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/25 disabled:opacity-60">
-            {emailStatus === "sending" ? "Revealing…" : "Reveal my grade →"}
+            {emailStatus === "sending" ? "Sending…" : "Send me my grade →"}
           </button>
         </form>
         <p className="text-zinc-600 text-[11px] mt-4">No spam, ever — just this result and, if you want more, how to fix it.</p>
