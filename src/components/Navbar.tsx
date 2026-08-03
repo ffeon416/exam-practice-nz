@@ -21,8 +21,13 @@ const authedLinks = [
   { href: "/pricing", label: "Pricing" },
 ];
 
+// Signed-out visitors skip the /grade picker entirely — the header button is
+// a pure email-capture CTA. GRADE_INTENT_KEY tells /welcome to bounce them
+// straight to /grade right after signup, so the funnel still lands them on
+// the picker (fresh, since no diagnostic was picked yet to resume).
+export const GRADE_INTENT_KEY = "studyace-postsignup-intent";
 const publicLinks = [
-  { href: "/grade", label: "Grade Check" },
+  { href: "/sign-up?intent=grade", label: "Grade Check" },
   { href: "/demo", label: "Try Demo" },
   { href: "/blog", label: "Blog" },
   { href: "/schools", label: "Schools" },
