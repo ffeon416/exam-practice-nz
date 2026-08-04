@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
           method: "POST",
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendKey}` },
           body: JSON.stringify({
-            from: "StudyAce <onboarding@resend.dev>",
+            from: "StudyAce <grades@studyace.co>",
             to: cleanEmail,
             subject: `Your estimated grade: ${bandLabel ?? "—"} (${subjectLabel})`,
             html: `
