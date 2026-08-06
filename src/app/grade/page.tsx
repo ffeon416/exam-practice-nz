@@ -17,6 +17,8 @@ import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } fr
 import { getTopicLabel } from "@/data/topics";
 import type { GraphData, MarkingResult } from "@/lib/types";
 import { gradeColor, gradeLabel, curriculumBand, bandToneGrade } from "@/lib/scoring";
+import { neutralizeFigureReferences } from "@/lib/questionGuard";
+import Graph from "@/components/Graph";
 
 type ApiQuestion = {
   number: string; text: string; marks: number;
@@ -49,6 +51,7 @@ export default function GradePage() {
   const [paper, setPaper] = useState<{ title: string; questions: ApiQuestion[] } | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [results, setResults] = useState<MarkingResult[] | null>(null);
+  const [currentQ, setCurrentQ] = useState(0);
 
   const [email, setEmail] = useState("");
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "error">("idle");
@@ -85,6 +88,7 @@ export default function GradePage() {
       }
       setPaper(data.paper);
       setAnswers({});
+      setCurrentQ(0);
       setPhase("test");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
@@ -329,60 +333,100 @@ export default function GradePage() {
     );
   }
 
-  // ── TEST ──
+  // ── TEST ── one question at a time, same pattern as the real exam page
+  // (/exam/[examId]): graph/image render above the question, text runs
+  // through neutralizeFigureReferences so "the graph below" never appears
+  // without a graph, and a dot navigator lets you jump between questions.
   if (phase === "test" && paper) {
     const answeredCount = paper.questions.filter((_, i) => (answers[`q${i + 1}`] ?? "").trim().length > 0).length;
+    const q = paper.questions[currentQ];
+    const id = `q${currentQ + 1}`;
+    const isLast = currentQ === paper.questions.length - 1;
     return (
       <div className="max-w-2xl mx-auto px-4 sm:px-5 pt-6 pb-28">
         <div className="mb-6 sticky top-[68px] z-10 bg-[#06060a]/90 backdrop-blur-md py-3 -mx-4 px-4 sm:-mx-5 sm:px-5 border-b border-white/[0.06]">
           <p className="text-white font-bold text-[15px]">{paper.title}</p>
-          <p className="text-zinc-500 text-[12px]">{answeredCount} of {paper.questions.length} answered · no sign-up needed</p>
+          <p className="text-zinc-500 text-[12px] mb-3">{answeredCount} of {paper.questions.length} answered · no sign-up needed</p>
+          <div className="flex gap-1.5 flex-wrap">
+            {paper.questions.map((_, i) => (
+              <button key={i} onClick={() => setCurrentQ(i)}
+                className={`w-8 h-8 rounded text-[11px] font-medium transition-colors ${
+                  i === currentQ
+                    ? "bg-indigo-500 text-white"
+                    : (answers[`q${i + 1}`] ?? "").trim()
+                    ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                    : "bg-white/[0.04] text-zinc-500 hover:bg-white/[0.08]"
+                }`}>
+                {i + 1}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="space-y-6">
-          {paper.questions.map((q, i) => {
-            const id = `q${i + 1}`;
-            return (
-              <div key={id} className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4 sm:p-5">
-                <p className="text-[11px] text-zinc-500 font-semibold mb-1.5">Question {i + 1} of {paper.questions.length}</p>
-                <p className="text-white text-[15px] mb-4 whitespace-pre-wrap">{q.text}</p>
-                {q.answerType === "multi-choice" && q.options ? (
-                  <div className="space-y-2">
-                    {q.options.map((opt) => (
-                      <button key={opt} onClick={() => setAnswers((prev) => ({ ...prev, [id]: opt }))}
-                        className={`block w-full text-left px-4 py-3 rounded-lg border transition-colors min-h-[44px] text-[14px] ${
-                          answers[id] === opt ? "border-indigo-500 bg-indigo-500/10 text-white" : "border-zinc-800 text-zinc-300 hover:border-zinc-600"
-                        }`}>
-                        {opt}
-                      </button>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    <textarea
-                      value={answers[`${id}_working`] ?? ""}
-                      onChange={(e) => setAnswers((prev) => ({ ...prev, [`${id}_working`]: e.target.value }))}
-                      placeholder="Working out (1 mark)…"
-                      rows={q.answerType === "working" ? 5 : 3}
-                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
-                    />
-                    <textarea
-                      value={answers[id] ?? ""}
-                      onChange={(e) => setAnswers((prev) => ({ ...prev, [id]: e.target.value }))}
-                      placeholder="Final answer (1 mark)…"
-                      rows={2}
-                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
-                    />
-                  </div>
-                )}
-              </div>
-            );
-          })}
+
+        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4 sm:p-5">
+          <p className="text-[11px] text-zinc-500 font-semibold mb-1.5">Question {currentQ + 1} of {paper.questions.length}</p>
+
+          {q.graph && <Graph data={q.graph} />}
+          {q.image && (
+            <div className="mb-4 rounded-lg overflow-hidden border border-white/[0.06] bg-white p-2">
+              <img src={q.image} alt={`Diagram for Question ${currentQ + 1}`}
+                className="max-w-full h-auto mx-auto max-h-[500px] object-contain" />
+            </div>
+          )}
+
+          <p className="text-white text-[15px] mb-4 whitespace-pre-wrap">{neutralizeFigureReferences(q.text)}</p>
+
+          {q.answerType === "multi-choice" && q.options ? (
+            <div className="space-y-2">
+              {q.options.map((opt) => (
+                <button key={opt} onClick={() => setAnswers((prev) => ({ ...prev, [id]: opt }))}
+                  className={`block w-full text-left px-4 py-3 rounded-lg border transition-colors min-h-[44px] text-[14px] ${
+                    answers[id] === opt ? "border-indigo-500 bg-indigo-500/10 text-white" : "border-zinc-800 text-zinc-300 hover:border-zinc-600"
+                  }`}>
+                  {opt}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <textarea
+                value={answers[`${id}_working`] ?? ""}
+                onChange={(e) => setAnswers((prev) => ({ ...prev, [`${id}_working`]: e.target.value }))}
+                placeholder="Working out (1 mark)…"
+                rows={q.answerType === "working" ? 5 : 3}
+                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
+              />
+              <textarea
+                value={answers[id] ?? ""}
+                onChange={(e) => setAnswers((prev) => ({ ...prev, [id]: e.target.value }))}
+                placeholder="Final answer (1 mark)…"
+                rows={2}
+                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
+              />
+            </div>
+          )}
         </div>
+
         <div className="fixed bottom-0 left-0 right-0 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] p-4">
-          <button onClick={submitTest}
-            className="max-w-2xl mx-auto w-full block rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/25">
-            See my grade →
-          </button>
+          <div className="max-w-2xl mx-auto flex gap-3">
+            {currentQ > 0 && (
+              <button onClick={() => setCurrentQ((c) => c - 1)}
+                className="rounded-xl border border-white/[0.1] px-5 py-4 text-[15px] font-semibold text-zinc-300 hover:border-white/[0.2] transition-colors">
+                ← Back
+              </button>
+            )}
+            {isLast ? (
+              <button onClick={submitTest}
+                className="flex-1 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/25">
+                See my grade →
+              </button>
+            ) : (
+              <button onClick={() => setCurrentQ((c) => c + 1)}
+                className="flex-1 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/25">
+                Next →
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
