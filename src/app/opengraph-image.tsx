@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "StudyAce — Master NCEA Exams";
+export const alt = "StudyAce — Better Grades, 20 Minutes a Day";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -50,7 +50,7 @@ export default function Image() {
             marginBottom: 24,
           }}
         >
-          Master NCEA Exams
+          Better grades, 20 minutes a day
         </div>
 
         {/* Sub-tagline */}
@@ -64,7 +64,7 @@ export default function Image() {
             maxWidth: 900,
           }}
         >
-          Unlimited practice papers · AI marking · Built for NZ Y10–Y13
+          Unlimited exam-style practice · Honest AI marking · NCEA, HSC, GCSE, AP &amp; more
         </div>
 
         {/* Bottom badge */}
