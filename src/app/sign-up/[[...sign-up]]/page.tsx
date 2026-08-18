@@ -27,6 +27,10 @@ export default function SignUpPage() {
         signInUrl="/sign-in"
         forceRedirectUrl="/welcome"
         fallbackRedirectUrl="/welcome"
+        // An EXISTING user who clicks a social button here gets transferred
+        // to sign-in — skip /welcome and go straight to their dashboard.
+        signInForceRedirectUrl="/dashboard"
+        signInFallbackRedirectUrl="/dashboard"
       />
     </div>
   );
