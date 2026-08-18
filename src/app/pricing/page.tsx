@@ -397,11 +397,11 @@ export default function PricingPage() {
           />
           <Faq
             q="Do you have a student discount?"
-            a="Pricing is already set for NZ students — we already give the cheapest option in the country. Yearly billing saves you another 30% on top."
+            a="Pricing is already set for students — it's built to be cheaper than a single hour of tutoring per month. Yearly billing saves you another 30% on top."
           />
           <Faq
             q="What subjects are covered?"
-            a="All 19 main NCEA subjects across Years 10–13: Maths, Statistics, English, Te Reo Māori, Biology, Chemistry, Physics, Science, Economics, Accounting, Geography, History, Health, Social Studies, Digital Tech, Media Studies, Classical Studies, Art History, and Business Studies."
+            a="All the core subjects in your exam system — Maths, English, the sciences, humanities, commerce and more. Pick your exam system (NCEA, HSC, QCE, GCSE, A-Levels, AP and more) and you'll see the exact subject list for it."
           />
         </div>
       </section>

@@ -22,38 +22,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StudyAce — Master NCEA Exams",
+  title: "StudyAce — Better Grades, 20 Minutes a Day",
   description:
-    "Unlimited NCEA practice exams with instant StudyAce marking. Built for NZ students from Year 10 to Year 13.",
+    "Unlimited exam-style practice, marked honestly in seconds. NCEA, HSC, QCE, GCSE, A-Levels, AP and more — 20 focused minutes a day beats hours of notes.",
   metadataBase: new URL("https://studyace.co"),
   verification: {
     google: "qkAhmFbsJe28iA0utEZdoVZwGslE3gavCX1tZ6rrUas",
   },
   openGraph: {
-    title: "StudyAce — Master NCEA Exams",
+    title: "StudyAce — Better Grades, 20 Minutes a Day",
     description:
-      "Unlimited NCEA practice exams with instant StudyAce marking. Built for NZ students.",
+      "Unlimited exam-style practice, marked honestly in seconds. NCEA, HSC, QCE, GCSE, A-Levels, AP and more.",
     siteName: "StudyAce",
     locale: "en_NZ",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "StudyAce — Master NCEA Exams",
+    title: "StudyAce — Better Grades, 20 Minutes a Day",
     description:
-      "Unlimited NCEA practice exams with instant StudyAce marking. Built for NZ students.",
+      "Unlimited exam-style practice, marked honestly in seconds. NCEA, HSC, QCE, GCSE, A-Levels, AP and more.",
   },
   keywords: [
-    "NCEA",
     "practice exams",
-    "NZ students",
+    "exam practice",
+    "study app",
+    "NCEA",
+    "HSC",
+    "QCE",
+    "VCE",
+    "GCSE",
+    "A-Levels",
+    "AP",
+    "SAT",
+    "Regents",
+    "STAAR",
     "StudyAce marking",
-    "study",
-    "Year 10",
-    "Year 11",
-    "Year 12",
-    "Year 13",
-    "NZQA",
+    "study 20 minutes a day",
   ],
   // Installed-to-home-screen (iOS): full-screen standalone, app title, and a
   // black status bar that blends into the #06060a app background.

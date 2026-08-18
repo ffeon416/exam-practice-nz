@@ -153,7 +153,7 @@ export default function ScrollZoomComputer() {
 
       {/* caption */}
       <p className="mt-10 text-center text-[12px] text-zinc-600">
-        Your whole NCEA — practised, marked, and mastered in one place.
+        Your whole exam — practised, marked, and mastered in one place.
       </p>
     </section>
   );

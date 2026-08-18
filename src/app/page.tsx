@@ -27,7 +27,7 @@ export default function HomePage() {
     name: "StudyAce",
     applicationCategory: "EducationalApplication",
     description:
-      "AI-powered NCEA exam practice for NZ students. Generates exam-style practice questions tailored to your syllabus, marks them honestly, and surfaces weak topics.",
+      "AI-powered exam practice for high-school students. Generates exam-style questions in your exam system's format — NCEA, HSC, QCE, GCSE, A-Levels, AP and more — marks them honestly, and surfaces weak topics.",
     operatingSystem: "Web",
     url: "https://studyace.co",
     offers: { "@type": "Offer", price: "0", priceCurrency: "NZD" },
@@ -65,16 +65,17 @@ export default function HomePage() {
 
           {/* Headline */}
           <h1 className="text-[36px] sm:text-[56px] md:text-[72px] font-extrabold text-white tracking-tight leading-[1.05] mb-5 sm:mb-7">
-            The kids who ace NCEA
+            Hours of notes won&apos;t
+            <br className="hidden sm:block" /> raise your grade.
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              know a secret.
+              20 minutes a day will.
             </span>
           </h1>
 
           {/* Subhead */}
           <p className="text-zinc-400 text-[15px] sm:text-[18px] md:text-[20px] leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10">
-            It&apos;s not that they&apos;re smarter. They&apos;ve just done the exam 50 times before exam day. StudyAce is how you do the same — unlimited NCEA practice papers, marked in seconds, tuned to you.
+            Rereading and copying notes feel productive — psychologists call it the illusion of mastery. What actually moves grades is sitting real exam-style questions and getting marked honestly. StudyAce turns that into a 20-minute daily habit, in your exam system&apos;s exact style.
           </p>
 
           {/* CTAs */}
@@ -176,7 +177,7 @@ export default function HomePage() {
             {/* Top bar */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.06]">
               <span className="text-[11px] text-indigo-400 font-semibold uppercase tracking-wider">StudyAce Marking</span>
-              <span className="text-[10px] text-zinc-600">Year 11 Science</span>
+              <span className="text-[10px] text-zinc-600">Science</span>
             </div>
 
             <div className="p-5 space-y-4">
@@ -204,10 +205,10 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                     </svg>
                   </div>
-                  <span className="text-emerald-400 text-[13px] font-bold">2/3 marks — Achieved</span>
+                  <span className="text-emerald-400 text-[13px] font-bold">1/2 — answer ✓, working ✗</span>
                 </div>
                 <p className="text-zinc-300 text-[12px] leading-relaxed">
-                  Good start! You correctly identified oxygen and food production. To get full marks, mention CO₂ and water as reactants and that sunlight energy drives the process.
+                  The answer mark is yours — oxygen and food from sunlight is right. The working mark isn&apos;t: name the reactants (CO₂ and water) and that light energy drives the reaction.
                 </p>
               </div>
 
@@ -242,7 +243,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {[
-            { emoji: "⚡", title: "Unlimited reps", desc: "Pick any subject and topic. Fresh NCEA-style paper in seconds. Do it again tomorrow with new questions." },
+            { emoji: "⚡", title: "Unlimited reps", desc: "Pick any subject and topic. A fresh paper in your exam's style, in seconds. Twenty minutes, done — again tomorrow with new questions." },
             { emoji: "🎯", title: "Real marks, real feedback", desc: "Not “right or wrong.” You get marks, specific feedback on what was missing, and a worked solution — so you know exactly what to fix next rep." },
             { emoji: "💬", title: "A coach, not a cheat sheet", desc: "Stuck? Get Socratic hints that walk you to the answer. You learn the move, not just the result." },
             { emoji: "📈", title: "Difficulty that tracks you", desc: "Strong topics get harder. Weak ones get focused. You’re always training at the edge of your ability." },
@@ -271,7 +272,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-3 gap-3 sm:gap-8">
           {[
-            { n: "01", title: "See the patterns", desc: "Every NCEA exam repeats the same question types. We’ve mapped them all." },
+            { n: "01", title: "See the patterns", desc: "Every exam board repeats the same question types. We’ve mapped yours." },
             { n: "02", title: "Train the reps", desc: "Do them until they’re automatic. Marked in seconds, every time." },
             { n: "03", title: "Walk in ready", desc: "Exam day is just another rep. You’ve already done it 50 times." },
           ].map((s, i) => (
@@ -286,28 +287,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══ SUBJECTS — desktop only ═══ */}
-      <section className="hidden sm:block max-w-4xl mx-auto px-5 pb-24">
-        <div className="text-center mb-10">
-          <h2 className="text-[36px] font-extrabold text-white tracking-tight mb-3">
-            Every NCEA subject. Same training system.
+      {/* ═══ EXAM SYSTEMS ═══ */}
+      <section className="max-w-4xl mx-auto px-5 pb-16 sm:pb-24">
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-3">
+            Your exam system. Your grades. Your format.
           </h2>
-          <p className="text-zinc-500 text-[16px]">
-            Years 10 through 13. All 19 subjects. One way to train.
+          <p className="text-zinc-500 text-[14px] sm:text-[16px]">
+            Questions, difficulty and grading in your system&apos;s own language — not generic quizzes.
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-2">
           {[
-            "Mathematics", "English", "Statistics", "Biology", "Chemistry", "Physics",
-            "Science", "Economics", "Accounting", "Geography", "History", "Te Reo Māori",
-            "Health", "Social Studies", "Digital Tech", "Media Studies", "Classical Studies",
-            "Art History", "Business Studies"
+            "🇳🇿 NCEA", "🇦🇺 HSC", "🇦🇺 QCE", "🇦🇺 VCE", "🇦🇺 WACE", "🇦🇺 SACE",
+            "🏴󠁧󠁢󠁥󠁮󠁧󠁿 GCSE", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 A-Levels", "🏴󠁧󠁢󠁳󠁣󠁴󠁿 SQA Highers",
+            "🇺🇸 AP · SAT · ACT", "🇺🇸 NY Regents", "🇺🇸 Texas STAAR", "🇺🇸 Florida EOC",
+            "🇨🇦 Ontario", "🇨🇦 Alberta", "🇨🇦 BC"
           ].map((s) => (
             <span key={s} className="text-[13px] px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] text-zinc-400 hover:text-white hover:border-indigo-500/40 hover:bg-indigo-500/[0.06] transition-all cursor-default">
               {s}
             </span>
           ))}
         </div>
+        <p className="text-center mt-6">
+          <Link href="/global" className="text-[13px] text-indigo-400 font-semibold hover:underline">
+            Find your exam system →
+          </Link>
+        </p>
       </section>
 
       {/* ═══ WHY THIS WORKS ═══ */}
@@ -324,7 +330,14 @@ export default function HomePage() {
               Those are two different skills.
             </p>
             <p>
-              Reading about swimming doesn&apos;t make you a swimmer. Reading about NCEA doesn&apos;t make you good at NCEA. Reps do.
+              Reading about swimming doesn&apos;t make you a swimmer. Rereading your notes doesn&apos;t make you good at exams. Reps do.
+            </p>
+            <p>
+              It&apos;s called{" "}
+              <Link href="/blog/the-testing-effect-practice-beats-rereading" className="text-indigo-400 font-semibold hover:underline">
+                the testing effect
+              </Link>{" "}
+              — one of the most replicated findings in learning science. Twenty focused minutes of answering real questions beats hours of passive review.
             </p>
             <p className="text-white font-bold text-[18px] sm:text-[22px] pt-2">
               StudyAce is reps.
@@ -359,24 +372,24 @@ export default function HomePage() {
               </svg>
             </Link>
             <p className="text-zinc-600 text-[11px] mt-5">
-              Made in NZ &middot; Built for NCEA
+              Born in NZ &middot; Built for exams everywhere
             </p>
           </div>
         </div>
       </section>
 
-      {/* ═══ GLOBAL WAITLIST STRIP ═══ */}
-      {/* AU is already ~half our traffic — catch overseas visitors instead of
-          letting them bounce off an NCEA-only page. */}
+      {/* ═══ GLOBAL STRIP ═══ */}
+      {/* AU is already ~half our traffic — point overseas visitors straight at
+          their exam system instead of letting them bounce. */}
       <section className="border-t border-white/[0.06] py-6">
         <div className="max-w-4xl mx-auto px-5 text-center">
           <Link
             href="/global"
             className="inline-flex flex-wrap items-center justify-center gap-2 text-[13px] text-zinc-400 hover:text-white transition-colors"
           >
-            <span aria-hidden>🇦🇺 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🇺🇸 🇨🇦</span>
+            <span aria-hidden>🇳🇿 🇦🇺 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🇺🇸 🇨🇦</span>
             <span>
-              Not in NZ? <span className="font-semibold text-indigo-400">HSC, QCE, GCSE, AP &amp; more are coming</span> — join your waitlist →
+              Sitting HSC, GCSE, AP or something else? <span className="font-semibold text-indigo-400">16 exam systems, 5 countries</span> — find yours →
             </span>
           </Link>
         </div>
@@ -386,7 +399,7 @@ export default function HomePage() {
       <footer className="border-t border-white/[0.06] py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600">
           <div className="font-medium">
-            study<span className="text-indigo-400">ace</span> &middot; Built for NZ NCEA students
+            study<span className="text-indigo-400">ace</span> &middot; Honest practice for every exam system
           </div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
             {isSignedIn ? (
