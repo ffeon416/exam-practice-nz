@@ -87,7 +87,7 @@ export default function PricingPage() {
     if (billing === "yearly") {
       const annual = Math.round(p.monthlyPrice * 12 * 0.7 * 100) / 100; // 30% off
       const perMonth = Math.round((annual / 12) * 100) / 100;
-      return { display: `$${perMonth.toFixed(2)}`, sub: `per month, billed yearly ($${annual.toFixed(0)}/yr)` };
+      return { display: `$${perMonth.toFixed(2)}`, sub: `per month, billed yearly (NZ$${annual.toFixed(0)}/yr)` };
     }
     return { display: `$${p.monthlyPrice.toFixed(2)}`, sub: "per month" };
   }
@@ -295,13 +295,13 @@ export default function PricingPage() {
                 <div className="mb-7">
                   <div className="flex items-baseline gap-1">
                     {plan.monthlyPrice !== "free" && (
-                      <span className="text-zinc-400 text-[18px] font-medium">$</span>
+                      <span className="text-zinc-400 text-[18px] font-medium">NZ$</span>
                     )}
                     <span className={`font-bold text-white tabular-nums ${plan.monthlyPrice === "free" ? "text-[36px]" : "text-[42px]"}`}>
                       {plan.monthlyPrice === "free" ? "Free" : price.display.replace("$", "")}
                     </span>
                   </div>
-                  <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub}{plan.monthlyPrice !== "free" ? " NZD" : ""}</p>
+                  <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub}</p>
                 </div>
 
                 {/* CTA */}
@@ -368,7 +368,7 @@ export default function PricingPage() {
 
           <div className="space-y-3">
             <CompareRow label="One private tutoring session (1 hour)" cost="$60–$80" />
-            <CompareRow label="Workbook from Whitcoulls" cost="$25–$40" />
+            <CompareRow label="A single revision workbook" cost="$25–$40" />
             <CompareRow label="Study Ace Pro for a whole month" cost="$20" highlight />
             <CompareRow label="Failing an exam and retaking it next year" cost="A whole year" />
           </div>
@@ -394,6 +394,10 @@ export default function PricingPage() {
           <Faq
             q="Is my progress saved?"
             a="Yes. Your dashboard tracks every exam you take, every topic you've practised, and how you've improved over time. Free users get basic tracking, paid users get full analytics."
+          />
+          <Faq
+            q="Why are prices in NZ dollars?"
+            a="StudyAce is billed in New Zealand dollars wherever you are — your card converts automatically at checkout, no extra steps. It usually works out cheaper than it looks: NZ$15 is roughly US$9, £7, A$14 or C$12 a month."
           />
           <Faq
             q="Do you have a student discount?"

@@ -10,7 +10,7 @@
 // reveal immediately. The paid upsell is the week-by-week schedule (/plan,
 // Student+Pro) — the grade is free, the path to fix it is the product.
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
@@ -56,6 +56,21 @@ export default function GradePage() {
   const [email, setEmail] = useState("");
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "error">("idle");
   const [emailError, setEmailError] = useState<string | null>(null);
+
+  // Paper generation takes ~25–30s; advance the status line every 6s so the
+  // wait never looks stalled (holds on the last line once exhausted).
+  const [loadingLine, setLoadingLine] = useState(0);
+  useEffect(() => {
+    if (phase !== "loading") {
+      setLoadingLine(0);
+      return;
+    }
+    const id = setInterval(
+      () => setLoadingLine((i) => Math.min(i + 1, LOADING_LINES.length - 1)),
+      6000
+    );
+    return () => clearInterval(id);
+  }, [phase]);
 
   const systems = curriculaForCountry(country);
   const curriculum = resolveCurriculum(curriculumId);
@@ -327,7 +342,7 @@ export default function GradePage() {
           {phase === "loading" ? "Reading your exam…" : "Marking honestly…"}
         </h1>
         <p className="text-zinc-400 text-[14px]">
-          {phase === "loading" ? LOADING_LINES[0] : "No leniency, no fake praise — just the truth."}
+          {phase === "loading" ? LOADING_LINES[loadingLine] : "No leniency, no fake praise — just the truth."}
         </p>
       </div>
     );

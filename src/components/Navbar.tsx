@@ -32,7 +32,7 @@ const publicLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded } = useAuth();
   const { user } = useUser();
   const { tier, loading: tierLoading } = useTier();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,7 +56,9 @@ export default function Navbar() {
     return getDueCount();
   }, [version, mounted]);
 
-  const links = isSignedIn ? authedLinks : publicLinks;
+  // Until Clerk resolves, render no auth-dependent chrome — a signed-in user
+  // must never flash the signed-out nav (same rule as tier flicker).
+  const links = !isLoaded ? [] : isSignedIn ? authedLinks : publicLinks;
 
   // Close menu when route changes
   useEffect(() => {
@@ -118,7 +120,9 @@ export default function Navbar() {
                   Upgrade
                 </Link>
               )}
-              {isSignedIn ? (
+              {!isLoaded ? (
+                <div className="w-9 h-9" aria-hidden />
+              ) : isSignedIn ? (
                 <Link
                   href="/profile"
                   className="w-9 h-9 rounded-full overflow-hidden border border-white/[0.1] hover:border-indigo-500/50 transition-colors shrink-0"
@@ -236,7 +240,7 @@ export default function Navbar() {
               </div>
             )}
 
-            {!isSignedIn && (
+            {isLoaded && !isSignedIn && (
               <div className="px-5 py-4 border-t border-white/[0.06] flex flex-col gap-2">
                 <Link
                   href="/sign-up"
