@@ -235,6 +235,17 @@ export default function ContactPage() {
           >
             ffeon.io@gmail.com
           </a>
+          <p className="text-zinc-500 text-[13px] mt-6 mb-2">
+            Or hang out with us
+          </p>
+          <a
+            href="https://discord.gg/3sGUANx7uW"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-400 hover:text-indigo-300 text-[14px] font-medium transition-colors"
+          >
+            Join the StudyAce Discord &rarr;
+          </a>
         </div>
 
         {/* Links */}
