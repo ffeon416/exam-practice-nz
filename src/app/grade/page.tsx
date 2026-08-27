@@ -550,7 +550,7 @@ export default function GradePage() {
                   {/* top-band zone */}
                   <rect x="18" y={Y(100)} width="290" height={Y(topPct) - Y(100)} rx="4" fill="rgba(52,211,153,0.06)" />
                   <line x1="18" x2="308" y1={Y(topPct)} y2={Y(topPct)} stroke="rgba(52,211,153,0.35)" strokeWidth="1" strokeDasharray="4 4" />
-                  <text x="306" y={Y(topPct) - 5} textAnchor="end" fill="#34d399" fontSize="9.5" fontWeight="700">{topBandLabel} zone · {topPct}%+</text>
+                  <text x="22" y={Y(topPct) - 5} textAnchor="start" fill="#34d399" fontSize="9.5" fontWeight="700">{topBandLabel} zone · {topPct}%+</text>
                   {/* area + line */}
                   <polygon points={`${X(0)},${Y(0)} ${pts} ${X(4)},${Y(0)}`} fill="url(#projFill)"
                     style={{ opacity: ringOn ? 1 : 0, transition: "opacity 1s ease 800ms" }} />
@@ -561,12 +561,15 @@ export default function GradePage() {
                   <circle cx={X(0)} cy={Y(vals[0])} r="5" fill="#818cf8" />
                   <circle cx={X(4)} cy={Y(vals[4])} r="6" fill="#e879f9"
                     style={{ opacity: ringOn ? 1 : 0, transition: "opacity 400ms ease 1700ms" }} />
-                  <text x={X(0)} y={Math.max(Y(vals[0]) - 12, 12)} textAnchor="start" fill="#a1a1aa" fontSize="10" fontWeight="700">You today · {pct}%</text>
                   <text x={X(4)} y={Math.max(Y(vals[4]) - 14, 12)} textAnchor="end" fill="#e879f9" fontSize="10" fontWeight="800"
                     style={{ opacity: ringOn ? 1 : 0, transition: "opacity 400ms ease 1700ms" }}>{targetMonth} · you</text>
-                  {/* week ticks */}
+                  {/* week ticks — slot 0 doubles as the "you today" label so it
+                      can never collide with the line, whatever the score */}
                   {[0, 1, 2, 3, 4].map((i) => (
-                    <text key={i} x={X(i)} y="146" textAnchor="middle" fill="#52525b" fontSize="9">{i === 0 ? "now" : `wk ${i}`}</text>
+                    <text key={i} x={X(i)} y="146" textAnchor="middle"
+                      fill={i === 0 ? "#d4d4d8" : "#52525b"} fontSize={i === 0 ? "9.5" : "9"} fontWeight={i === 0 ? 800 : 400}>
+                      {i === 0 ? `You · ${pct}%` : `wk ${i}`}
+                    </text>
                   ))}
                 </svg>
                 <p className="text-zinc-600 text-[10.5px] mt-1.5">Training target on 20 min/day — not a promise. The plan below is how it&apos;s reached.</p>
