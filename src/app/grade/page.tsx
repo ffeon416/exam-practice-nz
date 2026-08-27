@@ -91,6 +91,24 @@ export default function GradePage() {
     const group = curriculaForCountry(code);
     if (group.length === 1) setCurriculumId(group[0].id);
   }
+
+  // Progressive disclosure, littlenudge-style: pre-answer the questions we
+  // can. Timezone → country, so most visitors land straight on year/subject.
+  useEffect(() => {
+    const id = setTimeout(() => {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
+      const CA_TZ = new Set(["America/Toronto", "America/Vancouver", "America/Edmonton", "America/Winnipeg", "America/Halifax", "America/St_Johns", "America/Regina", "America/Moncton"]);
+      let detected: Curriculum["country"] | null = null;
+      if (tz.startsWith("Australia/")) detected = "AU";
+      else if (tz === "Europe/London") detected = "GB";
+      else if (CA_TZ.has(tz)) detected = "CA";
+      else if (tz.startsWith("America/")) detected = "US";
+      if (detected) pickCountry(detected);
+    }, 0);
+    return () => clearTimeout(id);
+    // Mount-only country detection — pickCountry is stable per render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   function pickSystem(id: string) { setCurriculumId(id); setYear(null); setSubject(null); }
 
   async function start() {
@@ -146,6 +164,23 @@ export default function GradePage() {
       // also get a copy in their inbox (best-effort); anonymous visitors get
       // an optional "email me this report" field on the results page.
       setPhase("revealed");
+      // Hand the result to /pricing so the funnel never loses context — the
+      // pricing page shows "{band} → {topBand} in {subject}" instead of a
+      // generic pitch. Pre-auth by design (no user exists yet).
+      try {
+        const s = computeSummary(data.results as MarkingResult[]);
+        const topBand = curriculum.gradeBands[0];
+        localStorage.setItem("studyace-grade-result", JSON.stringify({
+          bandLabel: s.bandLabel,
+          grade: s.grade,
+          pct: s.pct,
+          subjectLabel: curriculum.subjects.find((x) => x.value === subject)?.label ?? subject,
+          topBandLabel: topBand?.label ?? "the top grade",
+          targetMonth: new Date(Date.now() + 35 * 864e5).toLocaleString("en-NZ", { month: "long" }),
+          system: curriculum.system,
+          ts: Date.now(),
+        }));
+      } catch {}
       if (isSignedIn) {
         const addr = user?.primaryEmailAddress?.emailAddress;
         if (addr) void sendEmail(addr, data.results as MarkingResult[]);

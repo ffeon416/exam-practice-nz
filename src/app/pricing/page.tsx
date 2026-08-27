@@ -1,10 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
 import type { Tier } from "@/lib/tierLimits";
+import { gradeColor } from "@/lib/scoring";
+import type { Grade } from "@/lib/types";
+
+// Grade-check handoff (written by /grade on reveal) — keeps the funnel's
+// context alive so this page pitches THEIR jump, not generic pricing.
+type GradeResult = {
+  bandLabel: string; grade: Grade; pct: number; subjectLabel: string;
+  topBandLabel: string; targetMonth: string; system: string; ts: number;
+};
 
 type Plan = {
   name: string;
@@ -81,6 +90,22 @@ export default function PricingPage() {
   const [loadingTier, setLoadingTier] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { tier: currentTier, loading: tierLoading } = useTier();
+
+  // Fresh grade-check result → personalised mission strip (nothing renders
+  // until mounted, so there's no flash for visitors without one).
+  const [gradeResult, setGradeResult] = useState<GradeResult | null>(null);
+  useEffect(() => {
+    const id = setTimeout(() => {
+      try {
+        const raw = localStorage.getItem("studyace-grade-result");
+        if (!raw) return;
+        const r = JSON.parse(raw) as GradeResult;
+        // Only honour recent results (7 days) — stale missions feel creepy.
+        if (r?.bandLabel && r?.topBandLabel && Date.now() - (r.ts ?? 0) < 7 * 864e5) setGradeResult(r);
+      } catch {}
+    }, 0);
+    return () => clearTimeout(id);
+  }, []);
 
   function getPrice(p: Plan): { display: string; sub?: string } {
     if (p.monthlyPrice === "free") return { display: "Free", sub: "Forever" };
@@ -210,6 +235,23 @@ export default function PricingPage() {
         <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 px-2">
           Cheaper than one tutoring session. More effective than any textbook.
         </p>
+
+        {/* Mission strip — carried over from the grade check */}
+        {gradeResult && (
+          <div className="max-w-xl mx-auto mb-8 sm:mb-10 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 text-left">
+            <p className="text-[10.5px] font-bold uppercase tracking-wider text-indigo-300 mb-1.5">Your mission · from your grade check</p>
+            <p className="text-white font-extrabold text-[16px] sm:text-[18px] leading-snug">
+              {gradeResult.subjectLabel}:{" "}
+              <span className={gradeColor(gradeResult.grade)}>{gradeResult.bandLabel}</span>
+              <span className="text-zinc-500 mx-1.5">→</span>
+              <span className="text-emerald-400">{gradeResult.topBandLabel}</span>
+              <span className="text-zinc-400 font-semibold"> by end of {gradeResult.targetMonth}</span>
+            </p>
+            <p className="text-zinc-400 text-[12.5px] mt-1">
+              The Student plan is the vehicle: unlimited {gradeResult.system}-style exams, honest marking, your weak topics first.
+            </p>
+          </div>
+        )}
 
         {/* Billing toggle */}
         <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
