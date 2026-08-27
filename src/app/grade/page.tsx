@@ -486,7 +486,7 @@ export default function GradePage() {
         <div className="absolute inset-0 -z-10" aria-hidden>
           <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[640px] h-[480px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
         </div>
-        <div className="max-w-2xl mx-auto px-5 pt-10 pb-20">
+        <div className="max-w-2xl mx-auto px-5 pt-10 pb-32">
 
           {/* ── The reveal ── */}
           <div className="text-center mb-10">
@@ -561,8 +561,8 @@ export default function GradePage() {
                   <circle cx={X(0)} cy={Y(vals[0])} r="5" fill="#818cf8" />
                   <circle cx={X(4)} cy={Y(vals[4])} r="6" fill="#e879f9"
                     style={{ opacity: ringOn ? 1 : 0, transition: "opacity 400ms ease 1700ms" }} />
-                  <text x={X(0)} y={Y(vals[0]) + 18} textAnchor="start" fill="#a1a1aa" fontSize="10" fontWeight="700">You today · {pct}%</text>
-                  <text x={X(4)} y={Y(vals[4]) - 12} textAnchor="end" fill="#e879f9" fontSize="10" fontWeight="800"
+                  <text x={X(0)} y={Math.max(Y(vals[0]) - 12, 12)} textAnchor="start" fill="#a1a1aa" fontSize="10" fontWeight="700">You today · {pct}%</text>
+                  <text x={X(4)} y={Math.max(Y(vals[4]) - 14, 12)} textAnchor="end" fill="#e879f9" fontSize="10" fontWeight="800"
                     style={{ opacity: ringOn ? 1 : 0, transition: "opacity 400ms ease 1700ms" }}>{targetMonth} · you</text>
                   {/* week ticks */}
                   {[0, 1, 2, 3, 4].map((i) => (
@@ -584,20 +584,29 @@ export default function GradePage() {
                   : <>{bandLabel} today doesn&apos;t have to be {bandLabel} in {targetMonth}.</>}
               </p>
               <p className="text-zinc-300 text-[13.5px] leading-relaxed mb-4">
-                {!atTop && <>A {gap}-point jump doesn&apos;t come from rereading notes — it comes from reps that get marked. </>}
+                {!atTop && <>Jumping {gap} points doesn&apos;t come from rereading notes — it comes from reps that get marked. </>}
                 The Student plan gives you unlimited {curriculum.system}-style exams with this same honest marking on
                 every answer{weakLabels.length > 0 && <>, starting with <span className="font-semibold text-white">{weakLabels.join(" and ")}</span></>},
                 plus a week-by-week schedule built from this exact result.
-                20 minutes a day is the whole habit — <span className="text-white font-semibold">{atTop ? `walking into exam day at ${topBandLabel} level` : `sitting in the ${topBandLabel} zone by the end of ${targetMonth}`}</span> is
+                20 minutes a day is the whole habit — <span className="text-white font-semibold">{atTop ? `walking into exam day at ${topBandLabel} level` : `sitting in the ${topBandLabel} zone by the end of ${targetMonth}`}</span>{" "}is
                 the target it&apos;s built around. Not a promise — a training plan.
               </p>
-              <ul className="space-y-1.5 mb-5">
-                {["Unlimited full practice exams in your exact system", "Every answer marked like today — honestly, with the fix", `A schedule that attacks your weakest topics first`].map((li) => (
-                  <li key={li} className="flex items-start gap-2 text-[13px] text-zinc-300">
-                    <span className="text-emerald-400 mt-px">✓</span>{li}
-                  </li>
-                ))}
-              </ul>
+              {/* The fork: make doing nothing feel like the expensive option. */}
+              <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 mb-2">Two ways this goes</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
+                <div className="rounded-xl border border-white/[0.07] bg-black/20 px-4 py-3.5">
+                  <p className="text-zinc-400 font-bold text-[13px] mb-1">✗ Close this tab</p>
+                  <p className="text-zinc-500 text-[12px] leading-relaxed">
+                    Nothing changes. You sit the real exam {atTop ? "hoping today wasn't a fluke" : <>still at <span className="text-rose-400 font-semibold">{bandLabel}</span>, hoping it goes differently on the day</>}. It usually doesn&apos;t.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-indigo-400/40 bg-indigo-500/[0.08] px-4 py-3.5">
+                  <p className="text-white font-bold text-[13px] mb-1">✓ Train 20 min/day</p>
+                  <p className="text-zinc-300 text-[12px] leading-relaxed">
+                    Unlimited marked exams, weakest topics first, schedule on the wall — walking in {atTop ? `certain of ${topBandLabel}` : <>aiming <span className="text-emerald-400 font-semibold">{topBandLabel}</span></>}. NZ$15/mo.
+                  </p>
+                </div>
+              </div>
               {pitchCta}
               <p className="text-zinc-500 text-[11px] mt-2.5 text-center">NZ$15/month · cancel anytime · cheaper than 15 minutes of tutoring</p>
             </div>
@@ -753,6 +762,22 @@ export default function GradePage() {
           <p className="text-zinc-600 text-[12px] text-center">
             Want to retake it first? <button onClick={() => { setPhase("pick"); setResults(null); setPaper(null); }} className="text-indigo-400 hover:underline">Run another grade check</button>
           </p>
+        </div>
+
+        {/* ── Sticky plan bar — the offer stays on screen the whole way down ── */}
+        <div className="fixed bottom-0 inset-x-0 z-20 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] px-4 py-3">
+          <div className="max-w-2xl mx-auto flex items-center gap-4">
+            <div className="hidden sm:block flex-1 min-w-0">
+              <p className="text-white font-bold text-[13px] leading-tight truncate">
+                {atTop ? <>{bandLabel} — now make it stick</> : <><span className={gradeColor(grade)}>{bandLabel}</span> <span className="text-zinc-500">→</span> <span className="text-emerald-400">{topBandLabel}</span></>}
+              </p>
+              <p className="text-zinc-500 text-[11px] truncate">target by end of {targetMonth} · 20 min/day</p>
+            </div>
+            <Link href="/pricing"
+              className="flex-1 sm:flex-none inline-flex justify-center items-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 text-[14px] font-extrabold text-white shadow-lg shadow-indigo-500/30">
+              Start my plan — NZ$15/mo →
+            </Link>
+          </div>
         </div>
       </div>
     );
