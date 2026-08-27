@@ -60,22 +60,22 @@ export default function HomePage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
             </span>
-            Stop studying. Start training.
+            NCEA · HSC · GCSE · AP · 12 more exam systems
           </div>
 
           {/* Headline */}
           <h1 className="text-[36px] sm:text-[56px] md:text-[72px] font-extrabold text-white tracking-tight leading-[1.05] mb-5 sm:mb-7">
-            Hours of notes won&apos;t
-            <br className="hidden sm:block" /> raise your grade.
+            Better grades.
+            <br className="hidden sm:block" /> Way less study time.
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              20 minutes a day will.
+              20 minutes a day.
             </span>
           </h1>
 
           {/* Subhead */}
           <p className="text-zinc-400 text-[15px] sm:text-[18px] md:text-[20px] leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10">
-            Rereading and copying notes feel productive — psychologists call it the illusion of mastery. What actually moves grades is sitting real exam-style questions and getting marked honestly. StudyAce turns that into a 20-minute daily habit, in your exam system&apos;s exact style.
+            Hours of rereading notes barely moves your grade — sitting exam-style questions and getting marked honestly does. StudyAce swaps the busywork for 20 focused minutes a day in your exam system&apos;s exact style, and plans it all for you.
           </p>
 
           {/* CTAs — gated on isLoaded so signed-in users never flash the guest
@@ -124,7 +124,10 @@ export default function HomePage() {
 
           {isLoaded && !isSignedIn && (
             <p className="text-[13px] text-zinc-500 mb-8 -mt-3">
-              🎯 Free · no account · 8 questions · your exact exam system
+              🎯 Grade check is free · no account, no card · takes 2 minutes
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> · </span>
+              <span className="text-zinc-600">then one plan, NZ$15/mo, cancel anytime</span>
             </p>
           )}
 
