@@ -516,23 +516,63 @@ export default function GradePage() {
             </p>
           </div>
 
-          {/* ── Path to the top band ── */}
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] px-5 py-5 mb-5">
-            <div className="flex items-baseline justify-between mb-2.5">
-              <span className="text-[12px] font-bold text-zinc-300">Today · {pct}%</span>
-              <span className="text-[12px] font-bold text-indigo-300">{topBandLabel} · {topPct}%+</span>
-            </div>
-            <div className="relative h-2.5 rounded-full bg-white/[0.05] overflow-hidden mb-3">
-              <div className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-[width] duration-[1400ms] ease-out"
-                style={{ width: ringOn ? `${Math.min(pct, 100)}%` : "0%" }} />
-              <div className="absolute inset-y-0 border-l-2 border-dashed border-indigo-300/50" style={{ left: `${topPct}%` }} />
-            </div>
-            <p className="text-zinc-400 text-[13px]">
-              {atTop
-                ? <>You&apos;re in the top band on today&apos;s 8 questions. The job now is making that hold under full exam pressure — length, time limits, every topic.</>
-                : <>You&apos;re <span className="text-white font-bold">{gap} percentage points</span> from {topBandLabel}. That gap has names{weakLabels.length > 0 && <>: <span className="text-rose-300 font-semibold">{weakLabels.join(" and ")}</span></>} — and topic gaps are exactly what daily practice closes.</>}
-            </p>
-          </div>
+          {/* ── "You could be here in 1 month" projection ──
+              4 weekly checkpoints from today's % into the top band. Rendered
+              as an animated SVG line (pathLength=1 normalisation drives the
+              draw-in). Explicitly labelled a training target, not a promise. */}
+          {(() => {
+            const target = atTop ? Math.min(pct + 5, 98) : Math.min(topPct + 4, 96);
+            const g2 = target - pct;
+            const vals = [pct, pct + g2 * 0.32, pct + g2 * 0.58, pct + g2 * 0.82, target];
+            const X = (i: number) => 26 + i * 67;
+            const Y = (v: number) => 128 - v * 1.08;
+            const pts = vals.map((v, i) => `${X(i)},${Y(v)}`).join(" ");
+            return (
+              <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] px-5 pt-5 pb-4 mb-5">
+                <p className="text-white font-extrabold text-[16px] mb-0.5">
+                  {atTop ? "One month of reps makes it unshakeable" : <>You could be here in <span className="text-indigo-300">1 month</span></>}
+                </p>
+                <p className="text-zinc-500 text-[12px] mb-3">
+                  {atTop
+                    ? "Top band today — the schedule's job is making it hold under full exam pressure."
+                    : <>Today you&apos;re <span className="text-zinc-300 font-semibold">{gap} points</span> off {topBandLabel}{weakLabels.length > 0 && <> — mostly <span className="text-rose-300 font-semibold">{weakLabels.join(" and ")}</span></>}. Four weeks of 20 min/day is built to close exactly that.</>}
+                </p>
+                <svg viewBox="0 0 320 148" className="w-full h-auto" role="img"
+                  aria-label={`Projection from ${pct}% today to the ${topBandLabel} zone in 4 weeks`}>
+                  <defs>
+                    <linearGradient id="projStroke" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#818cf8" /><stop offset="100%" stopColor="#e879f9" />
+                    </linearGradient>
+                    <linearGradient id="projFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="rgba(129,140,248,0.25)" /><stop offset="100%" stopColor="rgba(129,140,248,0)" />
+                    </linearGradient>
+                  </defs>
+                  {/* top-band zone */}
+                  <rect x="18" y={Y(100)} width="290" height={Y(topPct) - Y(100)} rx="4" fill="rgba(52,211,153,0.06)" />
+                  <line x1="18" x2="308" y1={Y(topPct)} y2={Y(topPct)} stroke="rgba(52,211,153,0.35)" strokeWidth="1" strokeDasharray="4 4" />
+                  <text x="306" y={Y(topPct) - 5} textAnchor="end" fill="#34d399" fontSize="9.5" fontWeight="700">{topBandLabel} zone · {topPct}%+</text>
+                  {/* area + line */}
+                  <polygon points={`${X(0)},${Y(0)} ${pts} ${X(4)},${Y(0)}`} fill="url(#projFill)"
+                    style={{ opacity: ringOn ? 1 : 0, transition: "opacity 1s ease 800ms" }} />
+                  <polyline points={pts} fill="none" stroke="url(#projStroke)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
+                    pathLength={1} strokeDasharray={1}
+                    style={{ strokeDashoffset: ringOn ? 0 : 1, transition: "stroke-dashoffset 1.6s ease-out 300ms" }} />
+                  {/* endpoints */}
+                  <circle cx={X(0)} cy={Y(vals[0])} r="5" fill="#818cf8" />
+                  <circle cx={X(4)} cy={Y(vals[4])} r="6" fill="#e879f9"
+                    style={{ opacity: ringOn ? 1 : 0, transition: "opacity 400ms ease 1700ms" }} />
+                  <text x={X(0)} y={Y(vals[0]) + 18} textAnchor="start" fill="#a1a1aa" fontSize="10" fontWeight="700">You today · {pct}%</text>
+                  <text x={X(4)} y={Y(vals[4]) - 12} textAnchor="end" fill="#e879f9" fontSize="10" fontWeight="800"
+                    style={{ opacity: ringOn ? 1 : 0, transition: "opacity 400ms ease 1700ms" }}>{targetMonth} · you</text>
+                  {/* week ticks */}
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <text key={i} x={X(i)} y="146" textAnchor="middle" fill="#52525b" fontSize="9">{i === 0 ? "now" : `wk ${i}`}</text>
+                  ))}
+                </svg>
+                <p className="text-zinc-600 text-[10.5px] mt-1.5">Training target on 20 min/day — not a promise. The plan below is how it&apos;s reached.</p>
+              </div>
+            );
+          })()}
 
           {/* ── The pitch ── */}
           <div className="relative rounded-2xl overflow-hidden mb-10">
@@ -544,6 +584,7 @@ export default function GradePage() {
                   : <>{bandLabel} today doesn&apos;t have to be {bandLabel} in {targetMonth}.</>}
               </p>
               <p className="text-zinc-300 text-[13.5px] leading-relaxed mb-4">
+                {!atTop && <>A {gap}-point jump doesn&apos;t come from rereading notes — it comes from reps that get marked. </>}
                 The Student plan gives you unlimited {curriculum.system}-style exams with this same honest marking on
                 every answer{weakLabels.length > 0 && <>, starting with <span className="font-semibold text-white">{weakLabels.join(" and ")}</span></>},
                 plus a week-by-week schedule built from this exact result.
@@ -561,6 +602,62 @@ export default function GradePage() {
               <p className="text-zinc-500 text-[11px] mt-2.5 text-center">NZ$15/month · cancel anytime · cheaper than 15 minutes of tutoring</p>
             </div>
           </div>
+
+          {/* ── The schedule preview ──
+              A real look at the 4-week plan built from THIS result. Week 1 is
+              fully visible (proof it's concrete, not vague promises); weeks
+              2–4 show their mission but lock the day-by-day behind Student. */}
+          {(() => {
+            const w1 = weakLabels[0] ?? "your weakest topic";
+            const w2 = weakLabels[1] ?? "your next weakest topic";
+            const weeks: { title: string; mission: string; days?: string[] }[] = atTop
+              ? [
+                  { title: "Full paper under real time", mission: "Pressure-proof the top band", days: ["Mon · 20 min — timed mixed set, no notes", "Wed · 20 min — hardest question types only", "Fri · 20 min — timed mixed set, beat Monday", "Sun · full practice exam, marked honestly"] },
+                  { title: "Kill the silly marks", mission: "Working shown on every answer" },
+                  { title: "Speed + accuracy", mission: "Same score, two-thirds the time" },
+                  { title: "Exam simulation week", mission: `Walk in already knowing you're ${topBandLabel}` },
+                ]
+              : [
+                  { title: `Fix ${w1}`, mission: `Your biggest leak, plugged first`, days: [`Mon · 20 min — ${w1} fundamentals set`, `Wed · 20 min — ${w1} exam-style questions`, `Fri · 20 min — mixed set, ${w1} weighted`, "Sun · mini-exam, marked honestly like today"] },
+                  { title: `Fix ${w2}`, mission: "Second leak, same treatment" },
+                  { title: "Full paper under real time", mission: "Both fixes, under pressure" },
+                  { title: "Exam simulation week", mission: `Sit it like the real thing — aiming ${topBandLabel} zone` },
+                ];
+            return (
+              <div className="mb-10">
+                <h2 className="text-white font-extrabold text-[20px] mb-1">Your 4-week schedule</h2>
+                <p className="text-zinc-500 text-[12.5px] mb-4">Built from this exact result — week 1 is exactly this concrete for all four weeks.</p>
+                <div className="space-y-2.5">
+                  {weeks.map((w, i) => (
+                    <div key={i} className={`rounded-xl border px-4 py-3.5 ${i === 0 ? "bg-indigo-500/[0.06] border-indigo-500/25" : "bg-white/[0.02] border-white/[0.08]"}`}>
+                      <div className="flex items-center gap-3">
+                        <span className={`shrink-0 w-9 h-9 rounded-lg flex items-center justify-center text-[11px] font-black ${i === 0 ? "bg-indigo-500 text-white" : "bg-white/[0.05] text-zinc-400 border border-white/[0.08]"}`}>
+                          W{i + 1}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-white font-bold text-[14px] leading-tight">{w.title}</p>
+                          <p className="text-zinc-500 text-[11.5px]">{w.mission}</p>
+                        </div>
+                        {i > 0 && <span className="text-zinc-600 text-[15px]" aria-hidden>🔒</span>}
+                      </div>
+                      {w.days ? (
+                        <ul className="mt-3 space-y-1.5 pl-12">
+                          {w.days.map((d) => (
+                            <li key={d} className="text-zinc-300 text-[12.5px] flex items-start gap-2">
+                              <span className="text-indigo-400 mt-px" aria-hidden>▸</span>{d}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="mt-2.5 pl-12 text-zinc-600 text-[12px]">Day-by-day plan unlocks with Student</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4">{pitchCta}</div>
+              </div>
+            );
+          })()}
 
           {/* ── The marked paper ── */}
           <div className="mb-10">
