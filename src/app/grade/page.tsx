@@ -2,13 +2,13 @@
 
 // ── The Grade Detector ──
 // Free hook: "What would you get if you sat your exam today?"
-// Fully anonymous: pick country/state/year/subject → sit an 8-question
-// diagnostic → get marked — NO account needed for any of that. The estimated
-// grade itself is gated behind an email (typed in, not a full sign-up) for
-// anonymous visitors; that email also receives a copy of the result. Signed-in
-// users skip the email gate (we already know their address) and see the
-// reveal immediately. The paid upsell is the week-by-week schedule (/plan,
-// Student+Pro) — the grade is free, the path to fix it is the product.
+// Fully anonymous end to end: pick country/state/year/subject → sit an
+// 8-question diagnostic → see the FULL result immediately — grade band,
+// score ring, and an examiner-style per-question marked paper. Nothing is
+// gated: no account, no email wall (email is an optional "send me this
+// report" field that still captures leads). The reveal itself is the pitch:
+// after seeing exactly where they lost marks, the page pushes the Student
+// plan (NZ$15/mo) with a personalised path from today's % to the top band.
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -35,7 +35,7 @@ const LOADING_LINES = [
   "Nearly there — sharpen a pencil…",
 ];
 
-type Phase = "pick" | "loading" | "test" | "marking" | "locked" | "revealed" | "error";
+type Phase = "pick" | "loading" | "test" | "marking" | "revealed" | "error";
 
 export default function GradePage() {
   const { isSignedIn } = useAuth();
@@ -54,8 +54,15 @@ export default function GradePage() {
   const [currentQ, setCurrentQ] = useState(0);
 
   const [email, setEmail] = useState("");
-  const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "error">("idle");
+  const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [emailError, setEmailError] = useState<string | null>(null);
+  // Drives the score-ring sweep + staggered reveal animations.
+  const [ringOn, setRingOn] = useState(false);
+  useEffect(() => {
+    if (phase !== "revealed") { setRingOn(false); return; }
+    const id = setTimeout(() => setRingOn(true), 150);
+    return () => clearTimeout(id);
+  }, [phase]);
 
   // Paper generation takes ~25–30s; advance the status line every 6s so the
   // wait never looks stalled (holds on the last line once exhausted).
@@ -135,14 +142,13 @@ export default function GradePage() {
       if (!res.ok || !Array.isArray(data.results)) throw new Error("Marking failed. Please try again.");
       setResults(data.results as MarkingResult[]);
 
+      // Everyone sees the full result immediately — no gate. Signed-in users
+      // also get a copy in their inbox (best-effort); anonymous visitors get
+      // an optional "email me this report" field on the results page.
+      setPhase("revealed");
       if (isSignedIn) {
-        // We already know their email — skip the gate, reveal immediately,
-        // and still fire off a copy to their inbox (best-effort).
-        setPhase("revealed");
         const addr = user?.primaryEmailAddress?.emailAddress;
         if (addr) void sendEmail(addr, data.results as MarkingResult[]);
-      } else {
-        setPhase("locked");
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
@@ -179,9 +185,10 @@ export default function GradePage() {
     } catch {}
   }
 
-  async function revealWithEmail(e: React.FormEvent) {
+  // Optional lead capture on the results page — sends the report, never gates it.
+  async function sendReport(e: React.FormEvent) {
     e.preventDefault();
-    if (!results || emailStatus === "sending") return;
+    if (!results || emailStatus === "sending" || emailStatus === "sent") return;
     setEmailStatus("sending");
     setEmailError(null);
     try {
@@ -198,7 +205,7 @@ export default function GradePage() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error ?? "Please enter a valid email address.");
-      setPhase("revealed");
+      setEmailStatus("sent");
     } catch (e) {
       setEmailError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
       setEmailStatus("error");
@@ -225,7 +232,7 @@ export default function GradePage() {
               </span>
             </h1>
             <p className="text-zinc-400 text-[14px] sm:text-[16px] max-w-md mx-auto">
-              Sit a short diagnostic in your exact exam system — free, no sign-up. We mark it honestly and estimate your grade, then show you the path to the top one.
+              Sit a short diagnostic in your exact exam system — free, no sign-up. We mark every answer honestly, show you the marked paper, and tell you your grade. Then we show you the path to the top one.
             </p>
           </div>
 
@@ -323,7 +330,7 @@ export default function GradePage() {
             Start my free grade check →
           </button>
           <p className="text-zinc-600 text-[11.5px] text-center mt-3">
-            No account, no card. We&apos;ll ask for your email only to send you the result.
+            No account, no card, no email wall. Your grade and marked paper appear right here.
           </p>
           <p className="text-zinc-600 text-[12px] text-center mt-8">
             Already practising? <Link href="/subjects" className="text-indigo-400 hover:underline">Go to your exams</Link>
@@ -447,68 +454,208 @@ export default function GradePage() {
     );
   }
 
-  // ── LOCKED (anonymous — email required to reveal) ──
-  // No blur, no partial grade shown — just a clean ask. The grade appears
-  // on screen AND in their inbox once they submit.
-  if (phase === "locked" && results) {
-    return (
-      <div className="max-w-md mx-auto px-5 pt-20 pb-24 text-center">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-[28px]">
-          🎯
-        </div>
-        <h1 className="text-white font-extrabold text-[24px] mb-2">Your grade is ready</h1>
-        <p className="text-zinc-400 text-[14px] mb-7">Enter your email and we&apos;ll send your estimated grade straight to your inbox.</p>
-        <form onSubmit={revealWithEmail} className="space-y-3">
-          <input
-            type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@email.com"
-            className="w-full rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3.5 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 text-center"
-          />
-          {emailStatus === "error" && emailError && <p className="text-rose-400 text-[13px]">{emailError}</p>}
-          <button type="submit" disabled={emailStatus === "sending"}
-            className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/25 disabled:opacity-60">
-            {emailStatus === "sending" ? "Sending…" : "Send me my grade →"}
-          </button>
-        </form>
-        <p className="text-zinc-600 text-[11px] mt-4">No spam, ever — just this result and, if you want more, how to fix it.</p>
-      </div>
-    );
-  }
-
   // ── REVEALED ──
-  if (phase === "revealed" && results) {
+  // The whole result, ungated: animated grade reveal → personalised path to
+  // the top band → Student-plan pitch → examiner-style marked paper (the
+  // proof of quality) → second pitch → optional email report.
+  if (phase === "revealed" && results && paper) {
     const { bandLabel, pct, weakTopics, grade } = computeSummary(results);
-    const topBandLabel = curriculum.gradeBands[0]?.label ?? "the top grade";
+    const topBand = curriculum.gradeBands[0];
+    const topBandLabel = topBand?.label ?? "the top grade";
+    const topPct = Math.round((topBand?.minPct ?? 0.85) * 100);
+    const gap = Math.max(0, topPct - pct);
+    const atTop = gap === 0;
+    const subjectLabel = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject;
+    // "by the end of <month ~5 weeks out>" — a concrete, near, believable target.
+    const targetMonth = new Date(Date.now() + 35 * 864e5).toLocaleString("en-NZ", { month: "long" });
+    const weakLabels = weakTopics.slice(0, 2).map((t) => getTopicLabel(t));
+    const totalAwarded = results.reduce((s, r) => s + r.marksAwarded, 0);
+    const totalMax = results.reduce((s, r) => s + r.maxMarks, 0);
+    // Score ring geometry (r=64 → C≈402).
+    const RING_C = 2 * Math.PI * 64;
+
+    const pitchCta = (
+      <Link href="/pricing"
+        className="inline-flex w-full justify-center items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.01] transition-transform">
+        Start my plan — NZ$15/mo →
+      </Link>
+    );
+
     return (
-      <div className="max-w-lg mx-auto px-5 pt-12 pb-20 text-center">
-        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3">
-          If you sat {curriculum.subjects.find((s) => s.value === subject)?.label ?? subject} today
-        </p>
-        <div className={`text-[72px] sm:text-[88px] font-black leading-none tracking-tight mb-2 ${gradeColor(grade)}`}>
-          {bandLabel}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10" aria-hidden>
+          <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[640px] h-[480px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
         </div>
-        <p className="text-zinc-400 text-[13px] mb-6">
-          {pct}% · honest estimate from today&apos;s 8 questions — not a promise, a starting line.
-        </p>
-        {weakTopics.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-2 mb-6">
-            {weakTopics.slice(0, 3).map((t) => (
-              <span key={t} className="px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-300 text-[12px] font-medium">
-                ⚠ {getTopicLabel(t)}
-              </span>
-            ))}
+        <div className="max-w-2xl mx-auto px-5 pt-10 pb-20">
+
+          {/* ── The reveal ── */}
+          <div className="text-center mb-10">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
+              If you sat {subjectLabel} today
+            </p>
+            <div className="relative w-[160px] h-[160px] mx-auto mb-4">
+              <svg viewBox="0 0 144 144" className="w-full h-full -rotate-90">
+                <circle cx="72" cy="72" r="64" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="10" />
+                <circle cx="72" cy="72" r="64" fill="none" strokeWidth="10" strokeLinecap="round"
+                  className={`${gradeColor(grade)} transition-[stroke-dashoffset] duration-[1400ms] ease-out`}
+                  stroke="currentColor"
+                  strokeDasharray={RING_C}
+                  strokeDashoffset={ringOn ? RING_C * (1 - pct / 100) : RING_C}
+                />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-white font-black text-[40px] leading-none tracking-tight">{pct}%</span>
+                <span className="text-zinc-500 text-[11px] mt-1">{totalAwarded}/{totalMax} marks</span>
+              </div>
+            </div>
+            <div className={`text-[52px] sm:text-[64px] font-black leading-none tracking-tight mb-2 ${gradeColor(grade)}`}>
+              {bandLabel}
+            </div>
+            <p className="text-zinc-400 text-[13px]">
+              Marked honestly, question by question — your full marked paper is below.
+            </p>
           </div>
-        )}
-        <div className="rounded-2xl bg-white/[0.03] border border-white/[0.08] px-5 py-5">
-          <p className="text-white font-extrabold text-[16px] mb-1.5">Get to {topBandLabel} by exam day</p>
-          <p className="text-zinc-400 text-[12.5px] mb-4">
-            A week-by-week schedule from this result to the top grade — practice lined up, weak spots first, all the way to your exam.
+
+          {/* ── Path to the top band ── */}
+          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] px-5 py-5 mb-5">
+            <div className="flex items-baseline justify-between mb-2.5">
+              <span className="text-[12px] font-bold text-zinc-300">Today · {pct}%</span>
+              <span className="text-[12px] font-bold text-indigo-300">{topBandLabel} · {topPct}%+</span>
+            </div>
+            <div className="relative h-2.5 rounded-full bg-white/[0.05] overflow-hidden mb-3">
+              <div className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-[width] duration-[1400ms] ease-out"
+                style={{ width: ringOn ? `${Math.min(pct, 100)}%` : "0%" }} />
+              <div className="absolute inset-y-0 border-l-2 border-dashed border-indigo-300/50" style={{ left: `${topPct}%` }} />
+            </div>
+            <p className="text-zinc-400 text-[13px]">
+              {atTop
+                ? <>You&apos;re in the top band on today&apos;s 8 questions. The job now is making that hold under full exam pressure — length, time limits, every topic.</>
+                : <>You&apos;re <span className="text-white font-bold">{gap} percentage points</span> from {topBandLabel}. That gap has names{weakLabels.length > 0 && <>: <span className="text-rose-300 font-semibold">{weakLabels.join(" and ")}</span></>} — and topic gaps are exactly what daily practice closes.</>}
+            </p>
+          </div>
+
+          {/* ── The pitch ── */}
+          <div className="relative rounded-2xl overflow-hidden mb-10">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/25 via-purple-600/15 to-pink-600/10" aria-hidden />
+            <div className="relative border border-indigo-500/25 rounded-2xl px-5 py-6">
+              <p className="text-white font-extrabold text-[19px] mb-2 leading-snug">
+                {atTop
+                  ? <>Keep this grade locked in by {targetMonth}.</>
+                  : <>{bandLabel} today doesn&apos;t have to be {bandLabel} in {targetMonth}.</>}
+              </p>
+              <p className="text-zinc-300 text-[13.5px] leading-relaxed mb-4">
+                The Student plan gives you unlimited {curriculum.system}-style exams with this same honest marking on
+                every answer{weakLabels.length > 0 && <>, starting with <span className="font-semibold text-white">{weakLabels.join(" and ")}</span></>},
+                plus a week-by-week schedule built from this exact result.
+                20 minutes a day is the whole habit — <span className="text-white font-semibold">{atTop ? `walking into exam day at ${topBandLabel} level` : `sitting in the ${topBandLabel} zone by the end of ${targetMonth}`}</span> is
+                the target it&apos;s built around. Not a promise — a training plan.
+              </p>
+              <ul className="space-y-1.5 mb-5">
+                {["Unlimited full practice exams in your exact system", "Every answer marked like today — honestly, with the fix", `A schedule that attacks your weakest topics first`].map((li) => (
+                  <li key={li} className="flex items-start gap-2 text-[13px] text-zinc-300">
+                    <span className="text-emerald-400 mt-px">✓</span>{li}
+                  </li>
+                ))}
+              </ul>
+              {pitchCta}
+              <p className="text-zinc-500 text-[11px] mt-2.5 text-center">NZ$15/month · cancel anytime · cheaper than 15 minutes of tutoring</p>
+            </div>
+          </div>
+
+          {/* ── The marked paper ── */}
+          <div className="mb-10">
+            <h2 className="text-white font-extrabold text-[20px] mb-1">Your marked paper</h2>
+            <p className="text-zinc-500 text-[12.5px] mb-4">Every question, marked the way an examiner would — tap one to see exactly where the marks went.</p>
+            <div className="space-y-2.5">
+              {paper.questions.map((q, i) => {
+                const r = results.find((x) => x.questionId === `q${i + 1}`) ?? results[i];
+                if (!r) return null;
+                const full = r.marksAwarded === r.maxMarks;
+                const zero = r.marksAwarded === 0;
+                const tone = full ? "emerald" : zero ? "rose" : "amber";
+                const yourAnswer = (answers[`q${i + 1}`] ?? "").trim();
+                const yourWorking = (answers[`q${i + 1}_working`] ?? "").trim();
+                return (
+                  <details key={i} className="group rounded-xl bg-white/[0.02] border border-white/[0.08] open:border-white/[0.15]">
+                    <summary className="flex items-center gap-3 px-4 py-3.5 cursor-pointer list-none [&::-webkit-details-marker]:hidden min-h-[44px]">
+                      <span className={`shrink-0 w-9 h-9 rounded-lg flex items-center justify-center text-[13px] font-black ${
+                        tone === "emerald" ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                        : tone === "rose" ? "bg-rose-500/15 text-rose-400 border border-rose-500/30"
+                        : "bg-amber-500/15 text-amber-400 border border-amber-500/30"}`}>
+                        {r.marksAwarded}/{r.maxMarks}
+                      </span>
+                      <span className="flex-1 text-[13px] text-zinc-300 line-clamp-2">
+                        <span className="font-bold text-zinc-500 mr-1.5">Q{i + 1}</span>
+                        {neutralizeFigureReferences(q.text)}
+                      </span>
+                      <span className="text-zinc-600 text-[12px] group-open:rotate-180 transition-transform" aria-hidden>▼</span>
+                    </summary>
+                    <div className="px-4 pb-4 pt-1 space-y-3 border-t border-white/[0.06]">
+                      {(yourAnswer || yourWorking) ? (
+                        <div>
+                          <p className="text-[10.5px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Your answer</p>
+                          {yourWorking && <p className="text-zinc-400 text-[13px] whitespace-pre-wrap mb-1">{yourWorking}</p>}
+                          <p className="text-zinc-200 text-[13px] whitespace-pre-wrap">{yourAnswer || <em className="text-zinc-500">final answer left blank</em>}</p>
+                        </div>
+                      ) : (
+                        <p className="text-zinc-500 text-[13px] italic">Left blank — 0 marks by default.</p>
+                      )}
+                      <div>
+                        <p className="text-[10.5px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Examiner&apos;s note</p>
+                        <p className="text-zinc-300 text-[13px] leading-relaxed">{r.feedback}</p>
+                      </div>
+                      {!full && r.correctApproach && (
+                        <div className="rounded-lg bg-emerald-500/[0.06] border border-emerald-500/20 px-3.5 py-3">
+                          <p className="text-[10.5px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The full-marks approach</p>
+                          <p className="text-zinc-300 text-[13px] leading-relaxed">{r.correctApproach}</p>
+                        </div>
+                      )}
+                      {r.examTip && (
+                        <p className="text-indigo-300/90 text-[12.5px]">💡 {r.examTip}</p>
+                      )}
+                    </div>
+                  </details>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* ── Second pitch — after they've seen the lost marks ── */}
+          {!atTop && (
+            <div className="rounded-2xl bg-white/[0.03] border border-white/[0.08] px-5 py-5 mb-10 text-center">
+              <p className="text-white font-extrabold text-[16px] mb-1.5">
+                Those {totalMax - totalAwarded} lost marks are the difference.
+              </p>
+              <p className="text-zinc-400 text-[13px] mb-4">
+                Every one of them is a fixable habit, not a talent problem. NZ$15/month buys the reps that fix them.
+              </p>
+              {pitchCta}
+            </div>
+          )}
+
+          {/* ── Optional email report ── */}
+          <div className="rounded-xl border border-white/[0.06] bg-white/[0.015] px-4 py-4 mb-8">
+            {emailStatus === "sent" ? (
+              <p className="text-emerald-400 text-[13px] text-center font-semibold">✓ Report sent — check your inbox.</p>
+            ) : (
+              <form onSubmit={sendReport} className="flex flex-col sm:flex-row gap-2.5">
+                <input
+                  type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email me this report (optional)"
+                  className="flex-1 rounded-lg bg-white/[0.04] border border-white/[0.08] px-3.5 py-2.5 text-[13px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
+                />
+                <button type="submit" disabled={emailStatus === "sending"}
+                  className="rounded-lg border border-white/[0.12] px-4 py-2.5 text-[13px] font-semibold text-zinc-300 hover:border-white/[0.25] disabled:opacity-60 transition-colors">
+                  {emailStatus === "sending" ? "Sending…" : "Send it"}
+                </button>
+              </form>
+            )}
+            {emailStatus === "error" && emailError && <p className="text-rose-400 text-[12px] mt-2">{emailError}</p>}
+          </div>
+
+          <p className="text-zinc-600 text-[12px] text-center">
+            Want to retake it first? <button onClick={() => { setPhase("pick"); setResults(null); setPaper(null); }} className="text-indigo-400 hover:underline">Run another grade check</button>
           </p>
-          <Link href={isSignedIn ? "/plan" : "/sign-up"}
-            className="inline-flex w-full justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 px-5 py-3.5 text-[14px] font-extrabold text-white shadow-lg shadow-indigo-500/25">
-            {isSignedIn ? "Build my schedule →" : "Create free account & build my schedule →"}
-          </Link>
-          <p className="text-zinc-600 text-[11px] mt-2.5">Schedules are part of the Student plan · the grade check stays free</p>
         </div>
       </div>
     );

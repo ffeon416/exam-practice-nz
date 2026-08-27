@@ -107,7 +107,7 @@ export default function HomePage() {
                   href="/grade"
                   className="group bg-white text-[#0a0a0f] font-bold px-8 py-4 rounded-xl transition-all hover:scale-[1.02] shadow-2xl shadow-white/10 text-[16px] inline-flex items-center justify-center gap-2"
                 >
-                  See what you&apos;d score today
+                  See the grade you&apos;d get today
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
@@ -359,7 +359,7 @@ export default function HomePage() {
               <span className="bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Be the kid who trained.</span>
             </h2>
             <p className="text-zinc-400 text-[14px] sm:text-[16px] mb-8 max-w-md mx-auto">
-              Free to start. No credit card. 30 seconds to your first practice exam.
+              It starts with one honest number: the grade you&apos;d get if you sat your exam today. Two minutes, no account — and then the exact plan to raise it.
             </p>
             <div className="min-h-[56px]">
               {isLoaded && (
@@ -367,7 +367,7 @@ export default function HomePage() {
                   href={isSignedIn ? "/subjects" : "/grade"}
                   className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-bold px-10 py-4 rounded-xl hover:scale-[1.02] transition-all shadow-2xl text-[16px]"
                 >
-                  {isSignedIn ? "Build my exam" : "See what you'd score today"}
+                  {isSignedIn ? "Build my exam" : "Get my real grade — free"}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
