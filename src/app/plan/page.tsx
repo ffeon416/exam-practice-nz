@@ -20,6 +20,19 @@ import {
   type StudyWeek,
 } from "@/lib/studyPlanner";
 import { useTier } from "@/hooks/useTier";
+import { display } from "@/lib/displayFont";
+
+/* Shared Soar-style ambient ground — one radial glow, no blur blobs */
+function PageGlow() {
+  return (
+    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+      <div
+        className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+        style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+      />
+    </div>
+  );
+}
 
 const SUBJECTS: Array<{ value: string; label: string; years: number[] }> = [
   { value: "mathematics", label: "Mathematics", years: [10, 11, 12, 13] },
@@ -114,25 +127,29 @@ export default function PlanPage() {
 function PlanUpgradeGate() {
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
-      </div>
+      <PageGlow />
 
       <div className="max-w-md mx-auto px-5 pt-8 sm:pt-14 pb-16 sm:pb-20">
         {/* Hero icon with plan badge */}
-        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+        <div className="home-rise relative w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-indigo-500/30">
           <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
           </svg>
-          <span className="absolute -top-1.5 -right-1.5 text-[9px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-500 to-purple-500 px-1.5 py-0.5 rounded-md shadow-md">
+          <span className="absolute -top-1.5 -right-1.5 text-[9px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-500 to-violet-500 px-1.5 py-0.5 rounded-md shadow-md">
             Student
           </span>
         </div>
 
-        <h1 className="text-[26px] sm:text-[30px] font-extrabold text-white tracking-tight text-center mb-3 leading-tight">
+        <h1
+          className={`${display.className} home-rise text-[26px] sm:text-[32px] font-bold text-white tracking-[-0.02em] text-center mb-3 leading-tight`}
+          style={{ animationDelay: "80ms", textWrap: "balance" }}
+        >
           Stop guessing what to study next.
         </h1>
-        <p className="text-zinc-400 text-[14px] sm:text-[15px] text-center mb-7 leading-relaxed max-w-sm mx-auto">
+        <p
+          className="home-rise text-zinc-400 text-[14px] sm:text-[15px] text-center mb-7 leading-relaxed max-w-sm mx-auto"
+          style={{ animationDelay: "160ms" }}
+        >
           Tell us your exam date and subjects — we&apos;ll build you a week-by-week plan that <em>actually</em> gets you ready, targeting the topics you keep getting wrong.
         </p>
 
@@ -145,8 +162,8 @@ function PlanUpgradeGate() {
         </ul>
 
         {/* Price card */}
-        <div className="rounded-xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
-          <p className="text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
+        <div className="rounded-2xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
           <p className="text-white">
             <span className="text-[28px] font-extrabold tracking-tight">NZ$15</span>
             <span className="text-zinc-400 text-[13px] ml-1">/month</span>
@@ -158,13 +175,13 @@ function PlanUpgradeGate() {
         <div className="flex flex-col gap-2.5">
           <Link
             href="/pricing"
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white font-semibold text-[14px] text-center transition-all shadow-lg shadow-indigo-500/20"
+            className="w-full py-3 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold text-[14px] text-center transition-all shadow-lg shadow-indigo-500/30"
           >
             Unlock my study plan
           </Link>
           <Link
             href="/dashboard"
-            className="w-full py-3 rounded-lg text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
+            className="w-full py-3 rounded-full text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
           >
             Maybe later
           </Link>
@@ -244,17 +261,18 @@ function PlanSetup() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-      </div>
+      <PageGlow />
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Explainer */}
         <div className="text-center mb-8 sm:mb-10">
-          <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-3">
+          <h1
+            className={`${display.className} home-rise text-[26px] sm:text-[38px] font-bold text-white tracking-[-0.02em] mb-3`}
+            style={{ textWrap: "balance" }}
+          >
             Exam countdown
           </h1>
-          <p className="text-zinc-400 text-[15px] max-w-md mx-auto leading-relaxed">
+          <p className="home-rise text-zinc-400 text-[15px] max-w-md mx-auto leading-relaxed" style={{ animationDelay: "80ms" }}>
             Tell us when your exams are and what subjects you&apos;re sitting.
             We&apos;ll build you a week-by-week plan that focuses on your weakest
             topics first — so you spend your time where it matters most.
@@ -264,23 +282,23 @@ function PlanSetup() {
         {/* How it works */}
         <div className="grid grid-cols-3 gap-3 mb-6 sm:mb-10">
           <div className="text-center">
-            <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">1</div>
-            <p className="text-zinc-500 text-[11px]">Set your exam date</p>
+            <p className="font-mono text-indigo-400 text-[12px] font-bold mb-1.5">01</p>
+            <p className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider">Set your exam date</p>
           </div>
           <div className="text-center">
-            <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">2</div>
-            <p className="text-zinc-500 text-[11px]">Pick your subjects</p>
+            <p className="font-mono text-indigo-400 text-[12px] font-bold mb-1.5">02</p>
+            <p className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider">Pick your subjects</p>
           </div>
           <div className="text-center">
-            <div className="w-9 h-9 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[13px] font-bold flex items-center justify-center mx-auto mb-2">3</div>
-            <p className="text-zinc-500 text-[11px]">Follow your plan</p>
+            <p className="font-mono text-indigo-400 text-[12px] font-bold mb-1.5">03</p>
+            <p className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider">Follow your plan</p>
           </div>
         </div>
 
         {/* Form */}
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 space-y-5 sm:space-y-6"
+          className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-5 sm:p-7 space-y-5 sm:space-y-6"
         >
           {/* Exam date */}
           <div>
@@ -311,10 +329,10 @@ function PlanSetup() {
                   key={y}
                   type="button"
                   onClick={() => handleYearChange(y)}
-                  className={`min-h-[44px] py-2.5 rounded-lg text-[13px] font-medium transition-all ${
+                  className={`min-h-[44px] py-2.5 rounded-full text-[13px] font-semibold transition-all ${
                     yearLevel === y
                       ? "bg-indigo-500 text-white"
-                      : "bg-white/[0.04] border border-white/[0.1] text-zinc-400 hover:bg-white/[0.08]"
+                      : "bg-white/[0.03] border border-white/[0.1] text-zinc-400 hover:border-white/[0.3] hover:bg-white/[0.04]"
                   }`}
                 >
                   Year {y}
@@ -336,13 +354,13 @@ function PlanSetup() {
                     key={s.value}
                     type="button"
                     onClick={() => toggleSubject(s.value)}
-                    className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-[13px] text-left transition-all ${
+                    className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full text-[13px] text-left transition-all ${
                       active
                         ? "bg-indigo-500/15 border border-indigo-500/40 text-white"
-                        : "bg-white/[0.04] border border-white/[0.1] text-zinc-400 hover:bg-white/[0.08]"
+                        : "bg-white/[0.03] border border-white/[0.1] text-zinc-400 hover:border-white/[0.3] hover:bg-white/[0.04]"
                     }`}
                   >
-                    <span className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
+                    <span className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
                       active ? "bg-indigo-500 border-indigo-500" : "border-zinc-600"
                     }`}>
                       {active && (
@@ -367,7 +385,7 @@ function PlanSetup() {
           <button
             type="submit"
             disabled={subjects.length === 0}
-            className="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold py-3 rounded-lg transition-all text-[14px] disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold py-3 shadow-lg shadow-indigo-500/30 transition-all text-[14px] disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Create my plan
           </button>
@@ -403,24 +421,21 @@ function PlanView({ plan }: { plan: StudyPlan }) {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10" aria-hidden>
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-indigo-500/[0.1] blur-[120px] rounded-full" />
-        <div className="absolute top-40 -right-24 w-[400px] h-[400px] bg-fuchsia-500/[0.07] blur-[120px] rounded-full" />
-        <div className="absolute top-[520px] -left-24 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[120px] rounded-full" />
-      </div>
+      <PageGlow />
 
       <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Countdown ring hero */}
         <div className="flex flex-col items-center mb-8 sm:mb-10">
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-6">
+          <div className="home-rise flex flex-wrap items-center justify-center gap-1.5 mb-6">
             {plan.subjects.map((s) => (
               <span key={s} className="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400">
                 {subjectLabel(s)}
               </span>
             ))}
           </div>
-          <div className="relative w-56 h-56 sm:w-64 sm:h-64">
-            <div aria-hidden className="absolute inset-6 bg-indigo-500/20 blur-[55px] rounded-full" />
+          <div className="home-rise relative w-56 h-56 sm:w-64 sm:h-64" style={{ animationDelay: "80ms" }}>
+            <div aria-hidden className="absolute -inset-4 rounded-full pointer-events-none"
+              style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(99,102,241,0.22) 0%, transparent 70%)" }} />
             <svg className="relative w-full h-full -rotate-90" viewBox="0 0 200 200" aria-hidden>
               <circle cx="100" cy="100" r="88" fill="none" strokeWidth="10" stroke="currentColor" className="text-white/[0.06]" />
               {/* Render the progress arc only when there IS progress — a
@@ -437,14 +452,14 @@ function PlanView({ plan }: { plan: StudyPlan }) {
               <defs>
                 <linearGradient id="planRing" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#818cf8" />
-                  <stop offset="50%" stopColor="#a855f7" />
-                  <stop offset="100%" stopColor="#e879f9" />
+                  <stop offset="50%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#a78bfa" />
                 </linearGradient>
               </defs>
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               {daysLeft === 0 ? (
-                <span className="text-[28px] sm:text-[32px] font-black bg-gradient-to-br from-indigo-200 via-purple-300 to-fuchsia-400 bg-clip-text text-transparent">
+                <span className={`${display.className} text-[28px] sm:text-[32px] font-bold tracking-[-0.02em] bg-gradient-to-br from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent`}>
                   Exam day
                 </span>
               ) : (
@@ -452,18 +467,18 @@ function PlanView({ plan }: { plan: StudyPlan }) {
                   <span className="text-[62px] sm:text-[76px] font-black leading-none tabular-nums bg-gradient-to-br from-white to-zinc-300 bg-clip-text text-transparent">
                     {daysLeft}
                   </span>
-                  <span className="text-[11px] uppercase tracking-[0.25em] text-zinc-400 font-bold mt-1.5">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-zinc-500 font-bold mt-1.5">
                     {daysLeft === 1 ? "day" : "days"} to go
                   </span>
                 </>
               )}
             </div>
           </div>
-          <div className="text-center mt-6">
+          <div className="home-rise text-center mt-6" style={{ animationDelay: "160ms" }}>
             <p className="text-white font-semibold text-[14px]">
-              <span className="font-black bg-gradient-to-r from-indigo-300 to-purple-400 bg-clip-text text-transparent">{overallPct}%</span> of your plan complete
+              <span className="font-black bg-gradient-to-r from-indigo-300 to-violet-400 bg-clip-text text-transparent">{overallPct}%</span> of your plan complete
             </p>
-            <p className="text-zinc-500 text-[12px] mt-1">
+            <p className="font-mono text-zinc-500 text-[11px] mt-1 tracking-tight">
               {doneTasks}/{totalTasks} tasks · Exam {new Date(plan.examDate).toLocaleDateString("en-NZ", { day: "numeric", month: "long" })}
             </p>
           </div>
@@ -471,13 +486,13 @@ function PlanView({ plan }: { plan: StudyPlan }) {
 
         {/* Completion state */}
         {overallPct === 100 && (
-          <div className="rounded-2xl bg-gradient-to-br from-emerald-500/[0.08] to-indigo-500/[0.05] border border-emerald-500/20 p-8 sm:p-10 text-center mb-8">
+          <div className="rounded-[32px] bg-gradient-to-br from-emerald-500/[0.08] to-indigo-500/[0.05] border border-emerald-500/20 p-8 sm:p-10 text-center mb-8">
             <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
               <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
               </svg>
             </div>
-            <h2 className="text-[24px] sm:text-[28px] font-bold text-white tracking-tight mb-2">
+            <h2 className={`${display.className} text-[24px] sm:text-[28px] font-bold text-white tracking-[-0.02em] mb-2`}>
               You&apos;re ready!
             </h2>
             <p className="text-zinc-400 text-[15px] max-w-md mx-auto mb-6 leading-relaxed">
@@ -489,7 +504,7 @@ function PlanView({ plan }: { plan: StudyPlan }) {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/subjects"
-                className="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold px-6 py-3 shadow-lg shadow-indigo-500/30 transition-all text-[14px]"
               >
                 Do one more practice exam
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -498,7 +513,7 @@ function PlanView({ plan }: { plan: StudyPlan }) {
               </Link>
               <Link
                 href="/review"
-                className="inline-flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/[0.12] text-white font-medium px-6 py-3 rounded-lg border border-white/[0.1] transition-all text-[14px]"
+                className="inline-flex items-center justify-center gap-2 rounded-full text-white font-semibold px-6 py-3 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[14px]"
               >
                 Quick review session
               </Link>
@@ -507,7 +522,7 @@ function PlanView({ plan }: { plan: StudyPlan }) {
         )}
 
         {/* Roadmap timeline */}
-        <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">Your roadmap</h2>
+        <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">Your roadmap</h2>
         <div className="relative mb-6">
           {/* Spine */}
           <div aria-hidden className="absolute left-[17px] top-3 bottom-3 w-0.5 bg-gradient-to-b from-white/10 via-indigo-500/30 to-white/[0.04]" />
@@ -526,7 +541,7 @@ function PlanView({ plan }: { plan: StudyPlan }) {
                       isDone
                         ? "bg-emerald-500 border-emerald-400 text-white shadow-lg shadow-emerald-500/30"
                         : isCurrent
-                        ? "bg-gradient-to-br from-indigo-500 to-purple-600 border-indigo-300 text-white shadow-lg shadow-indigo-500/40"
+                        ? "bg-gradient-to-br from-indigo-500 to-violet-600 border-indigo-300 text-white shadow-lg shadow-indigo-500/40"
                         : isPast
                         ? "bg-[#0b0b12] border-amber-500/40 text-amber-400/80"
                         : "bg-[#0b0b12] border-white/15 text-zinc-500"
@@ -588,10 +603,10 @@ function WeekCard({
 
   return (
     <div
-      className={`rounded-xl overflow-hidden transition-all ${
+      className={`rounded-2xl overflow-hidden transition-all ${
         highlight
           ? "bg-indigo-500/[0.07] border border-indigo-500/25 shadow-lg shadow-indigo-500/10"
-          : "bg-white/[0.02] border border-white/[0.06]"
+          : "bg-white/[0.02] border border-white/[0.07]"
       }`}
     >
       <button
@@ -603,12 +618,12 @@ function WeekCard({
           <p className="text-white font-semibold text-[14px] truncate">
             Week {week.weekNumber} — {week.focus}
           </p>
-          <p className="text-zinc-600 text-[11px] mt-0.5">{dateRange}</p>
+          <p className="font-mono text-zinc-600 text-[10px] mt-0.5 tracking-tight">{dateRange}</p>
           {/* Per-week progress */}
           <div className="mt-2 w-full max-w-[200px] h-1 rounded-full bg-white/[0.06] overflow-hidden">
             <div
               className={`h-full rounded-full transition-all duration-700 ${
-                pct === 100 ? "bg-emerald-500" : "bg-gradient-to-r from-indigo-500 to-purple-500"
+                pct === 100 ? "bg-emerald-500" : "bg-gradient-to-r from-indigo-500 to-violet-500"
               }`}
               style={{ width: `${Math.max(pct, 2)}%` }}
             />
@@ -682,7 +697,7 @@ function TaskRow({ task }: { task: StudyTask }) {
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className={`text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded font-medium ${
+          <span className={`font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-medium ${
             task.type === "exam"
               ? "bg-indigo-500/15 text-indigo-300"
               : task.type === "practice"

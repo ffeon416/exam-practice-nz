@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { display } from "@/lib/displayFont";
 
 export default function SchoolsPage() {
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -60,35 +61,43 @@ export default function SchoolsPage() {
   return (
     <div className="relative overflow-hidden">
       {/* Background gradient effect */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
-        <div className="absolute top-[300px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+        />
       </div>
 
       {/* HERO */}
       <section className="max-w-4xl mx-auto px-5 pt-6 sm:pt-20 pb-10 sm:pb-24 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
+        <div className="home-rise inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-8 backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           For teachers &amp; schools
         </div>
 
-        <h1 className="text-[28px] sm:text-[48px] md:text-[56px] font-extrabold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6">
+        <h1
+          className={`${display.className} home-rise text-[32px] sm:text-[52px] md:text-[60px] font-bold text-white tracking-[-0.02em] leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6`}
+          style={{ animationDelay: "80ms", textWrap: "balance" }}
+        >
           Bring StudyAce to
           <br />
-          <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
             your classroom
-          </span>
+          </em>
         </h1>
 
-        <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2">
+        <p
+          className="home-rise text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 px-2"
+          style={{ animationDelay: "160ms" }}
+        >
           Bulk pricing for NCEA practice. Give your students unlimited exam
           reps with instant marking — across every subject, every level.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="home-rise flex flex-col sm:flex-row gap-3 justify-center" style={{ animationDelay: "240ms" }}>
           <a
             href="#contact"
-            className="group bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] inline-flex items-center justify-center gap-2"
+            className="group rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white px-8 py-3.5 transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/30 text-[15px] inline-flex items-center justify-center gap-2 min-h-[44px]"
           >
             Enquire for your school
             <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -97,7 +106,7 @@ export default function SchoolsPage() {
           </a>
           <a
             href="#how-it-works"
-            className="text-zinc-300 hover:text-white font-medium px-8 py-3.5 rounded-lg border border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.02] transition-all text-[15px]"
+            className="text-zinc-300 hover:text-white font-semibold px-8 py-3.5 rounded-full border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[15px] inline-flex items-center justify-center min-h-[44px]"
           >
             See how it works
           </a>
@@ -107,8 +116,8 @@ export default function SchoolsPage() {
       {/* BENEFITS GRID */}
       <section className="max-w-5xl mx-auto px-5 pb-12 sm:pb-24">
         <div className="text-center mb-8 sm:mb-12">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Why teachers love it</p>
-          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight mb-3">
+          <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider mb-3">Why teachers love it</p>
+          <h2 className={`${display.className} text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em] mb-3`} style={{ textWrap: "balance" }}>
             Built for the classroom
           </h2>
           <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
@@ -124,7 +133,7 @@ export default function SchoolsPage() {
               </svg>
             }
             title="Covers the whole syllabus"
-            desc="Every NCEA standard, every level. 150+ real past papers plus unlimited fresh practice across 19 subjects."
+            desc="Every NCEA standard, every level. Unlimited fresh NCEA-style practice across 19 subjects."
           />
           <BenefitCard
             icon={
@@ -142,7 +151,7 @@ export default function SchoolsPage() {
               </svg>
             }
             title="Aligned to NCEA standards"
-            desc="Questions match real NZQA exam style and difficulty. Covers all 19 subjects from Year 10 through Level 3."
+            desc="Questions follow NCEA exam style and difficulty. Covers all 19 subjects from Year 10 through Level 3."
           />
           <BenefitCard
             icon={
@@ -178,8 +187,8 @@ export default function SchoolsPage() {
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="max-w-4xl mx-auto px-5 pb-12 sm:pb-24">
         <div className="text-center mb-8 sm:mb-12">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">How it works</p>
-          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight">
+          <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider mb-3">How it works</p>
+          <h2 className={`${display.className} text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em]`} style={{ textWrap: "balance" }}>
             Simple for schools
           </h2>
         </div>
@@ -205,7 +214,7 @@ export default function SchoolsPage() {
 
       {/* STATS BAR */}
       <section className="max-w-4xl mx-auto px-5 pb-10 sm:pb-24">
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-zinc-500">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 font-mono text-[12px] text-zinc-500 tracking-tight">
           <div className="flex items-center gap-1.5">
             <span className="text-white font-semibold">19</span> subjects
           </div>
@@ -224,13 +233,13 @@ export default function SchoolsPage() {
       {/* SCHOOLS CTA */}
       <section className="max-w-4xl mx-auto px-5 pb-10 sm:pb-24">
         <div className="text-center mb-8 sm:mb-12">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Join us</p>
-          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight">
+          <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider mb-3">Join us</p>
+          <h2 className={`${display.className} text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em]`} style={{ textWrap: "balance" }}>
             Be an early adopter
           </h2>
         </div>
 
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-8 text-center">
+        <div className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-8 text-center">
           <p className="text-zinc-400 text-[15px] mb-4">
             We&apos;re working with schools across New Zealand to bring StudyAce to their students.
           </p>
@@ -243,8 +252,8 @@ export default function SchoolsPage() {
       {/* CONTACT FORM */}
       <section id="contact" className="max-w-2xl mx-auto px-5 pb-16 sm:pb-24">
         <div className="text-center mb-8 sm:mb-10">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-3">Get started</p>
-          <h2 className="text-[22px] sm:text-[36px] md:text-[40px] font-extrabold text-white tracking-tight mb-3">
+          <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider mb-3">Get started</p>
+          <h2 className={`${display.className} text-[22px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em] mb-3`} style={{ textWrap: "balance" }}>
             Talk to us about your school
           </h2>
           <p className="text-zinc-500 text-[15px] max-w-lg mx-auto">
@@ -252,7 +261,7 @@ export default function SchoolsPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-8">
+        <div className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-8">
           {formState === "success" ? (
             <div className="rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mb-4">
@@ -274,7 +283,7 @@ export default function SchoolsPage() {
                   id="name"
                   name="name"
                   required
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
                   placeholder="Your full name"
                 />
               </div>
@@ -288,7 +297,7 @@ export default function SchoolsPage() {
                   id="email"
                   name="email"
                   required
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
                   placeholder="you@school.nz"
                 />
               </div>
@@ -302,7 +311,7 @@ export default function SchoolsPage() {
                   id="school"
                   name="school"
                   required
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
                   placeholder="e.g. Mount Maunganui College"
                 />
               </div>
@@ -315,7 +324,7 @@ export default function SchoolsPage() {
                   <select
                     id="role"
                     name="role"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
                     defaultValue=""
                   >
                     <option value="" disabled className="text-zinc-600 bg-[#0a0a0f]">Select your role</option>
@@ -334,7 +343,7 @@ export default function SchoolsPage() {
                   <select
                     id="students"
                     name="students"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
                     defaultValue=""
                   >
                     <option value="" disabled className="text-zinc-600 bg-[#0a0a0f]">Select range</option>
@@ -354,7 +363,7 @@ export default function SchoolsPage() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600 resize-none"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600 resize-none"
                   placeholder="Tell us about how you'd like to use StudyAce..."
                 />
               </div>
@@ -366,7 +375,7 @@ export default function SchoolsPage() {
               <button
                 type="submit"
                 disabled={formState === "loading"}
-                className="w-full bg-indigo-500 hover:bg-indigo-400 disabled:bg-indigo-500/50 disabled:cursor-not-allowed text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.01] shadow-lg shadow-indigo-500/20 text-[15px]"
+                className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 disabled:opacity-50 disabled:cursor-not-allowed font-extrabold text-white px-8 py-3.5 transition-all hover:scale-[1.01] shadow-lg shadow-indigo-500/30 text-[15px] min-h-[48px]"
               >
                 {formState === "loading" ? "Sending..." : "Send enquiry"}
               </button>
@@ -388,7 +397,7 @@ function BenefitCard({
   desc: string;
 }) {
   return (
-    <div className="group rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
+    <div className="group rounded-2xl border border-white/[0.07] bg-white/[0.015] p-4 sm:p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all">
       <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 mb-4 group-hover:bg-indigo-500/15 transition-colors">
         {icon}
       </div>
@@ -409,7 +418,7 @@ function Step({
 }) {
   return (
     <div className="text-center">
-      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold text-[14px] mb-4 shadow-lg shadow-indigo-500/20">
+      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 text-white font-bold text-[14px] mb-4 shadow-lg shadow-indigo-500/30">
         {number}
       </div>
       <h3 className="text-white font-semibold text-[17px] mb-2">{title}</h3>

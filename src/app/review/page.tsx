@@ -3,6 +3,7 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTier } from "@/hooks/useTier";
+import { display } from "@/lib/displayFont";
 import {
   getAllReviews,
   getDueReviews,
@@ -30,6 +31,18 @@ function enrich(review: ReviewItem): EnrichedItem {
 }
 
 type Phase = "home" | "session" | "done";
+
+/* Shared Soar-style ambient ground — one radial glow, no blur blobs */
+function PageGlow() {
+  return (
+    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+      <div
+        className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+        style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+      />
+    </div>
+  );
+}
 
 export default function ReviewPage() {
   const { limits, loading: tierLoading } = useTier();
@@ -156,15 +169,13 @@ export default function ReviewPage() {
   if (!limits.spacedRepetition) {
     return (
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
-        </div>
+        <PageGlow />
 
         <div className="max-w-md mx-auto px-5 pt-8 sm:pt-14 pb-16 sm:pb-20">
           {/* Hero: forgetting-curve chart */}
-          <div className="relative mx-auto mb-6 w-full max-w-[280px]">
-            <div className="relative rounded-2xl bg-gradient-to-br from-indigo-500/[0.12] to-purple-500/[0.05] border border-indigo-500/20 p-4 pb-3">
-              <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-500 to-purple-500 px-2 py-0.5 rounded-md shadow-md">
+          <div className="home-rise relative mx-auto mb-6 w-full max-w-[280px]">
+            <div className="relative rounded-2xl bg-gradient-to-br from-indigo-500/[0.12] to-violet-500/[0.05] border border-indigo-500/20 p-4 pb-3">
+              <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-500 to-violet-500 px-2 py-0.5 rounded-md shadow-md">
                 Student
               </span>
 
@@ -231,10 +242,16 @@ export default function ReviewPage() {
             </div>
           </div>
 
-          <h1 className="text-[26px] sm:text-[30px] font-extrabold text-white tracking-tight text-center mb-3 leading-tight">
+          <h1
+            className={`${display.className} home-rise text-[26px] sm:text-[32px] font-bold text-white tracking-[-0.02em] text-center mb-3 leading-tight`}
+            style={{ animationDelay: "80ms", textWrap: "balance" }}
+          >
             Remember what you got wrong.
           </h1>
-          <p className="text-zinc-400 text-[14px] sm:text-[15px] text-center mb-7 leading-relaxed max-w-sm mx-auto">
+          <p
+            className="home-rise text-zinc-400 text-[14px] sm:text-[15px] text-center mb-7 leading-relaxed max-w-sm mx-auto"
+            style={{ animationDelay: "160ms" }}
+          >
             You forget <span className="text-white font-semibold">70% of what you learn within 24 hours</span>. Spaced review brings each question back right before you&apos;re about to forget — and locks it in for exam day.
           </p>
 
@@ -247,8 +264,8 @@ export default function ReviewPage() {
           </ul>
 
           {/* Price card */}
-          <div className="rounded-xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
-            <p className="text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
+          <div className="rounded-2xl bg-indigo-500/[0.08] border border-indigo-500/20 px-5 py-4 mb-5 text-center">
+            <p className="font-mono text-[11px] uppercase tracking-wider text-indigo-300 font-semibold mb-1">Student plan</p>
             <p className="text-white">
               <span className="text-[28px] font-extrabold tracking-tight">$15</span>
               <span className="text-zinc-400 text-[13px] ml-1">/month</span>
@@ -260,13 +277,13 @@ export default function ReviewPage() {
           <div className="flex flex-col gap-2.5">
             <Link
               href="/pricing"
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white font-semibold text-[14px] text-center transition-all shadow-lg shadow-indigo-500/20"
+              className="w-full py-3 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold text-[14px] text-center transition-all shadow-lg shadow-indigo-500/30"
             >
               Start remembering everything
             </Link>
             <Link
               href="/dashboard"
-              className="w-full py-3 rounded-lg text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
+              className="w-full py-3 rounded-full text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
             >
               Maybe later
             </Link>
@@ -283,16 +300,17 @@ export default function ReviewPage() {
 
     return (
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-        </div>
+        <PageGlow />
 
         <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
           <div className="mb-6 sm:mb-8">
-            <h1 className="text-[24px] sm:text-[32px] font-extrabold text-white tracking-tight mb-1">
+            <h1
+              className={`${display.className} home-rise text-[26px] sm:text-[36px] font-bold text-white tracking-[-0.02em] mb-1`}
+              style={{ textWrap: "balance" }}
+            >
               Review
             </h1>
-            <p className="text-zinc-500 text-[14px]">
+            <p className="home-rise text-zinc-500 text-[14px]" style={{ animationDelay: "80ms" }}>
               Questions you got wrong come back until you nail them.
             </p>
           </div>
@@ -301,9 +319,9 @@ export default function ReviewPage() {
           {dueCount > 0 ? (
             <button
               onClick={startSession}
-              className="w-full group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-purple-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all text-left"
+              className="w-full group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.12] to-violet-500/[0.06] border border-indigo-500/20 p-6 mb-6 hover:border-indigo-500/40 transition-all text-left"
             >
-              <div className="w-14 h-14 rounded-xl bg-indigo-500/20 flex items-center justify-center shrink-0">
+              <div className="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center shrink-0">
                 <span className="text-indigo-300 text-[22px] font-bold">{dueCount}</span>
               </div>
               <div className="flex-1 min-w-0">
@@ -317,7 +335,7 @@ export default function ReviewPage() {
               </svg>
             </button>
           ) : stats.total === 0 ? (
-            <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-8 text-center mb-6">
+            <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-8 text-center mb-6">
               <div className="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/20 mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
@@ -329,7 +347,7 @@ export default function ReviewPage() {
               </p>
               <Link
                 href="/subjects"
-                className="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-5 py-2.5 rounded-lg transition-all text-[13px]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold px-5 py-2.5 shadow-lg shadow-indigo-500/30 transition-all text-[13px]"
               >
                 Take an exam
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -355,8 +373,8 @@ export default function ReviewPage() {
 
           {/* Progress */}
           {stats.total > 0 && (
-            <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
-              <h2 className="text-white font-semibold text-[14px] mb-4">Your progress</h2>
+            <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5 mb-6">
+              <h2 className="font-mono text-[12px] uppercase tracking-wider text-zinc-500 font-semibold mb-4">Your progress</h2>
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex-1 bg-white/[0.06] rounded-full h-3 overflow-hidden flex">
                   {stats.mastered > 0 && (
@@ -399,19 +417,19 @@ export default function ReviewPage() {
 
           {/* How it works */}
           {stats.total === 0 && (
-            <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
-              <h2 className="text-white font-semibold text-[14px] mb-3">How it works</h2>
+            <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5">
+              <h2 className="font-mono text-[12px] uppercase tracking-wider text-zinc-500 font-semibold mb-3">How it works</h2>
               <div className="space-y-3 text-[13px] text-zinc-400">
                 <div className="flex gap-3">
-                  <div className="w-7 h-7 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</div>
+                  <span className="font-mono text-indigo-400 text-[12px] font-bold shrink-0 mt-0.5 w-6">01</span>
                   <p>Take a practice exam — wrong answers get added here automatically</p>
                 </div>
                 <div className="flex gap-3">
-                  <div className="w-7 h-7 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</div>
+                  <span className="font-mono text-indigo-400 text-[12px] font-bold shrink-0 mt-0.5 w-6">02</span>
                   <p>Come back and review what&apos;s due — try the question again</p>
                 </div>
                 <div className="flex gap-3">
-                  <div className="w-7 h-7 rounded-full bg-indigo-500/15 border border-indigo-500/25 text-indigo-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</div>
+                  <span className="font-mono text-indigo-400 text-[12px] font-bold shrink-0 mt-0.5 w-6">03</span>
                   <p>Get it right and it comes back later. Get it wrong and it comes back sooner. Until you master it.</p>
                 </div>
               </div>
@@ -435,9 +453,7 @@ export default function ReviewPage() {
 
     return (
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-        </div>
+        <PageGlow />
 
         <div className="max-w-xl mx-auto px-5 pt-6 pb-20">
           {/* Top bar */}
@@ -448,7 +464,7 @@ export default function ReviewPage() {
             >
               Exit
             </button>
-            <span className="text-[13px] text-zinc-400 font-medium">
+            <span className="font-mono text-[12px] text-zinc-400 font-medium tabular-nums">
               {index + 1} / {sessionItems.length}
             </span>
             <div className="w-10" /> {/* spacer */}
@@ -457,7 +473,7 @@ export default function ReviewPage() {
           {/* Progress bar */}
           <div className="w-full h-1.5 bg-white/[0.06] rounded-full overflow-hidden mb-8">
             <div
-              className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-500 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -475,7 +491,7 @@ export default function ReviewPage() {
           </div>
 
           {/* Question */}
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-5">
+          <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5 mb-5">
             {question?.image && (
               <div className="rounded-xl overflow-hidden border border-white/[0.06] bg-white p-2 mb-4">
                 <img
@@ -502,7 +518,7 @@ export default function ReviewPage() {
               />
               <button
                 onClick={() => setRevealed(true)}
-                className="w-full py-3.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-[14px] transition-all"
+                className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold text-[14px] shadow-lg shadow-indigo-500/30 transition-all"
               >
                 Show answer
               </button>
@@ -514,21 +530,21 @@ export default function ReviewPage() {
             <>
               {/* Student's answer */}
               {answer.trim() && (
-                <div className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-4 mb-3">
-                  <p className="text-zinc-600 text-[11px] uppercase tracking-wider font-medium mb-1.5">You wrote</p>
+                <div className="rounded-xl bg-white/[0.015] border border-white/[0.07] p-4 mb-3">
+                  <p className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-1.5">You wrote</p>
                   <p className="text-zinc-300 text-[13px] whitespace-pre-wrap">{answer}</p>
                 </div>
               )}
 
               {/* Correct answer */}
               <div className="rounded-xl bg-emerald-500/[0.06] border border-emerald-500/20 p-4 mb-3">
-                <p className="text-emerald-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">Correct answer</p>
+                <p className="font-mono text-emerald-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">Correct answer</p>
                 <p className="text-white text-[14px] whitespace-pre-wrap leading-relaxed">{correctAnswer}</p>
               </div>
 
               {/* Marking guide */}
               {markingGuide && (
-                <details className="rounded-xl bg-white/[0.02] border border-white/[0.06] mb-5">
+                <details className="rounded-xl bg-white/[0.015] border border-white/[0.07] mb-5">
                   <summary className="px-4 py-3 text-zinc-500 text-[12px] font-medium cursor-pointer hover:text-zinc-300 transition-colors">
                     Marking guide
                   </summary>
@@ -543,21 +559,21 @@ export default function ReviewPage() {
               <div className="grid grid-cols-3 gap-2">
                 <button
                   onClick={() => handleGrade(0)}
-                  className="py-4 rounded-xl bg-red-500/[0.08] border border-red-500/20 hover:bg-red-500/[0.15] transition-all text-center min-h-[60px]"
+                  className="py-4 rounded-2xl bg-red-500/[0.08] border border-red-500/20 hover:bg-red-500/[0.15] transition-all text-center min-h-[60px]"
                 >
                   <span className="text-red-400 text-[14px] font-semibold block">Wrong</span>
                   <span className="text-red-400/50 text-[11px] block mt-0.5">See it again soon</span>
                 </button>
                 <button
                   onClick={() => handleGrade(3)}
-                  className="py-4 rounded-xl bg-amber-500/[0.08] border border-amber-500/20 hover:bg-amber-500/[0.15] transition-all text-center min-h-[60px]"
+                  className="py-4 rounded-2xl bg-amber-500/[0.08] border border-amber-500/20 hover:bg-amber-500/[0.15] transition-all text-center min-h-[60px]"
                 >
                   <span className="text-amber-400 text-[14px] font-semibold block">Close</span>
                   <span className="text-amber-400/50 text-[11px] block mt-0.5">Almost had it</span>
                 </button>
                 <button
                   onClick={() => handleGrade(5)}
-                  className="py-4 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 hover:bg-emerald-500/[0.15] transition-all text-center min-h-[60px]"
+                  className="py-4 rounded-2xl bg-emerald-500/[0.08] border border-emerald-500/20 hover:bg-emerald-500/[0.15] transition-all text-center min-h-[60px]"
                 >
                   <span className="text-emerald-400 text-[14px] font-semibold block">Nailed it</span>
                   <span className="text-emerald-400/50 text-[11px] block mt-0.5">See it later</span>
@@ -575,24 +591,25 @@ export default function ReviewPage() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-      </div>
+      <PageGlow />
 
       <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-16 pb-16 sm:pb-20 text-center">
         {/* Celebration */}
-        <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
+        <div className="home-rise w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
           <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
 
-        <h1 className="text-[24px] sm:text-[28px] font-extrabold text-white tracking-tight mb-2">
+        <h1
+          className={`${display.className} home-rise text-[26px] sm:text-[32px] font-bold text-white tracking-[-0.02em] mb-2`}
+          style={{ animationDelay: "80ms", textWrap: "balance" }}
+        >
           {results.right === totalDone ? "Perfect session!" :
            results.right >= totalDone * 0.7 ? "Great session!" :
            "Session complete"}
         </h1>
-        <p className="text-zinc-500 text-[14px] mb-8">
+        <p className="home-rise text-zinc-500 text-[14px] mb-8" style={{ animationDelay: "160ms" }}>
           You reviewed {totalDone} {totalDone === 1 ? "question" : "questions"}
         </p>
 
@@ -600,17 +617,17 @@ export default function ReviewPage() {
         <div className="flex items-center justify-center gap-6 mb-8">
           <div className="text-center">
             <div className="text-[28px] font-bold text-emerald-400">{results.right}</div>
-            <div className="text-zinc-600 text-[11px] uppercase tracking-wider mt-0.5">Nailed it</div>
+            <div className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">Nailed it</div>
           </div>
           <div className="w-px h-10 bg-white/[0.06]" />
           <div className="text-center">
             <div className="text-[28px] font-bold text-amber-400">{results.partial}</div>
-            <div className="text-zinc-600 text-[11px] uppercase tracking-wider mt-0.5">Close</div>
+            <div className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">Close</div>
           </div>
           <div className="w-px h-10 bg-white/[0.06]" />
           <div className="text-center">
             <div className="text-[28px] font-bold text-red-400">{results.wrong}</div>
-            <div className="text-zinc-600 text-[11px] uppercase tracking-wider mt-0.5">Wrong</div>
+            <div className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">Wrong</div>
           </div>
         </div>
 
@@ -629,14 +646,14 @@ export default function ReviewPage() {
           {dueItems.length > 0 ? (
             <button
               onClick={startSession}
-              className="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold px-6 py-3 shadow-lg shadow-indigo-500/30 transition-all text-[14px]"
             >
               Keep going ({dueItems.length} left)
             </button>
           ) : (
             <Link
               href="/subjects"
-              className="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all text-[14px]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold px-6 py-3 shadow-lg shadow-indigo-500/30 transition-all text-[14px]"
             >
               Take another exam
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -646,7 +663,7 @@ export default function ReviewPage() {
           )}
           <Link
             href="/dashboard"
-            className="inline-flex items-center justify-center bg-white/[0.06] hover:bg-white/[0.12] text-white font-medium px-6 py-3 rounded-lg border border-white/[0.1] transition-all text-[14px]"
+            className="inline-flex items-center justify-center rounded-full text-white font-semibold px-6 py-3 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[14px]"
           >
             Dashboard
           </Link>

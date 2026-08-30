@@ -3,6 +3,7 @@
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { display } from "@/lib/displayFont";
 
 interface ReferralStats {
   referralsCount: number;
@@ -89,15 +90,17 @@ export default function ReferPage() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-        <div className="absolute top-[300px] right-0 w-[400px] h-[400px] bg-fuchsia-500/[0.06] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+        />
       </div>
 
       <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         <Link
           href="/profile"
-          className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 text-[13px] mb-8 transition-colors"
+          className="home-rise inline-flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 text-[13px] mb-8 transition-colors"
         >
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -105,10 +108,13 @@ export default function ReferPage() {
           Profile
         </Link>
 
-        <h1 className="text-[28px] sm:text-[40px] font-extrabold text-white tracking-tight mb-2">
+        <h1
+          className={`${display.className} home-rise text-[30px] sm:text-[44px] font-bold text-white tracking-[-0.02em] mb-2`}
+          style={{ animationDelay: "80ms", textWrap: "balance" }}
+        >
           Earn free Student
         </h1>
-        <p className="text-zinc-400 text-[15px] mb-8 sm:mb-10 leading-relaxed">
+        <p className="home-rise text-zinc-400 text-[15px] mb-8 sm:mb-10 leading-relaxed" style={{ animationDelay: "160ms" }}>
           Every friend who signs up <span className="text-white font-semibold">and takes their first exam</span> unlocks{" "}
           <span className="text-white font-semibold">14 days of Student</span> for you. Stacks for every friend. They get{" "}
           <span className="text-white font-semibold">5 bonus exams</span> on the house.
@@ -117,11 +123,11 @@ export default function ReferPage() {
         {stats && (
           <div className="grid grid-cols-2 gap-3 mb-3">
             <div className="rounded-2xl bg-gradient-to-br from-indigo-500/[0.08] to-indigo-500/[0.02] border border-indigo-500/15 p-4 sm:p-5">
-              <p className="text-[11px] text-indigo-400 uppercase tracking-[0.18em] font-bold mb-2">Friends counted</p>
+              <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider mb-2">Friends counted</p>
               <p className="text-[32px] sm:text-[40px] font-extrabold text-white leading-none">{referralsCount}</p>
             </div>
-            <div className="rounded-2xl bg-gradient-to-br from-fuchsia-500/[0.08] to-fuchsia-500/[0.02] border border-fuchsia-500/15 p-4 sm:p-5">
-              <p className="text-[11px] text-fuchsia-400 uppercase tracking-[0.18em] font-bold mb-2">Student days</p>
+            <div className="rounded-2xl bg-gradient-to-br from-violet-500/[0.08] to-violet-500/[0.02] border border-violet-500/15 p-4 sm:p-5">
+              <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider mb-2">Student days</p>
               <p className="text-[32px] sm:text-[40px] font-extrabold text-white leading-none">{studentDaysLeft}</p>
             </div>
           </div>
@@ -141,8 +147,8 @@ export default function ReferPage() {
         )}
 
         {/* Referral link card */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
-          <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
+        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
+          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             Your referral link
           </h2>
 
@@ -153,7 +159,7 @@ export default function ReferPage() {
           <div className="flex gap-3">
             <button
               onClick={handleCopy}
-              className="flex-1 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 hover:opacity-95 text-white text-[14px] font-bold transition-opacity min-h-[48px] shadow-lg shadow-indigo-500/20"
+              className="flex-1 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 text-white text-[14px] font-extrabold transition-opacity min-h-[48px] shadow-lg shadow-indigo-500/30"
             >
               {copied ? "Copied!" : "Copy link"}
             </button>
@@ -161,7 +167,7 @@ export default function ReferPage() {
             {canShare && (
               <button
                 onClick={handleShare}
-                className="flex-1 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] text-zinc-300 text-[14px] font-semibold transition-colors min-h-[48px]"
+                className="flex-1 py-3 rounded-full border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] text-zinc-300 text-[14px] font-semibold transition-colors min-h-[48px]"
               >
                 Share
               </button>
@@ -169,8 +175,8 @@ export default function ReferPage() {
           </div>
         </section>
 
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6">
-          <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
+        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6">
+          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             How it works
           </h2>
           <div className="space-y-4">

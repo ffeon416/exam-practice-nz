@@ -115,7 +115,7 @@ export default function Navbar() {
               {showUpgrade && (
                 <Link
                   href="/pricing"
-                  className="text-[12px] font-semibold text-indigo-200 bg-gradient-to-r from-indigo-500/15 to-purple-500/15 hover:from-indigo-500/25 hover:to-purple-500/25 border border-indigo-500/30 px-3 py-1.5 rounded-full transition-all"
+                  className="text-[12px] font-semibold text-indigo-200 bg-gradient-to-r from-indigo-500/15 to-violet-500/15 hover:from-indigo-500/25 hover:to-violet-500/25 border border-indigo-500/30 px-3 py-1.5 rounded-full transition-all"
                 >
                   Upgrade
                 </Link>
@@ -145,7 +145,7 @@ export default function Navbar() {
                   </Link>
                   <Link
                     href="/sign-up"
-                    className="text-[14px] font-medium text-white bg-indigo-500 hover:bg-indigo-400 transition-colors px-4 py-2 rounded-md"
+                    className="text-[14px] font-semibold text-white bg-indigo-500 hover:bg-indigo-400 transition-colors px-5 py-2 rounded-full"
                   >
                     Sign up
                   </Link>
@@ -233,7 +233,7 @@ export default function Navbar() {
               <div className="px-5 pb-4">
                 <Link
                   href="/pricing"
-                  className="block w-full text-center py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold text-[14px] hover:from-indigo-400 hover:to-purple-400 transition-all"
+                  className="block w-full text-center py-3 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-semibold text-[14px] hover:from-indigo-400 hover:to-violet-500 transition-all"
                 >
                   Upgrade to unlock everything
                 </Link>
@@ -244,13 +244,13 @@ export default function Navbar() {
               <div className="px-5 py-4 border-t border-white/[0.06] flex flex-col gap-2">
                 <Link
                   href="/sign-up"
-                  className="block w-full text-center py-3 rounded-lg bg-indigo-500 text-white font-medium text-[14px] hover:bg-indigo-400 transition-colors"
+                  className="block w-full text-center py-3 rounded-full bg-indigo-500 text-white font-medium text-[14px] hover:bg-indigo-400 transition-colors"
                 >
                   Sign up free
                 </Link>
                 <Link
                   href="/sign-in"
-                  className="block w-full text-center py-3 rounded-lg border border-white/[0.08] text-zinc-300 font-medium text-[14px] hover:bg-white/[0.04] transition-colors"
+                  className="block w-full text-center py-3 rounded-full border border-white/[0.12] text-zinc-300 font-medium text-[14px] hover:bg-white/[0.04] transition-colors"
                 >
                   Sign in
                 </Link>

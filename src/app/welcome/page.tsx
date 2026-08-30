@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
+import { display } from "@/lib/displayFont";
 import { loadOnboarding, saveOnboarding } from "@/lib/onboarding";
 
 const YEAR_LEVELS = [
@@ -147,9 +148,11 @@ export default function WelcomePage() {
 
   return (
     <div className="relative overflow-hidden bg-[#06060a] min-h-screen">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-        <div className="absolute top-[200px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+        />
       </div>
 
       <div className="max-w-lg mx-auto px-5 pt-10 sm:pt-16 pb-16">
@@ -162,10 +165,13 @@ export default function WelcomePage() {
 
         {step === 1 && (
           <>
-            <h1 className="text-[28px] sm:text-[36px] font-extrabold text-white tracking-tight text-center mb-2">
+            <h1
+              className={`${display.className} home-rise text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.02em] text-center mb-2`}
+              style={{ textWrap: "balance" }}
+            >
               {firstName ? `Welcome, ${firstName}` : "Welcome to StudyAce"}
             </h1>
-            <p className="text-zinc-400 text-center text-[15px] mb-10">
+            <p className="home-rise text-zinc-400 text-center text-[15px] mb-10" style={{ animationDelay: "80ms" }}>
               Let&apos;s set you up. What year are you in?
             </p>
 
@@ -174,9 +180,9 @@ export default function WelcomePage() {
                 <button
                   key={yl.value}
                   onClick={() => setYearLevel(yl.value)}
-                  className={`flex items-center justify-between px-5 py-4 rounded-xl text-left transition-colors border ${
+                  className={`flex items-center justify-between px-5 py-4 rounded-2xl text-left transition-colors border ${
                     yearLevel === yl.value
-                      ? "bg-gradient-to-r from-indigo-500/20 to-purple-500/10 border-indigo-500/50 shadow-lg shadow-indigo-500/10"
+                      ? "bg-gradient-to-r from-indigo-500/20 to-violet-500/10 border-indigo-500/50 shadow-lg shadow-indigo-500/10"
                       : "bg-white/[0.02] border-white/[0.08] hover:border-white/[0.2] hover:bg-white/[0.04]"
                   }`}
                 >
@@ -200,9 +206,9 @@ export default function WelcomePage() {
             <button
               onClick={() => yearLevel && setStep(2)}
               disabled={yearLevel === null}
-              className={`w-full py-4 rounded-xl text-[16px] font-bold transition-all ${
+              className={`w-full py-4 rounded-full text-[16px] font-extrabold transition-all ${
                 yearLevel !== null
-                  ? "bg-white text-[#06060a] hover:bg-zinc-100 hover:scale-[1.01] shadow-2xl shadow-white/10"
+                  ? "bg-gradient-to-r from-indigo-500 to-violet-600 text-white hover:scale-[1.01] shadow-lg shadow-indigo-500/30"
                   : "bg-white/[0.04] text-zinc-600 cursor-not-allowed"
               }`}
             >
@@ -213,7 +219,10 @@ export default function WelcomePage() {
 
         {step === 2 && yearLevel && (
           <>
-            <h1 className="text-[28px] sm:text-[36px] font-extrabold text-white tracking-tight text-center mb-2">
+            <h1
+              className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.02em] text-center mb-2`}
+              style={{ textWrap: "balance" }}
+            >
               Pick your subjects
             </h1>
             <p className="text-zinc-400 text-center text-[15px] mb-8">
@@ -230,9 +239,9 @@ export default function WelcomePage() {
                   <button
                     key={s.value}
                     onClick={() => toggleSubject(s.value)}
-                    className={`min-h-[52px] px-4 py-3 rounded-lg text-[13px] font-medium text-left transition-colors border ${
+                    className={`min-h-[52px] px-4 py-3 rounded-2xl text-[13px] font-medium text-left transition-colors border ${
                       picked
-                        ? "bg-gradient-to-r from-indigo-500/25 to-purple-500/15 border-indigo-500/50 text-white shadow-lg shadow-indigo-500/10"
+                        ? "bg-gradient-to-r from-indigo-500/25 to-violet-500/15 border-indigo-500/50 text-white shadow-lg shadow-indigo-500/10"
                         : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
                     }`}
                   >
@@ -258,16 +267,16 @@ export default function WelcomePage() {
             <div className="grid grid-cols-2 gap-3 mb-4">
               <button
                 onClick={() => setStep(1)}
-                className="py-4 rounded-xl text-[15px] font-medium text-zinc-300 bg-white/[0.04] hover:bg-white/[0.08] transition-colors"
+                className="py-4 rounded-full text-[15px] font-semibold text-zinc-300 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-colors"
               >
                 &larr; Back
               </button>
               <button
                 onClick={() => subjects.length > 0 && setStep(3)}
                 disabled={subjects.length === 0}
-                className={`py-4 rounded-xl text-[16px] font-bold transition-all ${
+                className={`py-4 rounded-full text-[16px] font-extrabold transition-all ${
                   subjects.length > 0
-                    ? "bg-white text-[#06060a] hover:bg-zinc-100 hover:scale-[1.01] shadow-2xl shadow-white/10"
+                    ? "bg-gradient-to-r from-indigo-500 to-violet-600 text-white hover:scale-[1.01] shadow-lg shadow-indigo-500/30"
                     : "bg-white/[0.04] text-zinc-600 cursor-not-allowed"
                 }`}
               >
@@ -279,7 +288,10 @@ export default function WelcomePage() {
 
         {step === 3 && (
           <>
-            <h1 className="text-[28px] sm:text-[36px] font-extrabold text-white tracking-tight text-center mb-2">
+            <h1
+              className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.02em] text-center mb-2`}
+              style={{ textWrap: "balance" }}
+            >
               One last thing
             </h1>
             <p className="text-zinc-400 text-center text-[15px] mb-8">
@@ -291,7 +303,7 @@ export default function WelcomePage() {
                 <button
                   key={s.value}
                   onClick={() => complete(s.value)}
-                  className="min-h-[52px] px-4 py-3 rounded-lg text-[14px] font-medium text-zinc-200 bg-white/[0.02] border border-white/[0.08] hover:border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-500/20 hover:to-purple-500/10 hover:text-white transition-all active:scale-[0.98]"
+                  className="min-h-[52px] px-4 py-3 rounded-2xl text-[14px] font-medium text-zinc-200 bg-white/[0.02] border border-white/[0.08] hover:border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-500/20 hover:to-violet-500/10 hover:text-white transition-all active:scale-[0.98]"
                 >
                   {s.label}
                 </button>
@@ -301,13 +313,13 @@ export default function WelcomePage() {
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => setStep(2)}
-                className="py-4 rounded-xl text-[15px] font-medium text-zinc-300 bg-white/[0.04] hover:bg-white/[0.08] transition-colors"
+                className="py-4 rounded-full text-[15px] font-semibold text-zinc-300 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-colors"
               >
                 &larr; Back
               </button>
               <button
                 onClick={() => complete(null)}
-                className="py-4 rounded-xl text-[15px] font-medium text-zinc-400 bg-white/[0.04] hover:bg-white/[0.08] transition-colors"
+                className="py-4 rounded-full text-[15px] font-semibold text-zinc-400 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-colors"
               >
                 Skip &rarr;
               </button>

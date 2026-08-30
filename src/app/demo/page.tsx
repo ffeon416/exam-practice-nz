@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
+import { display } from "@/lib/displayFont";
 import { demoQuestions } from "@/data/demoQuestions";
 import { questionMaxMarks } from "@/lib/scoring";
 import type { MarkingResult } from "@/lib/types";
@@ -154,41 +155,31 @@ export default function DemoPage() {
   if (step === "intro") {
     return (
       <div className="relative overflow-hidden bg-[#06060a] isolate">
-        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-grid-faint animate-grid-shift mask-radial-fade" />
-          <div
-            className="absolute top-[40%] left-1/2 w-[1200px] h-[1200px] animate-aurora"
-            style={{
-              background:
-                "conic-gradient(from 90deg, transparent 0%, rgba(99,102,241,0.5) 20%, transparent 40%, rgba(236,72,153,0.45) 60%, transparent 80%, rgba(168,85,247,0.4) 95%, transparent 100%)",
-              filter: "blur(80px)",
-            }}
-          />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/40 blur-[120px] rounded-full animate-blob-a" />
-          <div className="absolute top-[500px] right-0 w-[500px] h-[500px] bg-purple-500/30 blur-[120px] rounded-full animate-blob-b" />
-          <div className="absolute top-[300px] -left-20 w-[400px] h-[400px] bg-pink-500/25 blur-[100px] rounded-full animate-blob-c" />
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+          <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+            style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
         </div>
 
         <section className="max-w-5xl mx-auto px-5 pt-12 sm:pt-20 pb-16 sm:pb-24">
           {/* Hero */}
           <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-            <h1 className="text-[34px] sm:text-[56px] md:text-[64px] font-extrabold text-white tracking-tight leading-[1.05] mb-6">
+            <h1 className={`${display.className} home-rise text-[34px] sm:text-[56px] md:text-[64px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6`}
+              style={{ textWrap: "balance" }}>
               See how we mark
               <br />
-              <span className="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
                 your answers
-              </span>
+              </em>
             </h1>
 
-            <p className="text-zinc-300 text-[16px] sm:text-[19px] leading-relaxed max-w-xl mx-auto mb-10">
+            <p className="home-rise text-zinc-400 text-[16px] sm:text-[19px] leading-relaxed max-w-xl mx-auto mb-10" style={{ animationDelay: "80ms" }}>
               Answer 3 real NCEA questions. Get instant marks, feedback, and exam tips &mdash; no account needed.
             </p>
 
-            <div className="relative inline-block mb-8">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-60 blur-lg animate-pulse" />
+            <div className="home-rise relative inline-block mb-8" style={{ animationDelay: "160ms" }}>
               <button
                 onClick={() => setStep("answering")}
-                className="relative group bg-white text-[#06060a] font-bold px-12 py-5 rounded-xl transition-all hover:scale-[1.03] active:scale-[0.99] shadow-2xl shadow-white/20 text-[17px] inline-flex items-center justify-center gap-2"
+                className="relative group bg-white text-[#0a0a0f] font-bold px-12 py-5 rounded-full transition-all hover:scale-[1.02] active:scale-[0.99] shadow-2xl shadow-indigo-500/20 text-[17px] inline-flex items-center justify-center gap-2"
               >
                 Start Demo
                 <svg
@@ -207,7 +198,7 @@ export default function DemoPage() {
               </button>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <div className="home-rise flex flex-wrap items-center justify-center gap-2 sm:gap-3" style={{ animationDelay: "240ms" }}>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-[13px] text-zinc-200">
                 <svg className="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -232,14 +223,14 @@ export default function DemoPage() {
           {/* Preview card */}
           <div className="mb-16 sm:mb-24">
             <div className="text-center mb-6 sm:mb-8">
-              <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2">Preview</p>
-              <h2 className="text-white font-bold text-[22px] sm:text-[28px] tracking-tight">
+              <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider font-semibold mb-2">Preview</p>
+              <h2 className={`${display.className} text-white font-bold text-[22px] sm:text-[28px] tracking-[-0.02em]`} style={{ textWrap: "balance" }}>
                 Here&rsquo;s what you&rsquo;ll get
               </h2>
             </div>
 
             <div className="relative max-w-xl mx-auto">
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-indigo-500/25 via-purple-500/15 to-transparent blur-xl" />
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-indigo-500/25 via-violet-500/15 to-transparent blur-xl" />
               <div className="relative rounded-2xl bg-[#0c0c12] border border-white/[0.1] overflow-hidden shadow-2xl shadow-black/50">
                 <div className="px-5 sm:px-6 py-4 border-b border-white/[0.06] flex items-start justify-between gap-4">
                   <div className="min-w-0">
@@ -257,13 +248,13 @@ export default function DemoPage() {
                 </div>
                 <div className="px-5 sm:px-6 py-4 space-y-4">
                   <div>
-                    <p className="text-[11px] text-zinc-500 font-semibold mb-1.5 uppercase tracking-wider">Feedback</p>
+                    <p className="font-mono text-[11px] text-zinc-500 font-semibold mb-1.5 uppercase tracking-wider">Feedback</p>
                     <p className="text-zinc-200 text-[13px] leading-relaxed">
                       Great answer! You&rsquo;ve correctly described photosynthesis and explained why it matters.
                     </p>
                   </div>
                   <div className="rounded-lg bg-indigo-500/[0.1] border border-indigo-500/25 px-4 py-3">
-                    <p className="text-[11px] text-indigo-300 font-semibold mb-1 uppercase tracking-wider">Exam tip</p>
+                    <p className="font-mono text-[11px] text-indigo-300 font-semibold mb-1 uppercase tracking-wider">Exam tip</p>
                     <p className="text-zinc-200 text-[13px] leading-relaxed">
                       Always include the equation when explaining photosynthesis &mdash; it&rsquo;s an easy mark.
                     </p>
@@ -276,8 +267,8 @@ export default function DemoPage() {
           {/* How it works */}
           <div>
             <div className="text-center mb-8 sm:mb-10">
-              <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2">How it works</p>
-              <h2 className="text-white font-bold text-[22px] sm:text-[28px] tracking-tight">
+              <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider font-semibold mb-2">How it works</p>
+              <h2 className={`${display.className} text-white font-bold text-[22px] sm:text-[28px] tracking-[-0.02em]`} style={{ textWrap: "balance" }}>
                 Three simple steps
               </h2>
             </div>
@@ -288,9 +279,9 @@ export default function DemoPage() {
                 { n: "02", t: "Get marked", d: "Instant marks, a grade, and detailed feedback in seconds." },
                 { n: "03", t: "Learn", d: "See the correct approach and a tip to nail it in the exam." },
               ].map((s) => (
-                <div key={s.n} className="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6 hover:bg-white/[0.05] hover:border-white/[0.12] transition-colors">
-                  <div className="text-[11px] text-indigo-400 font-bold tracking-wider mb-3">{s.n}</div>
-                  <h3 className="text-white font-semibold text-[16px] mb-2">{s.t}</h3>
+                <div key={s.n} className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5 sm:p-6 hover:bg-white/[0.04] hover:border-white/[0.12] transition-colors">
+                  <div className="font-mono text-[12px] text-indigo-400 font-bold tracking-wider mb-3">{s.n}</div>
+                  <h3 className={`${display.className} text-white font-bold text-[17px] tracking-[-0.01em] mb-2`}>{s.t}</h3>
                   <p className="text-zinc-400 text-[13px] leading-relaxed">{s.d}</p>
                 </div>
               ))}
@@ -314,10 +305,10 @@ export default function DemoPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <div>
-            <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-1">
+            <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider font-semibold mb-1">
               {levelLabels[currentQ]} {subjectLabels[currentQ]}
             </p>
-            <h2 className="text-white font-extrabold text-[20px] sm:text-[24px]">
+            <h2 className={`${display.className} text-white font-bold text-[20px] sm:text-[24px] tracking-[-0.02em]`}>
               Question {currentQ + 1} of 3
             </h2>
           </div>
@@ -336,7 +327,7 @@ export default function DemoPage() {
         </div>
 
         {/* Question card */}
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4 sm:p-7 mb-4 sm:mb-6">
+        <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-4 sm:p-7 mb-4 sm:mb-6">
           {showPassage && passage ? (
             <>
               <p className="text-zinc-300 text-[14px] sm:text-[15px] leading-relaxed mb-4">
@@ -437,10 +428,10 @@ export default function DemoPage() {
           <button
             onClick={handleNext}
             disabled={isLastQ ? !allAnswered : !currentHasAnswer}
-            className={`font-semibold text-[14px] px-5 py-2.5 rounded-lg transition-all inline-flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed ${
+            className={`font-semibold text-[14px] px-5 py-2.5 min-h-[44px] rounded-full transition-all inline-flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed ${
               isLastQ
-                ? "bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/20"
-                : "bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1]"
+                ? "bg-gradient-to-r from-indigo-500 to-violet-600 text-white shadow-lg shadow-indigo-500/30"
+                : "text-white border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04]"
             }`}
           >
             {isLastQ ? "Submit for marking" : "Next question"}
@@ -487,7 +478,7 @@ export default function DemoPage() {
           </div>
         </div>
 
-        <h2 className="text-white font-extrabold text-[22px] sm:text-[26px] mb-2">
+        <h2 className={`${display.className} text-white font-bold text-[22px] sm:text-[26px] tracking-[-0.02em] mb-2`}>
           Marking your answers&hellip;
         </h2>
         <p className="text-zinc-400 text-[14px] mb-10">
@@ -499,10 +490,10 @@ export default function DemoPage() {
           {["Science", "Maths", "English"].map((label, i) => (
             <div
               key={label}
-              className={`rounded-xl border px-3 sm:px-4 py-3 w-24 sm:w-28 transition-all duration-500 ${
+              className={`rounded-2xl border px-3 sm:px-4 py-3 w-24 sm:w-28 transition-all duration-500 ${
                 markingDone[i]
                   ? "bg-emerald-500/10 border-emerald-500/30"
-                  : "bg-white/[0.02] border-white/[0.08]"
+                  : "bg-white/[0.015] border-white/[0.07]"
               }`}
             >
               <div className="flex items-center justify-center h-6 mb-1.5">
@@ -541,10 +532,10 @@ export default function DemoPage() {
       <div className="max-w-3xl mx-auto px-5 pt-4 sm:pt-12 pb-16 sm:pb-24">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10">
-          <p className="text-[11px] text-indigo-400 uppercase tracking-wider font-semibold mb-2">
+          <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider font-semibold mb-2">
             Demo Results
           </p>
-          <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-3">
+          <h1 className={`${display.className} text-[24px] sm:text-[36px] font-bold text-white tracking-[-0.02em] mb-3`} style={{ textWrap: "balance" }}>
             Your results are in
           </h1>
           <p className="text-zinc-400 text-[15px]">
@@ -565,7 +556,7 @@ export default function DemoPage() {
             return (
               <div
                 key={result.questionId}
-                className="rounded-2xl bg-white/[0.02] border border-white/[0.08] overflow-hidden"
+                className="rounded-2xl bg-white/[0.015] border border-white/[0.07] overflow-hidden"
               >
                 {/* Card header */}
                 <div className="px-5 sm:px-6 py-4 flex items-start justify-between gap-4">
@@ -637,7 +628,7 @@ export default function DemoPage() {
 
                   {/* Feedback */}
                   <div>
-                    <p className="text-[12px] text-zinc-500 font-medium mb-1.5">
+                    <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider font-medium mb-1.5">
                       Feedback
                     </p>
                     <Markdown text={result.feedback} className="text-zinc-300 text-[13px] leading-relaxed" compact />
@@ -645,7 +636,7 @@ export default function DemoPage() {
 
                   {/* Correct approach */}
                   <div>
-                    <p className="text-[12px] text-zinc-500 font-medium mb-1.5">
+                    <p className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider font-medium mb-1.5">
                       Correct approach
                     </p>
                     <p className="text-zinc-400 text-[13px] leading-relaxed">
@@ -655,7 +646,7 @@ export default function DemoPage() {
 
                   {/* Exam tip */}
                   <div className="rounded-lg bg-indigo-500/[0.06] border border-indigo-500/20 px-4 py-3">
-                    <p className="text-[12px] text-indigo-400 font-medium mb-1">
+                    <p className="font-mono text-[11px] text-indigo-400 uppercase tracking-wider font-medium mb-1">
                       Exam tip
                     </p>
                     <p className="text-zinc-300 text-[13px] leading-relaxed">
@@ -669,11 +660,12 @@ export default function DemoPage() {
         </div>
 
         {/* CTA section */}
-        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-5 sm:p-12 text-center relative overflow-hidden">
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
+        <div className="rounded-[32px] bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent border border-white/[0.07] p-5 sm:p-12 text-center relative overflow-hidden">
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full" aria-hidden
+            style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
 
           <div className="relative">
-            <h2 className="text-[22px] sm:text-[32px] font-extrabold text-white tracking-tight mb-3">
+            <h2 className={`${display.className} text-[22px] sm:text-[32px] font-bold text-white tracking-[-0.02em] mb-3`} style={{ textWrap: "balance" }}>
               Like what you see?
             </h2>
             <p className="text-zinc-400 text-[14px] sm:text-[15px] mb-8 max-w-md mx-auto">
@@ -682,7 +674,7 @@ export default function DemoPage() {
             </p>
             <Link
               href="/sign-up"
-              className="group inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20 text-[15px] mb-4"
+              className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-extrabold px-8 py-3.5 rounded-full transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/30 text-[15px] mb-4"
             >
               Sign up free
               <svg

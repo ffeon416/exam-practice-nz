@@ -3,6 +3,7 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { display } from "@/lib/displayFont";
 import type { Exam, Question, GraphData } from "@/lib/types";
 import { saveCustomExam, generateCustomExamId } from "@/lib/customExams";
 import { useTier, isUnlimited } from "@/hooks/useTier";
@@ -410,24 +411,24 @@ export default function SubjectsPage() {
       : "your paper";
     return (
       <div className="relative bg-[#06060a] min-h-screen overflow-hidden flex items-center justify-center px-5">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-indigo-500/[0.12] blur-[140px] rounded-full animate-pulse" />
-          <div className="absolute top-1/2 right-0 w-[500px] h-[400px] bg-fuchsia-500/[0.10] blur-[140px] rounded-full" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-amber-500/[0.07] blur-[140px] rounded-full" />
+        {/* Single radial glow — no blur filters (see perf notes below). */}
+        <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
+          <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+            style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
         </div>
 
         <div className="text-center max-w-md mx-auto -mt-12">
           {/* Subject pill */}
-          <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500 font-bold mb-6">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 font-bold mb-6">
             {yearLevel ? `Year ${yearLevel}` : ""} {yearLevel && subject ? "·" : ""} {subjectLabel}
           </p>
 
           {/* Animated icon stack */}
           <div className="relative inline-flex items-center justify-center w-24 h-24 mb-10">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 opacity-30 blur-xl animate-pulse" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 opacity-30 blur-xl animate-pulse" />
             <div className="absolute inset-2 rounded-full border-2 border-indigo-500/30 animate-ping" />
-            <div className="absolute inset-4 rounded-full border-2 border-fuchsia-500/40" style={{ animation: "spin 3s linear infinite" }} />
-            <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-amber-400 flex items-center justify-center shadow-2xl shadow-fuchsia-500/40">
+            <div className="absolute inset-4 rounded-full border-2 border-violet-500/40" style={{ animation: "spin 3s linear infinite" }} />
+            <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-2xl shadow-indigo-500/40">
               <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -435,7 +436,8 @@ export default function SubjectsPage() {
           </div>
 
           {/* Hype headline */}
-          <h1 className="text-[40px] sm:text-[56px] font-extrabold tracking-tight leading-[1.05] mb-4 bg-gradient-to-br from-white via-white to-zinc-400 bg-clip-text text-transparent">
+          <h1 className={`${display.className} text-[40px] sm:text-[56px] font-bold tracking-[-0.02em] leading-[1.05] mb-4 bg-gradient-to-br from-white via-white to-zinc-400 bg-clip-text text-transparent`}
+            style={{ textWrap: "balance" }}>
             {HYPE_LINES[hypeIdx]}
           </h1>
 
@@ -453,7 +455,7 @@ export default function SubjectsPage() {
           <div className="max-w-xs mx-auto">
             <div className="w-full h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-400 rounded-full"
+                className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full"
                 style={{
                   animation: "loadingFill 60s cubic-bezier(0.2, 0.8, 0.4, 1) forwards",
                 }}
@@ -479,20 +481,20 @@ export default function SubjectsPage() {
   // ── Main form ──
   return (
     <div className="relative max-w-lg mx-auto px-5 pt-6 sm:pt-12 pb-16 sm:pb-20 bg-[#06060a] min-h-screen">
-      {/* transform-gpu promotes each blob to its own compositor layer so it's
-          rasterised ONCE. Without this, many mobile browsers re-run the (very
-          expensive) blur on every DOM change above — which is what froze the
-          main thread for ~400ms each time the subject grid re-rendered and made
-          the whole picker feel laggy. contain:paint on the wrapper keeps these
-          repaints from ever escaping the background layer. */}
-      <div className="absolute inset-0 -z-10 [contain:paint]" aria-hidden>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.06] blur-[90px] rounded-full transform-gpu [will-change:transform]" />
-        <div className="absolute top-[300px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[90px] rounded-full transform-gpu [will-change:transform]" />
+      {/* PERF: this background is a single radial-gradient div — no blur-[Npx]
+          filters. Large blurred elements re-rasterised on every DOM change and
+          froze the main thread ~400ms per subject-grid re-render (the old year
+          picker lag). contain:paint keeps any background repaint from escaping
+          this layer. Do not reintroduce blur elements here. */}
+      <div className="absolute inset-0 -z-10 [contain:paint] pointer-events-none" aria-hidden>
+        <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
       </div>
-      <h1 className="text-[24px] sm:text-[34px] font-extrabold text-white tracking-tight text-center mb-2">
+      <h1 className={`${display.className} home-rise text-[28px] sm:text-[38px] font-bold text-white tracking-[-0.02em] text-center mb-2`}
+        style={{ textWrap: "balance" }}>
         Practise an exam
       </h1>
-      <p className="text-zinc-500 text-center text-[14px] mb-8 sm:mb-12">
+      <p className="home-rise text-zinc-500 text-center text-[14px] mb-8 sm:mb-12" style={{ animationDelay: "80ms" }}>
         Tell us what to test you on. We&apos;ll build a fresh paper in seconds.
       </p>
 
@@ -507,7 +509,7 @@ export default function SubjectsPage() {
 
       {/* Exam system — two-step: country, then that country's system/state */}
       <div className="mb-6 sm:mb-8">
-        <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
+        <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-3 uppercase tracking-wider">
           Country
         </label>
         <div className="grid grid-cols-5 gap-2 sa-no-record" role="radiogroup" aria-label="Country">
@@ -518,9 +520,9 @@ export default function SubjectsPage() {
                 key={co.code}
                 onClick={() => switchCountry(co.code)}
                 aria-pressed={active}
-                className={`flex flex-col items-center justify-center gap-0.5 min-h-[52px] py-2 rounded-lg text-[11px] font-semibold border transition-colors ${
+                className={`flex flex-col items-center justify-center gap-0.5 min-h-[52px] py-2 rounded-full text-[11px] font-semibold border transition-colors ${
                   active
-                    ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
+                    ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                     : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
                 }`}
               >
@@ -534,7 +536,7 @@ export default function SubjectsPage() {
         {/* Step 2 — only for countries with more than one system */}
         {countrySystems.length > 1 && (
           <div className="mt-3">
-            <label className="block text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">
+            <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">
               {pickedCountry === "AU" ? "Your state" : "Your exam"}
             </label>
             <div className="flex flex-wrap gap-2 sa-no-record" role="radiogroup" aria-label="Exam system">
@@ -545,9 +547,9 @@ export default function SubjectsPage() {
                     key={c.id}
                     onClick={() => switchCurriculum(c.id)}
                     aria-pressed={active}
-                    className={`inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-2 rounded-lg text-[12px] font-semibold border transition-colors ${
+                    className={`inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-2 rounded-full text-[12px] font-semibold border transition-colors ${
                       active
-                        ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
+                        ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                         : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
                     }`}
                   >
@@ -576,7 +578,7 @@ export default function SubjectsPage() {
 
       {/* Year level */}
       <div className="mb-6 sm:mb-8">
-        <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
+        <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-3 uppercase tracking-wider">
           {curriculum.country === "US" || curriculum.country === "CA" ? "Grade" : "Year level"}
         </label>
         {/* Native radios: the highlight is the browser's own :checked state,
@@ -585,7 +587,7 @@ export default function SubjectsPage() {
             updates React state for the subject grid / Start button; that can
             lag freely now without affecting the highlight. */}
         {countryMismatch ? (
-          <div className="rounded-lg border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-6 text-center">
+          <div className="rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-6 text-center">
             <p className="text-[13px] text-zinc-500">
               Pick your {pickedCountry === "AU" ? "state" : "exam"} first ↑
             </p>
@@ -604,7 +606,7 @@ export default function SubjectsPage() {
                 onChange={() => { setYearLevel(yl.value); setSubject(null); }}
                 className="peer sr-only"
               />
-              <span className="flex items-center justify-center min-h-[44px] py-3 rounded-lg text-[13px] font-medium border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-white/[0.2] group-hover:bg-white/[0.04] peer-checked:bg-gradient-to-r peer-checked:from-indigo-500 peer-checked:to-purple-600 peer-checked:border-indigo-500 peer-checked:text-white peer-checked:shadow-lg peer-checked:shadow-indigo-500/25">
+              <span className="flex items-center justify-center min-h-[44px] py-3 rounded-full text-[13px] font-medium border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-white/[0.2] group-hover:bg-white/[0.04] peer-checked:bg-gradient-to-r peer-checked:from-indigo-500 peer-checked:to-violet-600 peer-checked:border-indigo-500 peer-checked:text-white peer-checked:shadow-lg peer-checked:shadow-indigo-500/25">
                 {yl.label}
               </span>
             </label>
@@ -615,11 +617,11 @@ export default function SubjectsPage() {
 
       {/* Subject */}
       <div className="mb-6 sm:mb-8">
-        <label className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
+        <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-3 uppercase tracking-wider">
           Subject
         </label>
         {deferredYear === null ? (
-          <div className="rounded-lg border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-6 text-center">
+          <div className="rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-6 text-center">
             <p className="text-[13px] text-zinc-500">Pick a year level first ↑</p>
           </div>
         ) : (
@@ -646,9 +648,9 @@ export default function SubjectsPage() {
                     }
                     setSubject(s.value);
                   }}
-                  className={`min-h-[44px] py-3 px-4 rounded-lg text-[13px] text-left transition-all border relative ${
+                  className={`min-h-[44px] py-3 px-5 rounded-full text-[13px] text-left transition-all border relative ${
                     subject === s.value
-                      ? "bg-gradient-to-r from-indigo-500 to-purple-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
+                      ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25"
                       : locked
                       ? "bg-white/[0.02] border-white/[0.06] text-zinc-500 hover:border-indigo-500/30 hover:bg-indigo-500/[0.04]"
                       : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2] hover:bg-white/[0.04]"
@@ -657,12 +659,12 @@ export default function SubjectsPage() {
                   <div className="flex items-center justify-between gap-2">
                     <span>{s.label}</span>
                     {isSuggested && !locked && (
-                      <span className="inline-flex items-center text-[9px] font-bold uppercase tracking-wider text-indigo-100 bg-indigo-500/25 border border-indigo-400/50 px-1.5 py-0.5 rounded">
+                      <span className="inline-flex items-center text-[9px] font-bold uppercase tracking-wider text-indigo-100 bg-indigo-500/25 border border-indigo-400/50 px-1.5 py-0.5 rounded-full">
                         Suggested
                       </span>
                     )}
                     {locked && (
-                      <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-indigo-300/80 bg-indigo-500/10 border border-indigo-500/25 px-1.5 py-0.5 rounded">
+                      <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-indigo-300/80 bg-indigo-500/10 border border-indigo-500/25 px-1.5 py-0.5 rounded-full">
                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                         </svg>
@@ -679,7 +681,7 @@ export default function SubjectsPage() {
 
       {/* Topic (optional) */}
       <div className="mb-6 sm:mb-8">
-        <label htmlFor="topic-input" className="block text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
+        <label htmlFor="topic-input" className="block font-mono text-[11px] font-semibold text-zinc-500 mb-3 uppercase tracking-wider">
           Specific topic? <span className="text-zinc-600 normal-case font-normal tracking-normal">(optional)</span>
         </label>
         <input
@@ -695,7 +697,7 @@ export default function SubjectsPage() {
 
       {/* Question count */}
       <div className="mb-6 sm:mb-10">
-        <label htmlFor="qcount-slider" className="flex items-center justify-between text-[12px] font-semibold text-zinc-300 mb-3 uppercase tracking-wider">
+        <label htmlFor="qcount-slider" className="flex items-center justify-between font-mono text-[11px] font-semibold text-zinc-500 mb-3 uppercase tracking-wider">
           <span>Length</span>
           <span className="text-indigo-400 tabular-nums normal-case tracking-normal">{Math.max(4, Math.min(questionCount, maxQ))} questions</span>
         </label>
@@ -729,8 +731,8 @@ export default function SubjectsPage() {
         )}
 
         {/* Why longer is better */}
-        <div className="mt-4 p-3.5 rounded-lg bg-indigo-500/[0.06] border border-indigo-500/15">
-          <p className="text-[11px] font-semibold text-indigo-300 mb-1.5 uppercase tracking-wider">Tip — more questions = better results</p>
+        <div className="mt-4 p-3.5 rounded-2xl bg-indigo-500/[0.06] border border-indigo-500/15">
+          <p className="font-mono text-[11px] font-semibold text-indigo-300 mb-1.5 uppercase tracking-wider">Tip — more questions = better results</p>
           <p className="text-[12px] text-zinc-400 leading-relaxed">
             The more questions you practise on, the more topics you cover and the better prepared you&apos;ll be for your real exam.
             <span className="text-zinc-300"> Aim for 15–20 questions when you can</span> — it&apos;s the closest to a real NCEA exam and gives you the most chances to spot weak areas before exam day.
@@ -741,7 +743,7 @@ export default function SubjectsPage() {
       {/* Free / Student tier usage indicator — hidden until tier resolves so
           Pro users never see a "2/2 exams used" flash on hard refresh. */}
       {!tierLoading && !isUnlimited(limits.examsPerWeek) && (
-        <div className="mb-4 px-4 py-3 rounded-lg bg-zinc-900/60 border border-zinc-800 text-[12px] text-zinc-400">
+        <div className="mb-4 px-4 py-3 rounded-2xl bg-zinc-900/60 border border-zinc-800 text-[12px] text-zinc-400">
           <span className="text-zinc-300 font-medium">{usage.examsThisWeek}/{limits.examsPerWeek}</span> exams used this week
           {usage.examsThisWeek >= limits.examsPerWeek && (
             <span className="text-amber-400 ml-2">— limit reached</span>
@@ -751,7 +753,7 @@ export default function SubjectsPage() {
 
       {/* Error */}
       {error && (
-        <div className="mb-4 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-[13px] text-red-300">
+        <div className="mb-4 px-4 py-3 rounded-2xl bg-red-500/10 border border-red-500/30 text-[13px] text-red-300">
           {error}
         </div>
       )}
@@ -775,10 +777,10 @@ export default function SubjectsPage() {
       <button
         onClick={handleStart}
         disabled={!canStart}
-        className={`w-full py-4 rounded-xl text-[16px] font-bold transition-all ${
+        className={`w-full py-4 rounded-full text-[16px] transition-all ${
           canStart
-            ? "bg-white text-[#06060a] hover:bg-zinc-100 hover:scale-[1.01] shadow-2xl shadow-white/10"
-            : "bg-white/[0.04] text-zinc-600 cursor-not-allowed"
+            ? "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.01]"
+            : "bg-white/[0.04] font-bold text-zinc-600 cursor-not-allowed"
         }`}
       >
         {canStart ? "Build my exam \u2192" : "Pick a year and subject"}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { display } from "@/lib/displayFont";
 import { CURRICULA, COMING_CURRICULA, EARLY_ACCESS_CURRICULA, type Curriculum } from "@/data/curricula";
 
 // StudyAce Global — public waitlist for not-yet-launched exam systems.
@@ -39,7 +40,7 @@ function WaitlistCard({ curriculum }: { curriculum: Curriculum }) {
   }
 
   return (
-    <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 flex flex-col">
+    <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5 flex flex-col">
       <div className="flex items-center gap-3 mb-2">
         <span className="text-2xl" aria-hidden>{curriculum.flag}</span>
         <div>
@@ -70,7 +71,7 @@ function WaitlistCard({ curriculum }: { curriculum: Curriculum }) {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="shrink-0 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 px-4 py-2.5 text-[13px] font-bold text-white disabled:opacity-60"
+              className="shrink-0 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-4 py-2.5 text-[13px] font-extrabold text-white shadow-lg shadow-indigo-500/30 disabled:opacity-60"
             >
               {status === "loading" ? "…" : "Join waitlist"}
             </button>
@@ -90,20 +91,22 @@ export default function GlobalPage() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10" aria-hidden>
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
-        <div className="absolute top-96 -right-24 w-[400px] h-[400px] bg-fuchsia-500/[0.06] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
       </div>
 
       <div className="max-w-3xl mx-auto px-5 pt-12 sm:pt-20 pb-20">
         <div className="text-center mb-10">
-          <h1 className="text-[32px] sm:text-[44px] font-extrabold text-white tracking-tight leading-[1.05] mb-4">
+          <h1 className={`${display.className} home-rise text-[36px] sm:text-[52px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-4`}
+            style={{ textWrap: "balance" }}>
             StudyAce is{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent pr-1">
               going global.
-            </span>
+            </em>
           </h1>
-          <p className="text-zinc-400 text-[15px] sm:text-[17px] max-w-xl mx-auto">
+          <p className="home-rise text-zinc-400 text-[15px] sm:text-[17px] max-w-xl mx-auto"
+            style={{ animationDelay: "80ms" }}>
             Unlimited AI practice exams, marked honestly — live in New Zealand today,
             and coming to your exam system next. Join your waitlist and you&apos;ll be
             first in (and first to help shape it).
@@ -111,7 +114,7 @@ export default function GlobalPage() {
         </div>
 
         {/* Live now */}
-        <div className="rounded-2xl bg-white/[0.02] border border-emerald-500/20 p-5 mb-8 flex flex-wrap items-center justify-between gap-3">
+        <div className="rounded-2xl bg-white/[0.015] border border-emerald-500/20 p-5 mb-8 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <span className="text-2xl" aria-hidden>🇳🇿</span>
             <div>
@@ -126,19 +129,19 @@ export default function GlobalPage() {
           </div>
           <Link
             href="/"
-            className="rounded-xl bg-white text-zinc-900 px-4 py-2.5 text-[13px] font-bold"
+            className="rounded-full bg-white text-[#0a0a0f] px-5 py-2.5 text-[13px] font-bold transition-all hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
           >
             Start practising free
           </Link>
         </div>
 
         {/* Early access — usable today */}
-        <h2 className="text-zinc-500 text-[11px] font-bold uppercase tracking-wider mb-3">
+        <h2 className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mb-3">
           Early access — try it today
         </h2>
         <div className="grid sm:grid-cols-2 gap-4 mb-8">
           {EARLY_ACCESS_CURRICULA.map((c) => (
-            <div key={c.id} className="rounded-2xl bg-white/[0.02] border border-amber-500/20 p-5 flex flex-col">
+            <div key={c.id} className="rounded-2xl bg-white/[0.015] border border-amber-500/20 p-5 flex flex-col">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl" aria-hidden>{c.flag}</span>
                 <div>
@@ -155,7 +158,7 @@ export default function GlobalPage() {
               <p className="text-zinc-400 text-[13px] mb-4">{c.blurb}</p>
               <Link
                 href={`/subjects?curriculum=${c.id}`}
-                className="mt-auto inline-flex justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 px-4 py-2.5 text-[13px] font-bold text-white"
+                className="mt-auto inline-flex justify-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-4 py-2.5 text-[13px] font-extrabold text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-[1.02]"
               >
                 Try {c.system} practice →
               </Link>
@@ -166,7 +169,7 @@ export default function GlobalPage() {
         {/* Coming soon grid — hidden while every defined system is usable */}
         {COMING_CURRICULA.length > 0 && (
           <>
-            <h2 className="text-zinc-500 text-[11px] font-bold uppercase tracking-wider mb-3">
+            <h2 className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mb-3">
               Coming next — join your waitlist
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">

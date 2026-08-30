@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { display } from "@/lib/displayFont";
 import { useTier } from "@/hooks/useTier";
 
 type RedeemResponse =
@@ -84,20 +85,22 @@ export default function RedeemPage() {
   if (!isSignedIn) {
     return (
       <div className="max-w-md mx-auto px-5 pt-24 pb-24 text-center">
-        <h1 className="text-2xl font-bold text-white mb-2">Redeem your code</h1>
+        <h1 className={`${display.className} text-[26px] font-bold text-white tracking-[-0.02em] mb-2`} style={{ textWrap: "balance" }}>
+          Redeem your code
+        </h1>
         <p className="text-zinc-400 text-sm mb-8">
           Sign up or sign in first — it&apos;s free and takes a few seconds. Then enter your
           code to unlock your plan.
         </p>
         <Link
           href="/sign-up?redirect_url=/redeem"
-          className="block w-full rounded-xl bg-indigo-500 hover:bg-indigo-400 transition-colors text-white font-semibold py-3.5 mb-3"
+          className="block w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 transition-all text-white font-extrabold shadow-lg shadow-indigo-500/30 py-3.5 mb-3 min-h-[44px]"
         >
           Create a free account
         </Link>
         <Link
           href="/sign-in?redirect_url=/redeem"
-          className="block w-full rounded-xl border border-white/10 hover:bg-white/[0.03] transition-colors text-zinc-200 font-medium py-3.5"
+          className="block w-full rounded-full border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-zinc-200 font-semibold py-3.5 min-h-[44px]"
         >
           I already have an account
         </Link>
@@ -114,7 +117,7 @@ export default function RedeemPage() {
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
-        <h1 className="text-2xl font-bold text-white mb-2">
+        <h1 className={`${display.className} text-[26px] font-bold text-white tracking-[-0.02em] mb-2`} style={{ textWrap: "balance" }}>
           You&apos;re on {TIER_LABEL[granted.tier] ?? granted.tier}! 🎉
         </h1>
         <p className="text-zinc-400 text-sm mb-8">
@@ -124,7 +127,7 @@ export default function RedeemPage() {
         </p>
         <button
           onClick={() => router.push("/dashboard")}
-          className="block w-full rounded-xl bg-indigo-500 hover:bg-indigo-400 transition-colors text-white font-semibold py-3.5"
+          className="block w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 transition-all text-white font-extrabold shadow-lg shadow-indigo-500/30 py-3.5 min-h-[44px]"
         >
           Go to my dashboard
         </button>
@@ -134,10 +137,23 @@ export default function RedeemPage() {
 
   // ── Enter code ──
   return (
-    <div className="max-w-md mx-auto px-5 pt-24 pb-24">
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+        />
+      </div>
+
+      <div className="max-w-md mx-auto px-5 pt-24 pb-24">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-white mb-2">Redeem your code</h1>
-        <p className="text-zinc-400 text-sm">
+        <h1
+          className={`${display.className} home-rise text-[26px] font-bold text-white tracking-[-0.02em] mb-2`}
+          style={{ textWrap: "balance" }}
+        >
+          Redeem your code
+        </h1>
+        <p className="home-rise text-zinc-400 text-sm" style={{ animationDelay: "80ms" }}>
           {user?.firstName ? `Hi ${user.firstName}! ` : ""}
           Enter the code your school gave you to unlock your free plan.
         </p>
@@ -162,7 +178,7 @@ export default function RedeemPage() {
         <button
           type="submit"
           disabled={!code.trim() || status === "loading"}
-          className="w-full rounded-xl bg-indigo-500 hover:bg-indigo-400 disabled:opacity-50 disabled:hover:bg-indigo-500 transition-colors text-white font-semibold py-3.5"
+          className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 disabled:opacity-50 disabled:hover:opacity-50 transition-all text-white font-extrabold shadow-lg shadow-indigo-500/30 py-3.5 min-h-[44px]"
         >
           {status === "loading" ? "Redeeming…" : "Redeem"}
         </button>
@@ -171,6 +187,7 @@ export default function RedeemPage() {
       <p className="text-zinc-600 text-xs text-center mt-6">
         No payment needed. Your plan unlocks instantly and ends on its own — nothing to cancel.
       </p>
+      </div>
     </div>
   );
 }

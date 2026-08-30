@@ -12,18 +12,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
-import { Bricolage_Grotesque } from "next/font/google";
+import { display } from "@/lib/displayFont";
 import { loadProgress } from "@/lib/storage";
 import { gradeLabel } from "@/lib/scoring";
 import type { StudentProgress } from "@/lib/types";
-
-// Bricolage ships no true italic — the browser synthesizes an oblique for the
-// accent words, which suits a grotesque fine.
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  display: "swap",
-});
 
 const FAQS: { q: string; a: string }[] = [
   { q: "Is it actually free?", a: "The grade check is completely free — no account, no card. A free account gets you 2 practice exams a week in Maths and English. The Student plan (NZ$15/month, cancel anytime) unlocks every subject, unlimited exams, and the week-by-week schedule." },

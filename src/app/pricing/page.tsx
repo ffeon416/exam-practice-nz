@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useCallback, useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
+import { display } from "@/lib/displayFont";
 import { useTier } from "@/hooks/useTier";
 import type { Tier } from "@/lib/tierLimits";
 import { gradeColor } from "@/lib/scoring";
@@ -214,32 +215,37 @@ export default function PricingPage() {
   return (
     <div className="relative overflow-hidden bg-[#06060a]">
       {/* Background glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.08] blur-[120px] rounded-full" />
-        <div className="absolute top-[400px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
       </div>
 
       {/* Header */}
       <section className="max-w-4xl mx-auto px-5 pt-6 sm:pt-20 pb-8 sm:pb-12 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          Cancel anytime · No hidden fees
+        <div className="home-rise mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            Cancel anytime · No hidden fees
+          </div>
         </div>
-        <h1 className="text-[28px] sm:text-[48px] md:text-[56px] font-extrabold text-white tracking-tight leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-5">
+        <h1 className={`${display.className} home-rise text-[34px] sm:text-[52px] md:text-[64px] font-bold text-white tracking-[-0.03em] leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-5`}
+          style={{ animationDelay: "80ms", textWrap: "balance" }}>
           Simple pricing.
           <br />
-          <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent pr-1">
             Real results.
-          </span>
+          </em>
         </h1>
-        <p className="text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 px-2">
+        <p className="home-rise text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 px-2"
+          style={{ animationDelay: "160ms" }}>
           Cheaper than one tutoring session. More effective than any textbook.
         </p>
 
         {/* Mission strip — carried over from the grade check */}
         {gradeResult && (
-          <div className="max-w-xl mx-auto mb-8 sm:mb-10 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 text-left">
-            <p className="text-[10.5px] font-bold uppercase tracking-wider text-indigo-300 mb-1.5">Your mission · from your grade check</p>
+          <div className="home-rise max-w-xl mx-auto mb-8 sm:mb-10 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 text-left"
+            style={{ animationDelay: "240ms" }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 mb-1.5">Your mission · from your grade check</p>
             <p className="text-white font-extrabold text-[16px] sm:text-[18px] leading-snug">
               {gradeResult.subjectLabel}:{" "}
               <span className={gradeColor(gradeResult.grade)}>{gradeResult.bandLabel}</span>
@@ -254,7 +260,8 @@ export default function PricingPage() {
         )}
 
         {/* Billing toggle */}
-        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
+        <div className="home-rise inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.04] border border-white/[0.08]"
+          style={{ animationDelay: "320ms" }}>
           <button
             onClick={() => setBilling("monthly")}
             className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all ${
@@ -282,7 +289,7 @@ export default function PricingPage() {
       {/* Error banner */}
       {error && (
         <div className="max-w-6xl mx-auto px-4 sm:px-5 mb-4">
-          <div className="rounded-lg bg-red-500/10 border border-red-500/20 px-4 py-3 text-sm text-red-300 text-center">
+          <div className="rounded-xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-sm text-red-300 text-center">
             {error}
           </div>
         </div>
@@ -298,21 +305,16 @@ export default function PricingPage() {
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl transition-all ${
+                className={`relative rounded-[32px] border transition-all ${
                   plan.highlight
-                    ? "bg-gradient-to-b from-indigo-500/[0.02] to-purple-500/[0.02] shadow-2xl shadow-indigo-500/10"
-                    : "bg-white/[0.02] border border-white/[0.08]"
+                    ? "border-indigo-400/40 bg-indigo-500/[0.05] shadow-xl shadow-indigo-500/10"
+                    : "border-white/[0.07] bg-white/[0.015]"
                 }`}
               >
-                {plan.highlight && (
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 p-[1px]">
-                    <div className="w-full h-full rounded-2xl bg-[#06060a]" />
-                  </div>
-                )}
-                <div className={`relative ${plan.highlight ? "p-5 sm:p-7" : "p-5 sm:p-7"}`}>
+                <div className="relative p-5 sm:p-7">
                 {plan.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/30">
+                    <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/30">
                       {plan.badge}
                     </span>
                   </div>
@@ -350,7 +352,13 @@ export default function PricingPage() {
                 {cta.isLink ? (
                   <Link
                     href={cta.href ?? "/subjects"}
-                    className="block w-full text-center py-3 rounded-lg font-semibold text-[14px] mb-6 sm:mb-7 transition-all bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1] min-h-[48px] flex items-center justify-center"
+                    className={`w-full text-center py-3 rounded-full text-[14px] mb-6 sm:mb-7 transition-all min-h-[48px] flex items-center justify-center ${
+                      plan.tier === "free"
+                        ? "font-semibold text-zinc-300 hover:text-white border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04]"
+                        : plan.highlight
+                          ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
+                          : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30"
+                    }`}
                   >
                     {cta.label}
                   </Link>
@@ -358,10 +366,10 @@ export default function PricingPage() {
                   <button
                     onClick={cta.action}
                     disabled={cta.disabled}
-                    className={`block w-full text-center py-3 rounded-lg font-bold text-[14px] mb-6 sm:mb-7 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] ${
+                    className={`block w-full text-center py-3 rounded-full text-[14px] mb-6 sm:mb-7 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] ${
                       plan.highlight
-                        ? "bg-white text-[#06060a] hover:bg-zinc-100 shadow-2xl shadow-white/10"
-                        : "bg-white text-[#06060a] hover:bg-zinc-100"
+                        ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
+                        : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.02]"
                     }`}
                   >
                     {cta.label}
@@ -404,8 +412,8 @@ export default function PricingPage() {
 
       {/* Comparison stats */}
       <section className="max-w-3xl mx-auto px-5 pb-12 sm:pb-20">
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-4 sm:p-8">
-          <h2 className="text-[20px] sm:text-[24px] font-extrabold text-white text-center mb-2">Compare the cost</h2>
+        <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-4 sm:p-8">
+          <h2 className={`${display.className} text-[20px] sm:text-[26px] font-bold text-white text-center tracking-[-0.02em] mb-2`} style={{ textWrap: "balance" }}>Compare the cost</h2>
           <p className="text-zinc-500 text-[13px] text-center mb-8">A month of Study Ace vs. the alternatives</p>
 
           <div className="space-y-3">
@@ -419,7 +427,7 @@ export default function PricingPage() {
 
       {/* FAQ */}
       <section className="max-w-3xl mx-auto px-5 pb-16 sm:pb-24">
-        <h2 className="text-[22px] sm:text-[28px] font-extrabold text-white text-center mb-6 sm:mb-10">Common questions</h2>
+        <h2 className={`${display.className} text-[24px] sm:text-[32px] font-bold text-white text-center tracking-[-0.02em] mb-6 sm:mb-10`}>Common questions</h2>
         <div className="space-y-3">
           <Faq
             q="Will this actually help me pass?"
@@ -454,18 +462,21 @@ export default function PricingPage() {
 
       {/* Final CTA */}
       <section className="max-w-3xl mx-auto px-5 pb-16 sm:pb-24">
-        <div className="rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent border border-white/[0.08] p-5 sm:p-10 text-center relative overflow-hidden">
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-indigo-500/20 blur-[100px] rounded-full" />
+        <div className="rounded-[32px] bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent border border-white/[0.07] p-5 sm:p-10 text-center relative overflow-hidden">
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full pointer-events-none" aria-hidden
+            style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(99,102,241,0.22) 0%, transparent 70%)" }} />
           <div className="relative">
-            <h2 className="text-[22px] sm:text-[32px] md:text-[36px] font-extrabold text-white tracking-tight mb-4">
-              Try it free first
+            <h2 className={`${display.className} text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em] mb-4`} style={{ textWrap: "balance" }}>
+              Try it{" "}
+              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">free</em>
+              {" "}first
             </h2>
             <p className="text-zinc-400 text-[15px] mb-8 max-w-md mx-auto">
               Build your first practice exam in 30 seconds. No credit card required.
             </p>
             <Link
               href={isSignedIn ? "/subjects" : "/sign-up"}
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-semibold px-8 py-3.5 rounded-lg hover:bg-zinc-100 transition-all hover:scale-[1.02] shadow-2xl text-[15px]"
+              className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-bold px-9 py-4 rounded-full transition-all hover:scale-[1.02] shadow-2xl shadow-indigo-500/20 text-[15px]"
             >
               {isSignedIn ? "Start practising" : "Sign up free"}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -482,7 +493,7 @@ export default function PricingPage() {
 function CompareRow({ label, cost, highlight }: { label: string; cost: string; highlight?: boolean }) {
   return (
     <div
-      className={`flex items-center justify-between gap-3 px-4 py-3 rounded-lg ${
+      className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl ${
         highlight
           ? "bg-indigo-500/15 border border-indigo-500/30"
           : "bg-white/[0.02] border border-white/[0.06]"
@@ -499,7 +510,7 @@ function CompareRow({ label, cost, highlight }: { label: string; cost: string; h
 function Faq({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rounded-xl bg-white/[0.02] border border-white/[0.08] overflow-hidden">
+    <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-white/[0.02] transition-colors"

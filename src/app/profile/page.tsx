@@ -4,6 +4,7 @@ import { useUser, useAuth, useClerk } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useCallback, useRef } from "react";
+import { display } from "@/lib/displayFont";
 import { useTier, isUnlimited } from "@/hooks/useTier";
 import { TIER_LABELS } from "@/lib/tierLimits";
 
@@ -95,22 +96,28 @@ export default function ProfilePage() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+        />
       </div>
 
       <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Header */}
-        <h1 className="text-[24px] sm:text-[36px] font-extrabold text-white tracking-tight mb-1">
+        <h1
+          className={`${display.className} home-rise text-[28px] sm:text-[40px] font-bold text-white tracking-[-0.02em] mb-1`}
+          style={{ textWrap: "balance" }}
+        >
           My account
         </h1>
-        <p className="text-zinc-500 text-[14px] mb-6 sm:mb-10">
+        <p className="home-rise text-zinc-500 text-[14px] mb-6 sm:mb-10" style={{ animationDelay: "80ms" }}>
           Manage your profile, plan, and preferences.
         </p>
 
         {/* Profile info */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
-          <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
+        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
+          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             Profile
           </h2>
           <div className="flex items-center gap-4 mb-5">
@@ -236,8 +243,8 @@ export default function ProfilePage() {
         </section>
 
         {/* Plan */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
-          <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
+        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
+          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             Plan
           </h2>
           <div className="flex items-center justify-between mb-5">
@@ -313,8 +320,8 @@ export default function ProfilePage() {
         </section>
 
         {/* What's included */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
-          <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
+        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
+          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             What&apos;s included
           </h2>
           <div className="space-y-2.5">
@@ -350,7 +357,7 @@ export default function ProfilePage() {
           {!tierLoading && tier !== "pro" && (
             <Link
               href="/pricing"
-              className="mt-5 block text-center text-[13px] font-medium text-indigo-400 hover:text-indigo-300 py-2.5 rounded-lg bg-indigo-500/[0.08] hover:bg-indigo-500/[0.12] transition-colors"
+              className="mt-5 block text-center text-[13px] font-medium text-indigo-400 hover:text-indigo-300 py-2.5 rounded-full bg-indigo-500/[0.08] hover:bg-indigo-500/[0.12] transition-colors"
             >
               See all plans &rarr;
             </Link>
@@ -358,8 +365,8 @@ export default function ProfilePage() {
         </section>
 
         {/* Quick links */}
-        <section className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-6 mb-4">
-          <h2 className="text-[13px] text-zinc-500 uppercase tracking-wider font-semibold mb-4">
+        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
+          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             Quick links
           </h2>
           <div className="grid grid-cols-2 gap-2">
@@ -374,7 +381,7 @@ export default function ProfilePage() {
         {/* Sign out */}
         <button
           onClick={handleSignOut}
-          className="w-full mt-2 py-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-zinc-400 hover:text-red-400 hover:border-red-500/20 hover:bg-red-500/[0.04] text-[14px] font-medium transition-all min-h-[48px]"
+          className="w-full mt-2 py-3 rounded-full bg-white/[0.015] border border-white/[0.12] text-zinc-400 hover:text-red-400 hover:border-red-500/20 hover:bg-red-500/[0.04] text-[14px] font-medium transition-all min-h-[48px]"
         >
           Sign out
         </button>

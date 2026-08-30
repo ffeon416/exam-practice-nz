@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { display } from "@/lib/displayFont";
 import { useUser } from "@clerk/nextjs";
 import { loadProgress, saveProgress, getWeakTopics } from "@/lib/storage";
 import { loadOnboarding } from "@/lib/onboarding";
@@ -91,13 +92,13 @@ function PaymentWelcome({
   const isFree = tier === "free";
   const accent =
     tier === "pro"
-      ? "from-fuchsia-500 via-pink-500 to-amber-400"
+      ? "from-indigo-500 to-violet-600"
       : tier === "student"
       ? "from-indigo-500 via-violet-500 to-sky-400"
       : "from-emerald-500 via-teal-500 to-cyan-400";
   const glow =
     tier === "pro"
-      ? "shadow-pink-500/30"
+      ? "shadow-indigo-500/30"
       : tier === "student"
       ? "shadow-violet-500/30"
       : "shadow-emerald-500/30";
@@ -105,8 +106,8 @@ function PaymentWelcome({
   const features: WelcomeFeature[] = isFree
     ? [
         {
-          title: "Take a real exam",
-          sub: "Past NZQA papers, AI marks every answer.",
+          title: "Sit a practice exam",
+          sub: "Exam-style papers, AI marks every answer honestly.",
           href: "/subjects",
           icon: (
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -242,10 +243,10 @@ function PaymentWelcome({
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <p className={`text-xs font-bold uppercase tracking-[0.18em] bg-gradient-to-r ${accent} bg-clip-text text-transparent mb-2`}>
+          <p className={`font-mono text-xs font-bold uppercase tracking-wider bg-gradient-to-r ${accent} bg-clip-text text-transparent mb-2`}>
             {isFree ? "Hey there" : "You're in"}
           </p>
-          <h2 className="text-[28px] sm:text-[32px] font-extrabold text-white tracking-tight leading-tight">
+          <h2 className={`${display.className} text-[28px] sm:text-[32px] font-bold text-white tracking-[-0.02em] leading-tight`} style={{ textWrap: "balance" }}>
             {isFree
               ? <>Welcome to Study Ace{firstName ? `, ${firstName}` : ""}</>
               : <>Welcome to {TIER_LABELS[tier]}{firstName ? `, ${firstName}` : ""}</>}
@@ -281,7 +282,7 @@ function PaymentWelcome({
         <div className="px-6 pb-8">
           <button
             onClick={onClose}
-            className={`w-full rounded-xl bg-gradient-to-r ${accent} text-white font-bold text-[15px] py-3.5 shadow-lg hover:opacity-95 transition-opacity`}
+            className={`w-full rounded-full bg-gradient-to-r ${accent} text-white font-extrabold text-[15px] py-3.5 shadow-lg shadow-indigo-500/30 hover:opacity-95 transition-opacity`}
           >
             Let&apos;s go
           </button>
@@ -512,9 +513,11 @@ export default function DashboardPage() {
 
   return (
     <div className="relative overflow-hidden bg-[#06060a]">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
-        <div className="absolute top-[200px] right-0 w-[500px] h-[400px] bg-purple-500/[0.05] blur-[120px] rounded-full" />
+      {/* Single radial glow — no blur filters (blur layers re-rasterise on DOM
+          changes and jank the main thread; see /subjects perf notes). */}
+      <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
+        <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
       </div>
 
       <div className="max-w-xl mx-auto px-5 pt-6 sm:pt-14 pb-16 sm:pb-20">
@@ -528,10 +531,11 @@ export default function DashboardPage() {
 
         {/* Greeting */}
         <div className="mb-8">
-          <h1 className="text-[24px] sm:text-[32px] font-extrabold text-white tracking-tight mb-1">
+          <h1 className={`${display.className} home-rise text-[28px] sm:text-[38px] font-bold text-white tracking-[-0.02em] mb-1`}
+            style={{ textWrap: "balance" }}>
             {firstName ? `${getGreeting()}, ${firstName}` : getGreeting()}
           </h1>
-          <p className="text-zinc-500 text-[14px]">
+          <p className="home-rise text-zinc-500 text-[14px]" style={{ animationDelay: "80ms" }}>
             {getMotivation(avgPct, displayStreak, progress.totalExamsTaken)}
           </p>
         </div>
@@ -570,7 +574,7 @@ export default function DashboardPage() {
           // Default: do another exam
           <Link
             href="/subjects"
-            className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 p-3.5 mb-6 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-600 p-3.5 mb-6 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all"
           >
             <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/25 to-transparent" />
             <div className="relative w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
@@ -595,21 +599,21 @@ export default function DashboardPage() {
         {/* Stats strip */}
         {hasData && (
           <div className="grid grid-cols-3 gap-2 mb-6">
-            <div className="text-center rounded-2xl bg-gradient-to-br from-indigo-500/[0.15] to-indigo-600/[0.05] border border-indigo-500/20 px-2 py-4">
+            <div className="text-center rounded-2xl bg-gradient-to-br from-indigo-500/[0.15] to-indigo-600/[0.05] border border-white/[0.07] px-2 py-4">
               <div className="text-[28px] sm:text-[22px] font-extrabold text-white">{progress.totalExamsTaken}</div>
-              <div className="text-indigo-300/60 text-[10px] uppercase tracking-wider mt-0.5">Exams</div>
+              <div className="font-mono text-zinc-500 text-[10px] uppercase tracking-wider mt-0.5">Exams</div>
             </div>
-            <div className="text-center rounded-2xl bg-gradient-to-br from-emerald-500/[0.12] to-yellow-500/[0.05] border border-emerald-500/15 px-2 py-4">
+            <div className="text-center rounded-2xl bg-gradient-to-br from-emerald-500/[0.12] to-yellow-500/[0.05] border border-white/[0.07] px-2 py-4">
               <div className={`text-[28px] sm:text-[22px] font-extrabold ${avgPct >= 70 ? "text-emerald-400" : avgPct >= 40 ? "text-yellow-400" : "text-red-400"}`}>
                 {avgPct}%
               </div>
-              <div className="text-zinc-500 text-[10px] uppercase tracking-wider mt-0.5">Average</div>
+              <div className="font-mono text-zinc-500 text-[10px] uppercase tracking-wider mt-0.5">Average</div>
             </div>
-            <div className="text-center rounded-2xl bg-gradient-to-br from-orange-500/[0.12] to-amber-500/[0.05] border border-orange-500/15 px-2 py-4">
+            <div className="text-center rounded-2xl bg-gradient-to-br from-orange-500/[0.12] to-amber-500/[0.05] border border-white/[0.07] px-2 py-4">
               <div className={`text-[28px] sm:text-[22px] font-extrabold ${displayStreak >= 3 ? "text-orange-400" : displayStreak >= 1 ? "text-white" : "text-zinc-600"}`}>
                 {displayStreak > 0 ? `${displayStreak}d` : "\u2014"}
               </div>
-              <div className="text-orange-300/50 text-[10px] uppercase tracking-wider mt-0.5">
+              <div className="font-mono text-zinc-500 text-[10px] uppercase tracking-wider mt-0.5">
                 {displayStreak >= 3 ? "Streak!" : "Streak"}
               </div>
             </div>
@@ -628,7 +632,7 @@ export default function DashboardPage() {
         {plan && daysLeft !== null && daysLeft > 0 && (
           <Link
             href="/plan"
-            className="flex items-center gap-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] px-5 py-4 mb-6 hover:bg-white/[0.04] transition-colors"
+            className="flex items-center gap-4 rounded-2xl bg-white/[0.015] border border-white/[0.07] px-5 py-4 mb-6 hover:bg-white/[0.04] transition-colors"
           >
             <div className="w-10 h-10 rounded-full bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center shrink-0">
               <span className="text-indigo-300 text-[14px] font-bold">{daysLeft}</span>
@@ -649,7 +653,7 @@ export default function DashboardPage() {
 
         {/* This week's tasks */}
         {currentWeek && currentWeek.tasks.some((t) => !t.completed) && (
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+          <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6 mb-6">
             <h2 className="text-white font-extrabold text-[14px] mb-3">This week&apos;s tasks</h2>
             <div className="space-y-2">
               {currentWeek.tasks.filter((t) => !t.completed).map((task) => (
@@ -661,10 +665,10 @@ export default function DashboardPage() {
 
         {/* Weak spots */}
         {weakTopics.length > 0 && (
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+          <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6 mb-6">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-white font-extrabold text-[14px]">Focus on these</h2>
-              <span className="text-zinc-600 text-[11px] font-medium">Tap to practise</span>
+              <span className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider">Tap to practise</span>
             </div>
             <div className="space-y-2">
               {weakTopics.map((t) => {
@@ -720,10 +724,10 @@ export default function DashboardPage() {
 
         {/* Recent exams */}
         {recentAttempts.length > 0 && (
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+          <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-white font-extrabold text-[14px]">Recent</h2>
-              <span className="text-zinc-600 text-[11px] font-medium tabular-nums">
+              <span className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider tabular-nums">
                 {recentAttempts.length} exam{recentAttempts.length > 1 ? "s" : ""}
               </span>
             </div>
@@ -792,7 +796,7 @@ export default function DashboardPage() {
 
         {/* Saved papers */}
         {customExams.length > 0 && (
-          <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6">
+          <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6 mb-6">
             <h2 className="text-white font-extrabold text-[14px] mb-3">Your papers</h2>
             <div className="space-y-2">
               {customExams.slice(0, 4).map((ex) => (
@@ -801,7 +805,7 @@ export default function DashboardPage() {
                   <div className="flex items-center gap-2 shrink-0">
                     <Link
                       href={`/exam/${ex.id}?mode=practice`}
-                      className="text-[11px] px-2.5 py-1 rounded-lg bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] transition-colors"
+                      className="text-[11px] px-2.5 py-1 rounded-full border border-white/[0.12] hover:border-white/[0.3] bg-white/[0.02] text-zinc-300 hover:bg-white/[0.06] transition-colors"
                     >
                       Start
                     </Link>
@@ -824,7 +828,7 @@ export default function DashboardPage() {
         {!plan && hasData && (
           <Link
             href="/plan"
-            className="group flex items-center gap-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 mb-6 hover:bg-white/[0.04] transition-all"
+            className="group flex items-center gap-4 rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6 mb-6 hover:bg-white/[0.04] transition-all"
           >
             <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
               <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -858,7 +862,7 @@ export default function DashboardPage() {
           href="/refer"
           className="group flex items-center justify-center gap-2 text-indigo-300 text-[14px] font-medium hover:text-white transition-colors py-3"
         >
-          <svg className="w-4 h-4 text-indigo-400 group-hover:text-fuchsia-300 transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
+          <svg className="w-4 h-4 text-indigo-400 group-hover:text-violet-300 transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
           Invite friends, earn free Student
@@ -946,9 +950,9 @@ function FirstTimeDashboard({
             ? `/subjects?subject=${pickedSubjects[0]}&year=${yearLevel}`
             : "/subjects"
         }
-        className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-purple-500/[0.08] border border-indigo-500/25 p-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
+        className="group flex items-center gap-5 rounded-2xl bg-gradient-to-r from-indigo-500/[0.15] to-violet-500/[0.08] border border-indigo-500/25 p-6 hover:border-indigo-500/40 transition-all shadow-lg shadow-indigo-500/[0.05]"
       >
-        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
+        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/20">
           <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
@@ -967,7 +971,7 @@ function FirstTimeDashboard({
       </Link>
 
       {/* How it works — 3-step reassurance strip */}
-      <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+      <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6">
         <h2 className="text-white font-extrabold text-[14px] mb-4">How it works</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <HowStep
@@ -978,7 +982,7 @@ function FirstTimeDashboard({
           <HowStep
             n={2}
             title="Get a real-style paper"
-            body="AI builds a fresh NZQA-style paper in seconds."
+            body="AI builds a fresh exam-style paper in seconds."
           />
           <HowStep
             n={3}
@@ -990,7 +994,7 @@ function FirstTimeDashboard({
 
       {/* Your subjects (quick launch) */}
       {pickedSubjects.length > 0 && yearLevel != null && (
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+        <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-white font-extrabold text-[14px]">Your subjects</h2>
             <span className="text-[11px] text-zinc-500">Year {yearLevel}</span>
@@ -1022,7 +1026,7 @@ function FirstTimeDashboard({
 
       {/* Tier / usage card */}
       {!tierLoading && (
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+        <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6">
           <div className="flex items-start justify-between gap-4 mb-3">
             <div>
               <div className="flex items-center gap-2 mb-0.5">
@@ -1042,7 +1046,7 @@ function FirstTimeDashboard({
             {tier === "free" && (
               <Link
                 href="/pricing"
-                className="shrink-0 text-[12px] font-semibold text-indigo-300 hover:text-indigo-200 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/25 px-3 py-1.5 rounded-lg transition-colors"
+                className="shrink-0 text-[12px] font-semibold text-indigo-300 hover:text-indigo-200 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/25 px-3 py-1.5 rounded-full transition-colors"
               >
                 Upgrade
               </Link>
@@ -1058,7 +1062,7 @@ function FirstTimeDashboard({
               </div>
               <div className="w-full h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full transition-all duration-500"
                   style={{ width: `${Math.min(100, (examsUsed / examsLimit) * 100)}%` }}
                 />
               </div>
@@ -1068,7 +1072,7 @@ function FirstTimeDashboard({
       )}
 
       {/* What's next checklist */}
-      <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5">
+      <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6">
         <h2 className="text-white font-extrabold text-[14px] mb-3">What&apos;s next</h2>
         <ul className="space-y-2.5">
           <ChecklistItem

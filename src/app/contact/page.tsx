@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { display } from "@/lib/displayFont";
 
 type FormState = "idle" | "sending" | "success" | "error";
 
@@ -61,40 +62,36 @@ export default function ContactPage() {
   return (
     <div className="relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" />
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(50% 50% at 50% 42%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }}
+        />
       </div>
 
       <section className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400 mb-6">
-            <svg
-              className="w-3.5 h-3.5 text-indigo-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-              />
-            </svg>
+          <p className="home-rise font-mono text-[11px] uppercase tracking-wider text-zinc-500 mb-6">
             Get in touch
-          </div>
-          <h1 className="text-[24px] sm:text-[40px] md:text-[48px] font-extrabold text-white tracking-tight leading-tight mb-3 sm:mb-4">
+          </p>
+          <h1
+            className={`${display.className} home-rise text-[28px] sm:text-[44px] md:text-[52px] font-bold text-white tracking-[-0.02em] leading-tight mb-3 sm:mb-4`}
+            style={{ animationDelay: "80ms", textWrap: "balance" }}
+          >
             Contact us
           </h1>
-          <p className="text-zinc-400 text-[15px] sm:text-[17px] max-w-lg mx-auto leading-relaxed">
+          <p
+            className="home-rise text-zinc-400 text-[15px] sm:text-[17px] max-w-lg mx-auto leading-relaxed"
+            style={{ animationDelay: "160ms" }}
+          >
             Question, feedback, or just want to say hi? We&apos;d love to hear
             from you.
           </p>
         </div>
 
         {/* Form card */}
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-4 sm:p-8">
+        <div className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-8">
           {formState === "success" ? (
             <div className="rounded-xl bg-emerald-500/[0.08] border border-emerald-500/20 p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mb-4">
@@ -134,7 +131,7 @@ export default function ContactPage() {
                   id="name"
                   name="name"
                   required
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
                   placeholder="Your name"
                 />
               </div>
@@ -152,7 +149,7 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   required
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600"
                   placeholder="you@example.com"
                 />
               </div>
@@ -168,7 +165,7 @@ export default function ContactPage() {
                 <select
                   id="type"
                   name="type"
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors"
                 >
                   <option value="general" className="bg-[#0a0a0f]">
                     General question
@@ -204,7 +201,7 @@ export default function ContactPage() {
                   name="message"
                   required
                   rows={5}
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600 resize-y"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-white text-[14px] focus:border-indigo-500 focus:outline-none transition-colors placeholder:text-zinc-600 resize-y"
                   placeholder="How can we help?"
                 />
               </div>
@@ -216,7 +213,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={formState === "sending"}
-                className="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold py-3 rounded-lg transition-all text-[14px] disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
+                className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 font-extrabold text-white shadow-lg shadow-indigo-500/30 py-3 transition-all text-[14px] disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
               >
                 {formState === "sending" ? "Sending..." : "Send message"}
               </button>
