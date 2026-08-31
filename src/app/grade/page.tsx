@@ -44,8 +44,8 @@ const BUILD_STAGES: { at: number; label: (subj: string, system: string) => strin
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-type Phase = "pick" | "loading" | "test" | "email" | "marking" | "revealed" | "error";
-type PickStep = "name" | "country" | "system" | "year" | "subject";
+type Phase = "pick" | "loading" | "test" | "marking" | "revealed" | "error";
+type PickStep = "name" | "country" | "system" | "year" | "subject" | "contact";
 
 export default function GradePage() {
   const { isSignedIn } = useAuth();
@@ -66,7 +66,6 @@ export default function GradePage() {
 
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [emailError, setEmailError] = useState<string | null>(null);
   // Refs mirror the contact fields so the async marking flow (started before
@@ -155,16 +154,16 @@ export default function GradePage() {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
       setPickStep("subject");
       setPhase("error");
+      // (Lead already banked at the contact step, so nothing is lost.)
     }
   }
 
   async function submitTest() {
     if (!paper || !subject) return;
-    // Anonymous visitors give their name + email WHILE the paper is being
-    // marked (littlenudge-style — the ~15s marking wait absorbs the ask).
-    // Signed-in users already gave theirs, so they get the plain marking
-    // screen and reveal straight away.
-    setPhase(isSignedIn ? "marking" : "email");
+    // Contact details were captured BEFORE the paper was built (wizard
+    // contact step / Clerk account), so marking goes straight to the reveal
+    // and the report email fires automatically.
+    setPhase("marking");
     try {
       const res = await fetch("/api/diagnostic/mark", {
         method: "POST",
@@ -203,41 +202,22 @@ export default function GradePage() {
           ts: Date.now(),
         }));
       } catch {}
-      if (isSignedIn) {
-        setPhase("revealed");
-        const addr = user?.primaryEmailAddress?.emailAddress;
-        if (addr) {
-          void sendEmail(addr, data.results as MarkingResult[]);
-          setEmailStatus("sent");
-        }
+      setPhase("revealed");
+      // The report goes to the address from the contact step (or the
+      // signed-in account). The lead was already banked pre-test, so this
+      // send skips the duplicate lead log.
+      const addr = isSignedIn
+        ? user?.primaryEmailAddress?.emailAddress ?? emailRef.current
+        : emailRef.current;
+      if (addr && EMAIL_RE.test(addr.trim())) {
+        void sendEmail(addr, data.results as MarkingResult[]);
+        setEmailStatus("sent");
       }
-      // Anonymous: the reveal effect below fires once the email step is done.
     } catch (e) {
-      // Marking died after they may have typed their email — bank the lead
-      // anyway so it still shows up in /admin.
-      if (!isSignedIn && EMAIL_RE.test(emailRef.current.trim())) {
-        void fetch("/api/diagnostic/email", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: emailRef.current, name: nameRef.current, curriculum: curriculumId, subject, leadOnly: true }),
-        }).catch(() => {});
-      }
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
       setPhase("error");
     }
   }
-
-  // Anonymous reveal: needs BOTH the marked results and the email step done —
-  // whichever finishes last triggers it. Sends the report to the captured
-  // address (also logs the diagnostic_lead).
-  useEffect(() => {
-    if (phase !== "email" || !emailSubmitted || !results) return;
-    setPhase("revealed");
-    void sendEmail(emailRef.current, results);
-    setEmailStatus("sent");
-    // sendEmail is re-created per render but only depends on stable state here.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, emailSubmitted, results]);
 
   function computeSummary(rs: MarkingResult[]) {
     const totalMarks = rs.reduce((s, r) => s + r.marksAwarded, 0);
@@ -264,6 +244,7 @@ export default function GradePage() {
           bandLabel,
           pct,
           weakTopics: weakTopics.map((t) => getTopicLabel(t)),
+          skipLead: true,
         }),
       }).then((r) => r.json());
     } catch {}
@@ -301,12 +282,14 @@ export default function GradePage() {
   // name → country → state/exam (when the country has several) → year →
   // subject; the subject tap launches the diagnostic immediately.
   if (phase === "pick" || phase === "error") {
+    const knownEmail = isSignedIn && !!user?.primaryEmailAddress?.emailAddress;
     const steps: PickStep[] = [
       "name",
       "country",
       ...(systems.length > 1 ? (["system"] as PickStep[]) : []),
       "year",
       "subject",
+      ...(knownEmail ? [] : (["contact"] as PickStep[])),
     ];
     const stepIdx = Math.max(0, steps.indexOf(pickStep));
     const pillBase = "rounded-full text-left border transition-colors min-h-[48px] py-3 px-4 text-[14px] font-medium bg-white/[0.02] border-white/[0.08] text-zinc-200 hover:border-indigo-400/60 hover:bg-indigo-500/[0.06]";
@@ -316,13 +299,15 @@ export default function GradePage() {
       : pickStep === "country" ? (firstName.trim() ? `Where do you study, ${firstName.trim()}?` : "Where do you study?")
       : pickStep === "system" ? (country === "AU" ? "Which state are you in?" : "Which exam do you sit?")
       : pickStep === "year" ? (country === "US" || country === "CA" ? "What grade are you in?" : "What year are you in?")
-      : "Last one \u2014 which subject should we check?";
+      : pickStep === "subject" ? "Which subject should we check?"
+      : "Last one \u2014 where should we send your grade report?";
     const subline =
       pickStep === "name" ? "We\u2019ll put it on your grade report. Takes about 2 minutes \u2014 no card, no signup."
       : pickStep === "country" ? "So your questions match your country\u2019s real exams."
       : pickStep === "system" ? "Every system gets its own exam style \u2014 we test you on yours."
       : pickStep === "year" ? "Questions come at your level \u2014 not too easy, not unfair."
-      : "You\u2019ll sit 8 quick questions, marked honestly, and see the grade you\u2019d get today.";
+      : pickStep === "subject" ? "You\u2019ll sit 8 quick questions, marked honestly, and see the grade you\u2019d get today."
+      : "Your grade + the full marked paper land in your inbox the moment you finish.";
 
     return (
       <div className="relative overflow-hidden">
@@ -420,7 +405,11 @@ export default function GradePage() {
             <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
               {subjects.map((sub) => (
                 <button key={sub.value}
-                  onClick={() => { setSubject(sub.value); void start(sub.value); }}
+                  onClick={() => {
+                    setSubject(sub.value);
+                    if (knownEmail) void start(sub.value);
+                    else setPickStep("contact");
+                  }}
                   className={pillBase}>
                   {sub.label}
                 </button>
@@ -428,57 +417,39 @@ export default function GradePage() {
             </div>
           )}
 
+          {pickStep === "contact" && (
+            <form className="home-rise" style={{ animationDelay: "160ms" }}
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!EMAIL_RE.test(email.trim())) { setEmailError("Please enter a valid email address."); return; }
+                setEmailError(null);
+                // Bank the lead NOW — before a single question is answered.
+                void fetch("/api/diagnostic/email", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ email: email.trim(), name: firstName.trim(), curriculum: curriculumId, subject, leadOnly: true }),
+                }).catch(() => {});
+                void start();
+              }}>
+              <label className="block text-[13px] font-semibold text-zinc-300 mb-2">Email address</label>
+              <input
+                autoFocus type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com" autoComplete="email" inputMode="email"
+                className="w-full rounded-2xl bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-[16px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/70 mb-2"
+              />
+              {emailError && <p className="text-rose-400 text-[12px] mb-2">{emailError}</p>}
+              <button type="submit" disabled={!email.trim()}
+                className="w-full mt-2 rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 disabled:opacity-40 disabled:shadow-none transition-all">
+                Build my paper →
+              </button>
+              <p className="text-zinc-600 text-[12px] text-center mt-4">No spam — just your report and your path to the top grade.</p>
+            </form>
+          )}
+
           <p className="text-zinc-600 text-[12px] text-center mt-10">
             Already practising? <Link href="/subjects" className="text-indigo-400 hover:underline">Go to your exams</Link>
           </p>
         </div>
-      </div>
-    );
-  }
-
-  // ── EMAIL ── littlenudge-style contact step, shown while the paper is
-  // being marked in the background. The grade reveals the moment both the
-  // marking and this step are done — the ask never adds wait time.
-  if (phase === "email") {
-    const waiting = emailSubmitted && !results;
-    return (
-      <div className="max-w-md mx-auto px-5 pt-14 sm:pt-20 pb-24">
-        <div className="text-center mb-8">
-          <div className="w-12 h-12 mx-auto mb-5 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
-          <h1 className={`${display.className} text-white font-bold text-[24px] tracking-[-0.02em] mb-2`}>
-            {firstName.trim() ? `Nice work, ${firstName.trim()} — your paper is with the examiner…` : "Your paper is with the examiner…"}
-          </h1>
-          <p className="text-zinc-400 text-[14px]">Marked honestly — no leniency, no fake praise.</p>
-        </div>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (EMAIL_RE.test(email.trim())) { setEmailError(null); setEmailSubmitted(true); }
-            else setEmailError("Please enter a valid email address.");
-          }}
-          className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5">
-          <p className="text-white font-bold text-[16px] mb-1">Where should we send your grade report?</p>
-          <p className="text-zinc-500 text-[12.5px] mb-4">Your grade + the full marked paper, straight to your inbox.</p>
-          {!firstName.trim() && (
-            <input
-              type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
-              placeholder="First name" autoComplete="given-name"
-              className="w-full mb-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
-            />
-          )}
-          <input
-            autoFocus
-            type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email address" autoComplete="email" inputMode="email"
-            className="w-full mb-3 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
-          />
-          {emailError && <p className="text-rose-400 text-[12px] mb-2">{emailError}</p>}
-          <button type="submit" disabled={waiting}
-            className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-3.5 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 disabled:opacity-70 transition-all">
-            {waiting ? "Marking your paper…" : "Show my grade →"}
-          </button>
-          <p className="text-zinc-600 text-[11px] text-center mt-2.5">No spam — just your report and your path to the top grade.</p>
-        </form>
       </div>
     );
   }

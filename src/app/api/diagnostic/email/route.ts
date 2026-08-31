@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { email, name, curriculum: curriculumId, subject, bandLabel, pct, weakTopics, leadOnly } = body as {
+    const { email, name, curriculum: curriculumId, subject, bandLabel, pct, weakTopics, leadOnly, skipLead } = body as {
       email?: string;
       name?: string;
       curriculum?: string;
@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
       pct?: number;
       weakTopics?: string[];
       leadOnly?: boolean;
+      skipLead?: boolean;
     };
 
     const cleanEmail = (email ?? "").trim().toLowerCase().slice(0, 200);
@@ -41,9 +42,10 @@ export async function POST(request: NextRequest) {
     const curriculum = resolveCurriculum(curriculumId);
     const subjectLabel = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject ?? "your exam";
 
-    // Lead capture — always logged, regardless of whether the email send below
-    // is configured. This is the record that matters for the funnel.
-    void logEvent("diagnostic_lead", null, {
+    // Lead capture — logged regardless of whether the email send below is
+    // configured. skipLead=true marks a report send whose lead was already
+    // banked at the wizard's contact step (avoids duplicate lead rows).
+    if (!skipLead) void logEvent("diagnostic_lead", null, {
       email: cleanEmail,
       ...(cleanName ? { name: cleanName } : {}),
       curriculum: curriculum.id,
