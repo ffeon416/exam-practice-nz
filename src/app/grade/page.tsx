@@ -678,7 +678,24 @@ export default function GradePage() {
             <div className={`${display.className} text-[52px] sm:text-[64px] font-bold leading-none tracking-[-0.03em] mb-2 ${gradeColor(grade)}`}>
               {bandLabel}
             </div>
-            <p className="text-zinc-400 text-[13px]">
+            {(() => {
+              // Full name of the result, spelled out under the big letter.
+              // Derived from the band's tone so it's truthful in every exam
+              // system without inventing official terminology.
+              const band = curriculumBand(curriculumId, results);
+              const tone = band?.tone ?? (grade === "excellence" ? "top" : grade === "merit" ? "high" : grade === "achieved" ? "pass" : "fail");
+              const desc =
+                tone === "top" ? `the top band in ${curriculum.system}`
+                : tone === "high" ? "a strong result — one band off the top"
+                : tone === "pass" ? `a passing result in ${curriculum.system}`
+                : `below a passing result in ${curriculum.system}`;
+              return (
+                <p className="text-zinc-300 text-[14px] font-semibold mb-1.5">
+                  {bandLabel.length <= 3 ? `Band ${bandLabel} — ${desc}` : desc.charAt(0).toUpperCase() + desc.slice(1)}
+                </p>
+              );
+            })()}
+            <p className="text-zinc-500 text-[13px]">
               Marked honestly, question by question — your full marked paper is below.
             </p>
           </div>
