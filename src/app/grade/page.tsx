@@ -30,11 +30,16 @@ type ApiQuestion = {
   graph?: GraphData; image?: string;
 };
 
-const LOADING_LINES = [
-  "Building your diagnostic…",
-  "Calibrating to your exam's real difficulty…",
-  "Writing questions an examiner would ask…",
-  "Nearly there — sharpen a pencil…",
+// Build stages shown while the paper generates (~25–35s). Each ticks from
+// pending → active → done as the clock passes its start time; the last one
+// stays active until the paper actually arrives. Times are tuned to feel
+// truthful against the real generation wait.
+const BUILD_STAGES: { at: number; label: (subj: string, system: string) => string }[] = [
+  { at: 0, label: (_s, system) => `Reading the ${system} syllabus` },
+  { at: 4, label: (subj) => `Studying real ${subj} exam patterns` },
+  { at: 9, label: () => "Writing your 8 questions" },
+  { at: 18, label: () => "Setting the honest marking scheme" },
+  { at: 26, label: () => "Calibrating difficulty to your year level" },
 ];
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -83,18 +88,14 @@ export default function GradePage() {
     return () => clearTimeout(id);
   }, [phase]);
 
-  // Paper generation takes ~25–30s; advance the status line every 6s so the
-  // wait never looks stalled (holds on the last line once exhausted).
-  const [loadingLine, setLoadingLine] = useState(0);
+  // Elapsed clock for the build screen — drives the progress bar + stage
+  // ticks. The bar eases toward 92% and holds there until the paper lands,
+  // so it never lies about being finished.
+  const [elapsed, setElapsed] = useState(0);
   useEffect(() => {
-    if (phase !== "loading") {
-      setLoadingLine(0);
-      return;
-    }
-    const id = setInterval(
-      () => setLoadingLine((i) => Math.min(i + 1, LOADING_LINES.length - 1)),
-      6000
-    );
+    if (phase !== "loading") { setElapsed(0); return; }
+    const t0 = Date.now();
+    const id = setInterval(() => setElapsed((Date.now() - t0) / 1000), 250);
     return () => clearInterval(id);
   }, [phase]);
 
@@ -482,17 +483,69 @@ export default function GradePage() {
     );
   }
 
-  // ── LOADING / MARKING ──
-  if (phase === "loading" || phase === "marking") {
+  // ── LOADING ── the build screen: progress bar + stages ticking off while
+  // the paper generates. Personalised with their name and subject so the
+  // wait feels like something is being made FOR them.
+  if (phase === "loading") {
+    const subjLabel = curriculum.subjects.find((x) => x.value === subject)?.label ?? "your subject";
+    const pctBar = Math.min(92, (1 - Math.exp(-elapsed / 14)) * 100);
+    const nm = firstName.trim();
+    return (
+      <div className="max-w-md mx-auto px-5 pt-14 sm:pt-20 pb-24">
+        <h1 className={`${display.className} text-white font-bold text-[26px] sm:text-[30px] tracking-[-0.02em] mb-2`}>
+          {nm ? `Building your paper, ${nm}…` : "Building your paper…"}
+        </h1>
+        <p className="text-zinc-400 text-[14px] mb-8">
+          A one-off {subjLabel} diagnostic, written fresh for you — the same questions an examiner would ask.
+        </p>
+
+        <div className="h-1.5 rounded-full bg-white/[0.07] overflow-hidden mb-8">
+          <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-[width] duration-300 ease-out"
+            style={{ width: `${pctBar}%` }} />
+        </div>
+
+        <div className="space-y-3.5">
+          {BUILD_STAGES.map((st, i2) => {
+            const started = elapsed >= st.at;
+            const next = BUILD_STAGES[i2 + 1];
+            const done = next ? elapsed >= next.at : false;
+            return (
+              <div key={i2} className={`flex items-center gap-3 transition-opacity duration-500 ${started ? "opacity-100" : "opacity-30"}`}>
+                <span className="shrink-0 w-6 h-6 flex items-center justify-center">
+                  {done ? (
+                    <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  ) : started ? (
+                    <span className="w-4 h-4 rounded-full border-2 border-indigo-400 border-t-transparent animate-spin" />
+                  ) : (
+                    <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                  )}
+                </span>
+                <span className={`text-[14px] ${done ? "text-zinc-300" : started ? "text-white font-medium" : "text-zinc-500"}`}>
+                  {st.label(subjLabel, curriculum.system)}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        <p className="text-zinc-600 text-[12px] mt-10 text-center">
+          Marked honestly when you&apos;re done — no leniency, no fake praise.
+        </p>
+      </div>
+    );
+  }
+
+  // ── MARKING ── (signed-in users only — anonymous users see the email step)
+  if (phase === "marking") {
     return (
       <div className="max-w-md mx-auto px-5 pt-28 pb-24 text-center">
         <div className="w-14 h-14 mx-auto mb-6 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
         <h1 className={`${display.className} text-white font-bold text-[22px] tracking-[-0.02em] mb-2`}>
-          {phase === "loading" ? "Reading your exam…" : "Marking honestly…"}
+          Marking honestly…
         </h1>
-        <p className="text-zinc-400 text-[14px]">
-          {phase === "loading" ? LOADING_LINES[loadingLine] : "No leniency, no fake praise — just the truth."}
-        </p>
+        <p className="text-zinc-400 text-[14px]">No leniency, no fake praise — just the truth.</p>
       </div>
     );
   }
