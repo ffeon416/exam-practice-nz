@@ -40,6 +40,7 @@ const LOADING_LINES = [
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 type Phase = "pick" | "loading" | "test" | "email" | "marking" | "revealed" | "error";
+type PickStep = "name" | "country" | "system" | "year" | "subject";
 
 export default function GradePage() {
   const { isSignedIn } = useAuth();
@@ -51,6 +52,7 @@ export default function GradePage() {
   const [subject, setSubject] = useState<string | null>(null);
 
   const [phase, setPhase] = useState<Phase>("pick");
+  const [pickStep, setPickStep] = useState<PickStep>("name");
   const [error, setError] = useState<string | null>(null);
   const [paper, setPaper] = useState<{ title: string; questions: ApiQuestion[] } | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -68,6 +70,11 @@ export default function GradePage() {
   const nameRef = useRef("");
   useEffect(() => { emailRef.current = email; }, [email]);
   useEffect(() => { nameRef.current = firstName; }, [firstName]);
+  // Signed-in users: prefill the name step from Clerk (they just tap Next).
+  useEffect(() => {
+    const n = user?.firstName;
+    if (n) setFirstName((v) => v || n);
+  }, [user?.firstName]);
   // Drives the score-ring sweep + staggered reveal animations.
   const [ringOn, setRingOn] = useState(false);
   useEffect(() => {
@@ -123,8 +130,9 @@ export default function GradePage() {
   }, []);
   function pickSystem(id: string) { setCurriculumId(id); setYear(null); setSubject(null); }
 
-  async function start() {
-    if (!canStart || !subject || year == null) return;
+  async function start(subjectOverride?: string) {
+    const subj = subjectOverride ?? subject;
+    if (!subj || year == null || countryMismatch) return;
     setPhase("loading");
     setError(null);
     try {
@@ -132,7 +140,7 @@ export default function GradePage() {
       const res = await fetch("/api/diagnostic/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ subject, level, curriculum: curriculumId }),
+        body: JSON.stringify({ subject: subj, level, curriculum: curriculumId }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.paper?.questions?.length) {
@@ -144,6 +152,7 @@ export default function GradePage() {
       setPhase("test");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
+      setPickStep("subject");
       setPhase("error");
     }
   }
@@ -286,128 +295,139 @@ export default function GradePage() {
     }
   }
 
-  // ── PICK ──
+  // ── PICK ── littlenudge-style wizard (modelled on littlenudge.io/start):
+  // thin progress bar, ONE question per screen, tap a pill to auto-advance.
+  // name → country → state/exam (when the country has several) → year →
+  // subject; the subject tap launches the diagnostic immediately.
   if (phase === "pick" || phase === "error") {
+    const steps: PickStep[] = [
+      "name",
+      "country",
+      ...(systems.length > 1 ? (["system"] as PickStep[]) : []),
+      "year",
+      "subject",
+    ];
+    const stepIdx = Math.max(0, steps.indexOf(pickStep));
+    const pillBase = "rounded-full text-left border transition-colors min-h-[48px] py-3 px-4 text-[14px] font-medium bg-white/[0.02] border-white/[0.08] text-zinc-200 hover:border-indigo-400/60 hover:bg-indigo-500/[0.06]";
+
+    const heading =
+      pickStep === "name" ? "What\u2019s your first name?"
+      : pickStep === "country" ? (firstName.trim() ? `Where do you study, ${firstName.trim()}?` : "Where do you study?")
+      : pickStep === "system" ? (country === "AU" ? "Which state are you in?" : "Which exam do you sit?")
+      : pickStep === "year" ? (country === "US" || country === "CA" ? "What grade are you in?" : "What year are you in?")
+      : "Last one \u2014 which subject should we check?";
+    const subline =
+      pickStep === "name" ? "We\u2019ll put it on your grade report. Takes about 2 minutes \u2014 no card, no signup."
+      : pickStep === "country" ? "So your questions match your country\u2019s real exams."
+      : pickStep === "system" ? "Every system gets its own exam style \u2014 we test you on yours."
+      : pickStep === "year" ? "Questions come at your level \u2014 not too easy, not unfair."
+      : "You\u2019ll sit 8 quick questions, marked honestly, and see the grade you\u2019d get today.";
+
     return (
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden>
           <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full"
-            style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(79,70,229,0.16) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
+            style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(79,70,229,0.14) 0%, rgba(79,70,229,0.05) 45%, transparent 70%)" }} />
         </div>
-        <div className="max-w-lg mx-auto px-5 pt-10 sm:pt-16 pb-20">
-          <div className="text-center mb-8">
-            <div className="home-rise inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-5">
-              🎯 Free · no account needed · 8 questions
+        <div className="max-w-xl mx-auto px-5 pt-12 sm:pt-20 pb-24">
+
+          {/* Progress bar — littlenudge-style thin track */}
+          <div className="flex items-center gap-3 mb-10 sm:mb-14">
+            {stepIdx > 0 && (
+              <button onClick={() => setPickStep(steps[stepIdx - 1])}
+                className="shrink-0 text-zinc-500 hover:text-zinc-300 text-[13px] font-medium transition-colors" aria-label="Back">
+                ←
+              </button>
+            )}
+            <div className="flex-1 h-1 rounded-full bg-white/[0.07] overflow-hidden">
+              <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-300"
+                style={{ width: `${((stepIdx + 1) / (steps.length + 1)) * 100}%` }} />
             </div>
-            <h1 className={`${display.className} home-rise text-[30px] sm:text-[42px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-3`}
-              style={{ animationDelay: "80ms", textWrap: "balance" }}>
-              What would you get if you{" "}
-              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                sat your exam today?
-              </em>
-            </h1>
-            <p className="home-rise text-zinc-400 text-[14px] sm:text-[16px] max-w-md mx-auto" style={{ animationDelay: "160ms" }}>
-              Sit a short diagnostic in your exact exam system — free, no sign-up. We mark every answer honestly, show you the marked paper, and tell you your grade. Then we show you the path to the top one.
-            </p>
+            <span className="shrink-0 font-mono text-[11px] text-zinc-600">{stepIdx + 1}/{steps.length}</span>
           </div>
 
           {phase === "error" && error && (
             <div className="mb-6 rounded-xl bg-rose-500/10 border border-rose-500/25 px-4 py-3 text-rose-300 text-[13px]">{error}</div>
           )}
 
-          <div className="mb-5">
-            <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">Your country</label>
-            <div className="grid grid-cols-5 gap-2">
+          <h1 key={pickStep} className={`${display.className} home-rise text-[30px] sm:text-[40px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-3`}
+            style={{ textWrap: "balance" }}>
+            {heading}
+          </h1>
+          <p className="home-rise text-zinc-400 text-[14px] sm:text-[15.5px] mb-8 max-w-md" style={{ animationDelay: "80ms" }}>
+            {subline}
+          </p>
+
+          {pickStep === "name" && (
+            <form className="home-rise" style={{ animationDelay: "160ms" }}
+              onSubmit={(e) => { e.preventDefault(); if (firstName.trim()) setPickStep("country"); }}>
+              <label className="block text-[13px] font-semibold text-zinc-300 mb-2">First name</label>
+              <input
+                autoFocus type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
+                placeholder="e.g. Katelyn" autoComplete="given-name"
+                className="w-full rounded-2xl bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-[16px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/70 mb-4"
+              />
+              <button type="submit" disabled={!firstName.trim()}
+                className="w-full rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 disabled:opacity-40 disabled:shadow-none transition-all">
+                Next
+              </button>
+              <p className="text-zinc-600 text-[12px] text-center mt-4">Free grade check · no account needed · 8 questions</p>
+            </form>
+          )}
+
+          {pickStep === "country" && (
+            <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
               {COUNTRIES.map((co) => (
-                <button key={co.code} onClick={() => pickCountry(co.code)} aria-pressed={co.code === country}
-                  className={`flex flex-col items-center gap-0.5 min-h-[50px] py-2 rounded-full text-[10.5px] font-semibold border transition-colors ${
-                    co.code === country
-                      ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white"
-                      : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2]"
-                  }`}>
-                  <span className="text-[16px] leading-none" aria-hidden>{co.flag}</span>{co.label}
+                <button key={co.code}
+                  onClick={() => {
+                    pickCountry(co.code);
+                    setPickStep(curriculaForCountry(co.code).length > 1 ? "system" : "year");
+                  }}
+                  className={`${pillBase} flex items-center gap-3`}>
+                  <span className="text-[20px] leading-none" aria-hidden>{co.flag}</span>{co.label}
                 </button>
               ))}
             </div>
-          </div>
+          )}
 
-          {systems.length > 1 && (
-            <div className="mb-5">
-              <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">
-                {country === "AU" ? "Your state" : "Your exam"}
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {systems.map((c) => {
-                  const active = !countryMismatch && c.id === curriculumId;
-                  return (
-                    <button key={c.id} onClick={() => pickSystem(c.id)} aria-pressed={active}
-                      className={`inline-flex items-center gap-1.5 min-h-[36px] px-4 py-2 rounded-full text-[12px] font-semibold border transition-colors ${
-                        active
-                          ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white"
-                          : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2]"
-                      }`}>
-                      {c.regionShort ? <><span className={active ? "text-white/80" : "text-zinc-500"}>{c.regionShort}</span><span aria-hidden>·</span>{c.system}</> : c.system}
-                    </button>
-                  );
-                })}
-              </div>
+          {pickStep === "system" && (
+            <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
+              {systems.map((c) => (
+                <button key={c.id}
+                  onClick={() => { pickSystem(c.id); setPickStep("year"); }}
+                  className={`${pillBase} flex items-center gap-2`}>
+                  {c.regionShort && <span className="text-zinc-500 font-semibold">{c.regionShort}</span>}
+                  {c.system}
+                </button>
+              ))}
             </div>
           )}
 
-          <div className="mb-5">
-            <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">
-              {country === "US" || country === "CA" ? "Grade" : "Year level"}
-            </label>
-            {years.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-4 text-center text-[13px] text-zinc-500">
-                Pick your {country === "AU" ? "state" : "exam"} first ↑
-              </div>
-            ) : (
-              <div className="grid grid-cols-4 gap-2">
-                {years.map((y) => (
-                  <button key={y.value} onClick={() => { setYear(y.value); setSubject(null); }} aria-pressed={year === y.value}
-                    className={`min-h-[42px] py-2.5 rounded-full text-[13px] font-medium border transition-colors ${
-                      year === y.value
-                        ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white"
-                        : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2]"
-                    }`}>
-                    {y.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          {pickStep === "year" && (
+            <div className="home-rise grid grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
+              {years.map((y) => (
+                <button key={y.value}
+                  onClick={() => { setYear(y.value); setSubject(null); setPickStep("subject"); }}
+                  className={`${pillBase} text-center`}>
+                  {y.label}
+                </button>
+              ))}
+            </div>
+          )}
 
-          <div className="mb-7">
-            <label className="block font-mono text-[11px] font-semibold text-zinc-500 mb-2 uppercase tracking-wider">Subject</label>
-            {subjects.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.02] px-4 py-4 text-center text-[13px] text-zinc-500">
-                Pick a year level first ↑
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-2">
-                {subjects.map((s) => (
-                  <button key={s.value} onClick={() => setSubject(s.value)} aria-pressed={subject === s.value}
-                    className={`min-h-[42px] py-2.5 px-4 rounded-full text-[13px] text-left border transition-colors ${
-                      subject === s.value
-                        ? "bg-gradient-to-r from-indigo-500 to-violet-600 border-indigo-500 text-white"
-                        : "bg-white/[0.02] border-white/[0.08] text-zinc-300 hover:border-white/[0.2]"
-                    }`}>
-                    {s.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          {pickStep === "subject" && (
+            <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
+              {subjects.map((sub) => (
+                <button key={sub.value}
+                  onClick={() => { setSubject(sub.value); void start(sub.value); }}
+                  className={pillBase}>
+                  {sub.label}
+                </button>
+              ))}
+            </div>
+          )}
 
-          <button onClick={start} disabled={!canStart}
-            className="w-full rounded-full bg-white text-[#0a0a0f] px-5 py-4 text-[15px] font-bold shadow-2xl shadow-indigo-500/20 hover:scale-[1.02] disabled:opacity-40 disabled:shadow-none disabled:hover:scale-100 transition-all">
-            Start my free grade check →
-          </button>
-          <p className="text-zinc-600 text-[11.5px] text-center mt-3">
-            No account, no card. 8 questions — then your grade and full marked paper.
-          </p>
-          <p className="text-zinc-600 text-[12px] text-center mt-8">
+          <p className="text-zinc-600 text-[12px] text-center mt-10">
             Already practising? <Link href="/subjects" className="text-indigo-400 hover:underline">Go to your exams</Link>
           </p>
         </div>
@@ -425,7 +445,7 @@ export default function GradePage() {
         <div className="text-center mb-8">
           <div className="w-12 h-12 mx-auto mb-5 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
           <h1 className={`${display.className} text-white font-bold text-[24px] tracking-[-0.02em] mb-2`}>
-            Your paper is with the examiner…
+            {firstName.trim() ? `Nice work, ${firstName.trim()} — your paper is with the examiner…` : "Your paper is with the examiner…"}
           </h1>
           <p className="text-zinc-400 text-[14px]">Marked honestly — no leniency, no fake praise.</p>
         </div>
@@ -438,12 +458,15 @@ export default function GradePage() {
           className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5">
           <p className="text-white font-bold text-[16px] mb-1">Where should we send your grade report?</p>
           <p className="text-zinc-500 text-[12.5px] mb-4">Your grade + the full marked paper, straight to your inbox.</p>
+          {!firstName.trim() && (
+            <input
+              type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
+              placeholder="First name" autoComplete="given-name"
+              className="w-full mb-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
+            />
+          )}
           <input
-            type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
-            placeholder="First name" autoComplete="given-name"
-            className="w-full mb-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
-          />
-          <input
+            autoFocus
             type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
             placeholder="Email address" autoComplete="email" inputMode="email"
             className="w-full mb-3 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
