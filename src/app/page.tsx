@@ -18,7 +18,7 @@ import { gradeLabel } from "@/lib/scoring";
 import type { StudentProgress } from "@/lib/types";
 
 const FAQS: { q: string; a: string }[] = [
-  { q: "Is it actually free?", a: "The grade check is completely free — no account, no card. A free account gets you 2 practice exams a week in Maths and English. The Student plan (NZ$15/month, cancel anytime) unlocks every subject, unlimited exams, and the week-by-week schedule." },
+  { q: "Is it actually free?", a: "The grade check is completely free — no account, no card, and you see your full marked paper. To keep training after that, the Student plan is NZ$15/month (cancel anytime): every subject, honest marking on every answer, and the week-by-week schedule." },
   { q: "Which exams does it cover?", a: "16 exam systems across 5 countries: NCEA, Australia's HSC/QCE/VCE/WACE/SACE, the UK's GCSE, A-Levels and SQA Highers, US AP/SAT/ACT plus state exams, and Canada's Ontario, Alberta and BC systems. Questions, difficulty and grading follow your system's own style." },
   { q: "Is the marking real?", a: "Yes, and it's deliberately honest — no participation marks, no rounding up. Every answer gets marked like an examiner would: a mark for working, a mark for the answer, and specific feedback on what was missing. A hedge answer scores zero, same as on the day." },
   { q: "Do I need an account?", a: "Not for the grade check — you can sit it and see your full marked paper anonymously. You only create an account when you want to keep training, and Google sign-in makes that one tap." },

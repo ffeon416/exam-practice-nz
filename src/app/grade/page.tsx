@@ -2,15 +2,16 @@
 
 // ── The Grade Detector ──
 // Free hook: "What would you get if you sat your exam today?"
-// Fully anonymous end to end: pick country/state/year/subject → sit an
-// 8-question diagnostic → see the FULL result immediately — grade band,
-// score ring, and an examiner-style per-question marked paper. Nothing is
-// gated: no account, no email wall (email is an optional "send me this
-// report" field that still captures leads). The reveal itself is the pitch:
-// after seeing exactly where they lost marks, the page pushes the Student
-// plan (NZ$15/mo) with a personalised path from today's % to the top band.
+// The lead-capture funnel (littlenudge-style): pick country/state/year/
+// subject → sit an 8-question diagnostic → while the paper is being marked,
+// a step asks "where should we send your grade report?" (first name +
+// email — the marking wait absorbs the ask, so it costs zero extra time)
+// → the FULL result reveals: grade band, score ring, examiner-style marked
+// paper. No account needed. The reveal itself is the pitch: after seeing
+// exactly where they lost marks, the page pushes the Student plan
+// (NZ$15/mo) with a personalised path from today's % to the top band.
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
@@ -36,7 +37,9 @@ const LOADING_LINES = [
   "Nearly there — sharpen a pencil…",
 ];
 
-type Phase = "pick" | "loading" | "test" | "marking" | "revealed" | "error";
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+type Phase = "pick" | "loading" | "test" | "email" | "marking" | "revealed" | "error";
 
 export default function GradePage() {
   const { isSignedIn } = useAuth();
@@ -55,8 +58,16 @@ export default function GradePage() {
   const [currentQ, setCurrentQ] = useState(0);
 
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [emailError, setEmailError] = useState<string | null>(null);
+  // Refs mirror the contact fields so the async marking flow (started before
+  // the email step is filled in) can read their latest values.
+  const emailRef = useRef("");
+  const nameRef = useRef("");
+  useEffect(() => { emailRef.current = email; }, [email]);
+  useEffect(() => { nameRef.current = firstName; }, [firstName]);
   // Drives the score-ring sweep + staggered reveal animations.
   const [ringOn, setRingOn] = useState(false);
   useEffect(() => {
@@ -139,7 +150,11 @@ export default function GradePage() {
 
   async function submitTest() {
     if (!paper || !subject) return;
-    setPhase("marking");
+    // Anonymous visitors give their name + email WHILE the paper is being
+    // marked (littlenudge-style — the ~15s marking wait absorbs the ask).
+    // Signed-in users already gave theirs, so they get the plain marking
+    // screen and reveal straight away.
+    setPhase(isSignedIn ? "marking" : "email");
     try {
       const res = await fetch("/api/diagnostic/mark", {
         method: "POST",
@@ -161,10 +176,6 @@ export default function GradePage() {
       if (!res.ok || !Array.isArray(data.results)) throw new Error("Marking failed. Please try again.");
       setResults(data.results as MarkingResult[]);
 
-      // Everyone sees the full result immediately — no gate. Signed-in users
-      // also get a copy in their inbox (best-effort); anonymous visitors get
-      // an optional "email me this report" field on the results page.
-      setPhase("revealed");
       // Hand the result to /pricing so the funnel never loses context — the
       // pricing page shows "{band} → {topBand} in {subject}" instead of a
       // generic pitch. Pre-auth by design (no user exists yet).
@@ -183,14 +194,40 @@ export default function GradePage() {
         }));
       } catch {}
       if (isSignedIn) {
+        setPhase("revealed");
         const addr = user?.primaryEmailAddress?.emailAddress;
-        if (addr) void sendEmail(addr, data.results as MarkingResult[]);
+        if (addr) {
+          void sendEmail(addr, data.results as MarkingResult[]);
+          setEmailStatus("sent");
+        }
       }
+      // Anonymous: the reveal effect below fires once the email step is done.
     } catch (e) {
+      // Marking died after they may have typed their email — bank the lead
+      // anyway so it still shows up in /admin.
+      if (!isSignedIn && EMAIL_RE.test(emailRef.current.trim())) {
+        void fetch("/api/diagnostic/email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: emailRef.current, name: nameRef.current, curriculum: curriculumId, subject, leadOnly: true }),
+        }).catch(() => {});
+      }
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
       setPhase("error");
     }
   }
+
+  // Anonymous reveal: needs BOTH the marked results and the email step done —
+  // whichever finishes last triggers it. Sends the report to the captured
+  // address (also logs the diagnostic_lead).
+  useEffect(() => {
+    if (phase !== "email" || !emailSubmitted || !results) return;
+    setPhase("revealed");
+    void sendEmail(emailRef.current, results);
+    setEmailStatus("sent");
+    // sendEmail is re-created per render but only depends on stable state here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, emailSubmitted, results]);
 
   function computeSummary(rs: MarkingResult[]) {
     const totalMarks = rs.reduce((s, r) => s + r.marksAwarded, 0);
@@ -211,6 +248,7 @@ export default function GradePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: addr,
+          name: nameRef.current,
           curriculum: curriculumId,
           subject,
           bandLabel,
@@ -367,12 +405,56 @@ export default function GradePage() {
             Start my free grade check →
           </button>
           <p className="text-zinc-600 text-[11.5px] text-center mt-3">
-            No account, no card, no email wall. Your grade and marked paper appear right here.
+            No account, no card. 8 questions — then your grade and full marked paper.
           </p>
           <p className="text-zinc-600 text-[12px] text-center mt-8">
             Already practising? <Link href="/subjects" className="text-indigo-400 hover:underline">Go to your exams</Link>
           </p>
         </div>
+      </div>
+    );
+  }
+
+  // ── EMAIL ── littlenudge-style contact step, shown while the paper is
+  // being marked in the background. The grade reveals the moment both the
+  // marking and this step are done — the ask never adds wait time.
+  if (phase === "email") {
+    const waiting = emailSubmitted && !results;
+    return (
+      <div className="max-w-md mx-auto px-5 pt-14 sm:pt-20 pb-24">
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 mx-auto mb-5 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
+          <h1 className={`${display.className} text-white font-bold text-[24px] tracking-[-0.02em] mb-2`}>
+            Your paper is with the examiner…
+          </h1>
+          <p className="text-zinc-400 text-[14px]">Marked honestly — no leniency, no fake praise.</p>
+        </div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (EMAIL_RE.test(email.trim())) { setEmailError(null); setEmailSubmitted(true); }
+            else setEmailError("Please enter a valid email address.");
+          }}
+          className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5">
+          <p className="text-white font-bold text-[16px] mb-1">Where should we send your grade report?</p>
+          <p className="text-zinc-500 text-[12.5px] mb-4">Your grade + the full marked paper, straight to your inbox.</p>
+          <input
+            type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First name" autoComplete="given-name"
+            className="w-full mb-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
+          />
+          <input
+            type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email address" autoComplete="email" inputMode="email"
+            className="w-full mb-3 rounded-xl bg-white/[0.04] border border-white/[0.08] px-4 py-3 text-[14px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
+          />
+          {emailError && <p className="text-rose-400 text-[12px] mb-2">{emailError}</p>}
+          <button type="submit" disabled={waiting}
+            className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-3.5 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 disabled:opacity-70 transition-all">
+            {waiting ? "Marking your paper…" : "Show my grade →"}
+          </button>
+          <p className="text-zinc-600 text-[11px] text-center mt-2.5">No spam — just your report and your path to the top grade.</p>
+        </form>
       </div>
     );
   }
@@ -788,7 +870,7 @@ export default function GradePage() {
               <form onSubmit={sendReport} className="flex flex-col sm:flex-row gap-2.5">
                 <input
                   type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email me this report (optional)"
+                  placeholder="Email me this report"
                   className="flex-1 rounded-xl bg-white/[0.04] border border-white/[0.08] px-3.5 py-2.5 text-[13px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"
                 />
                 <button type="submit" disabled={emailStatus === "sending"}
@@ -801,7 +883,7 @@ export default function GradePage() {
           </div>
 
           <p className="text-zinc-600 text-[12px] text-center">
-            Want to retake it first? <button onClick={() => { setPhase("pick"); setResults(null); setPaper(null); }} className="text-indigo-400 hover:underline">Run another grade check</button>
+            Want to retake it first? <button onClick={() => { setPhase("pick"); setResults(null); setPaper(null); setEmailStatus("idle"); }} className="text-indigo-400 hover:underline">Run another grade check</button>
           </p>
         </div>
 

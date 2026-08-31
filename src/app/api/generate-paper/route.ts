@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(
           {
             error: "limit_reached",
-            message: `You've used your ${limits.examsPerWeek} free exams this week. Upgrade to continue, or invite a friend for bonus exams.`,
+            message: "Practice exams are part of the Student plan. Upgrade to start training, or invite a friend for bonus exams.",
             upgradeUrl: "/pricing",
           },
           { status: 403 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 interface UpgradeModalProps {
-  /** What limit they hit, e.g. "You've used your 2 free exams this week" */
+  /** What limit they hit, e.g. "You've used all your exams this week" */
   message: string;
   onClose: () => void;
   /** Show a "Invite friends for bonus exams" alternative (used for the

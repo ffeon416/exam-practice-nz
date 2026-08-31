@@ -669,14 +669,14 @@ export default function DemoPage() {
               Like what you see?
             </h2>
             <p className="text-zinc-400 text-[14px] sm:text-[15px] mb-8 max-w-md mx-auto">
-              Create a free account to practise unlimited exams across 19 NCEA
+              See your real grade free, then practise unlimited exams across 19 NCEA
               subjects
             </p>
             <Link
-              href="/sign-up"
+              href="/grade"
               className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-extrabold px-8 py-3.5 rounded-full transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/30 text-[15px] mb-4"
             >
-              Sign up free
+              Get my free grade check
               <svg
                 className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
                 fill="none"

@@ -787,7 +787,7 @@ export default function ResultsPage({
         <div className="mt-8">
           <UpgradeNudge
             headline="Nice work — want more?"
-            body="Free gets you 2 exams a week. Upgrade for 20+ exams, essay marking, and a personal tutor with 50+ chats a day."
+            body="Practice exams, essay marking and the week-by-week schedule are on the Student plan (NZ$15/mo). Pro adds unlimited exams and the personal tutor."
           />
         </div>
 

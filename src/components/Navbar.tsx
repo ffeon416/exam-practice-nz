@@ -246,7 +246,7 @@ export default function Navbar() {
                   href="/sign-up"
                   className="block w-full text-center py-3 rounded-full bg-indigo-500 text-white font-medium text-[14px] hover:bg-indigo-400 transition-colors"
                 >
-                  Sign up free
+                  Sign up
                 </Link>
                 <Link
                   href="/sign-in"

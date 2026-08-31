@@ -740,15 +740,24 @@ export default function SubjectsPage() {
         </div>
       </div>
 
-      {/* Free / Student tier usage indicator — hidden until tier resolves so
-          Pro users never see a "2/2 exams used" flash on hard refresh. */}
+      {/* Usage / upgrade strip — hidden until tier resolves so Pro users
+          never see a wrong-tier flash on hard refresh. Unpaid accounts have
+          no weekly exams (no free plan) — they get the upgrade strip. */}
       {!tierLoading && !isUnlimited(limits.examsPerWeek) && (
+        limits.examsPerWeek <= 0 ? (
+          <div className="mb-4 px-4 py-3.5 rounded-2xl bg-indigo-500/[0.07] border border-indigo-500/25 text-[12.5px] text-zinc-300 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            <span>Practice exams are part of the <span className="text-white font-semibold">Student plan</span> — every subject, honest marking, NZ$15/mo.</span>
+            <Link href="/pricing" className="text-indigo-300 font-semibold hover:underline">See plans →</Link>
+            <Link href="/grade" className="text-zinc-500 hover:text-zinc-300">or sit a free grade check</Link>
+          </div>
+        ) : (
         <div className="mb-4 px-4 py-3 rounded-2xl bg-zinc-900/60 border border-zinc-800 text-[12px] text-zinc-400">
           <span className="text-zinc-300 font-medium">{usage.examsThisWeek}/{limits.examsPerWeek}</span> exams used this week
           {usage.examsThisWeek >= limits.examsPerWeek && (
             <span className="text-amber-400 ml-2">— limit reached</span>
           )}
         </div>
+        )
       )}
 
       {/* Error */}
@@ -761,7 +770,9 @@ export default function SubjectsPage() {
       {/* Upgrade modal */}
       {showUpgrade === "exams" && (
         <UpgradeModal
-          message={`You've used your ${limits.examsPerWeek} free exams this week. Upgrade to keep practising — or invite a friend for 5 bonus exams.`}
+          message={usage.examsThisWeek > 0
+            ? "You've used all your exams this week. Upgrade to keep practising — or invite a friend for 5 bonus exams."
+            : "Practice exams are part of the Student plan (NZ$15/mo). Upgrade to start training — or invite a friend for 5 bonus exams."}
           onClose={() => setShowUpgrade(null)}
           showReferral
         />

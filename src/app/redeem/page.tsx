@@ -155,7 +155,7 @@ export default function RedeemPage() {
         </h1>
         <p className="home-rise text-zinc-400 text-sm" style={{ animationDelay: "80ms" }}>
           {user?.firstName ? `Hi ${user.firstName}! ` : ""}
-          Enter the code your school gave you to unlock your free plan.
+          Enter the code your school gave you to unlock your access.
         </p>
       </div>
 

@@ -20,31 +20,15 @@ type Plan = {
   name: string;
   tier: Tier;
   tagline: string;
-  monthlyPrice: number | "free";
+  monthlyPrice: number;
   badge?: string;
   highlight?: boolean;
   features: { text: string; included: boolean; bold?: boolean }[];
 };
 
+// No free plan — the free experience is the Grade Detector (/grade). Two
+// paid plans only, littlenudge-style: try the grade check, then pay to train.
 const PLANS: Plan[] = [
-  {
-    name: "Free",
-    tier: "free",
-    tagline: "See how it works",
-    monthlyPrice: "free",
-    features: [
-      { text: "2 practice exams per week", included: true },
-      { text: "Mathematics & English subjects", included: true },
-      { text: "Basic StudyAce marking", included: true },
-      { text: "Maximum 8 questions per exam", included: true },
-      { text: "Basic dashboard", included: true },
-      { text: "All 19 subjects", included: false },
-      { text: "StudyAce tutor chat", included: false },
-      { text: "Spaced repetition", included: false },
-      { text: "Mock exam mode", included: false },
-      { text: "Study planner", included: false },
-    ],
-  },
   {
     name: "Student",
     tier: "student",
@@ -109,7 +93,6 @@ export default function PricingPage() {
   }, []);
 
   function getPrice(p: Plan): { display: string; sub?: string } {
-    if (p.monthlyPrice === "free") return { display: "Free", sub: "Forever" };
     if (billing === "yearly") {
       const annual = Math.round(p.monthlyPrice * 12 * 0.7 * 100) / 100; // 30% off
       const perMonth = Math.round((annual / 12) * 100) / 100;
@@ -179,11 +162,6 @@ export default function PricingPage() {
   }, []);
 
   function getCta(plan: Plan): { label: string; action: () => void; isLink?: boolean; href?: string; disabled?: boolean } {
-    // Free plan always links to subjects
-    if (plan.tier === "free") {
-      return { label: "Start free", action: () => {}, isLink: true, href: isSignedIn ? "/subjects" : "/sign-up" };
-    }
-
     // Signed-out users must sign up before checkout
     if (!isSignedIn) {
       return {
@@ -296,12 +274,12 @@ export default function PricingPage() {
       )}
 
       {/* Pricing cards */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5">
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-12 sm:pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5">
           {PLANS.map((plan) => {
             const price = getPrice(plan);
             const cta = getCta(plan);
-            const isCurrentPlan = !tierLoading && currentTier === plan.tier && plan.tier !== "free";
+            const isCurrentPlan = !tierLoading && currentTier === plan.tier;
             return (
               <div
                 key={plan.name}
@@ -338,11 +316,9 @@ export default function PricingPage() {
                 {/* Price */}
                 <div className="mb-7">
                   <div className="flex items-baseline gap-1">
-                    {plan.monthlyPrice !== "free" && (
-                      <span className="text-zinc-400 text-[18px] font-medium">NZ$</span>
-                    )}
-                    <span className={`font-bold text-white tabular-nums ${plan.monthlyPrice === "free" ? "text-[36px]" : "text-[42px]"}`}>
-                      {plan.monthlyPrice === "free" ? "Free" : price.display.replace("$", "")}
+                    <span className="text-zinc-400 text-[18px] font-medium">NZ$</span>
+                    <span className="font-bold text-white tabular-nums text-[42px]">
+                      {price.display.replace("$", "")}
                     </span>
                   </div>
                   <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub}</p>
@@ -353,11 +329,9 @@ export default function PricingPage() {
                   <Link
                     href={cta.href ?? "/subjects"}
                     className={`w-full text-center py-3 rounded-full text-[14px] mb-6 sm:mb-7 transition-all min-h-[48px] flex items-center justify-center ${
-                      plan.tier === "free"
-                        ? "font-semibold text-zinc-300 hover:text-white border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04]"
-                        : plan.highlight
-                          ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
-                          : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30"
+                      plan.highlight
+                        ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
+                        : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30"
                     }`}
                   >
                     {cta.label}
@@ -443,7 +417,7 @@ export default function PricingPage() {
           />
           <Faq
             q="Is my progress saved?"
-            a="Yes. Your dashboard tracks every exam you take, every topic you've practised, and how you've improved over time. Free users get basic tracking, paid users get full analytics."
+            a="Yes. Your dashboard tracks every exam you take, every topic you've practised, and how you've improved over time — plus spaced-repetition reviews so you actually remember it."
           />
           <Faq
             q="Why are prices in NZ dollars?"
@@ -467,18 +441,18 @@ export default function PricingPage() {
             style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(99,102,241,0.22) 0%, transparent 70%)" }} />
           <div className="relative">
             <h2 className={`${display.className} text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em] mb-4`} style={{ textWrap: "balance" }}>
-              Try it{" "}
-              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">free</em>
+              Not sure yet? See your{" "}
+              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">real grade</em>
               {" "}first
             </h2>
             <p className="text-zinc-400 text-[15px] mb-8 max-w-md mx-auto">
-              Build your first practice exam in 30 seconds. No credit card required.
+              Sit the free 8-question grade check — see exactly where you are before you pay a cent.
             </p>
             <Link
-              href={isSignedIn ? "/subjects" : "/sign-up"}
+              href="/grade"
               className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-bold px-9 py-4 rounded-full transition-all hover:scale-[1.02] shadow-2xl shadow-indigo-500/20 text-[15px]"
             >
-              {isSignedIn ? "Start practising" : "Sign up free"}
+              Get my free grade check
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

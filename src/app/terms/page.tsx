@@ -107,8 +107,8 @@ export default function TermsPage() {
 
           <Section title="Subscriptions, pricing, and refunds">
             <p>
-              StudyAce offers a free tier and two paid subscription tiers
-              (&ldquo;Student&rdquo; and &ldquo;Pro&rdquo;). Paid
+              StudyAce offers a free grade check and two paid subscription
+              tiers (&ldquo;Student&rdquo; and &ldquo;Pro&rdquo;). Paid
               subscriptions are billed through Stripe.
             </p>
             <ul className="list-disc pl-5 space-y-1.5 mt-2">

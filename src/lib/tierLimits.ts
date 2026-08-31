@@ -1,18 +1,19 @@
 export type Tier = "free" | "student" | "pro";
 
-// Subjects available on the Free tier. Everything else requires Student or Pro.
-// Kept deliberately narrow — core, highest-enrolment subjects that let a free
-// user try the product properly before upgrading.
-export const FREE_SUBJECTS = ["mathematics", "english"] as const;
+// There is no free practice plan (removed 2026-08-31): the free experience is
+// the Grade Detector (/grade). Unpaid accounts exist only as leads — they can
+// sit grade checks and spend referral bonus exams, nothing else.
+export const FREE_SUBJECTS = [] as const;
 
 export function isSubjectAvailable(subject: string, tier: Tier): boolean {
-  if (tier === "student" || tier === "pro") return true;
-  return (FREE_SUBJECTS as readonly string[]).includes(subject);
+  return tier === "student" || tier === "pro";
 }
 
 export const TIER_LIMITS = {
+  // "free" = an unpaid account. No weekly exams — practice requires Student or
+  // Pro. Referral bonus exams are still consumable over this (zero) cap.
   free: {
-    examsPerWeek: 2,
+    examsPerWeek: 0,
     maxQuestions: 8,
     tutorMessagesPerWeek: 0, // Tutor is Pro-only
     allSubjects: false,

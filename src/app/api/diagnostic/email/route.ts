@@ -21,19 +21,22 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { email, curriculum: curriculumId, subject, bandLabel, pct, weakTopics } = body as {
+    const { email, name, curriculum: curriculumId, subject, bandLabel, pct, weakTopics, leadOnly } = body as {
       email?: string;
+      name?: string;
       curriculum?: string;
       subject?: string;
       bandLabel?: string;
       pct?: number;
       weakTopics?: string[];
+      leadOnly?: boolean;
     };
 
     const cleanEmail = (email ?? "").trim().toLowerCase().slice(0, 200);
     if (!EMAIL_RE.test(cleanEmail)) {
       return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
     }
+    const cleanName = (name ?? "").trim().slice(0, 80);
 
     const curriculum = resolveCurriculum(curriculumId);
     const subjectLabel = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject ?? "your exam";
@@ -42,11 +45,19 @@ export async function POST(request: NextRequest) {
     // is configured. This is the record that matters for the funnel.
     void logEvent("diagnostic_lead", null, {
       email: cleanEmail,
+      ...(cleanName ? { name: cleanName } : {}),
       curriculum: curriculum.id,
       subject,
       bandLabel,
       pct,
     });
+
+    // leadOnly: the grade check captures the email mid-flow, before marking
+    // finishes. If marking then fails, the client still banks the lead here
+    // without sending a report email that has no grade in it.
+    if (leadOnly === true) {
+      return NextResponse.json({ ok: true, emailed: false });
+    }
 
     const resendKey = process.env.RESEND_API_KEY;
     let emailed = false;
@@ -64,7 +75,7 @@ export async function POST(request: NextRequest) {
             html: `
               <div style="font-family:sans-serif;max-width:480px;margin:0 auto;">
                 <h1 style="color:#4f46e5;">study<span style="color:#111">ace</span></h1>
-                <p>Here's what you'd get if you sat <b>${subjectLabel}</b> today:</p>
+                <p>${cleanName ? `Hey ${cleanName.replace(/[<>&"]/g, "")} — here's` : "Here's"} what you'd get if you sat <b>${subjectLabel}</b> today:</p>
                 <div style="font-size:48px;font-weight:800;color:#4f46e5;margin:12px 0;">${bandLabel ?? "—"}</div>
                 <p style="color:#555;">${typeof pct === "number" ? pct + "% on today's diagnostic" : ""}</p>
                 ${topicsHtml ? `<p><b>Your weakest topics right now:</b></p><ul>${topicsHtml}</ul>` : ""}

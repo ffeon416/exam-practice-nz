@@ -199,10 +199,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             free trial.
           </p>
           <Link
-            href="/sign-up"
+            href="/grade"
             className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-6 py-3 text-white text-sm font-bold shadow-lg shadow-indigo-500/20 hover:opacity-95 transition-opacity"
           >
-            Start free trial
+            Get my free grade check
           </Link>
         </div>
       </main>

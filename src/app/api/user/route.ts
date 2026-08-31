@@ -24,7 +24,7 @@ export async function GET() {
     return NextResponse.json({
       tier: "free",
       limits: {
-        examsPerWeek: 2,
+        examsPerWeek: 0,
         maxQuestions: 8,
         tutorMessagesPerWeek: 0,
         allSubjects: false,
