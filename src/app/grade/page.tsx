@@ -350,7 +350,7 @@ export default function GradePage() {
               <label className="block text-[13px] font-semibold text-zinc-300 mb-2">First name</label>
               <input
                 autoFocus type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
-                placeholder="e.g. Katelyn" autoComplete="given-name"
+                placeholder="e.g. Sam" autoComplete="given-name"
                 className="w-full rounded-2xl bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-[16px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/70 mb-4"
               />
               <button type="submit" disabled={!firstName.trim()}
