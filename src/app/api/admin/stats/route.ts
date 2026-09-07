@@ -15,6 +15,8 @@ interface TopUser {
   calls: number;
   revenueMonth: number;
   profitMonth: number;
+  /** Holds a paid tier but pays nothing (comp / owner test account). */
+  comped: boolean;
 }
 
 interface FeatureBreakdown {
@@ -27,6 +29,8 @@ interface UserRow {
   userId: string;
   email: string | null;
   tier: Tier;
+  /** Holds a paid tier but pays nothing (comp / owner test account). */
+  comped: boolean;
   signedUpAt: string;
   lifetimeCostUsd: number;
   lifetimeCalls: number;
@@ -39,12 +43,17 @@ const STRIPE_FEE_RATE = 0.03;
 const GST_RATE = 0.15;
 
 // Accounts that hold a paid tier but don't pay real money (owner test accounts,
-// 100%-off comps). Excluded from the fleet-wide "revenue this month" total so the
-// headline number reflects actual cash, not comped/test seats.
-const REVENUE_EXCLUDED_EMAILS = new Set<string>([
+// 100%-off comps). They KEEP their access — but the admin dashboard counts them
+// as non-paying: excluded from revenue, and counted under "Free" in the plan
+// totals so "Pro" / "Student" show only real cash subscribers.
+const COMP_EMAILS = new Set<string>([
   "ffeon.io+test1@gmail.com",
   "osullivantre2009@gmail.com",
+  "roccopovey@gmail.com", // co-founder, 100%-off Pro
 ]);
+function isComp(email: unknown): boolean {
+  return typeof email === "string" && COMP_EMAILS.has(email.toLowerCase().trim());
+}
 
 export async function GET() {
   // ── Gate: admin email only ──
@@ -137,7 +146,8 @@ export async function GET() {
     const agg = userAgg[uid];
     const prof = profilesMap[uid];
     const tier: Tier = prof?.tier ?? "free";
-    const grossRevenue = TIER_PRICES[tier] ?? 0; // monthly rate in USD-ish (treat as NZD ≈ USD for rough profit)
+    const comped = isComp(prof?.email);
+    const grossRevenue = comped ? 0 : (TIER_PRICES[tier] ?? 0); // monthly rate in USD-ish (treat as NZD ≈ USD for rough profit)
     // Net revenue after Stripe fee + GST obligation
     const netRevenue =
       grossRevenue === 0 ? 0 : grossRevenue * (1 - STRIPE_FEE_RATE) * (1 - GST_RATE);
@@ -150,6 +160,7 @@ export async function GET() {
       calls: agg.callsAllTime,
       revenueMonth: netRevenue,
       profitMonth: netRevenue - agg.costMonth,
+      comped,
     };
   });
 
@@ -162,7 +173,7 @@ export async function GET() {
   for (const p of paidProfiles ?? []) {
     // Skip owner test accounts / comps — they hold a paid tier but pay no cash.
     // Normalised to lowercase so a differently-cased profile email still matches.
-    if (p.email && REVENUE_EXCLUDED_EMAILS.has((p.email as string).toLowerCase().trim())) continue;
+    if (isComp(p.email)) continue;
     const tier = (p.tier as Tier) ?? "free";
     const gross = TIER_PRICES[tier] ?? 0;
     fleetRevenueMonth += gross * (1 - STRIPE_FEE_RATE) * (1 - GST_RATE);
@@ -182,7 +193,8 @@ export async function GET() {
     .limit(500);
 
   for (const p of allProfiles ?? []) {
-    const t = (p.tier as Tier) ?? "free";
+    // Comps/test seats count as Free here — the plan totals are "who pays".
+    const t: Tier = isComp(p.email) ? "free" : ((p.tier as Tier) ?? "free");
     if (t in subscriberCounts) subscriberCounts[t] += 1;
   }
 
@@ -194,6 +206,7 @@ export async function GET() {
       userId: uid,
       email: (p.email as string) ?? null,
       tier: (p.tier as Tier) ?? "free",
+      comped: isComp(p.email),
       signedUpAt: p.created_at as string,
       lifetimeCostUsd: agg?.costAllTime ?? 0,
       lifetimeCalls: agg?.callsAllTime ?? 0,

@@ -24,12 +24,14 @@ interface TopUser {
   calls: number;
   revenueMonth: number;
   profitMonth: number;
+  comped?: boolean;
 }
 
 interface UserRow {
   userId: string;
   email: string | null;
   tier: "free" | "student" | "pro";
+  comped?: boolean;
   signedUpAt: string;
   lifetimeCostUsd: number;
   lifetimeCalls: number;
@@ -361,7 +363,7 @@ export default function AdminPage() {
                       {u.email ?? <span className="text-zinc-600 font-mono">{u.userId.slice(0, 16)}…</span>}
                     </td>
                     <td className="py-2 px-2">
-                      <TierBadge tier={u.tier} />
+                      <TierBadge tier={u.tier} />{u.comped && <CompTag />}
                     </td>
                     <td className="py-2 px-2 text-right tabular-nums text-zinc-300">
                       {fmtMoney(u.costUsdMonth)}
@@ -469,7 +471,7 @@ export default function AdminPage() {
                       )}
                     </td>
                     <td className="py-2 px-2">
-                      <TierBadge tier={u.tier} />
+                      <TierBadge tier={u.tier} />{u.comped && <CompTag />}
                     </td>
                     <td className="py-2 px-2 text-zinc-400 tabular-nums">
                       {fmtDate(u.signedUpAt)}
@@ -1149,6 +1151,17 @@ function MiniStat({ label, value }: { label: string; value: number }) {
       <p className="text-zinc-500 text-[10px] uppercase tracking-wider">{label}</p>
       <p className="text-white font-bold text-[18px] tabular-nums">{value}</p>
     </div>
+  );
+}
+
+function CompTag() {
+  return (
+    <span
+      title="Comped / test seat — has access, pays nothing. Not counted in plan totals or revenue."
+      className="ml-1.5 inline-flex items-center rounded-md border border-amber-500/30 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-amber-300"
+    >
+      comp
+    </span>
   );
 }
 
