@@ -313,6 +313,10 @@ export default function ResultsPage({
       }),
     })
       .then((res) => {
+        // Unpaid account — marking is paid-only. Send them to plans instead of
+        // falling through to the local self-mark (which would hand a free user
+        // results anyway).
+        if (res.status === 403) throw new Error("locked");
         if (!res.ok) throw new Error("api-failed");
         return res.json();
       })
@@ -362,7 +366,11 @@ export default function ResultsPage({
 
         setLoading(false);
       })
-      .catch(() => {
+      .catch((err: unknown) => {
+        if (err instanceof Error && err.message === "locked") {
+          window.location.replace("/pricing");
+          return;
+        }
         const fallbackResults = selfMark();
         setResults(fallbackResults);
         setSelfMarked(true);

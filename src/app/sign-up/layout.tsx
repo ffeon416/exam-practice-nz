@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sign Up | StudyAce",
-  description: "Start your StudyAce free trial.",
+  description: "Create your StudyAce account.",
   robots: { index: false, follow: true },
 };
 

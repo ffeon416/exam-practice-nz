@@ -3,9 +3,9 @@ import { generatePracticePaper } from "@/lib/claude";
 import { checkTier } from "@/lib/checkTier";
 import { incrementUsage, logApiUsage } from "@/lib/db";
 import { isUnlimited } from "@/lib/tierLimits";
-import { resolveCurriculum, isSubjectFree } from "@/data/curricula";
+import { resolveCurriculum } from "@/data/curricula";
 import { rateLimit } from "@/lib/rateLimit";
-import { consumeBonusExam, logEvent, getSupabase } from "@/lib/supabase";
+import { logEvent } from "@/lib/supabase";
 
 // Allow up to 5 minutes for paper generation
 export const maxDuration = 300;
@@ -22,24 +22,35 @@ export async function POST(request: NextRequest) {
     // ── Tier gate ──
     const { userId, tier, limits, usage } = await checkTier();
 
+    // There is NO free practice (free plan removed 2026-08-31, every side door
+    // closed 2026-09-08). The only free experience is the Grade Detector at
+    // /grade, which runs on its own /api/diagnostic routes. Unpaid accounts are
+    // leads: no papers, no referral bonus exams, no first-diagnostic bypass.
+    if (tier === "free") {
+      // Money-moment: an unpaid user wants a paper (see /admin funnel).
+      void logEvent("paywall_hit", userId, { reason: "exam_limit", tier });
+      return NextResponse.json(
+        {
+          error: "limit_reached",
+          message: "Practice exams are part of the Student plan. Upgrade to start training.",
+          upgradeUrl: "/pricing",
+        },
+        { status: 403 }
+      );
+    }
+
     const limitVal = limits.examsPerWeek === Infinity ? -1 : limits.examsPerWeek;
     if (!isUnlimited(limitVal) && usage.examsThisWeek >= limits.examsPerWeek) {
-      // Free user is over their weekly cap — try to spend a referral bonus
-      // before returning the upgrade prompt. Consumes one bonus exam if any
-      // are remaining; otherwise blocks as before.
-      const bonusUsed = userId ? await consumeBonusExam(userId) : false;
-      if (!bonusUsed) {
-        // Money-moment: a capped user wants more exams (see /admin funnel).
-        void logEvent("paywall_hit", userId, { reason: "exam_limit", tier });
-        return NextResponse.json(
-          {
-            error: "limit_reached",
-            message: "Practice exams are part of the Student plan. Upgrade to start training, or invite a friend for bonus exams.",
-            upgradeUrl: "/pricing",
-          },
-          { status: 403 }
-        );
-      }
+      // Money-moment: a capped Student wants more exams (see /admin funnel).
+      void logEvent("paywall_hit", userId, { reason: "exam_limit", tier });
+      return NextResponse.json(
+        {
+          error: "limit_reached",
+          message: "You've used all your exams this week. Upgrade to Pro for unlimited exams.",
+          upgradeUrl: "/pricing",
+        },
+        { status: 403 }
+      );
     }
 
     const body = await request.json();
@@ -49,8 +60,7 @@ export async function POST(request: NextRequest) {
       topic?: string | null;
       questionCount?: number;
       curriculum?: string;
-      /** Grade Detector run — fixed 8 questions; the FIRST one bypasses the
-          free-tier subject lock so any student can get their estimate. */
+      /** Grade Detector run for a signed-in paid user — fixed 8 questions. */
       diagnostic?: boolean;
     };
 
@@ -70,45 +80,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Grade Detector: the user's FIRST diagnostic may be in ANY subject — the
-    // estimate is the hook and it has to work for an HSC-bio kid too. Later
-    // diagnostics follow the normal subject rules (stops the bypass becoming a
-    // free all-subjects backdoor).
-    let diagnosticBypass = false;
-    if (diagnostic === true && tier === "free" && userId) {
-      const supa = getSupabase();
-      if (supa) {
-        const { data: prior } = await supa
-          .from("events")
-          .select("id")
-          .eq("name", "diagnostic_used")
-          .eq("user_id", userId)
-          .limit(1);
-        diagnosticBypass = !prior || prior.length === 0;
-      }
-    }
-
-    // Subject gate — Free tier can only use this curriculum's free whitelist.
-    if (tier === "free" && !diagnosticBypass && !isSubjectFree(curriculum, subject)) {
-      // Money-moment: user tapped a locked subject.
-      void logEvent("paywall_hit", userId, { reason: "subject_locked", tier, subject });
-      return NextResponse.json(
-        {
-          error: "subject_locked",
-          message: "This subject is on the Student and Pro plans. Upgrade to unlock every subject.",
-          upgradeUrl: "/pricing",
-        },
-        { status: 403 }
-      );
-    }
-
     // Cap question count to tier limit. Diagnostics are always exactly 8 —
     // the estimate needs a consistent sample size.
     const cappedCount = diagnostic === true ? 8 : Math.min(questionCount ?? 8, limits.maxQuestions);
 
-    // Record the diagnostic (powers the one-free-any-subject rule + funnel stats)
+    // Record the diagnostic (funnel stats)
     if (diagnostic === true) {
-      void logEvent("diagnostic_used", userId, { subject, curriculum: curriculum.id, bypass: diagnosticBypass });
+      void logEvent("diagnostic_used", userId, { subject, curriculum: curriculum.id });
     }
 
     const paper = await generatePracticePaper(

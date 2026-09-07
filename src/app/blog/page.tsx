@@ -195,8 +195,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             Ready to start practising?
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 mb-6 px-4 max-w-xl mx-auto">
-            StudyAce generates exam-style practice questions tailored to your syllabus. Start your
-            free trial.
+            StudyAce generates exam-style practice questions tailored to your syllabus. Start with a
+            free grade check.
           </p>
           <Link
             href="/grade"

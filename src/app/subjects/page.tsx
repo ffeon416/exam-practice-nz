@@ -771,10 +771,9 @@ export default function SubjectsPage() {
       {showUpgrade === "exams" && (
         <UpgradeModal
           message={usage.examsThisWeek > 0
-            ? "You've used all your exams this week. Upgrade to keep practising — or invite a friend for 5 bonus exams."
-            : "Practice exams are part of the Student plan (NZ$15/mo). Upgrade to start training — or invite a friend for 5 bonus exams."}
+            ? "You've used all your exams this week. Upgrade to Pro for unlimited exams."
+            : "Practice exams are part of the Student plan (NZ$15/mo). Upgrade to start training."}
           onClose={() => setShowUpgrade(null)}
-          showReferral
         />
       )}
       {showUpgrade === "subject" && (

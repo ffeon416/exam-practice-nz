@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { chatCompletion } from "@/lib/claude";
 import { rateLimit } from "@/lib/rateLimit";
+import { checkTier } from "@/lib/checkTier";
 
 export async function POST(request: NextRequest) {
   // This route runs Sonnet on every call — guard it like the other AI routes.
@@ -11,6 +12,15 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    // Paid-only: mini-lessons run Sonnet and belong to the Student plan.
+    const { tier } = await checkTier();
+    if (tier === "free") {
+      return NextResponse.json(
+        { error: "limit_reached", message: "Lessons are part of the Student plan.", upgradeUrl: "/pricing" },
+        { status: 403 }
+      );
+    }
+
     const body = await request.json();
 
     if (body.action === "lesson") {

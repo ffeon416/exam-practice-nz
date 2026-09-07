@@ -2,7 +2,7 @@ export type Tier = "free" | "student" | "pro";
 
 // There is no free practice plan (removed 2026-08-31): the free experience is
 // the Grade Detector (/grade). Unpaid accounts exist only as leads — they can
-// sit grade checks and spend referral bonus exams, nothing else.
+// sit grade checks, nothing else (no bonus exams, no trial, no side doors).
 export const FREE_SUBJECTS = [] as const;
 
 export function isSubjectAvailable(subject: string, tier: Tier): boolean {
@@ -11,7 +11,7 @@ export function isSubjectAvailable(subject: string, tier: Tier): boolean {
 
 export const TIER_LIMITS = {
   // "free" = an unpaid account. No weekly exams — practice requires Student or
-  // Pro. Referral bonus exams are still consumable over this (zero) cap.
+  // Pro. Every AI route (generate-paper, mark, practice, tutor) refuses it.
   free: {
     examsPerWeek: 0,
     maxQuestions: 8,

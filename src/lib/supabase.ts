@@ -255,10 +255,11 @@ export async function redeemCode(userId: string, rawCode: string): Promise<Redee
 }
 
 /**
- * Attribute a new signup to a referrer. Sets referee.referrer_id and gives
- * them 5 bonus exams immediately so they're nudged into the product.
+ * Attribute a new signup to a referrer. Sets referee.referrer_id only — no
+ * bonus exams (there is no free practice; removed 2026-09-08).
  * The referrer is NOT credited yet — that happens via maybeCreditReferrer
- * once the referee actually completes their first exam (anti-fraud).
+ * once the referee (now necessarily on a paid plan) completes their first
+ * marked exam (anti-fraud).
  * Returns true on success, false if rejected (duplicate, self-ref, etc).
  */
 export async function claimReferral(
@@ -288,7 +289,6 @@ export async function claimReferral(
     .from("profiles")
     .update({
       referrer_id: referrerId,
-      bonus_exams_remaining: 5,
       updated_at: new Date().toISOString(),
     })
     .eq("user_id", newUserId)

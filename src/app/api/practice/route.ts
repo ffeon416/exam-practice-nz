@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generatePracticeQuestion } from "@/lib/claude";
 import { markAnswer } from "@/lib/claude";
-import { auth } from "@clerk/nextjs/server";
+import { checkTier } from "@/lib/checkTier";
 import { logApiUsage } from "@/lib/db";
 import { rateLimit } from "@/lib/rateLimit";
 
@@ -14,7 +14,14 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { userId } = await auth();
+    // Paid-only: single-question practice is part of the Student plan.
+    const { userId, tier } = await checkTier();
+    if (tier === "free") {
+      return NextResponse.json(
+        { error: "limit_reached", message: "Practice is part of the Student plan.", upgradeUrl: "/pricing" },
+        { status: 403 }
+      );
+    }
     const body = await request.json();
     const { action } = body as { action: string };
 

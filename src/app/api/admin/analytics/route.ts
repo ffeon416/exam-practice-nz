@@ -155,6 +155,7 @@ export async function GET() {
     subject_locked: "Locked subject",
     tutor_locked: "AI tutor (Pro-only)",
     tutor_limit: "Out of tutor chats",
+    mark_locked: "Marking (unpaid account)",
   };
   try {
     const [profRes, attemptRes, eventRes] = await Promise.all([

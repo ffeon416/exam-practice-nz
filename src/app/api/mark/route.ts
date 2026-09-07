@@ -4,7 +4,7 @@ import { checkTier } from "@/lib/checkTier";
 import { logApiUsage } from "@/lib/db";
 import { rateLimit } from "@/lib/rateLimit";
 import { questionMaxMarks } from "@/lib/scoring";
-import { maybeCreditReferrer } from "@/lib/supabase";
+import { maybeCreditReferrer, logEvent } from "@/lib/supabase";
 
 // Structured-feedback marker used when an English question is marked by the
 // multi-pass essay pipeline. The results page detects this prefix to render
@@ -24,8 +24,18 @@ export async function POST(request: NextRequest) {
   let fallbackQuestions: Array<{ id: string; marks: number; markingGuide: string; topics: string[]; answerType?: string }> = [];
 
   try {
-    // ── Tier check for deep essay marking ──
-    const { userId, limits } = await checkTier();
+    // ── Tier gate ── marking is paid-only. Free/anonymous grade checks use
+    // /api/diagnostic/mark; the demo uses /api/demo-mark. An unpaid account
+    // has no paper to mark (generate-paper refuses them) — this closes the
+    // door for any leftover/stale paper on the device.
+    const { userId, tier, limits } = await checkTier();
+    if (tier === "free") {
+      void logEvent("paywall_hit", userId, { reason: "mark_locked", tier });
+      return NextResponse.json(
+        { error: "limit_reached", message: "Marking is part of the Student plan.", upgradeUrl: "/pricing" },
+        { status: 403 }
+      );
+    }
 
     const body = await request.json();
     const { questions, answers, subject, curriculum } = body as {

@@ -8,7 +8,6 @@ import { display } from "@/lib/displayFont";
 interface ReferralStats {
   referralsCount: number;
   studentUntil: string | null;
-  bonusExamsRemaining: number;
   pendingReferrals: number;
 }
 
@@ -54,7 +53,7 @@ export default function ReferPage() {
   const referralsCount = stats?.referralsCount ?? 0;
   const pending = stats?.pendingReferrals ?? 0;
 
-  const shareMessage = `I'm using Study Ace to practise for NCEA — sign up here and get 5 bonus exams: ${referralLink}`;
+  const shareMessage = `I'm using Study Ace to practise for NCEA — see what grade you'd get today: ${referralLink}`;
 
   const handleCopy = async () => {
     try {
@@ -115,9 +114,8 @@ export default function ReferPage() {
           Earn free Student
         </h1>
         <p className="home-rise text-zinc-400 text-[15px] mb-8 sm:mb-10 leading-relaxed" style={{ animationDelay: "160ms" }}>
-          Every friend who signs up <span className="text-white font-semibold">and takes their first exam</span> unlocks{" "}
-          <span className="text-white font-semibold">14 days of Student</span> for you. Stacks for every friend. They get{" "}
-          <span className="text-white font-semibold">5 bonus exams</span> on the house.
+          Every friend who joins on <span className="text-white font-semibold">Student or Pro and sits their first exam</span> unlocks{" "}
+          <span className="text-white font-semibold">14 days of Student</span> for you. Stacks for every friend.
         </p>
 
         {stats && (
@@ -181,7 +179,7 @@ export default function ReferPage() {
           </h2>
           <div className="space-y-4">
             <Step number={1} text="Share your link with a friend studying for NCEA" />
-            <Step number={2} text="They sign up — instantly get 5 bonus exams to use" />
+            <Step number={2} text="They sign up and join on a Student or Pro plan" />
             <Step number={3} text="They take their first exam — that's when you get 14 days of Student tier added (stacks per friend)" />
           </div>
         </section>
