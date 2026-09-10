@@ -22,7 +22,8 @@ export async function GET(request: Request) {
     // Revalidate individual posts that just went live so their static paths refresh.
     for (const p of newPosts) revalidatePath(`/blog/${p.slug}`);
 
-    const pingResults = await pingSearchEngines();
+    const siteUrl = process.env.NEXT_PUBLIC_URL || "https://studyace.co";
+    const pingResults = await pingSearchEngines(newPosts.map((p) => `${siteUrl}/blog/${p.slug}`));
 
     return NextResponse.json({
       success: true,

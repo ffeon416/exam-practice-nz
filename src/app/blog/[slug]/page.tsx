@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllPostSlugs, getPostBySlug, formatDate } from "@/lib/blog";
 import { blogMdxComponents } from "@/components/MdxBlogComponents";
 import RelatedArticles from "@/components/blog/RelatedArticles";
@@ -24,6 +25,7 @@ export async function generateMetadata({
   if (!post) return { title: "Post Not Found" };
 
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
+  const ogImage = post.image || `${SITE_URL}/opengraph-image`;
 
   return {
     title: post.title,
@@ -36,17 +38,18 @@ export async function generateMetadata({
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.updated || post.date,
       authors: [post.author],
       tags: post.tags,
       url: postUrl,
       siteName: "StudyAce",
-      images: post.image ? [post.image] : undefined,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.image ? [post.image] : undefined,
+      images: [ogImage],
     },
   };
 }
@@ -64,7 +67,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated || post.date,
+    image: [post.image || `${SITE_URL}/opengraph-image`],
     author: { "@type": "Organization", name: "StudyAce", url: SITE_URL },
     publisher: {
       "@type": "Organization",
@@ -216,7 +220,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
 
           <div className="max-w-none">
-            <MDXRemote source={post.content} components={blogMdxComponents} />
+            <MDXRemote
+              source={post.content}
+              components={blogMdxComponents}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
           </div>
         </article>
 

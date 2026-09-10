@@ -81,6 +81,16 @@ export const blogMdxComponents: MDXComponents = {
     />
   ),
   hr: () => <hr className="my-10 border-white/[0.06]" />,
+  table: ({ children }) => (
+    <div className="my-8 overflow-x-auto rounded-xl border border-white/[0.06]">
+      <table className="w-full text-sm text-left text-zinc-300">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="bg-white/[0.04] text-zinc-100">{children}</thead>,
+  tbody: ({ children }) => <tbody className="divide-y divide-white/[0.06]">{children}</tbody>,
+  tr: ({ children }) => <tr className="align-top">{children}</tr>,
+  th: ({ children }) => <th className="px-4 py-3 font-semibold whitespace-nowrap">{children}</th>,
+  td: ({ children }) => <td className="px-4 py-3 leading-6">{children}</td>,
   strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
   em: ({ children }) => <em className="italic text-zinc-200">{children}</em>,
   Callout,

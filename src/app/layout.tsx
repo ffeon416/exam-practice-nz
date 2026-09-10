@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description:
     "Unlimited exam-style practice, marked honestly in seconds. NCEA, HSC, QCE, GCSE, A-Levels, AP and more — 20 focused minutes a day beats hours of notes.",
   metadataBase: new URL("https://studyace.co"),
+  alternates: {
+    types: { "application/rss+xml": "https://studyace.co/feed.xml" },
+  },
   verification: {
     google: "qkAhmFbsJe28iA0utEZdoVZwGslE3gavCX1tZ6rrUas",
   },

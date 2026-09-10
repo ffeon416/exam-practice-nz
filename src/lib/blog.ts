@@ -10,6 +10,8 @@ export interface PostMeta {
   title: string;
   description: string;
   date: string;
+  /** Optional ISO date of the last substantive edit (frontmatter `updated:`). */
+  updated?: string;
   author: string;
   tags: string[];
   image?: string;
@@ -55,6 +57,7 @@ export function getAllPosts(): PostMeta[] {
       title: data.title || "Untitled",
       description: data.description || "",
       date: data.date || new Date().toISOString(),
+      updated: data.updated || undefined,
       author: data.author || "Study Ace",
       tags: data.tags || [],
       image: data.image,
@@ -99,6 +102,7 @@ export function getPostBySlug(slug: string): Post | null {
     title: data.title || "Untitled",
     description: data.description || "",
     date: data.date || new Date().toISOString(),
+    updated: data.updated || undefined,
     author: data.author || "Study Ace",
     tags: data.tags || [],
     image: data.image,

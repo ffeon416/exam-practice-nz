@@ -21,6 +21,8 @@ const isPublicRoute = createRouteMatcher([
   "/apple-icon(.*)",
   "/robots.txt",
   "/sitemap.xml",
+  "/feed.xml",
+  "/b94aba48f91b37ad3cc0550391059fa4.txt", // IndexNow ownership key
   "/api/school-enquiry",
   "/api/contact",
   "/api/demo-mark",

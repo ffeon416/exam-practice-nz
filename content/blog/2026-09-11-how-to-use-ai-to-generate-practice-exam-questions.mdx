@@ -1,0 +1,143 @@
+---
+title: "How to Use AI to Generate Practice Exam Questions That Actually Help"
+description: "Chatbots will happily write practice questions. Most are useless for exam prep. What a good AI question needs, a prompt that works, and how to check it."
+date: "2026-09-11"
+author: "Study Ace"
+tags: ["ai practice questions", "exam practice", "ai study tools"]
+category: "AI in Education"
+keywords: ["ai practice exam questions", "use ai to make practice questions", "ai exam practice"]
+hub: true
+---
+
+**Most AI-generated practice questions are a waste of your time, and you can't tell because the AI is so confident.**
+
+You type "give me 10 practice questions on photosynthesis" into a chatbot. It gives you 10 questions in about four seconds. They look like exam questions. You answer them. The AI tells you that you did great. You feel prepared.
+
+Then you sit the real paper and the questions are nothing like that. The command words are different. The marks are allocated differently. There's a data table you were supposed to read. And you get a grade that doesn't match the "great job" you were given last week.
+
+The problem isn't that AI can't write good practice questions. It can. The problem is that a general-purpose chatbot doesn't know what your exam actually looks like, and it has no reason to mark you honestly. This guide is about fixing both of those.
+
+## Why generic chatbot questions don't transfer to the exam
+
+There are four specific things wrong with the default "give me questions" approach.
+
+### 1. They're not in your exam's style
+
+Every exam system has a house style. NCEA papers in New Zealand ask you to "explain" and "discuss" in ways that map to [Achieved, Merit and Excellence](/blog/achieved-merit-excellence-what-examiners-look-for). GCSE papers in the UK tend to allocate marks to specific points. HSC and QCE papers in Australia have their own command words and stimulus formats.
+
+A chatbot with no instructions writes in the average style of every exam on the internet. That's nobody's exam. You end up practising a format you'll never see.
+
+### 2. There's no marking scheme
+
+A real exam question comes with a marking guide that says exactly what earns each mark. Without one, "did I get it right?" is a matter of vibes. And vibes are what got you into trouble with re-reading in the first place. If you haven't read [why practice beats re-reading](/blog/testing-effect-practice-beats-rereading), do that first, because the whole value of practice questions is in the checking, not the answering.
+
+### 3. The AI marks you kindly
+
+This is the big one. General chatbots are trained to be helpful and agreeable. Give one a wrong answer with confident wording and there is a good chance it says "Great thinking! You're on the right track, though one small note..." and then buries the fact that you got it wrong.
+
+Type "I'm not sure, maybe 25%?" and you'll often get credit for the 25%. In a real exam, a hedge scores zero. Practising with a marker that rewards hedging teaches you to hedge.
+
+### 4. They don't force you to show working
+
+Most chatbot quizzes are answer-only. But in maths, science, economics and plenty of other subjects, the working is where most of the marks live. A question that only checks your final answer trains you to skip the part the examiner actually wants to see.
+
+## What a good AI practice question needs
+
+Flip each of those problems and you get a checklist. A practice question is worth doing if it:
+
+| Requirement | What it looks like |
+|---|---|
+| Matches the exam's style | Uses your exam board's command words and question formats, at the right level |
+| Targets a grade band | Tells you whether it's testing basic, merit-level or excellence-level thinking |
+| Has a marking guide | States what a full-mark answer contains before you see the answer |
+| Requires working | Asks for the method, not just the result |
+| Is marked honestly | Wrong is wrong. No credit for hedging. No praise for effort |
+| Names the mistake | Feedback says what you actually did wrong and what the correct approach is |
+
+If you're using a general chatbot, you have to build all of that into the prompt yourself. Here's how.
+
+## A prompt template that works in any chatbot
+
+Copy this, fill in the brackets, and paste it into whichever AI you use. The details matter, so don't trim it.
+
+```
+You are an examiner for [EXAM SYSTEM, e.g. NCEA Level 2 / GCSE / HSC / QCE]
+in [SUBJECT]. Write [NUMBER] exam-style practice questions on
+[TOPIC], in the exact format and wording style that exam uses.
+
+For each question:
+- Use the command words this exam uses (e.g. describe / explain /
+  calculate / evaluate) and say which one you are using.
+- State the grade band it targets (e.g. Achieved / Merit / Excellence,
+  or grade 4 / 6 / 8, or the equivalent for this exam).
+- Require the student to show working or reasoning, not just an answer.
+- Include a marking guide: exactly what a full-mark answer must contain.
+
+Do not show me the marking guides yet. Show only the questions.
+I will answer them one at a time. When I give an answer:
+- Mark it strictly against the marking guide. Wrong is wrong.
+- If I hedge ("not sure", "maybe", "I think"), give 0 marks.
+- Award marks for correct working separately from the final answer.
+- Do not praise me. Tell me exactly what was wrong and show the
+  correct approach.
+```
+
+Two notes on using it.
+
+**Answer in a separate message, one question at a time.** If you paste all your answers at once the model tends to skim, and its marking gets sloppier.
+
+**Don't argue with the marking.** If you push back, most chatbots will fold and give you the marks. That feels good and teaches you nothing. If you think the marking guide is wrong, check it against your textbook instead, which brings us to the next part.
+
+<Callout type="warning">
+Even with a strict prompt, a chatbot can drift back to being agreeable after a few exchanges. If you notice the feedback getting warmer and the marks getting higher without your answers getting better, start a fresh chat and paste the prompt again.
+</Callout>
+
+## How to check the AI's answer is actually right
+
+AI models make mistakes, and they make them confidently. In a practice context, a wrong marking guide is worse than no marking guide, because you'll "learn" the wrong thing and feel good about it.
+
+So verify. It takes a few minutes and it's non-negotiable for anything you're going to rely on.
+
+**For calculations:** redo the arithmetic yourself, or use a calculator. AI models are noticeably unreliable at multi-step arithmetic, and they won't flag it.
+
+**For facts and definitions:** check against your textbook or your exam board's published resources. Your exam board almost certainly publishes past papers and marking schedules for free, and those are the real standard. In New Zealand that's [NZQA](https://www2.nzqa.govt.nz/ncea/); in Queensland it's [QCAA](https://www.qcaa.qld.edu.au/). Use them.
+
+**For essay-style questions:** compare the AI's marking guide with a real exemplar or marking schedule from a past paper on a similar topic. If they emphasise different things, trust the real one.
+
+**A useful habit:** when the AI marks you wrong, ask it to explain why in a way you can verify. "Show me the step where my working goes wrong" is much easier to fact-check than "your answer is incorrect".
+
+If you find the AI's answer was wrong, that's not a wasted exercise. Catching it is a very strong form of retrieval practice. You just can't let the errors slide past unnoticed.
+
+## Building a routine around it
+
+A good AI question is only useful inside a routine. Here's the one we'd suggest.
+
+1. **Pick one topic where you know you're weak.** Not the whole subject. One topic.
+2. **Generate five questions** with the template above, spread across grade bands.
+3. **Answer them on paper, timed.** Roughly the time you'd get in the real exam. Writing by hand matters if the real exam is handwritten.
+4. **Get them marked strictly**, then verify anything that surprised you.
+5. **Write the mistakes on a list.** Not the questions, the mistakes. "Forgot to convert units." "Didn't link the evidence to the argument."
+6. **Come back to that list in three days** and generate five fresh questions on the same topic. This is where [spaced repetition](/blog/spaced-repetition-for-exams-student-guide) does its work.
+7. **Every week or two, sit a full mixed paper**, not just single topics, so you're practising the switching between topics that the real exam demands. Our guide to [using past papers and mock exams properly](/blog/how-to-use-past-papers-mock-exam-strategy) covers that side.
+
+Done this way, AI practice is genuinely one of the fastest ways to find and fix gaps. Done the lazy way, it's a machine for manufacturing false confidence.
+
+## Where a purpose-built tool is different
+
+You can do everything above with a general chatbot and enough discipline. The honest downside is that the discipline is the hard part. Every session you have to re-explain the exam format, re-insist on strict marking, and re-check that it hasn't gone soft on you.
+
+A tool built for exam practice has those rules baked in rather than pasted in. That's the whole reason StudyAce exists: it generates unlimited exam-style practice papers (NCEA-style for New Zealand, with QCE, HSC, GCSE and other systems in beta), and it marks them the way an examiner would. Every question gets one mark for correct working and one for the correct answer. A hedge like "not sure" scores zero. Feedback names the actual mistake and shows the correct approach.
+
+It doesn't use official past papers, and we'd rather say so plainly than imply otherwise. Use your exam board's real papers alongside it. What it gives you is the thing past papers can't: as many fresh questions as you want on the exact topic you're weak at, marked honestly, right now.
+
+## The short version
+
+- Generic chatbot questions fail because they're in nobody's exam style, have no marking guide, mark you kindly, and skip working.
+- A good AI question matches your exam's command words and grade bands, has a marking guide, demands working, and is marked without leniency.
+- Use the prompt template above and answer one question at a time.
+- Verify the AI's answers against your textbook or your exam board's published papers. AI is confidently wrong sometimes.
+- Build it into a routine: one weak topic, five questions, strict marking, a mistakes list, revisit in three days.
+
+<Callout type="tip">
+Want to see what honest AI marking feels like before you build the routine? StudyAce's free grade check gives you eight exam-style questions in your subject, marks them strictly, and tells you the grade you'd get if you sat the exam today. [Take the free grade check](/grade). No leniency, no "great job", just the number and what to fix.
+</Callout>
