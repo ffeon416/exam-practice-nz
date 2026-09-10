@@ -52,23 +52,52 @@ Casing and the ampersand matter. Mismatches break category filtering silently.
 - AERA — meta-research on study methods
 - Wikipedia for foundational cognitive-science concepts ([Spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition), [Active recall](https://en.wikipedia.org/wiki/Active_recall), [Testing effect](https://en.wikipedia.org/wiki/Testing_effect))
 
-## Priority 1 — pillar posts (write first, mark `hub: true`)
+## Published (17 posts as of 2026-09-11) — all Priority 1 pillars are DONE
 
-1. *The Testing Effect: Why Practice Exams Beat Re-Reading Every Time* — category: `Exam Strategy`
-2. *How to Use AI to Generate Practice Exam Questions That Actually Help* — category: `AI in Education`
-3. *Spaced Repetition for Exams: A Student's Guide* — category: `Study Methods`
-4. *Mock Exam Strategy: How to Use Past Papers Properly* — category: `Mock Exam Practice`
-5. *How to Beat Test Anxiety Before a High-Stakes Exam* — category: `Mindset & Test Anxiety`
+Hubs (`hub: true`): testing-effect-practice-beats-rereading, how-to-study-for-ncea-exams,
+spaced-repetition-for-exams-student-guide, how-to-use-past-papers-mock-exam-strategy,
+how-to-beat-test-anxiety-before-exams, how-to-use-ai-to-generate-practice-exam-questions.
 
-## Priority 2 — supporting / comparison posts
+Supporting: ncea-credits-explained-how-many-to-pass, ncea-endorsement-merit-excellence,
+achieved-merit-excellence-what-examiners-look-for, how-to-study-for-ncea-level-1-maths,
+how-to-get-excellence-in-ncea-english, university-entrance-nz-requirements-explained,
+how-parents-can-help-with-ncea-exams, how-to-make-a-study-timetable-you-will-follow,
+how-to-cram-for-an-exam-the-night-before, chatgpt-for-studying-what-it-gets-wrong,
+how-to-study-for-qce-external-exams.
 
-- StudyAce vs Quizlet (flashcards vs exam practice)
-- StudyAce vs Khan Academy
-- StudyAce vs ChatGPT for studying
-- StudyAce vs traditional tutoring
-- Best AI study tools for [year level / exam type]
-- NCEA Level 1/2/3 subject-specific guides
-- How parents can support exam prep without becoming a stress source
+## Next queue (in priority order — one cluster at a time)
+
+1. **NCEA subject guides, Level 2 + 3** (Subject Guides): L2 maths (calculus/stats split), L3 calculus,
+   L3 statistics, L2/L3 biology, chemistry, physics, L2 English. Same shape as the L1 maths post:
+   exam shape → where marks are lost → 4-week routine → 2 worked examples.
+2. **Exam-week posts** timed for late October: "NCEA exam timetable: how to plan the gaps between
+   papers", "What to do the morning of an NCEA exam", "How NCEA externals are marked" (link NZQA).
+3. **AU/UK entry points**: how to study for HSC trials, VCE exam plan, GCSE revision timetable,
+   A-level past-paper strategy. One per system, each linking to `/subjects?curriculum=<id>`.
+4. **Comparisons** (only once there is search demand): StudyAce vs Quizlet, vs Khan Academy, vs a
+   tutor. Keep honest — say what each is better at.
+
+## Standing rules learned 2026-09-11
+
+- **CTA goes to `/grade`** (the free grade check). There is no free plan or free trial — never
+  write "free trial", "free plan", or link `/sign-up` from a post.
+- **Never claim StudyAce uses real / NZQA past papers.** Recommending NZQA's or QCAA's own free
+  published papers is fine (and good advice).
+- **No invented statistics.** Real findings to cite qualitatively: Roediger & Karpicke (2006),
+  Dunlosky et al. (2013), Ebbinghaus forgetting curve. If a number isn't from a source you can
+  link, don't write it.
+- **Publish dates are NZ calendar dates.** `date: "2026-09-11"` goes live at midnight NZT (the
+  gate in `src/lib/blog.ts` uses Pacific/Auckland). Only link to posts dated on or before your own.
+- **Validate before committing:** `python3 scripts/validate-blog.py` checks categories, description
+  length (120–170), the `/grade` callout, no `/sign-up`, no free-trial copy, no past-paper claims,
+  no links to unknown or future posts, external URLs on the allowlist, and flags every `%` for a
+  manual honesty check.
+- **Markdown tables work** (remark-gfm + styled table components). Use them for credit tables,
+  timetables, comparison grids.
+- **After a batch:** `npx tsx scripts/interlink-posts.ts` (note: it rewrites frontmatter in YAML
+  block style on files it touches — harmless, but re-run the validator), then commit, push, and
+  `vercel --prod --yes`. The daily cron submits newly-live post URLs to IndexNow automatically; for
+  Google, request indexing by hand in Search Console (hubs first, ~10/day).
 
 ## Body conventions
 
@@ -84,7 +113,10 @@ Casing and the ampersand matter. Mismatches break category filtering silently.
 
 - **Internal linking**: `npx tsx scripts/interlink-posts.ts` after each batch. Add keyword → slug entries to `content/interlinking/keyword-map.json` (3+ words per keyword enforced by the script).
 - **Hub posts**: set `hub: true` in frontmatter. Treated specially in `RelatedArticles` and renders a "Bookmark this guide" banner.
-- **Date-gating**: set `date:` in the future to queue posts. Daily cron at 00:05 UTC revalidates `/blog` + `/sitemap.xml`. Crons live in `vercel.json`; `CRON_SECRET` env var required.
+- **Date-gating**: set `date:` in the future to queue posts (NZ calendar date). Daily cron at 00:05 UTC revalidates `/blog` + `/sitemap.xml` + any post dated NZ-today/yesterday, and submits those URLs to IndexNow. Crons live in `vercel.json`; `CRON_SECRET` env var required.
+- **IndexNow**: key file `public/<key>.txt`, key constant in `src/lib/searchEngines.ts`. Covers Bing/DuckDuckGo/Yandex. Google ignores it — use GSC.
+- **RSS**: `/feed.xml` (route handler, hourly revalidate), advertised via `alternates.types` in `layout.tsx`.
+- **`updated:` frontmatter** (optional) drives `dateModified`, `article:modified_time` and sitemap lastmod. Set it when you substantively revise a post.
 - **Schema**: Article + BreadcrumbList JSON-LD is auto-rendered server-side on every post.
 
 ## Manual GSC submission after each pillar
