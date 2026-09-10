@@ -34,10 +34,17 @@ function extractSlug(filename: string): string {
   return withoutExt.replace(/^\d{4}-\d{2}-\d{2}-/, "");
 }
 
+// Publish dates are NZ calendar dates. A post dated "2026-09-11" must go live at
+// the start of that day in Pacific/Auckland, not at 00:00 UTC (which is 12-13
+// hours later and made same-day posts invisible on Vercel until the next UTC day).
 function todayCutoff(): Date {
-  const t = new Date();
-  t.setHours(23, 59, 59, 999);
-  return t;
+  const nzToday = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Pacific/Auckland",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date()); // YYYY-MM-DD
+  return new Date(`${nzToday}T23:59:59.999Z`);
 }
 
 export function getAllPosts(): PostMeta[] {

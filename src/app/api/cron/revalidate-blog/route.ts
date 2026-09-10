@@ -16,8 +16,17 @@ export async function GET(request: Request) {
     revalidatePath("/blog");
     revalidatePath("/sitemap.xml");
 
-    const today = new Date().toISOString().split("T")[0];
-    const newPosts = getAllPosts().filter((post) => post.date.startsWith(today));
+    // Posts go live on NZ dates (see blog.ts). The cron runs at 00:05 UTC, which
+    // is mid-afternoon NZT, so refresh anything dated NZ-today or NZ-yesterday.
+    const nzDate = (offsetDays: number) =>
+      new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Pacific/Auckland",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date(Date.now() + offsetDays * 86_400_000));
+    const recent = new Set([nzDate(0), nzDate(-1)]);
+    const newPosts = getAllPosts().filter((post) => recent.has(post.date.slice(0, 10)));
 
     // Revalidate individual posts that just went live so their static paths refresh.
     for (const p of newPosts) revalidatePath(`/blog/${p.slug}`);
