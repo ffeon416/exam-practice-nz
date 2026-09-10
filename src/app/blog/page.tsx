@@ -7,6 +7,10 @@ import {
   postMatchesCategory,
 } from "@/lib/blog-categories";
 
+// Scheduled posts go live at midnight NZ (date gate in lib/blog.ts). Refresh the
+// cached index hourly so they appear without waiting for the daily cron or a deploy.
+export const revalidate = 3600;
+
 const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://studyace.co";
 
 interface BlogPageProps {

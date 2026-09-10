@@ -1,6 +1,17 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { headingId } from "@/lib/headingId";
+
+function textOf(node: ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(textOf).join("");
+  if (typeof node === "object" && "props" in node) {
+    return textOf((node as { props?: { children?: ReactNode } }).props?.children);
+  }
+  return "";
+}
 
 type CalloutType = "info" | "tip" | "warning";
 
@@ -26,7 +37,12 @@ export const blogMdxComponents: MDXComponents = {
     <h1 className="mt-10 mb-4 text-3xl sm:text-4xl font-bold tracking-tight text-white">{children}</h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mt-10 mb-4 text-2xl font-bold tracking-tight text-white">{children}</h2>
+    <h2
+      id={headingId(textOf(children))}
+      className="mt-10 mb-4 text-2xl font-bold tracking-tight text-white scroll-mt-24"
+    >
+      {children}
+    </h2>
   ),
   h3: ({ children }) => (
     <h3 className="mt-8 mb-3 text-xl font-semibold text-white">{children}</h3>

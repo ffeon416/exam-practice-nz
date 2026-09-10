@@ -6,6 +6,11 @@ import remarkGfm from "remark-gfm";
 import { getAllPostSlugs, getPostBySlug, formatDate } from "@/lib/blog";
 import { blogMdxComponents } from "@/components/MdxBlogComponents";
 import RelatedArticles from "@/components/blog/RelatedArticles";
+import { extractH2s } from "@/lib/headingId";
+
+// A queued post 404s until its NZ publish date; cache that answer for at most an
+// hour so the page turns up within the hour after midnight NZ.
+export const revalidate = 3600;
 
 const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://studyace.co";
 
@@ -25,7 +30,7 @@ export async function generateMetadata({
   if (!post) return { title: "Post Not Found" };
 
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
-  const ogImage = post.image || `${SITE_URL}/opengraph-image`;
+  const ogImage = post.image || `${postUrl}/opengraph-image`;
 
   return {
     title: post.title,
@@ -60,6 +65,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound();
 
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
+  // Jump links for long guides (4+ sections). Ids match the MDX h2 renderer.
+  const sections = extractH2s(post.content);
+  const showToc = sections.length >= 4;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -68,7 +76,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated || post.date,
-    image: [post.image || `${SITE_URL}/opengraph-image`],
+    image: [post.image || `${postUrl}/opengraph-image`],
     author: { "@type": "Organization", name: "StudyAce", url: SITE_URL },
     publisher: {
       "@type": "Organization",
@@ -218,6 +226,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </span>
             </div>
           </header>
+
+          {showToc && (
+            <nav
+              aria-label="In this guide"
+              className="mb-8 rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4"
+            >
+              <p className="text-[11px] uppercase tracking-[0.18em] font-bold text-indigo-400 mb-2">
+                In this guide
+              </p>
+              <ol className="grid gap-1.5 sm:grid-cols-2 text-sm">
+                {sections.map((s, i) => (
+                  <li key={s.id} className="flex gap-2 text-zinc-400">
+                    <span className="text-zinc-600 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                    <a href={`#${s.id}`} className="hover:text-white transition-colors">
+                      {s.text}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
 
           <div className="max-w-none">
             <MDXRemote

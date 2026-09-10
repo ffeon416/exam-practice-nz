@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
+// Hourly, so newly-live scheduled posts join the sitemap the same morning.
+export const revalidate = 3600;
+
 const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://studyace.co";
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -17,7 +17,8 @@ referrals, a blog, and a first-party analytics/admin panel.
 - **Stripe** — payments, **live mode**. Tiers: Free, Student, Pro (monthly/yearly price IDs in env).
 - **Anthropic API** (`@anthropic-ai/sdk`) — all AI generation + marking. Wrapper: `src/lib/claude.ts`.
 - **Resend** — optional contact-form email.
-- **Hosting: Vercel.** Push to `main` → auto-deploys to production. That's the deploy process.
+- **Hosting: Vercel.** Deploys are MANUAL: `vercel --prod --yes` from the repo root after every push
+  (the GitHub→Vercel integration stopped triggering in Aug 2026; pushing alone ships nothing).
 
 ## Where things live
 - `src/app/` — routes. Pages: `/subjects`, `/exam/[examId]`, `/practice`, `/plan`, `/dashboard`,
@@ -37,9 +38,10 @@ referrals, a blog, and a first-party analytics/admin panel.
 1. **AI marking is HONEST. No leniency, ever.** Hedged / "it could be either" answers score **0**.
    Never inflate scores or people-please. Marking scheme is **1+1** (1 mark working + 1 mark answer = /2;
    multiple-choice = /1; essays marked holistically then rescaled). See `src/lib/scoring.ts`.
-2. **No Google Analytics, no PostHog.** Both were removed because their per-click JS made the site
-   ~2s slower per interaction (60× on the picker). Do **not** re-add any third-party analytics/replay
-   without an explicit ask. Traffic is measured first-party via `/api/track` → `/admin`.
+2. **No PostHog, no session replay, no new third-party trackers.** Their per-click JS made the site
+   ~2s slower per interaction (60× on the picker). GA4 is the one exception (re-added 2026-07-31 at
+   Ffeon's explicit ask, loaded deferred in `GoogleAnalytics.tsx`); if the picker lags, disable GA
+   Enhanced Measurement before touching anything else. Traffic truth is first-party: `/api/track` → `/admin`.
 3. **Never claim real / NZQA past papers** in any user-facing copy or marketing. Position strictly as
    *unlimited AI-generated NCEA-style practice*. (Past-paper JSON exists in code but is not a selling point.)
 4. **No UI flashes / wrong-tier flicker.** Gate tier-conditional UI on `tierLoading`; scope any
@@ -62,5 +64,13 @@ npm run lint
 Requires `.env.local` (not in git — get it from the project owner). Var names are in `.env.example`.
 
 ## Deploying
-Commit to a branch or push to `main`. **Push to `main` = production deploy on Vercel.**
-There is no separate deploy command — Vercel builds on push.
+Commit, push to `main`, then run **`vercel --prod --yes`** from the repo root and confirm the
+"Aliased: https://studyace.co" line. Pushing alone does NOT deploy (the Git integration is broken).
+Verify with `curl -s https://studyace.co/sw.js | grep BUILD_VERSION` — it should equal `git rev-parse HEAD`.
+
+## Blog cadence (3 posts a week, Mon/Wed/Fri, NZ dates)
+Posts in `content/blog/` are date-gated and publish themselves at midnight NZ. Keep at least a
+week queued. `node scripts/blog-schedule.mjs` shows the runway and open slots;
+`python3 scripts/validate-blog.py` (content rules) and `node scripts/check-mdx.mjs` (MDX compiles) must both
+pass before committing; the weekly cron emails
+the admins when fewer than three posts are queued. Full rules: `docs/CONTENT-ROADMAP.md`.

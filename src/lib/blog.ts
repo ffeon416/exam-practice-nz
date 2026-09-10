@@ -37,14 +37,55 @@ function extractSlug(filename: string): string {
 // Publish dates are NZ calendar dates. A post dated "2026-09-11" must go live at
 // the start of that day in Pacific/Auckland, not at 00:00 UTC (which is 12-13
 // hours later and made same-day posts invisible on Vercel until the next UTC day).
-function todayCutoff(): Date {
-  const nzToday = new Intl.DateTimeFormat("en-CA", {
+/** Today's calendar date in NZ as YYYY-MM-DD. Publish dates are compared against this. */
+export function nzToday(offsetDays = 0): string {
+  return new Intl.DateTimeFormat("en-CA", {
     timeZone: "Pacific/Auckland",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(new Date()); // YYYY-MM-DD
-  return new Date(`${nzToday}T23:59:59.999Z`);
+  }).format(new Date(Date.now() + offsetDays * 86_400_000));
+}
+
+function todayCutoff(): Date {
+  return new Date(`${nzToday()}T23:59:59.999Z`);
+}
+
+function readMeta(filename: string): PostMeta {
+  const slug = extractSlug(filename);
+  const fileContent = fs.readFileSync(path.join(BLOG_DIR, filename), "utf-8");
+  const { data, content } = matter(fileContent);
+  return {
+    slug,
+    title: data.title || "Untitled",
+    description: data.description || "",
+    date: data.date || new Date().toISOString(),
+    updated: data.updated || undefined,
+    author: data.author || "Study Ace",
+    tags: data.tags || [],
+    image: data.image,
+    readingTime: readingTime(content).text,
+    category: data.category,
+    keywords: data.keywords,
+    leadMagnet: data.leadMagnet,
+    hub: data.hub === true,
+  };
+}
+
+/**
+ * Posts whose publish date is still in the future (NZ calendar). Never rendered
+ * publicly; used by the weekly cron and the schedule script to measure how much
+ * runway the 3-a-week cadence has left.
+ */
+export function getQueuedPosts(): PostMeta[] {
+  if (!fs.existsSync(BLOG_DIR)) return [];
+  const cutoff = todayCutoff();
+  return fs
+    .readdirSync(BLOG_DIR)
+    .filter((f) => f.endsWith(".mdx"))
+    .map(readMeta)
+    .filter((p) => new Date(p.date) > cutoff)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 }
 
 export function getAllPosts(): PostMeta[] {

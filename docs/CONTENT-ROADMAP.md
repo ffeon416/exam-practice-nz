@@ -52,7 +52,33 @@ Casing and the ampersand matter. Mismatches break category filtering silently.
 - AERA — meta-research on study methods
 - Wikipedia for foundational cognitive-science concepts ([Spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition), [Active recall](https://en.wikipedia.org/wiki/Active_recall), [Testing effect](https://en.wikipedia.org/wiki/Testing_effect))
 
-## Published (17 posts as of 2026-09-11) — all Priority 1 pillars are DONE
+## Cadence: 3 posts a week, Mon / Wed / Fri (NZ dates)
+
+The blog is a queue, not a burst. Posts are written ahead, committed with a future `date:`, and the
+site publishes them itself at midnight NZ (date gate in `src/lib/blog.ts`; `/blog`, post pages and
+the sitemap re-render hourly; the daily cron submits newly-live URLs to IndexNow).
+
+**The weekly loop (do this every Monday, or whenever the runway alert email arrives):**
+1. `node scripts/blog-schedule.mjs` → shows live/queued counts, runway, and the next open Mon/Wed/Fri slots.
+2. Pick topics from the **Next queue** below, in order. One cluster at a time.
+3. Write to `content/blog/YYYY-MM-DD-slug.mdx` with `date:` = the slot date (filename prefix must match).
+   Reuse the writer brief shape: subject guides = exam shape → where marks are lost → 4-week routine →
+   two worked examples → Q&A → `/grade` tip callout. Plans = hook → what people get wrong → phased
+   timetable table → rules → sample week → Q&A → callout.
+4. Link only to posts dated on or before the new post (the validator enforces it).
+5. `python3 scripts/validate-blog.py` → must end with `NO PROBLEMS` (PERCENT lines are manual checks), and
+   `node scripts/check-mdx.mjs` → every post must compile (MDX is compiled at request time, so a bad `<` or `{`
+   in a queued post would otherwise crash the page on its publish morning).
+6. Add 1–2 `keyword → slug` entries per new post to `content/interlinking/keyword-map.json`
+   (3+ words, phrases that actually occur in other posts), then `npx tsx scripts/interlink-posts.ts`
+   (it never links forward to a later-dated post) and re-run the validator.
+7. Commit, push, **`vercel --prod --yes`**. Queued posts must be deployed to exist; the gate does the rest.
+8. Google: request indexing in Search Console for each post the day it goes live (hubs first, ~10/day).
+
+**Keep ≥ 1 week (3 posts) queued at all times.** The weekly cron (`/api/cron/check-indexing`, Mon
+10:00 UTC) emails the admin list when fewer than three posts are queued, with the next open slots.
+
+## Published (17 live as of 2026-09-11) — all Priority 1 pillars are DONE
 
 Hubs (`hub: true`): testing-effect-practice-beats-rereading, how-to-study-for-ncea-exams,
 spaced-repetition-for-exams-student-guide, how-to-use-past-papers-mock-exam-strategy,
@@ -65,16 +91,45 @@ how-parents-can-help-with-ncea-exams, how-to-make-a-study-timetable-you-will-fol
 how-to-cram-for-an-exam-the-night-before, chatgpt-for-studying-what-it-gets-wrong,
 how-to-study-for-qce-external-exams.
 
+## Queued (written 2026-09-11, publish themselves on these NZ dates)
+
+| Date | Slug | Category |
+|---|---|---|
+| Mon 2026-09-14 | how-to-study-for-ncea-level-2-maths | Subject Guides |
+| Wed 2026-09-16 | how-to-study-for-hsc-exams | Exam Strategy |
+| Fri 2026-09-18 | ncea-level-3-calculus-study-guide | Subject Guides |
+| Mon 2026-09-21 | how-to-study-for-ncea-biology-externals | Subject Guides |
+| Wed 2026-09-23 | vce-exam-study-plan | Exam Strategy |
+| Fri 2026-09-25 | ncea-level-3-statistics-study-guide | Subject Guides |
+| Mon 2026-09-28 | how-to-study-for-ncea-chemistry-externals | Subject Guides |
+| Wed 2026-09-30 | active-recall-how-to-do-it-properly (hub) | Study Methods |
+| Fri 2026-10-02 | how-to-study-for-ncea-physics-externals | Subject Guides |
+| Mon 2026-10-05 | ncea-exam-timetable-how-to-plan-the-gaps-between-papers | Exam Strategy |
+| Wed 2026-10-07 | how-to-revise-for-gcse-mocks | Exam Strategy |
+| Fri 2026-10-09 | how-to-study-for-ncea-level-2-english | Subject Guides |
+
+**Next batch is due by Mon 2026-10-05** (to keep a week in hand past 10-09). First open slot: Mon 2026-10-12.
+
 ## Next queue (in priority order — one cluster at a time)
 
-1. **NCEA subject guides, Level 2 + 3** (Subject Guides): L2 maths (calculus/stats split), L3 calculus,
-   L3 statistics, L2/L3 biology, chemistry, physics, L2 English. Same shape as the L1 maths post:
-   exam shape → where marks are lost → 4-week routine → 2 worked examples.
-2. **Exam-week posts** timed for late October: "NCEA exam timetable: how to plan the gaps between
-   papers", "What to do the morning of an NCEA exam", "How NCEA externals are marked" (link NZQA).
-3. **AU/UK entry points**: how to study for HSC trials, VCE exam plan, GCSE revision timetable,
-   A-level past-paper strategy. One per system, each linking to `/subjects?curriculum=<id>`.
-4. **Comparisons** (only once there is search demand): StudyAce vs Quizlet, vs Khan Academy, vs a
+1. **Exam-week posts, timed for late October / early November NCEA externals** (Exam Strategy):
+   "What to do the morning of an NCEA exam", "How NCEA externals are marked" (link NZQA),
+   "How to use the reading time in an NCEA exam", "What to do if you blank in an exam".
+   Slots: 10-12, 10-14, 10-16, 10-19.
+2. **Remaining NCEA subject guides** (Subject Guides): L3 English, L1 science, L1/L2 statistics
+   (the stats strand of L2 maths deserves its own post), geography, history, economics, accounting.
+3. **Evergreen study-method posts with global search volume** (Study Methods, hub candidates):
+   "Pomodoro for exam revision (when it works and when it doesn't)", "How to take notes you'll
+   actually retrieve from", "Interleaving: why mixing topics beats blocking", "How to self-mark
+   honestly (and why lenient marking wrecks your grade)".
+4. **AU/UK entry points** (Exam Strategy): A-level past-paper strategy, WACE/SACE exam plans,
+   "HSC vs VCE vs QCE: how each system scores you" (comparison, honest), GCSE final-run 8-week plan
+   (publish in March for the May/June sitting).
+5. **US** (Exam Strategy, publish Jan–Mar for spring sittings): SAT 4-week plan, AP exam study
+   plan, "What's on the digital SAT".
+6. **Parents & Teachers**: "How to help without doing it for them (exam edition)", "What a good
+   study plan looks like on the fridge" (a printable-style table).
+7. **Comparisons** (only once there is search demand): StudyAce vs Quizlet, vs Khan Academy, vs a
    tutor. Keep honest — say what each is better at.
 
 ## Standing rules learned 2026-09-11

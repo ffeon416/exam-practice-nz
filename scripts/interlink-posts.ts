@@ -116,11 +116,19 @@ function countWords(s: string): number {
   return s.trim().split(/\s+/).length;
 }
 
-function processPost(filename: string, keywordMap: KeywordMap, allSlugs: Set<string>) {
+function processPost(
+  filename: string,
+  keywordMap: KeywordMap,
+  allSlugs: Set<string>,
+  dates: Map<string, string>
+) {
   const filePath = path.join(BLOG_DIR, filename);
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
   const postSlug = extractSlug(filename);
+  // Posts are date-gated (NZ calendar). A link to a post that goes live AFTER this
+  // one would 404 for readers in between, so only link backwards or same-day.
+  const sourceDate = String(data.date || "9999-12-31").slice(0, 10);
 
   let modifiedContent = content;
   let linksAdded = 0;
@@ -137,6 +145,7 @@ function processPost(filename: string, keywordMap: KeywordMap, allSlugs: Set<str
       ([k, t]) =>
         t !== postSlug &&
         allSlugs.has(t) &&
+        (dates.get(t) || "0000-00-00") <= sourceDate &&
         countWords(k) >= MIN_KEYWORD_WORDS &&
         !linkedDestinations.has(t)
     )
@@ -182,13 +191,18 @@ async function main() {
 
   const postFiles = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
   const allSlugs = new Set(postFiles.map(extractSlug));
+  const dates = new Map<string, string>();
+  for (const f of postFiles) {
+    const { data } = matter(fs.readFileSync(path.join(BLOG_DIR, f), "utf-8"));
+    dates.set(extractSlug(f), String(data.date || "").slice(0, 10));
+  }
   console.log(`Found ${postFiles.length} blog posts\n`);
 
   let totalModified = 0;
   let totalInjections = 0;
 
   for (const filename of postFiles) {
-    const result = processPost(filename, keywordMap, allSlugs);
+    const result = processPost(filename, keywordMap, allSlugs, dates);
     if (result.modified) {
       totalModified++;
       totalInjections += result.injections.length;
