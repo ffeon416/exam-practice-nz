@@ -103,7 +103,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#06060a] min-h-screen isolate">
+    // overflow-x-clip, not overflow-hidden: `hidden` makes this div the sticky
+    // container for the desktop table of contents, and since the window (not this
+    // div) scrolls, the panel would never stick. `clip` still contains the blur blob.
+    <div className="relative overflow-x-clip bg-[#06060a] min-h-screen isolate">
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute -top-[150px] left-1/2 -translate-x-1/2 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-indigo-600/10 blur-[120px] rounded-full" />
       </div>
