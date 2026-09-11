@@ -6,6 +6,8 @@ import remarkGfm from "remark-gfm";
 import { getAllPostSlugs, getPostBySlug, formatDate } from "@/lib/blog";
 import { blogMdxComponents } from "@/components/MdxBlogComponents";
 import RelatedArticles from "@/components/blog/RelatedArticles";
+import { TableOfContents } from "@/components/blog/TableOfContents";
+import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { extractH2s } from "@/lib/headingId";
 
 // A queued post 404s until its NZ publish date; cache that answer for at most an
@@ -68,6 +70,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Jump links for long guides (4+ sections). Ids match the MDX h2 renderer.
   const sections = extractH2s(post.content);
   const showToc = sections.length >= 4;
+  // A named byline gets Person schema; the house byline stays Organization.
+  const isPersonByline = Boolean(post.author) && !/^study\s?ace$/i.test(post.author);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -77,7 +81,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     datePublished: post.date,
     dateModified: post.updated || post.date,
     image: [post.image || `${postUrl}/opengraph-image`],
-    author: { "@type": "Organization", name: "StudyAce", url: SITE_URL },
+    author: isPersonByline
+      ? { "@type": "Person", name: post.author, url: SITE_URL }
+      : { "@type": "Organization", name: "StudyAce", url: SITE_URL },
     publisher: {
       "@type": "Organization",
       name: "StudyAce",
@@ -111,7 +117,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <main className="container mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-16 sm:pb-20 max-w-3xl">
+      <ReadingProgress targetSelector="article" />
+
+      <main
+        className={`container mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-16 sm:pb-20 ${
+          showToc ? "max-w-6xl" : "max-w-3xl"
+        }`}
+      >
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors mb-8"
@@ -129,6 +141,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           Back to blog
         </Link>
 
+        {/* Long guides get a sticky "In this guide" rail on desktop; the
+            article column keeps its 3xl measure either way. */}
+        <div className={showToc ? "lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-12" : ""}>
+        <div className="min-w-0 max-w-3xl">
         {post.hub && (
           <div className="mb-6 flex items-start gap-3 rounded-xl border border-indigo-400/30 bg-indigo-500/[0.06] px-4 py-3">
             <svg
@@ -227,26 +243,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </header>
 
-          {showToc && (
-            <nav
-              aria-label="In this guide"
-              className="mb-8 rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4"
-            >
-              <p className="text-[11px] uppercase tracking-[0.18em] font-bold text-indigo-400 mb-2">
-                In this guide
-              </p>
-              <ol className="grid gap-1.5 sm:grid-cols-2 text-sm">
-                {sections.map((s, i) => (
-                  <li key={s.id} className="flex gap-2 text-zinc-400">
-                    <span className="text-zinc-600 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                    <a href={`#${s.id}`} className="hover:text-white transition-colors">
-                      {s.text}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          )}
+          {showToc && <TableOfContents sections={sections} variant="mobile" />}
 
           <div className="max-w-none">
             <MDXRemote
@@ -257,7 +254,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </article>
 
-        <RelatedArticles currentSlug={post.slug} currentCategory={post.category} />
+        <RelatedArticles
+          currentSlug={post.slug}
+          currentCategory={post.category}
+          currentTags={post.tags}
+        />
 
         <div className="mt-16 p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-center">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
@@ -273,6 +274,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           >
             Get my free grade check
           </Link>
+        </div>
+        </div>
+        {showToc && (
+          <aside className="hidden lg:block">
+            <TableOfContents sections={sections} variant="desktop" />
+          </aside>
+        )}
         </div>
       </main>
     </div>
