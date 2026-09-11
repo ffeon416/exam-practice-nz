@@ -71,6 +71,7 @@ Verify with `curl -s https://studyace.co/sw.js | grep BUILD_VERSION` — it shou
 ## Blog cadence (3 posts a week, Mon/Wed/Fri, NZ dates)
 Posts in `content/blog/` are date-gated and publish themselves at midnight NZ. Keep at least a
 week queued. `node scripts/blog-schedule.mjs` shows the runway and open slots;
-`python3 scripts/validate-blog.py` (content rules) and `node scripts/check-mdx.mjs` (MDX compiles) must both
-pass before committing; the weekly cron emails
-the admins when fewer than three posts are queued. Full rules: `docs/CONTENT-ROADMAP.md`.
+`npm run process-blog` (interlinking, outbound citations, MDX compile check, content validator) must
+pass before committing — the first three also run as `prebuild` on every build; the weekly cron emails
+the admins when fewer than three posts are queued. Posts are written in Rowan's voice — the brief, hard
+rules and structure are in `docs/CONTENT-ROADMAP.md`. READ IT BEFORE WRITING ANY POST.

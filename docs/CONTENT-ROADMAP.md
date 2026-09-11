@@ -37,13 +37,65 @@ Casing and the ampersand matter. Mismatches break category filtering silently.
 
 ## Voice brief — paste into every writing prompt
 
-> Write in this style: direct, plain English, no academic fluff. Problem-first — open with what's broken about how most students study, then deliver the fix as a system or framework. Short sentences. Specific numbers and examples over vague claims. Treat the reader as an intelligent student who wants to know exactly what to do — not theory. End every post with a clear, low-pressure CTA tied to StudyAce's specific feature that solves the problem covered.
+This is Rowan's voice (the Little Nudge blog), adopted for Study Ace on 11 Sep 2026. Every article is written to it.
 
-**Anti-patterns to avoid**: "unlock your potential", "achieve your dreams", "your future starts here", "study smarter not harder" (clichéd), corporate edu-speak.
+> Write like Rowan: a straight-talking Kiwi who runs a business and can't be bothered with fluff. Plain English. Contractions always. Short sentences, one idea each, and paragraphs of one to three sentences. Problem-first: open with the thing most students get wrong, then give the fix as a system they can actually run, not a list of tips. Specific numbers and real examples over vague claims. Understated, never hyped: "worth a look", never "game-changing". Talk to the reader as "you" and treat them as smart and busy. Dry humour is fine; cheesy is not. NZ spelling ("practise" the verb, "organise", "colour"). Frame Study Ace's feature as the obvious tool for the job, once, at the end, with no pressure.
 
-**Honesty rule** (carries over from product, see `feedback_studyace_honest_marking`): never overstate what AI can do. Don't claim outcomes you can't back up. No fake stats. No fake testimonials. Cite real sources.
+### Hard rules (an AI tell if broken, so never)
+
+- **No gush words.** Banned: amazing, incredible, game-changer, unlock, supercharge, transform, elevate, journey, empower, thrilled, delighted, "next level", "means the world".
+- **One exclamation mark per post at most.** Zero is better.
+- **No stock openers or closers.** Banned: "In today's fast-paced world", "Let's dive in", "In conclusion", "It's important to note", "Whether you're X or Y", "At the end of the day".
+- **A student's name appears once at most** in any piece. Repeating a name reads as a bot.
+- **One rhetorical question is fine. A stack of them is not.**
+- **Em dashes: a couple per post, not a couple per paragraph.** Full stops do the work.
+- **No jargon without a one-line translation.** "Metacognition", "formative assessment", "retrieval practice" get explained in plain words the first time or get cut.
+- **Never shame the reader.** "Most people do this, and it's costing them" is fine. "You've been studying wrong" is not.
+
+**Honesty rule** (carries over from product, see `feedback_studyace_honest_marking`): never overstate what AI can do. Don't claim outcomes you can't back up. No stat without a linked source. No fake testimonials. Never claim real or NZQA past papers.
+
+### Structure Rowan's posts follow
+
+1. **Bold first sentence that states the problem.** The whole post hangs off it.
+2. **Two or three short paragraphs** that make the problem concrete and a bit uncomfortable.
+3. **"What you'll learn"** bullet list on any post over about 1,200 words. Five bullets, each a specific promise.
+4. **H2 sections** worded the way a student would say it out loud. "Right, so what actually is the testing effect?" beats "Understanding the Testing Effect".
+5. **Numbered steps or a named system** in the middle. Systems, not tasks: something the reader can run every week without thinking.
+6. **One `<Callout type="tip">`**, holding the single most useful line in the post, and it links `/grade` (the validator checks for it).
+7. **A close that says what to do this afternoon**, then one low-pressure line tying it to the Study Ace feature that does that job. "If you'd rather not build the practice exams yourself, that's the bit Study Ace does."
+
+### Samples of the voice (from Rowan's Little Nudge posts)
+
+Same voice, different audience. Read these for rhythm, not content.
+
+> **Your Google Business Profile is doing more work than you realise.** Most local searches result in a map view. That's you, or it should be. If your profile is half-arsed, you're losing customers to competitors who've bothered to fill it out properly.
+>
+> The good news? You don't need paid ads. You don't need a fancy agency. You need this checklist. Run through it once, and you'll realise where you've been leaving money on the table.
+
+> Picture this: you're browsing Google for a plumber in your area. You see two listings. One has 487 reviews, the most recent from 2019. The other has 42 reviews, with five new ones this month. Which one do you trust more? Be honest with yourself.
+>
+> Review velocity isn't some fancy marketing term. It's dead simple: it's the rate at which you're collecting new reviews over a set period. Five reviews a week. Three a month. One a day. That's velocity.
+
+### The same voice on a Study Ace topic (reference opening)
+
+> **Most students lose marks they already had the knowledge for.** They read the textbook again, highlighted in three colours, walked into the exam feeling ready, and blanked on questions they'd definitely seen before.
+>
+> The problem isn't effort. It's that re-reading feels like learning and isn't. Your brain gets fluent at recognising the page, not at producing the answer from nothing. Which is the only thing an exam asks you to do.
+>
+> Here's the fix, and it's boring: test yourself before the exam tests you. Not once. On a schedule. Below is the routine, how long it takes, and how to tell in a week whether it's working.
+
+### Byline
+
+`author: "Study Ace"` is the house byline. A post under a real name switches the Article schema to a Person automatically.
 
 ## Outbound citation sources (verify before using)
+
+Outbound citations are injected automatically: `content/interlinking/citation-map.json` maps a phrase
+to a URL and `scripts/inject-citations.ts` wraps the first natural mention (max 3 per post, one per URL,
+never in headings or callouts). Add a phrase → URL pair when you cite a new source. Every URL must be on
+the allowlist in `scripts/validate-blog.py` or the validator rejects the post. OECD, Cambridge and AERA
+below are NOT on that list yet; add the domain to the allowlist first if you want to cite them.
+
 
 - [OECD PISA](https://www.oecd.org/pisa/) — international education benchmarks
 - [NZQA](https://www.nzqa.govt.nz/) — NCEA reference (primary market)
@@ -66,12 +118,13 @@ the sitemap re-render hourly; the daily cron submits newly-live URLs to IndexNow
    two worked examples → Q&A → `/grade` tip callout. Plans = hook → what people get wrong → phased
    timetable table → rules → sample week → Q&A → callout.
 4. Link only to posts dated on or before the new post (the validator enforces it).
-5. `python3 scripts/validate-blog.py` → must end with `NO PROBLEMS` (PERCENT lines are manual checks), and
-   `node scripts/check-mdx.mjs` → every post must compile (MDX is compiled at request time, so a bad `<` or `{`
-   in a queued post would otherwise crash the page on its publish morning).
-6. Add 1–2 `keyword → slug` entries per new post to `content/interlinking/keyword-map.json`
-   (3+ words, phrases that actually occur in other posts), then `npx tsx scripts/interlink-posts.ts`
-   (it never links forward to a later-dated post) and re-run the validator.
+5. Add 1–2 `keyword → slug` entries per new post to `content/interlinking/keyword-map.json`
+   (3+ words, phrases that actually occur in other posts), and any new source you cited to
+   `content/interlinking/citation-map.json`.
+6. `npm run process-blog` → runs interlinking (never links forward to a later-dated post), citation
+   injection, the MDX compile check, and the content validator. It must end with `NO PROBLEMS`
+   (PERCENT lines are manual checks). The same interlink + citation + compile steps also run as
+   `prebuild` on every `npm run build`, so a deploy can never ship a post that doesn't compile.
 7. Commit, push, **`vercel --prod --yes`**. Queued posts must be deployed to exist; the gate does the rest.
 8. Google: request indexing in Search Console for each post the day it goes live (hubs first, ~10/day).
 
@@ -149,9 +202,9 @@ how-to-study-for-qce-external-exams.
   manual honesty check.
 - **Markdown tables work** (remark-gfm + styled table components). Use them for credit tables,
   timetables, comparison grids.
-- **After a batch:** `npx tsx scripts/interlink-posts.ts` (note: it rewrites frontmatter in YAML
-  block style on files it touches — harmless, but re-run the validator), then commit, push, and
-  `vercel --prod --yes`. The daily cron submits newly-live post URLs to IndexNow automatically; for
+- **After a batch:** `npm run process-blog` (interlink + citations + compile check + validator; the
+  injectors rewrite frontmatter in YAML block style on files they touch — harmless), then commit, push,
+  and `vercel --prod --yes`. The daily cron submits newly-live post URLs to IndexNow automatically; for
   Google, request indexing by hand in Search Console (hubs first, ~10/day).
 
 ## Body conventions
@@ -166,7 +219,11 @@ how-to-study-for-qce-external-exams.
 
 ## Implementation hooks
 
-- **Internal linking**: `npx tsx scripts/interlink-posts.ts` after each batch. Add keyword → slug entries to `content/interlinking/keyword-map.json` (3+ words per keyword enforced by the script).
+- **Internal linking**: `scripts/interlink-posts.ts` (part of `npm run process-blog` and `prebuild`). Add keyword → slug entries to `content/interlinking/keyword-map.json` (3+ words per keyword enforced by the script).
+- **Outbound citations**: `scripts/inject-citations.ts` (same hooks). Phrase → URL pairs in `content/interlinking/citation-map.json`; URLs must be on the validator allowlist.
+- **Build hook**: `prebuild` in `package.json` runs interlink → citations → `check-mdx.mjs` before every `next build`, locally and on Vercel. Links injected during a Vercel build aren't committed, so always run `npm run process-blog` locally and commit the result; the hook is the safety net.
+- **Reading layer**: `ReadingProgress` (3px bar, fills across the article) and `TableOfContents` (collapsible on mobile, sticky with scroll-tracking on desktop; shown at 4+ H2s) in `src/components/blog/`. Heading ids come from `src/lib/headingId.ts`, shared by the h2 renderer and the TOC.
+- **Related articles** score by same category (+5), same-category hub (+3), shared tags (+1 each, max 4), any hub (+0.5); one same-category hub is always included.
 - **Hub posts**: set `hub: true` in frontmatter. Treated specially in `RelatedArticles` and renders a "Bookmark this guide" banner.
 - **Date-gating**: set `date:` in the future to queue posts (NZ calendar date). Daily cron at 00:05 UTC revalidates `/blog` + `/sitemap.xml` + any post dated NZ-today/yesterday, and submits those URLs to IndexNow. Crons live in `vercel.json`; `CRON_SECRET` env var required.
 - **IndexNow**: key file `public/<key>.txt`, key constant in `src/lib/searchEngines.ts`. Covers Bing/DuckDuckGo/Yandex. Google ignores it — use GSC.
@@ -184,8 +241,9 @@ how-to-study-for-qce-external-exams.
 
 - Blog libs: `src/lib/blog.ts`, `src/lib/blog-categories.ts`, `src/lib/searchEngines.ts`
 - Pages: `src/app/blog/page.tsx`, `src/app/blog/[slug]/page.tsx`
-- Components: `src/components/MdxBlogComponents.tsx`, `src/components/blog/RelatedArticles.tsx`
+- Components: `src/components/MdxBlogComponents.tsx`, `src/components/blog/RelatedArticles.tsx`, `src/components/blog/TableOfContents.tsx`, `src/components/blog/ReadingProgress.tsx`
+- Social cards: `src/app/blog/opengraph-image.tsx` (index), `src/app/blog/[slug]/opengraph-image.tsx` (per post)
 - SEO: `src/app/sitemap.ts`, `src/app/robots.ts`
 - Crons: `src/app/api/cron/revalidate-blog/route.ts`, `src/app/api/cron/check-indexing/route.ts`, schedules in `vercel.json`
-- Content: `content/blog/*.mdx`, `content/interlinking/keyword-map.json`
-- Script: `scripts/interlink-posts.ts`
+- Content: `content/blog/*.mdx`, `content/interlinking/keyword-map.json`, `content/interlinking/citation-map.json`
+- Scripts: `scripts/interlink-posts.ts`, `scripts/inject-citations.ts`, `scripts/check-mdx.mjs`, `scripts/validate-blog.py`, `scripts/blog-schedule.mjs`

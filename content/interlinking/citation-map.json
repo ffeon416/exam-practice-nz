@@ -1,0 +1,29 @@
+{
+  "_README": "Maps content phrases to authoritative outbound URLs. scripts/inject-citations.ts wraps the first natural occurrence of each phrase in a link (max 3 per post, one per URL). Every phrase becomes a link wherever it appears, so curate carefully. Keys prefixed with '_' are comments and skipped. URLs must be on the allowlist in scripts/validate-blog.py. All URLs below returned 200 on 2026-09-11.",
+
+  "_TESTING_EFFECT": "https://en.wikipedia.org/wiki/Testing_effect",
+  "the testing effect": "https://en.wikipedia.org/wiki/Testing_effect",
+  "retrieval practice": "https://en.wikipedia.org/wiki/Testing_effect",
+  "roediger and karpicke": "https://en.wikipedia.org/wiki/Testing_effect",
+  "roediger & karpicke": "https://en.wikipedia.org/wiki/Testing_effect",
+
+  "_SPACED_REPETITION": "https://en.wikipedia.org/wiki/Spaced_repetition",
+  "spaced repetition": "https://en.wikipedia.org/wiki/Spaced_repetition",
+  "the spacing effect": "https://en.wikipedia.org/wiki/Spacing_effect",
+
+  "_ACTIVE_RECALL": "https://en.wikipedia.org/wiki/Active_recall",
+  "active recall": "https://en.wikipedia.org/wiki/Active_recall",
+
+  "_FORGETTING_CURVE": "https://en.wikipedia.org/wiki/Forgetting_curve",
+  "the forgetting curve": "https://en.wikipedia.org/wiki/Forgetting_curve",
+  "ebbinghaus forgetting curve": "https://en.wikipedia.org/wiki/Forgetting_curve",
+
+  "_TEST_ANXIETY": "https://en.wikipedia.org/wiki/Test_anxiety",
+  "test anxiety": "https://en.wikipedia.org/wiki/Test_anxiety",
+  "exam anxiety": "https://en.wikipedia.org/wiki/Test_anxiety",
+
+  "_NZQA_NCEA": "https://www2.nzqa.govt.nz/ncea/",
+  "how ncea works": "https://www2.nzqa.govt.nz/ncea/",
+  "ncea achievement standards": "https://www2.nzqa.govt.nz/ncea/",
+  "nzqa's own guidance": "https://www2.nzqa.govt.nz/ncea/"
+}

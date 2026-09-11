@@ -116,6 +116,19 @@ function countWords(s: string): number {
   return s.trim().split(/\s+/).length;
 }
 
+/**
+ * Split a post into its raw frontmatter block and body WITHOUT re-serialising
+ * the YAML. gray-matter's stringify rewrites quotes, folds long strings and
+ * expands arrays, which breaks scripts/validate-blog.py's regex parsing (it
+ * saw `date: '2026-09-14'` and `description: >-`). We only ever change the
+ * body, so the frontmatter goes back byte-for-byte.
+ */
+function splitFrontmatter(fileContent: string): { head: string; body: string } {
+  const m = fileContent.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+  if (!m) return { head: "", body: fileContent };
+  return { head: m[0], body: fileContent.slice(m[0].length) };
+}
+
 function processPost(
   filename: string,
   keywordMap: KeywordMap,
@@ -124,13 +137,14 @@ function processPost(
 ) {
   const filePath = path.join(BLOG_DIR, filename);
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(fileContent);
+  const { data } = matter(fileContent);
+  const { head, body } = splitFrontmatter(fileContent);
   const postSlug = extractSlug(filename);
   // Posts are date-gated (NZ calendar). A link to a post that goes live AFTER this
   // one would 404 for readers in between, so only link backwards or same-day.
   const sourceDate = String(data.date || "9999-12-31").slice(0, 10);
 
-  let modifiedContent = content;
+  let modifiedContent = body;
   let linksAdded = 0;
   const injections: LinkInjection[] = [];
   const linkedDestinations = new Set<string>();
@@ -165,7 +179,7 @@ function processPost(
   }
 
   if (injections.length > 0) {
-    fs.writeFileSync(filePath, matter.stringify(modifiedContent, data));
+    fs.writeFileSync(filePath, head + modifiedContent);
     return { modified: true, injections };
   }
   return { modified: false, injections: [] };

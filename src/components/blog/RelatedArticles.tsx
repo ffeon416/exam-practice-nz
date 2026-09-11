@@ -4,38 +4,60 @@ import { getAllPosts, type PostMeta } from "@/lib/blog";
 interface RelatedArticlesProps {
   currentSlug: string;
   currentCategory?: string;
+  currentTags?: string[];
   limit?: number;
 }
 
+/**
+ * Smart related-articles picker.
+ *   +5   same category
+ *   +3   hub article in the same category
+ *   +1   per shared tag (capped at +4)
+ *   +0.5 hub anywhere
+ * A same-category hub is always included if one exists, so every post
+ * points readers back to the authority piece for its topic.
+ */
 export default function RelatedArticles({
   currentSlug,
   currentCategory,
+  currentTags = [],
   limit = 3,
 }: RelatedArticlesProps) {
   const all = getAllPosts().filter((p) => p.slug !== currentSlug);
+  if (all.length === 0) return null;
 
-  const sameCategory = currentCategory
-    ? all.filter((p) => p.category === currentCategory)
-    : [];
+  const tagsLower = new Set(currentTags.map((t) => t.toLowerCase()));
 
-  const hubsInCategory = sameCategory.filter((p) => p.hub);
-  const nonHubsInCategory = sameCategory.filter((p) => !p.hub);
-  const otherPosts = all.filter((p) => p.category !== currentCategory);
+  const scored = all.map((post) => {
+    let score = 0;
+    if (currentCategory && post.category === currentCategory) {
+      score += 5;
+      if (post.hub) score += 3;
+    }
+    const shared = (post.tags || []).filter((t) => tagsLower.has(t.toLowerCase())).length;
+    score += Math.min(shared, 4);
+    if (post.hub) score += 0.5;
+    return { post, score };
+  });
+
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return new Date(b.post.date).getTime() - new Date(a.post.date).getTime();
+  });
 
   const picks: PostMeta[] = [];
   const seen = new Set<string>();
-  const push = (post?: PostMeta) => {
-    if (!post || seen.has(post.slug) || picks.length >= limit) return;
+  const hub = scored.find((s) => s.post.category === currentCategory && s.post.hub)?.post;
+  if (hub) {
+    picks.push(hub);
+    seen.add(hub.slug);
+  }
+  for (const { post } of scored) {
+    if (picks.length >= limit) break;
+    if (seen.has(post.slug)) continue;
     picks.push(post);
     seen.add(post.slug);
-  };
-
-  // Hub of same category first, then more posts in same category, then other hubs, then anything.
-  push(hubsInCategory[0]);
-  for (const p of nonHubsInCategory) push(p);
-  for (const p of hubsInCategory.slice(1)) push(p);
-  for (const p of otherPosts) push(p);
-
+  }
   if (picks.length === 0) return null;
 
   return (
