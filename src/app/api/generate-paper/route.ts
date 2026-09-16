@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: "limit_reached",
-          message: "Practice exams are part of the Student plan. Upgrade to start training.",
+          message: "Practice exams are part of Pro. Upgrade to start training.",
           upgradeUrl: "/pricing",
         },
         { status: 403 }

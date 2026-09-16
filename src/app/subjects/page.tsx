@@ -746,7 +746,7 @@ export default function SubjectsPage() {
       {!tierLoading && !isUnlimited(limits.examsPerWeek) && (
         limits.examsPerWeek <= 0 ? (
           <div className="mb-4 px-4 py-3.5 rounded-2xl bg-indigo-500/[0.07] border border-indigo-500/25 text-[12.5px] text-zinc-300 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            <span>Practice exams are part of the <span className="text-white font-semibold">Student plan</span> — every subject, honest marking, NZ$15/mo.</span>
+            <span>Practice exams are part of <span className="text-white font-semibold">Pro</span> — every subject, honest marking, NZ$49/mo or NZ$149/yr.</span>
             <Link href="/pricing" className="text-indigo-300 font-semibold hover:underline">See plans →</Link>
             <Link href="/grade" className="text-zinc-500 hover:text-zinc-300">or sit a free grade check</Link>
           </div>
@@ -772,13 +772,13 @@ export default function SubjectsPage() {
         <UpgradeModal
           message={usage.examsThisWeek > 0
             ? "You've used all your exams this week. Upgrade to Pro for unlimited exams."
-            : "Practice exams are part of the Student plan (NZ$15/mo). Upgrade to start training."}
+            : "Practice exams are part of Pro (NZ$49/mo, or NZ$149 for the year). Upgrade to start training."}
           onClose={() => setShowUpgrade(null)}
         />
       )}
       {showUpgrade === "subject" && (
         <UpgradeModal
-          message="This subject is available on the Student and Pro plans. Upgrade to practise every subject."
+          message="This subject is available on Pro. Upgrade to practise every subject."
           onClose={() => setShowUpgrade(null)}
         />
       )}

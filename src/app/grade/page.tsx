@@ -8,8 +8,8 @@
 // email — the marking wait absorbs the ask, so it costs zero extra time)
 // → the FULL result reveals: grade band, score ring, examiner-style marked
 // paper. No account needed. The reveal itself is the pitch: after seeing
-// exactly where they lost marks, the page pushes the Student plan
-// (NZ$15/mo) with a personalised path from today's % to the top band.
+// exactly where they lost marks, the page pushes Pro
+// (NZ$49/mo, NZ$149/yr) with a personalised path from today's % to the top band.
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -622,7 +622,7 @@ export default function GradePage() {
 
   // ── REVEALED ──
   // The whole result, ungated: animated grade reveal → personalised path to
-  // the top band → Student-plan pitch → examiner-style marked paper (the
+  // the top band → Pro pitch → examiner-style marked paper (the
   // proof of quality) → second pitch → optional email report.
   if (phase === "revealed" && results && paper) {
     const { bandLabel, pct, weakTopics, grade } = computeSummary(results);
@@ -643,7 +643,7 @@ export default function GradePage() {
     const pitchCta = (
       <Link href="/pricing"
         className="inline-flex w-full justify-center items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.01] transition-transform">
-        Start my plan — NZ$15/mo →
+        Start my plan — NZ$49/mo →
       </Link>
     );
 
@@ -772,7 +772,7 @@ export default function GradePage() {
               </p>
               <p className="text-zinc-300 text-[13.5px] leading-relaxed mb-4">
                 {!atTop && <>Jumping {gap} points doesn&apos;t come from rereading notes — it comes from reps that get marked. </>}
-                The Student plan gives you unlimited {curriculum.system}-style exams with this same honest marking on
+                Pro gives you unlimited {curriculum.system}-style exams with this same honest marking on
                 every answer{weakLabels.length > 0 && <>, starting with <span className="font-semibold text-white">{weakLabels.join(" and ")}</span></>},
                 plus a week-by-week schedule built from this exact result.
                 20 minutes a day is the whole habit — <span className="text-white font-semibold">{atTop ? `walking into exam day at ${topBandLabel} level` : `sitting in the ${topBandLabel} zone by the end of ${targetMonth}`}</span>{" "}is
@@ -790,12 +790,12 @@ export default function GradePage() {
                 <div className="rounded-xl border border-indigo-400/40 bg-indigo-500/[0.08] px-4 py-3.5">
                   <p className="text-white font-bold text-[13px] mb-1">✓ Train 20 min/day</p>
                   <p className="text-zinc-300 text-[12px] leading-relaxed">
-                    Unlimited marked exams, weakest topics first, schedule on the wall — walking in {atTop ? `certain of ${topBandLabel}` : <>aiming <span className="text-emerald-400 font-semibold">{topBandLabel}</span></>}. NZ$15/mo.
+                    Unlimited marked exams, weakest topics first, schedule on the wall — walking in {atTop ? `certain of ${topBandLabel}` : <>aiming <span className="text-emerald-400 font-semibold">{topBandLabel}</span></>}. NZ$49/mo, or NZ$149 for the year.
                   </p>
                 </div>
               </div>
               {pitchCta}
-              <p className="text-zinc-500 text-[11px] mt-2.5 text-center">NZ$15/month · cancel anytime · cheaper than 15 minutes of tutoring</p>
+              <p className="text-zinc-500 text-[11px] mt-2.5 text-center">NZ$49/month or NZ$149/year · cancel anytime · less than one hour of tutoring</p>
             </div>
           </div>
 
@@ -920,7 +920,7 @@ export default function GradePage() {
                 Those {totalMax - totalAwarded} lost marks are the difference.
               </p>
               <p className="text-zinc-400 text-[13px] mb-4">
-                Every one of them is a fixable habit, not a talent problem. NZ$15/month buys the reps that fix them.
+                Every one of them is a fixable habit, not a talent problem. NZ$49 a month buys the reps that fix them.
               </p>
               {pitchCta}
             </div>
@@ -962,7 +962,7 @@ export default function GradePage() {
             </div>
             <Link href="/pricing"
               className="flex-1 sm:flex-none inline-flex justify-center items-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-6 py-3 text-[14px] font-extrabold text-white shadow-lg shadow-indigo-500/30">
-              Start my plan — NZ$15/mo →
+              Start my plan — NZ$49/mo →
             </Link>
           </div>
         </div>

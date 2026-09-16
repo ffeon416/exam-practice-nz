@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { getStripe, PRICE_IDS } from "@/lib/stripe";
+import { isBilling } from "@/lib/tierLimits";
 import { getOrCreateProfile, logEvent } from "@/lib/supabase";
 import { getSupabase } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
+// Only Pro is for sale (Student closed to new signups 2026-09-16; existing
+// Student subscribers are untouched and keep their original price).
 type CheckoutBody = {
-  tier: "student" | "pro";
-  billing: "monthly" | "yearly";
+  tier?: "pro";
+  billing: "monthly" | "quarterly" | "yearly";
 };
 
 export async function POST(req: NextRequest) {
@@ -27,17 +30,18 @@ export async function POST(req: NextRequest) {
     }
 
     const body = (await req.json()) as CheckoutBody;
-    const { tier, billing } = body;
+    const tier = "pro" as const;
+    const { billing } = body;
 
-    if (!tier || !["student", "pro"].includes(tier)) {
-      return NextResponse.json({ error: "Invalid tier." }, { status: 400 });
+    if (body.tier !== undefined && body.tier !== "pro") {
+      return NextResponse.json({ error: "That plan is no longer available. Pro is the only plan." }, { status: 400 });
     }
-    if (!billing || !["monthly", "yearly"].includes(billing)) {
+    if (!isBilling(billing)) {
       return NextResponse.json({ error: "Invalid billing period." }, { status: 400 });
     }
 
     // Resolve price ID
-    const priceKey = `${tier}_${billing}` as keyof typeof PRICE_IDS;
+    const priceKey = `${tier}_${billing}` as const;
     const priceId = PRICE_IDS[priceKey];
     if (!priceId) {
       return NextResponse.json(
@@ -82,9 +86,9 @@ export async function POST(req: NextRequest) {
       allow_promotion_codes: true,
       success_url: `${origin}/dashboard?payment=success&plan=${tier}`,
       cancel_url: `${origin}/pricing`,
-      metadata: { userId, tier },
+      metadata: { userId, tier, billing },
       subscription_data: {
-        metadata: { userId, tier },
+        metadata: { userId, tier, billing },
       },
     });
 

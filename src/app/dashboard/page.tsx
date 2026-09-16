@@ -851,7 +851,7 @@ export default function DashboardPage() {
             href="/pricing"
             className="flex items-center justify-center gap-2 text-zinc-600 text-[12px] hover:text-zinc-400 transition-colors py-3"
           >
-            Start training — plans from NZ$15/mo
+            Start training — NZ$49/mo or NZ$149/yr
           </Link>
         )}
 

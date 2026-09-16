@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     if (tier === "free") {
       void logEvent("paywall_hit", userId, { reason: "mark_locked", tier });
       return NextResponse.json(
-        { error: "limit_reached", message: "Marking is part of the Student plan.", upgradeUrl: "/pricing" },
+        { error: "limit_reached", message: "Marking is part of Pro.", upgradeUrl: "/pricing" },
         { status: 403 }
       );
     }

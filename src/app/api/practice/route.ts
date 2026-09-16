@@ -14,11 +14,11 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    // Paid-only: single-question practice is part of the Student plan.
+    // Paid-only: single-question practice is part of Pro.
     const { userId, tier } = await checkTier();
     if (tier === "free") {
       return NextResponse.json(
-        { error: "limit_reached", message: "Practice is part of the Student plan.", upgradeUrl: "/pricing" },
+        { error: "limit_reached", message: "Practice is part of Pro.", upgradeUrl: "/pricing" },
         { status: 403 }
       );
     }

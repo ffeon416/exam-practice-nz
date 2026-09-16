@@ -5,7 +5,13 @@ import { useState, useCallback, useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import { useTier } from "@/hooks/useTier";
-import type { Tier } from "@/lib/tierLimits";
+import {
+  BILLING_PERIODS,
+  PRO_PRICING,
+  proMonthlyEquivalent,
+  proSavingPct,
+  type Billing,
+} from "@/lib/tierLimits";
 import { gradeColor } from "@/lib/scoring";
 import type { Grade } from "@/lib/types";
 
@@ -16,63 +22,38 @@ type GradeResult = {
   topBandLabel: string; targetMonth: string; system: string; ts: number;
 };
 
-type Plan = {
-  name: string;
-  tier: Tier;
-  tagline: string;
-  monthlyPrice: number;
-  badge?: string;
-  highlight?: boolean;
-  features: { text: string; included: boolean; bold?: boolean }[];
+// One plan — Pro — in three billing periods, side by side. There is no free
+// plan (the free experience is the Grade Detector at /grade) and the old
+// Student plan is closed to new signups: anyone still on it keeps it at the
+// price they signed up at, and this page never touches that.
+const PRO_FEATURES: { text: string; bold?: boolean }[] = [
+  { text: "Unlimited practice exams", bold: true },
+  { text: "Honest StudyAce marking on every answer", bold: true },
+  { text: "100 StudyAce tutor chats per week", bold: true },
+  { text: "Every subject in your exam system" },
+  { text: "Adaptive difficulty (auto-tuned to you)" },
+  { text: "Up to 20 questions (full mock exams)" },
+  { text: "Personal study planner (week by week)" },
+  { text: "Deep English essay marking (4-pass)" },
+  { text: "Spaced repetition review" },
+  { text: "Mock exam mode (timed, fullscreen)" },
+  { text: "Full dashboard with analytics" },
+  { text: "30-day money back guarantee" },
+];
+
+const OPTION_META: Record<Billing, { tag: string; note: string; highlight?: boolean }> = {
+  monthly: { tag: "Flexible", note: "Renews monthly · cancel anytime" },
+  quarterly: { tag: `Save ${proSavingPct("quarterly")}%`, note: "One payment every 3 months · cancel anytime" },
+  yearly: { tag: `Save ${proSavingPct("yearly")}%`, note: "One payment a year · cancel anytime", highlight: true },
 };
 
-// No free plan — the free experience is the Grade Detector (/grade). Two
-// paid plans only, littlenudge-style: try the grade check, then pay to train.
-const PLANS: Plan[] = [
-  {
-    name: "Student",
-    tier: "student",
-    tagline: "Pass with confidence",
-    monthlyPrice: 15,
-    features: [
-      { text: "20 practice exams per week", included: true, bold: true },
-      { text: "Full StudyAce marking on every question", included: true },
-      { text: "All 19 subjects", included: true },
-      { text: "Up to 12 questions per exam", included: true },
-      { text: "Spaced repetition review", included: true },
-      { text: "Personal study planner (week by week)", included: true },
-      { text: "Deep English essay marking (4-pass)", included: true },
-      { text: "Mock exam mode (timed, fullscreen)", included: true },
-      { text: "Full dashboard with analytics", included: true },
-      { text: "StudyAce tutor chat", included: false },
-      { text: "Adaptive difficulty (auto-tuned to you)", included: false },
-    ],
-  },
-  {
-    name: "Pro",
-    tier: "pro",
-    tagline: "Built to chase Excellence",
-    monthlyPrice: 20,
-    badge: "Best value",
-    highlight: true,
-    features: [
-      { text: "UNLIMITED practice exams", included: true, bold: true },
-      { text: "100 StudyAce tutor chats per week", included: true, bold: true },
-      { text: "Adaptive difficulty (auto-tuned to you)", included: true, bold: true },
-      { text: "Up to 20 questions (full mock exams)", included: true },
-      { text: "Everything in Student", included: true },
-      { text: "Personal study planner (week by week)", included: true },
-      { text: "Deep English essay marking (4-pass)", included: true },
-      { text: "Mock exam mode (timed, fullscreen)", included: true },
-      { text: "30-day money back guarantee", included: true },
-    ],
-  },
-];
+function nz(n: number): string {
+  return Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2);
+}
 
 export default function PricingPage() {
   const { isSignedIn } = useAuth();
-  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
-  const [loadingTier, setLoadingTier] = useState<string | null>(null);
+  const [loadingBilling, setLoadingBilling] = useState<Billing | "manage" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { tier: currentTier, loading: tierLoading } = useTier();
 
@@ -92,29 +73,20 @@ export default function PricingPage() {
     return () => clearTimeout(id);
   }, []);
 
-  function getPrice(p: Plan): { display: string; sub?: string } {
-    if (billing === "yearly") {
-      const annual = Math.round(p.monthlyPrice * 12 * 0.7 * 100) / 100; // 30% off
-      const perMonth = Math.round((annual / 12) * 100) / 100;
-      return { display: `$${perMonth.toFixed(2)}`, sub: `per month, billed yearly (NZ$${annual.toFixed(0)}/yr)` };
-    }
-    return { display: `$${p.monthlyPrice.toFixed(2)}`, sub: "per month" };
-  }
-
-  const handleCheckout = useCallback(async (tier: "student" | "pro") => {
+  const handleCheckout = useCallback(async (billing: Billing) => {
     setError(null);
-    setLoadingTier(tier);
+    setLoadingBilling(billing);
     // checkout_started is logged server-side in /api/checkout (logEvent).
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tier, billing }),
+        body: JSON.stringify({ tier: "pro", billing }),
       });
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? "Something went wrong.");
-        setLoadingTier(null);
+        setLoadingBilling(null);
         return;
       }
       if (data.url) {
@@ -131,21 +103,19 @@ export default function PricingPage() {
         }, 100);
       } else {
         setError("Checkout URL missing. Please try again.");
-        setLoadingTier(null);
+        setLoadingBilling(null);
       }
     } catch {
       setError("Failed to start checkout. Please try again.");
-      setLoadingTier(null);
+      setLoadingBilling(null);
     }
-  }, [billing]);
+  }, []);
 
   const handleManageSubscription = useCallback(async () => {
     setError(null);
-    setLoadingTier("manage");
+    setLoadingBilling("manage");
     try {
-      const res = await fetch("/api/customer-portal", {
-        method: "POST",
-      });
+      const res = await fetch("/api/customer-portal", { method: "POST" });
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? "Something went wrong.");
@@ -157,38 +127,14 @@ export default function PricingPage() {
     } catch {
       setError("Failed to open subscription portal. Please try again.");
     } finally {
-      setLoadingTier(null);
+      setLoadingBilling(null);
     }
   }, []);
 
-  function getCta(plan: Plan): { label: string; action: () => void; isLink?: boolean; href?: string; disabled?: boolean } {
-    // Signed-out users must sign up before checkout
-    if (!isSignedIn) {
-      return {
-        label: `Get ${plan.name}`,
-        action: () => {},
-        isLink: true,
-        href: `/sign-up?redirect_url=${encodeURIComponent(`/pricing`)}`,
-      };
-    }
-
-    // If user is already on this tier
-    if (!tierLoading && currentTier === plan.tier) {
-      return { label: "Manage subscription", action: handleManageSubscription };
-    }
-
-    // If user is on a higher tier
-    if (!tierLoading && currentTier === "pro" && plan.tier === "student") {
-      return { label: "Current: Pro", action: () => {}, disabled: true };
-    }
-
-    // Default: purchase
-    return {
-      label: loadingTier === plan.tier ? "Redirecting..." : `Get ${plan.name}`,
-      action: () => handleCheckout(plan.tier as "student" | "pro"),
-      disabled: loadingTier !== null,
-    };
-  }
+  // Tier-conditional UI only renders once the real tier is known (no flicker).
+  const isPro = !tierLoading && currentTier === "pro";
+  const isLegacyStudent = !tierLoading && currentTier === "student";
+  const ctaLabel = isLegacyStudent ? "Upgrade to Pro" : "Get Pro";
 
   return (
     <div className="relative overflow-hidden bg-[#06060a]">
@@ -199,29 +145,29 @@ export default function PricingPage() {
       </div>
 
       {/* Header */}
-      <section className="max-w-4xl mx-auto px-5 pt-6 sm:pt-20 pb-8 sm:pb-12 text-center">
+      <section className="max-w-4xl mx-auto px-5 pt-6 sm:pt-20 pb-8 sm:pb-10 text-center">
         <div className="home-rise mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] text-zinc-400">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Cancel anytime · No hidden fees
+            One plan · Cancel anytime · No hidden fees
           </div>
         </div>
         <h1 className={`${display.className} home-rise text-[34px] sm:text-[52px] md:text-[64px] font-bold text-white tracking-[-0.03em] leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-5`}
           style={{ animationDelay: "80ms", textWrap: "balance" }}>
-          Simple pricing.
+          Everything in Pro.
           <br />
           <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent pr-1">
-            Real results.
+            Pick your pace.
           </em>
         </h1>
-        <p className="home-rise text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 px-2"
+        <p className="home-rise text-zinc-400 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-2 px-2"
           style={{ animationDelay: "160ms" }}>
-          Cheaper than one tutoring session. More effective than any textbook.
+          Same plan, same features, whichever way you pay. Cheaper than one tutoring session a month.
         </p>
 
         {/* Mission strip — carried over from the grade check */}
         {gradeResult && (
-          <div className="home-rise max-w-xl mx-auto mb-8 sm:mb-10 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 text-left"
+          <div className="home-rise max-w-xl mx-auto mt-6 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 text-left"
             style={{ animationDelay: "240ms" }}>
             <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 mb-1.5">Your mission · from your grade check</p>
             <p className="text-white font-extrabold text-[16px] sm:text-[18px] leading-snug">
@@ -232,155 +178,162 @@ export default function PricingPage() {
               <span className="text-zinc-400 font-semibold"> by end of {gradeResult.targetMonth}</span>
             </p>
             <p className="text-zinc-400 text-[12.5px] mt-1">
-              The Student plan is the vehicle: unlimited {gradeResult.system}-style exams, honest marking, your weak topics first.
+              Pro is the vehicle: unlimited {gradeResult.system}-style exams, honest marking, your weak topics first.
             </p>
           </div>
         )}
-
-        {/* Billing toggle */}
-        <div className="home-rise inline-flex items-center gap-1 p-1 rounded-full bg-white/[0.04] border border-white/[0.08]"
-          style={{ animationDelay: "320ms" }}>
-          <button
-            onClick={() => setBilling("monthly")}
-            className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all ${
-              billing === "monthly" ? "bg-white text-[#0a0a0f]" : "text-zinc-400 hover:text-white"
-            }`}
-          >
-            Monthly
-          </button>
-          <button
-            onClick={() => setBilling("yearly")}
-            className={`px-5 py-2 rounded-full text-[13px] font-medium transition-all flex items-center gap-2 ${
-              billing === "yearly" ? "bg-white text-[#0a0a0f]" : "text-zinc-400 hover:text-white"
-            }`}
-          >
-            Yearly
-            <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
-              billing === "yearly" ? "bg-emerald-500/20 text-emerald-700" : "bg-emerald-500/15 text-emerald-400"
-            }`}>
-              Save 30%
-            </span>
-          </button>
-        </div>
       </section>
 
       {/* Error banner */}
       {error && (
-        <div className="max-w-6xl mx-auto px-4 sm:px-5 mb-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-5 mb-4">
           <div className="rounded-xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-sm text-red-300 text-center">
             {error}
           </div>
         </div>
       )}
 
-      {/* Pricing cards */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-12 sm:pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5">
-          {PLANS.map((plan) => {
-            const price = getPrice(plan);
-            const cta = getCta(plan);
-            const isCurrentPlan = !tierLoading && currentTier === plan.tier;
+      {/* Already subscribed */}
+      {isPro && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-5 mb-5">
+          <div className="rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <span className="inline-block px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-[10px] font-bold uppercase tracking-wider mr-2">Current plan</span>
+              <span className="text-white font-semibold text-[14px]">You&apos;re on Pro.</span>
+              <span className="text-zinc-400 text-[13px]"> Your price stays exactly what you signed up at.</span>
+            </div>
+            <button
+              onClick={handleManageSubscription}
+              disabled={loadingBilling !== null}
+              className="px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.1] text-white text-[13px] font-semibold hover:bg-white/[0.1] transition-colors disabled:opacity-50"
+            >
+              {loadingBilling === "manage" ? "Opening…" : "Manage subscription"}
+            </button>
+          </div>
+        </div>
+      )}
+      {isLegacyStudent && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-5 mb-5">
+          <div className="rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <span className="inline-block px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 text-[10px] font-bold uppercase tracking-wider mr-2">Current plan</span>
+              <span className="text-white font-semibold text-[14px]">You&apos;re on the original Student plan.</span>
+              <span className="text-zinc-400 text-[13px]"> It stays at your original price for as long as you keep it. Upgrade to Pro below any time.</span>
+            </div>
+            <button
+              onClick={handleManageSubscription}
+              disabled={loadingBilling !== null}
+              className="px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.1] text-white text-[13px] font-semibold hover:bg-white/[0.1] transition-colors disabled:opacity-50"
+            >
+              {loadingBilling === "manage" ? "Opening…" : "Manage subscription"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* The three ways to pay — one line */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-6 sm:pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 items-stretch">
+          {BILLING_PERIODS.map((billing, i) => {
+            const p = PRO_PRICING[billing];
+            const meta = OPTION_META[billing];
+            const perMonth = proMonthlyEquivalent(billing);
+            const busy = loadingBilling === billing;
+            const disabled = loadingBilling !== null || isPro;
             return (
               <div
-                key={plan.name}
-                className={`relative rounded-[32px] border transition-all ${
-                  plan.highlight
-                    ? "border-indigo-400/40 bg-indigo-500/[0.05] shadow-xl shadow-indigo-500/10"
+                key={billing}
+                className={`home-rise relative rounded-[28px] border p-5 sm:p-6 flex flex-col transition-all ${
+                  meta.highlight
+                    ? "border-indigo-400/40 bg-indigo-500/[0.06] shadow-xl shadow-indigo-500/10"
                     : "border-white/[0.07] bg-white/[0.015]"
                 }`}
+                style={{ animationDelay: `${280 + i * 80}ms` }}
               >
-                <div className="relative p-5 sm:p-7">
-                {plan.badge && (
+                {meta.highlight && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/30">
-                      {plan.badge}
+                    <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/30 whitespace-nowrap">
+                      Best value
                     </span>
                   </div>
                 )}
 
-                {/* Current plan badge */}
-                {isCurrentPlan && (
-                  <div className="mb-3">
-                    <span className="inline-block px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">
-                      Current plan
-                    </span>
-                  </div>
-                )}
-
-                {/* Plan name + tagline */}
-                <div className="mb-5">
-                  <h3 className="text-white font-extrabold text-[24px] sm:text-[20px]">{plan.name}</h3>
-                  <p className="text-zinc-500 text-[13px] mt-1">{plan.tagline}</p>
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 font-semibold">{p.label}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                    meta.highlight
+                      ? "bg-emerald-500/15 text-emerald-400"
+                      : billing === "quarterly"
+                      ? "bg-emerald-500/10 text-emerald-400/90"
+                      : "bg-white/[0.05] text-zinc-400"
+                  }`}>
+                    {meta.tag}
+                  </span>
                 </div>
 
-                {/* Price */}
-                <div className="mb-7">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-zinc-400 text-[18px] font-medium">NZ$</span>
-                    <span className="font-bold text-white tabular-nums text-[42px]">
-                      {price.display.replace("$", "")}
-                    </span>
-                  </div>
-                  <p className="text-zinc-500 text-[12px] mt-0.5">{price.sub}</p>
+                <div className="mb-1 flex items-baseline gap-1">
+                  <span className="text-zinc-400 text-[16px] font-medium">NZ$</span>
+                  <span className="font-bold text-white tabular-nums text-[40px] sm:text-[44px] leading-none tracking-[-0.02em]">{nz(p.amount)}</span>
                 </div>
+                <p className="text-zinc-500 text-[12px] mb-1">{p.per}</p>
+                <p className={`text-[12.5px] mb-5 ${meta.highlight ? "text-indigo-300" : "text-zinc-400"}`}>
+                  {billing === "monthly" ? "Pay as you go" : <>≈ NZ${perMonth.toFixed(2)} a month</>}
+                </p>
 
-                {/* CTA */}
-                {cta.isLink ? (
+                {!isSignedIn ? (
                   <Link
-                    href={cta.href ?? "/subjects"}
-                    className={`w-full text-center py-3 rounded-full text-[14px] mb-6 sm:mb-7 transition-all min-h-[48px] flex items-center justify-center ${
-                      plan.highlight
-                        ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
-                        : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30"
-                    }`}
-                  >
-                    {cta.label}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={cta.action}
-                    disabled={cta.disabled}
-                    className={`block w-full text-center py-3 rounded-full text-[14px] mb-6 sm:mb-7 transition-all disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] ${
-                      plan.highlight
+                    href={`/sign-up?redirect_url=${encodeURIComponent("/pricing")}`}
+                    className={`mt-auto w-full text-center py-3 rounded-full text-[14px] transition-all min-h-[48px] flex items-center justify-center ${
+                      meta.highlight
                         ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
                         : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.02]"
                     }`}
                   >
-                    {cta.label}
+                    Get Pro
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleCheckout(billing)}
+                    disabled={disabled}
+                    className={`mt-auto w-full text-center py-3 rounded-full text-[14px] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 min-h-[48px] ${
+                      meta.highlight
+                        ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
+                        : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.02]"
+                    }`}
+                  >
+                    {isPro ? "Current plan" : busy ? "Redirecting…" : ctaLabel}
                   </button>
                 )}
-
-                {/* Features */}
-                <ul className="space-y-3">
-                  {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-[13px]">
-                      {f.included ? (
-                        <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg>
-                      ) : (
-                        <svg className="w-4 h-4 text-zinc-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      )}
-                      <span
-                        className={`leading-relaxed ${
-                          f.included
-                            ? f.bold
-                              ? "text-white font-medium"
-                              : "text-zinc-300"
-                            : "text-zinc-600 line-through"
-                        }`}
-                      >
-                        {f.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <p className="text-zinc-600 text-[11px] mt-3 text-center">{meta.note}</p>
               </div>
             );
           })}
+        </div>
+        <p className="text-center text-zinc-600 text-[11.5px] mt-4">
+          Prices in NZD, GST included · Billed by Stripe · Cancel from your dashboard any time
+        </p>
+      </section>
+
+      {/* What Pro includes */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pb-12 sm:pb-20">
+        <div className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-5 sm:p-8">
+          <div className="flex flex-wrap items-end justify-between gap-2 mb-6">
+            <div>
+              <h2 className={`${display.className} text-[22px] sm:text-[28px] font-bold text-white tracking-[-0.02em]`}>What&apos;s in Pro</h2>
+              <p className="text-zinc-500 text-[13px] mt-1">Every feature, on every billing option. Nothing is held back.</p>
+            </div>
+            <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full">Built to chase Excellence</span>
+          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+            {PRO_FEATURES.map((f) => (
+              <li key={f.text} className="flex items-start gap-2.5 text-[13.5px]">
+                <svg className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span className={f.bold ? "text-white font-medium" : "text-zinc-300"}>{f.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -388,12 +341,13 @@ export default function PricingPage() {
       <section className="max-w-3xl mx-auto px-5 pb-12 sm:pb-20">
         <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-4 sm:p-8">
           <h2 className={`${display.className} text-[20px] sm:text-[26px] font-bold text-white text-center tracking-[-0.02em] mb-2`} style={{ textWrap: "balance" }}>Compare the cost</h2>
-          <p className="text-zinc-500 text-[13px] text-center mb-8">A month of Study Ace vs. the alternatives</p>
+          <p className="text-zinc-500 text-[13px] text-center mb-8">Study Ace vs. the alternatives</p>
 
           <div className="space-y-3">
             <CompareRow label="One private tutoring session (1 hour)" cost="$60–$80" />
             <CompareRow label="A single revision workbook" cost="$25–$40" />
-            <CompareRow label="Study Ace Pro for a whole month" cost="$20" highlight />
+            <CompareRow label="Study Ace Pro for a whole month" cost={`$${nz(PRO_PRICING.monthly.amount)}`} highlight />
+            <CompareRow label="Study Ace Pro for a whole year" cost={`$${nz(PRO_PRICING.yearly.amount)}`} highlight />
             <CompareRow label="Failing an exam and retaking it next year" cost="A whole year" />
           </div>
         </div>
@@ -405,15 +359,23 @@ export default function PricingPage() {
         <div className="space-y-3">
           <Faq
             q="Will this actually help me pass?"
-            a="Yes — practising real exam-style questions is the single most effective way to improve marks. Study Ace gives you unlimited practice with instant feedback, StudyAce tutoring when you're stuck, and spaced repetition so you actually remember what you learn."
+            a="Yes — practising exam-style questions is the single most effective way to improve marks. Study Ace gives you unlimited practice with instant honest feedback, StudyAce tutoring when you're stuck, and spaced repetition so you actually remember what you learn."
+          />
+          <Faq
+            q="What's the difference between the three options?"
+            a={`Nothing except how often you pay. Monthly is NZ$${nz(PRO_PRICING.monthly.amount)} each month. The 3-month option is one payment of NZ$${nz(PRO_PRICING.quarterly.amount)} (about NZ$${proMonthlyEquivalent("quarterly").toFixed(2)} a month). Yearly is one payment of NZ$${nz(PRO_PRICING.yearly.amount)} for the whole year (about NZ$${proMonthlyEquivalent("yearly").toFixed(2)} a month). Same features on all three.`}
           />
           <Faq
             q="Can I cancel anytime?"
-            a="Yes. Cancel any time from your dashboard. You'll keep access until the end of your billing period. No phone calls, no awkward emails."
+            a="Yes. Cancel any time from your dashboard. You'll keep access until the end of whatever period you've paid for. No phone calls, no awkward emails."
           />
           <Faq
             q="What if it doesn't work for me?"
             a="Pro comes with a 30-day money back guarantee. If you've practised consistently and don't feel more confident, we'll refund you in full."
+          />
+          <Faq
+            q="I subscribed before this pricing. Does my price change?"
+            a="No. If you're already subscribed, you keep the exact price you signed up at for as long as your subscription stays active — monthly, yearly, Student or Pro. Nothing changes unless you cancel and re-subscribe, or choose to upgrade yourself."
           />
           <Faq
             q="Is my progress saved?"
@@ -421,11 +383,11 @@ export default function PricingPage() {
           />
           <Faq
             q="Why are prices in NZ dollars?"
-            a="StudyAce is billed in New Zealand dollars wherever you are — your card converts automatically at checkout, no extra steps. It usually works out cheaper than it looks: NZ$15 is roughly US$9, £7, A$14 or C$12 a month."
+            a={`StudyAce is billed in New Zealand dollars wherever you are — your card converts automatically at checkout, no extra steps. Roughly, NZ$${nz(PRO_PRICING.monthly.amount)} is about US$29, £22, A$45 or C$40 a month, and the yearly option works out to about US$7 a month.`}
           />
           <Faq
             q="Do you have a student discount?"
-            a="Pricing is already set for students — it's built to be cheaper than a single hour of tutoring per month. Yearly billing saves you another 30% on top."
+            a="Pricing is already set for students — a month of Pro costs less than a single hour of tutoring. Paying yearly brings it down to about NZ$12 a month."
           />
           <Faq
             q="What subjects are covered?"

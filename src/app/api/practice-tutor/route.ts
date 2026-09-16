@@ -12,11 +12,11 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    // Paid-only: mini-lessons run Sonnet and belong to the Student plan.
+    // Paid-only: mini-lessons run Sonnet and belong to Pro.
     const { tier } = await checkTier();
     if (tier === "free") {
       return NextResponse.json(
-        { error: "limit_reached", message: "Lessons are part of the Student plan.", upgradeUrl: "/pricing" },
+        { error: "limit_reached", message: "Lessons are part of Pro.", upgradeUrl: "/pricing" },
         { status: 403 }
       );
     }

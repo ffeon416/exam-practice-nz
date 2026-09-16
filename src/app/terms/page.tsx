@@ -107,16 +107,20 @@ export default function TermsPage() {
 
           <Section title="Subscriptions, pricing, and refunds">
             <p>
-              StudyAce offers a free grade check and two paid subscription
-              tiers (&ldquo;Student&rdquo; and &ldquo;Pro&rdquo;). Paid
-              subscriptions are billed through Stripe.
+              StudyAce offers a free grade check and one paid subscription
+              (&ldquo;Pro&rdquo;), billed monthly, quarterly or yearly. Paid
+              subscriptions are billed through Stripe. The earlier
+              &ldquo;Student&rdquo; plan is closed to new subscribers; anyone
+              already on it keeps it, at the price they signed up at, for as
+              long as their subscription stays active.
             </p>
             <ul className="list-disc pl-5 space-y-1.5 mt-2">
-              <li>Subscriptions renew automatically at the end of each billing period (monthly or yearly) until cancelled.</li>
+              <li>Subscriptions renew automatically at the end of each billing period (monthly, quarterly or yearly) until cancelled.</li>
               <li>You can cancel any time from your account billing page. Cancellation takes effect at the end of the current billing period — you keep access until then.</li>
               <li><strong className="text-zinc-300">30-day money-back guarantee on Pro</strong> — if you subscribe to Pro and want a refund within 30 days of your first payment, email us at <a href={`mailto:${CONTACT_EMAIL}`} className="text-indigo-400 hover:text-indigo-300 transition-colors">{CONTACT_EMAIL}</a> and we&apos;ll refund the most recent Pro payment, no questions asked.</li>
-              <li>Outside of the Pro 30-day guarantee, we don&apos;t offer refunds for partial months, yearly subscriptions beyond the guarantee window, or unused portions of a subscription.</li>
+              <li>Outside of the Pro 30-day guarantee, we don&apos;t offer refunds for partial periods, quarterly or yearly subscriptions beyond the guarantee window, or unused portions of a subscription.</li>
               <li>Prices are shown in NZD. We may change pricing with reasonable notice; any change will only affect billing cycles that start after the notice period.</li>
+              <li>Price changes never apply to an existing subscription automatically: you keep the price you subscribed at until you cancel or change plan yourself.</li>
               <li>All prices include GST where applicable.</li>
             </ul>
           </Section>

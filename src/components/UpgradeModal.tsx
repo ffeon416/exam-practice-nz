@@ -42,11 +42,11 @@ export default function UpgradeModal({ message, onClose }: UpgradeModalProps) {
           <ul className="space-y-2 text-[13px] text-zinc-400">
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>
-              <span><strong className="text-zinc-200">Student ($15/mo)</strong> — 20 exams/week, all subjects, spaced repetition, study planner, deep essay marking (no tutor)</span>
+              <span><strong className="text-zinc-200">Pro</strong> — unlimited exams, every subject, 100 tutor chats/week, adaptive difficulty, spaced repetition, study planner, deep essay marking</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-indigo-400 mt-0.5">+</span>
-              <span><strong className="text-zinc-200">Pro ($20/mo)</strong> — Unlimited exams, 100 tutor chats/week, adaptive difficulty, plus everything in Student</span>
+              <span><strong className="text-zinc-200">NZ$49/month</strong>, NZ$119 for 3 months, or <strong className="text-zinc-200">NZ$149 for the whole year</strong> — cancel anytime</span>
             </li>
           </ul>
         </div>

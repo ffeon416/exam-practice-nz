@@ -179,8 +179,8 @@ export default function ReferPage() {
           </h2>
           <div className="space-y-4">
             <Step number={1} text="Share your link with a friend studying for NCEA" />
-            <Step number={2} text="They sign up and join on a Student or Pro plan" />
-            <Step number={3} text="They take their first exam — that's when you get 14 days of Student tier added (stacks per friend)" />
+            <Step number={2} text="They sign up and join Pro" />
+            <Step number={3} text="They take their first exam — that's when you get 14 days of free practice access added (stacks per friend)" />
           </div>
         </section>
       </div>

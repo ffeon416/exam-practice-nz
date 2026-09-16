@@ -3,6 +3,7 @@ import { auth, currentUser, clerkClient } from "@clerk/nextjs/server";
 import { getSupabase } from "@/lib/supabase";
 import { isAdminEmail } from "@/lib/adminEmails";
 import { TIER_PRICES, type Tier } from "@/lib/tierLimits";
+import { getStripe } from "@/lib/stripe";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +54,34 @@ const COMP_EMAILS = new Set<string>([
 ]);
 function isComp(email: unknown): boolean {
   return typeof email === "string" && COMP_EMAILS.has(email.toLowerCase().trim());
+}
+
+/**
+ * What each Stripe customer ACTUALLY pays per month right now (NZD), read from
+ * their live subscription: grandfathered prices stay at what they signed up
+ * for, and quarterly/yearly plans are normalised to a monthly figure. Falls
+ * back to TIER_PRICES list price when Stripe is unavailable or the customer
+ * isn't found.
+ */
+async function stripeMonthlyByCustomer(): Promise<Map<string, number>> {
+  const map = new Map<string, number>();
+  const stripe = getStripe();
+  if (!stripe) return map;
+  try {
+    for await (const sub of stripe.subscriptions.list({ status: "active", limit: 100 })) {
+      const price = sub.items.data[0]?.price;
+      if (!price?.unit_amount || !price.recurring) continue;
+      const { interval, interval_count: n } = price.recurring;
+      const months =
+        interval === "year" ? 12 * n : interval === "month" ? n : interval === "week" ? n / 4.345 : n / 30.44;
+      const monthly = price.unit_amount / 100 / months;
+      const cust = typeof sub.customer === "string" ? sub.customer : sub.customer.id;
+      map.set(cust, (map.get(cust) ?? 0) + monthly);
+    }
+  } catch (err) {
+    console.error("admin/stats: Stripe subscription lookup failed — using list prices", err);
+  }
+  return map;
 }
 
 export async function GET() {
@@ -128,16 +157,18 @@ export async function GET() {
     .map((u) => u.userId);
 
   // ── Join with profiles for tier + email ──
-  const profilesMap: Record<string, { email: string | null; tier: Tier }> = {};
+  const stripeMonthly = await stripeMonthlyByCustomer();
+  const profilesMap: Record<string, { email: string | null; tier: Tier; customerId: string | null }> = {};
   if (topUserIds.length > 0) {
     const { data: profiles } = await supabase
       .from("profiles")
-      .select("user_id, email, tier")
+      .select("user_id, email, tier, stripe_customer_id")
       .in("user_id", topUserIds);
     for (const p of profiles ?? []) {
       profilesMap[p.user_id as string] = {
         email: (p.email as string) ?? null,
         tier: (p.tier as Tier) ?? "free",
+        customerId: (p.stripe_customer_id as string) ?? null,
       };
     }
   }
@@ -147,7 +178,13 @@ export async function GET() {
     const prof = profilesMap[uid];
     const tier: Tier = prof?.tier ?? "free";
     const comped = isComp(prof?.email);
-    const grossRevenue = comped ? 0 : (TIER_PRICES[tier] ?? 0); // monthly rate in USD-ish (treat as NZD ≈ USD for rough profit)
+    // Real monthly amount from Stripe where known (grandfathered price, or a
+    // quarterly/yearly plan normalised per month); list price as fallback.
+    const grossRevenue = comped
+      ? 0
+      : tier === "free"
+      ? 0
+      : (prof?.customerId && stripeMonthly.get(prof.customerId)) || (TIER_PRICES[tier] ?? 0); // NZD ≈ USD for rough profit
     // Net revenue after Stripe fee + GST obligation
     const netRevenue =
       grossRevenue === 0 ? 0 : grossRevenue * (1 - STRIPE_FEE_RATE) * (1 - GST_RATE);
@@ -167,7 +204,7 @@ export async function GET() {
   // ── Fleet-wide profit: sum of all paid subscribers' net revenue − total API cost this month ──
   const { data: paidProfiles } = await supabase
     .from("profiles")
-    .select("tier, email")
+    .select("tier, email, stripe_customer_id")
     .neq("tier", "free");
   let fleetRevenueMonth = 0;
   for (const p of paidProfiles ?? []) {
@@ -175,7 +212,8 @@ export async function GET() {
     // Normalised to lowercase so a differently-cased profile email still matches.
     if (isComp(p.email)) continue;
     const tier = (p.tier as Tier) ?? "free";
-    const gross = TIER_PRICES[tier] ?? 0;
+    const cust = (p.stripe_customer_id as string) ?? null;
+    const gross = (cust && stripeMonthly.get(cust)) || (TIER_PRICES[tier] ?? 0);
     fleetRevenueMonth += gross * (1 - STRIPE_FEE_RATE) * (1 - GST_RATE);
   }
 

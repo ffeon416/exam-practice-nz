@@ -5,6 +5,43 @@ import type Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
 
+// Every price StudyAce has ever sold, so a renewal on a grandfathered
+// subscription (old Student/Pro prices) can never be misread. Existing
+// subscribers keep the exact price they signed up at — Stripe bills the price
+// on the subscription, and this map only READS it to keep their tier right.
+const LEGACY_PRICE_TIERS: Record<string, "student" | "pro"> = {
+  price_1TQQwmEawYTUXAvo0nHw4HBP: "student", // Student monthly NZ$9.99 (Apr 2026)
+  price_1TQRBAEawYTUXAvoxwIy8Pgz: "student", // Student yearly NZ$83.92
+  price_1TeVTZEawYTUXAvoD81vcjjM: "student", // Student monthly NZ$15 (Jun 2026)
+  price_1TeVTZEawYTUXAvoPjLfCG8l: "student", // Student yearly NZ$126
+  price_1TQRDnEawYTUXAvoA1KIujWW: "pro", // Pro monthly NZ$19.99 (Apr 2026)
+  price_1TQRFmEawYTUXAvoDZJaTIXC: "pro", // Pro yearly NZ$167.92
+  price_1TpiHDEawYTUXAvoukgK4E3t: "pro", // Pro monthly NZ$20 (Jul 2026)
+  price_1TpiHDEawYTUXAvoDI0aH6nk: "pro", // Pro yearly NZ$168
+};
+
+/** Resolve a subscription's tier: checkout metadata first (immutable), then
+ *  current env prices, then every legacy price. Returns null if unknown so the
+ *  caller leaves the stored tier alone rather than guessing. */
+function tierForSubscription(sub: Stripe.Subscription): "student" | "pro" | null {
+  const meta = sub.metadata?.tier;
+  if (meta === "student" || meta === "pro") return meta;
+  const priceId = sub.items.data[0]?.price?.id;
+  if (!priceId) return null;
+  const proPrices = [
+    process.env.STRIPE_PRICE_PRO_MONTHLY,
+    process.env.STRIPE_PRICE_PRO_QUARTERLY,
+    process.env.STRIPE_PRICE_PRO_YEARLY,
+  ].filter(Boolean);
+  const studentPrices = [
+    process.env.STRIPE_PRICE_STUDENT_MONTHLY,
+    process.env.STRIPE_PRICE_STUDENT_YEARLY,
+  ].filter(Boolean);
+  if (proPrices.includes(priceId)) return "pro";
+  if (studentPrices.includes(priceId)) return "student";
+  return LEGACY_PRICE_TIERS[priceId] ?? null;
+}
+
 export async function POST(req: NextRequest) {
   const stripe = getStripe();
   if (!stripe) {
@@ -119,44 +156,33 @@ export async function POST(req: NextRequest) {
           break;
         }
 
-        // Determine tier from the price
-        const priceId = subscription.items.data[0]?.price?.id;
-        let tier: "free" | "student" | "pro" = "free";
-
-        // Check which tier this price belongs to
-        const studentPrices = [
-          process.env.STRIPE_PRICE_STUDENT_MONTHLY,
-          process.env.STRIPE_PRICE_STUDENT_YEARLY,
-        ];
-        const proPrices = [
-          process.env.STRIPE_PRICE_PRO_MONTHLY,
-          process.env.STRIPE_PRICE_PRO_YEARLY,
-        ];
-
-        if (priceId && studentPrices.includes(priceId)) {
-          tier = "student";
-        } else if (priceId && proPrices.includes(priceId)) {
-          tier = "pro";
-        } else if (subscription.metadata?.tier) {
-          tier = subscription.metadata.tier as "student" | "pro";
-        }
-
+        const tier = tierForSubscription(subscription);
         const status = subscription.status;
+        const paid = status === "active" || status === "trialing";
         const itemPeriodEnd = subscription.items.data[0]?.current_period_end;
         const currentPeriodEnd = itemPeriodEnd
           ? new Date(itemPeriodEnd * 1000).toISOString()
           : null;
 
-        await supabase
-          .from("profiles")
-          .update({
-            tier: status === "active" ? tier : "free",
-            subscription_status: status,
-            current_period_end: currentPeriodEnd,
-          })
-          .eq("user_id", userId);
+        const update: Record<string, unknown> = {
+          subscription_status: status,
+          current_period_end: currentPeriodEnd,
+        };
+        if (!paid) {
+          update.tier = "free";
+        } else if (tier) {
+          update.tier = tier;
+        } else {
+          // Unknown price and no metadata: keep whatever tier is stored rather
+          // than downgrading a paying customer on a guess.
+          console.error(
+            `subscription.updated: could not resolve tier for ${subscription.id} (price ${subscription.items.data[0]?.price?.id}) — leaving tier unchanged`
+          );
+        }
 
-        console.log(`User ${userId} subscription updated: ${status}, tier: ${tier}`);
+        await supabase.from("profiles").update(update).eq("user_id", userId);
+
+        console.log(`User ${userId} subscription updated: ${status}, tier: ${update.tier ?? "(unchanged)"}`);
         break;
       }
 

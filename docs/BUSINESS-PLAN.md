@@ -84,14 +84,14 @@ A web app (also installable as a phone app / PWA) that:
 
 **Model:** freemium subscription (SaaS), **direct-to-student**. Monthly + annual plans. No cart, no one-off purchases.
 
-| Tier | Price (NZD) | Yearly (30% off) | What they get |
+| Tier | Monthly (NZD) | Upfront options | What they get |
 |---|---|---|---|
 | **Free** | $0 | — | 2 exams/week, maths + english only, 8 Qs max, no tutor |
-| **Student** | $15/mo | $126/yr | 20 exams/week, all 19 subjects, spaced repetition, study planner, deep essay marking |
-| **Pro** | $20/mo | $168/yr | Unlimited exams, AI tutor (100 msgs/wk), adaptive difficulty, everything in Student |
+| **Student (legacy)** | $15/mo | — | Closed to new signups Sep 2026; existing subscribers keep their original price |
+| **Pro** | $49/mo | $119 / 3 months · $149 / year | Unlimited exams, all subjects, AI tutor (100 msgs/wk), adaptive difficulty, planner, essay marking |
 
 Additional revenue paths:
-- **Annual plans** — 30% off, paid upfront (better cash flow + retention).
+- **Quarterly and annual plans** — paid upfront (better cash flow + retention); yearly is NZ$149, about NZ$12.40/mo.
 - **Referral-driven growth** — near-zero customer acquisition cost as students bring students.
 
 **Why these prices:** cheaper than a *single* hour of tutoring per month, anchored well below any human tutor, and priced so a student can pay from pocket money — while the AI cost per user is only a dollar or two, leaving 80–90%+ gross margins.

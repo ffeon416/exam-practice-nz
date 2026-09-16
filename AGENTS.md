@@ -14,7 +14,7 @@ referrals, a blog, and a first-party analytics/admin panel.
 - **Next.js 16.2** (App Router, Turbopack), **React 19.2**, **Tailwind CSS 4**, TypeScript. Node **24**.
 - **Clerk** — auth (`@clerk/nextjs`). Production keys on custom domain `clerk.studyace.co`.
 - **Supabase** — Postgres DB (server-side via service-role key; SQL in `supabase/`).
-- **Stripe** — payments, **live mode**. Tiers: Free, Student, Pro (monthly/yearly price IDs in env).
+- **Stripe** — payments, **live mode**. One paid plan, Pro (monthly / quarterly / yearly price IDs in env). Student is LEGACY: existing subscribers only, never sold, never repriced.
 - **Anthropic API** (`@anthropic-ai/sdk`) — all AI generation + marking. Wrapper: `src/lib/claude.ts`.
 - **Resend** — optional contact-form email.
 - **Hosting: Vercel.** Deploys are MANUAL: `vercel --prod --yes` from the repo root after every push

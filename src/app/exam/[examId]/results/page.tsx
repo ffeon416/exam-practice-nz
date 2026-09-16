@@ -795,7 +795,7 @@ export default function ResultsPage({
         <div className="mt-8">
           <UpgradeNudge
             headline="Nice work — want more?"
-            body="Practice exams, essay marking and the week-by-week schedule are on the Student plan (NZ$15/mo). Pro adds unlimited exams and the personal tutor."
+            body="Unlimited practice exams, essay marking, the personal tutor and the week-by-week schedule are all on Pro — NZ$49/mo, or NZ$149 for the year."
           />
         </div>
 
