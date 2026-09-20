@@ -13,14 +13,15 @@ interface TimerProps {
 // counter, so backgrounding the phone (which throttles/kills intervals) can't
 // make it drift. Re-syncs on every tick and whenever the tab becomes visible.
 export default function Timer({ totalMinutes, onTimeUp, running, compact }: TimerProps) {
-  const endAt = useRef<number>(Date.now() + totalMinutes * 60_000);
+  const endAt = useRef<number | null>(null);
   const fired = useRef(false);
   const [secondsLeft, setSecondsLeft] = useState(totalMinutes * 60);
 
   useEffect(() => {
     if (!running) return;
+    if (endAt.current == null) endAt.current = Date.now() + totalMinutes * 60_000;
     const sync = () => {
-      const left = Math.max(0, Math.ceil((endAt.current - Date.now()) / 1000));
+      const left = Math.max(0, Math.ceil(((endAt.current ?? 0) - Date.now()) / 1000));
       setSecondsLeft(left);
       if (left <= 0 && !fired.current) { fired.current = true; onTimeUp(); }
     };
@@ -28,7 +29,7 @@ export default function Timer({ totalMinutes, onTimeUp, running, compact }: Time
     const iv = setInterval(sync, 1000);
     document.addEventListener("visibilitychange", sync);
     return () => { clearInterval(iv); document.removeEventListener("visibilitychange", sync); };
-  }, [running, onTimeUp]);
+  }, [running, onTimeUp, totalMinutes]);
 
   const mins = Math.floor(secondsLeft / 60);
   const secs = secondsLeft % 60;
