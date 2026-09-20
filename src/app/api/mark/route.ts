@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
   try {
     // ── Tier gate ── marking is paid-only. Free/anonymous grade checks use
-    // /api/diagnostic/mark; the demo uses /api/demo-mark. An unpaid account
+    // /api/diagnostic/mark. An unpaid account
     // has no paper to mark (generate-paper refuses them) — this closes the
     // door for any leftover/stale paper on the device.
     const { userId, tier, limits } = await checkTier();

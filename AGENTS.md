@@ -22,9 +22,9 @@ referrals, a blog, and a first-party analytics/admin panel.
 
 ## Where things live
 - `src/app/` — routes. Pages: `/subjects`, `/exam/[examId]`, `/practice`, `/plan`, `/dashboard`,
-  `/pricing`, `/refer`, `/redeem`, `/blog`, `/admin`, `/demo`, etc.
+  `/pricing`, `/refer`, `/redeem`, `/blog`, `/admin`, `/schools`, etc. (`/demo` was retired 2026-09-20 → 301 to `/grade`)
 - `src/app/api/` — server routes. Key ones: `generate-paper` (creates AI papers),
-  `mark` / `mark-essay` / `demo-mark` (AI marking), `stripe-webhook` (subscription state),
+  `mark` / `mark-essay` / `diagnostic/*` (AI marking), `stripe-webhook` (subscription state),
   `checkout` / `customer-portal` (Stripe), `refer` / `redeem`, `track` (first-party analytics),
   `cron` (daily revalidate + jobs), `admin` (dashboard data).
 - `src/lib/` — logic. Notables: `claude.ts` (AI calls), `checkTier.ts` + `tierLimits.ts` (entitlements),

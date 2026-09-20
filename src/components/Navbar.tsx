@@ -12,22 +12,21 @@ import {
 } from "@/lib/spacedRepetition";
 import { useTier } from "@/hooks/useTier";
 
+// Signed-in: the four things a student does. Pricing lives behind the
+// Upgrade pill (free accounts) and the profile page (paid), not in the nav.
 const authedLinks = [
   { href: "/subjects", label: "Exams" },
-  { href: "/grade", label: "Grade Check" },
   { href: "/review", label: "Review" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/plan", label: "Plan" },
-  { href: "/pricing", label: "Pricing" },
 ];
 
+// Signed-out: one path to a sale. Grade check → pricing, with the blog for
+// trust. Schools, contact, Discord and legal all live in the footer.
 const publicLinks = [
-  { href: "/grade", label: "Grade Check" },
-  { href: "/demo", label: "Try Demo" },
-  { href: "/blog", label: "Blog" },
-  { href: "/schools", label: "Schools" },
+  { href: "/grade", label: "Grade check" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Navbar() {
@@ -64,6 +63,12 @@ export default function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  // The header CTA always points at the next step of the funnel: the free
+  // grade check everywhere, and pricing once they're already on the check.
+  const cta = pathname.startsWith("/grade")
+    ? { href: "/pricing", label: "See pricing" }
+    : { href: "/grade", label: "Free grade check" };
 
   return (
     <>
@@ -144,10 +149,10 @@ export default function Navbar() {
                     Sign in
                   </Link>
                   <Link
-                    href="/sign-up"
-                    className="text-[14px] font-semibold text-white bg-indigo-500 hover:bg-indigo-400 transition-colors px-5 py-2 rounded-full"
+                    href={cta.href}
+                    className="text-[14px] font-semibold text-[#0a0a0f] bg-white hover:bg-zinc-200 transition-colors px-5 py-2 rounded-full shadow-lg shadow-indigo-500/10"
                   >
-                    Sign up
+                    {cta.label}
                   </Link>
                 </>
               )}
@@ -243,10 +248,10 @@ export default function Navbar() {
             {isLoaded && !isSignedIn && (
               <div className="px-5 py-4 border-t border-white/[0.06] flex flex-col gap-2">
                 <Link
-                  href="/sign-up"
-                  className="block w-full text-center py-3 rounded-full bg-indigo-500 text-white font-medium text-[14px] hover:bg-indigo-400 transition-colors"
+                  href={cta.href}
+                  className="block w-full text-center py-3 rounded-full bg-white text-[#0a0a0f] font-semibold text-[14px] hover:bg-zinc-200 transition-colors"
                 >
-                  Sign up
+                  {cta.label}
                 </Link>
                 <Link
                   href="/sign-in"

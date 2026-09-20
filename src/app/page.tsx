@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
+import SiteFooter from "@/components/SiteFooter";
 import { loadProgress } from "@/lib/storage";
 import { gradeLabel } from "@/lib/scoring";
 import { PRO_PRICING, proMonthlyEquivalent } from "@/lib/tierLimits";
@@ -673,40 +674,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* ═══ FOOTER ═══ */}
-      <footer className="border-t border-white/[0.06] py-8 sm:py-10">
-        <div className="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600">
-          <div className="font-medium">
-            study<span className="text-indigo-400">ace</span> &middot; Honest practice for every exam system
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
-            {isSignedIn ? (
-              <>
-                <Link href="/subjects" className="hover:text-zinc-400 transition-colors">Exams</Link>
-                <Link href="/dashboard" className="hover:text-zinc-400 transition-colors">Dashboard</Link>
-                <a href="https://discord.gg/3sGUANx7uW" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400 transition-colors">Discord</a>
-                <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>
-                <Link href="/redeem" className="hover:text-zinc-400 transition-colors">Redeem code</Link>
-                <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
-                <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
-                <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
-              </>
-            ) : (
-              <>
-                <Link href="/grade" className="hover:text-zinc-400 transition-colors">Grade check</Link>
-                <Link href="/pricing" className="hover:text-zinc-400 transition-colors">Pricing</Link>
-                <Link href="/schools" className="hover:text-zinc-400 transition-colors">Schools</Link>
-                <a href="https://discord.gg/3sGUANx7uW" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400 transition-colors">Discord</a>
-                <Link href="/blog" className="hover:text-zinc-400 transition-colors">Blog</Link>
-                <Link href="/redeem" className="hover:text-zinc-400 transition-colors">Redeem code</Link>
-                <Link href="/contact" className="hover:text-zinc-400 transition-colors">Contact</Link>
-                <Link href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy</Link>
-                <Link href="/terms" className="hover:text-zinc-400 transition-colors">Terms</Link>
-              </>
-            )}
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

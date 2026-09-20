@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useCallback, useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
+import SiteFooter from "@/components/SiteFooter";
 import { useTier } from "@/hooks/useTier";
 import {
   BILLING_PERIODS,
@@ -422,6 +423,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+      <SiteFooter />
     </div>
   );
 }

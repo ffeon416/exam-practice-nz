@@ -116,9 +116,9 @@ function PaymentWelcome({
           ),
         },
         {
-          title: "Quick demo",
-          sub: "3 questions, no commitment.",
-          href: "/demo",
+          title: "Free grade check",
+          sub: "8 questions, marked honestly, 2 minutes.",
+          href: "/grade",
           icon: (
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />

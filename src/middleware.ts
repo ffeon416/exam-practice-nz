@@ -6,7 +6,6 @@ const isPublicRoute = createRouteMatcher([
   "/pricing(.*)",
   "/sign-in(.*)",
   "/sign-up(.*)",
-  "/demo(.*)",
   "/redeem(.*)",
   "/schools(.*)",
   "/contact(.*)",
@@ -25,7 +24,6 @@ const isPublicRoute = createRouteMatcher([
   "/b94aba48f91b37ad3cc0550391059fa4.txt", // IndexNow ownership key
   "/api/school-enquiry",
   "/api/contact",
-  "/api/demo-mark",
   "/api/track",
   "/api/rec",
   "/api/waitlist",
