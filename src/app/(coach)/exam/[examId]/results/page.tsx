@@ -2,6 +2,7 @@
 
 import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { prebuildNextPaper } from "@/lib/nextPaper";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
 import {
@@ -20,7 +21,6 @@ import type { Exam, MarkingResult } from "@/lib/types";
 import { Markdown } from "@/components/Markdown";
 import TopicTag from "@/components/TopicTag";
 import ShareResultCard from "@/components/ShareResultCard";
-import UpgradeNudge from "@/components/UpgradeNudge";
 import { useTier } from "@/hooks/useTier";
 import { neutralizeFigureReferences } from "@/lib/questionGuard";
 
@@ -348,6 +348,8 @@ export default function ResultsPage({
         };
 
         const updatedProgress = addExamAttempt(attempt);
+        // Tonight's next paper starts building now, so Today is an instant start.
+        prebuildNextPaper();
 
         // Fire-and-forget: sync attempt + topic scores to database
         fetch("/api/attempts", {
@@ -498,7 +500,6 @@ export default function ResultsPage({
   if (view === "summary") {
     return (
       <div className="relative max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-8 pb-12 sm:pb-16">
-        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
         {/* Two circles side by side */}
         {(() => {
           const radius = 50;
@@ -593,6 +594,27 @@ export default function ResultsPage({
             </div>
           );
         })()}
+
+        {/* Actions */}
+        <div className="space-y-3">
+          <button
+            onClick={() => {
+              setCurrentQ(0);
+              setView("review");
+            }}
+            className="w-full py-3.5 rounded-xl bg-indigo-500 text-white font-semibold text-[14px] hover:bg-indigo-400 transition-colors min-h-[48px]"
+          >
+            See what I got wrong
+          </button>
+          <Link
+            href="/subjects"
+            className="block w-full text-center py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors min-h-[48px] flex items-center justify-center"
+          >
+            Sit another paper
+          </Link>
+        </div>
+
+
 
         {/* Share result card */}
         {!selfMarked && (
@@ -765,35 +787,9 @@ export default function ResultsPage({
           );
         })()}
 
-        {/* Actions */}
-        <div className="space-y-3">
-          <button
-            onClick={() => {
-              setCurrentQ(0);
-              setView("review");
-            }}
-            className="w-full py-3.5 rounded-xl bg-indigo-500 text-white font-semibold text-[14px] hover:bg-indigo-400 transition-colors min-h-[48px]"
-          >
-            Review All Questions
-          </button>
-          <Link
-            href="/subjects"
-            className="block w-full text-center py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors min-h-[48px] flex items-center justify-center"
-          >
-            Sit another paper
-          </Link>
-        </div>
-
-        <div className="mt-8">
-          <UpgradeNudge
-            headline="Nice work — want more?"
-            body="Unlimited practice exams, essay marking, the personal tutor and the week-by-week schedule are all on Pro — NZ$49/mo, or NZ$149 for the year."
-          />
-        </div>
-
         <div className="text-center mt-8">
-          <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
-            &larr; Back to dashboard
+          <Link href="/today" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            &larr; Back to Today
           </Link>
         </div>
       </div>
@@ -802,8 +798,7 @@ export default function ResultsPage({
 
   // ── REVIEW VIEW (one question at a time) ──
   return (
-    <div className="relative max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-12 sm:pb-16">
-      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-indigo-500/[0.07] rounded-full blur-[100px]" />
+    <div className="relative max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-32 sm:pb-16">
       {/* Top bar */}
       <div className="flex items-center justify-between mb-4">
         <button
@@ -999,8 +994,8 @@ export default function ResultsPage({
         );
       })()}
 
-      {/* Navigation */}
-      <div className="flex gap-3 mt-2">
+      {/* Navigation — fixed to the bottom on phones so it's never under the keyboard */}
+      <div className="fixed bottom-0 inset-x-0 z-30 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] px-4 pt-3 flex gap-3 sm:static sm:bg-transparent sm:border-0 sm:px-0 sm:pt-0 sm:mt-2" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
         <button
           onClick={() => setCurrentQ((c) => Math.max(0, c - 1))}
           disabled={currentQ === 0}
@@ -1026,8 +1021,8 @@ export default function ResultsPage({
       </div>
 
       <div className="text-center mt-8">
-        <Link href="/dashboard" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
-          &larr; Back to dashboard
+        <Link href="/today" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+          &larr; Back to Today
         </Link>
       </div>
     </div>

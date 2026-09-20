@@ -52,7 +52,10 @@ function StartInner() {
   // ── Paid? Then this isn't your page. ──
   useEffect(() => {
     if (tierLoading || tier === "free") return;
-    router.replace(paymentSuccess ? `/dashboard?payment=success&plan=${purchasedPlan ?? tier}` : "/dashboard");
+    // New buyer → /today, which sends anyone without onboarding to /welcome
+    // (the first-five-minutes flow). The purchased plan is implied by the tier.
+    void purchasedPlan;
+    router.replace("/today");
   }, [tier, tierLoading, paymentSuccess, purchasedPlan, router]);
 
   // ── Stripe just redirected here: poll until the webhook lands. ──

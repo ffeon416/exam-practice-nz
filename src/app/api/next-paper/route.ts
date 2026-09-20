@@ -1,0 +1,126 @@
+import { NextRequest, NextResponse } from "next/server";
+import { checkTier } from "@/lib/checkTier";
+import { getSupabase } from "@/lib/supabase";
+import { resolveCurriculum } from "@/data/curricula";
+import { buildPaper, levelValueFor } from "@/lib/buildPaper";
+import type { Exam } from "@/lib/types";
+
+// "Tonight's paper" — the pre-built paper that makes the Today screen an
+// instant start. GET returns the most recent prepared paper the student
+// hasn't sat yet (or null). POST builds one if none exists, choosing the
+// subject they've gone longest without, and returns it. Both are safe to
+// call repeatedly: POST is idempotent while an unsat paper exists.
+export const maxDuration = 300;
+export const dynamic = "force-dynamic";
+
+const TITLE_PREFIX = "Tonight's paper";
+
+type Prepared = { exam: Exam; createdAt: string };
+
+async function findPrepared(userId: string): Promise<Prepared | null> {
+  const supabase = getSupabase();
+  if (!supabase) return null;
+  const { data: rows } = await supabase
+    .from("custom_exams")
+    .select("*")
+    .eq("user_id", userId)
+    .like("title", `${TITLE_PREFIX}%`)
+    .order("created_at", { ascending: false })
+    .limit(5);
+  if (!rows || rows.length === 0) return null;
+  const ids = rows.map((r) => r.id as string);
+  const { data: attempts } = await supabase
+    .from("exam_attempts")
+    .select("exam_id")
+    .eq("user_id", userId)
+    .in("exam_id", ids);
+  const sat = new Set((attempts ?? []).map((a) => a.exam_id as string));
+  const row = rows.find((r) => !sat.has(r.id as string));
+  if (!row) return null;
+  return {
+    createdAt: row.created_at as string,
+    exam: {
+      id: row.id,
+      title: row.title,
+      level: row.level,
+      standard: "PRACTICE",
+      year: new Date(row.created_at).getFullYear(),
+      subject: row.subject,
+      timeMinutes: row.time_minutes,
+      questions: row.questions,
+      totalMarks: row.total_marks,
+    } as Exam,
+  };
+}
+
+export async function GET() {
+  const { userId, tier } = await checkTier();
+  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (tier === "free") return NextResponse.json({ error: "paid_only" }, { status: 403 });
+  const prepared = await findPrepared(userId);
+  return NextResponse.json({ exam: prepared?.exam ?? null });
+}
+
+export async function POST(request: NextRequest) {
+  const { userId, tier } = await checkTier();
+  if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (tier === "free") return NextResponse.json({ error: "paid_only" }, { status: 403 });
+
+  let body: { curriculum?: string; year?: number; subjects?: string[] } = {};
+  try { body = await request.json(); } catch {}
+  const curriculum = resolveCurriculum(body.curriculum);
+  if (curriculum.status === "coming-soon") {
+    return NextResponse.json({ error: "curriculum_unavailable" }, { status: 400 });
+  }
+  const year = Number(body.year);
+  if (!curriculum.levels.some((l) => l.value === year)) {
+    return NextResponse.json({ error: "invalid_year" }, { status: 400 });
+  }
+  const wanted = (body.subjects ?? []).filter((s) =>
+    curriculum.subjects.some((cs) => cs.value === s && cs.years.includes(year))
+  );
+  if (wanted.length === 0) {
+    return NextResponse.json({ error: "no_subjects" }, { status: 400 });
+  }
+
+  // Already have one waiting? Return it — never build a second.
+  const existing = await findPrepared(userId);
+  if (existing) return NextResponse.json({ exam: existing.exam, built: false });
+
+  // Pick the subject they've gone longest without (never-sat subjects first,
+  // in the order they chose them).
+  const supabase = getSupabase();
+  const lastSat = new Map<string, string>();
+  if (supabase) {
+    const { data } = await supabase
+      .from("exam_attempts")
+      .select("subject, taken_at")
+      .eq("user_id", userId)
+      .order("taken_at", { ascending: false })
+      .limit(60);
+    for (const a of data ?? []) {
+      const s = a.subject as string | null;
+      if (s && !lastSat.has(s)) lastSat.set(s, a.taken_at as string);
+    }
+  }
+  const subject =
+    wanted.find((s) => !lastSat.has(s)) ??
+    [...wanted].sort((a, b) => (lastSat.get(a)! < lastSat.get(b)! ? -1 : 1))[0];
+  const label = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject;
+
+  try {
+    const exam = await buildPaper({
+      userId,
+      curriculumId: curriculum.id,
+      subject,
+      year,
+      questionCount: 8,
+      title: `${TITLE_PREFIX} · ${label}`,
+    });
+    void levelValueFor; // (kept exported for callers; not needed here)
+    return NextResponse.json({ exam, built: true });
+  } catch (error) {
+    console.error("next-paper build failed:", error);
+    return NextResponse.json({ error: "build_failed" }, { status: 500 });
+  }
+}

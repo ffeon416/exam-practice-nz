@@ -3,8 +3,11 @@ import { scopedKey } from "./userScope";
 const STORAGE_KEY = "studyace-onboarding";
 
 export interface OnboardingPrefs {
-  yearLevel: 10 | 11 | 12 | 13;
+  /** Year/grade value in the chosen exam system (10–13 for NCEA; 9–13 elsewhere). */
+  yearLevel: number;
   subjects: string[];
+  /** Exam system registry id (e.g. "nz-ncea"). Absent on pre-2026-09-20 prefs → NCEA. */
+  curriculumId?: string;
   completedAt: string;
 }
 
@@ -16,7 +19,7 @@ export function loadOnboarding(): OnboardingPrefs | null {
     const parsed = JSON.parse(raw) as OnboardingPrefs;
     if (
       typeof parsed !== "object" ||
-      ![10, 11, 12, 13].includes(parsed.yearLevel) ||
+      typeof parsed.yearLevel !== "number" ||
       !Array.isArray(parsed.subjects)
     ) {
       return null;

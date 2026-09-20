@@ -321,3 +321,7 @@ body {
 .cl-footer {
   background: transparent !important;
 }
+
+/* Bottom tab bar (BottomTabs.tsx) reserves its height under page content on phones. */
+.has-tabs main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
+@media (min-width: 768px) { .has-tabs main { padding-bottom: 0; } }

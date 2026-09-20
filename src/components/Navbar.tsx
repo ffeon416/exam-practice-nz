@@ -15,10 +15,10 @@ import { useTier } from "@/hooks/useTier";
 // Signed-in: the four things a student does. Pricing lives behind the
 // Upgrade pill (free accounts) and the profile page (paid), not in the nav.
 const authedLinks = [
-  { href: "/subjects", label: "Exams" },
+  { href: "/today", label: "Today" },
+  { href: "/subjects", label: "Practise" },
   { href: "/review", label: "Review" },
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/plan", label: "Plan" },
+  { href: "/dashboard", label: "Progress" },
 ];
 
 // Signed-out: one path to a sale. Grade check → pricing, with the blog for
@@ -71,6 +71,9 @@ export default function Navbar() {
   const cta = pathname.startsWith("/grade")
     ? { href: "/pricing", label: "See pricing" }
     : { href: "/grade", label: "Free grade check" };
+
+  // Mid-paper there is no chrome at all — the exam screen owns the viewport.
+  if (isPaid && /^\/exam\/[^/]+$/.test(pathname)) return null;
 
   return (
     <>
@@ -177,7 +180,8 @@ export default function Navbar() {
                 </Link>
               )}
 
-              {/* Hamburger button */}
+              {/* Hamburger button — paid accounts use the bottom tabs instead */}
+              {!isPaid && (
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="relative w-10 h-10 flex items-center justify-center rounded-md text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
@@ -196,6 +200,7 @@ export default function Navbar() {
                   <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500" />
                 )}
               </button>
+              )}
             </div>
           </div>
         </div>

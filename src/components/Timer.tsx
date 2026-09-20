@@ -1,44 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface TimerProps {
   totalMinutes: number;
   onTimeUp: () => void;
   running: boolean;
+  compact?: boolean;
 }
 
-export default function Timer({ totalMinutes, onTimeUp, running }: TimerProps) {
+// Wall-clock timer: counts down to a fixed end time rather than ticking a
+// counter, so backgrounding the phone (which throttles/kills intervals) can't
+// make it drift. Re-syncs on every tick and whenever the tab becomes visible.
+export default function Timer({ totalMinutes, onTimeUp, running, compact }: TimerProps) {
+  const endAt = useRef<number>(Date.now() + totalMinutes * 60_000);
+  const fired = useRef(false);
   const [secondsLeft, setSecondsLeft] = useState(totalMinutes * 60);
 
   useEffect(() => {
     if (!running) return;
-    if (secondsLeft <= 0) {
-      onTimeUp();
-      return;
-    }
-    const interval = setInterval(() => {
-      setSecondsLeft((s) => {
-        if (s <= 1) {
-          onTimeUp();
-          return 0;
-        }
-        return s - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [running, secondsLeft, onTimeUp]);
+    const sync = () => {
+      const left = Math.max(0, Math.ceil((endAt.current - Date.now()) / 1000));
+      setSecondsLeft(left);
+      if (left <= 0 && !fired.current) { fired.current = true; onTimeUp(); }
+    };
+    sync();
+    const iv = setInterval(sync, 1000);
+    document.addEventListener("visibilitychange", sync);
+    return () => { clearInterval(iv); document.removeEventListener("visibilitychange", sync); };
+  }, [running, onTimeUp]);
 
   const mins = Math.floor(secondsLeft / 60);
   const secs = secondsLeft % 60;
-  const isLow = secondsLeft < 300; // under 5 minutes
+  const isLow = secondsLeft < 300;
 
   return (
-    <div
-      className={`font-mono text-lg font-bold tabular-nums ${
-        isLow ? "text-red-400" : "text-slate-300"
-      }`}
-    >
+    <div className={`font-mono font-bold tabular-nums ${compact ? "text-[14px]" : "text-lg"} ${isLow ? "text-red-400" : "text-zinc-300"}`}>
       {String(mins).padStart(2, "0")}:{String(secs).padStart(2, "0")}
     </div>
   );

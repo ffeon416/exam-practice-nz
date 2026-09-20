@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useCallback, useEffect, useLayoutEffect, useState } from "react";
+import React, { use, useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 // useLayoutEffect warns during SSR; fall back to useEffect on the server (the
@@ -38,6 +38,7 @@ export default function ExamPage({
   const [started, setStarted] = useState(false);
   const [tutorOpen, setTutorOpen] = useState(false);
   const [showTutorUpgrade, setShowTutorUpgrade] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const [tutorHistory, setTutorHistory] = useState<
     Record<string, TutorMessage[]>
   >({});
@@ -113,14 +114,14 @@ export default function ExamPage({
     };
   }, [examId]);
 
-  const handleSubmit = useCallback(async () => {
+  const handleSubmit = useCallback(async (force = false) => {
     if (!exam || submitting) return;
     const unanswered = exam.questions.filter(q => !(answers[q.id]?.trim())).length;
-    if (unanswered > 0) {
-      if (!confirm(`You have ${unanswered} unanswered question${unanswered === 1 ? '' : 's'}. Submit anyway?`)) {
-        return;
-      }
+    if (unanswered > 0 && !force) {
+      setConfirmOpen(true);
+      return;
     }
+    setConfirmOpen(false);
     setSubmitting(true);
 
     // Store answers in sessionStorage for the results page
@@ -135,14 +136,13 @@ export default function ExamPage({
   }, [exam, answers, mode, submitting, router]);
 
   const handleTimeUp = useCallback(() => {
-    handleSubmit();
+    handleSubmit(true);
   }, [handleSubmit]);
 
   if (!exam) {
     if (examNotFound) {
       return (
         <div className="relative overflow-hidden max-w-md mx-auto px-5 py-20 text-center">
-          <div className="absolute inset-0 -z-10"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" /></div>
           <h1 className="text-2xl font-semibold text-white mb-3">Exam not found</h1>
           <p className="text-zinc-400 text-sm mb-2">
             We couldn&apos;t find this exam on this device.
@@ -161,7 +161,6 @@ export default function ExamPage({
     }
     return (
       <div className="relative overflow-hidden max-w-md mx-auto px-5 py-20 text-center">
-        <div className="absolute inset-0 -z-10"><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-500/[0.07] blur-[120px] rounded-full" /></div>
         <div className="inline-flex items-center justify-center w-12 h-12 mb-4">
           <div className="w-6 h-6 border-2 border-indigo-400 border-t-transparent rounded-full animate-spin" />
         </div>
@@ -175,10 +174,6 @@ export default function ExamPage({
     const totalMarks = exam.questions.reduce((s, q) => s + questionMaxMarks(q.answerType), 0);
     return (
       <div className="relative overflow-hidden max-w-2xl mx-auto px-5 pt-8 sm:pt-16 pb-16 sm:pb-20 bg-[#06060a]">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-500/[0.1] blur-[120px] rounded-full" />
-          <div className="absolute top-[200px] right-0 w-[400px] h-[400px] bg-purple-500/[0.06] blur-[100px] rounded-full" />
-        </div>
         <div className="rounded-2xl bg-white/[0.02] border border-white/[0.06] p-5 sm:p-8 text-center">
           <div className={`inline-block px-4 py-1.5 rounded-full text-[11px] font-bold mb-5 ${
             mode === "mock"
@@ -228,41 +223,54 @@ export default function ExamPage({
   }
 
   const question: Question = exam.questions[currentQ];
+  // Phone keyboard behaviour: no auto-capitalising maths, "next" on the key,
+  // and keep the box in view once the keyboard slides up.
+  const answerFieldProps = {
+    inputMode: "text" as const,
+    enterKeyHint: "next" as const,
+    autoCapitalize: "off",
+    autoCorrect: "off",
+    spellCheck: false,
+    onFocus: (e: React.FocusEvent<HTMLTextAreaElement>) => {
+      const el = e.currentTarget;
+      setTimeout(() => el.scrollIntoView({ block: "center", behavior: "smooth" }), 250);
+    },
+  };
   const totalMarks = exam.questions.reduce((s, q) => s + questionMaxMarks(q.answerType), 0);
   const answeredCount = exam.questions.filter(
     (q) => (answers[q.id] ?? "").trim() !== ""
   ).length;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-4 sm:pt-6 pb-16 sm:pb-20">
-      {/* Header bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
-        <div className="min-w-0">
-          <h1 className="text-base sm:text-lg font-semibold text-white truncate">{exam.title}</h1>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            {answeredCount}/{exam.questions.length} answered
-          </p>
+    <div className="max-w-3xl mx-auto px-4 sm:px-5 pt-0 sm:pt-2 pb-32 sm:pb-20">
+      {/* Sticky header — title, progress, timer, submit. Stays put while the
+          question scrolls; the Navbar is hidden on this route. */}
+      <div className="sticky top-0 z-30 -mx-4 sm:-mx-5 px-4 sm:px-5 pt-3 pb-2.5 mb-4 bg-[#06060a]/95 backdrop-blur-md border-b border-white/[0.06]">
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[13px] font-semibold text-white truncate">{exam.title}</p>
+            <p className="text-[11px] text-zinc-500">{currentQ + 1} of {exam.questions.length} · {answeredCount} answered</p>
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
+            {mode === "mock" && (
+              <Timer totalMinutes={exam.timeMinutes} onTimeUp={handleTimeUp} running={true} compact />
+            )}
+            <button
+              onClick={() => handleSubmit()}
+              disabled={submitting}
+              className="text-[12.5px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-3 py-2 rounded-full min-h-[40px] disabled:opacity-50"
+            >
+              {submitting ? "Submitting…" : "Submit"}
+            </button>
+          </div>
         </div>
-        <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0">
-          {mode === "mock" && (
-            <Timer
-              totalMinutes={exam.timeMinutes}
-              onTimeUp={handleTimeUp}
-              running={true}
-            />
-          )}
-          <button
-            onClick={handleSubmit}
-            disabled={submitting}
-            className="bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-emerald-400 transition-colors disabled:opacity-50 min-h-[44px]"
-          >
-            {submitting ? "Submitting..." : "Submit Exam"}
-          </button>
+        <div className="mt-2.5 h-1 rounded-full bg-white/[0.06] overflow-hidden">
+          <div className="h-full rounded-full bg-gradient-to-r from-indigo-400 to-violet-400 transition-all" style={{ width: `${((currentQ + 1) / exam.questions.length) * 100}%` }} />
         </div>
       </div>
 
       {/* Question navigator dots */}
-      <div className="flex gap-1.5 mb-6 flex-wrap">
+      <div className="hidden sm:flex gap-1.5 mb-6 flex-wrap">
         {exam.questions.map((q, i) => (
           <button
             key={q.id}
@@ -360,7 +368,7 @@ export default function ExamPage({
                     setTutorOpen(true);
                   }
                 }}
-                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-indigo-500/40 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 min-h-[40px] rounded-lg border border-indigo-500/40 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -446,7 +454,8 @@ export default function ExamPage({
                     }))
                   }
                   placeholder="Show your working here..."
-                  rows={question.answerType === "working" ? 6 : 4}
+                  rows={question.answerType === "working" ? 5 : 4}
+                  {...answerFieldProps}
                   className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
                 />
               </div>
@@ -466,6 +475,7 @@ export default function ExamPage({
                   }
                   placeholder="Your final answer..."
                   rows={2}
+                  {...answerFieldProps}
                   className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500 resize-y text-sm"
                 />
               </div>
@@ -474,12 +484,12 @@ export default function ExamPage({
         </div>
       </div>
 
-      {/* Navigation */}
-      <div className="flex items-center justify-between gap-2 mt-4">
+      {/* Navigation — fixed on phones, clear of the home indicator */}
+      <div className="fixed bottom-0 inset-x-0 z-30 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] px-4 pt-3 flex items-center justify-between gap-2 sm:static sm:bg-transparent sm:border-0 sm:px-0 sm:pt-0 sm:mt-4" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
         <button
           onClick={() => setCurrentQ((q) => Math.max(0, q - 1))}
           disabled={currentQ === 0}
-          className="px-3 sm:px-4 py-2.5 rounded-xl text-sm border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-30 min-h-[44px]"
+          className="px-4 py-2.5 rounded-full text-sm border border-white/[0.1] text-zinc-300 hover:bg-white/[0.06] transition-colors disabled:opacity-30 min-h-[48px]"
         >
           Previous
         </button>
@@ -490,9 +500,9 @@ export default function ExamPage({
         </span>
         {currentQ === exam.questions.length - 1 ? (
           <button
-            onClick={handleSubmit}
+            onClick={() => handleSubmit()}
             disabled={submitting}
-            className="px-3 sm:px-4 py-2.5 rounded-xl text-sm bg-emerald-500 text-white hover:bg-emerald-400 transition-colors disabled:opacity-50 min-h-[44px]"
+            className="px-6 py-2.5 rounded-full text-sm font-semibold bg-emerald-500 text-white hover:bg-emerald-400 transition-colors disabled:opacity-50 min-h-[48px]"
           >
             {submitting ? "Submitting..." : "Submit"}
           </button>
@@ -501,12 +511,27 @@ export default function ExamPage({
             onClick={() =>
               setCurrentQ((q) => Math.min(exam.questions.length - 1, q + 1))
             }
-            className="px-3 sm:px-4 py-2.5 rounded-xl text-sm bg-indigo-500 text-white hover:bg-indigo-400 transition-colors min-h-[44px]"
+            className="px-6 py-2.5 rounded-full text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-400 transition-colors min-h-[48px]"
           >
             Next
           </button>
         )}
       </div>
+
+      {confirmOpen && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setConfirmOpen(false)}>
+          <div className="w-full sm:max-w-sm bg-[#0d0d15] border border-white/[0.1] rounded-t-3xl sm:rounded-3xl p-5" style={{ paddingBottom: "calc(1.25rem + env(safe-area-inset-bottom))" }} onClick={(e) => e.stopPropagation()}>
+            <p className="text-white font-bold text-[16px] mb-1">
+              {exam.questions.filter(q => !(answers[q.id]?.trim())).length} unanswered
+            </p>
+            <p className="text-zinc-400 text-[13px] mb-4">Blank answers score zero, same as on the day. Submit anyway?</p>
+            <div className="flex gap-2">
+              <button onClick={() => setConfirmOpen(false)} className="flex-1 py-3 rounded-full border border-white/[0.15] text-zinc-200 text-[14px] font-semibold min-h-[48px]">Keep going</button>
+              <button onClick={() => handleSubmit(true)} className="flex-1 py-3 rounded-full bg-emerald-500 text-white text-[14px] font-semibold min-h-[48px]">Submit anyway</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {tutorOpen && (
         <TutorChat

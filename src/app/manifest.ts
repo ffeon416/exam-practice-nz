@@ -4,12 +4,12 @@ import type { MetadataRoute } from "next";
 // it full-screen (no browser chrome). Next auto-injects <link rel="manifest">.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "StudyAce — NCEA Practice Exams",
+    name: "StudyAce",
     short_name: "StudyAce",
     description:
-      "Unlimited NCEA practice exams with instant marking. Built for NZ students from Year 10 to Year 13.",
+      "Unlimited exam-style practice, marked honestly, with a plan to your target grade.",
     id: "/",
-    start_url: "/dashboard",
+    start_url: "/today",
     display: "standalone",
     background_color: "#06060a",
     theme_color: "#06060a",

@@ -50,7 +50,7 @@ export default function HomePage() {
 
   // Door split: a paying student has no business on the sales page.
   useEffect(() => {
-    if (isSignedIn && !tierLoading && tier !== "free") router.replace("/dashboard");
+    if (isSignedIn && !tierLoading && tier !== "free") router.replace("/today");
   }, [isSignedIn, tier, tierLoading, router]);
 
   useEffect(() => {
