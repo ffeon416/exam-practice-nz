@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
       payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],
       allow_promotion_codes: true,
-      success_url: `${origin}/dashboard?payment=success&plan=${tier}`,
+      success_url: `${origin}/start?payment=success&plan=${tier}`,
       cancel_url: `${origin}/pricing`,
       metadata: { userId, tier, billing },
       subscription_data: {

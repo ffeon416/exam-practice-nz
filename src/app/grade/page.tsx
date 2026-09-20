@@ -595,7 +595,7 @@ export default function GradePage() {
           )}
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] p-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] p-4" style={{ paddingBottom: "calc(1rem + env(safe-area-inset-bottom))" }}>
           <div className="max-w-2xl mx-auto flex gap-3">
             {currentQ > 0 && (
               <button onClick={() => setCurrentQ((c) => c - 1)}
@@ -952,7 +952,7 @@ export default function GradePage() {
         </div>
 
         {/* ── Sticky plan bar — the offer stays on screen the whole way down ── */}
-        <div className="fixed bottom-0 inset-x-0 z-20 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] px-4 py-3">
+        <div className="fixed bottom-0 inset-x-0 z-20 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08] px-4 py-3" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
           <div className="max-w-2xl mx-auto flex items-center gap-4">
             <div className="hidden sm:block flex-1 min-w-0">
               <p className="text-white font-bold text-[13px] leading-tight truncate">

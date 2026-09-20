@@ -41,6 +41,12 @@ export default function Navbar() {
     tier === "free" &&
     pathname !== "/pricing";
 
+  // Door split: only PAID accounts get the coach nav. A signed-in unpaid
+  // account (a lead) sees the visitor nav — its whole app is /start. While
+  // the tier is unknown for a signed-in user, render nothing (no flicker).
+  const isPaid = !!isSignedIn && !tierLoading && tier !== "free";
+  const links = !isLoaded || (isSignedIn && tierLoading) ? [] : isPaid ? authedLinks : publicLinks;
+
   const version = useSyncExternalStore(
     subscribeReviews,
     getReviewsVersion,
@@ -51,13 +57,9 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
   const dueCount = useMemo(() => {
     void version;
-    if (!mounted) return 0;
+    if (!mounted || !isPaid) return 0;
     return getDueCount();
-  }, [version, mounted]);
-
-  // Until Clerk resolves, render no auth-dependent chrome — a signed-in user
-  // must never flash the signed-out nav (same rule as tier flicker).
-  const links = !isLoaded ? [] : isSignedIn ? authedLinks : publicLinks;
+  }, [version, mounted, isPaid]);
 
   // Close menu when route changes
   useEffect(() => {
@@ -122,7 +124,7 @@ export default function Navbar() {
                   href="/pricing"
                   className="text-[12px] font-semibold text-indigo-200 bg-gradient-to-r from-indigo-500/15 to-violet-500/15 hover:from-indigo-500/25 hover:to-violet-500/25 border border-indigo-500/30 px-3 py-1.5 rounded-full transition-all"
                 >
-                  Upgrade
+                  Get Pro
                 </Link>
               )}
               {!isLoaded ? (

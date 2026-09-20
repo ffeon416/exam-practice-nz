@@ -23,13 +23,17 @@ export const TIER_LIMITS = {
     deepEssayMarking: false,
     mockExamMode: false,
   },
+  // LEGACY tier, closed to new signups 2026-09-16 and, since 2026-09-20,
+  // granted the full Pro entitlements at the subscriber's original price.
+  // Reason: one plan for sale means one paid experience — nobody who pays
+  // should ever see an "upgrade" surface. Keep identical to `pro`.
   student: {
-    examsPerWeek: 20,
-    maxQuestions: 12,
-    tutorMessagesPerWeek: 0, // Student tier has no tutor — upgrade to Pro for that
+    examsPerWeek: Infinity,
+    maxQuestions: 20,
+    tutorMessagesPerWeek: 100,
     allSubjects: true,
     spacedRepetition: true,
-    adaptiveDifficulty: false,
+    adaptiveDifficulty: true,
     studyPlanner: true,
     deepEssayMarking: true,
     mockExamMode: true,
@@ -52,7 +56,7 @@ export type TierLimits = (typeof TIER_LIMITS)[Tier];
 /** Friendly tier labels for UI */
 export const TIER_LABELS: Record<Tier, string> = {
   free: "Free",
-  student: "Student",
+  student: "Pro", // legacy Student subscribers get Pro; the label says so
   pro: "Pro",
 };
 

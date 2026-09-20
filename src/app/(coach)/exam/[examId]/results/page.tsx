@@ -776,20 +776,12 @@ export default function ResultsPage({
           >
             Review All Questions
           </button>
-          <div className="flex gap-3">
-            <Link
-              href="/subjects"
-              className="flex-1 text-center py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors min-h-[44px] flex items-center justify-center"
-            >
-              Try Another Exam
-            </Link>
-            <Link
-              href="/practice"
-              className="flex-1 text-center py-3 rounded-xl bg-emerald-500 text-white text-[14px] font-medium hover:bg-emerald-400 transition-colors min-h-[44px] flex items-center justify-center"
-            >
-              Practice Weak Areas
-            </Link>
-          </div>
+          <Link
+            href="/subjects"
+            className="block w-full text-center py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors min-h-[48px] flex items-center justify-center"
+          >
+            Sit another paper
+          </Link>
         </div>
 
         <div className="mt-8">

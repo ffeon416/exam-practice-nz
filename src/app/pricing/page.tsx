@@ -135,7 +135,8 @@ export default function PricingPage() {
   // Tier-conditional UI only renders once the real tier is known (no flicker).
   const isPro = !tierLoading && currentTier === "pro";
   const isLegacyStudent = !tierLoading && currentTier === "student";
-  const ctaLabel = isLegacyStudent ? "Upgrade to Pro" : "Get Pro";
+  const isPaid = isPro || isLegacyStudent;
+  const ctaLabel = "Get Pro";
 
   return (
     <div className="relative overflow-hidden bg-[#06060a]">
@@ -218,8 +219,8 @@ export default function PricingPage() {
           <div className="rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4 flex flex-wrap items-center justify-between gap-3">
             <div>
               <span className="inline-block px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300 text-[10px] font-bold uppercase tracking-wider mr-2">Current plan</span>
-              <span className="text-white font-semibold text-[14px]">You&apos;re on the original Student plan.</span>
-              <span className="text-zinc-400 text-[13px]"> It stays at your original price for as long as you keep it. Upgrade to Pro below any time.</span>
+              <span className="text-white font-semibold text-[14px]">You&apos;re on the original plan, with everything in Pro.</span>
+              <span className="text-zinc-400 text-[13px]"> Your price stays exactly what you signed up at.</span>
             </div>
             <button
               onClick={handleManageSubscription}
@@ -240,7 +241,7 @@ export default function PricingPage() {
             const meta = OPTION_META[billing];
             const perMonth = proMonthlyEquivalent(billing);
             const busy = loadingBilling === billing;
-            const disabled = loadingBilling !== null || isPro;
+            const disabled = loadingBilling !== null || isPaid;
             return (
               <div
                 key={billing}
@@ -302,7 +303,7 @@ export default function PricingPage() {
                         : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.02]"
                     }`}
                   >
-                    {isPro ? "Current plan" : busy ? "Redirecting…" : ctaLabel}
+                    {isPaid ? "Current plan" : busy ? "Redirecting…" : ctaLabel}
                   </button>
                 )}
                 <p className="text-zinc-600 text-[11px] mt-3 text-center">{meta.note}</p>
@@ -397,7 +398,8 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final CTA — visitors and leads only; a paying student has nothing to decide here */}
+      {!isPaid && (
       <section className="max-w-3xl mx-auto px-5 pb-16 sm:pb-24">
         <div className="rounded-[32px] bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent border border-white/[0.07] p-5 sm:p-10 text-center relative overflow-hidden">
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full pointer-events-none" aria-hidden
@@ -423,6 +425,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+      )}
       <SiteFooter />
     </div>
   );

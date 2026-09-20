@@ -25,8 +25,8 @@ export default function SignUpPage() {
     <div className="min-h-[calc(100vh-3rem)] flex items-center justify-center px-5 py-12">
       <SignUp
         signInUrl="/sign-in"
-        forceRedirectUrl="/welcome"
-        fallbackRedirectUrl="/welcome"
+        forceRedirectUrl="/start"
+        fallbackRedirectUrl="/start"
         // An EXISTING user who clicks a social button here gets transferred
         // to sign-in — skip /welcome and go straight to their dashboard.
         signInForceRedirectUrl="/dashboard"

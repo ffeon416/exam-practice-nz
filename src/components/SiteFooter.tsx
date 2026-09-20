@@ -17,7 +17,6 @@ export default function SiteFooter() {
         { href: "/dashboard", label: "Dashboard" },
         { href: "/review", label: "Review" },
         { href: "/plan", label: "Study plan" },
-        { href: "/pricing", label: "Plans" },
       ]
     : [
         { href: "/grade", label: "Free grade check" },

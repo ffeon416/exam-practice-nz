@@ -13,7 +13,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
+import { useTier } from "@/hooks/useTier";
 import { display } from "@/lib/displayFont";
 import SiteFooter from "@/components/SiteFooter";
 import { loadProgress } from "@/lib/storage";
@@ -42,7 +44,14 @@ const FAQS: { q: string; a: string }[] = [
 
 export default function HomePage() {
   const { isSignedIn, isLoaded } = useAuth();
+  const router = useRouter();
+  const { tier, loading: tierLoading } = useTier();
   const [progress, setProgress] = useState<StudentProgress | null>(null);
+
+  // Door split: a paying student has no business on the sales page.
+  useEffect(() => {
+    if (isSignedIn && !tierLoading && tier !== "free") router.replace("/dashboard");
+  }, [isSignedIn, tier, tierLoading, router]);
 
   useEffect(() => {
     if (!isSignedIn) return;
@@ -74,8 +83,9 @@ export default function HomePage() {
     })),
   };
 
-  const primaryHref = isSignedIn ? "/subjects" : "/grade";
-  const primaryLabel = isSignedIn ? "Build my exam" : "Check their grade — free";
+  // Signed-in here means a lead (paid users are redirected above).
+  const primaryHref = isSignedIn ? "/start" : "/grade";
+  const primaryLabel = isSignedIn ? "Get Pro" : "Check their grade — free";
 
   return (
     <div className="relative overflow-x-clip bg-[#06060a] isolate">
@@ -116,14 +126,14 @@ export default function HomePage() {
           <div className="home-rise flex flex-col sm:flex-row gap-3 justify-center mb-4 min-h-[56px]" style={{ animationDelay: "240ms" }}>
             {isLoaded && (isSignedIn ? (
               <>
-                <Link href="/subjects"
+                <Link href="/start"
                   className="group bg-white text-[#0a0a0f] font-bold px-9 py-4 rounded-full transition-all hover:scale-[1.02] shadow-2xl shadow-indigo-500/20 text-[16px] inline-flex items-center justify-center gap-2">
-                  Build my exam
+                  Get Pro
                   <span aria-hidden className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
-                <Link href="/dashboard"
+                <Link href="/grade"
                   className="text-zinc-300 hover:text-white font-semibold px-9 py-4 rounded-full border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[16px]">
-                  Dashboard
+                  Free grade check
                 </Link>
               </>
             ) : (

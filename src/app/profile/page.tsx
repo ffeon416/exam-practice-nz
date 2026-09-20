@@ -302,7 +302,8 @@ export default function ProfilePage() {
             )}
           </div>
 
-          {/* Usage this period */}
+          {/* Usage this period — paid only (a lead has nothing to meter) */}
+          {!tierLoading && tier !== "free" && (
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-4">
               <p className="text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-1">
@@ -317,6 +318,7 @@ export default function ProfilePage() {
               <p className="text-white font-semibold text-[18px]">{tutorLeft}</p>
             </div>
           </div>
+          )}
         </section>
 
         {/* What's included */}
@@ -354,7 +356,7 @@ export default function ProfilePage() {
               </>
             )}
           </div>
-          {!tierLoading && tier !== "pro" && (
+          {!tierLoading && tier === "free" && (
             <Link
               href="/pricing"
               className="mt-5 block text-center text-[13px] font-medium text-indigo-400 hover:text-indigo-300 py-2.5 rounded-full bg-indigo-500/[0.08] hover:bg-indigo-500/[0.12] transition-colors"

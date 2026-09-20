@@ -151,7 +151,7 @@ function PaymentWelcome({
         {
           title: "Fix Weak Spots",
           sub: "Drill the topics holding you back.",
-          href: "/practice",
+          href: "/subjects",
           icon: (
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8" />
@@ -855,21 +855,6 @@ export default function DashboardPage() {
           </Link>
         )}
 
-        {/* Referral link — visible at the bottom but not a banner. Indigo
-            accent so it catches the eye in scan; text-link form so it doesn't
-            compete with the primary actions higher up. */}
-        <Link
-          href="/refer"
-          className="group flex items-center justify-center gap-2 text-indigo-300 text-[14px] font-medium hover:text-white transition-colors py-3"
-        >
-          <svg className="w-4 h-4 text-indigo-400 group-hover:text-violet-300 transition-colors" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-          </svg>
-          Invite friends, earn free Student
-          <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
       </div>
     </div>
   );
@@ -1024,69 +1009,6 @@ function FirstTimeDashboard({
         </div>
       )}
 
-      {/* Tier / usage card */}
-      {!tierLoading && (
-        <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6">
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <div>
-              <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-white font-bold text-[14px]">{TIER_LABELS[tier]} plan</span>
-                {tier === "free" && (
-                  <span className="text-[10px] uppercase tracking-wider text-indigo-300 bg-indigo-500/15 border border-indigo-500/25 px-2 py-0.5 rounded-full">
-                    Free
-                  </span>
-                )}
-              </div>
-              <p className="text-zinc-500 text-[12px]">
-                {tier === "free"
-                  ? "Upgrade for unlimited exams and more."
-                  : "Thanks for supporting StudyAce."}
-              </p>
-            </div>
-            {tier === "free" && (
-              <Link
-                href="/pricing"
-                className="shrink-0 text-[12px] font-semibold text-indigo-300 hover:text-indigo-200 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/25 px-3 py-1.5 rounded-full transition-colors"
-              >
-                Upgrade
-              </Link>
-            )}
-          </div>
-          {!isUnlimited(examsLimit) && (
-            <div>
-              <div className="flex items-center justify-between text-[11px] text-zinc-500 mb-1.5">
-                <span>Exams this week</span>
-                <span className="text-zinc-300 tabular-nums font-medium">
-                  {examsUsed} / {examsLimit}
-                </span>
-              </div>
-              <div className="w-full h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full transition-all duration-500"
-                  style={{ width: `${Math.min(100, (examsUsed / examsLimit) * 100)}%` }}
-                />
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* What's next checklist */}
-      <div className="rounded-[32px] bg-white/[0.015] border border-white/[0.07] p-6">
-        <h2 className="text-white font-extrabold text-[14px] mb-3">What&apos;s next</h2>
-        <ul className="space-y-2.5">
-          <ChecklistItem
-            done={onboarding !== null}
-            label="Tell us your year and subjects"
-          />
-          <ChecklistItem done={false} label="Take your first practice exam" />
-          <ChecklistItem done={false} label="Review your marked answers" />
-          <ChecklistItem
-            done={false}
-            label="Set up a study plan for your exam date"
-          />
-        </ul>
-      </div>
     </div>
   );
 }
