@@ -1,19 +1,18 @@
 "use client";
 
-// /start — the ONLY screen a signed-in, unpaid account ever sees.
+// /start — the seam between paying and using StudyAce.
 //
-// Door 1 (convert) ends here. A lead has an account but no plan; every
-// coach route ((coach)/layout.tsx) sends them back to this page. Its job is
-// one thing: the subscription. It also absorbs the two housekeeping jobs
-// that used to live in /welcome for leads — claiming a pending referral and
-// the one-tap "how did you hear about us" — and it is the landing page for
-// the Stripe success redirect, where it waits for the webhook to flip the
-// tier before handing over to the coach app.
+// There is no sign-up. Checkout is anonymous; Stripe sends the buyer here
+// with a session id, and THIS page creates their login (Clerk restricts
+// sign-ups to emails that have paid — the webhook allowlists them). Once
+// signed in, the subscription is attached to the new account and they're
+// handed to /today. It also still serves the few legacy unpaid accounts that
+// exist from before: one-tap checkout, nothing else.
 
 import Link from "next/link";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useClerk, useUser } from "@clerk/nextjs";
+import { SignUp, useClerk, useUser } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import { useTier } from "@/hooks/useTier";
 import { BILLING_PERIODS, PRO_PRICING, proMonthlyEquivalent, proSavingPct, type Billing } from "@/lib/tierLimits";
@@ -39,35 +38,69 @@ const INCLUDED = [
   "Tutor chat for the moment you're stuck",
 ];
 
+function Spinner({ title, sub }: { title: string; sub?: string }) {
+  return (
+    <div className="min-h-[70vh] flex items-center justify-center px-5">
+      <div className="text-center">
+        <div className="w-10 h-10 rounded-full border-2 border-indigo-400/30 border-t-indigo-400 animate-spin mx-auto mb-4" aria-hidden />
+        <p className="text-white font-semibold text-[15px]">{title}</p>
+        {sub && <p className="text-zinc-500 text-[12.5px] mt-1">{sub}</p>}
+      </div>
+    </div>
+  );
+}
+
 function StartInner() {
   const router = useRouter();
   const params = useSearchParams();
-  const { user, isLoaded } = useUser();
+  const { user, isLoaded, isSignedIn } = useUser();
   const { signOut } = useClerk();
   const { tier, loading: tierLoading, refresh } = useTier();
 
-  const paymentSuccess = params.get("payment") === "success";
-  const purchasedPlan = params.get("plan");
+  const sessionId = params.get("session_id");
+  const paymentSuccess = params.get("payment") === "success" || !!sessionId;
 
-  // ── Paid? Then this isn't your page. ──
+  // ── Signed-out: with a paid session, create the login; otherwise pricing ──
+  const [session, setSession] = useState<{ paid: boolean; email: string | null } | "loading" | "error">("loading");
   useEffect(() => {
-    if (tierLoading || tier === "free") return;
-    // New buyer → /today, which sends anyone without onboarding to /welcome
-    // (the first-five-minutes flow). The purchased plan is implied by the tier.
-    void purchasedPlan;
+    if (!isLoaded || isSignedIn) return;
+    if (!sessionId) { router.replace("/pricing"); return; }
+    let cancelled = false;
+    fetch(`/api/checkout/session?id=${encodeURIComponent(sessionId)}`)
+      .then((r) => r.json())
+      .then((d) => { if (!cancelled) setSession(d?.paid ? { paid: true, email: d.email ?? null } : { paid: false, email: null }); })
+      .catch(() => { if (!cancelled) setSession("error"); });
+    return () => { cancelled = true; };
+  }, [isLoaded, isSignedIn, sessionId, router]);
+
+  // ── Signed-in: paid → the app ──
+  useEffect(() => {
+    if (!isSignedIn || tierLoading || tier === "free") return;
     router.replace("/today");
-  }, [tier, tierLoading, paymentSuccess, purchasedPlan, router]);
+  }, [isSignedIn, tier, tierLoading, router]);
 
-  // ── Stripe just redirected here: poll until the webhook lands. ──
-  const [confirmTries, setConfirmTries] = useState(0);
-  const confirmStalled = confirmTries >= 20; // ~30 s of polling
+  // ── Signed-in, just paid: attach the subscription, then the app ──
+  const [claimTries, setClaimTries] = useState(0);
+  const claimStalled = claimTries >= 12; // ~25 s
   useEffect(() => {
-    if (!paymentSuccess || tierLoading || tier !== "free" || confirmStalled) return;
-    const id = setTimeout(() => { refresh(); setConfirmTries((n) => n + 1); }, 1500);
-    return () => clearTimeout(id);
-  }, [paymentSuccess, tier, tierLoading, confirmStalled, refresh]);
+    if (!isSignedIn || !paymentSuccess || tierLoading || tier !== "free" || claimStalled) return;
+    let cancelled = false;
+    const run = async () => {
+      try {
+        await fetch("/api/claim", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId }),
+        });
+      } catch {}
+      if (cancelled) return;
+      refresh();
+      setClaimTries((n) => n + 1);
+    };
+    const id = setTimeout(run, claimTries === 0 ? 0 : 2000);
+    return () => { cancelled = true; clearTimeout(id); };
+  }, [isSignedIn, paymentSuccess, tier, tierLoading, claimTries, claimStalled, sessionId, refresh]);
 
-  // ── Referral claim (moved here from /welcome, which is paid-only now). ──
+  // Referral claim for a brand-new account (link captured by RefCapture).
   useEffect(() => {
     if (!isLoaded || !user) return;
     let pending: string | null = null;
@@ -81,7 +114,7 @@ function StartInner() {
     });
   }, [isLoaded, user]);
 
-  // ── Grade-check handoff (same key /pricing reads). ──
+  // Grade-check handoff + attribution chips (legacy unpaid accounts only).
   const [gradeResult, setGradeResult] = useState<GradeResult | null>(null);
   const [heardDone, setHeardDone] = useState(true);
   useEffect(() => {
@@ -107,7 +140,6 @@ function StartInner() {
     }).catch(() => {});
   }
 
-  // ── Checkout ──
   const [busy, setBusy] = useState<Billing | null>(null);
   const [error, setError] = useState<string | null>(null);
   const navigating = useRef(false);
@@ -128,21 +160,48 @@ function StartInner() {
     } catch { setError("Couldn't start checkout. Try again."); setBusy(null); }
   }, []);
 
-  const firstName = user?.firstName?.trim() || null;
+  if (!isLoaded) return <Spinner title="One moment…" />;
 
-  // While the tier is unknown, or while we're waiting on Stripe's webhook,
-  // show a neutral state — never a wrong one (house rule: no tier flicker).
-  if (!isLoaded || tierLoading || (paymentSuccess && !confirmStalled && tier === "free")) {
+  // ── Signed-out after paying: create the login ──
+  if (!isSignedIn) {
+    if (!sessionId) return <Spinner title="One moment…" />;
+    if (session === "loading") return <Spinner title="Confirming your payment…" sub="This takes a few seconds." />;
+    if (session === "error" || !session.paid) {
+      return (
+        <div className="max-w-md mx-auto px-5 pt-14 pb-16 text-center">
+          <h1 className={`${display.className} text-[28px] font-bold text-white tracking-[-0.02em] mb-3`}>We couldn&apos;t confirm that payment</h1>
+          <p className="text-zinc-400 text-[14px] mb-6">If your card was charged, email <a href="mailto:grades@studyace.co" className="text-indigo-400 underline">grades@studyace.co</a> and we&apos;ll set you up straight away. Otherwise, try again.</p>
+          <Link href="/pricing" className="inline-block bg-white text-[#0a0a0f] font-bold px-8 py-3.5 rounded-full">Back to pricing</Link>
+        </div>
+      );
+    }
+    const back = `/start?payment=success&session_id=${encodeURIComponent(sessionId)}`;
     return (
-      <div className="min-h-[70vh] flex items-center justify-center px-5">
-        <div className="text-center">
-          <div className="w-10 h-10 rounded-full border-2 border-indigo-400/30 border-t-indigo-400 animate-spin mx-auto mb-4" aria-hidden />
-          <p className="text-white font-semibold text-[15px]">{paymentSuccess ? "Confirming your payment…" : "One moment…"}</p>
-          {paymentSuccess && <p className="text-zinc-500 text-[12.5px] mt-1">This takes a few seconds.</p>}
+      <div className="max-w-md mx-auto px-5 pt-8 sm:pt-12 pb-16">
+        <p className="font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-2">Payment received</p>
+        <h1 className={`${display.className} text-[30px] sm:text-[36px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-2`}>Create your login</h1>
+        <p className="text-zinc-400 text-[14px] mb-6">
+          This is how you get back in on any device. Use <span className="text-white font-semibold">{session.email ?? "the email you paid with"}</span>. Other emails won&apos;t be accepted.
+        </p>
+        <div className="flex justify-center">
+          <SignUp
+            routing="hash"
+            forceRedirectUrl={back}
+            fallbackRedirectUrl={back}
+            signInUrl="/sign-in"
+            initialValues={session.email ? { emailAddress: session.email } : undefined}
+          />
         </div>
       </div>
     );
   }
+
+  // ── Signed-in ──
+  if (tierLoading || (paymentSuccess && !claimStalled && tier === "free")) {
+    return <Spinner title={paymentSuccess ? "Setting up your account…" : "One moment…"} sub={paymentSuccess ? "Linking your payment to this login." : undefined} />;
+  }
+
+  const firstName = user?.firstName?.trim() || null;
 
   return (
     <div className="relative overflow-x-clip bg-[#06060a]">
@@ -152,9 +211,9 @@ function StartInner() {
       </div>
 
       <div className="max-w-2xl mx-auto px-5 pt-8 sm:pt-14 pb-16">
-        {confirmStalled && (
+        {claimStalled && (
           <div className="mb-6 rounded-2xl border border-amber-500/30 bg-amber-500/[0.08] px-4 py-3 text-[13px] text-amber-200">
-            Your payment went through but your plan hasn&apos;t activated yet. Give it a minute and refresh. If it&apos;s still not showing, email <a href="mailto:grades@studyace.co" className="underline">grades@studyace.co</a> and we&apos;ll sort it straight away.
+            Your payment went through but we couldn&apos;t link it to this login. Most often that means a different email was used. Email <a href="mailto:grades@studyace.co" className="underline">grades@studyace.co</a> and we&apos;ll sort it straight away.
           </div>
         )}
 
@@ -188,7 +247,6 @@ function StartInner() {
           <div className="mb-4 rounded-xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-[13px] text-red-300">{error}</div>
         )}
 
-        {/* Three ways to pay — one tap to Stripe. */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
           {BILLING_PERIODS.map((b) => {
             const p = PRO_PRICING[b];
@@ -257,7 +315,6 @@ function StartInner() {
   );
 }
 
-// useSearchParams needs a Suspense boundary for the static shell.
 export default function StartPage() {
   return (
     <Suspense fallback={<div className="min-h-[70vh]" aria-hidden />}>

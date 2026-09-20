@@ -93,7 +93,7 @@ export default function RedeemPage() {
           code to unlock your plan.
         </p>
         <Link
-          href="/sign-up?redirect_url=/redeem"
+          href="/pricing"
           className="block w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 transition-all text-white font-extrabold shadow-lg shadow-indigo-500/30 py-3.5 mb-3 min-h-[44px]"
         >
           Create a free account

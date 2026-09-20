@@ -12,6 +12,8 @@ export const dynamic = "force-dynamic";
 type CheckoutBody = {
   tier?: "pro";
   billing: "monthly" | "quarterly" | "yearly";
+  /** Referrer Clerk id captured from a ?ref= link (optional). */
+  ref?: string;
 };
 
 export async function POST(req: NextRequest) {
@@ -25,9 +27,6 @@ export async function POST(req: NextRequest) {
     }
 
     const { userId } = await auth();
-    if (!userId) {
-      return NextResponse.json({ error: "Sign in to subscribe." }, { status: 401 });
-    }
 
     const body = (await req.json()) as CheckoutBody;
     const tier = "pro" as const;
@@ -50,7 +49,30 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Get or create profile + Stripe customer
+    // Build success/cancel URLs
+    const origin = req.headers.get("origin") ?? process.env.NEXT_PUBLIC_URL ?? "http://localhost:3000";
+
+    // ── Anonymous checkout ──
+    // There is no sign-up: people pay first, then create their login on
+    // /start. Stripe collects the email; the webhook allowlists it in Clerk;
+    // /start attaches the subscription once the account exists.
+    if (!userId) {
+      const ref = typeof body.ref === "string" && body.ref.length < 200 ? body.ref : "";
+      const session = await stripe.checkout.sessions.create({
+        mode: "subscription",
+        payment_method_types: ["card"],
+        line_items: [{ price: priceId, quantity: 1 }],
+        allow_promotion_codes: true,
+        success_url: `${origin}/start?payment=success&session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${origin}/pricing`,
+        metadata: { tier, billing, anonymous: "1", ref },
+        subscription_data: { metadata: { tier, billing } },
+      });
+      void logEvent("checkout_started", null, { tier, billing, anonymous: true });
+      return NextResponse.json({ url: session.url });
+    }
+
+    // ── Signed-in checkout (existing accounts changing plan) ──
     const user = await currentUser();
     const email = user?.emailAddresses?.[0]?.emailAddress ?? null;
     const profile = await getOrCreateProfile(userId, email);
@@ -74,9 +96,6 @@ export async function POST(req: NextRequest) {
           .eq("user_id", userId);
       }
     }
-
-    // Build success/cancel URLs
-    const origin = req.headers.get("origin") ?? process.env.NEXT_PUBLIC_URL ?? "http://localhost:3000";
 
     const session = await stripe.checkout.sessions.create({
       customer: stripeCustomerId,

@@ -5,6 +5,7 @@ import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import BottomTabs from "@/components/BottomTabs";
+import RefCapture from "@/components/RefCapture";
 import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import UserScopeSync from "@/components/UserScopeSync";
@@ -133,6 +134,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <BottomTabs />
+          <RefCapture />
           <ServiceWorkerRegister />
           {/* Non-essential scripts are held back until the page has hydrated and
               gone idle, so ~500KB of analytics/replay JS never competes with the

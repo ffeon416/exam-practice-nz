@@ -46,8 +46,8 @@ export default function ReferPage() {
 
   const referralLink =
     typeof window !== "undefined"
-      ? `${window.location.origin}/sign-up?ref=${user.id}`
-      : `https://studyace.co/sign-up?ref=${user.id}`;
+      ? `${window.location.origin}/grade?ref=${user.id}`
+      : `https://studyace.co/grade?ref=${user.id}`;
 
   const studentDaysLeft = daysFromNow(stats?.studentUntil ?? null);
   const referralsCount = stats?.referralsCount ?? 0;

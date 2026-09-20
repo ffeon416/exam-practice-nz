@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       { source: "/demo/:path*", destination: "/grade", permanent: true },
       // /practice was an 8-line redirect page; retired 2026-09-20.
       { source: "/practice", destination: "/subjects", permanent: true },
+      // No sign-up page since 2026-09-20: accounts are created after paying.
+      { source: "/sign-up", destination: "/pricing", permanent: false },
+      { source: "/sign-up/:path*", destination: "/pricing", permanent: false },
     ];
   },
 };

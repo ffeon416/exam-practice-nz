@@ -4,12 +4,11 @@ export default function SignInPage() {
   return (
     <div className="min-h-[calc(100vh-3rem)] flex items-center justify-center px-5 py-12">
       <SignIn
-        signUpUrl="/sign-up"
+        // There is no sign-up page: accounts are created on /start after
+        // paying. Anyone without one belongs on pricing.
+        signUpUrl="/pricing"
         forceRedirectUrl="/today"
         fallbackRedirectUrl="/today"
-        // A NEW user who clicks a social button here gets transferred to
-        // sign-up — send them through /welcome (onboarding + referral claim),
-        // not straight to the dashboard.
         signUpForceRedirectUrl="/start"
         signUpFallbackRedirectUrl="/start"
       />

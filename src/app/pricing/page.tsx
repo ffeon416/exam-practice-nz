@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useCallback, useEffect } from "react";
-import { useAuth } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import SiteFooter from "@/components/SiteFooter";
 import { useTier } from "@/hooks/useTier";
@@ -48,12 +47,15 @@ const OPTION_META: Record<Billing, { tag: string; note: string; highlight?: bool
   yearly: { tag: `Save ${proSavingPct("yearly")}%`, note: "One payment a year · cancel anytime", highlight: true },
 };
 
+function pendingRef(): string | undefined {
+  try { return localStorage.getItem("studyace-pending-ref") ?? undefined; } catch { return undefined; }
+}
+
 function nz(n: number): string {
   return Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2);
 }
 
 export default function PricingPage() {
-  const { isSignedIn } = useAuth();
   const [loadingBilling, setLoadingBilling] = useState<Billing | "manage" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { tier: currentTier, loading: tierLoading } = useTier();
@@ -82,7 +84,7 @@ export default function PricingPage() {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tier: "pro", billing }),
+        body: JSON.stringify({ tier: "pro", billing, ref: pendingRef() }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -282,18 +284,7 @@ export default function PricingPage() {
                   {billing === "monthly" ? "Pay as you go" : <>≈ NZ${perMonth.toFixed(2)} a month</>}
                 </p>
 
-                {!isSignedIn ? (
-                  <Link
-                    href={`/sign-up?redirect_url=${encodeURIComponent("/pricing")}`}
-                    className={`mt-auto w-full text-center py-3 rounded-full text-[14px] transition-all min-h-[48px] flex items-center justify-center ${
-                      meta.highlight
-                        ? "bg-white text-[#0a0a0f] font-bold hover:scale-[1.02] shadow-2xl shadow-indigo-500/20"
-                        : "bg-gradient-to-r from-indigo-500 to-violet-600 font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.02]"
-                    }`}
-                  >
-                    Get Pro
-                  </Link>
-                ) : (
+                {(
                   <button
                     onClick={() => handleCheckout(billing)}
                     disabled={disabled}
