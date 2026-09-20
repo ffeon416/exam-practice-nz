@@ -107,7 +107,7 @@ export default function GlobalPage() {
           </h1>
           <p className="home-rise text-zinc-400 text-[15px] sm:text-[17px] max-w-xl mx-auto"
             style={{ animationDelay: "80ms" }}>
-            Unlimited AI practice exams, marked honestly — live in New Zealand today,
+            Unlimited AI practice exams, marked honestly — live for NCEA today,
             and coming to your exam system next. Join your waitlist and you&apos;ll be
             first in (and first to help shape it).
           </p>

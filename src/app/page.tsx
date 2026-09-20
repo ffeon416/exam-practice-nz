@@ -34,7 +34,7 @@ const FAQS: { q: string; a: string }[] = [
   { q: "Is the marking actually honest, or does it just encourage them?", a: "Honest, deliberately. Every answer is marked the way an examiner marks it: one mark for the working, one for the answer, scored separately, with exactly what was missing. A hedge like \"not sure, maybe 4?\" scores zero, the same as it would on the day. Encouraging in tone, truthful in content. That's the whole point." },
   { q: "Who sets it up, me or my teenager?", a: "Either. Most parents sit the free grade check with their child first (two minutes, no account), then subscribe. The account is in the student's name so their history, weak topics and plan are theirs. You can open the dashboard together any time." },
   { q: "Can it replace a tutor?", a: "For the part that actually moves grades, unlimited exam-style practice with honest marking and a plan, yes, and it's there every night instead of one hour a week. If your child needs a person to re-teach a topic from scratch, a tutor still earns their fee. Many families use both: StudyAce for the reps, a tutor for the sticking points." },
-  { q: "Which exams does it cover?", a: "NCEA Levels 1 to 3 plus Year 10 in New Zealand, and 15 more systems in beta: Australia's HSC, QCE, VCE, WACE and SACE, the UK's GCSE, A-Levels and SQA Highers, US AP, SAT, ACT and state exams, and Canada's Ontario, Alberta and BC. Questions, difficulty and grading follow the system's own style." },
+  { q: "Which exams does it cover?", a: "NCEA Levels 1 to 3 plus Year 10, and 15 more systems in beta: Australia's HSC, QCE, VCE, WACE and SACE, the UK's GCSE, A-Levels and SQA Highers, US AP, SAT, ACT and state exams, and Canada's Ontario, Alberta and BC. Questions, difficulty and grading follow the system's own style." },
   { q: "Is it safe for a 13 to 18 year old?", a: "It's built for them. No ads, no selling data, no public profiles, and the tutor chat is a study tool, not a social one. Everything your child types stays in their account. The full privacy policy is written in plain English at studyace.co/privacy." },
   { q: "How much time does it take?", a: "About 20 minutes a day on a phone. A short paper, marked in seconds, and the next step already scheduled. It's designed to fit after dinner, not to replace a whole evening." },
   { q: "What does it cost, and what if they don't use it?", a: `NZ$${PRO_PRICING.monthly.amount} a month, NZ$${PRO_PRICING.quarterly.amount} for three months, or NZ$${PRO_PRICING.yearly.amount} for the whole year. Cancel any time from the dashboard, and there's a 30-day money-back guarantee, so if it doesn't get used, you're not out of pocket.` },
@@ -251,7 +251,7 @@ export default function HomePage() {
 
         <div className="home-rise mt-16 sm:mt-20 flex flex-wrap justify-center gap-x-7 gap-y-2 font-mono text-[11px] sm:text-[12px] text-zinc-500 tracking-tight"
           style={{ animationDelay: "440ms" }}>
-          <span>built in <span className="text-zinc-200 font-semibold">New Zealand</span></span>
+          <span>built for <span className="text-zinc-200 font-semibold">20 minutes a night</span></span>
           <span>marked <span className="text-zinc-200 font-semibold">like an examiner</span></span>
           <span><span className="text-zinc-200 font-semibold">cancel</span> anytime</span>
           <span><span className="text-zinc-200 font-semibold">30-day</span> money back</span>
@@ -437,7 +437,7 @@ export default function HomePage() {
                   </div>
                 );
               })}
-              <p className="text-[10.5px] text-zinc-600 pt-1">Tutoring and workbook figures are typical New Zealand rates, shown for comparison. Your local prices will vary.</p>
+              <p className="text-[10.5px] text-zinc-600 pt-1">Tutoring and workbook figures are typical rates in NZD, shown for comparison. Your local prices will vary.</p>
             </div>
           </div>
         </div>
@@ -472,7 +472,7 @@ export default function HomePage() {
               <p className="font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-300">A working life</p>
             </div>
             <p className="text-zinc-300 text-[14px] leading-relaxed mb-3">
-              Ministry of Education earnings data consistently shows New Zealanders with a degree earning more, year after year, than those who finish with school qualifications alone. That gap doesn&apos;t close; it compounds across a career.
+              Education earnings data consistently shows people with a degree earning more, year after year, than those who finish with school qualifications alone. That gap doesn&apos;t close; it compounds across a career.
             </p>
             <p className="text-zinc-500 text-[12.5px]">
               Twenty minutes a night in Year 12 is one of the cheapest investments a family will ever make.{" "}

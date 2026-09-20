@@ -43,7 +43,7 @@ export default function SiteFooter() {
               study<span className="text-indigo-400">ace</span>
             </Link>
             <p className="text-zinc-500 text-[13px] leading-relaxed mt-3 max-w-xs">
-              Unlimited exam-style practice, marked as honestly as an examiner would, with a plan to the target grade. Built in New Zealand for NCEA, HSC, QCE, GCSE and more.
+              Unlimited exam-style practice, marked as honestly as an examiner would, with a plan to the target grade. For NCEA, HSC, QCE, GCSE and more.
             </p>
             {!authed && (
               <Link href="/grade"
@@ -66,7 +66,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11.5px] text-zinc-600">
-          <p>© {year} StudyAce · New Zealand</p>
+          <p>© {year} StudyAce</p>
           <p className="font-mono tracking-tight">cancel anytime · 30-day money back · billed in NZD by Stripe</p>
         </div>
       </div>

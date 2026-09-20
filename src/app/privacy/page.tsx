@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         <div className="space-y-8">
           <Section title="Summary">
             <p>
-              StudyAce is a New Zealand-based online NCEA practice platform for
+              StudyAce is an online exam-practice platform for
               Year 10–13 students. This policy explains what personal
               information we collect, how we use it, who we share it with, how
               we protect it, and your rights under the{" "}

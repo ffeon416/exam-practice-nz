@@ -241,7 +241,7 @@ export default function SchoolsPage() {
 
         <div className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-8 text-center">
           <p className="text-zinc-400 text-[15px] mb-4">
-            We&apos;re working with schools across New Zealand to bring StudyAce to their students.
+            We&apos;re working with schools to bring StudyAce to their students.
           </p>
           <p className="text-zinc-300 text-[14px] font-medium">
             Want to be one of the first? Get in touch below.
