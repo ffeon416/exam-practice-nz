@@ -57,13 +57,12 @@ function StartInner() {
 
   // ── Stripe just redirected here: poll until the webhook lands. ──
   const [confirmTries, setConfirmTries] = useState(0);
-  const [confirmStalled, setConfirmStalled] = useState(false);
+  const confirmStalled = confirmTries >= 20; // ~30 s of polling
   useEffect(() => {
-    if (!paymentSuccess || tierLoading || tier !== "free") return;
-    if (confirmTries >= 20) { setConfirmStalled(true); return; }
+    if (!paymentSuccess || tierLoading || tier !== "free" || confirmStalled) return;
     const id = setTimeout(() => { refresh(); setConfirmTries((n) => n + 1); }, 1500);
     return () => clearTimeout(id);
-  }, [paymentSuccess, tier, tierLoading, confirmTries, refresh]);
+  }, [paymentSuccess, tier, tierLoading, confirmStalled, refresh]);
 
   // ── Referral claim (moved here from /welcome, which is paid-only now). ──
   useEffect(() => {
