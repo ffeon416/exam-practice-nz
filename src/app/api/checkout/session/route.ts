@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
+import { clerkUserExists, inviteEmail } from "@/lib/clerkInvite";
 
 export const dynamic = "force-dynamic";
 
@@ -15,11 +16,12 @@ export async function GET(request: NextRequest) {
   if (!stripe) return NextResponse.json({ paid: false }, { status: 503 });
   try {
     const s = await stripe.checkout.sessions.retrieve(id);
-    return NextResponse.json({
-      paid: s.payment_status === "paid",
-      email: s.customer_details?.email ?? s.customer_email ?? null,
-      claimed: false,
-    });
+    const paid = s.payment_status === "paid";
+    const email = s.customer_details?.email ?? s.customer_email ?? null;
+    if (!paid || !email) return NextResponse.json({ paid, email, accountExists: false, ticketUrl: null });
+    const accountExists = await clerkUserExists(email);
+    const ticketUrl = accountExists ? null : await inviteEmail(email, s.id, false);
+    return NextResponse.json({ paid, email, accountExists, ticketUrl });
   } catch {
     return NextResponse.json({ paid: false }, { status: 404 });
   }

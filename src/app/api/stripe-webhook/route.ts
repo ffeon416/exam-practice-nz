@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { getSupabase, logEvent } from "@/lib/supabase";
 import type Stripe from "stripe";
+import { inviteEmail } from "@/lib/clerkInvite";
 
 export const dynamic = "force-dynamic";
 
@@ -40,23 +41,6 @@ function tierForSubscription(sub: Stripe.Subscription): "student" | "pro" | null
   if (proPrices.includes(priceId)) return "pro";
   if (studentPrices.includes(priceId)) return "student";
   return LEGACY_PRICE_TIERS[priceId] ?? null;
-}
-
-/** Let a paid email create a Clerk account (instance sign-ups are allowlist-only). */
-async function allowlistEmail(email: string): Promise<void> {
-  const key = process.env.CLERK_SECRET_KEY;
-  if (!key) return;
-  try {
-    const res = await fetch("https://api.clerk.com/v1/allowlist_identifiers", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ identifier: email, notify: false }),
-    });
-    // 422 = already allowlisted; fine.
-    if (!res.ok && res.status !== 422) console.error("Clerk allowlist failed:", res.status, await res.text());
-  } catch (err) {
-    console.error("Clerk allowlist error:", err);
-  }
 }
 
 export async function POST(req: NextRequest) {
@@ -108,12 +92,13 @@ export async function POST(req: NextRequest) {
         const tier = session.metadata?.tier as "student" | "pro" | undefined;
 
         if (!userId && session.metadata?.anonymous === "1") {
-          // Paid before having an account. Allow this email to create one
-          // (Clerk sign-ups are allowlist-only); /start does the linking.
+          // Paid before having an account. Invite this email (Clerk sign-ups
+          // are invitation-only) and let Clerk email the link as a backup in
+          // case they closed the tab; /start does the linking.
           const email = session.customer_details?.email ?? session.customer_email ?? null;
-          if (email) await allowlistEmail(email);
+          if (email) await inviteEmail(email, session.id, true);
           void logEvent("subscription_paid", null, { plan: tier ?? "pro", anonymous: true, email });
-          console.log(`Anonymous purchase for ${email ?? "(no email)"} — allowlisted for sign-up`);
+          console.log(`Anonymous purchase for ${email ?? "(no email)"} — invited to create a login`);
           break;
         }
         if (!userId || !tier) {

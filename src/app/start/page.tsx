@@ -59,19 +59,30 @@ function StartInner() {
 
   const sessionId = params.get("session_id");
   const paymentSuccess = params.get("payment") === "success" || !!sessionId;
+  // Arriving back from the Clerk invitation link: the SignUp form below
+  // consumes __clerk_ticket from the URL and binds to the invited email.
+  const hasTicket = !!params.get("__clerk_ticket");
 
   // ── Signed-out: with a paid session, create the login; otherwise pricing ──
-  const [session, setSession] = useState<{ paid: boolean; email: string | null } | "loading" | "error">("loading");
+  type SessionInfo = { paid: boolean; email: string | null; accountExists: boolean; ticketUrl: string | null };
+  const [session, setSession] = useState<SessionInfo | "loading" | "error">("loading");
   useEffect(() => {
-    if (!isLoaded || isSignedIn) return;
+    if (!isLoaded || isSignedIn || hasTicket) return;
     if (!sessionId) { router.replace("/pricing"); return; }
     let cancelled = false;
     fetch(`/api/checkout/session?id=${encodeURIComponent(sessionId)}`)
       .then((r) => r.json())
-      .then((d) => { if (!cancelled) setSession(d?.paid ? { paid: true, email: d.email ?? null } : { paid: false, email: null }); })
+      .then((d: Partial<SessionInfo>) => {
+        if (cancelled) return;
+        const info: SessionInfo = { paid: !!d?.paid, email: d?.email ?? null, accountExists: !!d?.accountExists, ticketUrl: d?.ticketUrl ?? null };
+        setSession(info);
+        // Paid, no account yet → straight into the invitation link, which
+        // brings them back here with the ticket for the sign-up form.
+        if (info.paid && !info.accountExists && info.ticketUrl) window.location.replace(info.ticketUrl);
+      })
       .catch(() => { if (!cancelled) setSession("error"); });
     return () => { cancelled = true; };
-  }, [isLoaded, isSignedIn, sessionId, router]);
+  }, [isLoaded, isSignedIn, sessionId, hasTicket, router]);
 
   // ── Signed-in: paid → the app ──
   useEffect(() => {
@@ -165,6 +176,19 @@ function StartInner() {
   // ── Signed-out after paying: create the login ──
   if (!isSignedIn) {
     if (!sessionId) return <Spinner title="One moment…" />;
+    if (hasTicket) {
+      const back = `/start?payment=success&session_id=${encodeURIComponent(sessionId)}`;
+      return (
+        <div className="max-w-md mx-auto px-5 pt-8 sm:pt-12 pb-16">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-2">Payment received</p>
+          <h1 className={`${display.className} text-[30px] sm:text-[36px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-2`}>Create your login</h1>
+          <p className="text-zinc-400 text-[14px] mb-6">This is how you get back in on any device. It&apos;s tied to the email you paid with.</p>
+          <div className="flex justify-center">
+            <SignUp routing="hash" forceRedirectUrl={back} fallbackRedirectUrl={back} signInUrl="/sign-in" />
+          </div>
+        </div>
+      );
+    }
     if (session === "loading") return <Spinner title="Confirming your payment…" sub="This takes a few seconds." />;
     if (session === "error" || !session.paid) {
       return (
@@ -175,23 +199,23 @@ function StartInner() {
         </div>
       );
     }
-    const back = `/start?payment=success&session_id=${encodeURIComponent(sessionId)}`;
-    return (
-      <div className="max-w-md mx-auto px-5 pt-8 sm:pt-12 pb-16">
-        <p className="font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-2">Payment received</p>
-        <h1 className={`${display.className} text-[30px] sm:text-[36px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-2`}>Create your login</h1>
-        <p className="text-zinc-400 text-[14px] mb-6">
-          This is how you get back in on any device. Use <span className="text-white font-semibold">{session.email ?? "the email you paid with"}</span>. Other emails won&apos;t be accepted.
-        </p>
-        <div className="flex justify-center">
-          <SignUp
-            routing="hash"
-            forceRedirectUrl={back}
-            fallbackRedirectUrl={back}
-            signInUrl="/sign-in"
-            initialValues={session.email ? { emailAddress: session.email } : undefined}
-          />
+    if (session.accountExists) {
+      return (
+        <div className="max-w-md mx-auto px-5 pt-14 pb-16 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-2">Payment received</p>
+          <h1 className={`${display.className} text-[28px] font-bold text-white tracking-[-0.02em] mb-3`}>You already have a login</h1>
+          <p className="text-zinc-400 text-[14px] mb-6">Sign in with <span className="text-white font-semibold">{session.email}</span> and your plan will be attached automatically.</p>
+          <Link href={`/sign-in?redirect_url=${encodeURIComponent(`/start?payment=success&session_id=${sessionId}`)}`} className="inline-block bg-white text-[#0a0a0f] font-bold px-8 py-3.5 rounded-full">Sign in</Link>
         </div>
+      );
+    }
+    // Paid, no account, ticket link couldn't be produced: give them a way forward.
+    return (
+      <div className="max-w-md mx-auto px-5 pt-14 pb-16 text-center">
+        <p className="font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-2">Payment received</p>
+        <h1 className={`${display.className} text-[28px] font-bold text-white tracking-[-0.02em] mb-3`}>Check your email</h1>
+        <p className="text-zinc-400 text-[14px] mb-6">We&apos;ve sent a link to <span className="text-white font-semibold">{session.email}</span> to create your login. If it doesn&apos;t arrive in a few minutes, email <a href="mailto:grades@studyace.co" className="text-indigo-400 underline">grades@studyace.co</a>.</p>
+        {session.ticketUrl && <a href={session.ticketUrl} className="inline-block bg-white text-[#0a0a0f] font-bold px-8 py-3.5 rounded-full">Create my login</a>}
       </div>
     );
   }
