@@ -57,18 +57,17 @@ export default function GradeOutlook({
   const fmt = (t: number) => new Date(t).toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
   if (!active) return null;
 
-  // ── Chart ──
-  const W = 640, H = 320, L = 14, R = 22, T = 34, B = 34;
+  // ── Chart: y runs 30–100 (nothing useful lives below), zones are the bands ──
+  const W = 640, H = 300, L = 14, R = 14, T = 30, B = 30, YMIN = 30;
   const t0 = points[0]?.t ?? nowTs;
   const x = (t: number) => L + ((t - t0) / Math.max(1, endT - t0)) * (W - L - R);
-  const y = (pct: number) => T + (1 - pct / 100) * (H - T - B);
+  const y = (pct: number) => T + (1 - (Math.max(YMIN, pct) - YMIN) / (100 - YMIN)) * (H - T - B);
   const last = points[points.length - 1];
   const linePath = points.map((p, i) => `${i ? "L" : "M"}${x(p.t).toFixed(1)} ${y(p.pct).toFixed(1)}`).join(" ");
-  const areaPath = points.length ? `${linePath} L${x(last.t).toFixed(1)} ${y(0)} L${x(points[0].t).toFixed(1)} ${y(0)} Z` : "";
-  // zones: from each band's floor up to the next band's floor (top band → 100)
-  const zones = bands.map((b, i) => ({ b, lo: b.minPct * 100, hi: i === 0 ? 100 : bands[i - 1].minPct * 100 }));
+  const zones = bands
+    .map((b, i) => ({ b, lo: Math.max(YMIN, b.minPct * 100), hi: i === 0 ? 100 : bands[i - 1].minPct * 100 }))
+    .filter((z) => z.hi > YMIN);
   const youX = last ? x(last.t) : 0;
-  const youLabelRight = youX > W * 0.6;
 
   return (
     <section className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-4 sm:p-6 mb-4">
@@ -106,47 +105,39 @@ export default function GradeOutlook({
           </div>
 
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label={`Your ${label(active)} scores against the grade bands`}>
-            <defs>
-              <linearGradient id="go-area" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#818cf8" stopOpacity="0.28" />
-                <stop offset="100%" stopColor="#818cf8" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-
-            {/* Grade zones with their names */}
+            {/* Grade zones, named on the right */}
             {zones.map(({ b, lo, hi }) => (
               <g key={b.id}>
-                <rect x={L} y={y(hi)} width={W - L - R} height={Math.max(0, y(lo) - y(hi))} fill={TONE_HEX[b.tone]} fillOpacity={b.tone === "top" ? 0.10 : 0.05} />
-                <line x1={L} x2={W - R} y1={y(lo)} y2={y(lo)} stroke={TONE_HEX[b.tone]} strokeOpacity="0.35" strokeWidth="1" />
-                <text x={L + 10} y={y(hi) + 16} fontSize="12" fontWeight="700" fill={TONE_HEX[b.tone]} fillOpacity="0.85" style={{ letterSpacing: "0.04em" }}>{b.label.toUpperCase()}</text>
+                <rect x={L} y={y(hi)} width={W - L - R} height={Math.max(0, y(lo) - y(hi))} fill={TONE_HEX[b.tone]} fillOpacity={b.tone === "top" ? 0.12 : 0.05} />
+                <line x1={L} x2={W - R} y1={y(lo)} y2={y(lo)} stroke={TONE_HEX[b.tone]} strokeOpacity="0.4" strokeWidth="1" />
+                <text x={W - R - 10} y={(y(lo) + y(hi)) / 2 + 4} fontSize="11" fontWeight="700" fill={TONE_HEX[b.tone]} fillOpacity="0.8" textAnchor="end" style={{ letterSpacing: "0.06em" }}>{b.label.toUpperCase()}</text>
               </g>
             ))}
 
-            {/* Path to the target, with the next milestone on it */}
-            <line x1={x(last.t)} y1={y(last.pct)} x2={x(endT)} y2={y(targetPct)} stroke="#ffffff" strokeOpacity="0.35" strokeWidth="2" strokeDasharray="5 6" strokeLinecap="round" />
+            {/* Path from you to the target, next milestone on it */}
+            <line x1={x(last.t)} y1={y(last.pct)} x2={x(endT)} y2={y(targetPct)} stroke="#ffffff" strokeOpacity="0.4" strokeWidth="2" strokeDasharray="5 6" strokeLinecap="round" />
             {next && (
               <g>
-                <circle cx={x(next.t)} cy={y(next.pct)} r="6" fill="#0b0b12" stroke="#ffffff" strokeOpacity="0.8" strokeWidth="2" />
-                <text x={x(next.t)} y={y(next.pct) - 12} fontSize="12" fill="#e4e4e7" textAnchor="middle" fontWeight="600">{next.pct}% by {next.label}</text>
+                <circle cx={x(next.t)} cy={y(next.pct)} r="6" fill="#0b0b12" stroke="#ffffff" strokeWidth="2" />
+                <text x={x(next.t)} y={y(next.pct) + 22} fontSize="12" fill="#e4e4e7" textAnchor="middle" fontWeight="600">Next · {next.pct}% by {next.label}</text>
               </g>
             )}
 
             {/* Target */}
-            <circle cx={x(endT)} cy={y(targetPct)} r="7" fill={TONE_HEX[top.tone]} />
-            <text x={x(endT) - 12} y={y(targetPct) - 12} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
+            <circle cx={x(endT)} cy={y(targetPct)} r="8" fill={TONE_HEX[top.tone]} stroke="#0b0b12" strokeWidth="3" />
+            <text x={x(endT) - 16} y={y(targetPct) + 4} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
 
             {/* Your papers */}
-            <path d={areaPath} fill="url(#go-area)" />
             <path d={linePath} fill="none" stroke="#818cf8" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
             {points.slice(0, -1).map((p, i) => (
               <circle key={i} cx={x(p.t)} cy={y(p.pct)} r="4" fill="#0b0b12" stroke="#a5b4fc" strokeWidth="2" />
             ))}
             <circle cx={youX} cy={y(last.pct)} r="8" fill="#818cf8" stroke="#0b0b12" strokeWidth="3" />
-            <text x={youLabelRight ? youX - 14 : youX + 14} y={y(last.pct) + 4} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor={youLabelRight ? "end" : "start"}>YOU · {last.pct}%</text>
+            <text x={youX} y={y(last.pct) - 16} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
 
             {/* Dates */}
-            <text x={L} y={H - 10} fontSize="11.5" fill="#a1a1aa">{points.length > 1 ? "Grade check · " : ""}{fmt(t0)}</text>
-            <text x={W - R} y={H - 10} fontSize="11.5" fill="#a1a1aa" textAnchor="end">{examDate ? `Exam · ${fmt(endT)}` : fmt(endT)}</text>
+            <text x={L} y={H - 9} fontSize="11.5" fill="#a1a1aa">{points.length > 1 ? "Grade check · " : ""}{fmt(t0)}</text>
+            <text x={W - R} y={H - 9} fontSize="11.5" fill="#a1a1aa" textAnchor="end">{examDate ? `Exam · ${fmt(endT)}` : fmt(endT)}</text>
           </svg>
 
           {/* Tools */}
