@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
   if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   if (tier === "free") return NextResponse.json({ error: "paid_only" }, { status: 403 });
 
-  let body: { curriculum?: string; year?: number; subjects?: string[] } = {};
+  let body: { curriculum?: string; year?: number; subjects?: string[]; subject?: string; topic?: string; kind?: "tonight" | "check" | "weak" } = {};
   try { body = await request.json(); } catch {}
   const curriculum = resolveCurriculum(body.curriculum);
   if (curriculum.status === "coming-soon") {
@@ -76,9 +76,28 @@ export async function POST(request: NextRequest) {
   if (!curriculum.levels.some((l) => l.value === year)) {
     return NextResponse.json({ error: "invalid_year" }, { status: 400 });
   }
-  const wanted = (body.subjects ?? []).filter((s) =>
-    curriculum.subjects.some((cs) => cs.value === s && cs.years.includes(year))
-  );
+  const kind = body.kind === "check" || body.kind === "weak" ? body.kind : "tonight";
+  const validSubject = (s: string) => curriculum.subjects.some((cs) => cs.value === s && cs.years.includes(year));
+
+  // ── Grade check / weak-spot paper: a specific subject, built fresh ──
+  if (kind !== "tonight") {
+    const subject = body.subject ?? "";
+    if (!validSubject(subject)) return NextResponse.json({ error: "invalid_subject" }, { status: 400 });
+    const label = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject;
+    const topic = kind === "weak" ? (body.topic ?? "").slice(0, 120) || null : null;
+    try {
+      const exam = await buildPaper({
+        userId, curriculumId: curriculum.id, subject, year, questionCount: 8, topic,
+        title: kind === "check" ? `Grade check · ${label}` : `Weak spot · ${label}`,
+      });
+      return NextResponse.json({ exam, built: true });
+    } catch (error) {
+      console.error("next-paper build failed:", error);
+      return NextResponse.json({ error: "build_failed" }, { status: 500 });
+    }
+  }
+
+  const wanted = (body.subjects ?? []).filter(validSubject);
   if (wanted.length === 0) {
     return NextResponse.json({ error: "no_subjects" }, { status: 400 });
   }

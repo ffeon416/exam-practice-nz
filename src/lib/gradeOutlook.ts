@@ -96,3 +96,56 @@ export function papersPerWeek(points: Point[]): number {
   const n = points.filter((p) => p.t >= cutoff).length;
   return Math.round((n / 2) * 10) / 10;
 }
+
+// ── Milestones: the straight path from the grade check to the target ──
+export type Milestone = { t: number; pct: number; label: string; status: "hit" | "missed" | "next" | "upcoming" };
+
+/**
+ * Weekly stepping stones from the baseline (first paper = the grade check)
+ * to the target band by the end date. A milestone is "hit" when any paper
+ * in its week scored at or above it, "missed" once its week has passed
+ * without one, "next" for the first one still ahead.
+ */
+export function milestones(points: Point[], targetPct: number, endT: number, nowT: number): Milestone[] {
+  if (points.length === 0) return [];
+  const base = points[0];
+  const week = 7 * 864e5;
+  const n = Math.max(1, Math.min(12, Math.round((endT - base.t) / week)));
+  const out: Milestone[] = [];
+  let nextFound = false;
+  for (let k = 1; k <= n; k++) {
+    const t = base.t + (endT - base.t) * (k / n);
+    const pct = Math.round(base.pct + (targetPct - base.pct) * (k / n));
+    const windowStart = base.t + (endT - base.t) * ((k - 1) / n);
+    const hit = points.some((p) => p.t > windowStart && p.t <= t + 864e5 && p.pct >= pct);
+    let status: Milestone["status"];
+    if (hit) status = "hit";
+    else if (t < nowT) status = "missed";
+    else if (!nextFound) { status = "next"; nextFound = true; }
+    else status = "upcoming";
+    out.push({ t, pct, status, label: new Date(t).toLocaleDateString("en-NZ", { day: "numeric", month: "short" }) });
+  }
+  return out;
+}
+
+export type WeakSpot = { subject: string; kind: "tier" | "topic"; label: string; pct: number; topicPrompt: string };
+
+/** The single weakest thing worth a focused paper, or null if nothing stands out. */
+export function weakSpot(subject: string, tiers: TierAccuracy[] | null, topics: { topic: string; topicLabel: string; correctRate: number; attempts: number; subject?: string }[]): WeakSpot | null {
+  const realTopics = topics
+    .filter((t) => (t.subject ?? subject) === subject && t.topic !== subject && t.attempts >= 2 && t.correctRate < 0.6)
+    .sort((a, b) => a.correctRate - b.correctRate);
+  if (realTopics[0]) {
+    const t = realTopics[0];
+    return { subject, kind: "topic", label: t.topicLabel, pct: Math.round(t.correctRate * 100), topicPrompt: t.topicLabel };
+  }
+  const tier = tiers?.filter((x) => x.questions >= 3 && x.pct < 60).sort((a, b) => a.pct - b.pct)[0];
+  if (tier) {
+    const name = { achieved: "Achieved-level", merit: "Merit-level", excellence: "Excellence-level" }[tier.tier];
+    return {
+      subject, kind: "tier", label: `${name} questions`, pct: tier.pct,
+      topicPrompt: `${name} questions only — the hardest style this paper type uses, so the student can practise exactly those`,
+    };
+  }
+  return null;
+}

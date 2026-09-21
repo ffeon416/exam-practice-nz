@@ -50,6 +50,20 @@ export async function buildNextPaper(): Promise<Exam | null> {
   return data.exam ?? null;
 }
 
+/** Build a grade check (baseline) or weak-spot paper for one subject and wait for it. */
+export async function buildPaperFor(opts: { subject: string; kind: "check" | "weak"; topic?: string }): Promise<Exam | null> {
+  const prefs = nextPaperPrefs();
+  if (!prefs) return null;
+  const res = await fetch("/api/next-paper", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    body: JSON.stringify({ curriculum: prefs.curriculum, year: prefs.year, subjects: prefs.subjects, ...opts }),
+  });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { exam: Exam | null };
+  return data.exam ?? null;
+}
+
 export async function fetchNextPaper(): Promise<Exam | null> {
   const res = await fetch("/api/next-paper", { headers: { "Cache-Control": "no-store" } });
   if (!res.ok) return null;
