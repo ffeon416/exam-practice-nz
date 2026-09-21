@@ -10,7 +10,7 @@ import { display } from "@/lib/displayFont";
 import { resolveCurriculum } from "@/data/curricula";
 import { getCustomExam } from "@/lib/customExams";
 import {
-  bandAt, bandsFor, marksToTop, milestones, predictedPct, subjectSeries, tierBreakdown, weakSpot, type WeakSpot,
+  bandAt, bandsFor, marksToTop, milestones, predictedPct, smoothPath, subjectSeries, tierBreakdown, weakSpot, type WeakSpot,
 } from "@/lib/gradeOutlook";
 import type { ExamAttempt, TopicScore } from "@/lib/types";
 
@@ -63,7 +63,11 @@ export default function GradeOutlook({
   const x = (t: number) => L + ((t - t0) / Math.max(1, endT - t0)) * (W - L - R);
   const y = (pct: number) => T + (1 - (Math.max(YMIN, pct) - YMIN) / (100 - YMIN)) * (H - T - B);
   const last = points[points.length - 1];
-  const linePath = points.map((p, i) => `${i ? "L" : "M"}${x(p.t).toFixed(1)} ${y(p.pct).toFixed(1)}`).join(" ");
+  const P = points.map((p) => ({ x: x(p.t), y: y(p.pct) }));
+  const linePath = smoothPath(P);
+  const areaPath = P.length ? `${linePath} L${P[P.length - 1].x.toFixed(1)} ${y(YMIN)} L${P[0].x.toFixed(1)} ${y(YMIN)} Z` : "";
+  const tx = x(endT), ty = y(targetPct);
+  const toTarget = last ? `M${x(last.t).toFixed(1)} ${y(last.pct).toFixed(1)} C${(x(last.t) + (tx - x(last.t)) * 0.5).toFixed(1)} ${y(last.pct).toFixed(1)} ${(x(last.t) + (tx - x(last.t)) * 0.5).toFixed(1)} ${ty.toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}` : "";
   const zones = bands
     .map((b, i) => ({ b, lo: Math.max(YMIN, b.minPct * 100), hi: i === 0 ? 100 : bands[i - 1].minPct * 100 }))
     .filter((z) => z.hi > YMIN);
@@ -105,35 +109,51 @@ export default function GradeOutlook({
           </div>
 
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label={`Your ${label(active)} scores against the grade bands`}>
-            {/* Grade zones, named on the right */}
+            <defs>
+              <linearGradient id="go-stroke" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#c4b5fd" />
+                <stop offset="100%" stopColor="#8b5cf6" />
+              </linearGradient>
+              <linearGradient id="go-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+              </linearGradient>
+              <filter id="go-glow" x="-20%" y="-50%" width="140%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="b" />
+                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+
+            {/* Grade bands: quiet guide lines, named on the right; the top band tinted */}
+            <rect x={L} y={y(100)} width={W - L - R} height={Math.max(0, y(targetPct) - y(100))} fill={TONE_HEX[top.tone]} fillOpacity="0.06" />
             {zones.map(({ b, lo, hi }) => (
               <g key={b.id}>
-                <rect x={L} y={y(hi)} width={W - L - R} height={Math.max(0, y(lo) - y(hi))} fill={TONE_HEX[b.tone]} fillOpacity={b.tone === "top" ? 0.12 : 0.05} />
-                <line x1={L} x2={W - R} y1={y(lo)} y2={y(lo)} stroke={TONE_HEX[b.tone]} strokeOpacity="0.4" strokeWidth="1" />
-                <text x={W - R - 10} y={(y(lo) + y(hi)) / 2 + 4} fontSize="11" fontWeight="700" fill={TONE_HEX[b.tone]} fillOpacity="0.8" textAnchor="end" style={{ letterSpacing: "0.06em" }}>{b.label.toUpperCase()}</text>
+                <line x1={L} x2={W - R} y1={y(lo)} y2={y(lo)} stroke="#ffffff" strokeOpacity="0.10" strokeWidth="1" />
+                <text x={W - R - 8} y={(y(lo) + y(hi)) / 2 + 4} fontSize="11" fontWeight="600" fill="#a1a1aa" fillOpacity="0.9" textAnchor="end" style={{ letterSpacing: "0.06em" }}>{b.label.toUpperCase()}</text>
               </g>
             ))}
 
-            {/* Path from you to the target, next milestone on it */}
-            <line x1={x(last.t)} y1={y(last.pct)} x2={x(endT)} y2={y(targetPct)} stroke="#ffffff" strokeOpacity="0.4" strokeWidth="2" strokeDasharray="5 6" strokeLinecap="round" />
+            {/* The way to the target, and the next milestone on it */}
+            <path d={toTarget} fill="none" stroke="#a78bfa" strokeOpacity="0.45" strokeWidth="2.5" strokeDasharray="1 8" strokeLinecap="round" />
+
+            {/* Your papers: smooth purple wave */}
+            <path d={areaPath} fill="url(#go-fill)" />
+            <path d={linePath} fill="none" stroke="url(#go-stroke)" strokeWidth="4" strokeLinecap="round" filter="url(#go-glow)" />
+
             {next && (
               <g>
-                <circle cx={x(next.t)} cy={y(next.pct)} r="6" fill="#0b0b12" stroke="#ffffff" strokeWidth="2" />
-                <text x={x(next.t)} y={y(next.pct) + 22} fontSize="12" fill="#e4e4e7" textAnchor="middle" fontWeight="600">Next · {next.pct}% by {next.label}</text>
+                <circle cx={x(next.t)} cy={y(next.pct)} r="5" fill="#0f0f17" stroke="#c4b5fd" strokeWidth="2" />
+                <text x={x(next.t)} y={y(next.pct) + 22} fontSize="12" fill="#d4d4d8" textAnchor="middle" fontWeight="600">Next · {next.pct}% by {next.label}</text>
               </g>
             )}
 
             {/* Target */}
-            <circle cx={x(endT)} cy={y(targetPct)} r="8" fill={TONE_HEX[top.tone]} stroke="#0b0b12" strokeWidth="3" />
-            <text x={x(endT) - 16} y={y(targetPct) + 4} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
+            <circle cx={tx} cy={ty} r="8" fill={TONE_HEX[top.tone]} stroke="#0f0f17" strokeWidth="3" />
+            <text x={tx - 16} y={ty + 4} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
 
-            {/* Your papers */}
-            <path d={linePath} fill="none" stroke="#818cf8" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-            {points.slice(0, -1).map((p, i) => (
-              <circle key={i} cx={x(p.t)} cy={y(p.pct)} r="4" fill="#0b0b12" stroke="#a5b4fc" strokeWidth="2" />
-            ))}
-            <circle cx={youX} cy={y(last.pct)} r="8" fill="#818cf8" stroke="#0b0b12" strokeWidth="3" />
-            <text x={youX} y={y(last.pct) - 16} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
+            {/* You */}
+            <circle cx={youX} cy={y(last.pct)} r="9" fill="#8b5cf6" stroke="#0f0f17" strokeWidth="3" filter="url(#go-glow)" />
+            <text x={youX} y={y(last.pct) - 18} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
 
             {/* Dates */}
             <text x={L} y={H - 9} fontSize="11.5" fill="#a1a1aa">{points.length > 1 ? "Grade check · " : ""}{fmt(t0)}</text>
