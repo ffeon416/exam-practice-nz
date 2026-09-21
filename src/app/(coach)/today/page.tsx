@@ -1,8 +1,9 @@
 "use client";
 
-// /today — the coach app's home and the PWA start screen.
-// One card: tonight's paper, already built, one tap to start. Under it the
-// two things that matter tonight (reviews due, streak) and nothing else.
+// /today — the coach app's home and the PWA start screen. A dashboard with
+// one job: show where the student is, where they're heading, and tonight's
+// paper that moves it. Order: predicted grade + graph + path → tonight's
+// paper → reviews due and streak. Nothing else.
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,11 +11,13 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
-import { loadProgress } from "@/lib/storage";
+import { loadProgress, saveProgress } from "@/lib/storage";
+import { loadPlan } from "@/lib/studyPlanner";
 import { getDueCount } from "@/lib/spacedRepetition";
-import { adoptPaper, buildNextPaper, fetchNextPaper } from "@/lib/nextPaper";
+import { adoptPaper, buildNextPaper, currentCurriculumId, fetchNextPaper } from "@/lib/nextPaper";
 import { resolveCurriculum } from "@/data/curricula";
-import type { Exam } from "@/lib/types";
+import GradeOutlook from "@/components/GradeOutlook";
+import type { Exam, ExamAttempt, StudentProgress } from "@/lib/types";
 
 type Phase = "loading" | "ready" | "building" | "failed";
 
@@ -32,6 +35,10 @@ export default function TodayPage() {
   const [exam, setExam] = useState<Exam | null>(null);
   const [due, setDue] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [attempts, setAttempts] = useState<ExamAttempt[] | null>(null);
+  const [subjects, setSubjects] = useState<string[]>([]);
+  const [curriculumId, setCurriculumId] = useState("nz-ncea");
+  const [examDate, setExamDate] = useState<string | null>(null);
   const [lineIdx, setLineIdx] = useState(0);
   const [starting, setStarting] = useState(false);
 
@@ -43,11 +50,38 @@ export default function TodayPage() {
         router.replace("/welcome");
         return;
       }
+      setSubjects(ob.subjects);
+      setCurriculumId(ob.curriculumId ?? currentCurriculumId());
       try {
         setDue(getDueCount());
-        const p = loadProgress();
-        setStreak(p.streakDays ?? 0);
+        const local = loadProgress();
+        setStreak(local.streakDays ?? 0);
+        setAttempts(local.examAttempts ?? []);
+        setExamDate(loadPlan()?.examDate ?? null);
       } catch {}
+
+      // Server is the source of truth for papers sat (other devices count).
+      fetch("/api/progress")
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (cancelled || !data) return;
+          const server: ExamAttempt[] = data.examAttempts ?? [];
+          if (server.length > 0) {
+            const local = loadProgress();
+            const merged: StudentProgress = {
+              examAttempts: server,
+              topicScores: { ...local.topicScores, ...(data.topicScores || {}) },
+              totalExamsTaken: server.length,
+              streakDays: Math.max(local.streakDays, data.streakDays ?? 0),
+              lastActiveDate: local.lastActiveDate,
+            };
+            setAttempts(server);
+            setStreak(merged.streakDays);
+            saveProgress(merged);
+          }
+        })
+        .catch(() => {});
+
       const waiting = await fetchNextPaper().catch(() => null);
       if (cancelled) return;
       if (waiting) { setExam(waiting); setPhase("ready"); return; }
@@ -85,24 +119,36 @@ export default function TodayPage() {
   }
 
   const firstName = user?.firstName?.trim();
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : "Evening";
   const subjectLabel = exam
-    ? resolveCurriculum(exam.curriculumId).subjects.find((s) => s.value === exam.subject)?.label ?? exam.subject
+    ? resolveCurriculum(exam.curriculumId ?? curriculumId).subjects.find((s) => s.value === exam.subject)?.label ?? exam.subject
     : null;
   const minutes = exam ? Math.max(10, Math.round(exam.questions.length * 2.5)) : 0;
+  const hasPapers = (attempts?.length ?? 0) > 0;
 
   return (
     <div className="max-w-lg mx-auto px-5 pt-6 sm:pt-10 pb-10">
       <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 mb-1">
-        {greeting}{firstName ? `, ${firstName}` : ""}
+        {firstName ? `${firstName}'s` : "Your"} dashboard
       </p>
-      <h1 className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6`}>
-        Tonight
+      <h1 className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-5`}>
+        {hasPapers ? "Where you are" : "Tonight"}
       </h1>
 
-      {/* The card */}
-      <div className="rounded-[28px] border border-indigo-400/30 bg-gradient-to-br from-indigo-500/[0.12] to-violet-500/[0.05] p-5 sm:p-6 mb-4 min-h-[188px] flex flex-col">
+      {/* Predicted grade, graph, and the path to the top */}
+      {attempts && hasPapers && (
+        <GradeOutlook attempts={attempts} curriculumId={curriculumId} examDate={examDate} subjects={subjects} />
+      )}
+      {attempts && !hasPapers && (
+        <div className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-5 mb-4">
+          <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 mb-1.5">Predicted grade</p>
+          <p className={`${display.className} text-white font-bold text-[22px] leading-tight mb-1`}>Appears after your first paper</p>
+          <p className="text-zinc-400 text-[13px]">Every marked paper adds a point to your graph, with the path from where you are to the top grade.</p>
+        </div>
+      )}
+
+      {/* Tonight's paper */}
+      <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 mb-2 mt-2">{hasPapers ? "Tonight" : ""}</p>
+      <div className="rounded-[28px] border border-indigo-400/30 bg-gradient-to-br from-indigo-500/[0.12] to-violet-500/[0.05] p-5 sm:p-6 mb-4 min-h-[172px] flex flex-col">
         {phase === "ready" && exam && (
           <>
             <p className="font-mono text-[10.5px] uppercase tracking-wider text-indigo-300 mb-1.5">Tonight&apos;s paper · ready</p>
@@ -149,7 +195,7 @@ export default function TodayPage() {
         )}
       </div>
 
-      {/* Tonight's other two things */}
+      {/* Reviews + streak */}
       <div className="grid grid-cols-2 gap-3 mb-6">
         <Link href="/review" className={`rounded-2xl border p-4 min-h-[88px] flex flex-col justify-between ${due > 0 ? "border-amber-400/30 bg-amber-500/[0.06]" : "border-white/[0.07] bg-white/[0.015]"}`}>
           <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500">Reviews due</p>
@@ -165,7 +211,7 @@ export default function TodayPage() {
 
       <div className="flex flex-wrap items-center justify-between gap-3 text-[13px]">
         <Link href="/subjects" className="text-indigo-400 font-semibold hover:underline">Different subject tonight →</Link>
-        <Link href="/dashboard" className="text-zinc-500 hover:text-zinc-300">Progress</Link>
+        <Link href="/dashboard" className="text-zinc-500 hover:text-zinc-300">All papers</Link>
       </div>
     </div>
   );
