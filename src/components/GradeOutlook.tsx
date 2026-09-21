@@ -134,31 +134,28 @@ export default function GradeOutlook({
             ))}
 
             {/* The way to the target, and the next milestone on it */}
-            <path d={toTarget} fill="none" stroke="#a78bfa" strokeOpacity="0.45" strokeWidth="2.5" strokeDasharray="1 8" strokeLinecap="round" />
+            <path d={toTarget} fill="none" stroke="#a78bfa" strokeOpacity="0.35" strokeWidth="4" strokeLinecap="round" />
 
             {/* Your papers: smooth purple wave */}
             <path d={areaPath} fill="url(#go-fill)" />
             <path d={linePath} fill="none" stroke="url(#go-stroke)" strokeWidth="4" strokeLinecap="round" filter="url(#go-glow)" />
 
-            {next && (
-              <g>
-                <circle cx={x(next.t)} cy={y(next.pct)} r="5" fill="#0f0f17" stroke="#c4b5fd" strokeWidth="2" />
-                <text x={x(next.t)} y={y(next.pct) + 22} fontSize="12" fill="#d4d4d8" textAnchor="middle" fontWeight="600">Next · {next.pct}% by {next.label}</text>
-              </g>
-            )}
-
             {/* Target */}
-            <circle cx={tx} cy={ty} r="8" fill={TONE_HEX[top.tone]} stroke="#0f0f17" strokeWidth="3" />
-            <text x={tx - 16} y={ty + 4} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
+            <text x={tx - 4} y={ty - 8} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
 
             {/* You */}
-            <circle cx={youX} cy={y(last.pct)} r="9" fill="#8b5cf6" stroke="#0f0f17" strokeWidth="3" filter="url(#go-glow)" />
-            <text x={youX} y={y(last.pct) - 18} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
+            <text x={youX} y={y(last.pct) - 14} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
 
             {/* Dates */}
             <text x={L} y={H - 9} fontSize="11.5" fill="#a1a1aa">{points.length > 1 ? "Grade check · " : ""}{fmt(t0)}</text>
             <text x={W - R} y={H - 9} fontSize="11.5" fill="#a1a1aa" textAnchor="end">{examDate ? `Exam · ${fmt(endT)}` : fmt(endT)}</text>
           </svg>
+
+          {next && (
+            <p className="text-zinc-400 text-[13px] mt-3">
+              Next milestone: <span className="text-white font-semibold">{next.pct}% by {next.label}</span>. The lighter wave is the way there.
+            </p>
+          )}
 
           {/* Tools */}
           <div className="grid grid-cols-3 gap-2 mt-4">
