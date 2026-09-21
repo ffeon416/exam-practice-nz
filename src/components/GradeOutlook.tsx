@@ -70,7 +70,7 @@ export default function GradeOutlook({
   const youX = last ? x(last.t) : 0;
 
   return (
-    <section className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-4 sm:p-6 mb-4">
+    <section className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-4 sm:p-6 lg:p-8 mb-4 lg:mb-0">
       {order.length > 1 && (
         <div className="flex gap-1.5 overflow-x-auto -mx-1 px-1 pb-3 [scrollbar-width:none]">
           {order.map((s) => (
@@ -96,7 +96,7 @@ export default function GradeOutlook({
         <>
           {/* One line of numbers above the chart */}
           <div className="flex items-baseline justify-between gap-3 mb-2">
-            <p className={`${display.className} font-bold text-[26px] sm:text-[30px] leading-none tracking-[-0.02em] ${TONE_TEXT[nowBand!.tone]}`}>
+            <p className={`${display.className} font-bold text-[26px] sm:text-[30px] lg:text-[36px] leading-none tracking-[-0.02em] ${TONE_TEXT[nowBand!.tone]}`}>
               {nowBand!.label} <span className="text-zinc-500 text-[15px] font-semibold">{now}%</span>
             </p>
             <p className="text-zinc-400 text-[13px] text-right">

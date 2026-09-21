@@ -168,7 +168,7 @@ export default function TodayPage() {
   const hasPapers = (attempts?.length ?? 0) > 0;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 pb-10">
+    <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-14 pt-6 sm:pt-8 lg:pt-10 pb-10">
       <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 mb-1">
         {firstName ? `${firstName}'s` : "Your"} dashboard
       </p>
@@ -176,6 +176,8 @@ export default function TodayPage() {
         {hasPapers ? "Where you are" : "Let's find your starting point"}
       </h1>
 
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
+      <div className="lg:col-span-8 xl:col-span-9">
       {/* Predicted grade, graph, and the path to the top */}
       {attempts && (
         <GradeOutlook
@@ -191,6 +193,8 @@ export default function TodayPage() {
         />
       )}
 
+      </div>
+      <div className="lg:col-span-4 xl:col-span-3">
       {/* Tonight's paper */}
       <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 mb-2 mt-2">{hasPapers ? "Tonight" : ""}</p>
       <div className="rounded-[28px] border border-indigo-400/30 bg-gradient-to-br from-indigo-500/[0.12] to-violet-500/[0.05] p-5 sm:p-6 mb-4 min-h-[172px] flex flex-col">
@@ -257,6 +261,8 @@ export default function TodayPage() {
       <div className="flex flex-wrap items-center justify-between gap-3 text-[13px]">
         <Link href="/subjects" className="text-indigo-400 font-semibold hover:underline">Different subject tonight →</Link>
         <Link href="/dashboard" className="text-zinc-500 hover:text-zinc-300">All papers</Link>
+      </div>
+      </div>
       </div>
 
       {spotSheet && spot && (
