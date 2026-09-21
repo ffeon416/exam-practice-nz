@@ -168,7 +168,7 @@ export default function TodayPage() {
   const hasPapers = (attempts?.length ?? 0) > 0;
 
   return (
-    <div className="max-w-lg mx-auto px-5 pt-6 sm:pt-10 pb-10">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 pb-10">
       <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 mb-1">
         {firstName ? `${firstName}'s` : "Your"} dashboard
       </p>
