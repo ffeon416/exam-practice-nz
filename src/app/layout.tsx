@@ -5,6 +5,7 @@ import { dark } from "@clerk/themes";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import BottomTabs from "@/components/BottomTabs";
+import Sidebar from "@/components/Sidebar";
 import RefCapture from "@/components/RefCapture";
 import PageViewTracker from "@/components/PageViewTracker";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
@@ -134,6 +135,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <BottomTabs />
+          <Sidebar />
           <RefCapture />
           <ServiceWorkerRegister />
           {/* Non-essential scripts are held back until the page has hydrated and

@@ -325,3 +325,6 @@ body {
 /* Bottom tab bar (BottomTabs.tsx) reserves its height under page content on phones. */
 .has-tabs main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
 @media (min-width: 768px) { .has-tabs main { padding-bottom: 0; } }
+
+/* Sidebar (Sidebar.tsx) reserves its width on desktop; the tabs own phones. */
+@media (min-width: 768px) { .has-sidebar main { padding-left: 248px; } }

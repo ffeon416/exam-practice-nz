@@ -72,8 +72,9 @@ export default function Navbar() {
     ? { href: "/pricing", label: "See pricing" }
     : { href: "/grade", label: "Free grade check" };
 
-  // Mid-paper there is no chrome at all — the exam screen owns the viewport.
-  if (isPaid && /^\/exam\/[^/]+$/.test(pathname)) return null;
+  // The coach app has no header: the sidebar (desktop) and bottom tabs (phone)
+  // carry everything, and mid-paper there is no chrome at all.
+  if (isPaid && /^\/(today|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/.test(pathname)) return null;
 
   return (
     <>

@@ -23,6 +23,9 @@ const TABS = [
   { href: "/dashboard", label: "Progress", icon: (a: boolean) => (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 19h16M7 16V10M12 16V5M17 16v-8" /></svg>
   ) },
+  { href: "/profile", label: "You", icon: (a: boolean) => (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16 8a4 4 0 11-8 0 4 4 0 018 0zM4 21a8 8 0 0116 0" /></svg>
+  ) },
 ];
 
 const COACH_PREFIX = /^\/(today|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
@@ -54,9 +57,11 @@ export default function BottomTabs() {
       className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08]"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="grid grid-cols-4 h-[60px]">
+      <div className="grid grid-cols-5 h-[60px]">
         {TABS.map((t) => {
-          const active = pathname === t.href || pathname.startsWith(t.href + "/") || (t.href === "/dashboard" && pathname.startsWith("/plan"));
+          const active = pathname === t.href || pathname.startsWith(t.href + "/")
+            || (t.href === "/dashboard" && (pathname.startsWith("/plan") || pathname.startsWith("/refer")))
+            || (t.href === "/subjects" && pathname.startsWith("/exam"));
           return (
             <Link key={t.href} href={t.href}
               className={`relative flex flex-col items-center justify-center gap-0.5 text-[10.5px] font-semibold ${active ? "text-white" : "text-zinc-500"}`}>
