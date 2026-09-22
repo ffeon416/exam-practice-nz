@@ -29,7 +29,7 @@ export default function JourneyPath({
   const lit = useMemo(() => samplePath(0, here.u), [here.u]);
 
   return (
-    <svg viewBox={`0 0 ${VB.w} ${VB.h}`} className="w-full h-auto block select-none" role="img" aria-label="Your path to the top grade">
+    <svg viewBox={`0 0 ${VB.w} ${VB.h}`} className="w-full h-auto block select-none lg:max-h-[calc(100vh-300px)] lg:min-h-[480px]" role="img" aria-label="Your path to the top grade">
       <defs>
         <linearGradient id="jp-stroke" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#c4b5fd" />

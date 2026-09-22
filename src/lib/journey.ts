@@ -14,13 +14,13 @@ export interface Step {
   above: boolean;       // label placement
 }
 
-export const VB = { w: 1000, h: 380, padX: 80, top: 110, bottom: 300 };
+export const VB = { w: 1000, h: 520, padX: 80, top: 120, bottom: 430 };
 
 /** A gentle rising wave: low on the left, high on the right, two soft crests. */
 export function pathPoint(u: number): { x: number; y: number } {
   const x = VB.padX + u * (VB.w - VB.padX * 2);
   const rise = VB.bottom - u * (VB.bottom - VB.top);
-  const wave = Math.sin(u * Math.PI * 2 * 1.5 + Math.PI) * 30 * (1 - u * 0.35);
+  const wave = Math.sin(u * Math.PI * 2 * 1.5 + Math.PI) * 44 * (1 - u * 0.35);
   return { x, y: rise + wave };
 }
 
@@ -79,7 +79,8 @@ export function buildJourney(opts: {
       : `w/c ${fmt(when!)}`;
 
     // Alternate sides counting back from the destination, which always sits above.
-    steps.push({ i, u, x, y, kind, title, sub, state, above: (n - i) % 2 === 0 });
+    // The start label always sits below (the line rises away from it).
+    steps.push({ i, u, x, y, kind, title, sub, state, above: i === 0 ? false : (n - i) % 2 === 0 });
   }
   return steps;
 }
