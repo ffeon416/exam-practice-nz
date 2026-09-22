@@ -108,7 +108,7 @@ export default function DailyPath({ weeks, busy, onNode }: { weeks: PlanWeek[]; 
                       <div className="flex items-center justify-between gap-4 min-h-[46px] mb-6">
                         <div className="min-w-0">
                           <p className={`text-[15px] font-semibold leading-tight ${done ? "text-zinc-200" : isCheck ? "text-emerald-400/60" : "text-zinc-500"}`}>{n.title}</p>
-                          <p className="text-[11.5px] text-zinc-600 mt-0.5">{done ? "Done" : `${day(n.date)} ${date(n.date)}`}</p>
+                          <p className="text-[11.5px] text-zinc-600 mt-0.5">{done ? "Done" : w.done === 0 && j === 1 && w.nodes[0].kind === "check" && w.nodes[0].state === "current" ? "Unlocks after your grade check" : `${day(n.date)} ${date(n.date)}`}</p>
                         </div>
                         {done
                           ? <span className="font-mono text-[10.5px] uppercase tracking-wider text-violet-300 shrink-0">done</span>

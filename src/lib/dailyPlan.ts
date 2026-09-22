@@ -69,10 +69,21 @@ export function buildDailyPlan(opts: {
   let i = 0;
   let completed = opts.completed;
 
-  // No baseline yet: the whole path is one node. Nothing else opens until it's done.
+  // No baseline yet: the grade check is the only open task, but the week it
+  // unlocks is laid out beneath it (locked) so the path is visible from day one.
   if (!opts.hasBaseline) {
-    const n: DayNode = { i: 0, week: 0, date: today, kind: "check", title: "Grade check", state: "current" };
-    return { weeks: [{ k: 0, start: today, end: today + 7 * DAY, nodes: [n], done: 0, total: 1, note: "Everything starts here. Eight questions, marked properly, so we know where you are.", state: "current" }], current: n, totalWeeks };
+    const c = cadence("on-track", opts.hasWeakSpot);
+    const first: DayNode = { i: 0, week: 0, date: today, kind: "check", title: "Grade check", state: "current" };
+    const nodes: DayNode[] = [first];
+    c.days.forEach((d, j) => nodes.push({ i: j + 1, week: 0, date: today + (d + 1) * DAY, kind: c.kinds[j], title: titleFor(c.kinds[j]), state: "locked" }));
+    nodes.push({ i: nodes.length, week: 0, date: today + 7 * DAY, kind: "check", title: "Weekly grade check", state: "locked" });
+    const week0: PlanWeek = { k: 0, start: today, end: today + 7 * DAY, nodes, done: 0, total: nodes.length, note: "Everything starts here. Eight questions, marked properly, so we know where you are. The rest of the week unlocks from the result.", state: "current" };
+    const n1: DayNode[] = [];
+    const c1 = cadence("on-track", opts.hasWeakSpot);
+    c1.days.forEach((d, j) => n1.push({ i: nodes.length + j, week: 1, date: today + 7 * DAY + d * DAY, kind: c1.kinds[j], title: titleFor(c1.kinds[j]), state: "locked" }));
+    n1.push({ i: nodes.length + n1.length, week: 1, date: today + 13 * DAY, kind: "check", title: "Weekly grade check", state: "locked" });
+    const week1: PlanWeek = { k: 1, start: today + 7 * DAY, end: today + 14 * DAY, nodes: n1, done: 0, total: n1.length, note: "", state: "locked" };
+    return { weeks: totalWeeks > 1 ? [week0, week1] : [week0], current: first, totalWeeks };
   }
 
   // Which week are we in? Completed nodes fill weeks in order; the week
