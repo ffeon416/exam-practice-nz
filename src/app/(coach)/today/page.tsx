@@ -6,6 +6,7 @@
 // where they are against each goal.
 
 import { useEffect, useMemo, useState } from "react";
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
@@ -25,6 +26,7 @@ type Status = "loading" | "building" | "ready" | "done" | "failed";
 
 export default function TodayPage() {
   const router = useRouter();
+  const { user } = useUser();
   const [attempts, setAttempts] = useState<ExamAttempt[] | null>(null);
   const [topicScores, setTopicScores] = useState<Record<string, TopicScore>>({});
   const [subjects, setSubjects] = useState<string[]>([]);
@@ -78,7 +80,10 @@ export default function TodayPage() {
 
   const hasBaseline = (s: string) => {
     const g = goalFor(goals, s);
-    const since = g?.startedAt ? new Date(g.startedAt).getTime() - 60_000 : 0;
+    const startIso = g?.startedAt ?? g?.updatedAt;
+    // No goal yet → nothing counts as a baseline; the grade check comes first.
+    if (!startIso) return false;
+    const since = new Date(startIso).getTime() - 60_000;
     return (attempts ?? []).some((a) => a.subject === s && new Date(a.date).getTime() >= since);
   };
   const spotFor = (s: string) => weakSpot(s, tierBreakdown(subjectSeries(attempts ?? [], s), getCustomExam), Object.values(topicScores));
@@ -131,13 +136,12 @@ export default function TodayPage() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
-      <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 mb-1">Your dashboard</p>
-      <h1 className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6`}>Today</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         <div className="lg:col-span-8">
           {task ? (
             <TodayCard
+              firstName={user?.firstName?.trim() || null}
               day={day}
               dateLabel={dateLabel}
               subjectLabel={label(task.subject)}

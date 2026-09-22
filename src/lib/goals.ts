@@ -26,7 +26,8 @@ export function loadGoals(): SubjectGoal[] {
   try {
     const raw = localStorage.getItem(scopedKey(KEY));
     const parsed = raw ? (JSON.parse(raw) as SubjectGoal[]) : [];
-    return Array.isArray(parsed) ? parsed : [];
+    // Goals saved before startedAt existed: the plan began when they were set.
+    return Array.isArray(parsed) ? parsed.map((g) => ({ ...g, startedAt: g.startedAt ?? g.updatedAt })) : [];
   } catch {
     return [];
   }
