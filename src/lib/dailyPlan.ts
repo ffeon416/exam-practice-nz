@@ -101,6 +101,16 @@ export function buildDailyPlan(opts: {
   for (const w of weeks) {
     w.state = w.done === w.total ? "done" : w.nodes.some((n) => n.state === "current") ? "current" : "locked";
   }
+  // Everything done (short runway, or a very active student): the last grade
+  // check stays open — re-checking is always useful and updates the plan.
+  if (!current && weeks.length) {
+    const lastWeek = weeks[weeks.length - 1];
+    const lastNode = lastWeek.nodes[lastWeek.nodes.length - 1];
+    lastNode.state = "current"; lastNode.title = "Grade check · re-measure";
+    lastWeek.done = Math.max(0, lastWeek.done - 1); lastWeek.state = "current";
+    lastWeek.note = "Week complete. Sit the grade check again to update where you are and plan the next week.";
+    current = lastNode;
+  }
   // Shift dates so the current node is today (the plan follows the student, not the calendar).
   if (current) {
     const shift = today - current.date;
