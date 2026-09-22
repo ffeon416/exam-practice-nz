@@ -1,91 +1,95 @@
 "use client";
 
-// Duolingo-style path: a winding column of nodes, one per task day. Done
-// nodes are filled purple, the current node pulses with a START bubble,
-// locked nodes are grey. Each week is a section with a header and a note
-// explaining why it's as heavy as it is. Tap the current node to do it.
+// StudyAce's path: a vertical timeline. A thin rail runs down the left —
+// the part you've travelled glows in the brand gradient — and each task is
+// a row beside it. Today's task is the one real card on the screen, with
+// the Start button; done tasks fold to a line; locked ones sit dim until
+// you reach them. Week headers use the app's mono label style.
 
+import { display } from "@/lib/displayFont";
 import type { DayNode, PlanWeek } from "@/lib/dailyPlan";
 
-const ICON: Record<DayNode["kind"], (a: boolean) => React.ReactNode> = {
-  check: (a) => (
-    <svg className={a ? "w-7 h-7" : "w-6 h-6"} fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 12l4 4L20 6" /></svg>
-  ),
-  paper: (a) => (
-    <svg className={a ? "w-7 h-7" : "w-6 h-6"} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7 3h7l5 5v13H7z" /><path strokeLinecap="round" d="M9 12h6M9 16h6" /></svg>
-  ),
-  fix: (a) => (
-    <svg className={a ? "w-7 h-7" : "w-6 h-6"} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M14 6l4 4-9 9H5v-4l9-9zM12 8l4 4" /></svg>
-  ),
-  mock: (a) => (
-    <svg className={a ? "w-7 h-7" : "w-6 h-6"} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><circle cx="12" cy="13" r="8" /><path strokeLinecap="round" d="M12 9v4l3 2M9 3h6" /></svg>
-  ),
+const KIND_META: Record<DayNode["kind"], { blurb: string; length: string }> = {
+  check: { blurb: "Eight questions, marked properly. Sets where you are this week.", length: "8 questions · about 15 min" },
+  paper: { blurb: "A fresh paper in your exam's style, marked the moment you finish.", length: "8 questions · about 15 min" },
+  fix: { blurb: "A paper built on the one thing losing you the most marks.", length: "8 questions · about 15 min" },
+  mock: { blurb: "Timed, full length, no feedback until the end. Like the real day.", length: "12 questions · timed" },
 };
 
-const OFFSETS = [0, 44, 72, 44, 0, -44, -72, -44]; // gentle zigzag, px
-
 export default function DailyPath({ weeks, busy, onNode }: { weeks: PlanWeek[]; busy?: boolean; onNode: (n: DayNode) => void }) {
-  const fmtDay = (t: number) => new Date(t).toLocaleDateString("en-NZ", { weekday: "short" });
-  const fmtDate = (t: number) => new Date(t).toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
-  return (
-    <div className="max-w-md mx-auto">
-      {weeks.map((w) => (
-        <section key={w.k} className={w.state === "locked" ? "opacity-70" : ""}>
-          {/* Week header */}
-          <div className={`rounded-2xl px-4 py-3 mb-6 ${w.state === "current" ? "bg-gradient-to-r from-indigo-500 to-violet-600 text-white" : "bg-white/[0.04] border border-white/[0.08] text-zinc-300"}`}>
-            <div className="flex items-center justify-between gap-3">
-              <p className="font-mono text-[10.5px] uppercase tracking-wider opacity-80">Week {w.k + 1} · {fmtDate(w.start)}</p>
-              <p className="font-mono text-[11px] font-bold">{w.done}/{w.total}</p>
-            </div>
-            <p className="text-[13.5px] font-semibold mt-0.5">{w.state === "locked" ? "Planned after your next grade check" : w.note}</p>
-          </div>
+  const day = (t: number) => new Date(t).toLocaleDateString("en-NZ", { weekday: "short" });
+  const date = (t: number) => new Date(t).toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
+  const long = (t: number) => new Date(t).toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
 
-          {/* Nodes */}
-          <ol className="relative mb-4">
-            {w.nodes.map((n, j) => {
-              const off = OFFSETS[(n.i) % OFFSETS.length];
-              const done = n.state === "done", cur = n.state === "current", locked = n.state === "locked";
-              const isCheck = n.kind === "check";
-              return (
-                <li key={n.i} className="relative flex items-center justify-center" style={{ height: 104 }}>
-                  {/* connector */}
-                  {j < w.nodes.length - 1 && (
-                    <span className="absolute left-1/2 top-[70px] h-[40px] w-[3px] rounded-full" style={{ transform: `translateX(calc(-50% + ${(off + OFFSETS[(n.i + 1) % OFFSETS.length]) / 2}px))`, background: done ? "#8b5cf6" : "#27272a" }} aria-hidden />
-                  )}
-                  <div className="relative" style={{ transform: `translateX(${off}px)` }}>
-                    {cur && (
-                      <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white text-[#0a0a0f] text-[11px] font-extrabold tracking-wider whitespace-nowrap shadow-lg">
-                        {busy ? "BUILDING…" : "START"}
-                        <span className="absolute left-1/2 -bottom-1.5 -translate-x-1/2 w-3 h-3 bg-white rotate-45" aria-hidden />
-                      </span>
+  return (
+    <div className="max-w-2xl">
+      {weeks.map((w) => {
+        const current = w.state === "current";
+        return (
+          <section key={w.k} className={`mb-8 ${w.state === "locked" ? "opacity-60" : ""}`}>
+            {/* Week header */}
+            <div className="flex items-end justify-between gap-4 pb-3 mb-1 border-b border-white/[0.06]">
+              <div>
+                <p className={`font-mono text-[10.5px] uppercase tracking-[0.14em] ${current ? "text-indigo-300" : "text-zinc-500"}`}>Week {w.k + 1} · {date(w.start)}</p>
+                <p className="text-zinc-400 text-[13px] mt-1">{w.state === "locked" ? "Planned after your next grade check." : w.note}</p>
+              </div>
+              <p className={`${display.className} font-bold text-[20px] leading-none tabular-nums ${current ? "text-white" : "text-zinc-500"}`}>{w.done}<span className="text-zinc-600 text-[14px]">/{w.total}</span></p>
+            </div>
+
+            {/* Timeline */}
+            <ol className="relative">
+              {w.nodes.map((n, j) => {
+                const done = n.state === "done", cur = n.state === "current";
+                const isCheck = n.kind === "check";
+                const last = j === w.nodes.length - 1;
+                const railColor = done ? "linear-gradient(180deg,#a78bfa,#7c3aed)" : "rgba(255,255,255,0.08)";
+                return (
+                  <li key={n.i} className="relative pl-12">
+                    {/* rail segment below this node */}
+                    {!last && <span className="absolute left-[15px] top-6 bottom-0 w-[2px]" style={{ background: railColor, boxShadow: done ? "0 0 12px rgba(139,92,246,0.55)" : "none" }} aria-hidden />}
+                    {/* node */}
+                    <span className="absolute left-0 top-[6px] w-8 h-8 flex items-center justify-center" aria-hidden>
+                      {cur && <span className="absolute w-8 h-8 rounded-full bg-violet-400/40 sa-pulse-ring" />}
+                      <span className={`relative rounded-full ${
+                        done ? "w-3.5 h-3.5 bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.8)]"
+                        : cur ? "w-4 h-4 bg-white ring-4 ring-violet-500/40"
+                        : `w-3 h-3 border-2 ${isCheck ? "border-emerald-500/50" : "border-zinc-600"} bg-[#06060a]`
+                      }`} />
+                    </span>
+
+                    {cur ? (
+                      /* ── Today's task: the one card ── */
+                      <div className={`mb-6 rounded-[24px] border p-5 sm:p-6 ${isCheck ? "border-emerald-400/35 bg-gradient-to-br from-emerald-500/[0.10] to-transparent" : "border-indigo-400/35 bg-gradient-to-br from-indigo-500/[0.12] to-violet-500/[0.04]"}`}>
+                        <p className={`font-mono text-[10.5px] uppercase tracking-[0.14em] mb-1.5 ${isCheck ? "text-emerald-300" : "text-indigo-300"}`}>Today · {long(n.date)}</p>
+                        <p className={`${display.className} text-white font-bold text-[24px] sm:text-[28px] leading-tight tracking-[-0.02em] mb-1.5`}>{n.title}</p>
+                        <p className="text-zinc-400 text-[13.5px] leading-relaxed mb-1">{KIND_META[n.kind].blurb}</p>
+                        <p className="text-zinc-600 text-[12px] mb-5">{KIND_META[n.kind].length}</p>
+                        <button onClick={() => !busy && onNode(n)} disabled={busy}
+                          className="w-full bg-white text-[#0a0a0f] font-bold text-[16px] py-4 rounded-full min-h-[52px] hover:scale-[1.01] transition-transform disabled:opacity-60">
+                          {busy ? "Building your paper…" : "Start →"}
+                        </button>
+                      </div>
+                    ) : (
+                      /* ── Done or locked: a quiet row ── */
+                      <div className="flex items-center justify-between gap-4 py-2.5 mb-2 min-h-[44px]">
+                        <div className="min-w-0">
+                          <p className={`text-[14.5px] font-semibold leading-tight ${done ? "text-zinc-300" : isCheck ? "text-emerald-400/70" : "text-zinc-500"}`}>{n.title}</p>
+                          <p className="text-[11.5px] text-zinc-600 mt-0.5">{done ? "Done" : `${day(n.date)} ${date(n.date)}`}</p>
+                        </div>
+                        {done ? (
+                          <span className="font-mono text-[10.5px] uppercase tracking-wider text-violet-300 shrink-0">✓ done</span>
+                        ) : (
+                          <svg className="w-4 h-4 text-zinc-700 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 118 0v3" /></svg>
+                        )}
+                      </div>
                     )}
-                    <button
-                      onClick={cur && !busy ? () => onNode(n) : undefined}
-                      disabled={!cur || busy}
-                      aria-label={`${n.title}, ${fmtDay(n.date)}${done ? ", done" : cur ? ", start" : ", locked"}`}
-                      className={`relative w-[68px] h-[68px] rounded-full flex items-center justify-center transition-transform ${
-                        done ? "bg-violet-600 text-white shadow-[0_6px_0_#4c1d95]"
-                        : cur ? "bg-white text-[#0a0a0f] shadow-[0_6px_0_#a78bfa] hover:scale-105"
-                        : "bg-zinc-800 text-zinc-500 shadow-[0_6px_0_#18181b] cursor-default"
-                      } ${isCheck && !done ? "ring-2 ring-emerald-400/70 ring-offset-2 ring-offset-[#06060a]" : ""}`}
-                    >
-                      {cur && <span className="absolute inset-0 rounded-full bg-violet-400/40 sa-pulse-ring" aria-hidden />}
-                      {done ? ICON.check(false) : locked ? (
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 118 0v3" /></svg>
-                      ) : ICON[n.kind](true)}
-                    </button>
-                    {/* label beside the node, on the open side */}
-                    <div className={`absolute top-1/2 -translate-y-1/2 ${off >= 0 ? "right-[84px] text-right" : "left-[84px] text-left"} w-[150px]`}>
-                      <p className={`text-[14px] font-bold leading-tight ${cur ? "text-white" : done ? "text-zinc-300" : "text-zinc-500"}`}>{n.title}</p>
-                      <p className={`text-[11.5px] ${cur ? "text-indigo-300" : "text-zinc-600"}`}>{done ? "done" : cur ? `today · ${fmtDay(n.date)}` : `${fmtDay(n.date)} ${fmtDate(n.date)}`}</p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-        </section>
-      ))}
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        );
+      })}
     </div>
   );
 }
