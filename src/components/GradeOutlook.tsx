@@ -64,7 +64,7 @@ export default function GradeOutlook({
   // ── Chart: y runs 30–100 (nothing useful lives below), zones are the bands ──
 
   return (
-    <section className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-4 sm:p-6 lg:p-8 mb-4 lg:mb-0">
+    <section className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-4 sm:p-6 lg:p-10">
       {order.length > 1 && (
         <div className="flex gap-1.5 overflow-x-auto -mx-1 px-1 pb-3 [scrollbar-width:none]">
           {order.map((s) => (

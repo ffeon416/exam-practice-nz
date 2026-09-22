@@ -42,46 +42,46 @@ export default function JourneyPath({
       </defs>
 
       {/* the road ahead, then the part you've travelled */}
-      <path d={full} fill="none" stroke="#7c3aed" strokeOpacity="0.28" strokeWidth="6" strokeLinecap="round" />
-      <path d={lit} fill="none" stroke="url(#jp-stroke)" strokeWidth="6" strokeLinecap="round" filter="url(#jp-glow)" style={{ transition: "d 900ms ease" }} />
+      <path d={full} fill="none" stroke="#7c3aed" strokeOpacity="0.28" strokeWidth="8" strokeLinecap="round" />
+      <path d={lit} fill="none" stroke="url(#jp-stroke)" strokeWidth="8" strokeLinecap="round" filter="url(#jp-glow)" style={{ transition: "d 900ms ease" }} />
 
       {/* steps */}
       {steps.map((s) => {
         const isDest = s.kind === "destination";
         const clickable = s.state === "next" && !busy;
-        const r = isDest ? 11 : s.state === "next" ? 7 : 5;
+        const r = isDest ? 13 : s.state === "next" ? 9 : 6;
         const fill = s.state === "done" ? "#a78bfa" : s.state === "next" ? "#ffffff" : "#27272a";
         const stroke = s.state === "upcoming" ? "#52525b" : "#0f0f17";
         const dy = s.above ? -1 : 1;
-        const titleY = s.above ? s.y - 34 : s.y + 28;
-        const subY = s.above ? s.y - 20 : s.y + 43;
+        const titleY = s.above ? s.y - 40 : s.y + 34;
+        const subY = s.above ? s.y - 22 : s.y + 52;
         const anchor = s.i === 0 ? "start" : isDest ? "end" : "middle";
-        const tx = s.i === 0 ? s.x - 4 : isDest ? s.x + 10 : s.x;
+        const tx = s.i === 0 ? s.x - 6 : isDest ? s.x + 14 : s.x;
         const titleFill = isDest ? "#34d399" : s.state === "next" ? "#ffffff" : s.state === "done" ? "#a1a1aa" : "#71717a";
         return (
           <g key={s.i} onClick={clickable ? () => onStep(s) : undefined} style={{ cursor: clickable ? "pointer" : "default" }}>
-            {isDest && <circle cx={s.x} cy={s.y} r="18" fill="#34d399" fillOpacity="0.18" />}
+            {isDest && <circle cx={s.x} cy={s.y} r="22" fill="#34d399" fillOpacity="0.18" />}
             {isDest
               ? <circle cx={s.x} cy={s.y} r={r} fill="#34d399" stroke="#0f0f17" strokeWidth="3" />
               : <circle cx={s.x} cy={s.y} r={r} fill={fill} stroke={stroke} strokeWidth="2" />}
             {s.i !== here.i && (
               <>
-                <text x={tx} y={titleY + (dy < 0 ? 0 : 0)} fontSize={isDest ? 13 : 12} fontWeight={s.state === "next" || isDest ? 700 : 600} fill={titleFill} textAnchor={anchor}>{s.title}</text>
-                {s.sub && <text x={tx} y={subY} fontSize="10.5" fill={s.state === "next" ? "#c4b5fd" : "#71717a"} textAnchor={anchor}>{s.sub}</text>}
+                <text x={tx} y={titleY + (dy < 0 ? 0 : 0)} fontSize={isDest ? 17 : 15} fontWeight={s.state === "next" || isDest ? 700 : 600} fill={titleFill} textAnchor={anchor}>{s.title}</text>
+                {s.sub && <text x={tx} y={subY} fontSize="12.5" fill={s.state === "next" ? "#c4b5fd" : "#71717a"} textAnchor={anchor}>{s.sub}</text>}
               </>
             )}
-            {clickable && <text x={s.x} y={s.above ? s.y + 26 : s.y - 18} fontSize="10.5" fontWeight="700" fill="#c4b5fd" textAnchor="middle" style={{ letterSpacing: "0.08em" }}>TAP TO START</text>}
+            {clickable && <text x={s.x} y={s.above ? s.y + 30 : s.y - 22} fontSize="11.5" fontWeight="700" fill="#c4b5fd" textAnchor="middle" style={{ letterSpacing: "0.08em" }}>TAP TO START</text>}
           </g>
         );
       })}
 
       {/* YOU — slides along the line as tasks get done */}
       <g style={{ transform: `translate(${here.x}px, ${here.y}px)`, transition: "transform 900ms cubic-bezier(.2,.8,.2,1)" }}>
-        <circle r="22" fill="#8b5cf6" fillOpacity="0.35" className="sa-pulse-ring" />
-        <circle r="14" fill="#8b5cf6" stroke="#ffffff" strokeWidth="3" filter="url(#jp-glow)" />
-        <text y="4" fontSize="10" fontWeight="800" fill="#ffffff" textAnchor="middle">YOU</text>
+        <circle r="28" fill="#8b5cf6" fillOpacity="0.35" className="sa-pulse-ring" />
+        <circle r="18" fill="#8b5cf6" stroke="#ffffff" strokeWidth="3.5" filter="url(#jp-glow)" />
+        <text y="4.5" fontSize="12" fontWeight="800" fill="#ffffff" textAnchor="middle">YOU</text>
         {here.i !== 0 && (
-          <text y={here.above ? -34 : 30} fontSize="12" fontWeight="600" fill="#e4e4e7" textAnchor="middle">{here.title}</text>
+          <text y={here.above ? -40 : 38} fontSize="14" fontWeight="600" fill="#e4e4e7" textAnchor="middle">{here.title}</text>
         )}
       </g>
       {next == null && null}

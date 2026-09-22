@@ -14,13 +14,13 @@ export interface Step {
   above: boolean;       // label placement
 }
 
-export const VB = { w: 800, h: 300, padX: 56, top: 92, bottom: 236 };
+export const VB = { w: 1000, h: 380, padX: 80, top: 110, bottom: 300 };
 
 /** A gentle rising wave: low on the left, high on the right, two soft crests. */
 export function pathPoint(u: number): { x: number; y: number } {
   const x = VB.padX + u * (VB.w - VB.padX * 2);
   const rise = VB.bottom - u * (VB.bottom - VB.top);
-  const wave = Math.sin(u * Math.PI * 2 * 1.5 + Math.PI) * 24 * (1 - u * 0.35);
+  const wave = Math.sin(u * Math.PI * 2 * 1.5 + Math.PI) * 30 * (1 - u * 0.35);
   return { x, y: rise + wave };
 }
 
@@ -67,7 +67,7 @@ export function buildJourney(opts: {
 
     const title =
       kind === "start" ? "Grade check"
-      : kind === "destination" ? `Perfect A's · ${opts.destinationLabel}`
+      : kind === "destination" ? "Perfect A's"
       : kind === "mock" ? "Mock exam"
       : kind === "fix" ? "Fix your weak spot"
       : "Practice paper";
@@ -75,7 +75,7 @@ export function buildJourney(opts: {
       kind === "start" ? ""
       : state === "done" ? ""
       : state === "next" ? (when && when - opts.now < week ? "up next · this week" : `up next · ${fmt(when!)}`)
-      : kind === "destination" ? `exam · ${fmt(opts.exam)}`
+      : kind === "destination" ? `${opts.destinationLabel} · exam ${fmt(opts.exam)}`
       : `w/c ${fmt(when!)}`;
 
     // Alternate sides counting back from the destination, which always sits above.
