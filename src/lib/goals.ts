@@ -15,6 +15,8 @@ export interface SubjectGoal {
   curriculumId: string;
   year: number;
   updatedAt: string;
+  /** When the plan for this subject began (first time the goal was set). Papers before this don't count. */
+  startedAt: string;
 }
 
 const KEY = "studyace-goals";
@@ -35,8 +37,10 @@ export function saveGoalsLocal(goals: SubjectGoal[]): void {
 }
 
 /** Upsert one goal locally and on the server. */
-export async function setGoal(goal: Omit<SubjectGoal, "updatedAt">): Promise<SubjectGoal[]> {
-  const full: SubjectGoal = { ...goal, updatedAt: new Date().toISOString() };
+export async function setGoal(goal: Omit<SubjectGoal, "updatedAt" | "startedAt">): Promise<SubjectGoal[]> {
+  const existing = loadGoals().find((g) => g.subject === goal.subject);
+  const nowIso = new Date().toISOString();
+  const full: SubjectGoal = { ...goal, updatedAt: nowIso, startedAt: existing?.startedAt ?? nowIso };
   const next = [...loadGoals().filter((g) => g.subject !== goal.subject), full];
   saveGoalsLocal(next);
   fetch("/api/goals", {

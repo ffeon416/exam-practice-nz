@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 // subject wins). No migration needed; see supabase/migrations for the
 // proper table to move to once DDL can be applied.
 
-type Goal = { subject: string; goal: string; examDate: string; curriculumId: string; year: number; updatedAt: string };
+type Goal = { subject: string; goal: string; examDate: string; curriculumId: string; year: number; updatedAt: string; startedAt: string };
 
 export async function GET() {
   const { userId } = await auth();
@@ -34,6 +34,7 @@ export async function GET() {
       curriculumId: p.curriculumId ?? "nz-ncea",
       year: Number(p.year) || 12,
       updatedAt: p.updatedAt ?? (row.created_at as string),
+      startedAt: p.startedAt ?? p.updatedAt ?? (row.created_at as string),
     });
   }
   return NextResponse.json({ goals: [...seen.values()] });
@@ -53,6 +54,7 @@ export async function POST(request: NextRequest) {
     subject: body.subject, goal: body.goal, examDate: body.examDate,
     curriculumId: curriculum.id, year: Number(body.year) || 12,
     updatedAt: body.updatedAt ?? new Date().toISOString(),
+    startedAt: body.startedAt ?? body.updatedAt ?? new Date().toISOString(),
   });
   return NextResponse.json({ ok: true });
 }

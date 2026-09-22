@@ -47,17 +47,21 @@ export default function GradeOutlook({
   const [nowTs] = useState(() => Date.now());
   const [editing, setEditing] = useState(false);
 
-  const points = useMemo(() => subjectSeries(attempts, active), [attempts, active]);
-  const checked = points.length > 0;
   const goal = active ? goalFor(goals, active) : null;
+  // Everything the student has ever sat in this subject (for the grade
+  // estimate) vs. only what they've sat since the plan began (for the path).
+  const points = useMemo(() => subjectSeries(attempts, active), [attempts, active]);
+  const planStart = goal?.startedAt ? new Date(goal.startedAt).getTime() : null;
+  const planPoints = useMemo(() => (planStart ? points.filter((p) => p.t >= planStart - 60_000) : []), [points, planStart]);
+  const checked = planPoints.length > 0;
   const goalBand = goal ? bands.find((b) => b.id === goal.goal) ?? bands[0] : bands[0];
   const goalPct = Math.round(goalBand.minPct * 100);
   const examT = goal?.examDate ? new Date(goal.examDate + "T09:00:00").getTime() : nowTs + 8 * 7 * 864e5;
   const weeksLeft = Math.max(1, Math.round((examT - nowTs) / (7 * 864e5)));
 
-  const now = predictedPct(points);
+  const now = predictedPct(planPoints.length ? planPoints : points);
   const nowBand = now == null ? null : bandAt(bands, now);
-  const slope = trendPerWeek(points);
+  const slope = trendPerWeek(planPoints.length ? planPoints : points);
   const pace = now == null ? null : paceFor(now, goalPct, slope, weeksLeft);
   const gap = now == null ? 0 : marksToTop(now, [goalBand]);
   const tiers = useMemo(() => tierBreakdown(points, getCustomExam), [points]);
@@ -65,9 +69,9 @@ export default function GradeOutlook({
   const fallbackBand = pace?.state === "unrealistic" ? bands.find((b) => b.minPct < goalBand.minPct && b.tone !== "fail") ?? null : null;
 
   const plan = useMemo(() => buildDailyPlan({
-    now: nowTs, exam: examT, completed: Math.max(0, points.length - 1), hasBaseline: checked,
+    now: nowTs, exam: examT, completed: Math.max(0, planPoints.length - 1), hasBaseline: checked,
     pace: pace?.state ?? "on-track", hasWeakSpot: !!spot,
-  }), [nowTs, examT, points.length, checked, pace?.state, spot]);
+  }), [nowTs, examT, planPoints.length, checked, pace?.state, spot]);
   // Show the current week in full and the next week locked.
   const shownWeeks = useMemo(() => {
     const idx = plan.weeks.findIndex((w) => w.state === "current");
