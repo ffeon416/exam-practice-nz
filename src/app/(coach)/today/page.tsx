@@ -15,7 +15,6 @@ import { loadProgress, saveProgress } from "@/lib/storage";
 import { loadPlan } from "@/lib/studyPlanner";
 import { getDueCount } from "@/lib/spacedRepetition";
 import { adoptPaper, buildNextPaper, buildPaperFor, currentCurriculumId, fetchNextPaper } from "@/lib/nextPaper";
-import { scopedKey } from "@/lib/userScope";
 import type { WeakSpot } from "@/lib/gradeOutlook";
 import { resolveCurriculum } from "@/data/curricula";
 import GradeOutlook from "@/components/GradeOutlook";
@@ -40,8 +39,6 @@ export default function TodayPage() {
   const [attempts, setAttempts] = useState<ExamAttempt[] | null>(null);
   const [topicScores, setTopicScores] = useState<Record<string, TopicScore>>({});
   const [busySubject, setBusySubject] = useState<string | null>(null);
-  const [spot, setSpot] = useState<WeakSpot | null>(null);
-  const [spotSheet, setSpotSheet] = useState(false);
   const [subjects, setSubjects] = useState<string[]>([]);
   const [curriculumId, setCurriculumId] = useState("nz-ncea");
   const [examDate, setExamDate] = useState<string | null>(null);
@@ -133,25 +130,11 @@ export default function TodayPage() {
   // Weak-spot paper, pre-set to the spot we found.
   async function fixSpot(s: WeakSpot) {
     if (busySubject) return;
-    setSpotSheet(false);
     setBusySubject(s.subject);
     const paper = await buildPaperFor({ subject: s.subject, kind: "weak", topic: s.topicPrompt }).catch(() => null);
     if (!paper) { setBusySubject(null); return; }
     adoptPaper(paper);
     router.push(`/exam/${paper.id}?mode=practice`);
-  }
-
-  // Surface a found weak spot once a day, as a sheet with the fix ready.
-  function onSpot(s: WeakSpot | null) {
-    setSpot(s);
-    if (!s) return;
-    try {
-      const key = scopedKey("studyace-spot-seen");
-      const today = new Date().toISOString().slice(0, 10);
-      if (localStorage.getItem(key) === `${today}:${s.subject}:${s.label}`) return;
-      localStorage.setItem(key, `${today}:${s.subject}:${s.label}`);
-      setTimeout(() => setSpotSheet(true), 600);
-    } catch {}
   }
 
   async function rebuild() {
@@ -189,7 +172,6 @@ export default function TodayPage() {
           busySubject={busySubject}
           onStartCheck={startCheck}
           onFixWeakSpot={fixSpot}
-          onWeakSpotFound={onSpot}
         />
       )}
 
@@ -265,21 +247,6 @@ export default function TodayPage() {
       </div>
       </div>
 
-      {spotSheet && spot && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm" onClick={() => setSpotSheet(false)}>
-          <div className="w-full sm:max-w-sm bg-[#0d0d15] border border-white/[0.1] rounded-t-3xl sm:rounded-3xl p-5" style={{ paddingBottom: "calc(1.25rem + env(safe-area-inset-bottom))" }} onClick={(e) => e.stopPropagation()}>
-            <p className="font-mono text-[10.5px] uppercase tracking-wider text-amber-300 mb-1.5">Weak spot found</p>
-            <p className={`${display.className} text-white font-bold text-[22px] leading-tight mb-1`}>{spot.label}</p>
-            <p className="text-zinc-400 text-[13.5px] mb-4">
-              You&apos;re getting {spot.pct}% of these in {resolveCurriculum(curriculumId).subjects.find((s) => s.value === spot.subject)?.label ?? spot.subject}. A paper built on exactly this is the fastest way to move your grade.
-            </p>
-            <div className="flex gap-2">
-              <button onClick={() => setSpotSheet(false)} className="flex-1 py-3 rounded-full border border-white/[0.15] text-zinc-200 text-[14px] font-semibold min-h-[48px]">Not now</button>
-              <button onClick={() => fixSpot(spot)} className="flex-1 py-3 rounded-full bg-white text-[#0a0a0f] text-[14px] font-bold min-h-[48px]">Fix it tonight →</button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

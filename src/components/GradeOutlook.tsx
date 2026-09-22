@@ -4,7 +4,7 @@
 // papers are the line, the target sits at the right, one dashed path joins
 // you to it with the next milestone marked. Nothing else on the chart.
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
 import { resolveCurriculum } from "@/data/curricula";
@@ -18,7 +18,7 @@ const TONE_TEXT: Record<string, string> = { top: "text-emerald-400", high: "text
 const TONE_HEX: Record<string, string> = { top: "#34d399", high: "#fbbf24", pass: "#38bdf8", fail: "#fb7185" };
 
 export default function GradeOutlook({
-  attempts, topicScores, curriculumId, examDate, subjects, busySubject, onStartCheck, onFixWeakSpot, onWeakSpotFound,
+  attempts, topicScores, curriculumId, examDate, subjects, busySubject, onStartCheck, onFixWeakSpot,
 }: {
   attempts: ExamAttempt[];
   topicScores: Record<string, TopicScore>;
@@ -28,7 +28,6 @@ export default function GradeOutlook({
   busySubject?: string | null;
   onStartCheck: (subject: string) => void;
   onFixWeakSpot: (spot: WeakSpot) => void;
-  onWeakSpotFound?: (spot: WeakSpot | null) => void;
 }) {
   const curriculum = resolveCurriculum(curriculumId);
   const bands = bandsFor(curriculumId); // highest first
@@ -52,7 +51,6 @@ export default function GradeOutlook({
   const ms = useMemo(() => milestones(points, targetPct, endT, nowTs), [points, targetPct, endT, nowTs]);
   const next = ms.find((m) => m.status === "next") ?? null;
   const spot = useMemo(() => (active ? weakSpot(active, tiers, Object.values(topicScores)) : null), [active, tiers, topicScores]);
-  useEffect(() => { onWeakSpotFound?.(spot); }, [spot, onWeakSpotFound]);
 
   const fmt = (t: number) => new Date(t).toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
   if (!active) return null;

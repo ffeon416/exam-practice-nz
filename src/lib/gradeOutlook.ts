@@ -45,7 +45,14 @@ export function projectedPct(now: number, slopePerWeek: number, weeks: number): 
 }
 
 export function bandsFor(curriculumId: string | undefined): GradeBand[] {
-  return resolveCurriculum(curriculumId).gradeBands; // highest first
+  // Always highest floor first, whatever order the registry lists them in.
+  return [...resolveCurriculum(curriculumId).gradeBands].sort((a, b) => b.minPct - a.minPct);
+}
+
+/** "externalities-and-market-failure" → "Externalities and market failure". */
+export function prettyTopic(s: string): string {
+  const words = s.replace(/[-_]+/g, " ").trim();
+  return words ? words[0].toUpperCase() + words.slice(1) : s;
 }
 
 export function bandAt(bands: GradeBand[], pct: number): GradeBand {
@@ -137,7 +144,8 @@ export function weakSpot(subject: string, tiers: TierAccuracy[] | null, topics: 
     .sort((a, b) => a.correctRate - b.correctRate);
   if (realTopics[0]) {
     const t = realTopics[0];
-    return { subject, kind: "topic", label: t.topicLabel, pct: Math.round(t.correctRate * 100), topicPrompt: t.topicLabel };
+    const nice = prettyTopic(t.topicLabel || t.topic);
+    return { subject, kind: "topic", label: nice, pct: Math.round(t.correctRate * 100), topicPrompt: nice };
   }
   const tier = tiers?.filter((x) => x.questions >= 3 && x.pct < 60).sort((a, b) => a.pct - b.pct)[0];
   if (tier) {
