@@ -90,12 +90,12 @@ export default function TodayPage() {
   const hasPapers = (attempts?.length ?? 0) > 0;
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-14 pt-6 sm:pt-8 lg:pt-10 pb-10">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
       <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 mb-1">
         {firstName ? `${firstName}'s` : "Your"} dashboard
       </p>
       <h1 className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-5`}>
-        {hasPapers ? "Your path" : "Let's find your starting point"}
+        {hasPapers ? "Your path" : "Start with a grade check"}
       </h1>
 
       {attempts && (
