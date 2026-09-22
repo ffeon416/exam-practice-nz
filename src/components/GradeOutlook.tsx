@@ -44,11 +44,16 @@ export default function GradeOutlook({
   const checked = points.length > 0;
   const now = predictedPct(points);
   const targetPct = Math.round(top.minPct * 100);
-  const endT = examDate ? Math.max(new Date(examDate).getTime(), nowTs + 7 * 864e5) : (points[0]?.t ?? nowTs) + 8 * 7 * 864e5;
+  const endT = examDate ? Math.max(new Date(examDate).getTime(), nowTs + 7 * 864e5) : nowTs + 8 * 7 * 864e5;
+  // Show the last six weeks of papers (older ones would squash the future).
+  const visible = useMemo(() => {
+    const recent = points.filter((p) => p.t >= nowTs - 42 * 864e5);
+    return recent.length ? recent : points.slice(-1);
+  }, [points, nowTs]);
   const nowBand = now == null ? null : bandAt(bands, now);
   const gap = now == null ? 0 : marksToTop(now, bands);
   const tiers = useMemo(() => tierBreakdown(points, getCustomExam), [points]);
-  const ms = useMemo(() => milestones(points, targetPct, endT, nowTs), [points, targetPct, endT, nowTs]);
+  const ms = useMemo(() => milestones(visible, targetPct, endT, nowTs), [visible, targetPct, endT, nowTs]);
   const next = ms.find((m) => m.status === "next") ?? null;
   const spot = useMemo(() => (active ? weakSpot(active, tiers, Object.values(topicScores)) : null), [active, tiers, topicScores]);
 
@@ -56,16 +61,17 @@ export default function GradeOutlook({
   if (!active) return null;
 
   // ── Chart: y runs 30–100 (nothing useful lives below), zones are the bands ──
-  const W = 640, H = 300, L = 14, R = 14, T = 30, B = 30, YMIN = 30;
-  const t0 = points[0]?.t ?? nowTs;
+  const W = 640, H = 300, L = 14, R = 14, T = 30, B = 30, YMIN = 0;
+  const t0 = Math.min(visible[0]?.t ?? nowTs, nowTs - 864e5);
   const x = (t: number) => L + ((t - t0) / Math.max(1, endT - t0)) * (W - L - R);
   const y = (pct: number) => T + (1 - (Math.max(YMIN, pct) - YMIN) / (100 - YMIN)) * (H - T - B);
-  const last = points[points.length - 1];
-  const P = points.map((p) => ({ x: x(p.t), y: y(p.pct) }));
+  const last = visible[visible.length - 1];
+  const base = visible[0];
+  const P = visible.map((p) => ({ x: x(p.t), y: y(p.pct) }));
   const linePath = smoothPath(P);
   const areaPath = P.length ? `${linePath} L${P[P.length - 1].x.toFixed(1)} ${y(YMIN)} L${P[0].x.toFixed(1)} ${y(YMIN)} Z` : "";
   const tx = x(endT), ty = y(targetPct);
-  const toTarget = last ? `M${x(last.t).toFixed(1)} ${y(last.pct).toFixed(1)} C${(x(last.t) + (tx - x(last.t)) * 0.5).toFixed(1)} ${y(last.pct).toFixed(1)} ${(x(last.t) + (tx - x(last.t)) * 0.5).toFixed(1)} ${ty.toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}` : "";
+  const bx = x(base.t), by = y(base.pct);
   const zones = bands
     .map((b, i) => ({ b, lo: Math.max(YMIN, b.minPct * 100), hi: i === 0 ? 100 : bands[i - 1].minPct * 100 }))
     .filter((z) => z.hi > YMIN);
@@ -117,7 +123,7 @@ export default function GradeOutlook({
                 <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
               </linearGradient>
               <filter id="go-glow" x="-20%" y="-50%" width="140%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="b" />
+                <feGaussianBlur stdDeviation="2.5" result="b" />
                 <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
               </filter>
             </defs>
@@ -131,8 +137,10 @@ export default function GradeOutlook({
               </g>
             ))}
 
-            {/* The way to the target, and the next milestone on it */}
-            <path d={toTarget} fill="none" stroke="#a78bfa" strokeOpacity="0.35" strokeWidth="4" strokeLinecap="round" />
+            {/* Where you need to be: a straight line from your starting point to the target */}
+            <line x1={bx} y1={by} x2={tx} y2={ty} stroke="#c4b5fd" strokeOpacity="0.5" strokeWidth="2.5" strokeLinecap="round" />
+            <text x={(bx + tx) / 2} y={(by + ty) / 2 - 10} fontSize="11" fill="#c4b5fd" fillOpacity="0.9" textAnchor="middle" fontWeight="600" style={{ letterSpacing: "0.06em" }}
+              transform={`rotate(${(Math.atan2(ty - by, tx - bx) * 180) / Math.PI} ${(bx + tx) / 2} ${(by + ty) / 2})`}>WHERE YOU NEED TO BE</text>
 
             {/* Your papers: smooth purple wave */}
             <path d={areaPath} fill="url(#go-fill)" />
@@ -145,13 +153,13 @@ export default function GradeOutlook({
             <text x={youX} y={y(last.pct) - 14} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
 
             {/* Dates */}
-            <text x={L} y={H - 9} fontSize="11.5" fill="#a1a1aa">{points.length > 1 ? "Grade check · " : ""}{fmt(t0)}</text>
+            <text x={L} y={H - 9} fontSize="11.5" fill="#a1a1aa">{visible[0] === points[0] ? "Grade check · " : ""}{fmt(base.t)}</text>
             <text x={W - R} y={H - 9} fontSize="11.5" fill="#a1a1aa" textAnchor="end">{examDate ? `Exam · ${fmt(endT)}` : fmt(endT)}</text>
           </svg>
 
           {next && (
             <p className="text-zinc-400 text-[13px] mt-3">
-              Next milestone: <span className="text-white font-semibold">{next.pct}% by {next.label}</span>. The lighter wave is the way there.
+              To stay on the line: <span className="text-white font-semibold">{next.pct}% by {next.label}</span>.
             </p>
           )}
 
