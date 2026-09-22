@@ -10,9 +10,9 @@ import { useUser } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
 import { loadProgress, saveProgress } from "@/lib/storage";
-import { loadPlan } from "@/lib/studyPlanner";
 import { adoptPaper, buildNextPaper, buildPaperFor, currentCurriculumId, fetchNextPaper } from "@/lib/nextPaper";
 import type { WeakSpot } from "@/lib/gradeOutlook";
+import { loadGoals, syncGoals, type SubjectGoal } from "@/lib/goals";
 import GradeOutlook from "@/components/GradeOutlook";
 import type { ExamAttempt, StudentProgress, TopicScore } from "@/lib/types";
 
@@ -24,7 +24,8 @@ export default function TodayPage() {
   const [busySubject, setBusySubject] = useState<string | null>(null);
   const [subjects, setSubjects] = useState<string[]>([]);
   const [curriculumId, setCurriculumId] = useState("nz-ncea");
-  const [examDate, setExamDate] = useState<string | null>(null);
+  const [year, setYear] = useState(12);
+  const [goals, setGoals] = useState<SubjectGoal[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -35,12 +36,14 @@ export default function TodayPage() {
         return;
       }
       setSubjects(ob.subjects);
+      setYear(ob.yearLevel);
       setCurriculumId(ob.curriculumId ?? currentCurriculumId());
+      setGoals(loadGoals());
+      syncGoals().then((g) => { if (!cancelled) setGoals(g); }).catch(() => {});
       try {
         const local = loadProgress();
         setAttempts(local.examAttempts ?? []);
         setTopicScores(local.topicScores ?? {});
-        setExamDate(loadPlan()?.examDate ?? null);
       } catch {}
 
       // Server is the source of truth for papers sat (other devices count).
@@ -92,7 +95,7 @@ export default function TodayPage() {
         {firstName ? `${firstName}'s` : "Your"} dashboard
       </p>
       <h1 className={`${display.className} text-[30px] sm:text-[38px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-5`}>
-        {hasPapers ? "Your path to Perfect A's" : "Let's find your starting point"}
+        {hasPapers ? "Your path" : "Let's find your starting point"}
       </h1>
 
       {attempts && (
@@ -100,8 +103,10 @@ export default function TodayPage() {
           attempts={attempts}
           topicScores={topicScores}
           curriculumId={curriculumId}
-          examDate={examDate}
+          year={year}
           subjects={subjects}
+          goals={goals}
+          onGoalsChange={setGoals}
           busySubject={busySubject}
           onStartCheck={(s) => open(s, "check")}
           onFixWeakSpot={fixSpot}
