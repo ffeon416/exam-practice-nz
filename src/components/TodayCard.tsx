@@ -38,9 +38,11 @@ function BuildLine() {
 }
 
 export default function TodayCard({
-  firstName, day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart,
+  firstName, day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays,
 }: {
   firstName?: string | null;
+  /** Days until this subject's exam, if a date is set. */
+  examInDays?: number | null;
   day: number;
   dateLabel: string;
   subjectLabel: string;
@@ -81,6 +83,11 @@ export default function TodayCard({
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Day</p>
               <p className={`${display.className} font-bold leading-[0.85] tracking-[-0.06em] text-[112px] sm:text-[150px] md:text-[168px] bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400`}>{day}</p>
               <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-zinc-400 mt-3">{dateLabel}</p>
+              {examInDays != null && examInDays >= 0 && (
+                <p className={`font-mono text-[11.5px] uppercase tracking-[0.14em] mt-2 ${examInDays <= 7 ? "text-rose-300" : examInDays <= 21 ? "text-amber-300" : "text-zinc-500"}`}>
+                  {examInDays === 0 ? "Exam day" : `${examInDays} ${examInDays === 1 ? "day" : "days"} to your ${subjectLabel} exam`}
+                </p>
+              )}
             </div>
 
             {/* The task */}

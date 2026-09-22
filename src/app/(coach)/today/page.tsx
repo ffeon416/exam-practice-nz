@@ -13,7 +13,7 @@ import { loadOnboarding } from "@/lib/onboarding";
 import { loadProgress, saveProgress } from "@/lib/storage";
 import { adoptPaper, currentCurriculumId, getOrBuildToday, type TodayTask } from "@/lib/nextPaper";
 import { loadGoals, syncGoals, goalFor, type SubjectGoal } from "@/lib/goals";
-import { dayNumber, localDateKey, recentDays, streakDays, taskForDay } from "@/lib/dailyTask";
+import { dayNumber, daysUntil, localDateKey, recentDays, streakDays, taskForDay } from "@/lib/dailyTask";
 import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
 import { getCustomExam } from "@/lib/customExams";
 import { resolveCurriculum } from "@/data/curricula";
@@ -142,6 +142,7 @@ export default function TodayPage() {
           {task ? (
             <TodayCard
               firstName={user?.firstName?.trim() || null}
+              examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
               day={day}
               dateLabel={dateLabel}
               subjectLabel={label(task.subject)}

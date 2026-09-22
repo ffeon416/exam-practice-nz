@@ -11,6 +11,7 @@ import { bandAt, bandsFor, marksToTop, predictedPct, subjectSeries, tierBreakdow
 import { paceFor } from "@/lib/journey";
 import { goalFor, setGoal, type SubjectGoal } from "@/lib/goals";
 import DatePicker from "@/components/DatePicker";
+import { daysUntil } from "@/lib/dailyTask";
 import type { ExamAttempt, TopicScore } from "@/lib/types";
 
 const TONE_TEXT: Record<string, string> = { top: "text-emerald-400", high: "text-amber-400", pass: "text-sky-400", fail: "text-rose-400" };
@@ -56,8 +57,31 @@ export default function StatusPanel({
   }
   if (!subject) return null;
 
+  // Nearest exam across every subject with a date.
+  const upcoming = goals
+    .filter((g) => g.examDate)
+    .map((g) => ({ subject: g.subject, days: daysUntil(g.examDate), date: g.examDate }))
+    .filter((g) => g.days >= 0)
+    .sort((a, b) => a.days - b.days);
+  const nextExam = upcoming[0] ?? null;
+
   return (
     <aside className="space-y-4">
+      {/* Exam countdown */}
+      {nextExam && (
+        <div className={`rounded-[24px] border p-5 ${nextExam.days <= 7 ? "border-rose-400/30 bg-rose-500/[0.06]" : nextExam.days <= 21 ? "border-amber-400/25 bg-amber-500/[0.05]" : "border-white/[0.08] bg-white/[0.015]"}`}>
+          <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-zinc-500">
+            {upcoming.length > 1 ? "Next exam" : "Your exam"} · {label(nextExam.subject)}
+          </p>
+          <p className={`${display.className} font-bold leading-none tracking-[-0.03em] mt-1 ${nextExam.days <= 7 ? "text-rose-300" : nextExam.days <= 21 ? "text-amber-300" : "text-white"}`}>
+            <span className="text-[44px]">{nextExam.days}</span> <span className="text-[16px] text-zinc-400 font-semibold">{nextExam.days === 1 ? "day" : "days"} to go</span>
+          </p>
+          <p className="text-zinc-500 text-[12px] mt-1.5">
+            {new Date(nextExam.date + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}
+            {upcoming.length > 1 && <> · {upcoming.slice(1).map((u) => `${label(u.subject)} in ${u.days}`).join(", ")}</>}
+          </p>
+        </div>
+      )}
       {/* Streak */}
       <div className="rounded-[24px] border border-white/[0.08] bg-white/[0.015] p-5">
         <div className="flex items-end justify-between gap-3 mb-3">

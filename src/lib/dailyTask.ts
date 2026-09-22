@@ -14,6 +14,13 @@ export function msUntilLocalMidnight(now: Date = new Date()): number {
   return next.getTime() - now.getTime();
 }
 
+/** Whole local calendar days from today until an ISO date (0 = today, negative = past). */
+export function daysUntil(isoDate: string, now: Date = new Date()): number {
+  const t = new Date(now); t.setHours(0, 0, 0, 0);
+  const e = new Date(isoDate + "T00:00:00");
+  return Math.round((e.getTime() - t.getTime()) / 864e5);
+}
+
 /** 1-based day number since the plan began (local calendar days). */
 export function dayNumber(startedAtIso: string, now: Date = new Date()): number {
   const s = new Date(startedAtIso); s.setHours(0, 0, 0, 0);
