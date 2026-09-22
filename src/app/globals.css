@@ -328,3 +328,8 @@ body {
 
 /* Sidebar (Sidebar.tsx) reserves its width on desktop; the tabs own phones. */
 @media (min-width: 768px) { .has-sidebar main { padding-left: 248px; } }
+
+/* Journey tracker pulse (JourneyPath.tsx) */
+@keyframes sa-pulse-ring { 0% { transform: scale(0.7); opacity: 0.65; } 100% { transform: scale(2.1); opacity: 0; } }
+.sa-pulse-ring { animation: sa-pulse-ring 2.2s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+@media (prefers-reduced-motion: reduce) { .sa-pulse-ring { animation: none; opacity: 0.35; } }

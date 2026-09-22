@@ -10,15 +10,17 @@ import { display } from "@/lib/displayFont";
 import { resolveCurriculum } from "@/data/curricula";
 import { getCustomExam } from "@/lib/customExams";
 import {
-  bandAt, bandsFor, marksToTop, milestones, predictedPct, smoothPath, subjectSeries, tierBreakdown, weakSpot, type WeakSpot,
+  bandAt, bandsFor, marksToTop, predictedPct, subjectSeries, tierBreakdown, weakSpot, type WeakSpot,
 } from "@/lib/gradeOutlook";
 import type { ExamAttempt, TopicScore } from "@/lib/types";
+import JourneyPath from "@/components/JourneyPath";
+import type { Step } from "@/lib/journey";
 
 const TONE_TEXT: Record<string, string> = { top: "text-emerald-400", high: "text-amber-400", pass: "text-sky-400", fail: "text-rose-400" };
 const TONE_HEX: Record<string, string> = { top: "#34d399", high: "#fbbf24", pass: "#38bdf8", fail: "#fb7185" };
 
 export default function GradeOutlook({
-  attempts, topicScores, curriculumId, examDate, subjects, busySubject, onStartCheck, onFixWeakSpot,
+  attempts, topicScores, curriculumId, examDate, subjects, busySubject, onStartCheck, onFixWeakSpot, onStartPaper, onStartMock,
 }: {
   attempts: ExamAttempt[];
   topicScores: Record<string, TopicScore>;
@@ -28,6 +30,8 @@ export default function GradeOutlook({
   busySubject?: string | null;
   onStartCheck: (subject: string) => void;
   onFixWeakSpot: (spot: WeakSpot) => void;
+  onStartPaper: (subject: string) => void;
+  onStartMock: (subject: string) => void;
 }) {
   const curriculum = resolveCurriculum(curriculumId);
   const bands = bandsFor(curriculumId); // highest first
@@ -53,29 +57,11 @@ export default function GradeOutlook({
   const nowBand = now == null ? null : bandAt(bands, now);
   const gap = now == null ? 0 : marksToTop(now, bands);
   const tiers = useMemo(() => tierBreakdown(points, getCustomExam), [points]);
-  const ms = useMemo(() => milestones(visible, targetPct, endT, nowTs), [visible, targetPct, endT, nowTs]);
-  const next = ms.find((m) => m.status === "next") ?? null;
   const spot = useMemo(() => (active ? weakSpot(active, tiers, Object.values(topicScores)) : null), [active, tiers, topicScores]);
 
-  const fmt = (t: number) => new Date(t).toLocaleDateString("en-NZ", { day: "numeric", month: "short" });
   if (!active) return null;
 
   // ── Chart: y runs 30–100 (nothing useful lives below), zones are the bands ──
-  const W = 640, H = 300, L = 14, R = 14, T = 30, B = 30, YMIN = 0;
-  const t0 = Math.min(visible[0]?.t ?? nowTs, nowTs - 864e5);
-  const x = (t: number) => L + ((t - t0) / Math.max(1, endT - t0)) * (W - L - R);
-  const y = (pct: number) => T + (1 - (Math.max(YMIN, pct) - YMIN) / (100 - YMIN)) * (H - T - B);
-  const last = visible[visible.length - 1];
-  const base = visible[0];
-  const P = visible.map((p) => ({ x: x(p.t), y: y(p.pct) }));
-  const linePath = smoothPath(P);
-  const areaPath = P.length ? `${linePath} L${P[P.length - 1].x.toFixed(1)} ${y(YMIN)} L${P[0].x.toFixed(1)} ${y(YMIN)} Z` : "";
-  const tx = x(endT), ty = y(targetPct);
-  const bx = x(base.t), by = y(base.pct);
-  const zones = bands
-    .map((b, i) => ({ b, lo: Math.max(YMIN, b.minPct * 100), hi: i === 0 ? 100 : bands[i - 1].minPct * 100 }))
-    .filter((z) => z.hi > YMIN);
-  const youX = last ? x(last.t) : 0;
 
   return (
     <section className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] p-4 sm:p-6 lg:p-8 mb-4 lg:mb-0">
@@ -112,80 +98,23 @@ export default function GradeOutlook({
             </p>
           </div>
 
-          <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label={`Your ${label(active)} scores against the grade bands`}>
-            <defs>
-              <linearGradient id="go-stroke" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#c4b5fd" />
-                <stop offset="100%" stopColor="#8b5cf6" />
-              </linearGradient>
-              <linearGradient id="go-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.45" />
-                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
-              </linearGradient>
-              <filter id="go-glow" x="-20%" y="-50%" width="140%" height="200%">
-                <feGaussianBlur stdDeviation="2.5" result="b" />
-                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
-
-            {/* Grade bands: quiet guide lines, named on the right; the top band tinted */}
-            <rect x={L} y={y(100)} width={W - L - R} height={Math.max(0, y(targetPct) - y(100))} fill={TONE_HEX[top.tone]} fillOpacity="0.06" />
-            {zones.map(({ b, lo, hi }) => (
-              <g key={b.id}>
-                <line x1={L} x2={W - R} y1={y(lo)} y2={y(lo)} stroke="#ffffff" strokeOpacity="0.10" strokeWidth="1" />
-                <text x={W - R - 8} y={(y(lo) + y(hi)) / 2 + 4} fontSize="11" fontWeight="600" fill="#a1a1aa" fillOpacity="0.9" textAnchor="end" style={{ letterSpacing: "0.06em" }}>{b.label.toUpperCase()}</text>
-              </g>
-            ))}
-
-            {/* Where you need to be: a straight line from your starting point to the target */}
-            <line x1={bx} y1={by} x2={tx} y2={ty} stroke="#c4b5fd" strokeOpacity="0.5" strokeWidth="2.5" strokeLinecap="round" />
-            <text x={(bx + tx) / 2} y={(by + ty) / 2 - 10} fontSize="11" fill="#c4b5fd" fillOpacity="0.9" textAnchor="middle" fontWeight="600" style={{ letterSpacing: "0.06em" }}
-              transform={`rotate(${(Math.atan2(ty - by, tx - bx) * 180) / Math.PI} ${(bx + tx) / 2} ${(by + ty) / 2})`}>WHERE YOU NEED TO BE</text>
-
-            {/* Your papers: smooth purple wave */}
-            <path d={areaPath} fill="url(#go-fill)" />
-            <path d={linePath} fill="none" stroke="url(#go-stroke)" strokeWidth="4" strokeLinecap="round" filter="url(#go-glow)" />
-
-            {/* Target */}
-            <text x={tx - 4} y={ty - 8} fontSize="12" fill={TONE_HEX[top.tone]} textAnchor="end" fontWeight="700">TARGET · {top.label.toUpperCase()}</text>
-
-            {/* You */}
-            <text x={youX} y={y(last.pct) - 14} fontSize="13" fill="#ffffff" fontWeight="700" textAnchor="middle">YOU · {last.pct}%</text>
-
-            {/* Dates */}
-            <text x={L} y={H - 9} fontSize="11.5" fill="#a1a1aa">{visible[0] === points[0] ? "Grade check · " : ""}{fmt(base.t)}</text>
-            <text x={W - R} y={H - 9} fontSize="11.5" fill="#a1a1aa" textAnchor="end">{examDate ? `Exam · ${fmt(endT)}` : fmt(endT)}</text>
-          </svg>
-
-          {next && (
-            <p className="text-zinc-400 text-[13px] mt-3">
-              To stay on the line: <span className="text-white font-semibold">{next.pct}% by {next.label}</span>.
-            </p>
-          )}
-
-          {/* Tools */}
-          <div className="grid grid-cols-3 gap-2 mt-4">
-            {spot ? (
-              <button onClick={() => onFixWeakSpot(spot)} disabled={busySubject === active}
-                className="rounded-2xl border border-amber-400/30 bg-amber-500/[0.08] px-3 py-3 text-left min-h-[64px] disabled:opacity-60">
-                <p className="text-amber-300 text-[12.5px] font-bold leading-tight">Fix weak spot</p>
-                <p className="text-zinc-500 text-[10.5px] mt-0.5 truncate">{busySubject === active ? "Building…" : `${spot.label} · ${spot.pct}%`}</p>
-              </button>
-            ) : (
-              <Link href="/review" className="rounded-2xl border border-white/[0.08] bg-white/[0.02] px-3 py-3 min-h-[64px]">
-                <p className="text-white text-[12.5px] font-bold leading-tight">Review</p>
-                <p className="text-zinc-500 text-[10.5px] mt-0.5">what you got wrong</p>
-              </Link>
-            )}
-            <Link href="/plan" className="rounded-2xl border border-white/[0.08] bg-white/[0.02] px-3 py-3 min-h-[64px]">
-              <p className="text-white text-[12.5px] font-bold leading-tight">Mock schedule</p>
-              <p className="text-zinc-500 text-[10.5px] mt-0.5">{examDate ? "week by week" : "add your exam date"}</p>
-            </Link>
-            <Link href="/subjects" className="rounded-2xl border border-white/[0.08] bg-white/[0.02] px-3 py-3 min-h-[64px]">
-              <p className="text-white text-[12.5px] font-bold leading-tight">Tutor</p>
-              <p className="text-zinc-500 text-[10.5px] mt-0.5">inside every paper</p>
-            </Link>
-          </div>
+          <JourneyPath
+            completed={Math.max(0, points.length - 1)}
+            now={nowTs}
+            exam={endT}
+            hasWeakSpot={!!spot}
+            destinationLabel={top.label}
+            busy={busySubject === active}
+            onStep={(step: Step) => {
+              if (step.kind === "fix" && spot) onFixWeakSpot(spot);
+              else if (step.kind === "mock") onStartMock(active);
+              else onStartPaper(active);
+            }}
+          />
+          <p className="text-zinc-500 text-[12.5px] mt-2">
+            {spot ? <>Weak spot right now: <span className="text-zinc-300">{spot.label}</span> ({spot.pct}%). It&apos;s on the line.</> : <>Every finished task moves you along the line.</>}
+            {!examDate && <> <Link href="/plan" className="text-indigo-400 hover:underline">Add your exam date</Link> so the line ends on the real day.</>}
+          </p>
         </>
       )}
     </section>

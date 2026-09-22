@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
   if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   if (tier === "free") return NextResponse.json({ error: "paid_only" }, { status: 403 });
 
-  let body: { curriculum?: string; year?: number; subjects?: string[]; subject?: string; topic?: string; kind?: "tonight" | "check" | "weak" } = {};
+  let body: { curriculum?: string; year?: number; subjects?: string[]; subject?: string; topic?: string; kind?: "tonight" | "check" | "weak" | "paper" | "mock" } = {};
   try { body = await request.json(); } catch {}
   const curriculum = resolveCurriculum(body.curriculum);
   if (curriculum.status === "coming-soon") {
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
   if (!curriculum.levels.some((l) => l.value === year)) {
     return NextResponse.json({ error: "invalid_year" }, { status: 400 });
   }
-  const kind = body.kind === "check" || body.kind === "weak" ? body.kind : "tonight";
+  const kind = body.kind === "check" || body.kind === "weak" || body.kind === "paper" || body.kind === "mock" ? body.kind : "tonight";
   const validSubject = (s: string) => curriculum.subjects.some((cs) => cs.value === s && cs.years.includes(year));
 
   // ── Grade check / weak-spot paper: a specific subject, built fresh ──
@@ -86,9 +86,10 @@ export async function POST(request: NextRequest) {
     const label = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject;
     const topic = kind === "weak" ? (body.topic ?? "").slice(0, 120) || null : null;
     try {
+      const titles = { check: `Grade check · ${label}`, weak: `Weak spot · ${label}`, paper: `Practice paper · ${label}`, mock: `Mock exam · ${label}` } as const;
       const exam = await buildPaper({
-        userId, curriculumId: curriculum.id, subject, year, questionCount: 8, topic,
-        title: kind === "check" ? `Grade check · ${label}` : `Weak spot · ${label}`,
+        userId, curriculumId: curriculum.id, subject, year, questionCount: kind === "mock" ? 12 : 8, topic,
+        title: titles[kind],
       });
       return NextResponse.json({ exam, built: true });
     } catch (error) {

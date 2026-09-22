@@ -137,6 +137,16 @@ export default function TodayPage() {
     router.push(`/exam/${paper.id}?mode=practice`);
   }
 
+  // A step on the line: build the right paper for the subject and open it.
+  async function startPaperFor(subject: string, kind: "paper" | "mock") {
+    if (busySubject) return;
+    setBusySubject(subject);
+    const paper = await buildPaperFor({ subject, kind }).catch(() => null);
+    if (!paper) { setBusySubject(null); return; }
+    adoptPaper(paper);
+    router.push(`/exam/${paper.id}?mode=${kind === "mock" ? "mock" : "practice"}`);
+  }
+
   async function rebuild() {
     setPhase("building");
     const built = await buildNextPaper().catch(() => null);
@@ -172,6 +182,8 @@ export default function TodayPage() {
           busySubject={busySubject}
           onStartCheck={startCheck}
           onFixWeakSpot={fixSpot}
+          onStartPaper={(s) => startPaperFor(s, "paper")}
+          onStartMock={(s) => startPaperFor(s, "mock")}
         />
       )}
 
