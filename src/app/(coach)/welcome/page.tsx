@@ -15,6 +15,7 @@ import { loadOnboarding, saveOnboarding } from "@/lib/onboarding";
 import { COUNTRIES, curriculaForCountry, resolveCurriculum, type Curriculum } from "@/data/curricula";
 import { CURRICULUM_LS_KEY, adoptPaper, buildPaperFor } from "@/lib/nextPaper";
 import { setGoal } from "@/lib/goals";
+import DatePicker from "@/components/DatePicker";
 import type { Exam } from "@/lib/types";
 
 type Step = 1 | 2 | 3 | 4 | 5;
@@ -188,12 +189,13 @@ export default function WelcomePage() {
               </div>
             ))}
           </div>
-          <label className="block mb-7">
-            <span className="block text-white font-semibold text-[14px] mb-2">When are your exams?</span>
-            <input type="date" value={examDate} min={minDate} onChange={(e) => setExamDate(e.target.value)}
-              className="w-full bg-white/[0.04] border border-white/[0.1] rounded-2xl px-4 py-3 text-white text-[16px] min-h-[52px]" />
-            <span className="block text-zinc-500 text-[12px] mt-1.5">Start of your exam period is fine. You can set a date per subject later.</span>
-          </label>
+          <div className="mb-7">
+            <p className="text-white font-semibold text-[14px] mb-2">When are your exams?</p>
+            <DatePicker value={examDate} min={minDate} onChange={setExamDate} />
+            <p className="text-zinc-500 text-[12px] mt-2">
+              {examDate ? <>Exams start <span className="text-zinc-300">{new Date(examDate + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}</span>. You can set a date per subject later.</> : "Start of your exam period is fine. You can set a date per subject later."}
+            </p>
+          </div>
           <button onClick={finishGoals} disabled={!examDate || subjects.some((s) => !goals[s])} className={btn}>Set my goals</button>
           <button onClick={() => setStep(2)} className="w-full text-zinc-500 text-[13px] py-3 mt-1">Back</button>
         </>

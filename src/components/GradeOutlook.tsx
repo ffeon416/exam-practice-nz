@@ -14,6 +14,7 @@ import { paceFor } from "@/lib/journey";
 import { buildDailyPlan, type DayNode } from "@/lib/dailyPlan";
 import { goalFor, setGoal, type SubjectGoal } from "@/lib/goals";
 import DailyPath from "@/components/DailyPath";
+import DatePicker from "@/components/DatePicker";
 import type { ExamAttempt, TopicScore } from "@/lib/types";
 
 const TONE_TEXT: Record<string, string> = { top: "text-emerald-400", high: "text-amber-400", pass: "text-sky-400", fail: "text-rose-400" };
@@ -134,12 +135,8 @@ export default function GradeOutlook({
                   </button>
                 ))}
               </div>
-              <label className="block text-[12.5px] text-zinc-400">
-                Exam date
-                <input type="date" defaultValue={goal?.examDate ?? ""} min={new Date(nowTs).toISOString().slice(0, 10)}
-                  onChange={(e) => { if (e.target.value) chooseGoal(goal?.goal ?? bands[0].id, e.target.value); }}
-                  className="mt-1 w-full bg-white/[0.04] border border-white/[0.1] rounded-lg px-3 py-2 text-white text-[14px] min-h-[42px]" />
-              </label>
+              <p className="text-[12.5px] text-zinc-400 mb-1.5">Exam date</p>
+              <DatePicker value={goal?.examDate ?? ""} onChange={(d) => { chooseGoal(goal?.goal ?? bands[0].id, d); setEditing(false); }} />
             </div>
           )}
 
