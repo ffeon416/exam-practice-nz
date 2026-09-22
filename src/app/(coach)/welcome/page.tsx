@@ -13,7 +13,8 @@ import { useUser } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import { loadOnboarding, saveOnboarding } from "@/lib/onboarding";
 import { COUNTRIES, curriculaForCountry, resolveCurriculum, type Curriculum } from "@/data/curricula";
-import { CURRICULUM_LS_KEY, adoptPaper, buildPaperFor } from "@/lib/nextPaper";
+import { CURRICULUM_LS_KEY, adoptPaper, getOrBuildToday } from "@/lib/nextPaper";
+import { localDateKey } from "@/lib/dailyTask";
 import { setGoal } from "@/lib/goals";
 import DatePicker from "@/components/DatePicker";
 import type { Exam } from "@/lib/types";
@@ -82,8 +83,9 @@ export default function WelcomePage() {
     try { localStorage.setItem(CURRICULUM_LS_KEY, curriculumId); } catch {}
     for (const s of subjects) await setGoal({ subject: s, goal: goals[s] ?? bands[0].id, examDate, curriculumId, year });
     // First grade check builds now, while they do the home-screen step.
-    buildPaperFor({ subject: subjects[0], kind: "check" })
-      .then((e) => { if (e) setPaper(e); else setBuildFailed(true); })
+    // This IS day 1's task, so build it under today's date — Today will find it waiting.
+    getOrBuildToday({ date: localDateKey(), subject: subjects[0], task: "check" })
+      .then((r) => { if (r) setPaper(r.exam); else setBuildFailed(true); })
       .catch(() => setBuildFailed(true));
     setStep(installed ? 5 : 4);
   }

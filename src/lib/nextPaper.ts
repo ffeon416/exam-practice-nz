@@ -22,17 +22,42 @@ export function nextPaperPrefs(): { curriculum: string; year: number; subjects: 
   return { curriculum: ob.curriculumId ?? currentCurriculumId(), year: ob.yearLevel, subjects: ob.subjects };
 }
 
-/** Fire-and-forget: ask the server to have the next paper ready. Safe to call often. */
-export function prebuildNextPaper(): void {
+export type TodayTask = { date: string; subject: string; task: "check" | "mock" | "paper" | "fix"; topic?: string };
+
+/** Get today's paper if it exists, else build it (waits). */
+export async function getOrBuildToday(t: TodayTask): Promise<{ exam: Exam; built: boolean } | null> {
+  const prefs = nextPaperPrefs();
+  if (!prefs) return null;
+  const res = await fetch("/api/next-paper", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+    body: JSON.stringify({ curriculum: prefs.curriculum, year: prefs.year, subjects: prefs.subjects, kind: "today", ...t }),
+  });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { exam: Exam | null; built: boolean };
+  return data.exam ? { exam: data.exam, built: data.built } : null;
+}
+
+/** Fire-and-forget: have a given day's paper ready (used for tomorrow, after today's is marked). */
+export function prebuildDay(t: TodayTask): void {
   const prefs = nextPaperPrefs();
   if (!prefs) return;
   try {
     fetch("/api/next-paper", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(prefs),
+      body: JSON.stringify({ curriculum: prefs.curriculum, year: prefs.year, subjects: prefs.subjects, kind: "today", ...t }),
       keepalive: true,
     }).catch(() => {});
+  } catch {}
+}
+
+/** Fire-and-forget: after a marked paper, build TOMORROW's task overnight. */
+export function prebuildNextPaper(): void {
+  try {
+    const raw = localStorage.getItem("studyace-tomorrow-task");
+    if (!raw) return;
+    prebuildDay(JSON.parse(raw) as TodayTask);
   } catch {}
 }
 

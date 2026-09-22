@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
   if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   if (tier === "free") return NextResponse.json({ error: "paid_only" }, { status: 403 });
 
-  let body: { curriculum?: string; year?: number; subjects?: string[]; subject?: string; topic?: string; kind?: "tonight" | "check" | "weak" | "paper" | "mock" } = {};
+  let body: { curriculum?: string; year?: number; subjects?: string[]; subject?: string; topic?: string; kind?: "tonight" | "check" | "weak" | "paper" | "mock" | "today"; date?: string; task?: "check" | "mock" | "paper" | "fix" } = {};
   try { body = await request.json(); } catch {}
   const curriculum = resolveCurriculum(body.curriculum);
   if (curriculum.status === "coming-soon") {
@@ -76,8 +76,39 @@ export async function POST(request: NextRequest) {
   if (!curriculum.levels.some((l) => l.value === year)) {
     return NextResponse.json({ error: "invalid_year" }, { status: 400 });
   }
-  const kind = body.kind === "check" || body.kind === "weak" || body.kind === "paper" || body.kind === "mock" ? body.kind : "tonight";
+  const kind = body.kind === "check" || body.kind === "weak" || body.kind === "paper" || body.kind === "mock" || body.kind === "today" ? body.kind : "tonight";
   const validSubject = (s: string) => curriculum.subjects.some((cs) => cs.value === s && cs.years.includes(year));
+
+  // ── The daily task: one paper for this local date, built once ──
+  if (kind === "today") {
+    const subject = body.subject ?? "";
+    const date = typeof body.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.date) ? body.date : null;
+    const task = body.task === "check" || body.task === "mock" || body.task === "paper" || body.task === "fix" ? body.task : "paper";
+    if (!validSubject(subject) || !date) return NextResponse.json({ error: "invalid_today" }, { status: 400 });
+    const label = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject;
+    const prefix = `Day ${date} · `;
+    const supabase = getSupabase();
+    if (supabase) {
+      const { data: rows } = await supabase.from("custom_exams").select("*").eq("user_id", userId).like("title", `${prefix}%`).order("created_at", { ascending: false }).limit(1);
+      const row = rows?.[0];
+      if (row) {
+        return NextResponse.json({ exam: { id: row.id, title: row.title, level: row.level, standard: "PRACTICE", year: new Date(row.created_at).getFullYear(), subject: row.subject, timeMinutes: row.time_minutes, questions: row.questions, totalMarks: row.total_marks } as Exam, built: false });
+      }
+    }
+    const titles = { check: "Grade check", mock: "Mock exam", paper: "Practice paper", fix: "Weak spot" } as const;
+    try {
+      const exam = await buildPaper({
+        userId, curriculumId: curriculum.id, subject, year,
+        questionCount: task === "mock" ? 12 : 8,
+        topic: task === "fix" ? (body.topic ?? "").slice(0, 120) || null : null,
+        title: `${prefix}${titles[task]} · ${label}`,
+      });
+      return NextResponse.json({ exam, built: true });
+    } catch (error) {
+      console.error("today build failed:", error);
+      return NextResponse.json({ error: "build_failed" }, { status: 500 });
+    }
+  }
 
   // ── Grade check / weak-spot paper: a specific subject, built fresh ──
   if (kind !== "tonight") {
