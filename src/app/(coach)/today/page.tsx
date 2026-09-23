@@ -318,7 +318,7 @@ function TodayInner() {
         </div>
         <div className="lg:col-span-4">
           {attempts && (
-            <StatusPanel attempts={attempts} topicScores={topicScores} curriculumId={curriculumId} year={year} subjects={subjects} goals={goals} onGoalsChange={setGoals} streak={streak} days={days} celebrate={celebrate && status === "done"} />
+            <StatusPanel curriculumId={curriculumId} year={year} subjects={subjects} goals={goals} onGoalsChange={setGoals} streak={streak} days={days} celebrate={celebrate && status === "done"} />
           )}
         </div>
       </div>
