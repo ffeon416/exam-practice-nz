@@ -29,7 +29,7 @@ export default function NextDropCard({ done }: { done: boolean }) {
     <div className="sa-gold" style={{ "--sa-r": "24px" } as React.CSSProperties}>
       <div className="bg-[#0e0f13] p-5">
         <p className="font-mono text-[10.5px] uppercase tracking-[0.14em]" style={{ color: accent }}>
-          {done ? "Tomorrow's paper drops in" : "Time left on today's paper"}
+          {done ? "Tomorrow's task drops in" : "Time left on today's task"}
         </p>
         <p className={`${display.className} font-bold leading-none tracking-[-0.04em] text-white mt-2 tabular-nums`}>
           <span className="text-[56px]">{pad(h)}</span><span className="text-[28px] text-zinc-500 mx-0.5">:</span>
@@ -41,10 +41,10 @@ export default function NextDropCard({ done }: { done: boolean }) {
         </div>
         <p className="text-zinc-400 text-[13px] leading-relaxed mt-3">
           {done
-            ? <>Midnight, your time. Tomorrow&apos;s paper is being built now, so it&apos;s <span className="text-white font-semibold">waiting when you wake up</span>.</>
+            ? <>Midnight, your time. Tomorrow&apos;s task is being built now, so it&apos;s <span className="text-white font-semibold">waiting when you wake up</span>.</>
             : urgent
-              ? <>At midnight today&apos;s paper is gone and tomorrow&apos;s takes its place. <span className="text-rose-300 font-semibold">Sit it now or the streak breaks.</span></>
-              : <>At midnight, your time, today&apos;s paper is replaced by tomorrow&apos;s. <span className="text-white font-semibold">Sit it before then to keep your streak.</span></>}
+              ? <>At midnight today&apos;s task is gone and tomorrow&apos;s takes its place. <span className="text-rose-300 font-semibold">Sit it now or the streak breaks.</span></>
+              : <>At midnight, your time, today&apos;s task is replaced by tomorrow&apos;s. <span className="text-white font-semibold">Sit it before then to keep your streak.</span></>}
         </p>
       </div>
     </div>

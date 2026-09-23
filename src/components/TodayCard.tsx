@@ -88,7 +88,7 @@ export default function TodayCard({
 
           {done ? (
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <p className="text-zinc-400 text-[14px]">Tomorrow&apos;s paper drops at midnight, built for you overnight.</p>
+              <p className="text-zinc-400 text-[14px]">Tomorrow&apos;s task drops at midnight, built for you overnight.</p>
               <Link href="/subjects" className="text-[14px] text-zinc-300 hover:text-white underline-offset-4 underline">Sit an extra paper →</Link>
             </div>
           ) : status === "failed" ? (
