@@ -13,7 +13,8 @@ import { loadProgress, saveProgress } from "@/lib/storage";
 import { adoptPaper, currentCurriculumId, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
 import { loadGoals, syncGoals, goalFor, type SubjectGoal } from "@/lib/goals";
 import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, recentDays, streakDays, taskForDay, TASK_BLURB, type TaskKind } from "@/lib/dailyTask";
-import { scopedKey } from "@/lib/userScope";
+import { scopedKey, setScopeUserId } from "@/lib/userScope";
+import { useUser } from "@clerk/nextjs";
 
 // What each date was assigned, so a day's task is fixed once handed out and
 // tomorrow is never the same kind as today.
@@ -40,6 +41,7 @@ function TodayInner() {
   const router = useRouter();
   const params = useSearchParams();
   const celebrate = params.get("done") === "1";
+  const { user, isLoaded: userLoaded } = useUser();
   const [attempts, setAttempts] = useState<ExamAttempt[] | null>(null);
   const [topicScores, setTopicScores] = useState<Record<string, TopicScore>>({});
   const [subjects, setSubjects] = useState<string[]>([]);
@@ -65,6 +67,11 @@ function TodayInner() {
 
   // ── Load ──
   useEffect(() => {
+    // Storage is namespaced per account. Never read it before Clerk has said
+    // who this is, or a brand-new device looks "not onboarded" and bounces
+    // back to /welcome.
+    if (!userLoaded) return;
+    setScopeUserId(user?.id ?? null);
     let cancelled = false;
     const run = () => {
       const ob = loadOnboarding();
@@ -91,7 +98,7 @@ function TodayInner() {
     };
     const id = setTimeout(run, 0);
     return () => { cancelled = true; clearTimeout(id); };
-  }, [router]);
+  }, [router, userLoaded, user?.id]);
 
   // ── Today's task ──
   const curriculum = resolveCurriculum(curriculumId);

@@ -10,6 +10,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+import { setScopeUserId } from "@/lib/userScope";
 import { display } from "@/lib/displayFont";
 import { loadOnboarding, saveOnboarding } from "@/lib/onboarding";
 import { COUNTRIES, curriculaForCountry, resolveCurriculum, type Curriculum } from "@/data/curricula";
@@ -79,6 +80,8 @@ export default function WelcomePage() {
   }
   async function finishGoals() {
     if (year == null || subjects.length === 0 || !examDate) return;
+    // Save under this account's namespace, never the anonymous one.
+    if (isLoaded) setScopeUserId(user?.id ?? null);
     saveOnboarding({ yearLevel: year, subjects, curriculumId });
     try { localStorage.setItem(CURRICULUM_LS_KEY, curriculumId); } catch {}
     for (const s of subjects) await setGoal({ subject: s, goal: goals[s] ?? bands[0].id, examDate, curriculumId, year });
