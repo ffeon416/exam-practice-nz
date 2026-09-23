@@ -33,7 +33,8 @@ export const LETTER_BANDS: GradeBand[] = [
   { id: "a", label: "A", minPct: 0.8, tone: "top" },
   { id: "b", label: "B", minPct: 0.65, tone: "high" },
   { id: "c", label: "C", minPct: 0.5, tone: "pass" },
-  { id: "d", label: "D", minPct: 0, tone: "fail" },
+  { id: "d", label: "D", minPct: 0.2, tone: "fail" },
+  { id: "f", label: "F", minPct: 0, tone: "fail" },
 ];
 
 export interface CurriculumLevel {

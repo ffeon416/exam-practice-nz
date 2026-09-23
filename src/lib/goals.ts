@@ -25,7 +25,7 @@ const KEY = "studyace-goals";
 // "band6", GCSE "grade9"…) map onto the letter scale.
 const LEGACY_GOAL: Record<string, string> = { excellence: "a", merit: "b", achieved: "c", "not-achieved": "d" };
 export function normalizeGoalId(id: string): string {
-  if (["a-plus", "a", "b", "c", "d"].includes(id)) return id;
+  if (["a-plus", "a", "b", "c", "d", "f"].includes(id)) return id;
   return LEGACY_GOAL[id] ?? "a";
 }
 

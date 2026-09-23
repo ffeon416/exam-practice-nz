@@ -510,6 +510,7 @@ export default function DashboardPage() {
 
   const recentAttempts = [...progress.examAttempts].reverse().slice(0, 5);
   const lastGrade = recentAttempts[0]?.overallGrade;
+  const lastPct = recentAttempts[0] && recentAttempts[0].maxMarks > 0 ? recentAttempts[0].totalMarks / recentAttempts[0].maxMarks : undefined;
 
   return (
     <div className="relative overflow-hidden bg-[#06060a]">
@@ -623,7 +624,7 @@ export default function DashboardPage() {
           <div className="flex items-center justify-center gap-2 mb-6 -mt-3">
             <span className="text-zinc-600 text-[11px]">Last grade:</span>
             <span className={`text-[13px] font-bold ${gradeColor(lastGrade)}`}>
-              {gradeLabel(lastGrade)}
+              {gradeLabel(lastGrade, lastPct)}
             </span>
           </div>
         )}
@@ -783,7 +784,7 @@ export default function DashboardPage() {
                     {/* Grade + arrow */}
                     <div className="flex items-center gap-2 shrink-0">
                       <span className={`text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-full border ${c.pill}`}>
-                        {gradeLabel(attempt.overallGrade)}
+                        {gradeLabel(attempt.overallGrade, pct)}
                       </span>
                       <span className="text-zinc-600 group-hover:text-white group-hover:translate-x-0.5 transition-all text-[14px]">&rarr;</span>
                     </div>

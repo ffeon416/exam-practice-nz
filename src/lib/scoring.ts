@@ -61,7 +61,9 @@ export function bandToneGrade(band: GradeBand): Grade {
   }
 }
 
-export function gradeLabel(grade: Grade): string {
+export function gradeLabel(grade: Grade, pct?: number): string {
+  // With a percentage we can tell D from F (and A+ from A).
+  if (pct != null) return letterForPct(pct > 1 ? pct / 100 : pct).label;
   switch (grade) {
     case "excellence":
       return "A";
