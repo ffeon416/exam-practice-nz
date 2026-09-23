@@ -6,15 +6,24 @@
 // where they are against each goal.
 
 import { useEffect, useMemo, useState } from "react";
-import { useUser } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
 import { loadProgress, saveProgress } from "@/lib/storage";
 import { adoptPaper, currentCurriculumId, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
 import { loadGoals, syncGoals, goalFor, type SubjectGoal } from "@/lib/goals";
-import { dayNumber, daysUntil, localDateKey, msUntilLocalMidnight, recentDays, streakDays, taskForDay, TASK_BLURB } from "@/lib/dailyTask";
+import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, recentDays, streakDays, taskForDay, TASK_BLURB, type TaskKind } from "@/lib/dailyTask";
+import { scopedKey } from "@/lib/userScope";
+
+// What each date was assigned, so a day's task is fixed once handed out and
+// tomorrow is never the same kind as today.
+type TaskLog = Record<string, { subject: string; kind: TaskKind }>;
+const LOG_KEY = "studyace-task-log";
+function readLog(): TaskLog { try { return JSON.parse(localStorage.getItem(scopedKey(LOG_KEY)) ?? "{}") as TaskLog; } catch { return {}; } }
+function writeLog(date: string, entry: { subject: string; kind: TaskKind }) {
+  try { const log = readLog(); log[date] = entry; const keys = Object.keys(log).sort().slice(-30); localStorage.setItem(scopedKey(LOG_KEY), JSON.stringify(Object.fromEntries(keys.map((k) => [k, log[k]])))); } catch {}
+}
+function shiftDate(key: string, days: number): string { const d = new Date(key + "T12:00:00"); d.setDate(d.getDate() + days); return localDateKey(d); }
 import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
 import { getCustomExam } from "@/lib/customExams";
 import { resolveCurriculum } from "@/data/curricula";
@@ -29,7 +38,6 @@ function TodayInner() {
   const router = useRouter();
   const params = useSearchParams();
   const celebrate = params.get("done") === "1";
-  const { user } = useUser();
   const [attempts, setAttempts] = useState<ExamAttempt[] | null>(null);
   const [topicScores, setTopicScores] = useState<Record<string, TopicScore>>({});
   const [subjects, setSubjects] = useState<string[]>([]);
@@ -100,11 +108,24 @@ function TodayInner() {
     return (attempts ?? []).some((a) => a.subject === s && new Date(a.date).getTime() >= since);
   };
   const spotFor = (s: string) => weakSpot(s, tierBreakdown(subjectSeries(attempts ?? [], s), getCustomExam), Object.values(topicScores));
+  // Yesterday's kind: the log first, else read off yesterday's marked paper.
+  const yesterdayKind = useMemo((): TaskKind | null => {
+    const y = shiftDate(today, -1);
+    const logged = readLog()[y]?.kind;
+    if (logged) return logged;
+    const a = (attempts ?? []).find((x) => localDateKey(new Date(x.date)) === y);
+    return a ? kindFromTitle(getCustomExam(a.examId)?.title) : null;
+  }, [attempts, today]);
+  // The paper that actually came back for today, once known — the truth for what today is.
+  const [resolved, setResolved] = useState<{ date: string; subject: string; kind: TaskKind } | null>(null);
   const task = useMemo(() => {
     if (!attempts || !subjects.length) return null;
-    return taskForDay({ day, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s) });
+    if (resolved && resolved.date === today) return { subject: resolved.subject, kind: resolved.kind };
+    const logged = readLog()[today];
+    if (logged && subjects.includes(logged.subject)) return logged;
+    return taskForDay({ day, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s), yesterdayKind });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [attempts, subjects, goals, topicScores, day]);
+  }, [attempts, subjects, goals, topicScores, day, yesterdayKind, resolved, today]);
 
   // Build (or fetch) today's paper once we know the task; remember tomorrow's for the overnight prebuild.
   useEffect(() => {
@@ -113,7 +134,9 @@ function TodayInner() {
       setStatus("done");
       try {
         const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-        const next = taskForDay({ day: day + 1, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s) });
+        const next = taskForDay({ day: day + 1, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s), yesterdayKind: task.kind });
+        writeLog(today, task);
+        writeLog(localDateKey(tomorrow), { subject: next.subject, kind: next.kind });
         prebuildDay({ date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined });
       } catch {}
       return;
@@ -125,14 +148,21 @@ function TodayInner() {
       if (cancelled) return;
       if (!r) { setStatus("failed"); return; }
       adoptPaper(r.exam);
-      setExamId(r.exam.id); setExamMode(task.kind === "mock" ? "mock" : "practice"); setStatus("ready");
+      // A paper built earlier (overnight) may be a different task than we'd
+      // compute now; the paper wins, and the card shows what it really is.
+      const realKind = kindFromTitle(r.exam.title) ?? task.kind;
+      const realSubject = subjects.includes(r.exam.subject) ? r.exam.subject : task.subject;
+      writeLog(today, { subject: realSubject, kind: realKind });
+      if (realKind !== task.kind || realSubject !== task.subject) setResolved({ date: today, subject: realSubject, kind: realKind });
+      setExamId(r.exam.id); setExamMode(realKind === "mock" ? "mock" : "practice"); setStatus("ready");
     }).catch(() => { if (!cancelled) setStatus("failed"); });
     // Tomorrow's task (assume today's subject gets its baseline today).
     try {
       const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-      const next = taskForDay({ day: day + 1, subjects, hasBaseline: (s) => s === task.subject || hasBaseline(s), hasWeakSpot: (s) => !!spotFor(s) });
+      const next = taskForDay({ day: day + 1, subjects, hasBaseline: (s) => s === task.subject || hasBaseline(s), hasWeakSpot: (s) => !!spotFor(s), yesterdayKind: task.kind });
       const tomorrowTask: TodayTask = { date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined };
       localStorage.setItem("studyace-tomorrow-task", JSON.stringify(tomorrowTask));
+      writeLog(tomorrowTask.date, { subject: next.subject, kind: next.kind });
       // Build it now, whether or not today's gets done — tomorrow must be ready at midnight.
       prebuildDay(tomorrowTask);
     } catch {}
@@ -207,7 +237,8 @@ function TodayInner() {
         <div className="lg:col-span-8">
           {task ? (
             <TodayCard
-              firstName={user?.firstName?.trim() || null}
+              questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
+              minutes={examId ? getCustomExam(examId)?.timeMinutes ?? null : null}
               examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
               day={day}
               sinceLine={sinceLine}

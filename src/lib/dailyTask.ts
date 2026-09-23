@@ -37,22 +37,61 @@ export function taskForDay(opts: {
   subjects: string[];          // in the student's chosen order
   hasBaseline: (subject: string) => boolean;
   hasWeakSpot: (subject: string) => boolean;
+  /** What they got yesterday. Today is never the same kind twice in a row. */
+  yesterdayKind?: TaskKind | null;
 }): { subject: string; kind: TaskKind } {
   const subjects = opts.subjects.length ? opts.subjects : ["mathematics"];
-  // Any subject still unmeasured takes priority, in order.
+  const prev = opts.yesterdayKind ?? null;
+  const measured = subjects.filter((s) => opts.hasBaseline(s));
+  // Any subject still unmeasured takes priority, in order — unless yesterday
+  // was already a grade check and there's a measured subject to work on.
   const unmeasured = subjects.find((s) => !opts.hasBaseline(s));
-  if (unmeasured) return { subject: unmeasured, kind: "check" };
-  const subject = subjects[(opts.day - 1) % subjects.length];
+  if (unmeasured && !(prev === "check" && measured.length > 0)) return { subject: unmeasured, kind: "check" };
+  const pool = measured.length ? measured : subjects;
+  const subject = pool[(opts.day - 1) % pool.length];
   let kind = CYCLE[(opts.day - 1) % CYCLE.length];
   if (kind === "fix" && !opts.hasWeakSpot(subject)) kind = "paper";
+  if (kind === "check" && unmeasured) kind = "mock"; // that subject's check happens on its own day
+  if (kind === prev) kind = nextDifferent(kind, opts.hasWeakSpot(subject));
   return { subject, kind };
 }
 
+function nextDifferent(kind: TaskKind, weakSpot: boolean): TaskKind {
+  switch (kind) {
+    case "check": return "paper";
+    case "mock": return weakSpot ? "fix" : "paper";
+    case "paper": return "mock";
+    case "fix": return "paper";
+  }
+}
+
+/** Read the task kind back out of a built paper's title ("Day 2026-09-23 · Grade check · Economics"). */
+export function kindFromTitle(title: string | null | undefined): TaskKind | null {
+  if (!title) return null;
+  if (title.includes("Grade check")) return "check";
+  if (title.includes("Mock exam")) return "mock";
+  if (title.includes("Weak spot")) return "fix";
+  if (title.includes("Practice paper")) return "paper";
+  return null;
+}
+
 export const TASK_TITLE: Record<TaskKind, string> = {
-  check: "Grade check",
-  mock: "Mock exam",
-  paper: "Practice paper",
-  fix: "Fix your weak spot",
+  check: "Grade\ncheck",
+  mock: "Mock\nexam",
+  paper: "Practice\npaper",
+  fix: "Fix your\nweak spot",
+};
+export const TASK_CTA: Record<TaskKind, string> = {
+  check: "Check my grade →",
+  mock: "Start the mock →",
+  paper: "Start the paper →",
+  fix: "Fix it →",
+};
+export const TASK_META: Record<TaskKind, { questions: number; minutes: number }> = {
+  check: { questions: 8, minutes: 15 },
+  mock: { questions: 12, minutes: 30 },
+  paper: { questions: 8, minutes: 15 },
+  fix: { questions: 8, minutes: 15 },
 };
 export const TASK_BLURB: Record<TaskKind, string> = {
   check: "Eight questions, marked properly. Sets where you are and shapes what comes next.",

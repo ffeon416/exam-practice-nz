@@ -1,22 +1,16 @@
 "use client";
 
-// The daily paper. The day is the hero: a huge day number, the date, then
-// the task in big type with one Start button. Already built and waiting.
-// When it's done, the card becomes "that's today done" with a countdown to
-// the next drop at midnight. Tomorrow is never shown.
+// The daily paper as a ticket. Left: what it is and one button. Right, past
+// the perforation: the stub with the numbers (questions, minutes, days to
+// exam) and a stamp for the state. Same template for every task kind; only
+// the accent, the words and the numbers change. Tomorrow is never shown.
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
-import { msUntilLocalMidnight, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { msUntilLocalMidnight, TASK_BLURB, TASK_CTA, TASK_META, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
 
-const ICON: Record<TaskKind, React.ReactNode> = {
-  check: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.4} stroke="currentColor"><path strokeLinecap="round" d="M12 3v3M12 18v3M3 12h3M18 12h3" /><circle cx="12" cy="12" r="4" /></svg>,
-  mock: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><circle cx="12" cy="13" r="8" /><path strokeLinecap="round" d="M12 9v4l3 2M9.5 3h5" /></svg>,
-  paper: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M7 3h7l5 5v13H7z" /><path strokeLinecap="round" d="M9.5 12h5M9.5 16h5" /></svg>,
-  fix: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13 3L4 14h7l-1 7 9-11h-7z" /></svg>,
-};
-
+const ACCENT: Record<TaskKind, string> = { check: "#3ee6a0", mock: "#a78bfa", paper: "#7dd3fc", fix: "#fbbf24" };
 const BUILD_LINES = ["Writing your questions…", "Matching your exam's style…", "Checking the marking scheme…", "Nearly there…"];
 
 function Countdown() {
@@ -37,18 +31,18 @@ function BuildLine() {
   return <>{BUILD_LINES[i]}</>;
 }
 
+function Stat({ value, label, tone }: { value: string; label: string; tone?: string }) {
+  return (
+    <div>
+      <p className={`${display.className} font-bold text-[40px] sm:text-[44px] leading-none tracking-[-0.03em] tabular-nums`} style={{ color: tone ?? "#f4f4f5" }}>{value}</p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 mt-1.5">{label}</p>
+    </div>
+  );
+}
+
 export default function TodayCard({
-  firstName, day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays, sinceLine, whyLine, celebrate,
+  day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays, sinceLine, whyLine, celebrate, questionCount, minutes,
 }: {
-  firstName?: string | null;
-  /** "Day 1: 20% → Day 4: 34%" — the number that moves. */
-  sinceLine?: string | null;
-  /** Why today's task is today's task. */
-  whyLine?: string | null;
-  /** Just came back from marking: play the stamp. */
-  celebrate?: boolean;
-  /** Days until this subject's exam, if a date is set. */
-  examInDays?: number | null;
   day: number;
   dateLabel: string;
   subjectLabel: string;
@@ -57,108 +51,98 @@ export default function TodayCard({
   scoreLabel?: string | null;
   busy?: boolean;
   onStart: () => void;
+  /** Days until this subject's exam, if a date is set. */
+  examInDays?: number | null;
+  /** "Day 1: 20% → now 34%" — the number that moves. */
+  sinceLine?: string | null;
+  /** Why today's task is today's task. */
+  whyLine?: string | null;
+  /** Just came back from marking: play the stamp. */
+  celebrate?: boolean;
+  /** Real counts from the built paper, when known. */
+  questionCount?: number | null;
+  minutes?: number | null;
 }) {
-  const isCheck = kind === "check", done = status === "done", ready = status === "ready";
-  const accent = done || isCheck ? "#34d399" : "#a78bfa";
-  const [hour] = useState(() => new Date().getHours());
-  const greet = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : "Evening";
-  // Count the day number up on first paint.
-  const [shown, setShown] = useState(0);
-  useEffect(() => {
-    let raf = 0; const t0 = performance.now(); const dur = 700;
-    const tick = (now: number) => { const p = Math.min(1, (now - t0) / dur); setShown(Math.round(day * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(tick); };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [day]);
+  const done = status === "done", ready = status === "ready", building = status === "building" || status === "loading";
+  const accent = done ? "#3ee6a0" : ACCENT[kind];
+  const meta = TASK_META[kind];
+  const qs = questionCount ?? meta.questions;
+  const mins = minutes ?? meta.minutes;
+  const examTone = examInDays == null ? undefined : examInDays <= 7 ? "#ff6b6b" : examInDays <= 21 ? "#fbbf24" : undefined;
+  const stamp = done ? { text: "Done", color: "#3ee6a0" } : status === "failed" ? { text: "Failed", color: "#ff6b6b" } : building ? { text: "Building", color: "#fbbf24" } : { text: "Ready", color: accent };
+  const title = TASK_TITLE[kind].split("\n");
 
   return (
-    <div className={`relative rounded-[32px] p-[1.5px] overflow-hidden home-rise ${celebrate ? "sa-stamp" : ""}`}>
-      <span className="absolute inset-[-60%] sa-spin-slow" style={{ background: `conic-gradient(from 0deg, transparent 0deg, ${accent} 70deg, transparent 130deg, transparent 230deg, ${accent}99 300deg, transparent 360deg)` }} aria-hidden />
-      <div className="relative rounded-[30.5px] bg-[#0b0b12] overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[560px] h-[560px] rounded-full pointer-events-none" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${accent}3a 0%, transparent 70%)` }} aria-hidden />
-        <div className="absolute -bottom-40 -right-24 w-[480px] h-[480px] rounded-full pointer-events-none hidden sm:block" style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(99,102,241,0.18) 0%, transparent 70%)" }} aria-hidden />
+    <div className={`relative rounded-[28px] border border-white/[0.09] bg-[#0e0f13] overflow-hidden home-rise ${celebrate ? "sa-stamp" : ""}`}>
+      <div className="grid grid-cols-1 sm:grid-cols-[1fr_190px] md:grid-cols-[1fr_220px]">
+        {/* Main */}
+        <div className="p-6 sm:p-9 lg:p-11 flex flex-col min-h-[440px] sm:min-h-[520px]">
+          <p className="font-mono text-[12px] uppercase tracking-[0.22em]" style={{ color: accent }}>{subjectLabel} · Day {String(day).padStart(2, "0")}</p>
+          <p className="text-zinc-400 text-[14px] mt-1.5">{dateLabel}</p>
 
-        <div className="relative p-6 sm:p-10 lg:p-12">
-          {/* Greeting + state */}
-          <div className="flex items-center justify-between gap-3 mb-8 sm:mb-10">
-            <p className="text-zinc-300 text-[15px]">{greet}{firstName ? `, ${firstName}` : ""}. {done ? "Nice work." : ready ? "Today's paper is ready for you." : status === "building" ? "Your paper is being written." : "Here's today."}</p>
-            {ready && (
-              <span className="inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em] px-3 py-1.5 rounded-full border shrink-0" style={{ color: accent, borderColor: `${accent}55`, background: `${accent}14` }}>
-                <span className="relative flex w-2 h-2"><span className="absolute inset-0 rounded-full animate-ping" style={{ background: accent, opacity: 0.6 }} /><span className="relative rounded-full w-2 h-2" style={{ background: accent }} /></span>
-                Ready
-              </span>
-            )}
-            {done && <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-emerald-300 shrink-0">Done ✓</span>}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-8 md:gap-12 items-center">
-            {/* The day — the hero */}
-            <div className="md:pr-10 md:border-r md:border-white/[0.07]">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Day</p>
-              <div className="relative inline-block">
-                <p className={`${display.className} font-bold leading-[0.85] tracking-[-0.06em] text-[112px] sm:text-[150px] md:text-[168px] bg-clip-text text-transparent tabular-nums ${done ? "bg-gradient-to-b from-emerald-200 to-emerald-500" : "bg-gradient-to-b from-white to-zinc-400"}`}>{shown}</p>
-                {done && (
-                  <span className={`absolute -right-2 top-3 sm:top-6 rotate-[-12deg] font-mono text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 rounded-md border-2 border-emerald-400 text-emerald-300 ${celebrate ? "sa-stamp-in" : ""}`}>Done</span>
-                )}
-              </div>
-              <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-zinc-400 mt-3">{dateLabel}</p>
-              {examInDays != null && examInDays >= 0 && (
-                <p className={`font-mono text-[11.5px] uppercase tracking-[0.14em] mt-2 ${examInDays <= 7 ? "text-rose-300" : examInDays <= 21 ? "text-amber-300" : "text-zinc-500"}`}>
-                  {examInDays === 0 ? "Exam day" : `${examInDays} ${examInDays === 1 ? "day" : "days"} to your ${subjectLabel} exam`}
+          <div className="flex-1 flex flex-col justify-center py-10">
+            <h2 className={`${display.className} text-white font-bold text-[64px] sm:text-[84px] lg:text-[96px] leading-[0.88] tracking-[-0.05em]`}>
+              {title.map((line, i) => <span key={i} className="block">{line}</span>)}
+            </h2>
+            {!done ? (
+              <p className="text-zinc-300 text-[16px] sm:text-[17px] leading-relaxed max-w-md mt-6">{whyLine ?? TASK_BLURB[kind]}</p>
+            ) : (
+              <>
+                <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mt-6">
+                  That&apos;s today done{scoreLabel ? <>: <span className="text-white font-semibold">{scoreLabel}</span></> : "."}
                 </p>
-              )}
-            </div>
-
-            {/* The task */}
-            <div>
-              {!done ? (
-                <>
-                  <div className="inline-flex items-center gap-2.5 mb-4 px-3 py-1.5 rounded-full border" style={{ borderColor: `${accent}40`, background: `${accent}12`, color: accent }}>
-                    {ICON[kind]}<span className="font-mono text-[11px] uppercase tracking-[0.14em]">{subjectLabel}</span>
-                  </div>
-                  <h2 className={`${display.className} text-white font-bold text-[44px] sm:text-[60px] lg:text-[68px] leading-[0.95] tracking-[-0.035em] mb-5`}>{TASK_TITLE[kind]}</h2>
-                  <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mb-1.5">{whyLine ?? TASK_BLURB[kind]}</p>
-                  <p className="text-zinc-500 text-[13px] mb-3">{TASK_LENGTH[kind]}</p>
-                  {sinceLine && <p className="font-mono text-[11.5px] uppercase tracking-[0.12em] text-indigo-300 mb-8">{sinceLine}</p>}
-                  {!sinceLine && <div className="mb-5" />}
-
-                  {status === "failed" ? (
-                    <button onClick={onStart} className="w-full sm:w-auto bg-white text-[#0a0a0f] font-bold text-[17px] px-12 py-5 rounded-full min-h-[60px]">Try building it again →</button>
-                  ) : ready ? (
-                    <button onClick={onStart} disabled={busy}
-                      className={`w-full sm:w-auto font-bold text-[17px] px-14 py-5 rounded-full min-h-[60px] transition-transform hover:scale-[1.02] disabled:opacity-60 ${isCheck ? "bg-emerald-400 text-[#06120d] shadow-[0_0_40px_rgba(52,211,153,0.35)]" : "bg-white text-[#0a0a0f] shadow-[0_0_40px_rgba(167,139,250,0.35)]"}`}>
-                      {busy ? "Opening…" : isCheck ? "Check my grade →" : "Start →"}
-                    </button>
-                  ) : (
-                    <div className="max-w-md">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="w-9 h-9 rounded-full border-2 border-white/10 border-t-white/70 animate-spin" aria-hidden />
-                        <p className="text-white font-semibold text-[15px]"><BuildLine /></p>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden"><div className="h-full w-2/3 rounded-full animate-pulse" style={{ background: `linear-gradient(90deg, ${accent}, #6366f1)` }} /></div>
-                      <p className="text-zinc-500 text-[12px] mt-2">Usually under a minute. After today, it&apos;s built overnight and waiting.</p>
-                    </div>
-                  )}
-                </>
-              ) : (
-                <>
-                  <h2 className={`${display.className} text-white font-bold text-[44px] sm:text-[60px] leading-[0.95] tracking-[-0.035em] mb-4`}>That&apos;s today done.</h2>
-                  <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mb-1.5">
-                    {subjectLabel} · {TASK_TITLE[kind]}{scoreLabel ? <> · <span className="text-white font-semibold">{scoreLabel}</span></> : null}
-                  </p>
-                  {sinceLine && <p className={`${display.className} text-emerald-300 font-bold text-[20px] sm:text-[24px] tracking-[-0.01em] mb-2 ${celebrate ? "home-rise" : ""}`} style={{ animationDelay: "250ms" }}>{sinceLine}</p>}
-                  <p className="text-zinc-500 text-[13px] mb-8">Tomorrow&apos;s task drops at midnight, built for you overnight.</p>
-                  <div className="flex flex-wrap items-center gap-5">
-                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] px-6 py-4">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500">Next drop in</p>
-                      <p className={`${display.className} text-white font-bold text-[32px] leading-none mt-1`}><Countdown /></p>
-                    </div>
-                    <Link href="/subjects" className="text-[14px] text-zinc-400 hover:text-white underline-offset-4 hover:underline">Want more tonight? Sit an extra paper →</Link>
-                  </div>
-                </>
-              )}
-            </div>
+                {sinceLine && <p className={`${display.className} font-bold text-[22px] sm:text-[26px] tracking-[-0.01em] mt-2 ${celebrate ? "home-rise" : ""}`} style={{ color: accent, animationDelay: "250ms" }}>{sinceLine}</p>}
+              </>
+            )}
+            {!done && sinceLine && <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-zinc-500 mt-3">{sinceLine}</p>}
           </div>
+
+          {done ? (
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Next drop in</p>
+                <p className={`${display.className} text-white font-bold text-[30px] leading-none mt-1`}><Countdown /></p>
+              </div>
+              <Link href="/subjects" className="text-[14px] text-zinc-400 hover:text-white underline-offset-4 hover:underline">Sit an extra paper →</Link>
+            </div>
+          ) : status === "failed" ? (
+            <button onClick={onStart} className="self-start bg-white text-[#0a0a0f] font-bold text-[16px] px-9 py-4 rounded-full min-h-[58px]">Try building it again →</button>
+          ) : ready ? (
+            <button onClick={onStart} disabled={busy}
+              className="self-start font-bold text-[17px] px-9 py-4 rounded-full min-h-[60px] text-[#07120d] transition-transform hover:scale-[1.02] disabled:opacity-60"
+              style={{ background: accent, boxShadow: `0 0 36px ${accent}45` }}>
+              {busy ? "Opening…" : TASK_CTA[kind]}
+            </button>
+          ) : (
+            <div className="max-w-md">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-8 h-8 rounded-full border-2 border-white/10 border-t-white/70 animate-spin" aria-hidden />
+                <p className="text-white font-semibold text-[15px]"><BuildLine /></p>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden"><div className="h-full w-2/3 rounded-full animate-pulse" style={{ background: `linear-gradient(90deg, ${accent}, #6366f1)` }} /></div>
+              <p className="text-zinc-500 text-[12px] mt-2">Usually under a minute. From tomorrow it&apos;s built overnight and waiting.</p>
+            </div>
+          )}
+        </div>
+
+        {/* Stub, past the perforation */}
+        <div className="relative border-t sm:border-t-0 sm:border-l border-dashed border-white/[0.16] p-6 sm:p-7 sm:pt-9 sm:pb-8 flex sm:flex-col items-center sm:items-start justify-between gap-6">
+          {/* Notches: the ticket's punched edges. */}
+          <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-white/[0.09] -top-3 -left-3 sm:top-auto sm:-bottom-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
+          <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-white/[0.09] -top-3 -right-3 sm:right-auto sm:-top-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
+
+          <div className="flex sm:flex-col gap-6 sm:gap-10 lg:gap-14">
+            <Stat value={String(qs).padStart(2, "0")} label="Questions" />
+            <Stat value={String(mins)} label={kind === "mock" ? "Min · timed" : "Minutes"} />
+            {examInDays != null && examInDays >= 0
+              ? <Stat value={String(examInDays)} label={examInDays === 1 ? "Day to exam" : "Days to exam"} tone={examTone} />
+              : <Stat value="—" label="Exam date" />}
+          </div>
+
+          <span className={`shrink-0 self-center sm:self-start rotate-[-6deg] font-mono text-[12px] font-bold uppercase tracking-[0.26em] px-4 py-2.5 rounded-lg border-2 ${done && celebrate ? "sa-stamp-in" : ""} ${building ? "animate-pulse" : ""}`}
+            style={{ color: stamp.color, borderColor: stamp.color }}>
+            {stamp.text}
+          </span>
         </div>
       </div>
     </div>
