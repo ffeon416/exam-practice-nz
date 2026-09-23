@@ -38,9 +38,15 @@ function BuildLine() {
 }
 
 export default function TodayCard({
-  firstName, day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays,
+  firstName, day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays, sinceLine, whyLine, celebrate,
 }: {
   firstName?: string | null;
+  /** "Day 1: 20% → Day 4: 34%" — the number that moves. */
+  sinceLine?: string | null;
+  /** Why today's task is today's task. */
+  whyLine?: string | null;
+  /** Just came back from marking: play the stamp. */
+  celebrate?: boolean;
   /** Days until this subject's exam, if a date is set. */
   examInDays?: number | null;
   day: number;
@@ -54,11 +60,19 @@ export default function TodayCard({
 }) {
   const isCheck = kind === "check", done = status === "done", ready = status === "ready";
   const accent = done || isCheck ? "#34d399" : "#a78bfa";
-  const hour = new Date().getHours();
+  const [hour] = useState(() => new Date().getHours());
   const greet = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : "Evening";
+  // Count the day number up on first paint.
+  const [shown, setShown] = useState(0);
+  useEffect(() => {
+    let raf = 0; const t0 = performance.now(); const dur = 700;
+    const tick = (now: number) => { const p = Math.min(1, (now - t0) / dur); setShown(Math.round(day * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(tick); };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [day]);
 
   return (
-    <div className="relative rounded-[32px] p-[1.5px] overflow-hidden">
+    <div className={`relative rounded-[32px] p-[1.5px] overflow-hidden home-rise ${celebrate ? "sa-stamp" : ""}`}>
       <span className="absolute inset-[-60%] sa-spin-slow" style={{ background: `conic-gradient(from 0deg, transparent 0deg, ${accent} 70deg, transparent 130deg, transparent 230deg, ${accent}99 300deg, transparent 360deg)` }} aria-hidden />
       <div className="relative rounded-[30.5px] bg-[#0b0b12] overflow-hidden">
         <div className="absolute -top-32 -left-32 w-[560px] h-[560px] rounded-full pointer-events-none" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${accent}3a 0%, transparent 70%)` }} aria-hidden />
@@ -81,7 +95,12 @@ export default function TodayCard({
             {/* The day — the hero */}
             <div className="md:pr-10 md:border-r md:border-white/[0.07]">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Day</p>
-              <p className={`${display.className} font-bold leading-[0.85] tracking-[-0.06em] text-[112px] sm:text-[150px] md:text-[168px] bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400`}>{day}</p>
+              <div className="relative inline-block">
+                <p className={`${display.className} font-bold leading-[0.85] tracking-[-0.06em] text-[112px] sm:text-[150px] md:text-[168px] bg-clip-text text-transparent tabular-nums ${done ? "bg-gradient-to-b from-emerald-200 to-emerald-500" : "bg-gradient-to-b from-white to-zinc-400"}`}>{shown}</p>
+                {done && (
+                  <span className={`absolute -right-2 top-3 sm:top-6 rotate-[-12deg] font-mono text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 rounded-md border-2 border-emerald-400 text-emerald-300 ${celebrate ? "sa-stamp-in" : ""}`}>Done</span>
+                )}
+              </div>
               <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-zinc-400 mt-3">{dateLabel}</p>
               {examInDays != null && examInDays >= 0 && (
                 <p className={`font-mono text-[11.5px] uppercase tracking-[0.14em] mt-2 ${examInDays <= 7 ? "text-rose-300" : examInDays <= 21 ? "text-amber-300" : "text-zinc-500"}`}>
@@ -98,8 +117,10 @@ export default function TodayCard({
                     {ICON[kind]}<span className="font-mono text-[11px] uppercase tracking-[0.14em]">{subjectLabel}</span>
                   </div>
                   <h2 className={`${display.className} text-white font-bold text-[44px] sm:text-[60px] lg:text-[68px] leading-[0.95] tracking-[-0.035em] mb-5`}>{TASK_TITLE[kind]}</h2>
-                  <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mb-1.5">{TASK_BLURB[kind]}</p>
-                  <p className="text-zinc-500 text-[13px] mb-8">{TASK_LENGTH[kind]}</p>
+                  <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mb-1.5">{whyLine ?? TASK_BLURB[kind]}</p>
+                  <p className="text-zinc-500 text-[13px] mb-3">{TASK_LENGTH[kind]}</p>
+                  {sinceLine && <p className="font-mono text-[11.5px] uppercase tracking-[0.12em] text-indigo-300 mb-8">{sinceLine}</p>}
+                  {!sinceLine && <div className="mb-5" />}
 
                   {status === "failed" ? (
                     <button onClick={onStart} className="w-full sm:w-auto bg-white text-[#0a0a0f] font-bold text-[17px] px-12 py-5 rounded-full min-h-[60px]">Try building it again →</button>
@@ -125,6 +146,7 @@ export default function TodayCard({
                   <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mb-1.5">
                     {subjectLabel} · {TASK_TITLE[kind]}{scoreLabel ? <> · <span className="text-white font-semibold">{scoreLabel}</span></> : null}
                   </p>
+                  {sinceLine && <p className={`${display.className} text-emerald-300 font-bold text-[20px] sm:text-[24px] tracking-[-0.01em] mb-2 ${celebrate ? "home-rise" : ""}`} style={{ animationDelay: "250ms" }}>{sinceLine}</p>}
                   <p className="text-zinc-500 text-[13px] mb-8">Tomorrow&apos;s task drops at midnight, built for you overnight.</p>
                   <div className="flex flex-wrap items-center gap-5">
                     <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] px-6 py-4">

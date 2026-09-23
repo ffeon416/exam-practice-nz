@@ -607,10 +607,10 @@ export default function ResultsPage({
             See what I got wrong
           </button>
           <Link
-            href="/subjects"
-            className="block w-full text-center py-3 rounded-xl border border-white/[0.1] text-zinc-300 text-[14px] font-medium hover:bg-white/[0.06] transition-colors min-h-[48px] flex items-center justify-center"
+            href="/today?done=1"
+            className="block w-full text-center py-3.5 rounded-xl bg-white text-[#0a0a0f] text-[14px] font-bold hover:bg-zinc-100 transition-colors min-h-[48px] flex items-center justify-center"
           >
-            Sit another paper
+            Back to Today →
           </Link>
         </div>
 

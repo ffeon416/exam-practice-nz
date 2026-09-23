@@ -17,8 +17,9 @@ import type { ExamAttempt, TopicScore } from "@/lib/types";
 const TONE_TEXT: Record<string, string> = { top: "text-emerald-400", high: "text-amber-400", pass: "text-sky-400", fail: "text-rose-400" };
 
 export default function StatusPanel({
-  attempts, topicScores, curriculumId, year, subjects, goals, onGoalsChange, streak, days,
+  attempts, topicScores, curriculumId, year, subjects, goals, onGoalsChange, streak, days, celebrate,
 }: {
+  celebrate?: boolean;
   attempts: ExamAttempt[];
   topicScores: Record<string, TopicScore>;
   curriculumId: string;
@@ -93,7 +94,7 @@ export default function StatusPanel({
         </div>
         <div className="flex gap-1">
           {days.map((d) => (
-            <span key={d.key} title={d.key} className={`flex-1 h-7 rounded-md ${d.done ? "bg-gradient-to-b from-indigo-400 to-violet-600 shadow-[0_0_8px_rgba(139,92,246,0.6)]" : d.isToday ? "border border-white/40" : "bg-white/[0.06]"}`} />
+            <span key={d.key} title={d.key} className={`flex-1 h-7 rounded-md ${d.done ? "bg-gradient-to-b from-indigo-400 to-violet-600 shadow-[0_0_8px_rgba(139,92,246,0.6)]" : d.isToday ? "border border-white/40" : "bg-white/[0.06]"} ${d.isToday && d.done && celebrate ? "sa-block-snap" : ""}`} />
           ))}
         </div>
       </div>
