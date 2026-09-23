@@ -73,7 +73,8 @@ export default function TodayCard({
   const title = TASK_TITLE[kind].split("\n");
 
   return (
-    <div className={`relative rounded-[28px] border border-white/[0.09] bg-[#0e0f13] overflow-hidden home-rise ${celebrate ? "sa-stamp" : ""}`}>
+    <div className={`sa-gold home-rise ${celebrate ? "sa-stamp" : ""}`}>
+    <div className="relative bg-[#0e0f13] overflow-hidden">
       <div className="grid grid-cols-1 sm:grid-cols-[1fr_190px] md:grid-cols-[1fr_220px]">
         {/* Main */}
         <div className="p-6 sm:p-9 lg:p-11 flex flex-col min-h-[440px] sm:min-h-[520px]">
@@ -128,8 +129,8 @@ export default function TodayCard({
         {/* Stub, past the perforation */}
         <div className="relative border-t sm:border-t-0 sm:border-l border-dashed border-white/[0.16] p-6 sm:p-7 sm:pt-9 sm:pb-8 flex sm:flex-col items-center sm:items-start justify-between gap-6">
           {/* Notches: the ticket's punched edges. */}
-          <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-white/[0.09] -top-3 -left-3 sm:top-auto sm:-bottom-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
-          <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-white/[0.09] -top-3 -right-3 sm:right-auto sm:-top-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
+          <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-[#e8c46a]/40 -top-3 -left-3 sm:top-auto sm:-bottom-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
+          <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-[#e8c46a]/40 -top-3 -right-3 sm:right-auto sm:-top-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
 
           <div className="flex sm:flex-col gap-6 sm:gap-10 lg:gap-14">
             <Stat value={String(qs).padStart(2, "0")} label="Questions" />
@@ -145,6 +146,7 @@ export default function TodayCard({
           </span>
         </div>
       </div>
+    </div>
     </div>
   );
 }

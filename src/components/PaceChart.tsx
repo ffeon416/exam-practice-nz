@@ -127,7 +127,8 @@ export default function PaceChart({
   const shouldLabelLeft = todayIdx >= n - 3;
 
   return (
-    <div className="rounded-[28px] border border-white/[0.09] bg-[#0e0f13] p-6 sm:p-8 home-rise" style={{ animationDelay: "120ms" }}>
+    <div className="sa-gold home-rise" style={{ animationDelay: "120ms" }}>
+    <div className="bg-[#0e0f13] p-6 sm:p-8">
       <div className="flex items-start justify-between gap-3 flex-wrap">
         <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">
           {subjectLabel} · Day {day}{total ? ` of ${total}` : ""} · {dateLabel}
@@ -217,6 +218,7 @@ export default function PaceChart({
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

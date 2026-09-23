@@ -70,7 +70,8 @@ export default function StatusPanel({
     <aside className="space-y-4">
       {/* Exam countdown */}
       {nextExam && (
-        <div className={`rounded-[24px] border p-5 ${nextExam.days <= 7 ? "border-rose-400/30 bg-rose-500/[0.06]" : nextExam.days <= 21 ? "border-amber-400/25 bg-amber-500/[0.05]" : "border-white/[0.08] bg-white/[0.015]"}`}>
+        <div className="sa-gold" style={{ "--sa-r": "24px" } as React.CSSProperties}>
+        <div className={`p-5 ${nextExam.days <= 7 ? "bg-[#1a0f12]" : nextExam.days <= 21 ? "bg-[#1a160e]" : "bg-[#0e0f13]"}`}>
           <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-zinc-500">
             {upcoming.length > 1 ? "Next exam" : "Your exam"} · {label(nextExam.subject)}
           </p>
@@ -82,9 +83,11 @@ export default function StatusPanel({
             {upcoming.length > 1 && <> · {upcoming.slice(1).map((u) => `${label(u.subject)} in ${u.days}`).join(", ")}</>}
           </p>
         </div>
+        </div>
       )}
       {/* Streak */}
-      <div className="rounded-[24px] border border-white/[0.08] bg-white/[0.015] p-5">
+      <div className="sa-gold" style={{ "--sa-r": "24px" } as React.CSSProperties}>
+      <div className="bg-[#0e0f13] p-5">
         <div className="flex items-end justify-between gap-3 mb-3">
           <div>
             <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-zinc-500">Streak</p>
@@ -98,9 +101,11 @@ export default function StatusPanel({
           ))}
         </div>
       </div>
+      </div>
 
       {/* Subject status */}
-      <div className="rounded-[24px] border border-white/[0.08] bg-white/[0.015] p-5">
+      <div className="sa-gold" style={{ "--sa-r": "24px" } as React.CSSProperties}>
+      <div className="bg-[#0e0f13] p-5">
         {subjects.length > 1 && (
           <div className="flex gap-1.5 overflow-x-auto -mx-1 px-1 pb-3 mb-1 [scrollbar-width:none]">
             {subjects.map((s) => (
@@ -143,6 +148,7 @@ export default function StatusPanel({
           </p>
         )}
         {spot && <p className="text-zinc-500 text-[12.5px] mt-3">Weak spot: <span className="text-zinc-300">{spot.label}</span> ({spot.pct}%). Your fix-it days target this.</p>}
+      </div>
       </div>
     </aside>
   );
