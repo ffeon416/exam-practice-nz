@@ -29,7 +29,7 @@ function Stat({ value, label, tone }: { value: string; label: string; tone?: str
 }
 
 export default function TodayCard({
-  day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays, sinceLine, whyLine, celebrate, questionCount, minutes,
+  day, dateLabel, subjectLabel, kind, status, scoreLabel, busy, onStart, examInDays, sinceLine, whyLine, celebrate, questionCount, minutes, tomorrow,
 }: {
   day: number;
   dateLabel: string;
@@ -47,6 +47,8 @@ export default function TodayCard({
   whyLine?: string | null;
   /** Just came back from marking: play the stamp. */
   celebrate?: boolean;
+  /** Tomorrow's task, shown once today's is done. */
+  tomorrow?: { title: string; subject: string; length: string } | null;
   /** Real counts from the built paper, when known. */
   questionCount?: number | null;
   minutes?: number | null;
@@ -98,8 +100,15 @@ export default function TodayCard({
           {done ? (
             <div className="rounded-2xl border p-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3" style={{ borderColor: `${accent}33`, background: `${accent}0d` }}>
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: accent }}>Next task · tomorrow</p>
-                <p className="text-zinc-300 text-[14px] mt-1">Nothing more to do today. Your next task drops at midnight, your time, and it&apos;s being built now so it&apos;s ready when you open the app.</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: accent }}>Tomorrow · Day {String(day + 1).padStart(2, "0")}</p>
+                {tomorrow ? (
+                  <>
+                    <p className={`${display.className} text-white font-bold text-[24px] sm:text-[28px] leading-tight tracking-[-0.02em] mt-1`}>{tomorrow.title} <span className="text-zinc-400">· {tomorrow.subject}</span></p>
+                    <p className="text-zinc-400 text-[13px] mt-1">{tomorrow.length} · drops at midnight, your time · being built now so it&apos;s ready when you open the app.</p>
+                  </>
+                ) : (
+                  <p className="text-zinc-300 text-[14px] mt-1">Your next task drops at midnight, your time, built overnight so it&apos;s ready when you open the app.</p>
+                )}
               </div>
               <Link href="/subjects" className="text-[13.5px] text-zinc-400 hover:text-white underline-offset-4 underline shrink-0">Want more? Sit an extra paper →</Link>
             </div>

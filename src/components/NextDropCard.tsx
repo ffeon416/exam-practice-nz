@@ -18,7 +18,7 @@ function useMidnightClock() {
   return ms;
 }
 
-export default function NextDropCard({ done }: { done: boolean }) {
+export default function NextDropCard({ done, next }: { done: boolean; next?: string | null }) {
   const ms = useMidnightClock();
   const h = ms == null ? null : Math.floor(ms / 3.6e6), m = ms == null ? null : Math.floor((ms % 3.6e6) / 6e4), s = ms == null ? null : Math.floor((ms % 6e4) / 1000);
   const pad = (n: number | null) => (n == null ? "--" : String(n).padStart(2, "0"));
@@ -39,7 +39,8 @@ export default function NextDropCard({ done }: { done: boolean }) {
         <div className="flex gap-6 font-mono text-[9.5px] uppercase tracking-[0.2em] text-zinc-600 mt-1 pl-1">
           <span className="w-[72px]">hours</span><span className="w-[72px]">mins</span><span>secs</span>
         </div>
-        <p className="text-zinc-400 text-[13px] leading-relaxed mt-3">
+        {done && next && <p className={`${display.className} text-white font-bold text-[18px] tracking-[-0.01em] mt-3`}>{next}</p>}
+        <p className={`text-zinc-400 text-[13px] leading-relaxed ${done && next ? "mt-1" : "mt-3"}`}>
           {done
             ? <>Midnight, your time. Tomorrow&apos;s task is being built now, so it&apos;s <span className="text-white font-semibold">waiting when you wake up</span>.</>
             : urgent

@@ -12,7 +12,7 @@ import { loadOnboarding } from "@/lib/onboarding";
 import { loadProgress, saveProgress } from "@/lib/storage";
 import { adoptPaper, currentCurriculumId, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
 import { loadGoals, syncGoals, goalFor, type SubjectGoal } from "@/lib/goals";
-import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, recentDays, streakDays, taskForDay, TASK_BLURB, type TaskKind } from "@/lib/dailyTask";
+import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, recentDays, streakDays, taskForDay, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
 import { scopedKey, setScopeUserId } from "@/lib/userScope";
 import { useUser } from "@clerk/nextjs";
 
@@ -135,6 +135,8 @@ function TodayInner() {
   }, [attempts, today]);
   // The paper that actually came back for today, once known — the truth for what today is.
   const [resolved, setResolved] = useState<{ date: string; subject: string; kind: TaskKind } | null>(null);
+  // Tomorrow's task, once we've worked it out — shown after today's is done.
+  const [tomorrowTask, setTomorrowTask] = useState<{ subject: string; kind: TaskKind } | null>(null);
   const task = useMemo(() => {
     if (!attempts || !subjects.length) return null;
     if (resolved && resolved.date === today) return { subject: resolved.subject, kind: resolved.kind };
@@ -158,6 +160,7 @@ function TodayInner() {
         const next = taskForDay({ day: day + 1, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s), yesterdayKind: task.kind });
         writeLog(today, task);
         writeLog(localDateKey(tomorrow), { subject: next.subject, kind: next.kind });
+        setTomorrowTask({ subject: next.subject, kind: next.kind });
         prebuildDay({ date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined });
       } catch {}
       return;
@@ -184,6 +187,7 @@ function TodayInner() {
       const tomorrowTask: TodayTask = { date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined };
       localStorage.setItem("studyace-tomorrow-task", JSON.stringify(tomorrowTask));
       writeLog(tomorrowTask.date, { subject: next.subject, kind: next.kind });
+      setTomorrowTask({ subject: next.subject, kind: next.kind });
       // Build it now, whether or not today's gets done — tomorrow must be ready
       // at midnight. Except after a grade check: tomorrow depends on that
       // result, so it's built the moment the check is marked (results page).
@@ -286,6 +290,7 @@ function TodayInner() {
               sinceLine={sinceLine}
               whyLine={whyLine}
               celebrate={celebrate && status === "done"}
+              tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject), length: TASK_LENGTH[tomorrowTask.kind] } : null}
               dateLabel={dateLabel}
               subjectLabel={label(task.subject)}
               kind={task.kind}
@@ -318,7 +323,7 @@ function TodayInner() {
           )}
         </div>
         <div className="lg:col-span-4 space-y-4">
-          <NextDropCard done={status === "done"} />
+          <NextDropCard done={status === "done"} next={status === "done" && tomorrowTask ? `${TASK_TITLE[tomorrowTask.kind].replace("\n", " ")} · ${label(tomorrowTask.subject)}` : null} />
           {attempts && (
             <StatusPanel curriculumId={curriculumId} year={year} subjects={subjects} goals={goals} onGoalsChange={setGoals} streak={streak} days={days} celebrate={celebrate && status === "done"} />
           )}
