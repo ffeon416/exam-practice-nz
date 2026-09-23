@@ -41,13 +41,14 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { question, messages, studentAnswer } = body as {
+    const { question, messages, studentAnswer, curriculum } = body as {
       question: { text: string; markingGuide: string; expectedAnswer?: string };
       messages: { role: "user" | "assistant"; content: string }[];
       studentAnswer?: string;
+      curriculum?: string;
     };
 
-    const { reply, usage: callUsage } = await tutorChat(question, messages, studentAnswer);
+    const { reply, usage: callUsage } = await tutorChat(question, messages, studentAnswer, curriculum);
 
     // ── Increment usage (Step 10) ──
     if (userId) {

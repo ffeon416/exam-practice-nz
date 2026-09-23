@@ -433,8 +433,10 @@ async function markEssayDimension(
   dimension: "thesis" | "evidence" | "language",
   questionText: string,
   markingGuide: string,
-  studentEssay: string
+  studentEssay: string,
+  curriculumId?: string
 ): Promise<EssayDimensionResult & { usage: Usage }> {
+  const examiner = resolveCurriculum(curriculumId).promptConfig.examinerPersona;
   const dimensionPrompts: Record<typeof dimension, { title: string; rubric: string }> = {
     thesis: {
       title: "THESIS AND STRUCTURE",
@@ -479,7 +481,7 @@ Scoring:
 
   const { title, rubric } = dimensionPrompts[dimension];
 
-  const prompt = `You are an experienced NCEA English examiner marking ONE dimension of a student essay. Be fair but rigorous — like a teacher who wants the student to grow.
+  const prompt = `You are ${examiner}, marking ONE dimension of a student English essay. Be fair but rigorous — like a teacher who wants the student to grow.
 
 DIMENSION: ${title}
 
@@ -516,7 +518,8 @@ export async function markEnglishEssay(
   questionText: string,
   markingGuide: string,
   marks: number,
-  studentEssay: string
+  studentEssay: string,
+  curriculumId?: string
 ): Promise<{
   marksAwarded: number;
   grade: "not-achieved" | "achieved" | "merit" | "excellence";
@@ -529,14 +532,15 @@ export async function markEnglishEssay(
 }> {
   // Run the three dimension passes in parallel — they are independent.
   const [thesisAndStructure, evidenceUse, languageAndStyle] = await Promise.all([
-    markEssayDimension("thesis", questionText, markingGuide, studentEssay),
-    markEssayDimension("evidence", questionText, markingGuide, studentEssay),
-    markEssayDimension("language", questionText, markingGuide, studentEssay),
+    markEssayDimension("thesis", questionText, markingGuide, studentEssay, curriculumId),
+    markEssayDimension("evidence", questionText, markingGuide, studentEssay, curriculumId),
+    markEssayDimension("language", questionText, markingGuide, studentEssay, curriculumId),
   ]);
+  const examiner = resolveCurriculum(curriculumId).promptConfig.examinerPersona;
 
   // Pass 4: synthesise — give the model the three per-dimension results and
   // ask for overall feedback + three concrete improvements.
-  const synthesisPrompt = `You are an experienced NCEA English examiner writing the overall report on a student essay. Three dimensions have already been marked separately — your job is to synthesise them into encouraging, actionable overall feedback and three specific improvements.
+  const synthesisPrompt = `You are ${examiner}, writing the overall report on a student essay. Three dimensions have already been marked separately — your job is to synthesise them into encouraging, actionable overall feedback and three specific improvements.
 
 ESSAY QUESTION:
 ${questionText}
@@ -709,6 +713,7 @@ For the set of questions you are asked to write:
 - ${c.promptConfig.difficultySpread}
 - Include a mix of multi-choice, calculation, and extended-response styles.
 - ${c.promptConfig.localContext}
+- HARD RULE — LOCATION: this paper is for students sitting ${c.system} in ${c.countryLabel}. Every place name, currency, institution, dataset, law, syllabus reference and cultural context must belong to ${c.countryLabel}. ${c.id === "nz-ncea" ? "" : "Never mention New Zealand, NCEA, NZQA, Achievement Standards or any other country's exam system."}
 
 CRITICAL — ACCURACY CHECKS (students will memorise these answers):
 - For EVERY calculation: show the full working step-by-step in markingGuide, then double-check each arithmetic step is correct before moving on. Verify the final numeric answer matches the working.
@@ -893,7 +898,8 @@ function validateGraphShape(graph: unknown): string[] {
 export async function generatePracticeQuestion(
   topic: string,
   level: number,
-  gradeLevel: string
+  gradeLevel: string,
+  curriculumId?: string
 ): Promise<{
   text: string;
   marks: number;
@@ -901,10 +907,11 @@ export async function generatePracticeQuestion(
   graph?: GraphData;
   usage: Usage;
 }> {
-  const prompt = `Generate a single NCEA Level ${level} exam question on the topic "${topic}".
+  const c = resolveCurriculum(curriculumId);
+  const prompt = `You are ${c.promptConfig.authorPersona}. Generate a single ${c.system} exam question (${c.countryLabel}, level ${level}) on the topic "${topic}".
 
 Difficulty level: ${gradeLevel}
-Style it exactly like a real NZQA exam question — clear, concise, with context where appropriate.
+Style it exactly like a real ${c.system} exam question — clear, concise, with context where appropriate. ${c.promptConfig.localContext}
 
 CRITICAL — ACCURACY CHECKS (students study from this; wrong answers cause real harm):
 - Work the question yourself, step by step, before writing the markingGuide
@@ -981,13 +988,15 @@ Respond ONLY with valid JSON (no markdown, no code fences):
 export async function tutorChat(
   question: { text: string; markingGuide: string; expectedAnswer?: string },
   studentMessages: { role: "user" | "assistant"; content: string }[],
-  studentAnswerSoFar?: string
+  studentAnswerSoFar?: string,
+  curriculumId?: string
 ): Promise<{ reply: string; usage: Usage }> {
+  const c = resolveCurriculum(curriculumId);
   const history = studentMessages
     .map((m) => `${m.role === "user" ? "Student" : "Tutor"}: ${m.content}`)
     .join("\n\n");
 
-  const prompt = `You are a friendly NCEA tutor helping a student with a practice question. Your goal is to GUIDE them to the answer, not just give it away.
+  const prompt = `You are a friendly ${c.system} tutor (${c.countryLabel}) helping a student with a practice question. Your goal is to GUIDE them to the answer, not just give it away.
 
 CRITICAL RULES:
 1. Never just give the answer — use leading questions and hints

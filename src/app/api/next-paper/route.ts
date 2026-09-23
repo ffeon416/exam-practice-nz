@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
       const { data: rows } = await supabase.from("custom_exams").select("*").eq("user_id", userId).like("title", `${prefix}%`).order("created_at", { ascending: false }).limit(1);
       const row = rows?.[0];
       if (row) {
-        return NextResponse.json({ exam: { id: row.id, title: row.title, level: row.level, standard: "PRACTICE", year: new Date(row.created_at).getFullYear(), subject: row.subject, timeMinutes: row.time_minutes, questions: row.questions, totalMarks: row.total_marks } as Exam, built: false });
+        return NextResponse.json({ exam: { id: row.id, title: row.title, level: row.level, standard: "PRACTICE", year: new Date(row.created_at).getFullYear(), subject: row.subject, timeMinutes: row.time_minutes, questions: row.questions, totalMarks: row.total_marks, curriculumId: curriculum.id } as Exam, built: false });
       }
     }
     const titles = { check: "Grade check", mock: "Mock exam", paper: "Practice paper", fix: "Weak spot" } as const;

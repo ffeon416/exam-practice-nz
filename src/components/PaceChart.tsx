@@ -24,7 +24,7 @@ function shift(key: string, days: number): Date { const d = new Date(key + "T12:
 function letterFor(pct: number): string { return LETTER_BANDS.find((b) => pct >= b.minPct * 100)?.label ?? "F"; }
 
 export default function PaceChart({
-  subjectLabel, subjects, activeSubject, onSubject, subjectLabelFor, points, planStart, examDate, goalPct, goalLabel, trendPerWeek, today,
+  subjectLabel, subjects, activeSubject, onSubject, subjectLabelFor, points, planStart, examDate, goalPct, goalLabel, trendPerWeek, today, noGoal,
 }: {
   subjectLabel: string;
   subjects: string[];
@@ -38,6 +38,8 @@ export default function PaceChart({
   goalLabel: string;          // "A"
   trendPerWeek: number;       // slope of recent scores, points per week
   today: string;              // local date key
+  /** No goal chosen for this subject yet. */
+  noGoal?: boolean;
 }) {
   const wrap = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(640);
@@ -89,11 +91,12 @@ export default function PaceChart({
   const projLetter = projected != null ? letterFor(projected) : goalLabel;
   const reachesGoal = projected != null && projected >= goalPct;
 
-  const headline = !first ? "Your line starts with a grade check"
+  const headline = noGoal ? `Choose a goal for ${subjectLabel}` : !first ? "Your line starts with a grade check"
     : state === "behind" ? `${Math.abs(diff)} points behind pace`
     : state === "ahead" ? `${diff} points ahead. Nice.`
     : "Right on track";
-  const sub = !first ? `Sit today's grade check in ${subjectLabel} and this becomes your live line to ${goalLabel}.`
+  const sub = noGoal ? "Pick the grade you want and an exam date in the panel, and your pace line appears here."
+    : !first ? `Sit today's grade check in ${subjectLabel} and this becomes your live line to ${goalLabel}.`
     : state === "behind" ? `At this rate you'll finish on ${projLetter}. Today's paper is the quickest way to claw it back.`
     : state === "ahead" ? (reachesGoal ? `You're heading for ${goalLabel} with room to spare. Keep one a day and it's yours.` : `Ahead of pace, but the recent rate would land on ${projLetter}. Keep one a day and ${goalLabel} is yours.`)
     : (reachesGoal ? `You're heading for ${goalLabel}. Keep doing one paper a day and you'll get there.` : `On pace today. Keep one paper a day and the line keeps climbing to ${goalLabel}.`);

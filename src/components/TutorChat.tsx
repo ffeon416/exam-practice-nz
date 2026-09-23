@@ -6,6 +6,8 @@ import { Markdown } from "@/components/Markdown";
 // passing inline arrow functions don't accidentally create a setState loop.
 
 interface TutorChatProps {
+  /** Exam system id, so the tutor speaks the student's own system. */
+  curriculum?: string;
   question: {
     id: string;
     text: string;
@@ -34,6 +36,7 @@ const INITIAL_ASSISTANT_MESSAGE: Message = {
 };
 
 export default function TutorChat({
+  curriculum,
   question,
   studentAnswer,
   initialMessages,
@@ -106,6 +109,7 @@ export default function TutorChat({
           },
           messages: nextMessages,
           studentAnswer,
+          curriculum,
         }),
       });
 

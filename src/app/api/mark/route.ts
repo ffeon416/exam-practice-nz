@@ -95,7 +95,8 @@ export async function POST(request: NextRequest) {
               q.text,
               q.markingGuide,
               2,
-              combinedAnswer
+              combinedAnswer,
+              curriculum
             );
             essayUsage = addUsage(essayUsage, essay.usage);
             const packed =

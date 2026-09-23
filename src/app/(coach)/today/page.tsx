@@ -78,8 +78,13 @@ function TodayInner() {
         const server: ExamAttempt[] = data?.examAttempts ?? [];
         if (server.length > 0) {
           const local = loadProgress();
-          const merged: StudentProgress = { examAttempts: server, topicScores: { ...local.topicScores, ...(data.topicScores || {}) }, totalExamsTaken: server.length, streakDays: Math.max(local.streakDays, data.streakDays ?? 0), lastActiveDate: local.lastActiveDate };
-          setAttempts(server); setTopicScores(merged.topicScores); saveProgress(merged);
+          // Union, never replace: a paper marked seconds ago may not have
+          // reached the server yet, and it must still count here.
+          const seen = new Set(server.map((a) => `${a.examId}|${new Date(a.date).toISOString().slice(0, 16)}`));
+          const extra = (local.examAttempts ?? []).filter((a) => !seen.has(`${a.examId}|${new Date(a.date).toISOString().slice(0, 16)}`));
+          const all = [...server, ...extra].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+          const merged: StudentProgress = { examAttempts: all, topicScores: { ...local.topicScores, ...(data.topicScores || {}) }, totalExamsTaken: all.length, streakDays: Math.max(local.streakDays, data.streakDays ?? 0), lastActiveDate: local.lastActiveDate };
+          setAttempts(all); setTopicScores(merged.topicScores); saveProgress(merged);
         }
         setServerChecked(true);
       }).catch(() => { if (!cancelled) setServerChecked(true); });
@@ -205,15 +210,18 @@ function TodayInner() {
     if (!paceSubject || !attempts) return null;
     const g = goalFor(goals, paceSubject);
     const startIso = g?.startedAt ?? g?.updatedAt;
-    if (!g || !startIso) return null;
+    // No goal yet: the card still shows, with an empty line and a nudge.
+    if (!g || !startIso) return { points: [] as PacePoint[], planStart: today, examDate: null, goalPct: 80, goalLabel: "A", trend: 0, noGoal: true };
     const since = new Date(startIso).getTime() - 60_000;
-    const series = subjectSeries(attempts, paceSubject).filter((p) => p.t >= since);
+    // Older attempts may lack a subject; read it off the paper they were sat on.
+    const withSubject = attempts.map((a) => (a.subject ? a : { ...a, subject: getCustomExam(a.examId)?.subject ?? a.subject }));
+    const series = subjectSeries(withSubject, paceSubject).filter((p) => p.t >= since);
     const byDay = new Map<string, number>();
     for (const p of series) byDay.set(localDateKey(new Date(p.t)), p.pct); // latest that day wins
     const points: PacePoint[] = [...byDay.entries()].sort(([a], [b]) => (a < b ? -1 : 1)).map(([date, pct]) => ({ date, pct }));
     const band = LETTER_BANDS.find((b) => b.id === g.goal) ?? LETTER_BANDS[1];
-    return { points, planStart: localDateKey(new Date(startIso)), examDate: g.examDate || null, goalPct: Math.round(band.minPct * 100), goalLabel: band.label, trend: trendPerWeek(series) };
-  }, [paceSubject, attempts, goals]);
+    return { points, planStart: localDateKey(new Date(startIso)), examDate: g.examDate || null, goalPct: Math.round(band.minPct * 100), goalLabel: band.label, trend: trendPerWeek(series), noGoal: false };
+  }, [paceSubject, attempts, goals, today]);
 
   const dateLabel = new Date(today + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
 
@@ -291,6 +299,7 @@ function TodayInner() {
                 goalLabel={pace.goalLabel}
                 trendPerWeek={pace.trend}
                 today={today}
+                noGoal={pace.noGoal}
               />
             </div>
           )}

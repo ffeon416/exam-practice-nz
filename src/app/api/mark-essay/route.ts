@@ -23,11 +23,12 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { questionText, markingGuide, marks, studentEssay } = body as {
+    const { questionText, markingGuide, marks, studentEssay, curriculum } = body as {
       questionText: string;
       markingGuide: string;
       marks: number;
       studentEssay: string;
+      curriculum?: string;
     };
 
     if (typeof questionText !== "string" || typeof markingGuide !== "string" || typeof marks !== "number") {
@@ -41,7 +42,8 @@ export async function POST(request: NextRequest) {
       questionText,
       markingGuide,
       marks,
-      studentEssay ?? ""
+      studentEssay ?? "",
+      curriculum
     );
     await logApiUsage(userId, "essay", result.usage);
 

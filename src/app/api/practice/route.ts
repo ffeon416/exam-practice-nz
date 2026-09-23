@@ -26,17 +26,19 @@ export async function POST(request: NextRequest) {
     const { action } = body as { action: string };
 
     if (action === "generate") {
-      const { topic, level, gradeLevel } = body as {
+      const { topic, level, gradeLevel, curriculum } = body as {
         action: string;
         topic: string;
         level: number;
         gradeLevel: string;
+        curriculum?: string;
       };
 
       const question = await generatePracticeQuestion(
         topic,
         level,
-        gradeLevel
+        gradeLevel,
+        curriculum
       );
       await logApiUsage(userId, "practice_question", question.usage);
 

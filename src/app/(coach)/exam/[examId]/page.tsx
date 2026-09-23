@@ -536,6 +536,7 @@ export default function ExamPage({
 
       {tutorOpen && (
         <TutorChat
+          curriculum={(exam as { curriculumId?: string } | null)?.curriculumId}
           question={{
             id: question.id,
             text: question.text,
