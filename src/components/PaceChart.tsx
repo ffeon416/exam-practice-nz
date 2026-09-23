@@ -193,7 +193,9 @@ export default function PaceChart({
                 <g>
                   <circle cx={X(youIdx)} cy={youY} r="13" fill={color} opacity="0.18" />
                   <circle cx={X(youIdx)} cy={youY} r="6.5" fill={color} />
-                  <text x={X(youIdx) - 14} y={youY + (shouldBe != null && you >= shouldBe ? -16 : 26)} textAnchor="end" fontFamily="ui-sans-serif, system-ui" fontSize="17" fontWeight="800" fill="#ffffff">You · {you}%</text>
+                  {(() => { const left = youIdx === 0; return (
+                    <text x={X(youIdx) + (left ? 16 : -14)} y={youY + (shouldBe != null && you >= shouldBe ? -16 : 26)} textAnchor={left ? "start" : "end"} fontFamily="ui-sans-serif, system-ui" fontSize="17" fontWeight="800" fill="#ffffff">You · {you}%</text>
+                  ); })()}
                 </g>
               )}
             </>
