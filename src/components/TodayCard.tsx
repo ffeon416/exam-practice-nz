@@ -71,25 +71,31 @@ export default function TodayCard({
 
           <div className="flex-1 flex flex-col justify-center py-10">
             <h2 className={`${display.className} text-white font-bold text-[64px] sm:text-[84px] lg:text-[96px] leading-[0.88] tracking-[-0.05em]`}>
-              {title.map((line, i) => <span key={i} className="block">{line}</span>)}
+              {done
+                ? <><span className="block">Day {String(day).padStart(2, "0")}</span><span className="block" style={{ color: accent }}>done.</span></>
+                : title.map((line, i) => <span key={i} className="block">{line}</span>)}
             </h2>
             {!done ? (
               <p className="text-zinc-300 text-[16px] sm:text-[17px] leading-relaxed max-w-md mt-6">{whyLine ?? TASK_BLURB[kind]}</p>
             ) : (
               <>
-                <p className="text-zinc-300 text-[16px] leading-relaxed max-w-md mt-6">
-                  That&apos;s today done{scoreLabel ? <>: <span className="text-white font-semibold">{scoreLabel}</span></> : "."}
+                <p className="flex items-center gap-2.5 text-zinc-200 text-[16px] mt-6">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full text-[#07120d] font-bold text-[13px]" style={{ background: accent }}>✓</span>
+                  <span>{TASK_TITLE[kind].replace("\n", " ")} · {subjectLabel}{scoreLabel ? <> · <span className="text-white font-semibold">{scoreLabel}</span></> : null}</span>
                 </p>
-                {sinceLine && <p className={`${display.className} font-bold text-[22px] sm:text-[26px] tracking-[-0.01em] mt-2 ${celebrate ? "home-rise" : ""}`} style={{ color: accent, animationDelay: "250ms" }}>{sinceLine}</p>}
+                {sinceLine && <p className={`${display.className} font-bold text-[22px] sm:text-[26px] tracking-[-0.01em] mt-3 ${celebrate ? "home-rise" : ""}`} style={{ color: accent, animationDelay: "250ms" }}>{sinceLine}</p>}
               </>
             )}
             {!done && sinceLine && <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-zinc-500 mt-3">{sinceLine}</p>}
           </div>
 
           {done ? (
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <p className="text-zinc-400 text-[14px]">Tomorrow&apos;s task drops at midnight, built for you overnight.</p>
-              <Link href="/subjects" className="text-[14px] text-zinc-300 hover:text-white underline-offset-4 underline">Sit an extra paper →</Link>
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: accent }}>Next task · tomorrow</p>
+                <p className="text-zinc-300 text-[14px] mt-1">Nothing more to do today. Your next task drops at midnight, your time, and it&apos;s being built now so it&apos;s ready when you open the app.</p>
+              </div>
+              <Link href="/subjects" className="text-[13.5px] text-zinc-400 hover:text-white underline-offset-4 underline shrink-0">Want more? Sit an extra paper →</Link>
             </div>
           ) : status === "failed" ? (
             <button onClick={onStart} className="self-start bg-white text-[#0a0a0f] font-bold text-[16px] px-9 py-4 rounded-full min-h-[58px]">Try building it again →</button>
