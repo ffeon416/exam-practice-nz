@@ -30,14 +30,25 @@ const BODY: Record<AceMood, [string, string]> = {
 const SPADE = "M50 4 C50 4 10 38 10 61 C10 78 25 87 38 81 C44 78 47 73 48 70 C46 83 40 92 31 97 L69 97 C60 92 54 83 52 70 C53 73 56 78 62 81 C75 87 90 78 90 61 C90 38 50 4 50 4 Z";
 const STAR = "M0 -6 L1.6 -1.6 L6 0 L1.6 1.6 L0 6 L-1.6 1.6 L-6 0 L-1.6 -1.6 Z";
 
-export default function AceMascot({ mood, size = 72, className = "" }: { mood: AceMood; size?: number; className?: string }) {
+/** Thresholds where Ace's mood changes. */
+export const ACE_STEPS = [1, 3, 7, 14] as const;
+export function nextMoodStep(days: number): { next: number | null; prev: number; toGo: number; progress: number } {
+  const next = ACE_STEPS.find((s) => s > days) ?? null;
+  const prev = [...ACE_STEPS].reverse().find((s) => s <= days) ?? 0;
+  if (next == null) return { next: null, prev, toGo: 0, progress: 1 };
+  return { next, prev, toGo: next - days, progress: Math.max(0, Math.min(1, (days - prev) / (next - prev))) };
+}
+
+export const MOOD_COLOR: Record<AceMood, string> = { 0: "#7a7a88", 1: "#8b83c4", 2: "#8f80f5", 3: "#a78bfa", 4: "#c4b5fd" };
+
+export default function AceMascot({ mood, size = 72, className = "", onPoke }: { mood: AceMood; size?: number; className?: string; onPoke?: () => void }) {
   const [top, bottom] = BODY[mood];
   const gid = `ace-body-${mood}`;
   const ink = mood === 0 ? "#1d1d24" : "#171325";
   const eyeR = mood <= 1 ? 4.5 : mood === 2 ? 5 : 5.6;
 
   return (
-    <svg width={size} height={size * (130 / 120)} viewBox="0 0 120 130" className={className} role="img" aria-label={`Ace: ${ACE_MOOD[mood].name}`}>
+    <svg width={size} height={size * (130 / 120)} viewBox="0 0 120 130" className={className} role="img" aria-label={`Ace: ${ACE_MOOD[mood].name}`} onClick={onPoke} style={onPoke ? { cursor: "pointer" } : undefined}>
       <defs>
         <linearGradient id={gid} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor={top} /><stop offset="1" stopColor={bottom} /></linearGradient>
         <radialGradient id="ace-glow"><stop offset="0" stopColor="#b8a9ff" stopOpacity="0.55" /><stop offset="1" stopColor="#b8a9ff" stopOpacity="0" /></radialGradient>
@@ -69,8 +80,10 @@ export default function AceMascot({ mood, size = 72, className = "" }: { mood: A
           ) : (
             <g>
               {/* eyes */}
-              <circle cx="46" cy="58" r={eyeR} fill={ink} /><circle cx="74" cy="58" r={eyeR} fill={ink} />
-              <circle cx="48" cy="56" r="1.8" fill="#fff" /><circle cx="76" cy="56" r="1.8" fill="#fff" />
+              <g className="sa-ace-blink" style={{ transformOrigin: "60px 58px" }}>
+                <circle cx="46" cy="58" r={eyeR} fill={ink} /><circle cx="74" cy="58" r={eyeR} fill={ink} />
+                <circle cx="48" cy="56" r="1.8" fill="#fff" /><circle cx="76" cy="56" r="1.8" fill="#fff" />
+              </g>
               {mood === 1 && <><rect x="39" y="50" width="15" height="6" fill={`url(#${gid})`} /><rect x="67" y="50" width="15" height="6" fill={`url(#${gid})`} /></>}
               {/* mouth */}
               {mood === 1 && <path d="M52 78 q8 -5 16 0" stroke={ink} strokeWidth="3" strokeLinecap="round" fill="none" />}
