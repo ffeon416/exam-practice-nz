@@ -165,8 +165,10 @@ function TodayInner() {
       const tomorrowTask: TodayTask = { date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined };
       localStorage.setItem("studyace-tomorrow-task", JSON.stringify(tomorrowTask));
       writeLog(tomorrowTask.date, { subject: next.subject, kind: next.kind });
-      // Build it now, whether or not today's gets done — tomorrow must be ready at midnight.
-      prebuildDay(tomorrowTask);
+      // Build it now, whether or not today's gets done — tomorrow must be ready
+      // at midnight. Except after a grade check: tomorrow depends on that
+      // result, so it's built the moment the check is marked (results page).
+      if (task.kind !== "check") prebuildDay(tomorrowTask);
     } catch {}
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
