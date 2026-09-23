@@ -47,7 +47,10 @@ function TodayInner() {
   const [subjects, setSubjects] = useState<string[]>([]);
   const [curriculumId, setCurriculumId] = useState("nz-ncea");
   const [year, setYear] = useState(12);
-  const [goals, setGoals] = useState<SubjectGoal[]>([]);
+  const [allGoals, setGoals] = useState<SubjectGoal[]>([]);
+  // Only the subjects chosen in the current onboarding count. Goals left over
+  // from an earlier setup (other subjects, other exam system) are ignored.
+  const goals = useMemo(() => allGoals.filter((g) => subjects.includes(g.subject)), [allGoals, subjects]);
   const [today, setToday] = useState(() => localDateKey());
   const [status, setStatus] = useState<Status>("loading");
 
@@ -109,7 +112,6 @@ function TodayInner() {
   }, [goals]);
   const day = dayNumber(planStart, new Date(today + "T12:00:00"));
   const attemptDates = useMemo(() => (attempts ?? []).map((a) => localDateKey(new Date(a.date))), [attempts]);
-  const doneToday = attemptDates.includes(today);
   const streak = streakDays(attemptDates, today);
   const days = recentDays(attemptDates, 14, today);
 
@@ -140,6 +142,10 @@ function TodayInner() {
     return taskForDay({ day, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s), yesterdayKind });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attempts, subjects, goals, topicScores, day, yesterdayKind, resolved, today]);
+  // Today's task is done only by a paper in today's subject — an extra paper
+  // in another subject (or one left over from an earlier setup) doesn't count.
+  const subjectOf = (a: ExamAttempt) => a.subject ?? getCustomExam(a.examId)?.subject ?? null;
+  const doneToday = !!task && (attempts ?? []).some((a) => localDateKey(new Date(a.date)) === today && subjectOf(a) === task.subject);
 
   // Build (or fetch) today's paper once we know the task; remember tomorrow's for the overnight prebuild.
   useEffect(() => {
@@ -204,7 +210,7 @@ function TodayInner() {
   // Score label for the done state.
   const scoreLabel = useMemo(() => {
     if (!doneToday || !attempts) return null;
-    const a = [...attempts].filter((x) => localDateKey(new Date(x.date)) === today).sort((x, y) => (x.date < y.date ? 1 : -1))[0];
+    const a = [...attempts].filter((x) => localDateKey(new Date(x.date)) === today && (!task || subjectOf(x) === task.subject)).sort((x, y) => (x.date < y.date ? 1 : -1))[0];
     if (!a || !a.maxMarks) return null;
     const pct = Math.round((a.totalMarks / a.maxMarks) * 100);
     return `${bandAt(bandsFor(curriculumId), pct).label} · ${pct}%`;
