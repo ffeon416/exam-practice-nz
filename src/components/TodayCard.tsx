@@ -62,17 +62,23 @@ export default function TodayCard({
 
   return (
     <div className={`sa-gold home-rise ${celebrate ? "sa-stamp" : ""}`}>
-    <div className="relative bg-[#0e0f13] overflow-hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-[1fr_190px] md:grid-cols-[1fr_220px]">
+    <div className={`relative overflow-hidden ${done ? "bg-[#0a1712]" : "bg-[#0e0f13]"}`}>
+      {done && <div className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(62,230,160,0.22) 0%, transparent 65%)" }} aria-hidden />}
+      <div className="relative grid grid-cols-1 sm:grid-cols-[1fr_190px] md:grid-cols-[1fr_220px]">
         {/* Main */}
         <div className="p-6 sm:p-9 lg:p-11 flex flex-col min-h-[440px] sm:min-h-[520px]">
-          <p className="font-mono text-[12px] uppercase tracking-[0.22em]" style={{ color: accent }}>{subjectLabel} · Day {String(day).padStart(2, "0")}</p>
+          <p className="font-mono text-[12px] uppercase tracking-[0.22em]" style={{ color: accent }}>{subjectLabel} · Day {String(day).padStart(2, "0")}{done ? " · Complete" : ""}</p>
           <p className="text-zinc-400 text-[14px] mt-1.5">{dateLabel}</p>
 
           <div className="flex-1 flex flex-col justify-center py-10">
+            {done && (
+              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${celebrate ? "sa-stamp-in" : ""}`} style={{ background: accent, boxShadow: `0 0 40px ${accent}66` }}>
+                <svg viewBox="0 0 24 24" className="w-9 h-9" fill="none" stroke="#07120d" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+              </div>
+            )}
             <h2 className={`${display.className} text-white font-bold text-[64px] sm:text-[84px] lg:text-[96px] leading-[0.88] tracking-[-0.05em]`}>
               {done
-                ? <><span className="block">Day {String(day).padStart(2, "0")}</span><span className="block" style={{ color: accent }}>done.</span></>
+                ? <><span className="block" style={{ color: accent }}>Done</span><span className="block">for today.</span></>
                 : title.map((line, i) => <span key={i} className="block">{line}</span>)}
             </h2>
             {!done ? (
@@ -90,7 +96,7 @@ export default function TodayCard({
           </div>
 
           {done ? (
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+            <div className="rounded-2xl border p-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3" style={{ borderColor: `${accent}33`, background: `${accent}0d` }}>
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: accent }}>Next task · tomorrow</p>
                 <p className="text-zinc-300 text-[14px] mt-1">Nothing more to do today. Your next task drops at midnight, your time, and it&apos;s being built now so it&apos;s ready when you open the app.</p>
@@ -124,8 +130,17 @@ export default function TodayCard({
           <span className="absolute w-6 h-6 rounded-full bg-[#0a0a0f] border border-[#e8c46a]/40 -top-3 -right-3 sm:right-auto sm:-top-3 sm:-left-3 sm:-translate-x-1/2" aria-hidden />
 
           <div className="flex sm:flex-col gap-6 sm:gap-10 lg:gap-14">
-            <Stat value={String(qs).padStart(2, "0")} label="Questions" />
-            <Stat value={String(mins)} label={kind === "mock" ? "Min · timed" : "Minutes"} />
+            {done ? (
+              <>
+                <Stat value={scoreLabel?.split(" · ")[0] ?? "✓"} label="Your grade" tone={accent} />
+                <Stat value={scoreLabel?.split(" · ")[1] ?? "Done"} label="Score" />
+              </>
+            ) : (
+              <>
+                <Stat value={String(qs).padStart(2, "0")} label="Questions" />
+                <Stat value={String(mins)} label={kind === "mock" ? "Min · timed" : "Minutes"} />
+              </>
+            )}
             {examInDays != null && examInDays >= 0
               ? <Stat value={String(examInDays)} label={examInDays === 1 ? "Day to exam" : "Days to exam"} tone={examTone} />
               : <Stat value="—" label="Exam date" />}
