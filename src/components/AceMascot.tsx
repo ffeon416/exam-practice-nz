@@ -36,7 +36,9 @@ export function nextMoodStep(days: number): { next: number | null; prev: number;
   const next = ACE_STEPS.find((s) => s > days) ?? null;
   const prev = [...ACE_STEPS].reverse().find((s) => s <= days) ?? 0;
   if (next == null) return { next: null, prev, toGo: 0, progress: 1 };
-  return { next, prev, toGo: next - days, progress: Math.max(0, Math.min(1, (days - prev) / (next - prev))) };
+  // Fill counts from the day this mood began, so day 1 of a tier already shows progress.
+  const base = Math.max(0, prev - 1);
+  return { next, prev, toGo: next - days, progress: Math.max(0, Math.min(1, (days - base) / (next - base))) };
 }
 
 export const MOOD_COLOR: Record<AceMood, string> = { 0: "#7a7a88", 1: "#8b83c4", 2: "#8f80f5", 3: "#a78bfa", 4: "#c4b5fd" };
