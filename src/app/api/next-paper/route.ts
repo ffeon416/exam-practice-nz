@@ -89,7 +89,10 @@ export async function POST(request: NextRequest) {
     const prefix = `Day ${date} · `;
     const supabase = getSupabase();
     if (supabase) {
-      const { data: rows } = await supabase.from("custom_exams").select("*").eq("user_id", userId).like("title", `${prefix}%`).order("created_at", { ascending: false }).limit(1);
+      // One paper per date — for THIS subject in THIS exam system. Matching on
+      // the date alone handed back a stale paper (other subject, other country)
+      // to anyone who re-did onboarding.
+      const { data: rows } = await supabase.from("custom_exams").select("*").eq("user_id", userId).eq("subject", subject).eq("level", levelValueFor(curriculum.id, year)).like("title", `${prefix}%`).order("created_at", { ascending: false }).limit(1);
       const row = rows?.[0];
       if (row) {
         return NextResponse.json({ exam: { id: row.id, title: row.title, level: row.level, standard: "PRACTICE", year: new Date(row.created_at).getFullYear(), subject: row.subject, timeMinutes: row.time_minutes, questions: row.questions, totalMarks: row.total_marks, curriculumId: curriculum.id } as Exam, built: false });
