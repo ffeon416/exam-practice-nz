@@ -91,12 +91,15 @@ export default function PaceChart({
   const projLetter = projected != null ? letterFor(projected) : goalLabel;
   const reachesGoal = projected != null && projected >= goalPct;
 
+  const single = points.length === 1;
   const headline = noGoal ? `Choose a goal for ${subjectLabel}` : !first ? "Your line starts with a grade check"
+    : single ? `Starting point: ${you}%`
     : state === "behind" ? `${Math.abs(diff)} points behind pace`
     : state === "ahead" ? `${diff} points ahead. Nice.`
     : "Right on track";
   const sub = noGoal ? "Pick the grade you want and an exam date in the panel, and your pace line appears here."
     : !first ? `Sit today's grade check in ${subjectLabel} and this becomes your live line to ${goalLabel}.`
+    : single ? `Day 1 is in. From tomorrow's paper the line shows whether you're on pace for ${goalLabel}.`
     : state === "behind" ? `At this rate you'll finish on ${projLetter}. Today's paper is the quickest way to claw it back.`
     : state === "ahead" ? (reachesGoal ? `You're heading for ${goalLabel} with room to spare. Keep one a day and it's yours.` : `Ahead of pace, but the recent rate would land on ${projLetter}. Keep one a day and ${goalLabel} is yours.`)
     : (reachesGoal ? `You're heading for ${goalLabel}. Keep doing one paper a day and you'll get there.` : `On pace today. Keep one paper a day and the line keeps climbing to ${goalLabel}.`);
@@ -130,12 +133,12 @@ export default function PaceChart({
           {subjectLabel} · Day {day}{total ? ` of ${total}` : ""} · {dateLabel}
         </p>
         {first && (
-          <span className="inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full" style={{ color, background: `${color}1a` }}>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: color }} />{STATE[state].pill}
+          <span className="inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full" style={{ color: single ? "#a1a1aa" : color, background: single ? "rgba(255,255,255,0.06)" : `${color}1a` }}>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: single ? "#a1a1aa" : color }} />{single ? "Day 1" : STATE[state].pill}
           </span>
         )}
       </div>
-      <h3 className={`${display.className} font-bold text-[34px] sm:text-[44px] leading-[1] tracking-[-0.035em] mt-4`} style={{ color: first ? color : "#f4f4f5" }}>{headline}</h3>
+      <h3 className={`${display.className} font-bold text-[34px] sm:text-[44px] leading-[1] tracking-[-0.035em] mt-4`} style={{ color: first && !single ? color : "#f4f4f5" }}>{headline}</h3>
       <p className="text-zinc-300 text-[15px] sm:text-[16px] leading-relaxed max-w-2xl mt-2">{sub}</p>
 
       <div ref={wrap} className="mt-6 -mx-2">
@@ -157,7 +160,7 @@ export default function PaceChart({
               {/* Pace to goal */}
               <polyline points={paceLine} fill="none" stroke="#6b6b78" strokeWidth="1.6" strokeDasharray="2 5" strokeLinecap="round" />
               {/* Heading */}
-              {headLine && <polyline points={headLine} fill="none" stroke={color} strokeWidth="1.6" strokeDasharray="2 5" strokeLinecap="round" opacity="0.9" />}
+              {headLine && !single && <polyline points={headLine} fill="none" stroke={color} strokeWidth="1.6" strokeDasharray="2 5" strokeLinecap="round" opacity="0.9" />}
               {/* Goal flag */}
               <g transform={`translate(${X(endIdx)},${Y(goalPct)})`}>
                 <circle r="5.5" fill="#3ee6a0" />
@@ -202,7 +205,7 @@ export default function PaceChart({
         <div className="flex items-center gap-5 text-[12px] text-zinc-400 flex-wrap">
           <span className="inline-flex items-center gap-2"><span className="w-5 h-[3px] rounded-full" style={{ background: color }} />Your scores</span>
           <span className="inline-flex items-center gap-2"><span className="w-5 border-t-2 border-dotted border-zinc-500" />Pace to {goalLabel}</span>
-          {first && <span className="inline-flex items-center gap-2"><span className="w-5 border-t-2 border-dotted" style={{ borderColor: color }} />Where you&apos;re heading</span>}
+          {first && !single && <span className="inline-flex items-center gap-2"><span className="w-5 border-t-2 border-dotted" style={{ borderColor: color }} />Where you&apos;re heading</span>}
         </div>
         {subjects.length > 1 && (
           <div className="flex gap-1.5">

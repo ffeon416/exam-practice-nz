@@ -123,7 +123,7 @@ function TodayInner() {
     const since = new Date(startIso).getTime() - 60_000;
     return (attempts ?? []).some((a) => a.subject === s && new Date(a.date).getTime() >= since);
   };
-  const spotFor = (s: string) => weakSpot(s, tierBreakdown(subjectSeries(attempts ?? [], s), getCustomExam), Object.values(topicScores));
+  const spotFor = (s: string) => weakSpot(s, tierBreakdown(subjectSeries(attempts ?? [], s), getCustomExam), Object.values(topicScores).filter((ts) => !ts.subject || ts.subject === s));
   // Yesterday's kind: the log first, else read off yesterday's marked paper.
   const yesterdayKind = useMemo((): TaskKind | null => {
     const y = shiftDate(today, -1);
@@ -280,7 +280,6 @@ function TodayInner() {
           {task ? (
             <TodayCard
               questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
-              minutes={examId ? getCustomExam(examId)?.timeMinutes ?? null : null}
               examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
               day={day}
               sinceLine={sinceLine}

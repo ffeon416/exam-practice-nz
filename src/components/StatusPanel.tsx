@@ -49,7 +49,7 @@ export default function StatusPanel({
   const pace = now == null ? null : paceFor(now, Math.round(goalBand.minPct * 100), trendPerWeek(points), weeksLeft);
   const gap = now == null ? 0 : marksToTop(now, [goalBand]);
   const tiers = useMemo(() => tierBreakdown(points, getCustomExam), [points]);
-  const spot = useMemo(() => (subject ? weakSpot(subject, tiers, Object.values(topicScores)) : null), [subject, tiers, topicScores]);
+  const spot = useMemo(() => (subject ? weakSpot(subject, tiers, Object.values(topicScores).filter((ts) => !ts.subject || ts.subject === subject)) : null), [subject, tiers, topicScores]);
   const fallbackBand = pace?.state === "unrealistic" ? bands.find((b) => b.minPct < goalBand.minPct && b.tone !== "fail") ?? null : null;
 
   async function chooseGoal(bandId: string, examDate?: string) {
