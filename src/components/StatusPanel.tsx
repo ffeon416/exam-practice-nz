@@ -113,19 +113,19 @@ export default function StatusPanel({
       <div className="sa-gold" style={{ "--sa-r": "24px" } as React.CSSProperties}>
       <div className="bg-[#0e0f13] p-5">
         <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-zinc-500">Streak</p>
-        <div className="flex items-center gap-4 mt-2">
-          <AceMascot mood={mood} size={78} className="shrink-0" />
-          <div className="min-w-0">
-            <p className={`${display.className} font-bold text-[34px] leading-none tracking-[-0.02em] ${streak > 0 ? "text-white" : "text-zinc-500"}`}>{streak} <span className="text-[14px] text-zinc-500 font-semibold">day{streak === 1 ? "" : "s"}</span></p>
-            <p className="text-zinc-200 text-[13.5px] font-semibold mt-1.5">{m.line}</p>
-          </div>
+        <div className="flex justify-center py-3">
+          <AceMascot mood={mood} size={170} />
         </div>
-        <div className="flex gap-1 mt-4">
+        <div className="text-center">
+          <p className={`${display.className} font-bold text-[40px] leading-none tracking-[-0.02em] ${streak > 0 ? "text-white" : "text-zinc-500"}`}>{streak} <span className="text-[15px] text-zinc-500 font-semibold">day{streak === 1 ? "" : "s"}</span></p>
+          <p className="text-zinc-200 text-[14px] font-semibold mt-2">{m.line}</p>
+        </div>
+        <div className="flex gap-1 mt-5">
           {days.map((d) => (
             <span key={d.key} title={d.key} className={`flex-1 h-7 rounded-md ${d.done ? "bg-gradient-to-b from-indigo-400 to-violet-600 shadow-[0_0_8px_rgba(139,92,246,0.6)]" : d.isToday ? "border border-white/40" : "bg-white/[0.06]"} ${d.isToday && d.done && celebrate ? "sa-block-snap" : ""}`} />
           ))}
         </div>
-        <p className="text-zinc-500 text-[12.5px] mt-3">{m.sub}</p>
+        <p className="text-zinc-500 text-[12.5px] mt-3 text-center">{m.sub}</p>
       </div>
       </div>
       ); })()}
