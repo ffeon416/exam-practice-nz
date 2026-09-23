@@ -24,12 +24,14 @@ function writeLog(date: string, entry: { subject: string; kind: TaskKind }) {
   try { const log = readLog(); log[date] = entry; const keys = Object.keys(log).sort().slice(-30); localStorage.setItem(scopedKey(LOG_KEY), JSON.stringify(Object.fromEntries(keys.map((k) => [k, log[k]])))); } catch {}
 }
 function shiftDate(key: string, days: number): string { const d = new Date(key + "T12:00:00"); d.setDate(d.getDate() + days); return localDateKey(d); }
-import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
+import { subjectSeries, tierBreakdown, trendPerWeek, weakSpot } from "@/lib/gradeOutlook";
 import { getCustomExam } from "@/lib/customExams";
 import { resolveCurriculum } from "@/data/curricula";
 import { bandAt, bandsFor } from "@/lib/gradeOutlook";
 import TodayCard from "@/components/TodayCard";
 import StatusPanel from "@/components/StatusPanel";
+import PaceChart, { type PacePoint } from "@/components/PaceChart";
+import { LETTER_BANDS } from "@/data/curricula";
 import type { ExamAttempt, StudentProgress, TopicScore } from "@/lib/types";
 
 type Status = "loading" | "building" | "ready" | "done" | "failed";
@@ -194,6 +196,23 @@ function TodayInner() {
     return `${bandAt(bandsFor(curriculumId), pct).label} · ${pct}%`;
   }, [doneToday, attempts, today, curriculumId]);
 
+  // Pace chart: one subject at a time, defaulting to today's.
+  const [chartSubject, setChartSubject] = useState<string | null>(null);
+  const paceSubject = chartSubject && subjects.includes(chartSubject) ? chartSubject : task?.subject ?? subjects[0] ?? null;
+  const pace = useMemo(() => {
+    if (!paceSubject || !attempts) return null;
+    const g = goalFor(goals, paceSubject);
+    const startIso = g?.startedAt ?? g?.updatedAt;
+    if (!g || !startIso) return null;
+    const since = new Date(startIso).getTime() - 60_000;
+    const series = subjectSeries(attempts, paceSubject).filter((p) => p.t >= since);
+    const byDay = new Map<string, number>();
+    for (const p of series) byDay.set(localDateKey(new Date(p.t)), p.pct); // latest that day wins
+    const points: PacePoint[] = [...byDay.entries()].sort(([a], [b]) => (a < b ? -1 : 1)).map(([date, pct]) => ({ date, pct }));
+    const band = LETTER_BANDS.find((b) => b.id === g.goal) ?? LETTER_BANDS[1];
+    return { points, planStart: localDateKey(new Date(startIso)), examDate: g.examDate || null, goalPct: Math.round(band.minPct * 100), goalLabel: band.label, trend: trendPerWeek(series) };
+  }, [paceSubject, attempts, goals]);
+
   const dateLabel = new Date(today + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
 
   // The number that moves: first plan paper vs the latest, for today's subject.
@@ -254,6 +273,24 @@ function TodayInner() {
             />
           ) : (
             <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
+          )}
+          {pace && paceSubject && (
+            <div className="mt-6">
+              <PaceChart
+                subjectLabel={label(paceSubject)}
+                subjects={subjects}
+                activeSubject={paceSubject}
+                onSubject={setChartSubject}
+                subjectLabelFor={label}
+                points={pace.points}
+                planStart={pace.planStart}
+                examDate={pace.examDate}
+                goalPct={pace.goalPct}
+                goalLabel={pace.goalLabel}
+                trendPerWeek={pace.trend}
+                today={today}
+              />
+            </div>
           )}
         </div>
         <div className="lg:col-span-4">
