@@ -8,22 +8,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
-import { msUntilLocalMidnight, TASK_BLURB, TASK_CTA, TASK_META, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { TASK_BLURB, TASK_CTA, TASK_META, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
 
 const ACCENT: Record<TaskKind, string> = { check: "#3ee6a0", mock: "#a78bfa", paper: "#7dd3fc", fix: "#fbbf24" };
 const BUILD_LINES = ["Writing your questions…", "Matching your exam's style…", "Checking the marking scheme…", "Nearly there…"];
-
-function Countdown() {
-  const [ms, setMs] = useState<number | null>(null);
-  useEffect(() => {
-    const tick = () => setMs(msUntilLocalMidnight());
-    const id = setTimeout(tick, 0); const iv = setInterval(tick, 1000);
-    return () => { clearTimeout(id); clearInterval(iv); };
-  }, []);
-  if (ms == null) return <span className="tabular-nums">--:--:--</span>;
-  const h = Math.floor(ms / 3.6e6), m = Math.floor((ms % 3.6e6) / 6e4), s = Math.floor((ms % 6e4) / 1000);
-  return <span className="tabular-nums">{String(h).padStart(2, "0")}:{String(m).padStart(2, "0")}:{String(s).padStart(2, "0")}</span>;
-}
 
 function BuildLine() {
   const [i, setI] = useState(0);
@@ -100,11 +88,8 @@ export default function TodayCard({
 
           {done ? (
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Next drop in</p>
-                <p className={`${display.className} text-white font-bold text-[30px] leading-none mt-1`}><Countdown /></p>
-              </div>
-              <Link href="/subjects" className="text-[14px] text-zinc-400 hover:text-white underline-offset-4 hover:underline">Sit an extra paper →</Link>
+              <p className="text-zinc-400 text-[14px]">Tomorrow&apos;s paper drops at midnight, built for you overnight.</p>
+              <Link href="/subjects" className="text-[14px] text-zinc-300 hover:text-white underline-offset-4 underline">Sit an extra paper →</Link>
             </div>
           ) : status === "failed" ? (
             <button onClick={onStart} className="self-start bg-white text-[#0a0a0f] font-bold text-[16px] px-9 py-4 rounded-full min-h-[58px]">Try building it again →</button>

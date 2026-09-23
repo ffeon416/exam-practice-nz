@@ -31,6 +31,7 @@ import { resolveCurriculum } from "@/data/curricula";
 import { bandAt, bandsFor } from "@/lib/gradeOutlook";
 import TodayCard from "@/components/TodayCard";
 import StatusPanel from "@/components/StatusPanel";
+import NextDropCard from "@/components/NextDropCard";
 import PaceChart, { type PacePoint } from "@/components/PaceChart";
 import { LETTER_BANDS } from "@/data/curricula";
 import type { ExamAttempt, StudentProgress, TopicScore } from "@/lib/types";
@@ -316,7 +317,8 @@ function TodayInner() {
             </div>
           )}
         </div>
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-4 space-y-4">
+          <NextDropCard done={status === "done"} />
           {attempts && (
             <StatusPanel curriculumId={curriculumId} year={year} subjects={subjects} goals={goals} onGoalsChange={setGoals} streak={streak} days={days} celebrate={celebrate && status === "done"} />
           )}
