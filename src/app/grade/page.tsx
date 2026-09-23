@@ -224,7 +224,7 @@ export default function GradePage() {
     const maxMarks = rs.reduce((s, r) => s + r.maxMarks, 0);
     const pct = maxMarks > 0 ? Math.round((totalMarks / maxMarks) * 100) : 0;
     const band = curriculumBand(curriculumId, rs);
-    const grade = band ? bandToneGrade(band) : (pct >= 85 ? "excellence" : pct >= 65 ? "merit" : pct >= 40 ? "achieved" : "not-achieved");
+    const grade = band ? bandToneGrade(band) : (pct >= 80 ? "excellence" : pct >= 65 ? "merit" : pct >= 50 ? "achieved" : "not-achieved");
     const bandLabel = band ? band.label : gradeLabel(grade);
     const weakTopics = Array.from(new Set(rs.flatMap((r) => r.topicsToReview ?? [])));
     return { pct, grade, bandLabel, weakTopics };
@@ -685,13 +685,13 @@ export default function GradePage() {
               const band = curriculumBand(curriculumId, results);
               const tone = band?.tone ?? (grade === "excellence" ? "top" : grade === "merit" ? "high" : grade === "achieved" ? "pass" : "fail");
               const desc =
-                tone === "top" ? `the top band in ${curriculum.system}`
-                : tone === "high" ? "a strong result — one band off the top"
-                : tone === "pass" ? `a passing result in ${curriculum.system}`
-                : `below a passing result in ${curriculum.system}`;
+                tone === "top" ? (bandLabel === "A+" ? "the top grade there is" : "a top grade — one step off A+")
+                : tone === "high" ? "a strong result — one grade off an A"
+                : tone === "pass" ? "a pass, with room above it"
+                : "below a pass";
               return (
                 <p className="text-zinc-300 text-[14px] font-semibold mb-1.5">
-                  {bandLabel.length <= 3 ? `Band ${bandLabel} — ${desc}` : desc.charAt(0).toUpperCase() + desc.slice(1)}
+                  {desc.charAt(0).toUpperCase() + desc.slice(1)}
                 </p>
               );
             })()}

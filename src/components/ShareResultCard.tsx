@@ -21,10 +21,10 @@ const GRADE_COLORS: Record<Grade, string> = {
 };
 
 const GRADE_LABELS: Record<Grade, string> = {
-  excellence: "Excellence",
-  merit: "Merit",
-  achieved: "Achieved",
-  "not-achieved": "Not Achieved",
+  excellence: "A",
+  merit: "B",
+  achieved: "C",
+  "not-achieved": "D",
 };
 
 function formatSubject(subject: string): string {

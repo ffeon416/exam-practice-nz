@@ -1,5 +1,7 @@
 "use client";
 
+import { TIER_LABEL } from "@/lib/scoring";
+
 import React, { use, useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -304,8 +306,7 @@ export default function ExamPage({
                   : "bg-green-500/10 text-green-400"
               }`}
             >
-              {question.gradeLevel.charAt(0).toUpperCase() +
-                question.gradeLevel.slice(1)}
+              {TIER_LABEL[question.gradeLevel] ?? question.gradeLevel}
             </span>
             <span className="text-xs text-zinc-400">
               {questionMaxMarks(question.answerType)} mark{questionMaxMarks(question.answerType) !== 1 ? "s" : ""}

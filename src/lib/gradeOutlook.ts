@@ -149,7 +149,7 @@ export function weakSpot(subject: string, tiers: TierAccuracy[] | null, topics: 
   }
   const tier = tiers?.filter((x) => x.questions >= 3 && x.pct < 60).sort((a, b) => a.pct - b.pct)[0];
   if (tier) {
-    const name = { achieved: "Achieved-level", merit: "Merit-level", excellence: "Excellence-level" }[tier.tier];
+    const name = { achieved: "C-grade", merit: "B-grade", excellence: "A-grade" }[tier.tier];
     return {
       subject, kind: "tier", label: `${name} questions`, pct: tier.pct,
       topicPrompt: `${name} questions only — the hardest style this paper type uses, so the student can practise exactly those`,

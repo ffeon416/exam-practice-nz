@@ -24,6 +24,18 @@ export interface GradeBand {
   tone: "top" | "high" | "pass" | "fail";
 }
 
+/**
+ * The one grade scale StudyAce shows, in every exam system: letters. Thresholds
+ * are fractions of the paper's marks under the uniform 1+1 scheme. Highest first.
+ */
+export const LETTER_BANDS: GradeBand[] = [
+  { id: "a-plus", label: "A+", minPct: 0.9, tone: "top" },
+  { id: "a", label: "A", minPct: 0.8, tone: "top" },
+  { id: "b", label: "B", minPct: 0.65, tone: "high" },
+  { id: "c", label: "C", minPct: 0.5, tone: "pass" },
+  { id: "d", label: "D", minPct: 0, tone: "fail" },
+];
+
 export interface CurriculumLevel {
   /** Picker value — the year/grade number students recognise */
   value: number;
@@ -127,12 +139,7 @@ export const CURRICULA: Curriculum[] = [
       S("business-studies", "Business Studies", [13]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "excellence", label: "Excellence", minPct: 0.85, tone: "top" },
-      { id: "merit", label: "Merit", minPct: 0.65, tone: "high" },
-      { id: "achieved", label: "Achieved", minPct: 0.4, tone: "pass" },
-      { id: "not-achieved", label: "Not Achieved", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Achieved", merit: "Merit", excellence: "Excellence" },
     promptConfig: {
       authorPersona: "an expert NZQA / NCEA exam author",
@@ -191,13 +198,7 @@ export const CURRICULA: Curriculum[] = [
       S("science", "Science", [10]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "a", label: "A", minPct: 0.85, tone: "top" },
-      { id: "b", label: "B", minPct: 0.65, tone: "high" },
-      { id: "c", label: "C", minPct: 0.45, tone: "pass" },
-      { id: "d", label: "D", minPct: 0.25, tone: "fail" },
-      { id: "e", label: "E", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Standard", merit: "Complex", excellence: "Challenging" },
     promptConfig: {
       authorPersona: "an expert QCAA exam author for Queensland QCE General subjects",
@@ -257,14 +258,7 @@ export const CURRICULA: Curriculum[] = [
       S("science", "Science", [10]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "band-6", label: "Band 6", minPct: 0.9, tone: "top" },
-      { id: "band-5", label: "Band 5", minPct: 0.8, tone: "high" },
-      { id: "band-4", label: "Band 4", minPct: 0.7, tone: "pass" },
-      { id: "band-3", label: "Band 3", minPct: 0.6, tone: "pass" },
-      { id: "band-2", label: "Band 2", minPct: 0.5, tone: "fail" },
-      { id: "band-1", label: "Band 1", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Band 4", merit: "Band 5", excellence: "Band 6" },
     promptConfig: {
       authorPersona: "an expert NESA exam author for NSW HSC courses",
@@ -304,14 +298,7 @@ export const CURRICULA: Curriculum[] = [
       S("geography", "Geography", [11, 12]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "a-plus", label: "A+", minPct: 0.9, tone: "top" },
-      { id: "a", label: "A", minPct: 0.8, tone: "high" },
-      { id: "b", label: "B", minPct: 0.7, tone: "high" },
-      { id: "c", label: "C", minPct: 0.55, tone: "pass" },
-      { id: "d", label: "D", minPct: 0.4, tone: "fail" },
-      { id: "e", label: "E", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Standard", merit: "Complex", excellence: "Challenging" },
     promptConfig: {
       authorPersona: "an expert VCAA exam author for Victorian VCE studies",
@@ -348,13 +335,7 @@ export const CURRICULA: Curriculum[] = [
       S("modern-history", "Modern History", [11, 12]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "a", label: "A", minPct: 0.85, tone: "top" },
-      { id: "b", label: "B", minPct: 0.65, tone: "high" },
-      { id: "c", label: "C", minPct: 0.45, tone: "pass" },
-      { id: "d", label: "D", minPct: 0.25, tone: "fail" },
-      { id: "e", label: "E", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Standard", merit: "Complex", excellence: "Challenging" },
     promptConfig: {
       authorPersona: "an expert SCSA exam author for WACE ATAR courses",
@@ -391,13 +372,7 @@ export const CURRICULA: Curriculum[] = [
       S("modern-history", "Modern History", [11, 12]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "a", label: "A", minPct: 0.85, tone: "top" },
-      { id: "b", label: "B", minPct: 0.65, tone: "high" },
-      { id: "c", label: "C", minPct: 0.45, tone: "pass" },
-      { id: "d", label: "D", minPct: 0.25, tone: "fail" },
-      { id: "e", label: "E", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Standard", merit: "Complex", excellence: "Challenging" },
     promptConfig: {
       authorPersona: "an expert SACE Board exam author for South Australian subjects",
@@ -448,17 +423,7 @@ export const CURRICULA: Curriculum[] = [
       S("computer-science", "Computer Science", [10, 11]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "grade-9", label: "9", minPct: 0.9, tone: "top" },
-      { id: "grade-8", label: "8", minPct: 0.82, tone: "top" },
-      { id: "grade-7", label: "7", minPct: 0.74, tone: "high" },
-      { id: "grade-6", label: "6", minPct: 0.64, tone: "high" },
-      { id: "grade-5", label: "5", minPct: 0.54, tone: "pass" },
-      { id: "grade-4", label: "4", minPct: 0.44, tone: "pass" },
-      { id: "grade-3", label: "3", minPct: 0.3, tone: "fail" },
-      { id: "grade-2", label: "2", minPct: 0.15, tone: "fail" },
-      { id: "grade-1", label: "1", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Grade 4–5", merit: "Grade 6–7", excellence: "Grade 8–9" },
     promptConfig: {
       authorPersona: "an expert GCSE exam author (familiar with AQA, Edexcel and OCR specifications for England)",
@@ -514,15 +479,7 @@ export const CURRICULA: Curriculum[] = [
       S("computer-science", "Computer Science", [12, 13]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "a-star", label: "A*", minPct: 0.9, tone: "top" },
-      { id: "a", label: "A", minPct: 0.8, tone: "high" },
-      { id: "b", label: "B", minPct: 0.7, tone: "high" },
-      { id: "c", label: "C", minPct: 0.6, tone: "pass" },
-      { id: "d", label: "D", minPct: 0.5, tone: "pass" },
-      { id: "e", label: "E", minPct: 0.4, tone: "pass" },
-      { id: "u", label: "U", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Grade C–D", merit: "Grade B", excellence: "Grade A/A*" },
     promptConfig: {
       authorPersona: "an expert A-Level exam author (familiar with AQA, Edexcel and OCR specifications for England)",
@@ -581,13 +538,7 @@ export const CURRICULA: Curriculum[] = [
       S("computer-science", "Computing Science", [10, 11, 12]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "a", label: "A", minPct: 0.7, tone: "top" },
-      { id: "b", label: "B", minPct: 0.6, tone: "high" },
-      { id: "c", label: "C", minPct: 0.5, tone: "pass" },
-      { id: "d", label: "D", minPct: 0.4, tone: "pass" },
-      { id: "no-award", label: "No Award", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Grade C", merit: "Grade B", excellence: "Grade A" },
     promptConfig: {
       authorPersona: "an expert SQA exam author (Scottish Qualifications Authority)",
@@ -642,13 +593,7 @@ export const CURRICULA: Curriculum[] = [
       S("act-science", "ACT Science", [11]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "ap-5", label: "5", minPct: 0.85, tone: "top" },
-      { id: "ap-4", label: "4", minPct: 0.7, tone: "high" },
-      { id: "ap-3", label: "3", minPct: 0.5, tone: "pass" },
-      { id: "ap-2", label: "2", minPct: 0.3, tone: "fail" },
-      { id: "ap-1", label: "1", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Foundational", merit: "Proficient", excellence: "Advanced" },
     promptConfig: {
       authorPersona: "an expert College Board-style question author for AP courses and the SAT",
@@ -689,12 +634,7 @@ export const CURRICULA: Curriculum[] = [
       S("global-history", "Global History & Geography II", [10]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "mastery", label: "Mastery (85+)", minPct: 0.85, tone: "top" },
-      { id: "proficient", label: "Proficient", minPct: 0.75, tone: "high" },
-      { id: "passing", label: "Passing (65+)", minPct: 0.65, tone: "pass" },
-      { id: "not-passing", label: "Not Passing", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Passing", merit: "Proficient", excellence: "Mastery" },
     promptConfig: {
       authorPersona: "an expert New York State Regents examination author (NYSED style)",
@@ -727,12 +667,7 @@ export const CURRICULA: Curriculum[] = [
       S("us-history", "US History", [11]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "masters", label: "Masters Grade Level", minPct: 0.83, tone: "top" },
-      { id: "meets", label: "Meets Grade Level", minPct: 0.62, tone: "high" },
-      { id: "approaches", label: "Approaches Grade Level", minPct: 0.42, tone: "pass" },
-      { id: "did-not-meet", label: "Did Not Meet", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Approaches", merit: "Meets", excellence: "Masters" },
     promptConfig: {
       authorPersona: "an expert Texas STAAR End-of-Course item writer (TEA style)",
@@ -766,13 +701,7 @@ export const CURRICULA: Curriculum[] = [
       S("us-history", "US History", [11]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "level-5", label: "Level 5", minPct: 0.84, tone: "top" },
-      { id: "level-4", label: "Level 4", minPct: 0.7, tone: "high" },
-      { id: "level-3", label: "Level 3 (Passing)", minPct: 0.55, tone: "pass" },
-      { id: "level-2", label: "Level 2", minPct: 0.3, tone: "fail" },
-      { id: "level-1", label: "Level 1", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Level 3", merit: "Level 4", excellence: "Level 5" },
     promptConfig: {
       authorPersona: "an expert Florida B.E.S.T. End-of-Course item writer",
@@ -812,13 +741,7 @@ export const CURRICULA: Curriculum[] = [
       S("economics", "Economics", [11, 12]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "level-4", label: "Level 4", minPct: 0.8, tone: "top" },
-      { id: "level-3", label: "Level 3", minPct: 0.7, tone: "high" },
-      { id: "level-2", label: "Level 2", minPct: 0.6, tone: "pass" },
-      { id: "level-1", label: "Level 1", minPct: 0.5, tone: "fail" },
-      { id: "below", label: "Below Level 1", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Level 2", merit: "Level 3", excellence: "Level 4" },
     promptConfig: {
       authorPersona: "an expert Ontario curriculum assessment author",
@@ -856,12 +779,7 @@ export const CURRICULA: Curriculum[] = [
       S("social-studies", "Social Studies", [10, 11, 12]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "excellence-standard", label: "Standard of Excellence", minPct: 0.8, tone: "top" },
-      { id: "above-acceptable", label: "Above Acceptable", minPct: 0.65, tone: "high" },
-      { id: "acceptable", label: "Acceptable Standard", minPct: 0.5, tone: "pass" },
-      { id: "below-acceptable", label: "Below Acceptable", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Acceptable", merit: "Above Acceptable", excellence: "Excellence Standard" },
     promptConfig: {
       authorPersona: "an expert Alberta Education Diploma Examination author",
@@ -899,12 +817,7 @@ export const CURRICULA: Curriculum[] = [
       S("social-studies", "Social Studies", [10, 11]),
     ],
     freeSubjects: ["mathematics", "english"],
-    gradeBands: [
-      { id: "extending", label: "Extending", minPct: 0.85, tone: "top" },
-      { id: "proficient", label: "Proficient", minPct: 0.65, tone: "high" },
-      { id: "developing", label: "Developing", minPct: 0.4, tone: "pass" },
-      { id: "emerging", label: "Emerging", minPct: 0, tone: "fail" },
-    ],
+    gradeBands: LETTER_BANDS,
     difficultyLabels: { achieved: "Developing", merit: "Proficient", excellence: "Extending" },
     promptConfig: {
       authorPersona: "an expert British Columbia curriculum assessment author (BC Ministry of Education style)",

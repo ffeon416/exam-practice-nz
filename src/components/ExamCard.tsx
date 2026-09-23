@@ -35,7 +35,7 @@ export default function ExamCard({ exam, bestGrade }: ExamCardProps) {
                 : "bg-red-500/10 text-red-400"
             }`}
           >
-            Best: {bestGrade.charAt(0).toUpperCase() + bestGrade.slice(1)}
+            Best: {({ excellence: "A", merit: "B", achieved: "C" } as Record<string, string>)[bestGrade] ?? "D"}
           </span>
         )}
       </div>

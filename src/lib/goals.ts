@@ -21,13 +21,21 @@ export interface SubjectGoal {
 
 const KEY = "studyace-goals";
 
+// Goals saved under the old per-system band ids (NCEA "excellence", HSC
+// "band6", GCSE "grade9"…) map onto the letter scale.
+const LEGACY_GOAL: Record<string, string> = { excellence: "a", merit: "b", achieved: "c", "not-achieved": "d" };
+export function normalizeGoalId(id: string): string {
+  if (["a-plus", "a", "b", "c", "d"].includes(id)) return id;
+  return LEGACY_GOAL[id] ?? "a";
+}
+
 export function loadGoals(): SubjectGoal[] {
   if (typeof window === "undefined") return [];
   try {
     const raw = localStorage.getItem(scopedKey(KEY));
     const parsed = raw ? (JSON.parse(raw) as SubjectGoal[]) : [];
     // Goals saved before startedAt existed: the plan began when they were set.
-    return Array.isArray(parsed) ? parsed.map((g) => ({ ...g, startedAt: g.startedAt ?? g.updatedAt })) : [];
+    return Array.isArray(parsed) ? parsed.map((g) => ({ ...g, goal: normalizeGoalId(g.goal), startedAt: g.startedAt ?? g.updatedAt })) : [];
   } catch {
     return [];
   }
@@ -61,7 +69,8 @@ export async function syncGoals(): Promise<SubjectGoal[]> {
     if (!res.ok) return local;
     const { goals } = (await res.json()) as { goals: SubjectGoal[] };
     const bySubject = new Map<string, SubjectGoal>();
-    for (const g of [...local, ...(goals ?? [])]) {
+    for (const raw of [...local, ...(goals ?? [])]) {
+      const g = { ...raw, goal: normalizeGoalId(raw.goal) };
       const cur = bySubject.get(g.subject);
       if (!cur || g.updatedAt > cur.updatedAt) bySubject.set(g.subject, g);
     }

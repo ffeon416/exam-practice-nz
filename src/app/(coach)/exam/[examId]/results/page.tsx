@@ -2,6 +2,7 @@
 
 import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { LETTER_BANDS } from "@/data/curricula";
 import { prebuildNextPaper } from "@/lib/nextPaper";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
 import { getTopicLabel } from "@/data/topics";
@@ -765,16 +766,13 @@ export default function ResultsPage({
         </div>
 
 
-        {/* Next grade hint — grade boundaries are 40% (Achieved), 65% (Merit),
-            85% (Excellence) of the paper total under the uniform 1+1 scheme.
-            NCEA-worded, so skipped for other curricula (their band ladders
-            differ; a per-curriculum version can come with the full band UI). */}
-        {!selfMarked && !band && overallGrade !== "excellence" && maxMarks > 0 && (() => {
-          const nextPct =
-            overallGrade === "not-achieved" ? 0.4 : overallGrade === "achieved" ? 0.65 : 0.85;
-          const nextLabel =
-            overallGrade === "not-achieved" ? "Achieved" : overallGrade === "achieved" ? "Merit" : "Excellence";
-          const needed = Math.max(1, Math.ceil(nextPct * maxMarks) - totalMarks);
+        {/* Next grade hint — the next letter up the ladder and the marks to it. */}
+        {!selfMarked && band && maxMarks > 0 && (() => {
+          const ladder = [...LETTER_BANDS].sort((a, b) => a.minPct - b.minPct);
+          const next = ladder[ladder.findIndex((b) => b.id === band.id) + 1];
+          if (!next) return null;
+          const nextLabel = next.label;
+          const needed = Math.max(1, Math.ceil(next.minPct * maxMarks) - totalMarks);
           return (
             <div className="bg-amber-950/20 border border-amber-700/30 rounded-2xl p-4 mb-6">
               <p className="text-zinc-300 text-sm">

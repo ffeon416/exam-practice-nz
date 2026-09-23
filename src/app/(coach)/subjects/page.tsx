@@ -46,7 +46,7 @@ type ApiPaper = {
 
 const LOADING_MESSAGES = [
   "Pulling together exam-style questions…",
-  "Calibrating Achievement, Merit and Excellence…",
+  "Calibrating C, B and A-grade questions…",
   "Adding worked solutions…",
   "Adding that NZ flavour…",
   "Polishing the marking guide…",

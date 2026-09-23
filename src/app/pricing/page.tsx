@@ -315,7 +315,7 @@ export default function PricingPage() {
               <h2 className={`${display.className} text-[22px] sm:text-[28px] font-bold text-white tracking-[-0.02em]`}>What&apos;s in Pro</h2>
               <p className="text-zinc-500 text-[13px] mt-1">Every feature, on every billing option. Nothing is held back.</p>
             </div>
-            <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full">Built to chase Excellence</span>
+            <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full">Built to chase A&apos;s</span>
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
             {PRO_FEATURES.map((f) => (

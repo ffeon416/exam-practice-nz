@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { getSupabase, logEvent } from "@/lib/supabase";
 import { resolveCurriculum } from "@/data/curricula";
+import { normalizeGoalId } from "@/lib/goals";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +30,7 @@ export async function GET() {
     if (!p?.subject || seen.has(p.subject)) continue;
     seen.set(p.subject, {
       subject: p.subject,
-      goal: p.goal ?? "",
+      goal: normalizeGoalId(p.goal ?? ""),
       examDate: p.examDate ?? "",
       curriculumId: p.curriculumId ?? "nz-ncea",
       year: Number(p.year) || 12,

@@ -1,5 +1,5 @@
 import type { CutScores, Grade, MarkingResult } from "./types";
-import { resolveCurriculum, bandForPct, type GradeBand } from "@/data/curricula";
+import { resolveCurriculum, bandForPct, LETTER_BANDS, type GradeBand } from "@/data/curricula";
 
 // Site-wide marking scheme: every question is worth 1 mark for correct working
 // + 1 mark for the correct final answer (max 2). Multiple-choice has no working
@@ -21,22 +21,28 @@ export function calculateOverallGrade(
   const maxMarks = results.reduce((s, r) => s + r.maxMarks, 0);
   const pct = maxMarks > 0 ? totalMarks / maxMarks : 0;
 
-  if (pct >= 0.85) return "excellence";
+  if (pct >= 0.8) return "excellence";
   if (pct >= 0.65) return "merit";
-  if (pct >= 0.4) return "achieved";
+  if (pct >= 0.5) return "achieved";
   return "not-achieved";
 }
 
-// ── StudyAce Global: curriculum-aware banding ──
-// Non-NCEA exams show their own grade scale (HSC Bands, GCSE 9–1, AP 1–5…).
-// Internally everything still runs on the uniform 1+1 marks; only the display
-// band changes. Returns null for NCEA/legacy exams — callers fall back to the
-// classic Grade pipeline.
+/** The letter for a fraction of marks (0–1): A+, A, B, C or D. */
+export function letterForPct(pct: number): GradeBand {
+  return bandForPct({ gradeBands: LETTER_BANDS } as Parameters<typeof bandForPct>[0], pct);
+}
+
+/** Question difficulty tiers, shown as the grade they're pitched at. */
+export const TIER_LABEL: Record<"achieved" | "merit" | "excellence", string> = { achieved: "C-grade", merit: "B-grade", excellence: "A-grade" };
+
+// ── Banding ──
+// Every exam system shows the same letter scale (A+ … D). Internally
+// everything still runs on the uniform 1+1 marks; this is the display band
+// for a set of marked results.
 export function curriculumBand(
   curriculumId: string | undefined,
   results: MarkingResult[]
 ): GradeBand | null {
-  if (!curriculumId || curriculumId === "nz-ncea") return null;
   const c = resolveCurriculum(curriculumId);
   const totalMarks = results.reduce((s, r) => s + r.marksAwarded, 0);
   const maxMarks = results.reduce((s, r) => s + r.maxMarks, 0);
@@ -58,13 +64,13 @@ export function bandToneGrade(band: GradeBand): Grade {
 export function gradeLabel(grade: Grade): string {
   switch (grade) {
     case "excellence":
-      return "Excellence";
+      return "A";
     case "merit":
-      return "Merit";
+      return "B";
     case "achieved":
-      return "Achieved";
+      return "C";
     case "not-achieved":
-      return "Not Achieved";
+      return "D";
   }
 }
 

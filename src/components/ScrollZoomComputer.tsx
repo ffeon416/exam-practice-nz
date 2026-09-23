@@ -97,7 +97,7 @@ export default function ScrollZoomComputer() {
                     92<span className="text-[8px] sm:text-[14px]">%</span>
                   </span>
                   <span className="text-[5px] font-bold uppercase tracking-wider text-emerald-400 sm:text-[9px]">
-                    Excellence
+                    A+
                   </span>
                 </div>
                 <span className="sa-twinkle absolute -right-0.5 top-0 text-[7px] sm:text-[11px]">✨</span>

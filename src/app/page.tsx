@@ -170,7 +170,7 @@ export default function HomePage() {
                     <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-zinc-500 mb-0.5">Dashboard · sample</p>
                     <p className="text-white text-[14px] sm:text-[16px] font-bold">Mathematics · NCEA Level 2</p>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[10px] font-bold">Target: Excellence by November</span>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[10px] font-bold">Target: A by November</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 items-center">
@@ -188,8 +188,8 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="sm:mt-2">
-                      <p className="text-amber-400 font-black text-[18px] leading-tight">Merit</p>
-                      <p className="text-zinc-500 text-[10.5px]">9 marks off Excellence</p>
+                      <p className="text-amber-400 font-black text-[18px] leading-tight">B</p>
+                      <p className="text-zinc-500 text-[10.5px]">4 marks off an A</p>
                     </div>
                   </div>
 
@@ -474,7 +474,7 @@ export default function HomePage() {
             <p className="text-zinc-300 text-[14px] leading-relaxed mb-3">
               University Entrance needs NCEA Level 3 with 14 credits in each of three approved subjects, plus literacy and numeracy. Limited-entry courses go further: universities such as Auckland rank applicants on their best 80 Level 3 credits, and an Excellence credit is worth twice an Achieved.
             </p>
-            <p className="text-zinc-500 text-[12.5px]">The difference between Achieved and Excellence in one subject can be the difference between the course they want and the one they settle for.</p>
+            <p className="text-zinc-500 text-[12.5px]">The difference between a C and an A in one subject can be the difference between the course they want and the one they settle for.</p>
           </div>
           <div className="rounded-[28px] border border-white/[0.07] bg-white/[0.015] p-6 sm:p-7">
             <div className="flex items-center gap-2 mb-3">
@@ -534,10 +534,10 @@ export default function HomePage() {
               <p className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-zinc-500 mb-3">Recent papers · sample</p>
               <div className="space-y-2">
                 {[
-                  { s: "Mathematics · Algebra", d: "Tonight", g: "Merit", pct: 76, tone: "text-amber-400" },
-                  { s: "Chemistry · Bonding", d: "Tue", g: "Excellence", pct: 88, tone: "text-emerald-400" },
-                  { s: "English · Unfamiliar text", d: "Mon", g: "Achieved", pct: 58, tone: "text-sky-400" },
-                  { s: "Mathematics · Probability", d: "Sun", g: "Merit", pct: 71, tone: "text-amber-400" },
+                  { s: "Mathematics · Algebra", d: "Tonight", g: "B", pct: 76, tone: "text-amber-400" },
+                  { s: "Chemistry · Bonding", d: "Tue", g: "A", pct: 88, tone: "text-emerald-400" },
+                  { s: "English · Unfamiliar text", d: "Mon", g: "C", pct: 58, tone: "text-sky-400" },
+                  { s: "Mathematics · Probability", d: "Sun", g: "B", pct: 71, tone: "text-amber-400" },
                 ].map((r) => (
                   <div key={r.s} className="flex items-center gap-3 rounded-xl bg-white/[0.02] border border-white/[0.06] px-3.5 py-2.5">
                     <div className="flex-1 min-w-0">
