@@ -25,6 +25,7 @@ import { resolveCurriculum, LETTER_BANDS } from "@/data/curricula";
 import { bandAt, bandsFor } from "@/lib/gradeOutlook";
 import TodayCard from "@/components/TodayCard";
 import WeekStrip, { KIND_ACCENT, type WeekDay } from "@/components/WeekStrip";
+import ExamSetup from "@/components/ExamSetup";
 import type { ExamAttempt } from "@/lib/types";
 
 // What each date was assigned, so a day's task is fixed once handed out and
@@ -349,18 +350,8 @@ function ScheduleInner() {
 
       {setup ? (
         <div className="sa-gold" style={{ "--sa-r": "28px" } as React.CSSProperties}>
-          <div className="bg-[#0e0f13] p-7 sm:p-10">
-            <p className="text-zinc-300 text-[15px] sm:text-[16px] leading-relaxed max-w-xl">{setup.sub}</p>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end mt-7">
-              <ol className="space-y-2 text-zinc-400 text-[14px]">
-                {["Exam system and year", "Up to three subjects", "The grade you want in each", "When the exam is", "A grade check to find your starting point"].map((t, i) => (
-                  <li key={t} className="flex items-center gap-3"><span className="font-mono text-[11px] text-zinc-600 w-4">{i + 1}</span>{t}</li>
-                ))}
-              </ol>
-              <Link href="/welcome?next=1" className="bg-white text-[#0a0a0f] font-bold text-[16px] px-8 py-4 rounded-full min-h-[58px] inline-flex items-center justify-center transition-transform hover:scale-[1.02] whitespace-nowrap">
-                Set my next exam →
-              </Link>
-            </div>
+          <div className="bg-[#0e0f13] p-6 sm:p-9 lg:p-10">
+            <ExamSetup mode="next" intro={setup.sub} />
           </div>
         </div>
       ) : (
