@@ -14,8 +14,8 @@ import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
 import { adoptPaper, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
 import { goalFor } from "@/lib/goals";
-import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, normalizeKind, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
-import { FOCUS_LABEL, paceRead, taskForDay, weekFocus, weekLine, weekOf, weekStartDay, type WeekFocus } from "@/lib/schedule";
+import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, normalizeKind, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { paceRead, taskForDay, weekFocus, weekLine, weekOf, weekStartDay, type WeekFocus } from "@/lib/schedule";
 import { recentMistakes } from "@/lib/mistakes";
 import { scopedKey } from "@/lib/userScope";
 import { useCoachData } from "@/hooks/useCoachData";
@@ -121,30 +121,36 @@ function ScheduleInner() {
   const [resolved, setResolved] = useState<{ date: string; subject: string; kind: TaskKind } | null>(null);
   // Tomorrow's task, once we've worked it out — shown after today's is done.
   const [tomorrowTask, setTomorrowTask] = useState<{ subject: string; kind: TaskKind } | null>(null);
+  // A schedule only exists between now and an exam. Exam day itself is the
+  // finish line, not a task day. No date, exam today, or every date gone by →
+  // the page becomes the place to set the next one.
+  const nextExam = useMemo(() => {
+    const dated = subjects.map((s) => goalFor(goals, s)).filter((g): g is NonNullable<typeof g> => !!g?.examDate)
+      .map((g) => ({ subject: g.subject, date: g.examDate, days: daysUntil(g.examDate) })).sort((a, b) => a.days - b.days);
+    const upcoming = dated.filter((g) => g.days > 0);
+    const examToday = dated.find((g) => g.days === 0) ?? null;
+    const passed = dated.filter((g) => g.days < 0).sort((a, b) => b.days - a.days)[0] ?? null;
+    return { upcoming: upcoming[0] ?? null, examToday, passed, none: dated.length === 0 };
+  }, [subjects, goals]);
+  // Subjects still in play: exam ahead (or no date set yet — their check comes first).
+  const activeSubjects = useMemo(() => subjects.filter((s) => { const g = goalFor(goals, s); return !g?.examDate || daysUntil(g.examDate) > 0; }), [subjects, goals]);
+  const needsSetup = attempts != null && subjects.length > 0 && activeSubjects.length === 0;
+  const fmt = (d: string) => new Date(d + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "short", day: "numeric", month: "short" });
+
   const pick = (d: number, prev: TaskKind | null, baselineAlso?: (s: string) => boolean) =>
-    taskForDay({ day: d, subjects, hasBaseline: (s) => hasBaseline(s) || !!baselineAlso?.(s), hasReviewMaterial, focusFor, yesterdayKind: prev });
+    taskForDay({ day: d, subjects: activeSubjects, hasBaseline: (s) => hasBaseline(s) || !!baselineAlso?.(s), hasReviewMaterial, focusFor, yesterdayKind: prev });
   const task = useMemo(() => {
-    if (!attempts || !subjects.length) return null;
+    if (!attempts || !activeSubjects.length) return null;
     if (resolved && resolved.date === today) return { subject: resolved.subject, kind: resolved.kind };
     const logged = readLog()[today];
-    if (logged && subjects.includes(logged.subject)) return logged;
+    if (logged && activeSubjects.includes(logged.subject)) return logged;
     return pick(day, yesterdayKind);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [attempts, subjects, goals, topicScores, day, yesterdayKind, resolved, today]);
+  }, [attempts, activeSubjects, goals, topicScores, day, yesterdayKind, resolved, today]);
   // Today's task is done only by a paper in today's subject — an extra paper
   // in another subject (or one left over from an earlier setup) doesn't count.
   const doneToday = !!task && (attempts ?? []).some((a) => localDateKey(new Date(a.date)) === today && subjectOf(a) === task.subject);
 
-  // A schedule only exists between now and an exam. No date, or every date
-  // gone by → the page becomes the place to set the next one.
-  const nextExam = useMemo(() => {
-    const dated = subjects.map((s) => goalFor(goals, s)).filter((g): g is NonNullable<typeof g> => !!g?.examDate)
-      .map((g) => ({ subject: g.subject, date: g.examDate, days: daysUntil(g.examDate) })).sort((a, b) => a.days - b.days);
-    const upcoming = dated.filter((g) => g.days >= 0);
-    return { upcoming: upcoming[0] ?? null, passed: upcoming.length === 0 ? dated[dated.length - 1] ?? null : null, none: dated.length === 0 };
-  }, [subjects, goals]);
-  const needsSetup = attempts != null && subjects.length > 0 && !nextExam.upcoming;
-  const fmt = (d: string) => new Date(d + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "short", day: "numeric", month: "short" });
 
   // Build (or fetch) today's paper once we know the task; remember tomorrow's for the overnight prebuild.
   useEffect(() => {
@@ -266,6 +272,10 @@ function ScheduleInner() {
     if (!task || !attempts) return [];
     const log = readLog();
     const start = weekStartDay(week);
+    // Exam dates in play (today's or later), and the last of them: the line ends there.
+    const examOn = new Map<string, string>();
+    for (const sub of subjects) { const g = goalFor(goals, sub); if (g?.examDate && daysUntil(g.examDate) >= 0) examOn.set(g.examDate, label(sub)); }
+    const lastExam = [...examOn.keys()].sort().pop() ?? null;
     const out: WeekDay[] = [];
     let prev: TaskKind | null = null;
     const checked = new Set<string>();
@@ -273,6 +283,9 @@ function ScheduleInner() {
       const d = start + i;
       const date = shiftDate(today, d - day);
       const dt = new Date(date + "T12:00:00");
+      const weekday = dt.toLocaleDateString("en-NZ", { weekday: "short" });
+      if (lastExam && date > lastExam) { out.push({ day: d, weekday, dateNum: dt.getDate(), kind: "paper", subject: null, state: "off" }); continue; }
+      if (examOn.has(date)) { out.push({ day: d, weekday, dateNum: dt.getDate(), kind: "check", subject: examOn.get(date), state: "exam" }); continue; }
       let entry: { subject: string; kind: TaskKind } | null = null;
       if (d === day) entry = task;
       else if (log[date] && subjects.includes(log[date].subject)) entry = log[date];
@@ -284,7 +297,7 @@ function ScheduleInner() {
       if (entry.kind === "check") checked.add(entry.subject);
       const done = attempts.some((x) => localDateKey(new Date(x.date)) === date && subjectOf(x) === entry!.subject);
       out.push({
-        day: d, weekday: dt.toLocaleDateString("en-NZ", { weekday: "short" }), dateNum: dt.getDate(), kind: entry.kind,
+        day: d, weekday, dateNum: dt.getDate(), kind: entry.kind,
         subject: d <= day ? label(entry.subject) : null,
         state: d === day ? "today" : d < day ? (done ? "done" : "missed") : "upcoming",
       });
@@ -305,93 +318,92 @@ function ScheduleInner() {
   const accent = task ? KIND_ACCENT[task.kind] : "#a78bfa";
 
 
+  const setup = needsSetup ? (
+    nextExam.examToday
+      ? { title: "Exam day. Good luck.", sub: `Your ${label(nextExam.examToday.subject)} exam is today. When you're out, set the next one and StudyAce rebuilds your schedule from a fresh grade check.` }
+      : nextExam.passed
+        ? { title: "That exam's done. What's next?", sub: `Your ${label(nextExam.passed.subject)} exam was on ${fmt(nextExam.passed.date)}. Set the next one and your whole schedule is rebuilt backwards from that date.` }
+        : { title: "When's your next exam?", sub: "Your schedule is built backwards from your exam date: one task a day so you land on your goal grade on the day." }
+  ) : null;
+
   return (
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
-      {/* Header: which week, why it's shaped this way */}
-      <div className="mb-5 sm:mb-6">
-        <div className="flex items-center justify-between gap-3 flex-wrap">
-          <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500">Schedule · Week {String(week).padStart(2, "0")} · Day {String(day).padStart(2, "0")}</p>
-          <div className="flex items-center gap-2.5 flex-wrap">
-            {line && !needsSetup && (
-              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full" style={{ color: accent, background: `${accent}18` }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />{FOCUS_LABEL[line.focus]}
-              </span>
-            )}
-            {nextExam.upcoming && (
-              <Link href="/welcome?next=1" className="inline-flex items-center gap-2 text-[12px] text-zinc-400 hover:text-white border border-white/[0.1] hover:border-white/30 rounded-full px-3 py-1.5 transition-colors">
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-500">Exam</span>
-                <span className="text-zinc-200 font-semibold">{fmt(nextExam.upcoming.date)}</span>
-                <span className="text-zinc-500">· change</span>
-              </Link>
-            )}
-          </div>
+      {/* Top row: where we are, and the exam this all runs into */}
+      <div className="flex items-end justify-between gap-4 flex-wrap mb-6 sm:mb-8">
+        <div>
+          <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500">Schedule</p>
+          <h1 className={`${display.className} font-bold text-white text-[26px] sm:text-[32px] leading-none tracking-[-0.03em] mt-1.5`}>
+            {setup ? setup.title : <>Week {week} <span className="text-zinc-600 font-semibold">· Day {day}</span></>}
+          </h1>
         </div>
-        {needsSetup ? (
-          <>
-            <h1 className={`${display.className} font-bold text-white text-[30px] sm:text-[40px] leading-[1.02] tracking-[-0.035em] mt-2`}>{nextExam.passed ? "That exam's done. What's next?" : "When's your next exam?"}</h1>
-            <p className="text-zinc-400 text-[14.5px] sm:text-[16px] leading-relaxed max-w-2xl mt-2">
-              {nextExam.passed
-                ? <>Your {label(nextExam.passed.subject)} exam was on {fmt(nextExam.passed.date)}. Set the next one and StudyAce rebuilds your whole schedule backwards from that date, starting with a fresh grade check.</>
-                : <>Your schedule is built backwards from your exam date: what to do each day so you land on your goal grade on the day. Set it and everything here is personalised to you.</>}
-            </p>
-          </>
-        ) : line ? (
-          <>
-            <h1 className={`${display.className} font-bold text-white text-[30px] sm:text-[40px] leading-[1.02] tracking-[-0.035em] mt-2`}>{line.title}</h1>
-            <p className="text-zinc-400 text-[14.5px] sm:text-[16px] leading-relaxed max-w-2xl mt-2">{line.sub}</p>
-          </>
-        ) : (
-          <div className="h-[72px] rounded-2xl bg-white/[0.02] animate-pulse mt-2" />
+        {nextExam.upcoming && (
+          <Link href="/welcome?next=1" className="group flex items-center gap-3.5 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-white/25 px-4 py-2.5 transition-colors">
+            <span className={`${display.className} font-bold text-[28px] leading-none tracking-[-0.03em] tabular-nums ${nextExam.upcoming.days <= 7 ? "text-rose-300" : nextExam.upcoming.days <= 21 ? "text-amber-300" : "text-white"}`}>{nextExam.upcoming.days}</span>
+            <span className="min-w-0">
+              <span className="block text-[12.5px] text-zinc-200 font-semibold leading-tight">{nextExam.upcoming.days === 1 ? "day" : "days"} to your {label(nextExam.upcoming.subject)} exam</span>
+              <span className="block text-[11px] text-zinc-500 mt-0.5">{fmt(nextExam.upcoming.date)} · <span className="group-hover:text-zinc-300">change</span></span>
+            </span>
+          </Link>
         )}
       </div>
 
-      {needsSetup && (
+      {setup ? (
         <div className="sa-gold" style={{ "--sa-r": "28px" } as React.CSSProperties}>
-          <div className="bg-[#0e0f13] p-7 sm:p-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-indigo-300">Set up your next exam</p>
-              <p className={`${display.className} text-white font-bold text-[28px] sm:text-[36px] leading-[1] tracking-[-0.03em] mt-2`}>Five quick questions.</p>
-              <ol className="mt-4 space-y-1.5 text-zinc-300 text-[14.5px]">
-                {["Your exam system and year", "Up to three subjects", "The grade you want in each", "When the exam is", "A grade check to find your starting point"].map((t, i) => (
-                  <li key={t} className="flex items-center gap-3"><span className="font-mono text-[11px] text-zinc-500 w-4">{i + 1}</span>{t}</li>
+          <div className="bg-[#0e0f13] p-7 sm:p-10">
+            <p className="text-zinc-300 text-[15px] sm:text-[16px] leading-relaxed max-w-xl">{setup.sub}</p>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end mt-7">
+              <ol className="space-y-2 text-zinc-400 text-[14px]">
+                {["Exam system and year", "Up to three subjects", "The grade you want in each", "When the exam is", "A grade check to find your starting point"].map((t, i) => (
+                  <li key={t} className="flex items-center gap-3"><span className="font-mono text-[11px] text-zinc-600 w-4">{i + 1}</span>{t}</li>
                 ))}
               </ol>
-              <p className="text-zinc-500 text-[12.5px] mt-4">Takes about two minutes. Then a task a day, built for you, until exam day.</p>
+              <Link href="/welcome?next=1" className="bg-white text-[#0a0a0f] font-bold text-[16px] px-8 py-4 rounded-full min-h-[58px] inline-flex items-center justify-center transition-transform hover:scale-[1.02] whitespace-nowrap">
+                Set my next exam →
+              </Link>
             </div>
-            <Link href="/welcome?next=1" className="bg-white text-[#0a0a0f] font-bold text-[16px] px-8 py-4 rounded-full min-h-[58px] inline-flex items-center justify-center transition-transform hover:scale-[1.02] whitespace-nowrap">
-              Set my next exam →
-            </Link>
           </div>
         </div>
-      )}
-
-      {/* The week */}
-      <div className={`mb-5 sm:mb-6 ${needsSetup ? "hidden" : ""}`}>
-        {weekDays.length ? <WeekStrip days={weekDays} /> : <div className="h-[104px] rounded-2xl bg-white/[0.02] animate-pulse" />}
-      </div>
-
-      {/* Today's ticket */}
-      {needsSetup ? null : task ? (
-        <TodayCard
-          questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
-          examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
-          day={day}
-          sinceLine={sinceLine}
-          whyLine={whyLine}
-          celebrate={celebrate && status === "done"}
-          tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject), length: TASK_LENGTH[tomorrowTask.kind] } : null}
-          dateLabel={dateLabel}
-          subjectLabel={label(task.subject)}
-          kind={task.kind}
-          status={status}
-          scoreLabel={scoreLabel}
-          busy={busy}
-          onStart={status === "failed" ? retry : start}
-        />
       ) : (
-        <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
+        <>
+          {/* The week, as a line that runs into the exam */}
+          <div className="rounded-[26px] border border-white/[0.07] bg-white/[0.015] px-3 sm:px-6 pt-5 pb-4">
+            {weekDays.length ? <WeekStrip days={weekDays} /> : <div className="h-[96px] animate-pulse" />}
+          </div>
+
+          {/* Why this week is shaped like this */}
+          {line && (
+            <div className="flex items-start gap-3 px-2 sm:px-3 mt-4 mb-6 sm:mb-8">
+              <span className="mt-[7px] w-2 h-2 rounded-full shrink-0" style={{ background: accent, boxShadow: `0 0 10px ${accent}` }} aria-hidden />
+              <p className="text-[14px] sm:text-[15px] leading-relaxed text-zinc-400">
+                <span className="text-white font-semibold">{line.title}</span> {line.sub}
+              </p>
+            </div>
+          )}
+          {!line && <div className="h-6 mb-6" />}
+
+          {/* Today's ticket */}
+          {task ? (
+            <TodayCard
+              questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
+              examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
+              day={day}
+              sinceLine={sinceLine}
+              whyLine={whyLine}
+              celebrate={celebrate && status === "done"}
+              tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject), length: TASK_LENGTH[tomorrowTask.kind] } : null}
+              dateLabel={dateLabel}
+              subjectLabel={label(task.subject)}
+              kind={task.kind}
+              status={status}
+              scoreLabel={scoreLabel}
+              busy={busy}
+              onStart={status === "failed" ? retry : start}
+            />
+          ) : (
+            <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
+          )}
+        </>
       )}
-      {task && !doneToday && <p className="text-zinc-600 text-[12px] mt-4 text-center">{TASK_BLURB[task.kind]}</p>}
     </div>
   );
 }
