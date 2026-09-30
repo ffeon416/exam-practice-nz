@@ -86,19 +86,20 @@ export async function POST(request: NextRequest) {
     const task = body.task === "check" || body.task === "mock" || body.task === "paper" || body.task === "review" ? body.task : body.task === "fix" ? "review" : "paper";
     if (!validSubject(subject) || !date) return NextResponse.json({ error: "invalid_today" }, { status: 400 });
     const label = curriculum.subjects.find((s) => s.value === subject)?.label ?? subject;
+    const titles = { check: "Grade check", mock: "Mock exam", paper: "Practice paper", review: "Review lesson" } as const;
     const prefix = `Day ${date} · `;
     const supabase = getSupabase();
     if (supabase) {
-      // One paper per date — for THIS subject in THIS exam system. Matching on
-      // the date alone handed back a stale paper (other subject, other country)
-      // to anyone who re-did onboarding.
-      const { data: rows } = await supabase.from("custom_exams").select("*").eq("user_id", userId).eq("subject", subject).eq("level", levelValueFor(curriculum.id, year)).like("title", `${prefix}%`).order("created_at", { ascending: false }).limit(1);
+      // One paper per date — for THIS subject, THIS exam system and THIS task.
+      // Matching on the date alone handed back a stale paper (other subject,
+      // other country, or the old plan's mock on the day a new plan starts
+      // with a grade check) to anyone who re-did onboarding.
+      const { data: rows } = await supabase.from("custom_exams").select("*").eq("user_id", userId).eq("subject", subject).eq("level", levelValueFor(curriculum.id, year)).like("title", `${prefix}${titles[task]} · %`).order("created_at", { ascending: false }).limit(1);
       const row = rows?.[0];
       if (row) {
         return NextResponse.json({ exam: { id: row.id, title: row.title, level: row.level, standard: "PRACTICE", year: new Date(row.created_at).getFullYear(), subject: row.subject, timeMinutes: row.time_minutes, questions: row.questions, totalMarks: row.total_marks, curriculumId: curriculum.id } as Exam, built: false });
       }
     }
-    const titles = { check: "Grade check", mock: "Mock exam", paper: "Practice paper", review: "Review lesson" } as const;
     try {
       const exam = await buildPaper({
         userId, curriculumId: curriculum.id, subject, year,

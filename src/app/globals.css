@@ -351,7 +351,7 @@ body {
 @media (prefers-reduced-motion: reduce) { .sa-stamp, .sa-stamp-in, .sa-block-snap { animation: none; } }
 
 /* Gold edge: a slowly turning gold gradient ring (transform-only, cheap) with a faint glow. */
-.sa-gold { position: relative; border-radius: var(--sa-r, 28px); padding: 1.5px; overflow: hidden; isolation: isolate;
+.sa-gold { position: relative; border-radius: var(--sa-r, 28px); padding: 1.5px; overflow: clip; isolation: isolate; /* clip, not hidden: hidden makes a scroll container that focus() can scroll, shoving the card out of its frame */
   box-shadow: 0 0 0 1px rgba(232, 196, 106, 0.10), 0 18px 50px -24px rgba(232, 196, 106, 0.35), 0 0 32px -12px rgba(232, 196, 106, 0.18); }
 .sa-gold::before { content: ""; position: absolute; inset: -60%; z-index: -1; will-change: transform;
   background: conic-gradient(from 0deg, #5c4310 0deg, #e8c46a 55deg, #fff2c4 80deg, #b8892c 130deg, #7a5a18 190deg, #e8c46a 250deg, #fff2c4 275deg, #a67c22 330deg, #5c4310 360deg);
