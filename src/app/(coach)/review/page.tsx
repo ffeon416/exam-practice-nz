@@ -460,7 +460,8 @@ function ReviewInner() {
     const correctAnswer = question?.expectedAnswer ?? "(See marking guide)";
     const markingGuide = question?.markingGuide ?? "";
     const topicLabels = review.topics.map((t) => getTopicLabel(t));
-    const topic = topicLabels[0] ?? "This one";
+    const raw = topicLabels[0] ?? "This one";
+    const topic = raw.charAt(0).toUpperCase() + raw.slice(1);
     const progress = (index / sessionItems.length) * 100;
     const AMBER = "#fbbf24";
 
