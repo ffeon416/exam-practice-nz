@@ -32,7 +32,7 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
     key: String(d.day), kind: d.state === "exam" ? "exam" : d.kind, state: d.state,
     top: d.state === "today" ? "Today" : `${d.weekday} ${d.dateNum}`,
     bottom: d.state === "exam" ? "Exam" : KIND_SHORT[d.kind],
-    sub: d.state === "exam" ? (examDate ? fmt(examDate) : "") : d.state === "missed" ? "Missed" : `Day ${String(d.day).padStart(2, "0")}`,
+    sub: d.state === "exam" ? (examDate ? fmt(examDate) : "") : d.state === "missed" ? "Missed" : d.state === "today" ? `Today · Day ${String(d.day).padStart(2, "0")}` : `Day ${String(d.day).padStart(2, "0")}`,
   }));
   const hasExamSlot = slots.some((s) => s.kind === "exam");
   if (!hasExamSlot && examDate && examDays != null) {
@@ -50,6 +50,9 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
   const X = (i: number) => padL + (n <= 1 ? 0 : (i * (W - padL - padR)) / (n - 1));
   const pts = slots.map((s, i) => ({ x: X(i), y: s.kind === "exam" ? yFlag : i % 2 === 0 ? yLow : yHigh }));
   const road = smoothPath(pts);
+  const todayIdx = slots.findIndex((s) => s.state === "today");
+  const todayColor = todayIdx >= 0 ? KIND_ACCENT[slots[todayIdx].kind as TaskKind] : "#a78bfa";
+  const colW = Math.min(120, Math.max(72, (W - padL - padR) / Math.max(1, n - 1) * 0.8));
   const gapSlot = slots.find((s) => s.gap != null && s.gap > 0);
   const gapIdx = gapSlot ? slots.indexOf(gapSlot) : -1;
 
@@ -58,11 +61,23 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
       {/* Top labels */}
       <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
         {slots.map((s) => (
-          <p key={s.key} className={`font-mono text-[10.5px] sm:text-[11.5px] uppercase tracking-[0.2em] ${s.state === "today" ? "text-indigo-300 font-bold" : "text-zinc-500"} ${s.kind === "exam" ? "text-right pr-1" : "text-center"}`}>{s.top}</p>
+          <p key={s.key} className={`font-mono text-[10.5px] sm:text-[11.5px] uppercase tracking-[0.2em] ${s.kind === "exam" ? "text-right pr-1" : "text-center"} ${s.state === "today" ? "" : "text-zinc-500"}`}>
+            {s.state === "today"
+              ? <span className="inline-block px-2.5 py-1 rounded-full font-bold text-[#0a0a0f]" style={{ background: KIND_ACCENT[s.kind as TaskKind], boxShadow: `0 0 18px ${KIND_ACCENT[s.kind as TaskKind]}66` }}>{s.top}</span>
+              : s.top}
+          </p>
         ))}
       </div>
 
       <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} className="block -my-1" aria-hidden>
+        <defs>
+          <linearGradient id="sa-today-col" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={todayColor} stopOpacity="0.16" />
+            <stop offset="1" stopColor={todayColor} stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {/* today's column, lit from the label down to the node */}
+        {todayIdx >= 0 && <rect x={X(todayIdx) - colW / 2} y="0" width={colW} height={H} rx="18" fill="url(#sa-today-col)" />}
         {/* road */}
         <path d={road} fill="none" stroke={ROAD} strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
         <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.5" strokeDasharray="3 6" strokeLinecap="round" />
@@ -83,8 +98,10 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
           const c = KIND_ACCENT[s.kind];
           if (s.state === "today") return (
             <g key={s.key}>
-              <circle cx={x} cy={y} r="24" fill="#1c1a30" />
-              <circle cx={x} cy={y} r="14" fill={c} style={{ filter: `drop-shadow(0 0 14px ${c}88)` }} />
+              <circle cx={x} cy={y} r="26" fill="none" stroke={c} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" />
+              <circle cx={x} cy={y} r="27" fill="#1c1a30" stroke={c} strokeOpacity="0.35" strokeWidth="1.5" />
+              <circle cx={x} cy={y} r="16" fill={c} style={{ filter: `drop-shadow(0 0 18px ${c})` }} />
+              <circle cx={x - 4} cy={y - 5} r="4" fill="#ffffff" opacity="0.35" />
             </g>
           );
           if (s.state === "done") return (
@@ -102,8 +119,8 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
       <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
         {slots.map((s) => (
           <div key={s.key} className={`min-w-0 ${s.kind === "exam" ? "text-right pr-1" : "text-center"}`}>
-            <p className={`${display.className} font-bold tracking-[-0.02em] leading-tight text-[14px] sm:text-[18px] truncate ${s.kind === "exam" ? "text-rose-400" : s.state === "missed" ? "text-zinc-600 line-through decoration-zinc-700" : s.state === "upcoming" ? "text-zinc-200" : "text-white"}`}>{s.bottom}</p>
-            <p className="text-[11px] sm:text-[13px] text-zinc-500 mt-1 truncate">{s.sub}</p>
+            <p className={`${display.className} font-bold tracking-[-0.02em] leading-tight truncate ${s.state === "today" ? "text-[16px] sm:text-[21px] text-white" : "text-[14px] sm:text-[18px]"} ${s.kind === "exam" ? "text-rose-400" : s.state === "missed" ? "text-zinc-600 line-through decoration-zinc-700" : s.state === "upcoming" ? "text-zinc-200" : "text-white"}`}>{s.bottom}</p>
+            <p className={`text-[11px] sm:text-[13px] mt-1 truncate ${s.state === "today" ? "font-semibold" : "text-zinc-500"}`} style={s.state === "today" ? { color: KIND_ACCENT[s.kind as TaskKind] } : undefined}>{s.sub}</p>
           </div>
         ))}
       </div>
