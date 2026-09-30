@@ -68,7 +68,7 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
         <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.5" strokeDasharray="3 6" strokeLinecap="round" />
         {/* +N days on the last stretch */}
         {gapIdx > 0 && (
-          <text x={(X(gapIdx - 1) + X(gapIdx)) / 2 + 10} y={(pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 22} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10.5" letterSpacing="2" fill="#71717a">+{gapSlot!.gap} DAYS</text>
+          <text x={(X(gapIdx - 1) + X(gapIdx)) / 2 + 16} y={(pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 36} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10.5" letterSpacing="2" fill="#71717a">+{gapSlot!.gap} DAYS</text>
         )}
         {/* nodes */}
         {slots.map((s, i) => {

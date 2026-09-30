@@ -146,7 +146,10 @@ function ScheduleInner() {
     if (!attempts || !activeSubjects.length) return null;
     if (resolved && resolved.date === today) return { subject: resolved.subject, kind: resolved.kind };
     const logged = readLog()[today];
-    if (logged && activeSubjects.includes(logged.subject)) return logged;
+    // Yesterday's prebuild assumed the grade check would get done. If it was
+    // skipped, nothing can be planned without that baseline: the check rolls
+    // forward and takes today.
+    if (logged && activeSubjects.includes(logged.subject) && (logged.kind === "check" || hasBaseline(logged.subject))) return logged;
     return pick(day, yesterdayKind);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attempts, activeSubjects, goals, topicScores, day, yesterdayKind, resolved, today]);
