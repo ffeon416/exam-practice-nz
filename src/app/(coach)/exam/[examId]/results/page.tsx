@@ -608,7 +608,7 @@ export default function ResultsPage({
             See what I got wrong
           </button>
           <Link
-            href="/today?done=1"
+            href="/schedule?done=1"
             className="block w-full text-center py-3.5 rounded-xl bg-white text-[#0a0a0f] text-[14px] font-bold hover:bg-zinc-100 transition-colors min-h-[48px] flex items-center justify-center"
           >
             Back to Today →
@@ -786,7 +786,7 @@ export default function ResultsPage({
         })()}
 
         <div className="text-center mt-8">
-          <Link href="/today" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+          <Link href="/schedule" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
             &larr; Back to Today
           </Link>
         </div>
@@ -1019,7 +1019,7 @@ export default function ResultsPage({
       </div>
 
       <div className="text-center mt-8">
-        <Link href="/today" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+        <Link href="/schedule" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
           &larr; Back to Today
         </Link>
       </div>

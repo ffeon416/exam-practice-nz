@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description:
       "Unlimited exam-style practice, marked honestly, with a plan to your target grade.",
     id: "/",
-    start_url: "/today",
+    start_url: "/schedule",
     display: "standalone",
     background_color: "#06060a",
     theme_color: "#06060a",

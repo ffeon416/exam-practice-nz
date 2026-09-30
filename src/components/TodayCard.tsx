@@ -3,14 +3,14 @@
 // The daily paper as a ticket. Left: what it is and one button. Right, past
 // the perforation: the stub with the numbers (questions, minutes, days to
 // exam) and a stamp for the state. Same template for every task kind; only
-// the accent, the words and the numbers change. Tomorrow is never shown.
+// the accent, the words and the numbers change.
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
 import { TASK_BLURB, TASK_CTA, TASK_META, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
 
-const ACCENT: Record<TaskKind, string> = { check: "#3ee6a0", mock: "#a78bfa", paper: "#7dd3fc", fix: "#fbbf24" };
+const ACCENT: Record<TaskKind, string> = { check: "#3ee6a0", mock: "#a78bfa", paper: "#7dd3fc", review: "#fbbf24" };
 const BUILD_LINES = ["Writing your questions…", "Matching your exam's style…", "Checking the marking scheme…", "Nearly there…"];
 
 function BuildLine() {

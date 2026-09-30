@@ -12,11 +12,11 @@ import { useAuth, useClerk, useUser } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
 import { getDueCount, getReviewsVersion, getServerReviewsVersion, subscribeReviews } from "@/lib/spacedRepetition";
 
-export const COACH_ROUTE = /^\/(today|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
+export const COACH_ROUTE = /^\/(today|schedule|lesson|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
 export const IN_PAPER = /^\/exam\/[^/]+$/;
 
 const ITEMS: { href: string; label: string; sub: string; icon: (a: boolean) => React.ReactNode; match?: RegExp }[] = [
-  { href: "/today", label: "Today", sub: "Today's task, built for you", icon: (a) => (
+  { href: "/schedule", label: "Schedule", sub: "Your week, one task a day", icon: (a) => (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3l9 7v11H3V10l9-7z" /><path strokeLinecap="round" d="M9 21v-6h6v6" /></svg>
   ) },
   { href: "/pace", label: "Pace", sub: "On track for your goal?", icon: (a) => (
@@ -68,7 +68,7 @@ export default function Sidebar() {
   return (
     <aside className="hidden md:flex fixed left-0 top-0 bottom-0 w-[248px] z-40 flex-col bg-[#08080e] border-r border-white/[0.06]">
       <div className="px-5 pt-6 pb-4">
-        <Link href="/today" className="font-semibold text-white tracking-tight text-[18px]">
+        <Link href="/schedule" className="font-semibold text-white tracking-tight text-[18px]">
           study<span className="text-indigo-400">ace</span>
         </Link>
       </div>

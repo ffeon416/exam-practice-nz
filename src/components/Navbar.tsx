@@ -15,7 +15,7 @@ import { useTier } from "@/hooks/useTier";
 // Signed-in: the four things a student does. Pricing lives behind the
 // Upgrade pill (free accounts) and the profile page (paid), not in the nav.
 const authedLinks = [
-  { href: "/today", label: "Today" },
+  { href: "/schedule", label: "Schedule" },
   { href: "/subjects", label: "Practise" },
   { href: "/review", label: "Review" },
   { href: "/dashboard", label: "Progress" },
@@ -74,7 +74,7 @@ export default function Navbar() {
 
   // The coach app has no header: the sidebar (desktop) and bottom tabs (phone)
   // carry everything, and mid-paper there is no chrome at all.
-  if (isPaid && /^\/(today|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/.test(pathname)) return null;
+  if (isPaid && /^\/(today|schedule|lesson|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/.test(pathname)) return null;
 
   return (
     <>

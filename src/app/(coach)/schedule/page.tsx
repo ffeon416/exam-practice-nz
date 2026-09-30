@@ -1,39 +1,51 @@
 "use client";
 
-// /today — the daily task, and nothing else. One paper a day, chosen and
-// built for the student, dropped at midnight in their timezone. They only
-// ever see today: the ticket, then "done for today" naming tomorrow's.
-// Pace lives at /pace, the streak (Ace) at /streak.
+// /schedule — the heart of the app. One task a day, chosen for the student
+// and built before they open the app, dropped at midnight in their timezone.
+// Every week opens with a grade check; how they did against the pace line
+// to their goal decides the six days after it (see lib/schedule.ts).
+// This page: the week at a glance, why it's shaped that way, today's ticket.
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
 import { adoptPaper, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
 import { goalFor } from "@/lib/goals";
-import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, taskForDay, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, normalizeKind, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { FOCUS_LABEL, paceRead, taskForDay, weekFocus, weekLine, weekOf, weekStartDay, type WeekFocus } from "@/lib/schedule";
+import { recentMistakes } from "@/lib/mistakes";
 import { scopedKey } from "@/lib/userScope";
 import { useCoachData } from "@/hooks/useCoachData";
+import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
+import { getCustomExam } from "@/lib/customExams";
+import { resolveCurriculum, LETTER_BANDS } from "@/data/curricula";
+import { bandAt, bandsFor } from "@/lib/gradeOutlook";
+import TodayCard from "@/components/TodayCard";
+import WeekStrip, { KIND_ACCENT, type WeekDay } from "@/components/WeekStrip";
+import type { ExamAttempt } from "@/lib/types";
 
 // What each date was assigned, so a day's task is fixed once handed out and
 // tomorrow is never the same kind as today.
 type TaskLog = Record<string, { subject: string; kind: TaskKind }>;
 const LOG_KEY = "studyace-task-log";
-function readLog(): TaskLog { try { return JSON.parse(localStorage.getItem(scopedKey(LOG_KEY)) ?? "{}") as TaskLog; } catch { return {}; } }
+function readLog(): TaskLog {
+  try {
+    const raw = JSON.parse(localStorage.getItem(scopedKey(LOG_KEY)) ?? "{}") as Record<string, { subject: string; kind: string }>;
+    const out: TaskLog = {};
+    for (const [k, v] of Object.entries(raw)) { const kind = normalizeKind(v?.kind); if (kind && v?.subject) out[k] = { subject: v.subject, kind }; }
+    return out;
+  } catch { return {}; }
+}
 function writeLog(date: string, entry: { subject: string; kind: TaskKind }) {
-  try { const log = readLog(); log[date] = entry; const keys = Object.keys(log).sort().slice(-30); localStorage.setItem(scopedKey(LOG_KEY), JSON.stringify(Object.fromEntries(keys.map((k) => [k, log[k]])))); } catch {}
+  try { const log = readLog(); log[date] = entry; const keys = Object.keys(log).sort().slice(-60); localStorage.setItem(scopedKey(LOG_KEY), JSON.stringify(Object.fromEntries(keys.map((k) => [k, log[k]])))); } catch {}
 }
 function shiftDate(key: string, days: number): string { const d = new Date(key + "T12:00:00"); d.setDate(d.getDate() + days); return localDateKey(d); }
-import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
-import { getCustomExam } from "@/lib/customExams";
-import { resolveCurriculum } from "@/data/curricula";
-import { bandAt, bandsFor } from "@/lib/gradeOutlook";
-import TodayCard from "@/components/TodayCard";
-import type { ExamAttempt } from "@/lib/types";
 
 type Status = "loading" | "building" | "ready" | "done" | "failed";
 
-function TodayInner() {
+function ScheduleInner() {
   const router = useRouter();
   const params = useSearchParams();
   const celebrate = params.get("done") === "1";
@@ -56,7 +68,7 @@ function TodayInner() {
   // Re-run the build effect after a failed attempt.
   const [attempt, setAttempt] = useState(0);
 
-  // ── Today's task ──
+  // ── Who, where, what day ──
   const curriculum = resolveCurriculum(curriculumId);
   const label = (v: string) => curriculum.subjects.find((s) => s.value === v)?.label ?? v;
   const planStart = useMemo(() => {
@@ -64,16 +76,38 @@ function TodayInner() {
     return starts[0] ?? loadOnboarding()?.completedAt ?? new Date().toISOString();
   }, [goals]);
   const day = dayNumber(planStart, new Date(today + "T12:00:00"));
+  const week = weekOf(day);
 
+  const subjectOf = (a: ExamAttempt) => a.subject ?? getCustomExam(a.examId)?.subject ?? null;
   const hasBaseline = (s: string) => {
     const g = goalFor(goals, s);
     const startIso = g?.startedAt ?? g?.updatedAt;
     // No goal yet → nothing counts as a baseline; the grade check comes first.
     if (!startIso) return false;
     const since = new Date(startIso).getTime() - 60_000;
-    return (attempts ?? []).some((a) => a.subject === s && new Date(a.date).getTime() >= since);
+    return (attempts ?? []).some((a) => subjectOf(a) === s && new Date(a.date).getTime() >= since);
   };
   const spotFor = (s: string) => weakSpot(s, tierBreakdown(subjectSeries(attempts ?? [], s), getCustomExam), Object.values(topicScores).filter((ts) => ts.subject === s));
+  const mistakesFor = (s: string) => recentMistakes(attempts ?? [], s, getCustomExam);
+  // Enough to teach from: a few dropped questions, or a clear weak spot.
+  const hasReviewMaterial = (s: string) => mistakesFor(s).length >= 3 || !!spotFor(s);
+
+  // Where each subject sits against its pace line — this is what shapes the week.
+  const paceOf = (s: string) => {
+    const g = goalFor(goals, s);
+    const startIso = g?.startedAt ?? g?.updatedAt;
+    if (!g || !startIso || !attempts) return null;
+    const since = new Date(startIso).getTime() - 60_000;
+    const withSubject = attempts.map((a) => (a.subject ? a : { ...a, subject: getCustomExam(a.examId)?.subject ?? a.subject }));
+    const series = subjectSeries(withSubject, s).filter((p) => p.t >= since);
+    const byDay = new Map<string, number>();
+    for (const p of series) byDay.set(localDateKey(new Date(p.t)), p.pct);
+    const points = [...byDay.entries()].sort(([a], [b]) => (a < b ? -1 : 1)).map(([date, pct]) => ({ date, pct }));
+    const band = LETTER_BANDS.find((b) => b.id === g.goal) ?? LETTER_BANDS[1];
+    return { read: paceRead({ points, planStart: localDateKey(new Date(startIso)), examDate: g.examDate || null, goalPct: Math.round(band.minPct * 100), today }), goalLabel: band.label, examDays: g.examDate ? daysUntil(g.examDate) : null };
+  };
+  const focusFor = (s: string): WeekFocus => { const p = paceOf(s); return weekFocus({ pace: p?.read?.state ?? null, examDays: p?.examDays ?? null }); };
+
   // Yesterday's kind: the log first, else read off yesterday's marked paper.
   const yesterdayKind = useMemo((): TaskKind | null => {
     const y = shiftDate(today, -1);
@@ -86,36 +120,38 @@ function TodayInner() {
   const [resolved, setResolved] = useState<{ date: string; subject: string; kind: TaskKind } | null>(null);
   // Tomorrow's task, once we've worked it out — shown after today's is done.
   const [tomorrowTask, setTomorrowTask] = useState<{ subject: string; kind: TaskKind } | null>(null);
+  const pick = (d: number, prev: TaskKind | null, baselineAlso?: (s: string) => boolean) =>
+    taskForDay({ day: d, subjects, hasBaseline: (s) => hasBaseline(s) || !!baselineAlso?.(s), hasReviewMaterial, focusFor, yesterdayKind: prev });
   const task = useMemo(() => {
     if (!attempts || !subjects.length) return null;
     if (resolved && resolved.date === today) return { subject: resolved.subject, kind: resolved.kind };
     const logged = readLog()[today];
     if (logged && subjects.includes(logged.subject)) return logged;
-    return taskForDay({ day, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s), yesterdayKind });
+    return pick(day, yesterdayKind);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attempts, subjects, goals, topicScores, day, yesterdayKind, resolved, today]);
   // Today's task is done only by a paper in today's subject — an extra paper
   // in another subject (or one left over from an earlier setup) doesn't count.
-  const subjectOf = (a: ExamAttempt) => a.subject ?? getCustomExam(a.examId)?.subject ?? null;
   const doneToday = !!task && (attempts ?? []).some((a) => localDateKey(new Date(a.date)) === today && subjectOf(a) === task.subject);
 
   // Build (or fetch) today's paper once we know the task; remember tomorrow's for the overnight prebuild.
   useEffect(() => {
     if (!task || !serverChecked) return;
+    const topicFor = (s: string, k: TaskKind) => (k === "review" ? spotFor(s)?.topicPrompt ?? mistakesFor(s)[0]?.question.slice(0, 100) : undefined);
     if (doneToday) {
       setStatus("done");
       try {
         const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-        const next = taskForDay({ day: day + 1, subjects, hasBaseline, hasWeakSpot: (s) => !!spotFor(s), yesterdayKind: task.kind });
+        const next = pick(day + 1, task.kind);
         writeLog(today, task);
         writeLog(localDateKey(tomorrow), { subject: next.subject, kind: next.kind });
         setTomorrowTask({ subject: next.subject, kind: next.kind });
-        prebuildDay({ date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined });
+        prebuildDay({ date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: topicFor(next.subject, next.kind) });
       } catch {}
       return;
     }
     let cancelled = false;
-    const t: TodayTask = { date: today, subject: task.subject, task: task.kind, topic: task.kind === "fix" ? spotFor(task.subject)?.topicPrompt : undefined };
+    const t: TodayTask = { date: today, subject: task.subject, task: task.kind, topic: topicFor(task.subject, task.kind) };
     setStatus("building");
     getOrBuildToday(t).then((r) => {
       if (cancelled) return;
@@ -132,8 +168,8 @@ function TodayInner() {
     // Tomorrow's task (assume today's subject gets its baseline today).
     try {
       const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-      const next = taskForDay({ day: day + 1, subjects, hasBaseline: (s) => s === task.subject || hasBaseline(s), hasWeakSpot: (s) => !!spotFor(s), yesterdayKind: task.kind });
-      const tomorrowTask: TodayTask = { date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: next.kind === "fix" ? spotFor(next.subject)?.topicPrompt : undefined };
+      const next = pick(day + 1, task.kind, (s) => s === task.subject);
+      const tomorrowTask: TodayTask = { date: localDateKey(tomorrow), subject: next.subject, task: next.kind, topic: topicFor(next.subject, next.kind) };
       localStorage.setItem("studyace-tomorrow-task", JSON.stringify(tomorrowTask));
       writeLog(tomorrowTask.date, { subject: next.subject, kind: next.kind });
       setTomorrowTask({ subject: next.subject, kind: next.kind });
@@ -155,9 +191,11 @@ function TodayInner() {
   }, [status, celebrate]);
 
   function start() {
-    if (!examId || busy) return;
+    if (!examId || busy || !task) return;
     setBusy(true);
-    router.push(`/exam/${examId}?mode=${examMode}`);
+    // A review day is a lesson first, then the paper.
+    if (task.kind === "review") router.push(`/lesson?exam=${encodeURIComponent(examId)}&subject=${encodeURIComponent(task.subject)}&date=${today}`);
+    else router.push(`/exam/${examId}?mode=${examMode}`);
   }
   function retry() { setStatus("loading"); setAttempt((n) => n + 1); }
 
@@ -168,6 +206,7 @@ function TodayInner() {
     if (!a || !a.maxMarks) return null;
     const pct = Math.round((a.totalMarks / a.maxMarks) * 100);
     return `${bandAt(bandsFor(curriculumId), pct).label} · ${pct}%`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doneToday, attempts, today, curriculumId]);
 
   const dateLabel = new Date(today + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
@@ -195,10 +234,13 @@ function TodayInner() {
     const subj = label(task.subject);
     switch (task.kind) {
       case "check": return hasBaseline(task.subject)
-        ? `Weekly check. Eight questions, marked properly, to see how far ${subj} has moved and plan the week ahead.`
+        ? `Weekly check. Eight questions, marked properly, to see how far ${subj} has moved and set the shape of this week.`
         : `Everything starts here. Eight questions, marked properly, so we know exactly where you are in ${subj}.`;
-      case "fix": return spot ? `Built on ${spot.label.toLowerCase()}, where you're getting ${spot.pct}% in ${subj}. Fix it here and it stops costing you marks.` : TASK_BLURB.fix;
-      case "mock": return examDays != null && examDays <= 21
+      case "review": {
+        const n = mistakesFor(task.subject).length;
+        return `${n >= 3 ? `Built from ${n} questions you dropped marks on in ${subj}` : `Built on ${subj}`}${spot ? `, mostly ${spot.label.toLowerCase()}` : ""}. A short lesson first, then six questions to prove it stuck.`;
+      }
+      case "mock": return examDays != null && examDays <= 21 && examDays >= 0
         ? `Timed and full length, because your ${subj} exam is ${examDays} day${examDays === 1 ? "" : "s"} away. Practise the pressure now.`
         : `Timed and full length. No feedback until the end, like the real day.`;
       default: return `A fresh ${subj} paper in your exam's style, marked the moment you finish. Reps are what move the number.`;
@@ -206,8 +248,77 @@ function TodayInner() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [task, goals, attempts, topicScores]);
 
+  // ── The week at a glance ──
+  const weekDays = useMemo((): WeekDay[] => {
+    if (!task || !attempts) return [];
+    const log = readLog();
+    const start = weekStartDay(week);
+    const out: WeekDay[] = [];
+    let prev: TaskKind | null = null;
+    const checked = new Set<string>();
+    for (let i = 0; i < 7; i++) {
+      const d = start + i;
+      const date = shiftDate(today, d - day);
+      const dt = new Date(date + "T12:00:00");
+      let entry: { subject: string; kind: TaskKind } | null = null;
+      if (d === day) entry = task;
+      else if (log[date] && subjects.includes(log[date].subject)) entry = log[date];
+      else if (d < day) {
+        const a = attempts.find((x) => localDateKey(new Date(x.date)) === date);
+        const k = a ? kindFromTitle(getCustomExam(a.examId)?.title) : null;
+        entry = a && k && subjectOf(a) ? { subject: subjectOf(a)!, kind: k } : pick(d, prev, (s) => checked.has(s));
+      } else entry = pick(d, prev, (s) => checked.has(s));
+      if (entry.kind === "check") checked.add(entry.subject);
+      const done = attempts.some((x) => localDateKey(new Date(x.date)) === date && subjectOf(x) === entry!.subject);
+      out.push({
+        day: d, weekday: dt.toLocaleDateString("en-NZ", { weekday: "short" }), dateNum: dt.getDate(), kind: entry.kind,
+        subject: d <= day ? label(entry.subject) : null,
+        state: d === day ? "today" : d < day ? (done ? "done" : "missed") : "upcoming",
+      });
+      prev = entry.kind;
+    }
+    return out;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [task, attempts, subjects, goals, topicScores, day, week, today]);
+
+  const line = useMemo(() => {
+    if (!task) return null;
+    const p = paceOf(task.subject);
+    const focus = focusFor(task.subject);
+    return { focus, ...weekLine({ focus, pace: p?.read ?? null, hasBaseline: hasBaseline(task.subject), subjectLabel: label(task.subject), goalLabel: p?.goalLabel ?? "A", reviewLabel: spotFor(task.subject)?.label.toLowerCase() ?? null, examDays: p?.examDays ?? null, kinds: weekDays.map((d) => d.kind) }) };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [task, weekDays, goals, attempts]);
+
+  const accent = task ? KIND_ACCENT[task.kind] : "#a78bfa";
+
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-12 pb-16">
+    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
+      {/* Header: which week, why it's shaped this way */}
+      <div className="mb-5 sm:mb-6">
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500">Schedule · Week {String(week).padStart(2, "0")} · Day {String(day).padStart(2, "0")}</p>
+          {line && (
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full" style={{ color: accent, background: `${accent}18` }}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />{FOCUS_LABEL[line.focus]}
+            </span>
+          )}
+        </div>
+        {line ? (
+          <>
+            <h1 className={`${display.className} font-bold text-white text-[30px] sm:text-[40px] leading-[1.02] tracking-[-0.035em] mt-2`}>{line.title}</h1>
+            <p className="text-zinc-400 text-[14.5px] sm:text-[16px] leading-relaxed max-w-2xl mt-2">{line.sub}</p>
+          </>
+        ) : (
+          <div className="h-[72px] rounded-2xl bg-white/[0.02] animate-pulse mt-2" />
+        )}
+      </div>
+
+      {/* The week */}
+      <div className="mb-5 sm:mb-6">
+        {weekDays.length ? <WeekStrip days={weekDays} /> : <div className="h-[104px] rounded-2xl bg-white/[0.02] animate-pulse" />}
+      </div>
+
+      {/* Today's ticket */}
       {task ? (
         <TodayCard
           questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
@@ -228,14 +339,15 @@ function TodayInner() {
       ) : (
         <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
       )}
+      {task && !doneToday && <p className="text-zinc-600 text-[12px] mt-4 text-center">{TASK_BLURB[task.kind]}</p>}
     </div>
   );
 }
 
-export default function TodayPage() {
+export default function SchedulePage() {
   return (
     <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
-      <TodayInner />
+      <ScheduleInner />
     </Suspense>
   );
 }

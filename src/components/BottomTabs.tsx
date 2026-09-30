@@ -11,7 +11,7 @@ import { useTier } from "@/hooks/useTier";
 import { getDueCount, getReviewsVersion, getServerReviewsVersion, subscribeReviews } from "@/lib/spacedRepetition";
 
 const TABS = [
-  { href: "/today", label: "Today", icon: (a: boolean) => (
+  { href: "/schedule", label: "Schedule", icon: (a: boolean) => (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3l9 7v11H3V10l9-7z" /><path strokeLinecap="round" d="M9 21v-6h6v6" /></svg>
   ) },
   { href: "/subjects", label: "Practise", icon: (a: boolean) => (
@@ -28,7 +28,7 @@ const TABS = [
   ) },
 ];
 
-const COACH_PREFIX = /^\/(today|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
+const COACH_PREFIX = /^\/(today|schedule|lesson|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
 const IN_PAPER = /^\/exam\/[^/]+$/;
 
 export default function BottomTabs() {

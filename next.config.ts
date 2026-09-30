@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
       // No sign-up page since 2026-09-20: accounts are created after paying.
       { source: "/sign-up", destination: "/pricing", permanent: false },
       { source: "/sign-up/:path*", destination: "/pricing", permanent: false },
+      // The coach home was /today until 2026-09-30; it's the schedule now.
+      { source: "/today", destination: "/schedule", permanent: false },
     ];
   },
 };

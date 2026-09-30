@@ -1,8 +1,7 @@
-// The daily task. One thing per day, chosen for the student, dropped at
-// midnight in their own timezone (the browser's). They only ever see today.
-// Pure: dates, picking, streaks. No React.
+// The daily task: dates, labels, streaks. Which task lands on which day is
+// decided in schedule.ts. Pure, no React.
 
-export type TaskKind = "check" | "mock" | "paper" | "fix";
+export type TaskKind = "check" | "mock" | "paper" | "review";
 
 /** YYYY-MM-DD in the student's local timezone. */
 export function localDateKey(d: Date = new Date()): string {
@@ -28,49 +27,18 @@ export function dayNumber(startedAtIso: string, now: Date = new Date()): number 
   return Math.max(1, Math.round((t.getTime() - s.getTime()) / 864e5) + 1);
 }
 
-// The rhythm we set: mock, paper, fix, mock, paper, fix, grade check — then
-// repeat. A subject with no baseline always gets its grade check first.
-const CYCLE: TaskKind[] = ["mock", "paper", "fix", "mock", "paper", "fix", "check"];
-
-export function taskForDay(opts: {
-  day: number;                 // 1-based
-  subjects: string[];          // in the student's chosen order
-  hasBaseline: (subject: string) => boolean;
-  hasWeakSpot: (subject: string) => boolean;
-  /** What they got yesterday. Today is never the same kind twice in a row. */
-  yesterdayKind?: TaskKind | null;
-}): { subject: string; kind: TaskKind } {
-  const subjects = opts.subjects.length ? opts.subjects : ["mathematics"];
-  const prev = opts.yesterdayKind ?? null;
-  const measured = subjects.filter((s) => opts.hasBaseline(s));
-  // Any subject still unmeasured takes priority, in order — unless yesterday
-  // was already a grade check and there's a measured subject to work on.
-  const unmeasured = subjects.find((s) => !opts.hasBaseline(s));
-  if (unmeasured && !(prev === "check" && measured.length > 0)) return { subject: unmeasured, kind: "check" };
-  const pool = measured.length ? measured : subjects;
-  const subject = pool[(opts.day - 1) % pool.length];
-  let kind = CYCLE[(opts.day - 1) % CYCLE.length];
-  if (kind === "fix" && !opts.hasWeakSpot(subject)) kind = "paper";
-  if (kind === "check" && unmeasured) kind = "mock"; // that subject's check happens on its own day
-  if (kind === prev) kind = nextDifferent(kind, opts.hasWeakSpot(subject));
-  return { subject, kind };
-}
-
-function nextDifferent(kind: TaskKind, weakSpot: boolean): TaskKind {
-  switch (kind) {
-    case "check": return "paper";
-    case "mock": return weakSpot ? "fix" : "paper";
-    case "paper": return "mock";
-    case "fix": return "paper";
-  }
-}
-
 /** Read the task kind back out of a built paper's title ("Day 2026-09-23 · Grade check · Economics"). */
+/** Old task logs stored "fix"; it's "review" now. */
+export function normalizeKind(k: string | null | undefined): TaskKind | null {
+  if (k === "fix") return "review";
+  return k === "check" || k === "mock" || k === "paper" || k === "review" ? k : null;
+}
+
 export function kindFromTitle(title: string | null | undefined): TaskKind | null {
   if (!title) return null;
   if (title.includes("Grade check")) return "check";
   if (title.includes("Mock exam")) return "mock";
-  if (title.includes("Weak spot")) return "fix";
+  if (title.includes("Weak spot") || title.includes("Review lesson")) return "review";
   if (title.includes("Practice paper")) return "paper";
   return null;
 }
@@ -79,31 +47,31 @@ export const TASK_TITLE: Record<TaskKind, string> = {
   check: "Grade\ncheck",
   mock: "Mock\nexam",
   paper: "Practice\npaper",
-  fix: "Fix your\nweak spot",
+  review: "Review\nlesson",
 };
 export const TASK_CTA: Record<TaskKind, string> = {
   check: "Check my grade →",
   mock: "Start the mock →",
   paper: "Start the paper →",
-  fix: "Fix it →",
+  review: "Start the lesson →",
 };
 export const TASK_META: Record<TaskKind, { questions: number; minutes: number }> = {
   check: { questions: 8, minutes: 15 },
   mock: { questions: 12, minutes: 30 },
   paper: { questions: 8, minutes: 15 },
-  fix: { questions: 8, minutes: 15 },
+  review: { questions: 6, minutes: 20 },
 };
 export const TASK_BLURB: Record<TaskKind, string> = {
   check: "Eight questions, marked properly. Sets where you are and shapes what comes next.",
   mock: "Timed, full length, no feedback until the end. Like the real day.",
   paper: "A fresh paper in your exam's style, marked the moment you finish.",
-  fix: "Built on the one thing losing you the most marks right now.",
+  review: "A lesson built from the questions you dropped marks on, then six questions on exactly that.",
 };
 export const TASK_LENGTH: Record<TaskKind, string> = {
   check: "8 questions · about 15 min",
   mock: "12 questions · timed",
   paper: "8 questions · about 15 min",
-  fix: "8 questions · about 15 min",
+  review: "lesson + 6 questions · about 20 min",
 };
 
 /** Consecutive days with at least one marked paper, ending today or yesterday. */

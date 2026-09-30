@@ -49,7 +49,7 @@ export default function WelcomePage() {
 
   useEffect(() => {
     const id = setTimeout(() => {
-      if (loadOnboarding()?.subjects.length) router.replace("/today");
+      if (loadOnboarding()?.subjects.length) router.replace("/schedule");
       setInstalled(isStandalone());
       setIos(isIOS());
     }, 0);
@@ -245,7 +245,7 @@ export default function WelcomePage() {
           <>
             <h1 className={`${display.className} ${h1}`}>That build didn&apos;t finish.</h1>
             <p className="text-zinc-400 text-[14px] mb-6">Head to your dashboard and start the grade check from there.</p>
-            <button onClick={() => router.replace("/today")} className={btn}>Go to my dashboard</button>
+            <button onClick={() => router.replace("/schedule")} className={btn}>Go to my dashboard</button>
           </>
         ) : (
           <>

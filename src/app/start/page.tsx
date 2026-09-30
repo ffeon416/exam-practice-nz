@@ -6,7 +6,7 @@
 // with a session id, and THIS page creates their login (Clerk restricts
 // sign-ups to emails that have paid — the webhook allowlists them). Once
 // signed in, the subscription is attached to the new account and they're
-// handed to /today. It also still serves the few legacy unpaid accounts that
+// handed to /schedule. It also still serves the few legacy unpaid accounts that
 // exist from before: one-tap checkout, nothing else.
 
 import Link from "next/link";
@@ -87,7 +87,7 @@ function StartInner() {
   // ── Signed-in: paid → the app ──
   useEffect(() => {
     if (!isSignedIn || tierLoading || tier === "free") return;
-    router.replace("/today");
+    router.replace("/schedule");
   }, [isSignedIn, tier, tierLoading, router]);
 
   // ── Signed-in, just paid: attach the subscription, then the app ──

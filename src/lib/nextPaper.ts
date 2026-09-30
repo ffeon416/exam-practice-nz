@@ -22,7 +22,7 @@ export function nextPaperPrefs(): { curriculum: string; year: number; subjects: 
   return { curriculum: ob.curriculumId ?? currentCurriculumId(), year: ob.yearLevel, subjects: ob.subjects };
 }
 
-export type TodayTask = { date: string; subject: string; task: "check" | "mock" | "paper" | "fix"; topic?: string };
+export type TodayTask = { date: string; subject: string; task: "check" | "mock" | "paper" | "review"; topic?: string };
 
 /** Get today's paper if it exists, else build it (waits). */
 export async function getOrBuildToday(t: TodayTask): Promise<{ exam: Exam; built: boolean } | null> {
