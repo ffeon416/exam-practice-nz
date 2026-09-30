@@ -213,7 +213,7 @@ function PaymentWelcome({
         {
           title: "Spaced review",
           sub: "Wrong answers come back so they stick.",
-          href: "/review",
+          href: "/review?start=1",
           icon: (
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -564,7 +564,7 @@ export default function DashboardPage() {
         ) : reviewStats.due > 0 ? (
           // Reviews due
           <Link
-            href="/review"
+            href="/review?start=1"
             className="group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 p-3.5 mb-6 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:-translate-y-0.5 transition-all"
           >
             <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/25 to-transparent" />
@@ -877,7 +877,7 @@ function TaskRow({ task }: { task: StudyTask }) {
   const href = task.examId
     ? `/exam/${task.examId}?mode=practice`
     : task.type === "review"
-    ? "/review"
+    ? "/review?start=1"
     : task.subject
     ? `/subjects?subject=${task.subject}`
     : "/subjects";

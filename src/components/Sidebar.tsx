@@ -6,10 +6,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect } from "react";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
-import { getDueCount, getReviewsVersion, getServerReviewsVersion, subscribeReviews } from "@/lib/spacedRepetition";
 
 export const COACH_ROUTE = /^\/(today|schedule|lesson|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
 export const IN_PAPER = /^\/exam\/[^/]+$/;
@@ -28,9 +27,6 @@ const ITEMS: { href: string; label: string; icon: (a: boolean) => React.ReactNod
   { href: "/subjects", label: "Practise", icon: (a) => (
     <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5c-1.5-1.3-3.5-2-6-2v13c2.5 0 4.5.7 6 2 1.5-1.3 3.5-2 6-2v-13c-2.5 0-4.5.7-6 2zM12 6.5v13" /></svg>
   ), match: /^\/(subjects|exam)/ },
-  { href: "/review", label: "Review", icon: (a) => (
-    <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v6h6M20 20v-6h-6" /><path strokeLinecap="round" strokeLinejoin="round" d="M20 10a8 8 0 00-14.5-4M4 14a8 8 0 0014.5 4" /></svg>
-  ) },
   { href: "/dashboard", label: "Progress", icon: (a) => (
     <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" d="M5 20V12M12 20V5M19 20v-8" /></svg>
   ) },
@@ -47,10 +43,6 @@ export default function Sidebar() {
   const { isSignedIn, isLoaded } = useAuth();
   const { user } = useUser();
   const { tier, loading } = useTier();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { const id = setTimeout(() => setMounted(true), 0); return () => clearTimeout(id); }, []);
-  const version = useSyncExternalStore(subscribeReviews, getReviewsVersion, getServerReviewsVersion);
-  const due = useMemo(() => { void version; return mounted ? getDueCount() : 0; }, [version, mounted]);
 
   const isPaid = isLoaded && !!isSignedIn && !loading && tier !== "free";
   const visible = isPaid && COACH_ROUTE.test(pathname) && !IN_PAPER.test(pathname) && pathname !== "/welcome";
@@ -80,9 +72,6 @@ export default function Sidebar() {
               className={`flex items-center gap-3.5 rounded-xl px-3.5 py-3 mb-1 transition-colors ${active ? "bg-white/[0.07] text-white" : "text-zinc-400 hover:bg-white/[0.04] hover:text-white"}`}>
               <span className={`shrink-0 ${active ? "text-white" : "text-zinc-500"}`}>{it.icon(active)}</span>
               <span className={`flex-1 text-[16px] ${active ? "font-semibold text-white" : "font-medium"}`}>{it.label}</span>
-              {it.href === "/review" && due > 0 && (
-                <span className="min-w-[24px] h-[24px] px-1.5 rounded-full bg-amber-400 text-[#0a0a0f] text-[12px] font-bold flex items-center justify-center">{due > 99 ? "99+" : due}</span>
-              )}
             </Link>
           );
         })}

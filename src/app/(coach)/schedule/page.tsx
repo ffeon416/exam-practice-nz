@@ -388,13 +388,20 @@ function ScheduleInner() {
                   <span className="text-zinc-200 text-[15px] sm:text-[17px] font-medium ml-2">{todayExamDays === 1 ? "day to go" : "days to go"}</span>
                 </p>
               </Link>
-              <Link href="/review" className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] hover:border-white/25 p-5 sm:p-7 flex flex-col justify-between min-h-[170px] lg:min-h-[240px] transition-colors">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">To review</p>
-                <p className="leading-none">
-                  <span className={`${display.className} font-bold text-[56px] sm:text-[72px] tracking-[-0.04em] tabular-nums ${due > 0 ? "text-amber-400" : "text-zinc-600"}`}>{due}</span>
-                  <span className="text-zinc-200 text-[15px] sm:text-[17px] font-medium ml-2">{due > 0 ? "fix them →" : "all clear"}</span>
-                </p>
-              </Link>
+              {(() => {
+                const cls = "rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-5 sm:p-7 flex flex-col justify-between min-h-[170px] lg:min-h-[240px] transition-colors";
+                const body = (
+                  <>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">To review</p>
+                    <p className="leading-none">
+                      <span className={`${display.className} font-bold text-[56px] sm:text-[72px] tracking-[-0.04em] tabular-nums ${due > 0 ? "text-amber-400" : "text-zinc-600"}`}>{due}</span>
+                      <span className="text-zinc-200 text-[15px] sm:text-[17px] font-medium ml-2">{due > 0 ? "fix them →" : "all clear"}</span>
+                    </p>
+                  </>
+                );
+                // Straight into the questions — no home screen, no options.
+                return due > 0 ? <Link href="/review?start=1" className={`${cls} hover:border-amber-400/50`}>{body}</Link> : <div className={cls}>{body}</div>;
+              })()}
             </div>
           </div>
         </>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { Suspense, useEffect, useState, useSyncExternalStore } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useTier } from "@/hooks/useTier";
 import { display } from "@/lib/displayFont";
@@ -44,7 +45,10 @@ function PageGlow() {
   );
 }
 
-export default function ReviewPage() {
+function ReviewInner() {
+  // The schedule's "fix them" card lands here with ?start=1: straight into
+  // the questions, no home screen.
+  const autoStart = useSearchParams().get("start") === "1";
   const { limits, loading: tierLoading } = useTier();
   const [phase, setPhase] = useState<Phase>("home");
   const [sessionItems, setSessionItems] = useState<EnrichedItem[]>([]);
@@ -70,6 +74,13 @@ export default function ReviewPage() {
       .sort((a, b) => a.nextReview.localeCompare(b.nextReview))[0];
     if (upcoming) nextDueDate = new Date(upcoming.nextReview);
   }
+
+  useEffect(() => {
+    if (!autoStart || !mounted || phase !== "home" || dueItems.length === 0) return;
+    const id = setTimeout(startSession, 0);
+    return () => clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoStart, mounted, dueItems.length]);
 
   function startSession() {
     if (dueItems.length === 0) return;
@@ -662,10 +673,10 @@ export default function ReviewPage() {
             </Link>
           )}
           <Link
-            href="/dashboard"
+            href="/schedule"
             className="inline-flex items-center justify-center rounded-full text-white font-semibold px-6 py-3 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[14px]"
           >
-            Dashboard
+            Back to my schedule
           </Link>
         </div>
       </div>
@@ -688,5 +699,13 @@ function ReviewBenefit({ text }: { text: string }) {
       </svg>
       <span className="text-[13px] text-zinc-300 leading-snug">{text}</span>
     </li>
+  );
+}
+
+export default function ReviewPage() {
+  return (
+    <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
+      <ReviewInner />
+    </Suspense>
   );
 }

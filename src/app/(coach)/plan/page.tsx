@@ -512,7 +512,7 @@ function PlanView({ plan }: { plan: StudyPlan }) {
                 </svg>
               </Link>
               <Link
-                href="/review"
+                href="/review?start=1"
                 className="inline-flex items-center justify-center gap-2 rounded-full text-white font-semibold px-6 py-3 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[14px]"
               >
                 Quick review session
@@ -730,7 +730,7 @@ function TaskRow({ task }: { task: StudyTask }) {
 
 function taskLink(task: StudyTask): string | null {
   if (task.examId) return `/exam/${task.examId}?mode=practice`;
-  if (task.type === "review") return "/review";
+  if (task.type === "review") return "/review?start=1";
   if (task.subject) return `/subjects?subject=${task.subject}`;
   return "/subjects";
 }

@@ -374,7 +374,6 @@ export default function ProfilePage() {
           <div className="grid grid-cols-2 gap-2">
             <QuickLink href="/dashboard" label="Dashboard" />
             <QuickLink href="/subjects" label="New exam" />
-            <QuickLink href="/review" label="Review" />
             <QuickLink href="/refer" label="Invite friends" />
             <QuickLink href="/contact" label="Contact us" />
           </div>

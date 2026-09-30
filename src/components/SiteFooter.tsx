@@ -15,7 +15,6 @@ export default function SiteFooter() {
     ? [
         { href: "/subjects", label: "Practice exams" },
         { href: "/dashboard", label: "Dashboard" },
-        { href: "/review", label: "Review" },
         { href: "/plan", label: "Study plan" },
       ]
     : [
