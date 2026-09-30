@@ -460,225 +460,134 @@ function ReviewInner() {
     const correctAnswer = question?.expectedAnswer ?? "(See marking guide)";
     const markingGuide = question?.markingGuide ?? "";
     const topicLabels = review.topics.map((t) => getTopicLabel(t));
-    const progress = ((index) / sessionItems.length) * 100;
+    const topic = topicLabels[0] ?? "This one";
+    const progress = (index / sessionItems.length) * 100;
+    const AMBER = "#fbbf24";
 
     return (
-      <div className="relative overflow-hidden">
-        <PageGlow />
-
-        <div className="max-w-xl mx-auto px-5 pt-6 pb-20">
-          {/* Top bar */}
-          <div className="flex items-center justify-between mb-3">
-            <button
-              onClick={() => setPhase("home")}
-              className="text-[12px] text-zinc-600 hover:text-zinc-300 transition-colors"
-            >
-              Exit
-            </button>
-            <span className="font-mono text-[12px] text-zinc-400 font-medium tabular-nums">
-              {index + 1} / {sessionItems.length}
-            </span>
-            <div className="w-10" /> {/* spacer */}
+      <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-24">
+        {/* Header */}
+        <div className="flex items-end justify-between gap-4 mb-5">
+          <div className="min-w-0">
+            <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em]" style={{ color: AMBER }}>To review · {index + 1} of {sessionItems.length}</p>
+            <h1 className={`${display.className} font-bold text-white text-[30px] sm:text-[40px] leading-none tracking-[-0.035em] mt-2 truncate`}>{topic}</h1>
           </div>
+          <Link href="/schedule" className="shrink-0 inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-zinc-300 hover:text-white font-semibold text-[14px] px-4 py-2.5 min-h-[44px] transition-colors">Exit</Link>
+        </div>
+        <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden mb-6 sm:mb-8">
+          <div className="h-full rounded-full transition-all duration-500 ease-out" style={{ width: `${progress}%`, background: `linear-gradient(90deg, ${AMBER}, #fde68a)` }} />
+        </div>
 
-          {/* Progress bar */}
-          <div className="w-full h-1.5 bg-white/[0.06] rounded-full overflow-hidden mb-8">
-            <div
-              className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-500 ease-out"
-              style={{ width: `${progress}%` }}
+        {/* Question */}
+        <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-8">
+          <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500 mb-4">You dropped marks on this one{topicLabels.length > 1 ? ` · ${topicLabels.slice(1, 3).join(" · ")}` : ""}</p>
+          {question?.image && (
+            <div className="rounded-2xl overflow-hidden border border-white/[0.06] bg-white p-2 mb-5">
+              <img src={question.image} alt="Question diagram" className="max-w-full h-auto mx-auto max-h-[300px] object-contain" />
+            </div>
+          )}
+          <p className="text-zinc-100 text-[16px] sm:text-[18px] whitespace-pre-wrap leading-relaxed">
+            {review.questionText.replace(/\[Diagram:[^\]]+\]/g, "").trim()}
+          </p>
+        </div>
+
+        {!revealed ? (
+          <>
+            <textarea
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              placeholder="Your answer, with working…"
+              rows={5}
+              autoFocus
+              className="mt-4 w-full rounded-[22px] bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-white text-[16px] placeholder-zinc-600 focus:outline-none transition-colors resize-y"
+              style={{ borderColor: answer ? `${AMBER}66` : undefined }}
+              onFocus={(e) => { e.currentTarget.style.borderColor = `${AMBER}99`; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = answer ? `${AMBER}66` : ""; }}
             />
-          </div>
-
-          {/* Topic tags */}
-          <div className="flex gap-1.5 flex-wrap mb-3">
-            {topicLabels.slice(0, 3).map((t) => (
-              <span
-                key={t}
-                className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300/80 border border-indigo-500/15"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          {/* Question */}
-          <div className="rounded-2xl bg-white/[0.015] border border-white/[0.07] p-5 mb-5">
-            {question?.image && (
-              <div className="rounded-xl overflow-hidden border border-white/[0.06] bg-white p-2 mb-4">
-                <img
-                  src={question.image}
-                  alt="Question diagram"
-                  className="max-w-full h-auto mx-auto max-h-[300px] object-contain"
-                />
+            <div className="flex items-center justify-between gap-4 mt-4 flex-wrap">
+              <p className="text-zinc-500 text-[13px]">Have a real go first. Then check it.</p>
+              <button onClick={() => setRevealed(true)}
+                className="font-bold text-[17px] px-8 py-4 rounded-full min-h-[58px] text-[#0a0a0f] transition-transform hover:scale-[1.02]"
+                style={{ background: AMBER, boxShadow: `0 0 36px ${AMBER}40` }}>
+                Show the answer →
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="mt-4 space-y-3">
+            {answer.trim() && (
+              <div className="rounded-[22px] border border-white/[0.08] bg-white/[0.02] p-5">
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500 mb-2">You wrote</p>
+                <p className="text-zinc-300 text-[15px] whitespace-pre-wrap leading-relaxed">{answer}</p>
               </div>
             )}
-            <p className="text-zinc-200 text-[14px] whitespace-pre-wrap leading-relaxed">
-              {review.questionText.replace(/\[Diagram:[^\]]+\]/g, "").trim()}
-            </p>
-          </div>
-
-          {/* Answer input */}
-          {!revealed && (
-            <>
-              <textarea
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-                placeholder="Type your answer..."
-                rows={4}
-                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-[14px] placeholder-zinc-600 focus:border-indigo-500 focus:outline-none transition-colors resize-y mb-4"
-              />
-              <button
-                onClick={() => setRevealed(true)}
-                className="w-full py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold text-[14px] shadow-lg shadow-indigo-500/30 transition-all"
-              >
-                Show answer
-              </button>
-            </>
-          )}
-
-          {/* Revealed */}
-          {revealed && (
-            <>
-              {/* Student's answer */}
-              {answer.trim() && (
-                <div className="rounded-xl bg-white/[0.015] border border-white/[0.07] p-4 mb-3">
-                  <p className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider font-medium mb-1.5">You wrote</p>
-                  <p className="text-zinc-300 text-[13px] whitespace-pre-wrap">{answer}</p>
-                </div>
-              )}
-
-              {/* Correct answer */}
-              <div className="rounded-xl bg-emerald-500/[0.06] border border-emerald-500/20 p-4 mb-3">
-                <p className="font-mono text-emerald-400 text-[11px] uppercase tracking-wider font-semibold mb-1.5">Correct answer</p>
-                <p className="text-white text-[14px] whitespace-pre-wrap leading-relaxed">{correctAnswer}</p>
-              </div>
-
-              {/* Marking guide */}
+            <div className="rounded-[22px] border border-emerald-400/25 bg-[#0a1712] p-5">
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-emerald-300 mb-2">Correct answer</p>
+              <p className="text-white text-[16px] whitespace-pre-wrap leading-relaxed">{correctAnswer}</p>
               {markingGuide && (
-                <details className="rounded-xl bg-white/[0.015] border border-white/[0.07] mb-5">
-                  <summary className="px-4 py-3 text-zinc-500 text-[12px] font-medium cursor-pointer hover:text-zinc-300 transition-colors">
-                    Marking guide
-                  </summary>
-                  <div className="px-4 pb-4">
-                    <p className="text-zinc-400 text-[12px] whitespace-pre-wrap leading-relaxed">{markingGuide}</p>
-                  </div>
+                <details className="mt-3">
+                  <summary className="text-emerald-300/80 text-[13px] font-medium cursor-pointer hover:text-emerald-200">How it&apos;s marked</summary>
+                  <p className="text-zinc-400 text-[13.5px] whitespace-pre-wrap leading-relaxed mt-2">{markingGuide}</p>
                 </details>
               )}
+            </div>
 
-              {/* Grade buttons */}
-              <p className="text-zinc-500 text-[13px] text-center mb-3">How did you go?</p>
-              <div className="grid grid-cols-3 gap-2">
-                <button
-                  onClick={() => handleGrade(0)}
-                  className="py-4 rounded-2xl bg-red-500/[0.08] border border-red-500/20 hover:bg-red-500/[0.15] transition-all text-center min-h-[60px]"
-                >
-                  <span className="text-red-400 text-[14px] font-semibold block">Wrong</span>
-                  <span className="text-red-400/50 text-[11px] block mt-0.5">See it again soon</span>
+            <p className={`${display.className} text-white font-bold text-[22px] tracking-[-0.02em] pt-4`}>How did you go?</p>
+            <div className="grid grid-cols-3 gap-3">
+              {([
+                { q: 0 as const, label: "Wrong", sub: "See it again soon", c: "#ff6b7a", bg: "#1a0f12" },
+                { q: 3 as const, label: "Close", sub: "Almost had it", c: AMBER, bg: "#1a160e" },
+                { q: 5 as const, label: "Nailed it", sub: "See it later", c: "#3ee6a0", bg: "#0a1712" },
+              ]).map((o) => (
+                <button key={o.q} onClick={() => handleGrade(o.q)}
+                  className="rounded-[22px] border p-4 sm:p-5 min-h-[84px] text-left transition-transform hover:scale-[1.02]"
+                  style={{ background: o.bg, borderColor: `${o.c}40` }}>
+                  <span className={`${display.className} block font-bold text-[17px] sm:text-[20px] tracking-[-0.02em]`} style={{ color: o.c }}>{o.label}</span>
+                  <span className="block text-zinc-500 text-[12px] mt-1">{o.sub}</span>
                 </button>
-                <button
-                  onClick={() => handleGrade(3)}
-                  className="py-4 rounded-2xl bg-amber-500/[0.08] border border-amber-500/20 hover:bg-amber-500/[0.15] transition-all text-center min-h-[60px]"
-                >
-                  <span className="text-amber-400 text-[14px] font-semibold block">Close</span>
-                  <span className="text-amber-400/50 text-[11px] block mt-0.5">Almost had it</span>
-                </button>
-                <button
-                  onClick={() => handleGrade(5)}
-                  className="py-4 rounded-2xl bg-emerald-500/[0.08] border border-emerald-500/20 hover:bg-emerald-500/[0.15] transition-all text-center min-h-[60px]"
-                >
-                  <span className="text-emerald-400 text-[14px] font-semibold block">Nailed it</span>
-                  <span className="text-emerald-400/50 text-[11px] block mt-0.5">See it later</span>
-                </button>
-              </div>
-            </>
-          )}
-        </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
 
   // ── Done ──
   const totalDone = results.right + results.partial + results.wrong;
+  const AMBER = "#fbbf24";
 
   return (
-    <div className="relative overflow-hidden">
-      <PageGlow />
+    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-24">
+      <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em] text-emerald-300">Review · done</p>
+      <h1 className={`${display.className} home-rise font-bold text-white text-[40px] sm:text-[56px] leading-none tracking-[-0.04em] mt-2`}>
+        {results.right === totalDone && totalDone > 0 ? "All of them. Nailed." : results.right >= totalDone * 0.7 ? "Most of them stuck." : "That's the reps in."}
+      </h1>
+      <p className="text-zinc-400 text-[15px] sm:text-[17px] mt-3">
+        {totalDone} {totalDone === 1 ? "question" : "questions"} you&apos;d dropped marks on, gone over again.
+        {nextDueDate && <> Next batch due <span className="text-zinc-200">{nextDueDate.toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "short" })}</span>.</>}
+      </p>
 
-      <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-16 pb-16 sm:pb-20 text-center">
-        {/* Celebration */}
-        <div className="home-rise w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto mb-5">
-          <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-
-        <h1
-          className={`${display.className} home-rise text-[26px] sm:text-[32px] font-bold text-white tracking-[-0.02em] mb-2`}
-          style={{ animationDelay: "80ms", textWrap: "balance" }}
-        >
-          {results.right === totalDone ? "Perfect session!" :
-           results.right >= totalDone * 0.7 ? "Great session!" :
-           "Session complete"}
-        </h1>
-        <p className="home-rise text-zinc-500 text-[14px] mb-8" style={{ animationDelay: "160ms" }}>
-          You reviewed {totalDone} {totalDone === 1 ? "question" : "questions"}
-        </p>
-
-        {/* Results */}
-        <div className="flex items-center justify-center gap-6 mb-8">
-          <div className="text-center">
-            <div className="text-[28px] font-bold text-emerald-400">{results.right}</div>
-            <div className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">Nailed it</div>
+      <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-7">
+        {([
+          { n: results.right, label: "Nailed it", c: "#3ee6a0", bg: "#0a1712" },
+          { n: results.partial, label: "Close", c: AMBER, bg: "#1a160e" },
+          { n: results.wrong, label: "Wrong", c: "#ff6b7a", bg: "#1a0f12" },
+        ]).map((o) => (
+          <div key={o.label} className="rounded-[24px] border p-5 sm:p-6 min-h-[130px] flex flex-col justify-between" style={{ background: o.bg, borderColor: `${o.c}33` }}>
+            <p className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: o.c }}>{o.label}</p>
+            <p className={`${display.className} font-bold text-[44px] sm:text-[56px] leading-none tracking-[-0.04em] tabular-nums`} style={{ color: o.c }}>{o.n}</p>
           </div>
-          <div className="w-px h-10 bg-white/[0.06]" />
-          <div className="text-center">
-            <div className="text-[28px] font-bold text-amber-400">{results.partial}</div>
-            <div className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">Close</div>
-          </div>
-          <div className="w-px h-10 bg-white/[0.06]" />
-          <div className="text-center">
-            <div className="text-[28px] font-bold text-red-400">{results.wrong}</div>
-            <div className="font-mono text-zinc-500 text-[11px] uppercase tracking-wider mt-0.5">Wrong</div>
-          </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Next review */}
-        {nextDueDate && (
-          <p className="text-zinc-500 text-[13px] mb-8">
-            Next review:{" "}
-            <span className="text-zinc-300">
-              {nextDueDate.toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "short" })}
-            </span>
-          </p>
+      <div className="flex flex-wrap gap-3 mt-7">
+        <Link href="/schedule" className="bg-white text-[#0a0a0f] font-bold text-[16px] px-8 py-4 rounded-full min-h-[56px] inline-flex items-center transition-transform hover:scale-[1.02]">Back to my schedule →</Link>
+        {dueItems.length > 0 && (
+          <button onClick={startSession} className="font-bold text-[16px] px-8 py-4 rounded-full min-h-[56px] text-[#0a0a0f] transition-transform hover:scale-[1.02]" style={{ background: AMBER }}>
+            Keep going · {dueItems.length} left
+          </button>
         )}
-
-        {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          {dueItems.length > 0 ? (
-            <button
-              onClick={startSession}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold px-6 py-3 shadow-lg shadow-indigo-500/30 transition-all text-[14px]"
-            >
-              Keep going ({dueItems.length} left)
-            </button>
-          ) : (
-            <Link
-              href="/subjects"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-400 hover:to-violet-500 text-white font-extrabold px-6 py-3 shadow-lg shadow-indigo-500/30 transition-all text-[14px]"
-            >
-              Take another exam
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-          )}
-          <Link
-            href="/schedule"
-            className="inline-flex items-center justify-center rounded-full text-white font-semibold px-6 py-3 border border-white/[0.12] hover:border-white/[0.3] hover:bg-white/[0.04] transition-all text-[14px]"
-          >
-            Back to my schedule
-          </Link>
-        </div>
       </div>
     </div>
   );
