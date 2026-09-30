@@ -6,9 +6,12 @@
 //   4 add to home screen   5 first grade check, ready
 // The first grade check builds in the background from screen 3, so it's
 // usually waiting by the time they've finished screen 4.
+// With ?next=1 it re-runs for a student setting up their NEXT exam: prefilled
+// from their current setup, the install step skipped, and the plan restarts
+// at day 1 with a fresh grade check.
 
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { setScopeUserId } from "@/lib/userScope";
 import { display } from "@/lib/displayFont";
@@ -17,6 +20,7 @@ import { COUNTRIES, curriculaForCountry, resolveCurriculum, type Curriculum } fr
 import { CURRICULUM_LS_KEY, adoptPaper, getOrBuildToday } from "@/lib/nextPaper";
 import { localDateKey } from "@/lib/dailyTask";
 import { setGoal } from "@/lib/goals";
+import { scopedKey } from "@/lib/userScope";
 import DatePicker from "@/components/DatePicker";
 import type { Exam } from "@/lib/types";
 
@@ -30,8 +34,9 @@ function isIOS(): boolean { return /iPhone|iPad|iPod/.test(navigator.userAgent);
 const btn = "w-full bg-white text-[#0a0a0f] font-bold text-[16px] py-4 rounded-full min-h-[52px] disabled:opacity-40";
 const h1 = `text-[30px] sm:text-[36px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-2`;
 
-export default function WelcomePage() {
+function WelcomeInner() {
   const router = useRouter();
+  const nextExam = useSearchParams().get("next") === "1";
   const { user, isLoaded } = useUser();
   const [step, setStep] = useState<Step>(1);
   const [country, setCountry] = useState<Curriculum["country"]>("NZ");
@@ -49,14 +54,21 @@ export default function WelcomePage() {
 
   useEffect(() => {
     const id = setTimeout(() => {
-      if (loadOnboarding()?.subjects.length) router.replace("/schedule");
+      if (isLoaded) setScopeUserId(user?.id ?? null);
+      const ob = loadOnboarding();
+      if (ob?.subjects.length && !nextExam) { router.replace("/schedule"); return; }
+      if (ob && nextExam) {
+        // Prefill from the current setup; they usually only change the date.
+        const c = resolveCurriculum(ob.curriculumId);
+        setCountry(c.country); setCurriculumId(c.id); setYear(ob.yearLevel); setSubjects(ob.subjects);
+      }
       setInstalled(isStandalone());
       setIos(isIOS());
     }, 0);
     const onBip = (e: Event) => { e.preventDefault(); bip.current = e as BIPEvent; setCanPrompt(true); };
     window.addEventListener("beforeinstallprompt", onBip);
     return () => { clearTimeout(id); window.removeEventListener("beforeinstallprompt", onBip); };
-  }, [router]);
+  }, [router, nextExam, isLoaded, user?.id]);
 
   const curriculum = resolveCurriculum(curriculumId);
   const systems = curriculaForCountry(country);
@@ -84,13 +96,15 @@ export default function WelcomePage() {
     if (isLoaded) setScopeUserId(user?.id ?? null);
     saveOnboarding({ yearLevel: year, subjects, curriculumId });
     try { localStorage.setItem(CURRICULUM_LS_KEY, curriculumId); } catch {}
-    for (const s of subjects) await setGoal({ subject: s, goal: goals[s] ?? bands[0].id, examDate, curriculumId, year });
+    // A new exam = a new plan: day 1 is today, the old task log is gone.
+    for (const s of subjects) await setGoal({ subject: s, goal: goals[s] ?? bands[0].id, examDate, curriculumId, year }, { restart: nextExam });
+    if (nextExam) { try { localStorage.removeItem(scopedKey("studyace-task-log")); localStorage.removeItem("studyace-tomorrow-task"); } catch {} }
     // First grade check builds now, while they do the home-screen step.
     // This IS day 1's task, so build it under today's date — Today will find it waiting.
     getOrBuildToday({ date: localDateKey(), subject: subjects[0], task: "check" })
       .then((r) => { if (r) setPaper(r.exam); else setBuildFailed(true); })
       .catch(() => setBuildFailed(true));
-    setStep(installed ? 5 : 4);
+    setStep(installed || nextExam ? 5 : 4);
   }
   async function promptInstall() {
     const ev = bip.current; if (!ev) return;
@@ -115,9 +129,9 @@ export default function WelcomePage() {
 
       {step === 1 && (
         <>
-          <p className="font-mono text-[11px] uppercase tracking-wider text-indigo-300 mb-2">{isLoaded && firstName ? `Welcome, ${firstName}` : "Welcome"}</p>
-          <h1 className={`${display.className} ${h1}`}>Which exam are you sitting?</h1>
-          <p className="text-zinc-400 text-[14px] mb-6">Set once. Every paper is written in this system&apos;s style.</p>
+          <p className="font-mono text-[11px] uppercase tracking-wider text-indigo-300 mb-2">{nextExam ? "Your next exam" : isLoaded && firstName ? `Welcome, ${firstName}` : "Welcome"}</p>
+          <h1 className={`${display.className} ${h1}`}>{nextExam ? "Which exam is next?" : "Which exam are you sitting?"}</h1>
+          <p className="text-zinc-400 text-[14px] mb-6">{nextExam ? "Check these are still right, then set the date. Your whole schedule is rebuilt from it." : "Set once. Every paper is written in this system's style."}</p>
           <div className="grid grid-cols-5 gap-2 mb-5">
             {COUNTRIES.map((c) => (
               <button key={c.code} onClick={() => pickCountry(c.code)}
@@ -195,13 +209,13 @@ export default function WelcomePage() {
             ))}
           </div>
           <div className="mb-7">
-            <p className="text-white font-semibold text-[14px] mb-2">When are your exams?</p>
+            <p className="text-white font-semibold text-[14px] mb-2">{nextExam ? "When is the exam?" : "When are your exams?"}</p>
             <DatePicker value={examDate} min={minDate} onChange={setExamDate} />
             <p className="text-zinc-500 text-[12px] mt-2">
               {examDate ? <>Exams start <span className="text-zinc-300">{new Date(examDate + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}</span>. You can set a date per subject later.</> : "Start of your exam period is fine. You can set a date per subject later."}
             </p>
           </div>
-          <button onClick={finishGoals} disabled={!examDate || subjects.some((s) => !goals[s])} className={btn}>Set my goals</button>
+          <button onClick={finishGoals} disabled={!examDate || subjects.some((s) => !goals[s])} className={btn}>{nextExam ? "Build my schedule" : "Set my goals"}</button>
           <button onClick={() => setStep(2)} className="w-full text-zinc-500 text-[13px] py-3 mt-1">Back</button>
         </>
       )}
@@ -238,7 +252,7 @@ export default function WelcomePage() {
           <>
             <p className="font-mono text-[11px] uppercase tracking-wider text-emerald-300 mb-2">Ready</p>
             <h1 className={`${display.className} ${h1}`}>Your {label(subjects[0])} grade check is ready.</h1>
-            <p className="text-zinc-400 text-[14px] mb-6">{paper.questions.length} questions, about {Math.max(10, Math.round(paper.questions.length * 2.5))} minutes, marked honestly the moment you finish. This sets your starting point on the path.</p>
+            <p className="text-zinc-400 text-[14px] mb-6">{paper.questions.length} questions, about {Math.max(10, Math.round(paper.questions.length * 2.5))} minutes, marked honestly the moment you finish. {nextExam ? "Day 1 of your new schedule starts from this number." : "This sets your starting point on the path."}</p>
             <button onClick={startPaper} className={btn}>Start →</button>
           </>
         ) : buildFailed ? (
@@ -257,5 +271,13 @@ export default function WelcomePage() {
         )
       )}
     </div>
+  );
+}
+
+export default function WelcomePage() {
+  return (
+    <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
+      <WelcomeInner />
+    </Suspense>
   );
 }

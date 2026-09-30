@@ -45,11 +45,11 @@ export function saveGoalsLocal(goals: SubjectGoal[]): void {
   try { localStorage.setItem(scopedKey(KEY), JSON.stringify(goals)); } catch {}
 }
 
-/** Upsert one goal locally and on the server. */
-export async function setGoal(goal: Omit<SubjectGoal, "updatedAt" | "startedAt">): Promise<SubjectGoal[]> {
+/** Upsert one goal locally and on the server. `restart` begins a new plan (day 1 = now) — used when setting up the next exam. */
+export async function setGoal(goal: Omit<SubjectGoal, "updatedAt" | "startedAt">, opts: { restart?: boolean } = {}): Promise<SubjectGoal[]> {
   const existing = loadGoals().find((g) => g.subject === goal.subject);
   const nowIso = new Date().toISOString();
-  const full: SubjectGoal = { ...goal, updatedAt: nowIso, startedAt: existing?.startedAt ?? nowIso };
+  const full: SubjectGoal = { ...goal, updatedAt: nowIso, startedAt: opts.restart ? nowIso : existing?.startedAt ?? nowIso };
   const next = [...loadGoals().filter((g) => g.subject !== goal.subject), full];
   saveGoalsLocal(next);
   fetch("/api/goals", {
