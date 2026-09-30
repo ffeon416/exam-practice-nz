@@ -1,20 +1,19 @@
 "use client";
 
-// /today — the daily task. One paper a day, chosen and built for the
-// student, dropped at midnight in their timezone. They only ever see today:
-// the card, then "done for today" with a countdown. Beside it: streak and
-// where they are against each goal.
+// /today — the daily task, and nothing else. One paper a day, chosen and
+// built for the student, dropped at midnight in their timezone. They only
+// ever see today: the ticket, then "done for today" naming tomorrow's.
+// Pace lives at /pace, the streak (Ace) at /streak.
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { loadOnboarding } from "@/lib/onboarding";
-import { loadProgress, saveProgress } from "@/lib/storage";
-import { adoptPaper, currentCurriculumId, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
-import { loadGoals, syncGoals, goalFor, type SubjectGoal } from "@/lib/goals";
-import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, recentDays, streakDays, taskForDay, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
-import { scopedKey, setScopeUserId } from "@/lib/userScope";
-import { useUser } from "@clerk/nextjs";
+import { adoptPaper, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
+import { goalFor } from "@/lib/goals";
+import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, taskForDay, TASK_BLURB, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { scopedKey } from "@/lib/userScope";
+import { useCoachData } from "@/hooks/useCoachData";
 
 // What each date was assigned, so a day's task is fixed once handed out and
 // tomorrow is never the same kind as today.
@@ -25,16 +24,12 @@ function writeLog(date: string, entry: { subject: string; kind: TaskKind }) {
   try { const log = readLog(); log[date] = entry; const keys = Object.keys(log).sort().slice(-30); localStorage.setItem(scopedKey(LOG_KEY), JSON.stringify(Object.fromEntries(keys.map((k) => [k, log[k]])))); } catch {}
 }
 function shiftDate(key: string, days: number): string { const d = new Date(key + "T12:00:00"); d.setDate(d.getDate() + days); return localDateKey(d); }
-import { subjectSeries, tierBreakdown, trendPerWeek, weakSpot } from "@/lib/gradeOutlook";
+import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
 import { getCustomExam } from "@/lib/customExams";
 import { resolveCurriculum } from "@/data/curricula";
 import { bandAt, bandsFor } from "@/lib/gradeOutlook";
 import TodayCard from "@/components/TodayCard";
-import StatusPanel from "@/components/StatusPanel";
-import NextDropCard from "@/components/NextDropCard";
-import PaceChart, { type PacePoint } from "@/components/PaceChart";
-import { LETTER_BANDS } from "@/data/curricula";
-import type { ExamAttempt, StudentProgress, TopicScore } from "@/lib/types";
+import type { ExamAttempt } from "@/lib/types";
 
 type Status = "loading" | "building" | "ready" | "done" | "failed";
 
@@ -42,16 +37,7 @@ function TodayInner() {
   const router = useRouter();
   const params = useSearchParams();
   const celebrate = params.get("done") === "1";
-  const { user, isLoaded: userLoaded } = useUser();
-  const [attempts, setAttempts] = useState<ExamAttempt[] | null>(null);
-  const [topicScores, setTopicScores] = useState<Record<string, TopicScore>>({});
-  const [subjects, setSubjects] = useState<string[]>([]);
-  const [curriculumId, setCurriculumId] = useState("nz-ncea");
-  const [year, setYear] = useState(12);
-  const [allGoals, setGoals] = useState<SubjectGoal[]>([]);
-  // Only the subjects chosen in the current onboarding count. Goals left over
-  // from an earlier setup (other subjects, other exam system) are ignored.
-  const goals = useMemo(() => allGoals.filter((g) => subjects.includes(g.subject)), [allGoals, subjects]);
+  const { attempts, topicScores, subjects, curriculumId, goals, serverChecked } = useCoachData();
   const [today, setToday] = useState(() => localDateKey());
   const [status, setStatus] = useState<Status>("loading");
 
@@ -67,42 +53,8 @@ function TodayInner() {
   const [examId, setExamId] = useState<string | null>(null);
   const [examMode, setExamMode] = useState<"practice" | "mock">("practice");
   const [busy, setBusy] = useState(false);
-  const [serverChecked, setServerChecked] = useState(false);
-
-  // ── Load ──
-  useEffect(() => {
-    // Storage is namespaced per account. Never read it before Clerk has said
-    // who this is, or a brand-new device looks "not onboarded" and bounces
-    // back to /welcome.
-    if (!userLoaded) return;
-    setScopeUserId(user?.id ?? null);
-    let cancelled = false;
-    const run = () => {
-      const ob = loadOnboarding();
-      if (!ob || ob.subjects.length === 0) { router.replace("/welcome"); return; }
-      setSubjects(ob.subjects); setYear(ob.yearLevel); setCurriculumId(ob.curriculumId ?? currentCurriculumId());
-      setGoals(loadGoals());
-      syncGoals().then((g) => { if (!cancelled) setGoals(g); }).catch(() => {});
-      try { const local = loadProgress(); setAttempts(local.examAttempts ?? []); setTopicScores(local.topicScores ?? {}); } catch {}
-      fetch("/api/progress").then((r) => (r.ok ? r.json() : null)).then((data) => {
-        if (cancelled) return;
-        const server: ExamAttempt[] = data?.examAttempts ?? [];
-        if (server.length > 0) {
-          const local = loadProgress();
-          // Union, never replace: a paper marked seconds ago may not have
-          // reached the server yet, and it must still count here.
-          const seen = new Set(server.map((a) => `${a.examId}|${new Date(a.date).toISOString().slice(0, 16)}`));
-          const extra = (local.examAttempts ?? []).filter((a) => !seen.has(`${a.examId}|${new Date(a.date).toISOString().slice(0, 16)}`));
-          const all = [...server, ...extra].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-          const merged: StudentProgress = { examAttempts: all, topicScores: { ...local.topicScores, ...(data.topicScores || {}) }, totalExamsTaken: all.length, streakDays: Math.max(local.streakDays, data.streakDays ?? 0), lastActiveDate: local.lastActiveDate };
-          setAttempts(all); setTopicScores(merged.topicScores); saveProgress(merged);
-        }
-        setServerChecked(true);
-      }).catch(() => { if (!cancelled) setServerChecked(true); });
-    };
-    const id = setTimeout(run, 0);
-    return () => { cancelled = true; clearTimeout(id); };
-  }, [router, userLoaded, user?.id]);
+  // Re-run the build effect after a failed attempt.
+  const [attempt, setAttempt] = useState(0);
 
   // ── Today's task ──
   const curriculum = resolveCurriculum(curriculumId);
@@ -112,9 +64,6 @@ function TodayInner() {
     return starts[0] ?? loadOnboarding()?.completedAt ?? new Date().toISOString();
   }, [goals]);
   const day = dayNumber(planStart, new Date(today + "T12:00:00"));
-  const attemptDates = useMemo(() => (attempts ?? []).map((a) => localDateKey(new Date(a.date))), [attempts]);
-  const streak = streakDays(attemptDates, today);
-  const days = recentDays(attemptDates, 14, today);
 
   const hasBaseline = (s: string) => {
     const g = goalFor(goals, s);
@@ -195,7 +144,7 @@ function TodayInner() {
     } catch {}
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [task?.subject, task?.kind, serverChecked, doneToday, today]);
+  }, [task?.subject, task?.kind, serverChecked, doneToday, today, attempt]);
 
   // A tap on the phone when the paper is ready, a double when the day is done.
   useEffect(() => {
@@ -210,7 +159,7 @@ function TodayInner() {
     setBusy(true);
     router.push(`/exam/${examId}?mode=${examMode}`);
   }
-  function retry() { setStatus("loading"); setServerChecked(false); setTimeout(() => setServerChecked(true), 0); }
+  function retry() { setStatus("loading"); setAttempt((n) => n + 1); }
 
   // Score label for the done state.
   const scoreLabel = useMemo(() => {
@@ -220,26 +169,6 @@ function TodayInner() {
     const pct = Math.round((a.totalMarks / a.maxMarks) * 100);
     return `${bandAt(bandsFor(curriculumId), pct).label} · ${pct}%`;
   }, [doneToday, attempts, today, curriculumId]);
-
-  // Pace chart: one subject at a time, defaulting to today's.
-  const [chartSubject, setChartSubject] = useState<string | null>(null);
-  const paceSubject = chartSubject && subjects.includes(chartSubject) ? chartSubject : task?.subject ?? subjects[0] ?? null;
-  const pace = useMemo(() => {
-    if (!paceSubject || !attempts) return null;
-    const g = goalFor(goals, paceSubject);
-    const startIso = g?.startedAt ?? g?.updatedAt;
-    // No goal yet: the card still shows, with an empty line and a nudge.
-    if (!g || !startIso) return { points: [] as PacePoint[], planStart: today, examDate: null, goalPct: 80, goalLabel: "A", trend: 0, noGoal: true };
-    const since = new Date(startIso).getTime() - 60_000;
-    // Older attempts may lack a subject; read it off the paper they were sat on.
-    const withSubject = attempts.map((a) => (a.subject ? a : { ...a, subject: getCustomExam(a.examId)?.subject ?? a.subject }));
-    const series = subjectSeries(withSubject, paceSubject).filter((p) => p.t >= since);
-    const byDay = new Map<string, number>();
-    for (const p of series) byDay.set(localDateKey(new Date(p.t)), p.pct); // latest that day wins
-    const points: PacePoint[] = [...byDay.entries()].sort(([a], [b]) => (a < b ? -1 : 1)).map(([date, pct]) => ({ date, pct }));
-    const band = LETTER_BANDS.find((b) => b.id === g.goal) ?? LETTER_BANDS[1];
-    return { points, planStart: localDateKey(new Date(startIso)), examDate: g.examDate || null, goalPct: Math.round(band.minPct * 100), goalLabel: band.label, trend: trendPerWeek(series), noGoal: false };
-  }, [paceSubject, attempts, goals, today]);
 
   const dateLabel = new Date(today + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
 
@@ -278,57 +207,27 @@ function TodayInner() {
   }, [task, goals, attempts, topicScores]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-        <div className="lg:col-span-8">
-          {task ? (
-            <TodayCard
-              questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
-              examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
-              day={day}
-              sinceLine={sinceLine}
-              whyLine={whyLine}
-              celebrate={celebrate && status === "done"}
-              tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject), length: TASK_LENGTH[tomorrowTask.kind] } : null}
-              dateLabel={dateLabel}
-              subjectLabel={label(task.subject)}
-              kind={task.kind}
-              status={status}
-              scoreLabel={scoreLabel}
-              busy={busy}
-              onStart={status === "failed" ? retry : start}
-            />
-          ) : (
-            <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
-          )}
-          {pace && paceSubject && (
-            <div className="mt-6">
-              <PaceChart
-                subjectLabel={label(paceSubject)}
-                subjects={subjects}
-                activeSubject={paceSubject}
-                onSubject={setChartSubject}
-                subjectLabelFor={label}
-                points={pace.points}
-                planStart={pace.planStart}
-                examDate={pace.examDate}
-                goalPct={pace.goalPct}
-                goalLabel={pace.goalLabel}
-                trendPerWeek={pace.trend}
-                today={today}
-                noGoal={pace.noGoal}
-              />
-            </div>
-          )}
-        </div>
-        <div className="lg:col-span-4 space-y-4">
-          <NextDropCard done={status === "done"} next={status === "done" && tomorrowTask ? `${TASK_TITLE[tomorrowTask.kind].replace("\n", " ")} · ${label(tomorrowTask.subject)}` : null} />
-          {attempts && (
-            <StatusPanel curriculumId={curriculumId} year={year} subjects={subjects} goals={goals} onGoalsChange={setGoals} streak={streak} days={days} celebrate={celebrate && status === "done"} />
-          )}
-        </div>
-      </div>
+    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-12 pb-16">
+      {task ? (
+        <TodayCard
+          questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
+          examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
+          day={day}
+          sinceLine={sinceLine}
+          whyLine={whyLine}
+          celebrate={celebrate && status === "done"}
+          tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject), length: TASK_LENGTH[tomorrowTask.kind] } : null}
+          dateLabel={dateLabel}
+          subjectLabel={label(task.subject)}
+          kind={task.kind}
+          status={status}
+          scoreLabel={scoreLabel}
+          busy={busy}
+          onStart={status === "failed" ? retry : start}
+        />
+      ) : (
+        <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
+      )}
     </div>
   );
 }

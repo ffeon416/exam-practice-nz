@@ -74,7 +74,7 @@ export default function Navbar() {
 
   // The coach app has no header: the sidebar (desktop) and bottom tabs (phone)
   // carry everything, and mid-paper there is no chrome at all.
-  if (isPaid && /^\/(today|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/.test(pathname)) return null;
+  if (isPaid && /^\/(today|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/.test(pathname)) return null;
 
   return (
     <>

@@ -28,7 +28,7 @@ const TABS = [
   ) },
 ];
 
-const COACH_PREFIX = /^\/(today|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
+const COACH_PREFIX = /^\/(today|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
 const IN_PAPER = /^\/exam\/[^/]+$/;
 
 export default function BottomTabs() {
@@ -60,7 +60,7 @@ export default function BottomTabs() {
       <div className="grid grid-cols-5 h-[60px]">
         {TABS.map((t) => {
           const active = pathname === t.href || pathname.startsWith(t.href + "/")
-            || (t.href === "/dashboard" && (pathname.startsWith("/plan") || pathname.startsWith("/refer")))
+            || (t.href === "/dashboard" && (pathname.startsWith("/plan") || pathname.startsWith("/refer") || pathname.startsWith("/pace") || pathname.startsWith("/streak")))
             || (t.href === "/subjects" && pathname.startsWith("/exam"));
           return (
             <Link key={t.href} href={t.href}

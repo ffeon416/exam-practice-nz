@@ -530,6 +530,16 @@ export default function DashboardPage() {
           <PaymentWelcome tier={previewTier} firstName={firstName} onClose={() => setPreviewTier(null)} />
         )}
 
+        {/* Phones have no sidebar: Pace and Streak live off this tab. */}
+        <div className="md:hidden flex gap-2 mb-6">
+          <Link href="/pace" className="flex-1 rounded-2xl border border-white/[0.1] bg-white/[0.03] px-4 py-3 min-h-[52px] flex items-center justify-between text-white text-[14px] font-semibold">
+            <span>Pace<span className="block text-[11.5px] text-zinc-500 font-normal">On track for your goal?</span></span><span className="text-zinc-500">→</span>
+          </Link>
+          <Link href="/streak" className="flex-1 rounded-2xl border border-white/[0.1] bg-white/[0.03] px-4 py-3 min-h-[52px] flex items-center justify-between text-white text-[14px] font-semibold">
+            <span>Streak<span className="block text-[11.5px] text-zinc-500 font-normal">How Ace is doing</span></span><span className="text-zinc-500">→</span>
+          </Link>
+        </div>
+
         {/* Greeting */}
         <div className="mb-8">
           <h1 className={`${display.className} home-rise text-[28px] sm:text-[38px] font-bold text-white tracking-[-0.02em] mb-1`}

@@ -12,12 +12,18 @@ import { useAuth, useClerk, useUser } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
 import { getDueCount, getReviewsVersion, getServerReviewsVersion, subscribeReviews } from "@/lib/spacedRepetition";
 
-export const COACH_ROUTE = /^\/(today|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
+export const COACH_ROUTE = /^\/(today|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
 export const IN_PAPER = /^\/exam\/[^/]+$/;
 
 const ITEMS: { href: string; label: string; sub: string; icon: (a: boolean) => React.ReactNode; match?: RegExp }[] = [
-  { href: "/today", label: "Today", sub: "Your grade, tonight's paper", icon: (a) => (
+  { href: "/today", label: "Today", sub: "Today's task, built for you", icon: (a) => (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3l9 7v11H3V10l9-7z" /><path strokeLinecap="round" d="M9 21v-6h6v6" /></svg>
+  ) },
+  { href: "/pace", label: "Pace", sub: "On track for your goal?", icon: (a) => (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 17l5-6 4 3 5-7 4 4" /><circle cx="21" cy="11" r="1.6" fill="currentColor" stroke="none" /></svg>
+  ) },
+  { href: "/streak", label: "Streak", sub: "Ace, and how he's holding up", icon: (a) => (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3c1 4 5 5.5 5 10a5 5 0 01-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3 0-6 1-8.5z" /></svg>
   ) },
   { href: "/subjects", label: "Practise", sub: "Unlimited papers, every subject", icon: (a) => (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8 4h8a2 2 0 012 2v14l-6-3-6 3V6a2 2 0 012-2z" /></svg>
