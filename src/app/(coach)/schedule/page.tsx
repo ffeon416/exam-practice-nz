@@ -6,7 +6,7 @@
 // to their goal decides the six days after it (see lib/schedule.ts).
 // This page: the week at a glance, why it's shaped that way, today's ticket.
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
@@ -14,8 +14,8 @@ import { display } from "@/lib/displayFont";
 import { loadOnboarding } from "@/lib/onboarding";
 import { adoptPaper, getOrBuildToday, prebuildDay, type TodayTask } from "@/lib/nextPaper";
 import { goalFor } from "@/lib/goals";
-import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, normalizeKind, TASK_LENGTH, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
-import { paceRead, taskForDay, weekFocus, weekLine, weekOf, weekStartDay, type WeekFocus } from "@/lib/schedule";
+import { dayNumber, daysUntil, kindFromTitle, localDateKey, msUntilLocalMidnight, normalizeKind, TASK_META, TASK_TITLE, type TaskKind } from "@/lib/dailyTask";
+import { paceRead, taskForDay, weekFocus, weekOf, weekStartDay, type WeekFocus } from "@/lib/schedule";
 import { recentMistakes } from "@/lib/mistakes";
 import { scopedKey } from "@/lib/userScope";
 import { useCoachData } from "@/hooks/useCoachData";
@@ -23,9 +23,11 @@ import { subjectSeries, tierBreakdown, weakSpot } from "@/lib/gradeOutlook";
 import { getCustomExam } from "@/lib/customExams";
 import { resolveCurriculum, LETTER_BANDS } from "@/data/curricula";
 import { bandAt, bandsFor } from "@/lib/gradeOutlook";
-import TodayCard from "@/components/TodayCard";
-import WeekStrip, { KIND_ACCENT, type WeekDay } from "@/components/WeekStrip";
+import TodayHero from "@/components/TodayHero";
+import RoadMap from "@/components/RoadMap";
+import { type WeekDay } from "@/components/WeekStrip";
 import ExamSetup from "@/components/ExamSetup";
+import { getDueCount, getReviewsVersion, getServerReviewsVersion, subscribeReviews } from "@/lib/spacedRepetition";
 import type { ExamAttempt } from "@/lib/types";
 
 // What each date was assigned, so a day's task is fixed once handed out and
@@ -246,27 +248,32 @@ function ScheduleInner() {
     return `Day 1: ${first}% → now ${last}% · ${d >= 0 ? "up" : "down"} ${Math.abs(d)}`;
   }, [task, attempts, goals]);
 
-  const whyLine = useMemo(() => {
-    if (!task) return null;
+  const taskLine = useMemo(() => {
+    if (!task) return "";
     const g = goalFor(goals, task.subject);
     const examDays = g?.examDate ? daysUntil(g.examDate) : null;
     const spot = spotFor(task.subject);
     const subj = label(task.subject);
+    const qs = examId ? getCustomExam(examId)?.questions?.length ?? TASK_META[task.kind].questions : TASK_META[task.kind].questions;
+    const mins = TASK_META[task.kind].minutes;
     switch (task.kind) {
       case "check": return hasBaseline(task.subject)
-        ? `Weekly check. Eight questions, marked properly, to see how far ${subj} has moved and set the shape of this week.`
-        : `Everything starts here. Eight questions, marked properly, so we know exactly where you are in ${subj}.`;
-      case "review": {
-        const n = mistakesFor(task.subject).length;
-        return `${n >= 3 ? `Built from ${n} questions you dropped marks on in ${subj}` : `Built on ${subj}`}${spot ? `, mostly ${spot.label.toLowerCase()}` : ""}. A short lesson first, then six questions to prove it stuck.`;
-      }
-      case "mock": return examDays != null && examDays <= 21 && examDays >= 0
-        ? `Timed and full length, because your ${subj} exam is ${examDays === 0 ? "today" : examDays === 1 ? "tomorrow" : `${examDays} days away`}. Practise the pressure now.`
-        : `Timed and full length. No feedback until the end, like the real day.`;
-      default: return `A fresh ${subj} paper in your exam's style, marked the moment you finish. Reps are what move the number.`;
+        ? `Weekly check. ${qs} questions, marked properly, to see how far ${subj} has moved and shape the week ahead. About ${mins} minutes.`
+        : `Everything starts here. ${qs} questions, marked properly, so we know exactly where you are in ${subj}. About ${mins} minutes.`;
+      case "review": return `A short lesson built from what you got wrong in ${subj}${spot ? `, mostly ${spot.label.toLowerCase()}` : ""}, then ${qs} questions on exactly that. About ${mins} minutes.`;
+      case "mock": return examDays != null && examDays >= 0 && examDays <= 21
+        ? `Timed and full length, because your ${subj} exam is ${examDays === 0 ? "today" : examDays === 1 ? "tomorrow" : `${examDays} days away`}. ${qs} questions, ${mins} minutes, feedback at the end.`
+        : `Timed and full length, like the real day. ${qs} questions, ${mins} minutes, feedback at the end.`;
+      default: return `A fresh ${subj} paper in your exam's style. ${qs} questions, about ${mins} minutes, marked the moment you finish.`;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [task, goals, attempts, topicScores]);
+  }, [task, goals, attempts, topicScores, examId]);
+
+  // Reviews waiting (what they got wrong, until it sticks).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { const id = setTimeout(() => setMounted(true), 0); return () => clearTimeout(id); }, []);
+  const reviewsVersion = useSyncExternalStore(subscribeReviews, getReviewsVersion, getServerReviewsVersion);
+  const due = useMemo(() => { void reviewsVersion; return mounted ? getDueCount() : 0; }, [reviewsVersion, mounted]);
 
   // ── The week at a glance ──
   const weekDays = useMemo((): WeekDay[] => {
@@ -308,15 +315,6 @@ function ScheduleInner() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [task, attempts, subjects, goals, topicScores, day, week, today]);
 
-  const line = useMemo(() => {
-    if (!task) return null;
-    const p = paceOf(task.subject);
-    const focus = focusFor(task.subject);
-    return { focus, ...weekLine({ focus, pace: p?.read ?? null, hasBaseline: hasBaseline(task.subject), subjectLabel: label(task.subject), goalLabel: p?.goalLabel ?? "A", reviewLabel: spotFor(task.subject)?.label.toLowerCase() ?? null, examDays: p?.examDays ?? null, kinds: weekDays.map((d) => d.kind) }) };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [task, weekDays, goals, attempts]);
-
-  const accent = task ? KIND_ACCENT[task.kind] : "#a78bfa";
 
 
   const setup = needsSetup ? (
@@ -327,24 +325,23 @@ function ScheduleInner() {
         : { title: "When's your next exam?", sub: "Your schedule is built backwards from your exam date: one task a day so you land on your goal grade on the day." }
   ) : null;
 
+  const todayGoal = task ? goalFor(goals, task.subject) : null;
+  const todayExamDate = todayGoal?.examDate ?? nextExam.upcoming?.date ?? null;
+  const todayExamDays = todayExamDate ? daysUntil(todayExamDate) : null;
+  const eyebrow = new Date(today + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
+
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
-      {/* Top row: where we are, and the exam this all runs into */}
-      <div className="flex items-end justify-between gap-4 flex-wrap mb-6 sm:mb-8">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
+      {/* Header */}
+      <div className="flex items-end justify-between gap-4 flex-wrap mb-5 sm:mb-6">
         <div>
-          <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500">Schedule</p>
-          <h1 className={`${display.className} font-bold text-white text-[26px] sm:text-[32px] leading-none tracking-[-0.03em] mt-1.5`}>
-            {setup ? setup.title : <>Week {week} <span className="text-zinc-600 font-semibold">· Day {day}</span></>}
+          <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em] text-zinc-500">{eyebrow}</p>
+          <h1 className={`${display.className} font-bold text-white text-[34px] sm:text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mt-2`}>
+            {setup ? setup.title : "The road to exam day"}
           </h1>
         </div>
-        {nextExam.upcoming && (
-          <Link href="/welcome?next=1" className="group flex items-center gap-3.5 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-white/25 px-4 py-2.5 transition-colors">
-            <span className={`${display.className} font-bold text-[28px] leading-none tracking-[-0.03em] tabular-nums ${nextExam.upcoming.days <= 7 ? "text-rose-300" : nextExam.upcoming.days <= 21 ? "text-amber-300" : "text-white"}`}>{nextExam.upcoming.days}</span>
-            <span className="min-w-0">
-              <span className="block text-[12.5px] text-zinc-200 font-semibold leading-tight">{nextExam.upcoming.days === 1 ? "day" : "days"} to your {label(nextExam.upcoming.subject)} exam</span>
-              <span className="block text-[11px] text-zinc-500 mt-0.5">{fmt(nextExam.upcoming.date)} · <span className="group-hover:text-zinc-300">change</span></span>
-            </span>
-          </Link>
+        {!setup && (
+          <Link href="/plan" className="inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-white font-semibold text-[15px] px-5 py-3 min-h-[48px] transition-colors">Full plan →</Link>
         )}
       </div>
 
@@ -356,43 +353,47 @@ function ScheduleInner() {
         </div>
       ) : (
         <>
-          {/* The week, as a line that runs into the exam */}
-          <div className="rounded-[26px] border border-white/[0.07] bg-white/[0.015] px-3 sm:px-6 pt-5 pb-4">
-            {weekDays.length ? <WeekStrip days={weekDays} /> : <div className="h-[96px] animate-pulse" />}
+          {/* The road */}
+          <div className="rounded-[28px] border border-white/[0.08] bg-[#0b0b10] px-4 sm:px-8 pt-6 pb-6">
+            {weekDays.length ? <RoadMap days={weekDays} examDate={todayExamDate} examDays={todayExamDays} /> : <div className="h-[280px] animate-pulse" />}
           </div>
 
-          {/* Why this week is shaped like this */}
-          {line && (
-            <div className="flex items-start gap-3 px-2 sm:px-3 mt-4 mb-6 sm:mb-8">
-              <span className="mt-[7px] w-2 h-2 rounded-full shrink-0" style={{ background: accent, boxShadow: `0 0 10px ${accent}` }} aria-hidden />
-              <p className="text-[14px] sm:text-[15px] leading-relaxed text-zinc-400">
-                <span className="text-white font-semibold">{line.title}</span> {line.sub}
-              </p>
+          {/* Today + the two numbers */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4 sm:gap-5 mt-4 sm:mt-5 items-stretch">
+            {task ? (
+              <TodayHero
+                subjectLabel={label(task.subject)}
+                kind={task.kind}
+                status={status}
+                line={taskLine}
+                scoreLabel={scoreLabel}
+                sinceLine={sinceLine}
+                tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject) } : null}
+                celebrate={celebrate && status === "done"}
+                busy={busy}
+                onStart={status === "failed" ? retry : start}
+                questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
+              />
+            ) : (
+              <div className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] min-h-[420px] animate-pulse" />
+            )}
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-5">
+              <Link href="/welcome?next=1" className="rounded-[28px] border border-rose-400/25 bg-[#1a0f12] hover:border-rose-400/50 p-5 sm:p-7 flex flex-col justify-between min-h-[170px] lg:min-h-[240px] transition-colors">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-rose-300">Exam</p>
+                <p className="leading-none">
+                  <span className={`${display.className} font-bold text-rose-300 text-[56px] sm:text-[72px] tracking-[-0.04em] tabular-nums`}>{todayExamDays ?? "—"}</span>
+                  <span className="text-zinc-200 text-[15px] sm:text-[17px] font-medium ml-2">{todayExamDays === 1 ? "day to go" : "days to go"}</span>
+                </p>
+              </Link>
+              <Link href="/review" className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] hover:border-white/25 p-5 sm:p-7 flex flex-col justify-between min-h-[170px] lg:min-h-[240px] transition-colors">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">To review</p>
+                <p className="leading-none">
+                  <span className={`${display.className} font-bold text-[56px] sm:text-[72px] tracking-[-0.04em] tabular-nums ${due > 0 ? "text-amber-400" : "text-zinc-600"}`}>{due}</span>
+                  <span className="text-zinc-200 text-[15px] sm:text-[17px] font-medium ml-2">{due > 0 ? "fix them →" : "all clear"}</span>
+                </p>
+              </Link>
             </div>
-          )}
-          {!line && <div className="h-6 mb-6" />}
-
-          {/* Today's ticket */}
-          {task ? (
-            <TodayCard
-              questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
-              examInDays={(() => { const g = goalFor(goals, task.subject); return g?.examDate ? daysUntil(g.examDate) : null; })()}
-              day={day}
-              sinceLine={sinceLine}
-              whyLine={whyLine}
-              celebrate={celebrate && status === "done"}
-              tomorrow={tomorrowTask ? { title: TASK_TITLE[tomorrowTask.kind].replace("\n", " "), subject: label(tomorrowTask.subject), length: TASK_LENGTH[tomorrowTask.kind] } : null}
-              dateLabel={dateLabel}
-              subjectLabel={label(task.subject)}
-              kind={task.kind}
-              status={status}
-              scoreLabel={scoreLabel}
-              busy={busy}
-              onStart={status === "failed" ? retry : start}
-            />
-          ) : (
-            <div className="rounded-[30px] border border-white/[0.08] bg-white/[0.015] min-h-[280px] animate-pulse" />
-          )}
+          </div>
         </>
       )}
     </div>
