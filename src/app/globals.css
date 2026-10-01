@@ -382,3 +382,10 @@ body {
 @keyframes sa-stage-pulse { 0%, 100% { opacity: 0.85; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
 .sa-stage { animation: sa-stage-pulse 4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sa-ace-blink, .sa-ace-poke, .sa-stage { animation: none; } }
+
+/* Arcade streak screen */
+@keyframes sa-arcade-glow { 0%, 100% { text-shadow: 0 0 10px #ff4fd8, 0 0 28px rgba(255,79,216,0.55); } 50% { text-shadow: 0 0 16px #ff4fd8, 0 0 44px rgba(255,79,216,0.8); } }
+.sa-arcade-glow { animation: sa-arcade-glow 2.4s ease-in-out infinite; }
+@keyframes sa-arcade-blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.25; } }
+.sa-arcade-blink { animation: sa-arcade-blink 1.1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { .sa-arcade-glow, .sa-arcade-blink { animation: none; } }
