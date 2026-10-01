@@ -16,6 +16,8 @@ import {
   type ReviewItem,
 } from "@/lib/spacedRepetition";
 import { getCustomExam, isCustomExamId } from "@/lib/customExams";
+import { loadProgress } from "@/lib/storage";
+import { currentCurriculumId } from "@/lib/nextPaper";
 import { getTopicLabel } from "@/data/topics";
 import type { Question } from "@/lib/types";
 
@@ -56,6 +58,12 @@ function ReviewInner() {
   const [answer, setAnswer] = useState("");
   const [revealed, setRevealed] = useState(false);
   const [results, setResults] = useState({ right: 0, partial: 0, wrong: 0 });
+  // Honest marking of this review answer, fetched when the answer is shown.
+  type Mark = { marksAwarded: number; maxMarks: number; headline: string; steps: { title: string; detail: string; hit: boolean }[]; feedback: string };
+  const [mark, setMark] = useState<Mark | null>(null);
+  const [marking, setMarking] = useState(false);
+  const [showQuestion, setShowQuestion] = useState(false);
+  useEffect(() => { setMark(null); setMarking(false); setShowQuestion(false); }, [index, phase]);
 
   const version = useSyncExternalStore(subscribeReviews, getReviewsVersion, getServerReviewsVersion);
   const [mounted, setMounted] = useState(false);
@@ -90,6 +98,29 @@ function ReviewInner() {
     setAnswer("");
     setRevealed(false);
     setResults({ right: 0, partial: 0, wrong: 0 });
+  }
+
+  async function reveal(current: EnrichedItem) {
+    setRevealed(true);
+    setMarking(true);
+    try {
+      const q = current.question;
+      const r = await fetch("/api/review-mark", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ questionText: current.review.questionText, markingGuide: q?.markingGuide ?? "", expectedAnswer: q?.expectedAnswer ?? "", answerType: q?.answerType, answer, curriculum: currentCurriculumId() }),
+      });
+      const data = r.ok ? await r.json() : null;
+      if (data?.steps) setMark(data as Mark);
+    } catch {}
+    setMarking(false);
+  }
+  /** What this question scored the last time it was sat, from the saved attempt. */
+  function lastMarks(questionId: string, examId: string): number | null {
+    try {
+      const attempts = (loadProgress().examAttempts ?? []).filter((a) => a.examId === examId).sort((a, b) => (a.date < b.date ? 1 : -1));
+      for (const a of attempts) { const r = a.results?.find((x) => x.questionId === questionId); if (r) return r.marksAwarded; }
+    } catch {}
+    return null;
   }
 
   function handleGrade(quality: 0 | 3 | 5) {
@@ -457,43 +488,51 @@ function ReviewInner() {
     if (!current) return null;
 
     const { review, question } = current;
-    const correctAnswer = question?.expectedAnswer ?? "(See marking guide)";
-    const markingGuide = question?.markingGuide ?? "";
     const topicLabels = review.topics.map((t) => getTopicLabel(t));
-    const raw = topicLabels[0] ?? "This one";
+    const raw = topicLabels[0] ?? "Review";
     const topic = raw.charAt(0).toUpperCase() + raw.slice(1);
-    const progress = (index / sessionItems.length) * 100;
     const AMBER = "#fbbf24";
+    const fullQuestion = review.questionText.replace(/\[Diagram:[^\]]+\]/g, "").trim();
+    // One line of the question for the strip; the whole thing on demand.
+    const firstLine = fullQuestion.split(/(?<=[.?!])\s+/)[0] ?? fullQuestion;
+    const summary = firstLine.length > 110 ? firstLine.slice(0, 107).trimEnd() + "…" : firstLine;
+    const prev = lastMarks(review.questionId, review.examId);
+    const marksLine = mark
+      ? prev == null ? "marks." : mark.marksAwarded > prev ? `marks. Up from ${prev} last time.` : mark.marksAwarded < prev ? `marks. Down from ${prev} last time.` : `marks. Same as last time.`
+      : null;
 
     return (
-      <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-24">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-24">
         {/* Header */}
         <div className="flex items-end justify-between gap-4 mb-5">
           <div className="min-w-0">
             <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em]" style={{ color: AMBER }}>To review · {index + 1} of {sessionItems.length}</p>
             <h1 className={`${display.className} font-bold text-white text-[30px] sm:text-[40px] leading-none tracking-[-0.035em] mt-2 truncate`}>{topic}</h1>
           </div>
-          <Link href="/schedule" className="shrink-0 inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-zinc-300 hover:text-white font-semibold text-[14px] px-4 py-2.5 min-h-[44px] transition-colors">Exit</Link>
-        </div>
-        <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden mb-6 sm:mb-8">
-          <div className="h-full rounded-full transition-all duration-500 ease-out" style={{ width: `${progress}%`, background: `linear-gradient(90deg, ${AMBER}, #fde68a)` }} />
-        </div>
-
-        {/* Question */}
-        <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-8">
-          <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500 mb-4">You dropped marks on this one{topicLabels.length > 1 ? ` · ${topicLabels.slice(1, 3).join(" · ")}` : ""}</p>
-          {question?.image && (
-            <div className="rounded-2xl overflow-hidden border border-white/[0.06] bg-white p-2 mb-5">
-              <img src={question.image} alt="Question diagram" className="max-w-full h-auto mx-auto max-h-[300px] object-contain" />
+          <div className="flex items-center gap-4 sm:gap-6 shrink-0">
+            <div className="hidden sm:flex items-center gap-1.5" aria-label={`Question ${index + 1} of ${sessionItems.length}`}>
+              {sessionItems.map((_, i) => (
+                <span key={i} className="h-1.5 rounded-full transition-all" style={{ width: i === index ? 22 : 18, background: i < index ? `${AMBER}99` : i === index ? AMBER : "rgba(255,255,255,0.08)" }} />
+              ))}
             </div>
-          )}
-          <p className="text-zinc-100 text-[16px] sm:text-[18px] whitespace-pre-wrap leading-relaxed">
-            {review.questionText.replace(/\[Diagram:[^\]]+\]/g, "").trim()}
-          </p>
+            <Link href="/schedule" className="inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-zinc-300 hover:text-white font-semibold text-[14px] px-5 py-2.5 min-h-[46px] transition-colors">Exit</Link>
+          </div>
+        </div>
+        <div className="sm:hidden h-1.5 rounded-full bg-white/[0.06] overflow-hidden mb-5">
+          <div className="h-full rounded-full" style={{ width: `${(index / sessionItems.length) * 100}%`, background: AMBER }} />
         </div>
 
         {!revealed ? (
           <>
+            <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-8">
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500 mb-4">You dropped marks on this one{topicLabels.length > 1 ? ` · ${topicLabels.slice(1, 3).join(" · ")}` : ""}</p>
+              {question?.image && (
+                <div className="rounded-2xl overflow-hidden border border-white/[0.06] bg-white p-2 mb-5">
+                  <img src={question.image} alt="Question diagram" className="max-w-full h-auto mx-auto max-h-[300px] object-contain" />
+                </div>
+              )}
+              <p className="text-zinc-100 text-[16px] sm:text-[18px] whitespace-pre-wrap leading-relaxed">{fullQuestion}</p>
+            </div>
             <textarea
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
@@ -501,13 +540,12 @@ function ReviewInner() {
               rows={5}
               autoFocus
               className="mt-4 w-full rounded-[22px] bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-white text-[16px] placeholder-zinc-600 focus:outline-none transition-colors resize-y"
-              style={{ borderColor: answer ? `${AMBER}66` : undefined }}
               onFocus={(e) => { e.currentTarget.style.borderColor = `${AMBER}99`; }}
-              onBlur={(e) => { e.currentTarget.style.borderColor = answer ? `${AMBER}66` : ""; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = ""; }}
             />
             <div className="flex items-center justify-between gap-4 mt-4 flex-wrap">
-              <p className="text-zinc-500 text-[13px]">Have a real go first. Then check it.</p>
-              <button onClick={() => setRevealed(true)}
+              <p className="text-zinc-500 text-[13px]">Have a real go first. It gets marked properly.</p>
+              <button onClick={() => reveal(current)}
                 className="font-bold text-[17px] px-8 py-4 rounded-full min-h-[58px] text-[#0a0a0f] transition-transform hover:scale-[1.02]"
                 style={{ background: AMBER, boxShadow: `0 0 36px ${AMBER}40` }}>
                 Show the answer →
@@ -515,40 +553,76 @@ function ReviewInner() {
             </div>
           </>
         ) : (
-          <div className="mt-4 space-y-3">
-            {answer.trim() && (
-              <div className="rounded-[22px] border border-white/[0.08] bg-white/[0.02] p-5">
-                <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500 mb-2">You wrote</p>
-                <p className="text-zinc-300 text-[15px] whitespace-pre-wrap leading-relaxed">{answer}</p>
+          <>
+            {/* The question, folded to one line */}
+            <button onClick={() => setShowQuestion((v) => !v)} className="w-full text-left rounded-[22px] border border-white/[0.08] bg-[#0e0f13] px-5 sm:px-6 py-4 flex items-start justify-between gap-4 hover:border-white/20 transition-colors">
+              <span className={`text-zinc-100 text-[15px] sm:text-[16px] leading-relaxed ${showQuestion ? "whitespace-pre-wrap" : "truncate"}`}>{showQuestion ? fullQuestion : summary}</span>
+              <span className="shrink-0 text-zinc-500 text-[13px] pt-0.5">{showQuestion ? "Hide question" : "Show question"}</span>
+            </button>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-4 sm:gap-5 mt-4 sm:mt-5 items-stretch">
+              {/* Your answer + marks */}
+              <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-8 flex flex-col min-h-[260px]">
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-zinc-500">Your answer</p>
+                <p className={`text-[17px] sm:text-[19px] whitespace-pre-wrap leading-relaxed mt-4 flex-1 ${answer.trim() ? "text-zinc-100" : "text-zinc-600 italic"}`}>{answer.trim() || "You left it blank."}</p>
+                <div className="border-t border-white/[0.08] pt-5 mt-6">
+                  {marking ? (
+                    <p className="text-zinc-400 text-[14px] flex items-center gap-3"><span className="w-5 h-5 rounded-full border-2 border-white/10 border-t-white/70 animate-spin" aria-hidden />Marking…</p>
+                  ) : mark ? (
+                    <p className="leading-none">
+                      <span className={`${display.className} font-bold text-[40px] sm:text-[48px] tracking-[-0.04em] tabular-nums`} style={{ color: mark.marksAwarded >= mark.maxMarks ? "#3ee6a0" : mark.marksAwarded > 0 ? AMBER : "#ff6b7a" }}>{mark.marksAwarded}/{mark.maxMarks}</span>
+                      <span className="text-zinc-300 text-[15px] sm:text-[16px] ml-2">{marksLine}</span>
+                    </p>
+                  ) : (
+                    <p className="text-zinc-500 text-[14px]">Couldn&apos;t mark this one. Grade yourself below.</p>
+                  )}
+                </div>
               </div>
-            )}
-            <div className="rounded-[22px] border border-emerald-400/25 bg-[#0a1712] p-5">
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-emerald-300 mb-2">Correct answer</p>
-              <p className="text-white text-[16px] whitespace-pre-wrap leading-relaxed">{correctAnswer}</p>
-              {markingGuide && (
-                <details className="mt-3">
-                  <summary className="text-emerald-300/80 text-[13px] font-medium cursor-pointer hover:text-emerald-200">How it&apos;s marked</summary>
-                  <p className="text-zinc-400 text-[13.5px] whitespace-pre-wrap leading-relaxed mt-2">{markingGuide}</p>
-                </details>
-              )}
+
+              {/* The answer, step by step */}
+              <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-8">
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.2em]" style={{ color: AMBER }}>The answer</p>
+                {marking && !mark ? (
+                  <div className="mt-5 space-y-4">
+                    <div className="h-10 w-2/3 rounded-xl bg-white/[0.05] animate-pulse" />
+                    {[88, 72, 80].map((w, i) => <div key={i} className="h-4 rounded-full bg-white/[0.04] animate-pulse" style={{ width: `${w}%` }} />)}
+                  </div>
+                ) : (
+                  <>
+                    <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[44px] leading-[1.05] tracking-[-0.035em] mt-3`}>{mark?.headline ?? (question?.expectedAnswer || "See the marking guide")}</h2>
+                    <ol className="mt-5 divide-y divide-white/[0.07]">
+                      {(mark?.steps ?? (question?.markingGuide ? [{ title: "Marking guide", detail: question.markingGuide, hit: false }] : [])).map((st, i) => (
+                        <li key={i} className="flex gap-4 py-4">
+                          <span className="mt-0.5 w-7 h-7 rounded-full shrink-0 flex items-center justify-center" style={{ background: st.hit ? "rgba(62,230,160,0.14)" : "rgba(255,107,122,0.14)" }}>
+                            {st.hit
+                              ? <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#3ee6a0" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+                              : <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#ff6b7a" strokeWidth="3" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>}
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block text-white font-semibold text-[15.5px] sm:text-[16.5px]">{st.title}</span>
+                            <span className="block text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed mt-0.5">{st.detail}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ol>
+                  </>
+                )}
+              </div>
             </div>
 
-            <p className={`${display.className} text-white font-bold text-[22px] tracking-[-0.02em] pt-4`}>How did you go?</p>
-            <div className="grid grid-cols-3 gap-3">
-              {([
-                { q: 0 as const, label: "Wrong", sub: "See it again soon", c: "#ff6b7a", bg: "#1a0f12" },
-                { q: 3 as const, label: "Close", sub: "Almost had it", c: AMBER, bg: "#1a160e" },
-                { q: 5 as const, label: "Nailed it", sub: "See it later", c: "#3ee6a0", bg: "#0a1712" },
-              ]).map((o) => (
-                <button key={o.q} onClick={() => handleGrade(o.q)}
-                  className="rounded-[22px] border p-4 sm:p-5 min-h-[84px] text-left transition-transform hover:scale-[1.02]"
-                  style={{ background: o.bg, borderColor: `${o.c}40` }}>
-                  <span className={`${display.className} block font-bold text-[17px] sm:text-[20px] tracking-[-0.02em]`} style={{ color: o.c }}>{o.label}</span>
-                  <span className="block text-zinc-500 text-[12px] mt-1">{o.sub}</span>
-                </button>
-              ))}
+            {/* How did you go */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-4 sm:gap-5 mt-5 sm:mt-6 items-center">
+              <div>
+                <p className={`${display.className} text-white font-bold text-[20px] tracking-[-0.02em]`}>How did you go?</p>
+                <p className="text-zinc-500 text-[13px] mt-0.5">Not yet brings it back tomorrow.</p>
+              </div>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                <button onClick={() => handleGrade(0)} className={`${display.className} rounded-2xl border font-bold text-[16px] sm:text-[18px] min-h-[60px] text-rose-300 border-rose-400/40 hover:bg-rose-500/[0.08] transition-colors`}>Not yet</button>
+                <button onClick={() => handleGrade(3)} className={`${display.className} rounded-2xl border font-bold text-[16px] sm:text-[18px] min-h-[60px] border-amber-400/40 hover:bg-amber-500/[0.08] transition-colors`} style={{ color: AMBER }}>Nearly</button>
+                <button onClick={() => handleGrade(5)} className={`${display.className} rounded-2xl font-bold text-[16px] sm:text-[18px] min-h-[60px] text-[#07120d] transition-transform hover:scale-[1.02]`} style={{ background: "#3ee6a0", boxShadow: "0 0 30px rgba(62,230,160,0.3)" }}>Got it</button>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     );
