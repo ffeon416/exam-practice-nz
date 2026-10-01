@@ -44,7 +44,7 @@ Return JSON only, no prose, exactly this shape:
 {"headline": "<the final answer in at most 6 words, with units, e.g. '2,000 litres of milk' or 'x = 4'>",
  "steps": [{"title": "<2-4 word step name>", "detail": "<one sentence: what the step is, with the numbers or the point>", "hit": <true if the student's answer this time clearly showed this step, else false>}]}
 
-Rules: two or three steps, in the order a student would do them. The last step is usually stating the answer properly (units, wording). Be strict and honest about "hit": a blank or hedged answer hits nothing. Facts and arithmetic must be correct. ${c.countryLabel} context only.`;
+Rules: two or three steps, in the order a student would do them. The last step is usually stating the answer properly (units, wording). Be strict and honest about "hit": a step is hit ONLY if the student's answer literally shows it — a "state it with units" step is NOT hit when the units or wording are missing, a working step is NOT hit when no working is written. A blank or hedged answer hits nothing. Facts and arithmetic must be correct. ${c.countryLabel} context only.`;
 
   let headline = expectedAnswer || "See the marking guide";
   let steps: Step[] = [];
