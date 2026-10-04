@@ -334,7 +334,7 @@ function ScheduleInner() {
   const eyebrow = new Date(today + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" });
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
+    <div className="w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
       {/* Header */}
       <div className={`flex items-end justify-between gap-4 flex-wrap ${setup ? "mb-5 sm:mb-6" : "mb-2 sm:mb-3"}`}>
         <div>
@@ -359,7 +359,7 @@ function ScheduleInner() {
           </div>
 
           {/* Today + the two numbers */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4 sm:gap-5 mt-4 sm:mt-5 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_290px] gap-4 sm:gap-5 mt-4 sm:mt-5 items-stretch">
             {task ? (
               <TodayHero
                 subjectLabel={label(task.subject)}
@@ -378,7 +378,7 @@ function ScheduleInner() {
               <div className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] min-h-[300px] animate-pulse" />
             )}
             <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-5">
-              <Link href="/welcome?next=1" className="rounded-[28px] border border-rose-400/25 bg-[#1a0f12] hover:border-rose-400/50 p-5 sm:p-7 flex flex-col justify-between min-h-[150px] lg:min-h-[170px] transition-colors">
+              <Link href="/welcome?next=1" className="rounded-[28px] border border-rose-400/25 bg-[#1a0f12] hover:border-rose-400/50 p-5 sm:p-7 flex flex-col justify-between min-h-[150px] lg:min-h-[200px] transition-colors">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-rose-300">Exam</p>
                 <p className="leading-none">
                   <span className={`${display.className} font-bold text-rose-300 text-[56px] sm:text-[72px] tracking-[-0.04em] tabular-nums`}>{todayExamDays ?? "—"}</span>
@@ -386,7 +386,7 @@ function ScheduleInner() {
                 </p>
               </Link>
               {(() => {
-                const cls = "rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-5 sm:p-7 flex flex-col justify-between min-h-[150px] lg:min-h-[170px] transition-colors";
+                const cls = "rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-5 sm:p-7 flex flex-col justify-between min-h-[150px] lg:min-h-[200px] transition-colors";
                 const body = (
                   <>
                     <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">To review</p>

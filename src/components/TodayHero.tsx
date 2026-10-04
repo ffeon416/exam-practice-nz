@@ -48,7 +48,7 @@ export default function TodayHero({
         boxShadow: `0 0 0 1px ${accent}14, 0 24px 80px -24px ${accent}59`,
       }}>
       <div className="absolute -top-28 -right-28 w-[440px] h-[440px] rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${accent}2e 0%, transparent 65%)` }} aria-hidden />
-      <div className="relative p-6 sm:p-9 lg:p-10">
+      <div className="relative p-6 sm:p-9 lg:p-12">
         {/* Says plainly what this card is: today's task, the date, the subject. */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono uppercase">
           <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[12px] sm:text-[13px] font-bold tracking-[0.16em] text-[#0a0a0f]" style={{ background: accent }}>
