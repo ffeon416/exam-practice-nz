@@ -13,17 +13,22 @@ export default function PlanIncludedPage() {
   const router = useRouter();
   const { tier, limits, loading } = useTier();
   const [opening, setOpening] = useState(false);
+  const [billingError, setBillingError] = useState<string | null>(null);
 
   // An unpaid account has no plan to show: send it to the plans.
   useEffect(() => { if (!loading && tier === "free") router.replace("/pricing"); }, [loading, tier, router]);
 
   const billing = async () => {
-    setOpening(true);
+    setOpening(true); setBillingError(null);
+    let reason = "";
     try {
       const res = await fetch("/api/customer-portal", { method: "POST" });
       const data = await res.json();
       if (data.url) { window.location.href = data.url; return; }
+      reason = res.status === 404 ? "This account has no card subscription to manage (it was given access directly)." : "";
     } catch { /* fall through */ }
+    // Never fail silently: say what happened and where to go.
+    setBillingError(reason || "Billing didn't open. Try again in a minute, or use the Contact page and we'll sort it.");
     setOpening(false);
   };
 
@@ -69,6 +74,7 @@ export default function PlanIncludedPage() {
       <button onClick={billing} disabled={opening} className="mt-5 inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-white font-semibold text-[15px] px-6 min-h-[52px] transition-colors disabled:opacity-50">
         {opening ? "Opening…" : "Manage billing →"}
       </button>
+      {billingError && <p role="alert" className="text-amber-200 text-[14px] rounded-xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3 mt-3 max-w-xl">{billingError} <Link href="/contact" className="underline underline-offset-4">Contact us</Link></p>}
     </div>
   );
 }

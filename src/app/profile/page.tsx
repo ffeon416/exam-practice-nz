@@ -20,6 +20,7 @@ export default function ProfilePage() {
   const router = useRouter();
   const { tier, limits, usage, loading: tierLoading } = useTier();
   const [managingBilling, setManagingBilling] = useState(false);
+  const [billingError, setBillingError] = useState<string | null>(null);
   const [uploadingPhoto, setUploadingPhoto] = useState(false);
   const [showPhotoMenu, setShowPhotoMenu] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -59,7 +60,8 @@ export default function ProfilePage() {
   }, [user]);
 
   const handleManageBilling = useCallback(async () => {
-    setManagingBilling(true);
+    setManagingBilling(true); setBillingError(null);
+    let reason = "";
     try {
       const res = await fetch("/api/customer-portal", { method: "POST" });
       const data = await res.json();
@@ -67,9 +69,12 @@ export default function ProfilePage() {
         window.location.href = data.url;
         return;
       }
+      reason = res.status === 404 ? "This account has no card subscription to manage (it was given access directly)." : "";
     } catch {
       // fall through
     }
+    // Never fail silently: say what happened and where to go.
+    setBillingError(reason || "Billing didn't open. Try again in a minute, or use the Contact page and we'll sort it.");
     setManagingBilling(false);
   }, []);
 
@@ -311,6 +316,7 @@ export default function ProfilePage() {
             )}
           </div>
 
+          {billingError && <p role="alert" className="text-amber-200 text-[13.5px] rounded-xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3 mb-4">{billingError}</p>}
           {/* Usage this period — paid only (a lead has nothing to meter) */}
           {!tierLoading && tier !== "free" && (
           <div className="grid grid-cols-2 gap-3">
