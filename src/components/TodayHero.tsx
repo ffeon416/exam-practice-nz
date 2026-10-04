@@ -49,8 +49,17 @@ export default function TodayHero({
       }}>
       <div className="absolute -top-28 -right-28 w-[440px] h-[440px] rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${accent}2e 0%, transparent 65%)` }} aria-hidden />
       <div className="relative p-6 sm:p-9 lg:p-10">
-        <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em]" style={{ color: accent }}>{done ? "Done" : "Today"} · {subjectLabel}</p>
-        <h2 className={`${display.className} text-white font-bold text-[52px] sm:text-[72px] lg:text-[88px] leading-[0.95] tracking-[-0.045em] mt-3 ${celebrate ? "home-rise" : ""}`}>
+        {/* Says plainly what this card is: today's task, the date, the subject. */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono uppercase">
+          <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[12px] sm:text-[13px] font-bold tracking-[0.16em] text-[#0a0a0f]" style={{ background: accent }}>
+            {!done && <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/70 animate-pulse" aria-hidden />}
+            {done ? "Today · done" : "Today's task"}
+          </span>
+          <span className="text-[13px] sm:text-[14px] tracking-[0.18em] text-zinc-300" suppressHydrationWarning>
+            {new Date().toLocaleDateString("en-NZ", { weekday: "short", day: "numeric", month: "short" })} · <span style={{ color: accent }}>{subjectLabel}</span>
+          </span>
+        </div>
+        <h2 className={`${display.className} text-white font-bold text-[52px] sm:text-[72px] lg:text-[88px] leading-[0.95] tracking-[-0.045em] mt-4 ${celebrate ? "home-rise" : ""}`}>
           {done ? <><span style={{ color: accent }}>Done</span> for today.</> : title}
         </h2>
         <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-5 mt-5">
