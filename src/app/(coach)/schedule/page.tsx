@@ -378,10 +378,10 @@ function ScheduleInner() {
                 questionCount={examId ? getCustomExam(examId)?.questions?.length ?? null : null}
               />
             ) : (
-              <div className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] min-h-[420px] animate-pulse" />
+              <div className="rounded-[28px] border border-white/[0.08] bg-white/[0.015] min-h-[300px] animate-pulse" />
             )}
             <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-5">
-              <Link href="/welcome?next=1" className="rounded-[28px] border border-rose-400/25 bg-[#1a0f12] hover:border-rose-400/50 p-5 sm:p-7 flex flex-col justify-between min-h-[170px] lg:min-h-[240px] transition-colors">
+              <Link href="/welcome?next=1" className="rounded-[28px] border border-rose-400/25 bg-[#1a0f12] hover:border-rose-400/50 p-5 sm:p-7 flex flex-col justify-between min-h-[150px] lg:min-h-[170px] transition-colors">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-rose-300">Exam</p>
                 <p className="leading-none">
                   <span className={`${display.className} font-bold text-rose-300 text-[56px] sm:text-[72px] tracking-[-0.04em] tabular-nums`}>{todayExamDays ?? "—"}</span>
@@ -389,7 +389,7 @@ function ScheduleInner() {
                 </p>
               </Link>
               {(() => {
-                const cls = "rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-5 sm:p-7 flex flex-col justify-between min-h-[170px] lg:min-h-[240px] transition-colors";
+                const cls = "rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-5 sm:p-7 flex flex-col justify-between min-h-[150px] lg:min-h-[170px] transition-colors";
                 const body = (
                   <>
                     <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">To review</p>

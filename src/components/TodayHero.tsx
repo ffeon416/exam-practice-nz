@@ -1,8 +1,8 @@
 "use client";
 
 // Today's task, big and plain: eyebrow, the task name as the headline, one
-// line on what it is, one button. Content sits at the bottom of a tall
-// card, like a poster. Done → a green "Done for today." with tomorrow named.
+// line on what it is, one button. The card hugs its content (no dead space
+// above the headline). Done → a green "Done for today." with tomorrow named.
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default function TodayHero({
   void questionCount; void TASK_META;
 
   return (
-    <div className={`relative rounded-[28px] border overflow-hidden flex flex-col justify-end min-h-[420px] lg:min-h-0 ${done ? "bg-[#0a1712] border-emerald-400/25" : "bg-[#0e0f13] border-indigo-400/20"}`}>
+    <div className={`relative rounded-[28px] border overflow-hidden flex flex-col justify-center ${done ? "bg-[#0a1712] border-emerald-400/25" : "bg-[#0e0f13] border-indigo-400/20"}`}>
       {done && <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(62,230,160,0.18) 0%, transparent 65%)" }} aria-hidden />}
       <div className="relative p-6 sm:p-9 lg:p-10">
         <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em]" style={{ color: accent }}>{done ? "Done" : "Today"} · {subjectLabel}</p>
