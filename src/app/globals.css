@@ -433,8 +433,12 @@ body {
 @media (prefers-reduced-motion: reduce) { .sa-attn { animation: none; box-shadow: 0 0 0 3px rgba(139,140,248,0.3), 0 0 26px 4px rgba(139,140,248,0.5); } }
 
 /* Homepage "three things": each card's glow layer fades in and out in turn (opacity only). */
-@keyframes sa-step-glow { 0% { opacity: 0; } 8% { opacity: 1; } 28% { opacity: 1; } 38% { opacity: 0; } 100% { opacity: 0; } }
-.sa-step-glow { opacity: 0; z-index: 1; animation: sa-step-glow 2.7s ease-in-out infinite; }
+/* One 3.8s loop shared by the three cards: 01 and 02 get ~0.9s each, 03 (gold) holds ~2s. */
+@keyframes sa-step-1 { 0% { opacity: 0; } 3% { opacity: 1; } 20% { opacity: 1; } 25%, 100% { opacity: 0; } }
+@keyframes sa-step-2 { 0%, 22% { opacity: 0; } 26% { opacity: 1; } 44% { opacity: 1; } 49%, 100% { opacity: 0; } }
+@keyframes sa-step-3 { 0%, 46% { opacity: 0; } 50% { opacity: 1; } 94% { opacity: 1; } 100% { opacity: 0; } }
+.sa-step-glow { opacity: 0; z-index: 1; animation-duration: 3.8s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+.sa-step-1 { animation-name: sa-step-1; } .sa-step-2 { animation-name: sa-step-2; } .sa-step-3 { animation-name: sa-step-3; }
 @media (prefers-reduced-motion: reduce) { .sa-step-glow { animation: none; opacity: 0; } }
 
 /* Homepage hero sample card: alive, not busy. Transform and opacity only. */
