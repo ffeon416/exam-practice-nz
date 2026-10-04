@@ -70,14 +70,15 @@ export default function Sidebar() {
 
       {/* Plan + account */}
       <div className="p-4 pt-2">
-        <Link href="/profile" className={`flex items-center gap-3 rounded-xl px-2 py-2 transition-colors ${/^\/(profile|dashboard|refer)/.test(pathname) ? "bg-white/[0.07]" : "hover:bg-white/[0.04]"}`}>
-          <span className="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-indigo-500/25 flex items-center justify-center text-indigo-200 text-[15px] font-bold">
+        <Link href="/profile" className={`flex items-center gap-3.5 rounded-2xl border px-3.5 py-3.5 transition-colors ${/^\/(profile|dashboard|refer)/.test(pathname) ? "border-indigo-400/60 bg-indigo-500/[0.16]" : "border-indigo-400/30 bg-indigo-500/[0.08] hover:bg-indigo-500/[0.14] hover:border-indigo-400/50"}`}>
+          <span className="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-indigo-500/30 ring-2 ring-indigo-400/40 flex items-center justify-center text-indigo-100 text-[18px] font-bold">
             {user?.imageUrl && !user.imageUrl.includes("default") ? <img src={user.imageUrl} alt="" className="w-full h-full object-cover" /> : (name[0] ?? "?").toUpperCase()}
           </span>
-          <span className="min-w-0">
-            <span className="block text-[14px] font-semibold text-white truncate">{name}</span>
-            <span className="block text-[12px] text-zinc-500">Dashboard &amp; account</span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-[16px] font-bold text-white truncate">{name}</span>
+            <span className="block text-[13px] text-indigo-200/90">Dashboard &amp; account</span>
           </span>
+          <span className="text-indigo-200 text-[18px] shrink-0" aria-hidden>→</span>
         </Link>
       </div>
     </aside>
