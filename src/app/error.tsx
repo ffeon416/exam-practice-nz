@@ -41,7 +41,7 @@ export default function GlobalError({
               Try again
             </button>
             <Link
-              href="/dashboard"
+              href="/schedule"
               className="inline-flex items-center justify-center bg-white/[0.06] hover:bg-white/[0.12] text-white font-medium px-6 py-3 rounded-lg border border-white/[0.1] transition-all text-[14px]"
             >
               Go to dashboard

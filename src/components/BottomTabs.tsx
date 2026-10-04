@@ -1,6 +1,6 @@
 "use client";
 
-// Phone navigation for the coach app: four tabs, safe-area aware, hidden
+// Phone navigation for the coach app: five tabs (You = the dashboard), safe-area aware, hidden
 // while a paper is being sat. Desktop keeps the top nav (md and up).
 
 import Link from "next/link";
@@ -13,11 +13,14 @@ const TABS = [
   { href: "/schedule", label: "Schedule", icon: (a: boolean) => (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3l9 7v11H3V10l9-7z" /><path strokeLinecap="round" d="M9 21v-6h6v6" /></svg>
   ) },
+  { href: "/pace", label: "Pace", icon: (a: boolean) => (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 17l5-6 4 3 5-7 4 4" /><path strokeLinecap="round" d="M17 11h4v4" /></svg>
+  ) },
+  { href: "/streak", label: "Streak", icon: (a: boolean) => (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3c1 4 5 5.5 5 10a5 5 0 01-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3 0-6 1-8.5z" /></svg>
+  ) },
   { href: "/subjects", label: "Practise", icon: (a: boolean) => (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8 4h8a2 2 0 012 2v14l-6-3-6 3V6a2 2 0 012-2z" /></svg>
-  ) },
-  { href: "/dashboard", label: "Progress", icon: (a: boolean) => (
-    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4 19h16M7 16V10M12 16V5M17 16v-8" /></svg>
   ) },
   { href: "/profile", label: "You", icon: (a: boolean) => (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={a ? 2.2 : 1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M16 8a4 4 0 11-8 0 4 4 0 018 0zM4 21a8 8 0 0116 0" /></svg>
@@ -49,10 +52,10 @@ export default function BottomTabs() {
       className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-[#06060a]/95 backdrop-blur-md border-t border-white/[0.08]"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="grid grid-cols-4 h-[60px]">
+      <div className="grid grid-cols-5 h-[60px]">
         {TABS.map((t) => {
           const active = pathname === t.href || pathname.startsWith(t.href + "/")
-            || (t.href === "/dashboard" && (pathname.startsWith("/plan") || pathname.startsWith("/refer") || pathname.startsWith("/pace") || pathname.startsWith("/streak") || pathname.startsWith("/review")))
+            || (t.href === "/schedule" && (pathname.startsWith("/review") || pathname.startsWith("/lesson")))
             || (t.href === "/subjects" && pathname.startsWith("/exam"));
           return (
             <Link key={t.href} href={t.href}

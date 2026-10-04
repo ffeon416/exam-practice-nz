@@ -343,9 +343,6 @@ function ScheduleInner() {
             {setup ? setup.title : "The road to exam day"}
           </h1>
         </div>
-        {!setup && (
-          <Link href="/plan" className="inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-zinc-300 hover:text-white font-semibold text-[14px] px-4 py-2 min-h-[44px] transition-colors">Full plan →</Link>
-        )}
       </div>
 
       {setup ? (

@@ -126,7 +126,7 @@ export default function RedeemPage() {
           everything&apos;s unlocked.
         </p>
         <button
-          onClick={() => router.push("/dashboard")}
+          onClick={() => router.push("/schedule")}
           className="block w-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:opacity-95 transition-all text-white font-extrabold shadow-lg shadow-indigo-500/30 py-3.5 min-h-[44px]"
         >
           Go to my dashboard

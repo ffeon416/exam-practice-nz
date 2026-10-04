@@ -17,7 +17,7 @@ import { useTier } from "@/hooks/useTier";
 const authedLinks = [
   { href: "/schedule", label: "Schedule" },
   { href: "/subjects", label: "Practise" },
-  { href: "/dashboard", label: "Progress" },
+  { href: "/profile", label: "Dashboard" },
 ];
 
 // Signed-out: one path to a sale. Grade check → pricing, with the blog for

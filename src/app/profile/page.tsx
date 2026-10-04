@@ -7,7 +7,12 @@ import { useState, useCallback, useRef } from "react";
 import { display } from "@/lib/displayFont";
 import { useTier, isUnlimited } from "@/hooks/useTier";
 import { TIER_LABELS } from "@/lib/tierLimits";
+import AccountProgress from "@/components/AccountProgress";
+import ReferCard from "@/components/ReferCard";
 
+// /profile — the dashboard. One page for everything about the student:
+// progress (was /dashboard), plan and billing, refer a friend (was /refer),
+// and the account itself. Leads (unpaid) see only the account + plan cards.
 export default function ProfilePage() {
   const { user, isLoaded: userLoaded } = useUser();
   const { signOut } = useClerk();
@@ -84,6 +89,8 @@ export default function ProfilePage() {
     );
   }
 
+  const paid = !tierLoading && tier !== "free";
+
   const examsLeft = isUnlimited(limits.examsPerWeek)
     ? "Unlimited"
     : `${usage.examsThisWeek} / ${limits.examsPerWeek} used`;
@@ -103,17 +110,21 @@ export default function ProfilePage() {
         />
       </div>
 
-      <div className="max-w-2xl mx-auto px-5 pt-6 sm:pt-16 pb-16 sm:pb-20">
+      <div className={`${paid ? "max-w-6xl lg:px-10" : "max-w-2xl"} mx-auto px-4 sm:px-6 pt-6 sm:pt-8 lg:pt-10 pb-16 sm:pb-20`}>
         {/* Header */}
         <h1
-          className={`${display.className} home-rise text-[28px] sm:text-[40px] font-bold text-white tracking-[-0.02em] mb-1`}
+          className={`${display.className} home-rise text-[34px] sm:text-[44px] font-bold text-white leading-none tracking-[-0.04em] mb-2`}
           style={{ textWrap: "balance" }}
         >
-          My account
+          {paid ? "Your dashboard" : "My account"}
         </h1>
-        <p className="home-rise text-zinc-500 text-[14px] mb-6 sm:mb-10" style={{ animationDelay: "80ms" }}>
-          Manage your profile, plan, and preferences.
+        <p className="home-rise text-zinc-500 text-[14px] mb-6 sm:mb-8" style={{ animationDelay: "80ms" }}>
+          {paid ? "Your progress, your plan and your account, in one place." : "Manage your profile and plan."}
         </p>
+
+        <div className={paid ? "grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-4 sm:gap-5 items-start" : ""}>
+        {paid && <div className="min-w-0"><AccountProgress /></div>}
+        <div className="min-w-0">
 
         {/* Profile info */}
         <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
@@ -245,7 +256,7 @@ export default function ProfilePage() {
         {/* Plan */}
         <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
           <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
-            Plan
+            {paid ? "Pro plan · everything included" : "Plan"}
           </h2>
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-3">
@@ -366,16 +377,13 @@ export default function ProfilePage() {
           )}
         </section>
 
-        {/* Quick links */}
+        {paid && <div className="mb-4"><ReferCard /></div>}
+
+        {/* Help */}
         <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
-          <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
-            Quick links
-          </h2>
           <div className="grid grid-cols-2 gap-2">
-            <QuickLink href="/dashboard" label="Dashboard" />
-            <QuickLink href="/subjects" label="New exam" />
-            <QuickLink href="/refer" label="Invite friends" />
             <QuickLink href="/contact" label="Contact us" />
+            <QuickLink href="https://discord.gg/3sGUANx7uW" label="Discord" />
           </div>
         </section>
 
@@ -386,6 +394,8 @@ export default function ProfilePage() {
         >
           Sign out
         </button>
+        </div>
+        </div>
       </div>
     </div>
   );

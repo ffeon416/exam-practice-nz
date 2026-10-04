@@ -1,8 +1,8 @@
 "use client";
 
-// The coach app's left sidebar (desktop). Logo, the pages, and at the bottom
-// the plan you're on and your account. No header anywhere — everything
-// lives here. On phones this collapses into BottomTabs.
+// The coach app's left sidebar (desktop). Logo, the four pages, and at the
+// bottom the link to the dashboard (/profile: progress, plan, refer,
+// account). No header anywhere. On phones this collapses into BottomTabs.
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,15 +27,6 @@ const ITEMS: { href: string; label: string; icon: (a: boolean) => React.ReactNod
   { href: "/subjects", label: "Practise", icon: (a) => (
     <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5c-1.5-1.3-3.5-2-6-2v13c2.5 0 4.5.7 6 2 1.5-1.3 3.5-2 6-2v-13c-2.5 0-4.5.7-6 2zM12 6.5v13" /></svg>
   ), match: /^\/(subjects|exam)/ },
-  { href: "/dashboard", label: "Progress", icon: (a) => (
-    <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" d="M5 20V12M12 20V5M19 20v-8" /></svg>
-  ) },
-  { href: "/plan", label: "Plan", icon: (a) => (
-    <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01" /></svg>
-  ) },
-  { href: "/refer", label: "Refer a friend", icon: (a) => (
-    <svg className="w-[22px] h-[22px]" fill="none" viewBox="0 0 24 24" strokeWidth={sw(a)} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a4 4 0 10-8 0 4 4 0 008 0zM3 21a8 8 0 0116 0" /><path strokeLinecap="round" d="M19 8h4M21 6v4" /></svg>
-  ) },
 ];
 
 export default function Sidebar() {
@@ -79,17 +70,13 @@ export default function Sidebar() {
 
       {/* Plan + account */}
       <div className="p-4 pt-2">
-        <div className="rounded-2xl border border-indigo-400/25 bg-indigo-500/[0.07] px-4 py-3.5 mb-3">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-indigo-300">Pro plan</p>
-          <p className="text-zinc-200 text-[14px] mt-1">Everything included</p>
-        </div>
-        <Link href="/profile" className={`flex items-center gap-3 rounded-xl px-2 py-2 transition-colors ${pathname.startsWith("/profile") ? "bg-white/[0.07]" : "hover:bg-white/[0.04]"}`}>
+        <Link href="/profile" className={`flex items-center gap-3 rounded-xl px-2 py-2 transition-colors ${/^\/(profile|dashboard|refer)/.test(pathname) ? "bg-white/[0.07]" : "hover:bg-white/[0.04]"}`}>
           <span className="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-indigo-500/25 flex items-center justify-center text-indigo-200 text-[15px] font-bold">
             {user?.imageUrl && !user.imageUrl.includes("default") ? <img src={user.imageUrl} alt="" className="w-full h-full object-cover" /> : (name[0] ?? "?").toUpperCase()}
           </span>
           <span className="min-w-0">
             <span className="block text-[14px] font-semibold text-white truncate">{name}</span>
-            <span className="block text-[12px] text-zinc-500">Account &amp; billing</span>
+            <span className="block text-[12px] text-zinc-500">Dashboard &amp; account</span>
           </span>
         </Link>
       </div>

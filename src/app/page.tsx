@@ -271,7 +271,7 @@ export default function HomePage() {
       {/* ═══ RETURNING USER ═══ */}
       {hasHistory && progress && (
         <section className="max-w-lg mx-auto px-5 pb-12">
-          <Link href="/dashboard" className="block rounded-3xl bg-gradient-to-r from-indigo-500/[0.1] to-violet-500/[0.06] border border-indigo-500/20 p-5 hover:border-indigo-500/40 transition-all">
+          <Link href="/schedule" className="block rounded-3xl bg-gradient-to-r from-indigo-500/[0.1] to-violet-500/[0.06] border border-indigo-500/20 p-5 hover:border-indigo-500/40 transition-all">
             <p className="text-[11px] text-indigo-300/70 uppercase tracking-wider font-medium mb-3">Welcome back</p>
             <div className="flex items-center justify-between">
               <div className="text-center">

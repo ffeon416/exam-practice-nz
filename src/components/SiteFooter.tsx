@@ -14,8 +14,8 @@ export default function SiteFooter() {
   const product = authed
     ? [
         { href: "/subjects", label: "Practice exams" },
-        { href: "/dashboard", label: "Dashboard" },
-        { href: "/plan", label: "Study plan" },
+        { href: "/schedule", label: "Schedule" },
+        { href: "/profile", label: "Dashboard" },
       ]
     : [
         { href: "/grade", label: "Free grade check" },
@@ -27,7 +27,7 @@ export default function SiteFooter() {
   const resources = [
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
-    { href: "/refer", label: "Refer a friend", authedOnly: true },
+    { href: "/profile#refer", label: "Refer a friend", authedOnly: true },
     { href: "/redeem", label: "Redeem a code" },
   ].filter((l) => !l.authedOnly || authed);
 

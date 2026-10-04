@@ -797,7 +797,7 @@ export default function SubjectsPage() {
       </button>
 
       <div className="mt-6 text-center">
-        <Link href="/dashboard" className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors">
+        <Link href="/profile" className="text-[12px] text-zinc-600 hover:text-zinc-400 transition-colors">
           See my past exams →
         </Link>
       </div>

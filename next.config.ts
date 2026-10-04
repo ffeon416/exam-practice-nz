@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
       { source: "/sign-up/:path*", destination: "/pricing", permanent: false },
       // The coach home was /today until 2026-09-30; it's the schedule now.
       { source: "/today", destination: "/schedule", permanent: false },
+      // 2026-10-04: /profile is the one dashboard. Progress and refer moved
+      // into it; the plan page went (the schedule replaced it).
+      { source: "/dashboard", destination: "/profile", permanent: false },
+      { source: "/refer", destination: "/profile#refer", permanent: false },
+      { source: "/plan", destination: "/schedule", permanent: false },
     ];
   },
 };

@@ -324,7 +324,7 @@ function ReviewInner() {
               Start remembering everything
             </Link>
             <Link
-              href="/dashboard"
+              href="/profile"
               className="w-full py-3 rounded-full text-zinc-500 font-medium text-[13px] hover:text-zinc-300 transition-colors text-center"
             >
               Maybe later
