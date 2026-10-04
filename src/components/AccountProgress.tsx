@@ -115,7 +115,8 @@ export default function AccountProgress() {
           <div className="space-y-2.5">
             {weak.map((t) => {
               const pct = Math.round(t.correctRate * 100);
-              const label = getTopicLabel(t.topic);
+              const raw = getTopicLabel(t.topic);
+              const label = /^[a-z0-9]+(-[a-z0-9]+)+$/.test(raw) ? titleCase(raw) : raw; // generated topics come back as slugs
               const subj = t.subject ?? topicSubject.get(t.topic);
               const params = new URLSearchParams({ topic: label });
               if (subj) params.set("guide", subj);

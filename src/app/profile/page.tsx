@@ -269,17 +269,15 @@ export default function ProfilePage() {
                 </span>
               ) : (
                 <>
-                  <span
-                    className={`text-[13px] font-semibold px-3 py-1 rounded-full border ${
-                      tier === "pro"
-                        ? "text-yellow-400 bg-yellow-500/10 border-yellow-500/30"
-                        : tier === "student"
-                        ? "text-indigo-400 bg-indigo-500/10 border-indigo-500/30"
-                        : "text-zinc-400 bg-white/[0.04] border-white/[0.1]"
-                    }`}
-                  >
-                    {TIER_LABELS[tier]}
-                  </span>
+                  {tier === "free" ? (
+                    <span className="text-[13px] font-semibold px-3 py-1 rounded-full border text-zinc-400 bg-white/[0.04] border-white/[0.1]">
+                      {TIER_LABELS[tier]}
+                    </span>
+                  ) : (
+                    <Link href="/profile/plan" className="inline-flex items-center gap-1.5 text-[14px] font-semibold px-4 min-h-[40px] rounded-full border text-yellow-400 bg-yellow-500/10 border-yellow-500/30 hover:bg-yellow-500/20 hover:border-yellow-500/50 transition-colors">
+                      {TIER_LABELS[tier]} <span className="text-yellow-400/70 font-normal">· see what&apos;s included →</span>
+                    </Link>
+                  )}
                   {tier === "free" && (
                     <span className="text-zinc-600 text-[12px]">
                       Limited features
@@ -332,8 +330,8 @@ export default function ProfilePage() {
           )}
         </section>
 
-        {/* What's included */}
-        <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
+        {/* What's included — leads only; paid users tap the Pro pill → /profile/plan */}
+        {!paid && <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
           <h2 className="font-mono text-[12px] text-zinc-500 uppercase tracking-wider mb-4">
             What&apos;s included
           </h2>
@@ -375,7 +373,7 @@ export default function ProfilePage() {
               See all plans &rarr;
             </Link>
           )}
-        </section>
+        </section>}
 
         {paid && <div className="mb-4"><ReferCard /></div>}
 
