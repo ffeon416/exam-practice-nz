@@ -31,6 +31,29 @@ const STUDYACE_YEAR = PRO_PRICING.yearly.amount; // 149
 const GREEN = "#3ee6a0", VIOLET = "#8b8cf8", AMBER = "#fbbf24", ROSE = "#ff6b7a";
 const nz = (n: number) => `NZ$${n.toLocaleString("en-NZ")}`;
 
+/** A dollar figure that races up from zero once `run` turns true. Shows the
+ *  final number until then (and always, under reduced motion). */
+function CountUp({ to, run, delay = 0 }: { to: number; run: boolean; delay?: number }) {
+  const [v, setV] = useState(to);
+  useEffect(() => {
+    if (!run || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const DUR = 900;
+    const zero = setTimeout(() => setV(0), 0);
+    const start = setTimeout(() => {
+      const t0 = performance.now();
+      const step = (t: number) => {
+        const p = Math.min(1, (t - t0) / DUR);
+        setV(Math.round(to * (1 - Math.pow(1 - p, 3)))); // fast, easing out at the end
+        if (p < 1) raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+    }, delay);
+    return () => { clearTimeout(zero); clearTimeout(start); cancelAnimationFrame(raf); };
+  }, [run, to, delay]);
+  return <>{nz(v)}</>;
+}
+
 const FAQS: { q: string; a: string }[] = [
   { q: "Is the marking actually honest, or does it just encourage them?", a: "Honest, deliberately. Every answer is marked the way an examiner marks it: one mark for the working, one for the answer, scored separately, with exactly what was missing. A hedge like \"not sure, maybe 4?\" scores zero, the same as it would on the day. Encouraging in tone, truthful in content." },
   { q: "Can it replace a tutor?", a: "For the part that moves grades, daily exam-style practice with honest marking and a plan, yes, and it's there every night instead of one hour a week. If your child needs a person to re-teach a topic from scratch, a tutor still earns their fee. Many families use both." },
@@ -220,7 +243,7 @@ export default function HomePage() {
               <div key={b.label}>
                 <div className="flex items-baseline justify-between gap-4">
                   <p className="text-white font-semibold text-[16px] sm:text-[17px]">{b.label} <span className="block sm:inline text-zinc-500 font-normal text-[13.5px] sm:ml-2">{b.note}</span></p>
-                  <p className={`${display.className} font-bold text-[24px] sm:text-[30px] leading-none tracking-[-0.03em] shrink-0`} style={{ color: b.color }}>{nz(b.amount)}</p>
+                  <p className={`${display.className} font-bold text-[24px] sm:text-[30px] leading-none tracking-[-0.03em] shrink-0`} style={{ color: b.color, fontVariantNumeric: "tabular-nums" }}><CountUp to={b.amount} run={costSeen} delay={i * 250} /></p>
                 </div>
                 <div className="h-3.5 rounded-full bg-white/[0.05] overflow-hidden mt-2.5">
                   <div className="sa-bar-grow relative h-full rounded-full overflow-hidden" style={{ width: `${Math.max(2.5, (b.amount / TUTOR_YEAR) * 100)}%`, background: b.color, boxShadow: `0 0 18px ${b.color}80`, transform: costSeen ? "scaleX(1)" : "scaleX(0)", transitionDelay: `${i * 250}ms` }}>
