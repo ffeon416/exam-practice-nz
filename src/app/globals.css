@@ -434,5 +434,5 @@ body {
 
 /* Homepage "three things": each card's glow layer fades in and out in turn (opacity only). */
 @keyframes sa-step-glow { 0% { opacity: 0; } 8% { opacity: 1; } 28% { opacity: 1; } 38% { opacity: 0; } 100% { opacity: 0; } }
-.sa-step-glow { opacity: 0; z-index: 1; animation: sa-step-glow 3.6s ease-in-out infinite; }
+.sa-step-glow { opacity: 0; z-index: 1; animation: sa-step-glow 2.7s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sa-step-glow { animation: none; opacity: 0; } }
