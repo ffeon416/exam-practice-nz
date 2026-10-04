@@ -171,7 +171,7 @@ export default function HomePage() {
             // Each card lights up in turn (01 → 02 → 03, on a loop), so the three read as a process.
             <div key={s.n} className="relative">
               <div className="sa-step-glow absolute inset-0 rounded-[24px] pointer-events-none" aria-hidden
-                style={{ animationDelay: `${i * 2}s`, border: `2px solid ${s.color}`, boxShadow: `0 0 0 1px ${s.color}55, 0 0 46px 2px ${s.color}73, inset 0 0 40px ${s.color}1f` }} />
+                style={{ animationDelay: `${i * 1.2}s`, border: `2.5px solid ${s.color}`, boxShadow: `0 0 0 2px ${s.color}80, 0 0 34px 4px ${s.color}b3, 0 0 90px 14px ${s.color}66, inset 0 0 60px ${s.color}38` }} />
               <div className="relative h-full rounded-[24px] border bg-[#0e0f13] p-6 sm:p-7 overflow-clip" style={{ borderColor: `${s.color}40`, backgroundImage: `linear-gradient(160deg, ${s.color}1c 0%, transparent 55%)` }}>
                 <span className="absolute left-6 right-6 top-0 h-[3px] rounded-b-full" style={{ background: s.color, boxShadow: `0 0 16px ${s.color}` }} aria-hidden />
                 <p className="font-mono text-[12px] font-bold tracking-[0.2em]" style={{ color: s.color }}>{s.n}</p>
