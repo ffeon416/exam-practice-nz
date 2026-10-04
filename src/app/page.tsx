@@ -11,7 +11,7 @@
 // that the product can't do. CSS keyframes only, no blur filters.
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
@@ -48,6 +48,18 @@ export default function HomePage() {
   useEffect(() => {
     if (isSignedIn && !tierLoading && tier !== "free") router.replace("/schedule");
   }, [isSignedIn, tier, tierLoading, router]);
+
+  // The cost bars grow when the section scrolls into view. IntersectionObserver,
+  // not a scroll listener: this page fires no window scroll events.
+  const costRef = useRef<HTMLDivElement>(null);
+  const [costSeen, setCostSeen] = useState(false);
+  useEffect(() => {
+    const el = costRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") { const id = setTimeout(() => setCostSeen(true), 0); return () => clearTimeout(id); }
+    const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { setCostSeen(true); io.disconnect(); } }, { threshold: 0.3 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const softwareApplicationSchema = {
     "@context": "https://schema.org",
@@ -203,15 +215,17 @@ export default function HomePage() {
           <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[52px] leading-[1] tracking-[-0.04em] mt-3`} style={{ textWrap: "balance" }}>
             A tutor is about {nz(TUTOR_YEAR)} a year. <span style={{ color: GREEN }}>StudyAce is {nz(STUDYACE_YEAR)}.</span>
           </h2>
-          <div className="mt-8 space-y-5">
-            {bars.map((b) => (
+          <div ref={costRef} className="mt-8 space-y-5">
+            {bars.map((b, i) => (
               <div key={b.label}>
                 <div className="flex items-baseline justify-between gap-4">
                   <p className="text-white font-semibold text-[16px] sm:text-[17px]">{b.label} <span className="block sm:inline text-zinc-500 font-normal text-[13.5px] sm:ml-2">{b.note}</span></p>
                   <p className={`${display.className} font-bold text-[24px] sm:text-[30px] leading-none tracking-[-0.03em] shrink-0`} style={{ color: b.color }}>{nz(b.amount)}</p>
                 </div>
                 <div className="h-3.5 rounded-full bg-white/[0.05] overflow-hidden mt-2.5">
-                  <div className="h-full rounded-full" style={{ width: `${Math.max(2.5, (b.amount / TUTOR_YEAR) * 100)}%`, background: b.color, boxShadow: `0 0 18px ${b.color}80` }} />
+                  <div className="sa-bar-grow relative h-full rounded-full overflow-hidden" style={{ width: `${Math.max(2.5, (b.amount / TUTOR_YEAR) * 100)}%`, background: b.color, boxShadow: `0 0 18px ${b.color}80`, transform: costSeen ? "scaleX(1)" : "scaleX(0)", transitionDelay: `${i * 250}ms` }}>
+                    <span className="sa-bar-shine absolute inset-y-0 w-24" style={{ animationDelay: `${1.6 + i * 0.5}s` }} aria-hidden />
+                  </div>
                 </div>
               </div>
             ))}

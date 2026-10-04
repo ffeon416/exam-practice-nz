@@ -449,3 +449,9 @@ body {
   .sa-q-dot { animation: none; opacity: 1; }
   .sa-spark { display: none; }
 }
+
+/* Homepage cost bars: grow from the left when seen, then a light sweeps across now and then. */
+.sa-bar-grow { transform-origin: left center; transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes sa-bar-shine { 0% { transform: translateX(-120px); opacity: 0; } 8% { opacity: 1; } 30% { transform: translateX(1300px); opacity: 0; } 100% { transform: translateX(1300px); opacity: 0; } }
+.sa-bar-shine { left: 0; opacity: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent); animation: sa-bar-shine 4.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .sa-bar-grow { transition: none; transform: none !important; } .sa-bar-shine { animation: none; } }
