@@ -11,8 +11,8 @@ import { type TaskKind } from "@/lib/dailyTask";
 import { KIND_ACCENT, KIND_SHORT, type WeekDay } from "@/components/WeekStrip";
 
 const EXAM = "#ff6b7a";
-const ROAD = "#1b1b26";
-const ROAD_DASH = "#3b3b4d";
+const ROAD = "#2e2e42";
+const ROAD_DASH = "#8a8aa8";
 
 type Slot = { key: string; top: string; bottom: string; sub: string; kind: TaskKind | "exam"; state: WeekDay["state"]; gap?: number };
 
@@ -80,7 +80,7 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
         {todayIdx >= 0 && <rect x={X(todayIdx) - colW / 2} y="0" width={colW} height={H} rx="18" fill="url(#sa-today-col)" />}
         {/* road */}
         <path d={road} fill="none" stroke={ROAD} strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" />
-        <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.5" strokeDasharray="3 6" strokeLinecap="round" />
+        <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.75" strokeDasharray="4 6" strokeLinecap="round" />
         {/* +N days on the last stretch */}
         {gapIdx > 0 && (
           <text x={(X(gapIdx - 1) + X(gapIdx)) / 2 + 16} y={(pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 30} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10.5" letterSpacing="2" fill="#71717a">+{gapSlot!.gap} DAYS</text>
