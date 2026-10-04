@@ -3,6 +3,8 @@
 // The pace line: grade bands as faint rules, a day per tick along the
 // bottom from the start of the plan to exam day, the pace line from the
 // first score to the goal on the flag, and You as the big node today.
+// Before the first score it shows the route as a moving dashed ghost from a
+// "?" at today to the flag: a route, never a made-up score.
 
 import { useEffect, useRef, useState } from "react";
 import { display } from "@/lib/displayFont";
@@ -53,6 +55,13 @@ export default function PaceLine({
   const flag = { x: examX, y: Y(goalPct) };
   // Gentle curve: a quadratic whose control point sits a little under the straight line.
   const pacePath = paceStart ? `M${paceStart.x} ${paceStart.y} Q${(paceStart.x + flag.x) / 2} ${(paceStart.y + flag.y) / 2 + 18} ${flag.x} ${flag.y}` : "";
+  const baseY = H - padB;
+  const paceArea = paceStart ? `${pacePath} L${flag.x} ${baseY} L${paceStart.x} ${baseY} Z` : "";
+  // No score yet: a ghost route from today to the flag, so the page shows
+  // where the line will run. It starts at a "?" because the start is unknown.
+  const ghostStart = !first ? { x: todayX, y: Y(yMin + (goalPct - yMin) * 0.3) } : null;
+  const ghostPath = ghostStart ? `M${ghostStart.x} ${ghostStart.y} Q${(ghostStart.x + flag.x) / 2} ${(ghostStart.y + flag.y) / 2 + 26} ${flag.x} ${flag.y}` : "";
+  const ghostArea = ghostStart ? `${ghostPath} L${flag.x} ${baseY} L${ghostStart.x} ${baseY} Z` : "";
   const scoreLine = points.map((p) => `${X(p.date)},${Y(p.pct)}`).join(" ");
 
   // Day ticks: every day; labels at day 1, today, each Monday, exam.
@@ -80,10 +89,33 @@ export default function PaceLine({
   return (
     <div ref={wrap}>
       <svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`} role="img" aria-label={youLabel ? `${youLabel}, goal ${goalLabel} on exam day` : "No scores yet"}>
+        <defs>
+          <linearGradient id="sa-pace-area" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={GREEN} stopOpacity="0.22" />
+            <stop offset="1" stopColor={GREEN} stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="sa-pace-zone" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={GREEN} stopOpacity="0.16" />
+            <stop offset="1" stopColor={GREEN} stopOpacity="0.03" />
+          </linearGradient>
+          <linearGradient id="sa-pace-beam" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={color} stopOpacity="0" />
+            <stop offset="1" stopColor={color} stopOpacity="0.2" />
+          </linearGradient>
+          <linearGradient id="sa-pace-stroke" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#8b8cf8" />
+            <stop offset="1" stopColor={GREEN} />
+          </linearGradient>
+        </defs>
+        {/* The goal zone: everything at or above the grade you chose */}
+        <rect x={padL} y={padT - 14} width={W - padR + 24 - padL} height={Y(goalPct) - padT + 14} rx="10" fill="url(#sa-pace-zone)" />
+        <text x={padL + 12} y={padT + 3} fontFamily="ui-monospace, Menlo, monospace" fontSize="10" letterSpacing="2" fontWeight="700" fill={GREEN} opacity="0.85">GOAL ZONE · {goalLabel}</text>
+        {/* Today's column */}
+        <rect x={todayX - 20} y={padT - 14} width="40" height={baseY - padT + 28} rx="14" fill="url(#sa-pace-beam)" />
         {/* Grade bands */}
         {bands.map((b) => (
           <g key={b.label}>
-            <line x1={padL} x2={W - padR + 24} y1={Y(b.v)} y2={Y(b.v)} stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <line x1={padL} x2={W - padR + 24} y1={Y(b.v)} y2={Y(b.v)} stroke={b.v === goalPct ? GREEN : "rgba(255,255,255,0.08)"} strokeOpacity={b.v === goalPct ? 0.55 : 1} strokeWidth={b.v === goalPct ? 1.5 : 1} strokeDasharray={b.v === goalPct ? "2 5" : undefined} />
             <text x={padL - 14} y={Y(b.v) + 4} textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="11" letterSpacing="1" fill={b.v === goalPct ? GREEN : "#71717a"} fontWeight={b.v === goalPct ? 700 : 500}>{b.label}</text>
           </g>
         ))}
@@ -101,15 +133,33 @@ export default function PaceLine({
         {/* Pace line to the flag */}
         {pacePath && (
           <>
-            <path d={pacePath} fill="none" stroke={GREEN} strokeWidth="2.5" strokeLinecap="round" style={{ filter: `drop-shadow(0 0 6px ${GREEN}66)` }} />
-            <path d={pacePath} fill="none" stroke="#0e0f13" strokeWidth="1" strokeDasharray="2 6" strokeLinecap="round" />
+            <path d={paceArea} fill="url(#sa-pace-area)" className="sa-fade-in" />
+            <path d={pacePath} pathLength={1} fill="none" stroke="url(#sa-pace-stroke)" strokeWidth="3.5" strokeLinecap="round" className="sa-draw" style={{ filter: `drop-shadow(0 0 8px ${GREEN}80)` }} />
+            <circle r="4" fill="#ffffff" style={{ filter: `drop-shadow(0 0 8px ${GREEN})` }}>
+              <animateMotion dur="3.6s" repeatCount="indefinite" path={pacePath} />
+            </circle>
+          </>
+        )}
+        {/* No score yet: the route the line will take, as a moving dashed ghost */}
+        {ghostStart && (
+          <>
+            <path d={ghostArea} fill="url(#sa-pace-area)" opacity="0.6" />
+            <path d={ghostPath} fill="none" stroke="url(#sa-pace-stroke)" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 10" className="sa-dash-flow" style={{ filter: `drop-shadow(0 0 8px ${GREEN}66)` }} />
+            <circle r="4" fill="#ffffff" style={{ filter: `drop-shadow(0 0 8px ${GREEN})` }}>
+              <animateMotion dur="3.6s" repeatCount="indefinite" path={ghostPath} />
+            </circle>
+            <circle cx={ghostStart.x} cy={ghostStart.y} r="17" fill="none" stroke="#8b8cf8" strokeWidth="2" opacity="0.6" className="sa-pulse-ring" />
+            <circle cx={ghostStart.x} cy={ghostStart.y} r="17" fill="#1c1a30" stroke="#8b8cf8" strokeWidth="2" />
+            <text x={ghostStart.x} y={ghostStart.y + 6} textAnchor="middle" fontFamily="ui-sans-serif, system-ui" fontSize="17" fontWeight="800" fill="#ffffff">?</text>
+            <text x={ghostStart.x + 28} y={ghostStart.y + 26} fontFamily="ui-sans-serif, system-ui" fontSize="13" fontWeight="700" fill="#e4e4e7">Your first score lands here</text>
           </>
         )}
         {/* Flag on exam day */}
         <g>
           <line x1={flag.x} y1={flag.y} x2={flag.x} y2={flag.y - 30} stroke={GREEN} strokeWidth="2" strokeLinecap="round" />
           <path d={`M${flag.x} ${flag.y - 32} L${flag.x + 22} ${flag.y - 26} L${flag.x} ${flag.y - 18} Z`} fill={GREEN} />
-          <circle cx={flag.x} cy={flag.y} r="6" fill={GREEN} />
+          <circle cx={flag.x} cy={flag.y} r="9" fill="none" stroke={GREEN} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" />
+          <circle cx={flag.x} cy={flag.y} r="7" fill={GREEN} style={{ filter: `drop-shadow(0 0 10px ${GREEN})` }} />
         </g>
         {/* Scores so far */}
         {points.length > 1 && <polyline points={scoreLine} fill="none" stroke={color} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" opacity="0.9" />}
@@ -124,6 +174,7 @@ export default function PaceLine({
         {/* You */}
         {youY != null && (
           <g>
+            <circle cx={todayX} cy={youY} r="20" fill="none" stroke={color} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" />
             <circle cx={todayX} cy={youY} r="22" fill="#1c1a30" />
             <circle cx={todayX} cy={youY} r="10" fill={color} style={{ filter: `drop-shadow(0 0 10px ${color}99)` }} />
             <text x={todayX + 18} y={youY + 26} fontFamily="ui-sans-serif, system-ui" fontSize="15" fontWeight="800" fill="#ffffff" className={display.className}>{youLabel}</text>

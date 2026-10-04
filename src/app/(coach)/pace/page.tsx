@@ -61,7 +61,9 @@ export default function PacePage() {
   }, [subject, attempts, goals, topicScores, today]);
 
   const state: PaceState = m && !m.noGoal && m.read ? m.read.state : "track";
-  const color = m && !m.noGoal && m.you != null ? STATE[state].color : "#a1a1aa";
+  const scored = !!m && !m.noGoal && m.you != null;
+  // No score yet → the card wears the goal's green; after that, the state colour.
+  const color = scored ? STATE[state].color : "#3ee6a0";
   const fmt = (d: string) => new Date(d + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "short", day: "numeric", month: "short" });
 
   const headline = (() => {
@@ -115,26 +117,36 @@ export default function PacePage() {
       ) : (
         <>
           {/* The read + the line */}
-          <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-9 lg:p-10">
-            <div className="flex items-start justify-between gap-6 flex-wrap">
-              <div>
-                {!m.noGoal && m.you != null && (
-                  <span className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full" style={{ color, background: `${color}1a` }}>
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: color }} />{STATE[state].pill}
+          <div className="relative rounded-[28px] border-2 bg-[#0e0f13] p-6 sm:p-9 lg:p-10 overflow-clip"
+            style={{
+              borderColor: `${color}66`,
+              backgroundImage: `linear-gradient(135deg, ${color}1f 0%, ${color}08 34%, transparent 62%), linear-gradient(315deg, #8b8cf81a 0%, transparent 45%)`,
+              boxShadow: `0 0 0 1px ${color}14, 0 28px 90px -28px ${color}59`,
+            }}>
+            {/* faint grid + corner glow: gradients only, no blur filters */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.5]" aria-hidden
+              style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)", backgroundSize: "44px 44px", maskImage: "radial-gradient(ellipse at 70% 0%, #000 0%, transparent 70%)", WebkitMaskImage: "radial-gradient(ellipse at 70% 0%, #000 0%, transparent 70%)" }} />
+            <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full pointer-events-none" aria-hidden style={{ background: `radial-gradient(circle, ${color}2b 0%, transparent 65%)` }} />
+            <div className="relative flex items-start justify-between gap-6 flex-wrap">
+              <div className="home-rise">
+                {!m.noGoal && (
+                  <span className="inline-flex items-center gap-2 font-mono font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.18em] px-3.5 py-1.5 rounded-full text-[#0a0a0f]" style={{ background: color }}>
+                    <span className="w-2 h-2 rounded-full bg-[#0a0a0f]/70 animate-pulse" />{scored ? STATE[state].pill : "Not on the map yet"}
                   </span>
                 )}
-                <h2 className={`${display.className} font-bold text-white text-[34px] sm:text-[48px] lg:text-[56px] leading-[1.02] tracking-[-0.04em] mt-3`}>
-                  {headline.a}<br />{headline.b}
+                <h2 className={`${display.className} font-bold text-white text-[38px] sm:text-[54px] lg:text-[64px] leading-[1] tracking-[-0.045em] mt-4`}>
+                  {headline.a}<br />
+                  <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${color} 0%, #8b8cf8 100%)` }}>{headline.b}</span>
                 </h2>
               </div>
-              <div className="text-right">
-                <Link href="/schedule" className="inline-flex items-center font-bold text-[17px] sm:text-[19px] px-7 sm:px-8 py-4 rounded-full min-h-[60px] text-[#07120d] transition-transform hover:scale-[1.02]" style={{ background: "#3ee6a0", boxShadow: "0 0 36px rgba(62,230,160,0.3)" }}>
-                  Tonight&apos;s paper →
+              <div className="sm:text-right">
+                <Link href="/schedule" className="inline-flex items-center font-bold text-[17px] sm:text-[19px] px-7 sm:px-8 py-4 rounded-full min-h-[60px] text-[#07120d] transition-transform hover:scale-[1.04]" style={{ background: "#3ee6a0", boxShadow: "0 0 44px rgba(62,230,160,0.45)" }}>
+                  {scored ? <>Tonight&apos;s paper →</> : <>Start my line →</>}
                 </Link>
-                <p className="text-zinc-500 text-[13.5px] mt-2.5">One a day keeps you on the line</p>
+                <p className="text-zinc-400 text-[13.5px] mt-2.5">{scored ? "One a day keeps you on the line" : "One grade check puts you on the map"}</p>
               </div>
             </div>
-            <div className="mt-8 sm:mt-12 -mx-2">
+            <div className="relative mt-8 sm:mt-10 -mx-2">
               {!m.noGoal ? (
                 <PaceLine points={m.points} planStart={m.planStart} examDate={m.examDate} goalPct={m.goalPct} goalLabel={m.goalLabel} today={today} color={color} you={m.you} shouldBe={m.read?.shouldBe ?? null} />
               ) : (
@@ -146,10 +158,10 @@ export default function PacePage() {
           {/* The four numbers */}
           {!m.noGoal && (
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-4 sm:mt-5">
-              <Stat value={m.read ? `${Math.abs(m.read.diff)} pts` : "—"} label={m.read ? (m.read.diff < 0 ? "behind pace today" : m.read.diff > 0 ? "ahead of pace today" : "right on pace today") : "no score yet"} color={m.read ? color : undefined} />
-              <Stat value={m.perDay != null ? `+${m.perDay < 1 ? m.perDay.toFixed(1) : Math.round(m.perDay)} a day` : "—"} label="what you need to average" />
-              <Stat value={m.spot ? m.spot.label.replace(/ questions$/, "") : "—"} label={m.spot ? "weakest topic · biggest win" : "no weak spot yet"} />
-              <Stat value={String(m.examDays)} label={`days to ${fmt(m.examDate)}`} color="#ff6b7a" />
+              <Stat eyebrow="Pace" value={m.read ? `${Math.abs(m.read.diff)} pts` : null} label={m.read ? (m.read.diff < 0 ? "behind pace today" : m.read.diff > 0 ? "ahead of pace today" : "right on pace today") : "shows after your first score"} color={m.read ? color : "#3ee6a0"} />
+              <Stat eyebrow="Daily climb" value={m.perDay != null ? `+${m.perDay < 1 ? m.perDay.toFixed(1) : Math.round(m.perDay)} a day` : null} label={m.perDay != null ? "what you need to average" : "shows after your first score"} color="#8b8cf8" />
+              <Stat eyebrow="Weak spot" value={m.spot ? m.spot.label.replace(/ questions$/, "") : null} label={m.spot ? "weakest topic · biggest win" : "found once you've sat a paper"} color="#fbbf24" />
+              <Stat eyebrow="Countdown" value={String(m.examDays)} label={`days to ${fmt(m.examDate)}`} color="#ff6b7a" progress={m.total > 0 ? Math.min(1, m.day / m.total) : undefined} />
             </div>
           )}
         </>
@@ -158,11 +170,20 @@ export default function PacePage() {
   );
 }
 
-function Stat({ value, label, color }: { value: string; label: string; color?: string }) {
+function Stat({ eyebrow, value, label, color, progress }: { eyebrow: string; value: string | null; label: string; color: string; progress?: number }) {
+  // value null = not known yet: a dim "?" in the card's colour, never a made-up number.
   return (
-    <div className="rounded-[24px] border border-white/[0.08] bg-[#0e0f13] p-5 sm:p-6 min-h-[104px] flex flex-col justify-between">
-      <p className={`${display.className} font-bold text-[28px] sm:text-[36px] leading-none tracking-[-0.03em] truncate`} style={{ color: color ?? "#ffffff" }}>{value}</p>
-      <p className="text-zinc-400 text-[13.5px] mt-2">{label}</p>
+    <div className="relative rounded-[24px] border bg-[#0e0f13] p-5 sm:p-6 min-h-[132px] flex flex-col justify-between overflow-clip transition-transform hover:-translate-y-0.5"
+      style={{ borderColor: `${color}40`, backgroundImage: `linear-gradient(160deg, ${color}1c 0%, transparent 55%)` }}>
+      <span className="absolute left-5 right-5 top-0 h-[3px] rounded-b-full" style={{ background: color, boxShadow: `0 0 16px ${color}` }} aria-hidden />
+      <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color }}>{eyebrow}</p>
+      <div>
+        <p className={`${display.className} font-bold text-[30px] sm:text-[38px] leading-none tracking-[-0.03em] truncate mt-3`} style={{ color: value == null ? `${color}80` : "#ffffff" }}>{value ?? "?"}</p>
+        <p className="text-zinc-400 text-[13.5px] mt-2">{label}</p>
+        {progress != null && (
+          <div className="h-1.5 rounded-full bg-white/[0.07] overflow-hidden mt-3"><div className="h-full rounded-full" style={{ width: `${Math.round(progress * 100)}%`, background: color }} /></div>
+        )}
+      </div>
     </div>
   );
 }
