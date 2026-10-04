@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
+import { useExamDue } from "@/components/ExamGate";
 
 export const COACH_ROUTE = /^\/(today|schedule|lesson|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/;
 export const IN_PAPER = /^\/exam\/[^/]+$/;
@@ -34,6 +35,7 @@ export default function Sidebar() {
   const { isSignedIn, isLoaded } = useAuth();
   const { user } = useUser();
   const { tier, loading } = useTier();
+  const examDue = useExamDue(); // exam day reached → the account link glows until the next exam is set
 
   const isPaid = isLoaded && !!isSignedIn && !loading && tier !== "free";
   const visible = isPaid && COACH_ROUTE.test(pathname) && !IN_PAPER.test(pathname) && pathname !== "/welcome";
@@ -70,13 +72,13 @@ export default function Sidebar() {
 
       {/* Plan + account */}
       <div className="p-4 pt-2">
-        <Link href="/profile" className={`flex items-center gap-3.5 rounded-2xl border px-3.5 py-3.5 transition-colors ${/^\/(profile|dashboard|refer)/.test(pathname) ? "border-indigo-400/60 bg-indigo-500/[0.16]" : "border-indigo-400/30 bg-indigo-500/[0.08] hover:bg-indigo-500/[0.14] hover:border-indigo-400/50"}`}>
+        <Link href={examDue ? "/profile#setup" : "/profile"} className={`flex items-center gap-3.5 rounded-2xl border px-3.5 py-3.5 transition-colors ${examDue ? "sa-attn " : ""}${/^\/(profile|dashboard|refer)/.test(pathname) ? "border-indigo-400/60 bg-indigo-500/[0.16]" : "border-indigo-400/30 bg-indigo-500/[0.08] hover:bg-indigo-500/[0.14] hover:border-indigo-400/50"}`}>
           <span className="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-indigo-500/30 ring-2 ring-indigo-400/40 flex items-center justify-center text-indigo-100 text-[18px] font-bold">
             {user?.imageUrl && !user.imageUrl.includes("default") ? <img src={user.imageUrl} alt="" className="w-full h-full object-cover" /> : (name[0] ?? "?").toUpperCase()}
           </span>
           <span className="min-w-0 flex-1">
             <span className="block text-[16px] font-bold text-white truncate">{name}</span>
-            <span className="block text-[13px] text-indigo-200/90">Dashboard &amp; account</span>
+            <span className={`block text-[13px] ${examDue ? "text-white font-semibold" : "text-indigo-200/90"}`}>{examDue ? "Set your next exam" : <>Dashboard &amp; account</>}</span>
           </span>
           <span className="text-indigo-200 text-[18px] shrink-0" aria-hidden>→</span>
         </Link>

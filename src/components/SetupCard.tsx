@@ -13,12 +13,14 @@ import { loadOnboarding } from "@/lib/onboarding";
 import { goalFor, loadGoals, syncGoals } from "@/lib/goals";
 import { resolveCurriculum, LETTER_BANDS } from "@/data/curricula";
 import { setScopeUserId } from "@/lib/userScope";
+import { examDue } from "@/components/ExamGate";
 
 type Row = { k: string; v: string };
 
 export default function SetupCard() {
   const { user, isLoaded } = useUser();
   const [rows, setRows] = useState<Row[] | null>(null);
+  const [due, setDue] = useState(false); // exam day reached → the card glows
 
   useEffect(() => {
     if (!isLoaded || !user) return;
@@ -30,6 +32,7 @@ export default function SetupCard() {
       const c = resolveCurriculum(ob.curriculumId);
       const subject = ob.subjects[0];
       const g = goalFor(goals, subject);
+      setDue(examDue(ob.subjects, goals));
       setRows([
         { k: "Exam system", v: `${c.system} · ${c.levels.find((l) => l.value === ob.yearLevel)?.label ?? `Year ${ob.yearLevel}`}` },
         { k: "Subject", v: c.subjects.find((s) => s.value === subject)?.label ?? subject },
@@ -48,9 +51,9 @@ export default function SetupCard() {
   const empty = rows.length === 0;
 
   return (
-    <section id="setup" className="rounded-[28px] border border-indigo-400/25 bg-[#0e0f13] p-5 sm:p-7 scroll-mt-6" style={{ backgroundImage: "linear-gradient(160deg, rgba(139,140,248,0.10) 0%, transparent 55%)" }}>
+    <section id="setup" className={`rounded-[28px] border bg-[#0e0f13] p-5 sm:p-7 scroll-mt-6 ${due ? "sa-attn border-indigo-400/70" : "border-indigo-400/25"}`} style={{ backgroundImage: "linear-gradient(160deg, rgba(139,140,248,0.10) 0%, transparent 55%)" }}>
       <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Your setup</p>
-      <h2 className={`${display.className} font-bold text-white text-[24px] sm:text-[28px] leading-tight tracking-[-0.03em] mt-3`}>{empty ? "Not set up on this device yet." : "What your schedule is built around."}</h2>
+      <h2 className={`${display.className} font-bold text-white text-[24px] sm:text-[28px] leading-tight tracking-[-0.03em] mt-3`}>{empty ? "Not set up on this device yet." : due ? "That exam's here. Set your next one." : "What your schedule is built around."}</h2>
       {!empty && (
         <dl className="mt-4 divide-y divide-white/[0.06]">
           {rows.map((r) => (
@@ -62,7 +65,7 @@ export default function SetupCard() {
         </dl>
       )}
       <Link href="/welcome?next=1" className="mt-5 flex items-center justify-center font-bold text-[16px] rounded-full min-h-[52px] text-[#0a0a0f] bg-[#8b8cf8] transition-transform hover:scale-[1.02]">
-        {empty ? "Answer the questions →" : "Change my setup →"}
+        {empty ? "Answer the questions →" : due ? "Set my next exam →" : "Change my setup →"}
       </Link>
       <p className="text-zinc-500 text-[13px] leading-relaxed mt-3">
         Wrong subject, wrong date, changed your goal? Go through the questions again. It takes a minute and costs nothing; your plan and payment stay exactly as they are. Your schedule restarts at day 1 with a fresh grade check, and your past papers are kept.

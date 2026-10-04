@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { useTier } from "@/hooks/useTier";
+import { useExamDue } from "@/components/ExamGate";
 
 const TABS = [
   { href: "/schedule", label: "Schedule", icon: (a: boolean) => (
@@ -34,6 +35,7 @@ export default function BottomTabs() {
   const pathname = usePathname();
   const { isSignedIn, isLoaded } = useAuth();
   const { tier, loading } = useTier();
+  const examDue = useExamDue(); // exam day reached → a glowing dot on "You" until the next exam is set
 
   const isPaid = isLoaded && !!isSignedIn && !loading && tier !== "free";
   const visible = isPaid && COACH_PREFIX.test(pathname) && !IN_PAPER.test(pathname) && pathname !== "/welcome";
@@ -62,6 +64,7 @@ export default function BottomTabs() {
               className={`relative flex flex-col items-center justify-center gap-0.5 text-[10.5px] font-semibold ${active ? "text-white" : "text-zinc-500"}`}>
               {t.icon(active)}
               {t.label}
+              {examDue && t.href === "/profile" && <span className="sa-attn absolute top-1.5 left-1/2 ml-2 w-2.5 h-2.5 rounded-full bg-indigo-400" aria-label="Set your next exam" />}
             </Link>
           );
         })}

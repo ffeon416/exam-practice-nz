@@ -5,7 +5,7 @@
 // the student back to /schedule, which turns into the setup wizard. The
 // dashboard (/profile: billing, sign out) and exam day itself stay open.
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { loadOnboarding } from "@/lib/onboarding";
@@ -19,6 +19,31 @@ const GATED = /^\/(pace|streak|subjects)(\/|$)/;
 export function allExamsPassed(subjects: string[], goals: SubjectGoal[]): boolean {
   if (subjects.length === 0) return false;
   return subjects.every((s) => { const g = goalFor(goals, s); return !!g?.examDate && daysUntil(g.examDate) < 0; });
+}
+
+/** True from exam day onwards: every exam date is today or behind them, so it's time to set the next one. */
+export function examDue(subjects: string[], goals: SubjectGoal[]): boolean {
+  if (subjects.length === 0) return false;
+  return subjects.every((s) => { const g = goalFor(goals, s); return !!g?.examDate && daysUntil(g.examDate) <= 0; });
+}
+
+/** For the nav: is it time to set the next exam? Re-checked on every page change. */
+export function useExamDue(): boolean {
+  const pathname = usePathname();
+  const { user, isLoaded } = useUser();
+  const [due, setDue] = useState(false);
+  useEffect(() => {
+    if (!isLoaded || !user) return;
+    setScopeUserId(user.id);
+    let cancelled = false;
+    const id = setTimeout(() => {
+      const subjects = loadOnboarding()?.subjects ?? [];
+      setDue(examDue(subjects, loadGoals()));
+      syncGoals().then((goals) => { if (!cancelled) setDue(examDue(subjects, goals)); }).catch(() => {});
+    }, 0);
+    return () => { cancelled = true; clearTimeout(id); };
+  }, [pathname, isLoaded, user]);
+  return due;
 }
 
 export default function ExamGate() {
