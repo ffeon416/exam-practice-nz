@@ -385,10 +385,7 @@ export default function ProfilePage() {
 
         {/* Help */}
         <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
-          <div className="grid grid-cols-2 gap-2">
-            <QuickLink href="/contact" label="Contact us" />
-            <QuickLink href="https://discord.gg/3sGUANx7uW" label="Discord" />
-          </div>
+          <QuickLink href="/contact" label="Contact us" />
         </section>
 
         {/* Sign out */}

@@ -5,7 +5,7 @@ import { useAuth } from "@clerk/nextjs";
 
 // Shared footer for the public/sales pages. Signed-out visitors get the
 // conversion links up front (grade check, pricing); everything that used to
-// crowd the header (schools, contact, Discord, redeem, legal) lives here.
+// crowd the header (schools, contact, redeem, legal) lives here.
 export default function SiteFooter() {
   const { isSignedIn, isLoaded } = useAuth();
   const authed = isLoaded && isSignedIn;
@@ -56,7 +56,6 @@ export default function SiteFooter() {
           <div>
             <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 font-semibold mb-3">Company</p>
             <ul className="space-y-2">
-              <li><a href="https://discord.gg/3sGUANx7uW" target="_blank" rel="noopener noreferrer" className="text-[13px] text-zinc-400 hover:text-white transition-colors">Discord community</a></li>
               <li><Link href="/privacy" className="text-[13px] text-zinc-400 hover:text-white transition-colors">Privacy</Link></li>
               <li><Link href="/terms" className="text-[13px] text-zinc-400 hover:text-white transition-colors">Terms</Link></li>
             </ul>

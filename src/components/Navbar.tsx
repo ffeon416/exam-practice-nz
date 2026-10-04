@@ -21,7 +21,7 @@ const authedLinks = [
 ];
 
 // Signed-out: one path to a sale. Grade check → pricing, with the blog for
-// trust. Schools, contact, Discord and legal all live in the footer.
+// trust. Schools, contact and legal all live in the footer.
 const publicLinks = [
   { href: "/grade", label: "Grade check" },
   { href: "/pricing", label: "Pricing" },
