@@ -9,6 +9,7 @@ import { useTier, isUnlimited } from "@/hooks/useTier";
 import { TIER_LABELS } from "@/lib/tierLimits";
 import AccountProgress from "@/components/AccountProgress";
 import ReferCard from "@/components/ReferCard";
+import SetupCard from "@/components/SetupCard";
 
 // /profile — the dashboard. One page for everything about the student:
 // progress (was /dashboard), plan and billing, refer a friend (was /refer),
@@ -257,6 +258,8 @@ export default function ProfilePage() {
             </div>
           </div>
         </section>
+
+        {paid && <div className="mb-4"><SetupCard /></div>}
 
         {/* Plan */}
         <section className="rounded-[32px] border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6 mb-4">
