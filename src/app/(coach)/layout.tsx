@@ -3,6 +3,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { getTier } from "@/lib/supabase";
 import { claimPurchase } from "@/lib/claimPurchase";
+import ExamGate from "@/components/ExamGate";
 
 export const dynamic = "force-dynamic";
 
@@ -26,5 +27,7 @@ export default async function CoachLayout({ children }: { children: ReactNode })
     } catch {}
   }
   if (tier === "free") redirect("/start");
-  return <>{children}</>;
+  // ExamGate: after the last exam date, Pace/Streak/Practise send the
+  // student to /schedule to set the next exam (see the component).
+  return <><ExamGate />{children}</>;
 }

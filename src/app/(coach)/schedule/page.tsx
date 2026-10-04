@@ -324,7 +324,7 @@ function ScheduleInner() {
     nextExam.examToday
       ? { title: "Exam day. Good luck.", sub: `Your ${label(nextExam.examToday.subject)} exam is today. When you're out, set the next one and StudyAce rebuilds your schedule from a fresh grade check.` }
       : nextExam.passed
-        ? { title: "That exam's done. What's next?", sub: `Your ${label(nextExam.passed.subject)} exam was on ${fmt(nextExam.passed.date)}. Set the next one and your whole schedule is rebuilt backwards from that date.` }
+        ? { title: "That exam's done. What's next?", sub: `Your ${label(nextExam.passed.subject)} exam was on ${fmt(nextExam.passed.date)}. Set the next one and your whole schedule is rebuilt backwards from that date. Pace, Streak and Practise open again as soon as it's set.` }
         : { title: "When's your next exam?", sub: "Your schedule is built backwards from your exam date: one task a day so you land on your goal grade on the day." }
   ) : null;
 
