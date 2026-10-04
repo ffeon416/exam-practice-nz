@@ -75,7 +75,7 @@ export default function PacePage() {
   })();
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
+    <div className="w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-16">
       {/* Header */}
       <div className="flex items-end justify-between gap-4 flex-wrap mb-5 sm:mb-6">
         <div>

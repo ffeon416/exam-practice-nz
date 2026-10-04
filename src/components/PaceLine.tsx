@@ -40,7 +40,7 @@ export default function PaceLine({
   }, []);
 
   const total = Math.max(1, dayDiff(planStart, examDate));            // days from day 1 to exam
-  const H = 300, padL = 54, padR = 60, padT = 30, padB = 50;
+  const H = 340, padL = 54, padR = 60, padT = 30, padB = 50;
   const W = Math.max(320, width);
   const X = (key: string) => padL + (Math.min(total, Math.max(0, dayDiff(planStart, key))) / total) * (W - padL - padR);
   const scores = points.map((p) => p.pct);
