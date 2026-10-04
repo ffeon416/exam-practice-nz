@@ -37,7 +37,7 @@ export default function PlanIncludedPage() {
   }
 
   const items: { title: string; detail: string }[] = [
-    { title: "Your daily schedule", detail: "One task a day, built for your subjects, your goal grade and your exam date." },
+    { title: "Your daily schedule", detail: "One task a day, built for one subject at a time: your goal grade, your exam date." },
     { title: "A grade check every week", detail: "So the plan always knows where you really are." },
     { title: "Review lessons", detail: "Short lessons built from the questions you got wrong." },
     { title: isUnlimited(limits.examsPerWeek) ? "Unlimited practice papers" : `${limits.examsPerWeek} practice papers a week`, detail: `Any subject in your exam system, up to ${limits.maxQuestions} questions a paper.` },

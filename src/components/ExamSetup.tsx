@@ -4,7 +4,7 @@
 // (/welcome, mode "first") and setting up the NEXT exam, inline on the
 // schedule page (mode "next": prefilled, no install step, plan restarts at
 // day 1). Left: the steps. Right: the one you're on.
-//   1 exam system + year   2 subjects   3 goal per subject + exam date
+//   1 exam system + year   2 the subject (one at a time)   3 goal + exam date
 //   4 add to home screen (first only)   5 grade check, ready
 // The grade check builds in the background from step 3.
 
@@ -59,7 +59,7 @@ export default function ExamSetup({ mode, intro }: { mode: "first" | "next"; int
       if (ob && nextExam) {
         // Prefill from the current setup; they usually only change the date.
         const c = resolveCurriculum(ob.curriculumId);
-        setCountry(c.country); setCurriculumId(c.id); setYear(ob.yearLevel); setSubjects(ob.subjects);
+        setCountry(c.country); setCurriculumId(c.id); setYear(ob.yearLevel); setSubjects(ob.subjects.slice(0, 1));
       }
       setInstalled(isStandalone());
       setIos(isIOS());
@@ -82,7 +82,8 @@ export default function ExamSetup({ mode, intro }: { mode: "first" | "next"; int
     setCurriculumId(group.length === 1 ? group[0].id : "");
   }
   function toggleSubject(v: string) {
-    setSubjects((prev) => prev.includes(v) ? prev.filter((s) => s !== v) : prev.length >= 3 ? prev : [...prev, v]);
+    // One subject at a time: tapping another one swaps it.
+    setSubjects((prev) => (prev[0] === v ? [] : [v]));
   }
   function goToGoals() {
     setGoals((g) => Object.fromEntries(subjects.map((s) => [s, g[s] ?? bands[0].id])));
@@ -115,7 +116,7 @@ export default function ExamSetup({ mode, intro }: { mode: "first" | "next"; int
   const firstName = user?.firstName?.trim();
   const steps: { n: Step; title: string; done: string }[] = [
     { n: 1, title: "Your exam", done: curriculumId && year != null ? `${curriculum.system} · ${curriculum.levels.find((l) => l.value === year)?.label ?? ""}` : "" },
-    { n: 2, title: "Subjects", done: subjects.map(label).join(", ") },
+    { n: 2, title: "Subject", done: subjects.map(label).join(", ") },
     { n: 3, title: "Goal and date", done: examDate ? `${subjects.map((s) => bands.find((b) => b.id === goals[s])?.label ?? "").filter(Boolean).join(" · ")} · ${new Date(examDate + "T12:00:00").toLocaleDateString("en-NZ", { day: "numeric", month: "short" })}` : "" },
     ...(nextExam ? [] : [{ n: 4 as Step, title: "Home screen", done: installed ? "Installed" : "" }]),
     { n: 5, title: "Grade check", done: paper ? "Ready" : "" },
@@ -195,16 +196,16 @@ export default function ExamSetup({ mode, intro }: { mode: "first" | "next"; int
 
         {step === 2 && (
           <>
-            <h2 className={`${display.className} ${h2}`}>Pick up to three subjects</h2>
-            <p className="text-zinc-400 text-[14px] mb-6">Your grade check is in the first one you tap.</p>
+            <h2 className={`${display.className} ${h2}`}>{nextExam ? "Which subject is next?" : "Which subject first?"}</h2>
+            <p className="text-zinc-400 text-[14px] mb-6">One subject at a time. Pick the exam you most want to move; your whole schedule is built for it. You can still practise any subject whenever you like.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-7">
               {yearSubjects.map((s) => {
-                const on = subjects.includes(s.value); const idx = subjects.indexOf(s.value);
+                const on = subjects.includes(s.value);
                 return (
                   <button key={s.value} onClick={() => toggleSubject(s.value)}
                     className={`rounded-2xl border px-4 py-3.5 min-h-[52px] text-left flex items-center justify-between gap-2 transition-colors ${on ? "border-indigo-400/60 bg-indigo-500/[0.12] text-white" : "border-white/[0.08] bg-white/[0.02] text-zinc-300 hover:border-white/25"}`}>
                     <span className="text-[14px] font-semibold">{s.label}</span>
-                    {on && <span className="w-6 h-6 rounded-full bg-indigo-500 text-white text-[11px] font-bold flex items-center justify-center shrink-0">{idx + 1}</span>}
+                    {on && <span className="w-6 h-6 rounded-full bg-indigo-500 text-white text-[12px] font-bold flex items-center justify-center shrink-0" aria-hidden>✓</span>}
                   </button>
                 );
               })}
@@ -231,13 +232,13 @@ export default function ExamSetup({ mode, intro }: { mode: "first" | "next"; int
               ))}
             </div>
             <div className="mb-7">
-              <p className="text-white font-semibold text-[14px] mb-2">{nextExam ? "When is the exam?" : "When are your exams?"}</p>
+              <p className="text-white font-semibold text-[14px] mb-2">When is your {subjects[0] ? label(subjects[0]) : ""} exam?</p>
               <DatePicker value={examDate} min={minDate} onChange={setExamDate} />
               <p className="text-zinc-500 text-[12px] mt-2">
-                {examDate ? <>Exam on <span className="text-zinc-300">{new Date(examDate + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}</span>. You can set a date per subject later on the Pace page.</> : "Start of your exam period is fine. You can set a date per subject later on the Pace page."}
+                {examDate ? <>Exam on <span className="text-zinc-300">{new Date(examDate + "T12:00:00").toLocaleDateString("en-NZ", { weekday: "long", day: "numeric", month: "long" })}</span>. When it&apos;s done, you set up the next subject.</> : "The day of the exam. When it's done, you set up the next subject."}
               </p>
             </div>
-            <button onClick={finishGoals} disabled={!examDate || subjects.some((s) => !goals[s])} className={btn}>{nextExam ? "Build my schedule" : "Set my goals"}</button>
+            <button onClick={finishGoals} disabled={!examDate || subjects.some((s) => !goals[s])} className={btn}>{nextExam ? "Build my schedule" : "Set my goal"}</button>
             <button onClick={() => setStep(2)} className="w-full text-zinc-500 hover:text-zinc-300 text-[13px] py-3 mt-1">Back</button>
           </>
         )}

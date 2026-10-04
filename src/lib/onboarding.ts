@@ -24,7 +24,10 @@ export function loadOnboarding(): OnboardingPrefs | null {
     ) {
       return null;
     }
-    return parsed;
+    // One subject at a time (2026-10-04): the schedule, pace and countdown are
+    // all built around a single exam. Setups saved with several subjects keep
+    // the first; the others are still there to practise from the Practise page.
+    return { ...parsed, subjects: parsed.subjects.slice(0, 1) };
   } catch {
     return null;
   }
@@ -33,7 +36,7 @@ export function loadOnboarding(): OnboardingPrefs | null {
 export function saveOnboarding(prefs: Omit<OnboardingPrefs, "completedAt">) {
   if (typeof window === "undefined") return;
   try {
-    const toSave: OnboardingPrefs = { ...prefs, completedAt: new Date().toISOString() };
+    const toSave: OnboardingPrefs = { ...prefs, subjects: prefs.subjects.slice(0, 1), completedAt: new Date().toISOString() };
     localStorage.setItem(scopedKey(STORAGE_KEY), JSON.stringify(toSave));
   } catch {
     // Quota exceeded or storage disabled
