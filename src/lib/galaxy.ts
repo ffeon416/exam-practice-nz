@@ -88,9 +88,13 @@ export type Galaxy = {
 
 const next = (key: string): string => { const d = new Date(key + "T12:00:00"); d.setDate(d.getDate() + 1); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
 
-/** `dates` and `today` are local date keys (YYYY-MM-DD). */
-export function computeGalaxy(dates: string[], today: string): Galaxy {
-  const set = new Set(dates.filter((d) => d <= today));
+/** The night the galaxy went live. Papers marked before it don't count as
+ *  stars: nobody was lighting stars then, so everyone starts from zero. */
+export const GALAXY_EPOCH = "2026-10-04";
+
+/** `dates`, `today` and `since` are local date keys (YYYY-MM-DD). */
+export function computeGalaxy(dates: string[], today: string, since: string = GALAXY_EPOCH): Galaxy {
+  const set = new Set(dates.filter((d) => d <= today && d >= since));
   const g: Galaxy = { completed: [], ordinal: 0, lit: 0, doneToday: set.has(today), lostLastNight: 0, totalNights: 0, bestRun: 0 };
   if (set.size === 0) return g;
   let run = 0;

@@ -119,7 +119,7 @@ export default function StarSky({ attemptDates, preview = false }: { attemptDate
   const save = (patch: Partial<Saved>) => setSaved((s) => { const n = { ...(s ?? EMPTY), ...patch }; if (!preview) writeSaved(n); return n; });
 
   const today = now?.today ?? "";
-  const g = computeGalaxy(attemptDates, today || "0000-00-00");
+  const g = computeGalaxy(attemptDates, today || "0000-00-00", preview ? "0000-00-00" : undefined);
   const ready = !!now && !!saved;
 
   // A constellation finished since the student last looked: show it, name it.
