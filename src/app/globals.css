@@ -431,3 +431,8 @@ body {
 @keyframes sa-attn { 0%, 100% { box-shadow: 0 0 0 0 rgba(139,140,248,0.0), 0 0 18px 0 rgba(139,140,248,0.35); } 50% { box-shadow: 0 0 0 4px rgba(139,140,248,0.22), 0 0 34px 6px rgba(139,140,248,0.6); } }
 .sa-attn { animation: sa-attn 1.8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sa-attn { animation: none; box-shadow: 0 0 0 3px rgba(139,140,248,0.3), 0 0 26px 4px rgba(139,140,248,0.5); } }
+
+/* Homepage "three things": each card's glow layer fades in and out in turn (opacity only). */
+@keyframes sa-step-glow { 0% { opacity: 0; } 8% { opacity: 1; } 28% { opacity: 1; } 38% { opacity: 0; } 100% { opacity: 0; } }
+.sa-step-glow { opacity: 0; z-index: 1; animation: sa-step-glow 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .sa-step-glow { animation: none; opacity: 0; } }

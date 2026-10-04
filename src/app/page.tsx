@@ -167,12 +167,17 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
         <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[48px] leading-[1.02] tracking-[-0.04em] text-center`} style={{ textWrap: "balance" }}>Three things. Nothing else.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-10">
-          {steps.map((s) => (
-            <div key={s.n} className="relative rounded-[24px] border bg-[#0e0f13] p-6 sm:p-7 overflow-clip" style={{ borderColor: `${s.color}40`, backgroundImage: `linear-gradient(160deg, ${s.color}1c 0%, transparent 55%)` }}>
-              <span className="absolute left-6 right-6 top-0 h-[3px] rounded-b-full" style={{ background: s.color, boxShadow: `0 0 16px ${s.color}` }} aria-hidden />
-              <p className="font-mono text-[12px] font-bold tracking-[0.2em]" style={{ color: s.color }}>{s.n}</p>
-              <h3 className={`${display.className} font-bold text-white text-[24px] sm:text-[28px] leading-tight tracking-[-0.03em] mt-3`}>{s.title}</h3>
-              <p className="text-zinc-300 text-[15.5px] leading-relaxed mt-3">{s.body}</p>
+          {steps.map((s, i) => (
+            // Each card lights up in turn (01 → 02 → 03, on a loop), so the three read as a process.
+            <div key={s.n} className="relative">
+              <div className="sa-step-glow absolute inset-0 rounded-[24px] pointer-events-none" aria-hidden
+                style={{ animationDelay: `${i * 2}s`, border: `2px solid ${s.color}`, boxShadow: `0 0 0 1px ${s.color}55, 0 0 46px 2px ${s.color}73, inset 0 0 40px ${s.color}1f` }} />
+              <div className="relative h-full rounded-[24px] border bg-[#0e0f13] p-6 sm:p-7 overflow-clip" style={{ borderColor: `${s.color}40`, backgroundImage: `linear-gradient(160deg, ${s.color}1c 0%, transparent 55%)` }}>
+                <span className="absolute left-6 right-6 top-0 h-[3px] rounded-b-full" style={{ background: s.color, boxShadow: `0 0 16px ${s.color}` }} aria-hidden />
+                <p className="font-mono text-[12px] font-bold tracking-[0.2em]" style={{ color: s.color }}>{s.n}</p>
+                <h3 className={`${display.className} font-bold text-white text-[24px] sm:text-[28px] leading-tight tracking-[-0.03em] mt-3`}>{s.title}</h3>
+                <p className="text-zinc-300 text-[15.5px] leading-relaxed mt-3">{s.body}</p>
+              </div>
             </div>
           ))}
         </div>
