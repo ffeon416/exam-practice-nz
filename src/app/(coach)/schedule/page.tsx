@@ -358,7 +358,7 @@ function ScheduleInner() {
         <>
           {/* The road: context, not the main event, so no card around it */}
           <div className="px-1 sm:px-4 pt-1 pb-2 opacity-80">
-            {weekDays.length ? <RoadMap days={weekDays} examDate={todayExamDate} examDays={todayExamDays} /> : <div className="h-[280px] animate-pulse" />}
+            {weekDays.length ? <RoadMap days={weekDays} examDate={todayExamDate} examDays={todayExamDays} /> : <div className="h-[230px] animate-pulse" />}
           </div>
 
           {/* Today + the two numbers */}

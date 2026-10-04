@@ -45,7 +45,7 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
 
   // Geometry: nodes zigzag low/high, the flag sits up top right.
   const n = slots.length;
-  const H = 210, padL = 40, padR = 56, yLow = 138, yHigh = 82, yFlag = 30;
+  const H = 164, padL = 40, padR = 56, yLow = 112, yHigh = 70, yFlag = 34;
   const W = Math.max(320, width);
   const X = (i: number) => padL + (n <= 1 ? 0 : (i * (W - padL - padR)) / (n - 1));
   const pts = slots.map((s, i) => ({ x: X(i), y: s.kind === "exam" ? yFlag : i % 2 === 0 ? yLow : yHigh }));
@@ -61,9 +61,9 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
       {/* Top labels */}
       <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
         {slots.map((s) => (
-          <p key={s.key} className={`font-mono text-[10.5px] sm:text-[11.5px] uppercase tracking-[0.2em] ${s.kind === "exam" ? "text-right pr-1" : "text-center"} ${s.state === "today" ? "" : "text-zinc-500"}`}>
+          <p key={s.key} className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] ${s.kind === "exam" ? "text-right pr-1" : "text-center"} ${s.state === "today" ? "" : "text-zinc-500"}`}>
             {s.state === "today"
-              ? <span className="inline-block px-2.5 py-1 rounded-full font-bold text-[#0a0a0f]" style={{ background: KIND_ACCENT[s.kind as TaskKind], boxShadow: `0 0 18px ${KIND_ACCENT[s.kind as TaskKind]}66` }}>{s.top}</span>
+              ? <span className="inline-block px-2 py-0.5 rounded-full font-bold text-[#0a0a0f]" style={{ background: KIND_ACCENT[s.kind as TaskKind], boxShadow: `0 0 18px ${KIND_ACCENT[s.kind as TaskKind]}66` }}>{s.top}</span>
               : s.top}
           </p>
         ))}
@@ -79,39 +79,39 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
         {/* today's column, lit from the label down to the node */}
         {todayIdx >= 0 && <rect x={X(todayIdx) - colW / 2} y="0" width={colW} height={H} rx="18" fill="url(#sa-today-col)" />}
         {/* road */}
-        <path d={road} fill="none" stroke={ROAD} strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={road} fill="none" stroke={ROAD} strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" />
         <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.5" strokeDasharray="3 6" strokeLinecap="round" />
         {/* +N days on the last stretch */}
         {gapIdx > 0 && (
-          <text x={(X(gapIdx - 1) + X(gapIdx)) / 2 + 16} y={(pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 36} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10.5" letterSpacing="2" fill="#71717a">+{gapSlot!.gap} DAYS</text>
+          <text x={(X(gapIdx - 1) + X(gapIdx)) / 2 + 16} y={(pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 30} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10.5" letterSpacing="2" fill="#71717a">+{gapSlot!.gap} DAYS</text>
         )}
         {/* nodes */}
         {slots.map((s, i) => {
           const { x, y } = pts[i];
           if (s.kind === "exam") return (
             <g key={s.key}>
-              <line x1={x} y1={y} x2={x} y2={y - 40} stroke={EXAM} strokeWidth="2.5" strokeLinecap="round" />
-              <path d={`M${x} ${y - 42} L${x + 30} ${y - 34} L${x} ${y - 24} Z`} fill={EXAM} />
-              <circle cx={x} cy={y} r="9" fill={EXAM} />
+              <line x1={x} y1={y} x2={x} y2={y - 32} stroke={EXAM} strokeWidth="2.5" strokeLinecap="round" />
+              <path d={`M${x} ${y - 34} L${x + 24} ${y - 27} L${x} ${y - 19} Z`} fill={EXAM} />
+              <circle cx={x} cy={y} r="7.5" fill={EXAM} />
             </g>
           );
           const c = KIND_ACCENT[s.kind];
           if (s.state === "today") return (
             <g key={s.key}>
-              <circle cx={x} cy={y} r="26" fill="none" stroke={c} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" />
-              <circle cx={x} cy={y} r="27" fill="#1c1a30" stroke={c} strokeOpacity="0.35" strokeWidth="1.5" />
-              <circle cx={x} cy={y} r="16" fill={c} style={{ filter: `drop-shadow(0 0 18px ${c})` }} />
-              <circle cx={x - 4} cy={y - 5} r="4" fill="#ffffff" opacity="0.35" />
+              <circle cx={x} cy={y} r="20" fill="none" stroke={c} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" />
+              <circle cx={x} cy={y} r="21" fill="#1c1a30" stroke={c} strokeOpacity="0.35" strokeWidth="1.5" />
+              <circle cx={x} cy={y} r="12.5" fill={c} style={{ filter: `drop-shadow(0 0 14px ${c})` }} />
+              <circle cx={x - 3} cy={y - 4} r="3" fill="#ffffff" opacity="0.35" />
             </g>
           );
           if (s.state === "done") return (
             <g key={s.key}>
-              <circle cx={x} cy={y} r="10" fill={c} />
-              <path d={`M${x - 4.5} ${y} l3 3 l6 -6`} fill="none" stroke="#07120d" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx={x} cy={y} r="8.5" fill={c} />
+              <path d={`M${x - 4} ${y} l2.6 2.6 l5.2 -5.2`} fill="none" stroke="#07120d" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
             </g>
           );
-          if (s.state === "missed") return <circle key={s.key} cx={x} cy={y} r="9" fill="#0e0f13" stroke="#3f3f4b" strokeWidth="2.5" />;
-          return <circle key={s.key} cx={x} cy={y} r="9" fill="#0e0f13" stroke={c} strokeWidth="2.5" />;
+          if (s.state === "missed") return <circle key={s.key} cx={x} cy={y} r="7.5" fill="#0e0f13" stroke="#3f3f4b" strokeWidth="2.25" />;
+          return <circle key={s.key} cx={x} cy={y} r="7.5" fill="#0e0f13" stroke={c} strokeWidth="2.25" />;
         })}
       </svg>
 
@@ -119,8 +119,8 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
       <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
         {slots.map((s) => (
           <div key={s.key} className={`min-w-0 ${s.kind === "exam" ? "text-right pr-1" : "text-center"}`}>
-            <p className={`${display.className} font-bold tracking-[-0.02em] leading-tight truncate ${s.state === "today" ? "text-[16px] sm:text-[21px] text-white" : "text-[14px] sm:text-[18px]"} ${s.kind === "exam" ? "text-rose-400" : s.state === "missed" ? "text-zinc-600 line-through decoration-zinc-700" : s.state === "upcoming" ? "text-zinc-200" : "text-white"}`}>{s.bottom}</p>
-            <p className={`text-[11px] sm:text-[13px] mt-1 truncate ${s.state === "today" ? "font-semibold" : "text-zinc-500"}`} style={s.state === "today" ? { color: KIND_ACCENT[s.kind as TaskKind] } : undefined}>{s.sub}</p>
+            <p className={`${display.className} font-bold tracking-[-0.02em] leading-tight truncate ${s.state === "today" ? "text-[15px] sm:text-[18px] text-white" : "text-[13px] sm:text-[15px]"} ${s.kind === "exam" ? "text-rose-400" : s.state === "missed" ? "text-zinc-600 line-through decoration-zinc-700" : s.state === "upcoming" ? "text-zinc-200" : "text-white"}`}>{s.bottom}</p>
+            <p className={`text-[11px] sm:text-[12px] mt-0.5 truncate ${s.state === "today" ? "font-semibold" : "text-zinc-500"}`} style={s.state === "today" ? { color: KIND_ACCENT[s.kind as TaskKind] } : undefined}>{s.sub}</p>
           </div>
         ))}
       </div>
