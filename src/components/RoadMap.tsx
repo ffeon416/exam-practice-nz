@@ -82,9 +82,19 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
         <path d={road} fill="none" stroke={ROAD} strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" />
         <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.75" strokeDasharray="4 6" strokeLinecap="round" />
         {/* +N days on the last stretch */}
-        {gapIdx > 0 && (
-          <text x={(X(gapIdx - 1) + X(gapIdx)) / 2 + 16} y={(pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 30} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="10.5" letterSpacing="2" fill="#71717a">+{gapSlot!.gap} DAYS</text>
-        )}
+        {gapIdx > 0 && (() => {
+          // A pill, below the last stretch and clear of the road, in the exam colour.
+          const label = `+${gapSlot!.gap} MORE DAYS`;
+          const w = label.length * 8.4 + 24;
+          const cx = Math.min(W - w / 2 - 4, (X(gapIdx - 1) + X(gapIdx)) / 2 + 34);
+          const cy = Math.min(H - 16, (pts[gapIdx - 1].y + pts[gapIdx].y) / 2 + 44);
+          return (
+            <g>
+              <rect x={cx - w / 2} y={cy - 13} width={w} height="26" rx="13" fill="#2a1318" stroke={EXAM} strokeOpacity="0.55" strokeWidth="1.25" />
+              <text x={cx} y={cy + 4.5} textAnchor="middle" fontFamily="ui-monospace, Menlo, monospace" fontSize="12" fontWeight="700" letterSpacing="1.5" fill={EXAM}>{label}</text>
+            </g>
+          );
+        })()}
         {/* nodes */}
         {slots.map((s, i) => {
           const { x, y } = pts[i];
