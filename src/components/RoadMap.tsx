@@ -11,8 +11,8 @@ import { type TaskKind } from "@/lib/dailyTask";
 import { KIND_ACCENT, KIND_SHORT, type WeekDay } from "@/components/WeekStrip";
 
 const EXAM = "#ff6b7a";
-const ROAD = "#2e2e42";
-const ROAD_DASH = "#8a8aa8";
+const ROAD = "#15151e";
+const ROAD_DASH = "#6f6c9e";
 
 type Slot = { key: string; top: string; bottom: string; sub: string; kind: TaskKind | "exam"; state: WeekDay["state"]; gap?: number };
 
@@ -80,7 +80,7 @@ export default function RoadMap({ days, examDate, examDays }: { days: WeekDay[];
         {todayIdx >= 0 && <rect x={X(todayIdx) - colW / 2} y="0" width={colW} height={H} rx="18" fill="url(#sa-today-col)" />}
         {/* road */}
         <path d={road} fill="none" stroke={ROAD} strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" />
-        <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="1.75" strokeDasharray="4 6" strokeLinecap="round" />
+        <path d={road} fill="none" stroke={ROAD_DASH} strokeWidth="2.25" strokeDasharray="5 7" strokeLinecap="round" />
         {/* +N days on the last stretch */}
         {gapIdx > 0 && (() => {
           // A pill, below the last stretch and clear of the road, in the exam colour.
