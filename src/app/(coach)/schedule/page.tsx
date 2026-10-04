@@ -336,15 +336,15 @@ function ScheduleInner() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 lg:pt-10 pb-16">
       {/* Header */}
-      <div className="flex items-end justify-between gap-4 flex-wrap mb-5 sm:mb-6">
+      <div className={`flex items-end justify-between gap-4 flex-wrap ${setup ? "mb-5 sm:mb-6" : "mb-2 sm:mb-3"}`}>
         <div>
           <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em] text-zinc-500">{eyebrow}</p>
-          <h1 className={`${display.className} font-bold text-white text-[34px] sm:text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mt-2`}>
+          <h1 className={`${display.className} font-bold leading-none mt-2 ${setup ? "text-white text-[34px] sm:text-[48px] lg:text-[56px] tracking-[-0.04em]" : "text-zinc-200 text-[22px] sm:text-[26px] lg:text-[30px] tracking-[-0.03em]"}`}>
             {setup ? setup.title : "The road to exam day"}
           </h1>
         </div>
         {!setup && (
-          <Link href="/plan" className="inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-white font-semibold text-[15px] px-5 py-3 min-h-[48px] transition-colors">Full plan →</Link>
+          <Link href="/plan" className="inline-flex items-center rounded-full border border-white/[0.14] hover:border-white/40 text-zinc-300 hover:text-white font-semibold text-[14px] px-4 py-2 min-h-[44px] transition-colors">Full plan →</Link>
         )}
       </div>
 
