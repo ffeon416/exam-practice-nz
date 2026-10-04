@@ -339,7 +339,7 @@ function ScheduleInner() {
       <div className={`flex items-end justify-between gap-4 flex-wrap ${setup ? "mb-5 sm:mb-6" : "mb-2 sm:mb-3"}`}>
         <div>
           <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em] text-zinc-500">{eyebrow}</p>
-          <h1 className={`${display.className} font-bold leading-none mt-2 ${setup ? "text-white text-[34px] sm:text-[48px] lg:text-[56px] tracking-[-0.04em]" : "text-zinc-200 text-[22px] sm:text-[26px] lg:text-[30px] tracking-[-0.03em]"}`}>
+          <h1 className={`${display.className} font-bold leading-none mt-2 ${setup ? "text-white text-[34px] sm:text-[48px] lg:text-[56px] tracking-[-0.04em]" : "text-zinc-200 text-[25px] sm:text-[30px] lg:text-[36px] tracking-[-0.03em]"}`}>
             {setup ? setup.title : "The road to exam day"}
           </h1>
         </div>
