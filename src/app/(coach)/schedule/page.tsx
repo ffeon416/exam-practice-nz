@@ -356,8 +356,8 @@ function ScheduleInner() {
         </div>
       ) : (
         <>
-          {/* The road */}
-          <div className="rounded-[28px] border border-white/[0.08] bg-[#0b0b10] px-4 sm:px-8 pt-6 pb-6">
+          {/* The road: context, not the main event, so no card around it */}
+          <div className="px-1 sm:px-4 pt-1 pb-2 opacity-80">
             {weekDays.length ? <RoadMap days={weekDays} examDate={todayExamDate} examDays={todayExamDays} /> : <div className="h-[280px] animate-pulse" />}
           </div>
 

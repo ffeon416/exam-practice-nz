@@ -39,8 +39,15 @@ export default function TodayHero({
   void questionCount; void TASK_META;
 
   return (
-    <div className={`relative rounded-[28px] border overflow-hidden flex flex-col justify-center ${done ? "bg-[#0a1712] border-emerald-400/25" : "bg-[#0e0f13] border-indigo-400/20"}`}>
-      {done && <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(62,230,160,0.18) 0%, transparent 65%)" }} aria-hidden />}
+    <div className={`relative rounded-[28px] border-2 overflow-hidden flex flex-col justify-center ${done ? "bg-[#0a1712]" : "bg-[#101117]"}`}
+      style={{
+        // The one card on the page that should pull the eye: accent edge,
+        // accent wash and a soft glow, in today's task colour.
+        borderColor: `${accent}${done ? "40" : "8c"}`,
+        backgroundImage: `linear-gradient(135deg, ${accent}24 0%, ${accent}0a 38%, transparent 70%)`,
+        boxShadow: `0 0 0 1px ${accent}14, 0 24px 80px -24px ${accent}59`,
+      }}>
+      <div className="absolute -top-28 -right-28 w-[440px] h-[440px] rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${accent}2e 0%, transparent 65%)` }} aria-hidden />
       <div className="relative p-6 sm:p-9 lg:p-10">
         <p className="font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.22em]" style={{ color: accent }}>{done ? "Done" : "Today"} · {subjectLabel}</p>
         <h2 className={`${display.className} text-white font-bold text-[52px] sm:text-[72px] lg:text-[88px] leading-[0.95] tracking-[-0.045em] mt-3 ${celebrate ? "home-rise" : ""}`}>
