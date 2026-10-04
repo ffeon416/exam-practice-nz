@@ -79,7 +79,14 @@ export default function HomePage() {
   useEffect(() => {
     const el = costRef.current;
     if (!el || typeof IntersectionObserver === "undefined") { const id = setTimeout(() => setCostSeen(true), 0); return () => clearTimeout(id); }
-    const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { setCostSeen(true); io.disconnect(); } }, { threshold: 0.3 });
+    // Plays every time the section comes back into view: it resets once the
+    // bars are fully off screen, and runs again at 30% visible.
+    const io = new IntersectionObserver((es) => {
+      for (const e of es) {
+        if (!e.isIntersecting) setCostSeen(false);
+        else if (e.intersectionRatio >= 0.3) setCostSeen(true);
+      }
+    }, { threshold: [0, 0.3] });
     io.observe(el);
     return () => io.disconnect();
   }, []);
