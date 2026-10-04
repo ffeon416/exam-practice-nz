@@ -125,15 +125,23 @@ export default function HomePage() {
         {/* Sample of the product: the same card and line the student sees. */}
         <div className="home-rise relative mt-10 sm:mt-14 rounded-[28px] border-2 bg-[#0e0f13] p-6 sm:p-9 text-left overflow-clip"
           style={{ animationDelay: "380ms", borderColor: `${GREEN}66`, backgroundImage: `linear-gradient(135deg, ${GREEN}1f 0%, ${GREEN}08 34%, transparent 62%)`, boxShadow: `0 28px 90px -28px ${GREEN}59` }}>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-8 items-center">
+          <div className="sa-breathe absolute inset-0 pointer-events-none" aria-hidden style={{ background: `radial-gradient(60% 80% at 20% 0%, ${GREEN}2e 0%, transparent 70%)` }} />
+          <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-8 items-center">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Sample · what your child sees</p>
               <div className="flex flex-wrap items-center gap-3 mt-4 font-mono uppercase">
-                <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[12px] font-bold tracking-[0.16em] text-[#0a0a0f]" style={{ background: GREEN }}>Today&apos;s task</span>
+                <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[12px] font-bold tracking-[0.16em] text-[#0a0a0f]" style={{ background: GREEN }}><span className="w-2 h-2 rounded-full bg-[#0a0a0f]/70 animate-pulse" aria-hidden />Today&apos;s task</span>
                 <span className="text-[13px] tracking-[0.18em] text-zinc-300">Mathematics</span>
               </div>
               <p className={`${display.className} font-bold text-white text-[44px] sm:text-[60px] leading-[0.95] tracking-[-0.045em] mt-3`}>Grade check</p>
               <p className="text-zinc-300 text-[16px] sm:text-[17px] leading-relaxed mt-3 max-w-sm">8 questions, marked properly, so everyone knows exactly where they are. About 15 minutes.</p>
+              {/* The eight questions being marked, one after another, on a loop. */}
+              <div className="flex items-center gap-2 mt-5" aria-hidden>
+                {Array.from({ length: 8 }, (_, i) => (
+                  <span key={i} className="sa-q-dot w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[#07120d] text-[13px] font-bold" style={{ background: GREEN, animationDelay: `${i * 0.4}s` }}>✓</span>
+                ))}
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500 ml-1">marked</span>
+              </div>
             </div>
             <div className="rounded-[22px] border border-white/[0.08] bg-[#0b0b10] p-5">
               <div className="flex items-end justify-between gap-3">
@@ -141,7 +149,7 @@ export default function HomePage() {
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Are they on track?</p>
                   <p className={`${display.className} font-bold text-white text-[24px] sm:text-[28px] leading-tight tracking-[-0.03em] mt-1`}>At a B. <span style={{ color: GREEN }}>A is 6 weeks away.</span></p>
                 </div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.18em] font-bold rounded-full px-3 py-1.5" style={{ color: GREEN, background: `${GREEN}1a` }}>On track</span>
+                <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] font-bold rounded-full px-3 py-1.5" style={{ color: GREEN, background: `${GREEN}1a` }}><span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: GREEN }} aria-hidden />On track</span>
               </div>
               <svg viewBox="0 0 520 170" className="w-full h-auto mt-3" role="img" aria-label="Sample pace line rising from a B to an A by exam day">
                 {[["A", 34], ["B", 84], ["C", 134]].map(([l, y]) => (
@@ -150,11 +158,16 @@ export default function HomePage() {
                     <text x="20" y={(y as number) + 4} textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="11" fill={l === "A" ? GREEN : "#71717a"}>{l}</text>
                   </g>
                 ))}
-                <path d="M40 112 Q260 100 480 34" pathLength={1} fill="none" stroke={GREEN} strokeWidth="3.5" strokeLinecap="round" className="sa-draw" />
+                <path d="M40 112 Q260 100 480 34 L480 134 L40 134 Z" fill={GREEN} fillOpacity="0.07" className="sa-fade-in" />
+                <path d="M40 112 Q260 100 480 34" pathLength={1} fill="none" stroke={GREEN} strokeWidth="3.5" strokeLinecap="round" className="sa-draw" style={{ filter: `drop-shadow(0 0 6px ${GREEN}99)` }} />
+                {/* a spark that keeps running up the line to the flag */}
+                <circle r="4.5" fill="#ffffff" className="sa-spark" style={{ filter: `drop-shadow(0 0 8px ${GREEN})` }}>
+                  <animateMotion dur="2.6s" repeatCount="indefinite" path="M40 112 Q260 100 480 34" />
+                </circle>
                 <polyline points="40,112 110,104 180,98 250,88" fill="none" stroke={VIOLET} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx="250" cy="88" r="16" fill="#1c1a30" /><circle cx="250" cy="88" r="7.5" fill={VIOLET} />
+                <circle cx="250" cy="88" r="14" fill="none" stroke={VIOLET} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" /><circle cx="250" cy="88" r="16" fill="#1c1a30" /><circle cx="250" cy="88" r="7.5" fill={VIOLET} />
                 <text x="272" y="110" fontFamily="ui-sans-serif, system-ui" fontSize="13" fontWeight="800" fill="#fff">Now · B</text>
-                <line x1="480" y1="34" x2="480" y2="8" stroke={GREEN} strokeWidth="2" strokeLinecap="round" /><path d="M480 6 L502 12 L480 20 Z" fill={GREEN} /><circle cx="480" cy="34" r="6" fill={GREEN} />
+                <circle cx="480" cy="34" r="8" fill="none" stroke={GREEN} strokeWidth="2" opacity="0.6" className="sa-pulse-ring" /><line x1="480" y1="34" x2="480" y2="8" stroke={GREEN} strokeWidth="2" strokeLinecap="round" /><path d="M480 6 L502 12 L480 20 Z" fill={GREEN} className="sa-flag" /><circle cx="480" cy="34" r="6" fill={GREEN} />
                 <text x="480" y="160" textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="10" letterSpacing="1.5" fill={ROSE}>EXAM DAY</text>
                 <text x="40" y="160" fontFamily="ui-monospace, Menlo, monospace" fontSize="10" letterSpacing="1.5" fill="#52525b">DAY 1</text>
               </svg>

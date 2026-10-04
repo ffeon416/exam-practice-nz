@@ -436,3 +436,16 @@ body {
 @keyframes sa-step-glow { 0% { opacity: 0; } 8% { opacity: 1; } 28% { opacity: 1; } 38% { opacity: 0; } 100% { opacity: 0; } }
 .sa-step-glow { opacity: 0; z-index: 1; animation: sa-step-glow 2.7s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sa-step-glow { animation: none; opacity: 0; } }
+
+/* Homepage hero sample card: alive, not busy. Transform and opacity only. */
+@keyframes sa-breathe { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.sa-breathe { animation: sa-breathe 4s ease-in-out infinite; }
+@keyframes sa-q-dot { 0% { opacity: 0.16; transform: scale(0.82); } 5% { opacity: 1; transform: scale(1.22); } 10%, 78% { opacity: 1; transform: scale(1); } 90%, 100% { opacity: 0.16; transform: scale(0.82); } }
+.sa-q-dot { opacity: 0.16; animation: sa-q-dot 5.2s ease-in-out infinite; }
+@keyframes sa-flag { 0%, 100% { transform: skewY(0deg) scaleX(1); } 50% { transform: skewY(-7deg) scaleX(0.9); } }
+.sa-flag { transform-box: fill-box; transform-origin: left center; animation: sa-flag 1.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .sa-breathe, .sa-flag { animation: none; }
+  .sa-q-dot { animation: none; opacity: 1; }
+  .sa-spark { display: none; }
+}
