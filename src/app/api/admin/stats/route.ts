@@ -4,6 +4,7 @@ import { getSupabase } from "@/lib/supabase";
 import { isAdminEmail } from "@/lib/adminEmails";
 import { TIER_PRICES, type Tier } from "@/lib/tierLimits";
 import { getStripe } from "@/lib/stripe";
+import { isComp } from "@/lib/compEmails";
 
 export const dynamic = "force-dynamic";
 
@@ -47,14 +48,6 @@ const GST_RATE = 0.15;
 // 100%-off comps). They KEEP their access — but the admin dashboard counts them
 // as non-paying: excluded from revenue, and counted under "Free" in the plan
 // totals so "Pro" / "Student" show only real cash subscribers.
-const COMP_EMAILS = new Set<string>([
-  "ffeon.io+test1@gmail.com",
-  "osullivantre2009@gmail.com",
-  "roccopovey@gmail.com", // co-founder, 100%-off Pro
-]);
-function isComp(email: unknown): boolean {
-  return typeof email === "string" && COMP_EMAILS.has(email.toLowerCase().trim());
-}
 
 /**
  * What each Stripe customer ACTUALLY pays per month right now (NZD), read from

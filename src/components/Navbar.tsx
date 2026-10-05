@@ -71,6 +71,8 @@ export default function Navbar() {
   // The coach app has no header: the sidebar (desktop) and bottom tabs (phone)
   // carry everything, and mid-paper there is no chrome at all.
   if (isPaid && /^\/(today|schedule|lesson|pace|streak|subjects|review|dashboard|plan|refer|exam|profile|welcome)(\/|$)/.test(pathname)) return null;
+  // The phone numbers page is its own little app: no site header on it.
+  if (pathname.startsWith("/admin/pulse")) return null;
 
   return (
     <>
