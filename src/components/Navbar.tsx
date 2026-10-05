@@ -20,13 +20,10 @@ const authedLinks = [
   { href: "/profile", label: "Dashboard" },
 ];
 
-// Signed-out: one path to a sale. Grade check → pricing, with the blog for
-// trust. Schools, contact and legal all live in the footer.
-const publicLinks = [
-  { href: "/grade", label: "Grade check" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/blog", label: "Blog" },
-];
+// Signed-out: no links in the header at all (2026-10-05). Just the logo,
+// Sign in and the one button, so nothing pulls a parent away from the grade
+// check. Pricing, blog, schools, contact and legal all live in the footer.
+const publicLinks: { href: string; label: string }[] = [];
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -214,7 +211,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
           />
           <div className="md:hidden fixed left-0 right-0 bg-[#0a0a0f] border-b border-white/[0.08] z-50 shadow-2xl top-[68px]">
-            <div className="px-5 py-4 space-y-1">
+            <div className={links.length ? "px-5 py-4 space-y-1" : "hidden"}>
               {links.map((link) => {
                 const isActive =
                   pathname === link.href ||
