@@ -3,13 +3,25 @@ import { auth } from "@clerk/nextjs/server";
 import { getSupabase } from "@/lib/supabase";
 import { rateLimit } from "@/lib/rateLimit";
 
-// Public, fire-and-forget pageview beacon for the first-party analytics shown in
-// /admin. Records one row per page view. Never blocks or slows the page — any
-// failure is swallowed and we still return 204. No personal data: visitor_id is
-// an anonymous localStorage id from the client used only to estimate uniques.
+// Public, fire-and-forget beacon for the first-party analytics shown in
+// /admin. Two shapes:
+//   { path, referrer, visitorId, attribution? }         → one page_views row
+//   { event, props, path, visitorId, attribution? }     → one events row
+// Never blocks or slows the page — any failure is swallowed and we still
+// return 204. No personal data: visitor_id is an anonymous localStorage id
+// from the client used only to estimate uniques and join funnel steps.
 
 const BOT_RE =
   /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|vkshare|whatsapp|telegram|preview|headless|lighthouse|monitor|curl|wget|python-requests|axios|node-fetch/i;
+
+// Client-side events the browser may log, and the props each may carry.
+// Anything else is dropped so the events table can't be spammed with junk.
+const CLIENT_EVENTS: Record<string, string[]> = {
+  session_start: ["source", "medium", "campaign", "content", "landing", "referrer"],
+  grade_step: ["step", "curriculum", "subject"],
+  grade_revealed: ["curriculum", "subject", "bandLabel", "pct"],
+  cta_click: ["cta", "page"],
+};
 
 function deviceFrom(ua: string): "mobile" | "desktop" {
   return /Mobi|Android|iPhone|iPad|iPod/i.test(ua) ? "mobile" : "desktop";
@@ -27,6 +39,19 @@ function externalReferrerHost(referrer: string | null, ownHost: string): string 
   }
 }
 
+const word = (v: unknown, max = 80) => (typeof v === "string" ? v.toLowerCase().replace(/[^a-z0-9_.:+/ -]/g, "").slice(0, max) : "");
+
+function attributionFrom(v: unknown): Record<string, string> {
+  if (!v || typeof v !== "object") return {};
+  const a = v as Record<string, unknown>;
+  const out: Record<string, string> = {};
+  for (const k of ["source", "medium", "campaign", "content", "landing", "referrer"]) {
+    const s = word(a[k], k === "landing" || k === "referrer" ? 200 : 80);
+    if (s) out[k] = s;
+  }
+  return out;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -38,7 +63,7 @@ export async function POST(request: NextRequest) {
     if (BOT_RE.test(ua)) return new NextResponse(null, { status: 204 });
 
     const body = (await request.json().catch(() => null)) as
-      | { path?: unknown; referrer?: unknown; visitorId?: unknown }
+      | { path?: unknown; referrer?: unknown; visitorId?: unknown; attribution?: unknown; event?: unknown; props?: unknown }
       | null;
     if (!body) return new NextResponse(null, { status: 204 });
 
@@ -51,15 +76,39 @@ export async function POST(request: NextRequest) {
     const supabase = getSupabase();
     if (!supabase) return new NextResponse(null, { status: 204 });
 
+    const visitorId =
+      typeof body.visitorId === "string" ? body.visitorId.slice(0, 64) : null;
+    const country = request.headers.get("x-vercel-ip-country") || null;
+    const device = deviceFrom(ua);
+    const attribution = attributionFrom(body.attribution);
+    const { userId } = await auth();
+
+    // ── Product event from the browser ──
+    if (typeof body.event === "string") {
+      const allowed = CLIENT_EVENTS[body.event];
+      if (!allowed) return new NextResponse(null, { status: 204 });
+      const raw = body.props && typeof body.props === "object" ? (body.props as Record<string, unknown>) : {};
+      const props: Record<string, unknown> = {};
+      for (const k of allowed) {
+        const v = raw[k];
+        if (typeof v === "number" && Number.isFinite(v)) props[k] = v;
+        else if (typeof v === "boolean") props[k] = v;
+        else if (typeof v === "string") props[k] = v.slice(0, 200);
+      }
+      await supabase.from("events").insert({
+        name: body.event,
+        user_id: userId ?? null,
+        props: { ...props, source: props.source ?? attribution.source ?? "unknown", ...(attribution.medium ? { medium: attribution.medium } : {}), ...(attribution.campaign ? { campaign: attribution.campaign } : {}), ...(attribution.content ? { content: attribution.content } : {}), visitor_id: visitorId, path, country, device },
+      });
+      return new NextResponse(null, { status: 204 });
+    }
+
+    // ── Page view ──
     const ownHost = request.headers.get("host") ?? "studyace.co";
     const referrer = externalReferrerHost(
       typeof body.referrer === "string" ? body.referrer : null,
       ownHost,
     );
-    const visitorId =
-      typeof body.visitorId === "string" ? body.visitorId.slice(0, 64) : null;
-    const country = request.headers.get("x-vercel-ip-country") || null;
-    const { userId } = await auth();
 
     await supabase.from("page_views").insert({
       path,
@@ -67,7 +116,7 @@ export async function POST(request: NextRequest) {
       visitor_id: visitorId,
       user_id: userId ?? null,
       country,
-      device: deviceFrom(ua),
+      device,
     });
   } catch (err) {
     console.error("track failed:", err);

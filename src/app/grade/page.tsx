@@ -21,6 +21,7 @@ import type { GraphData, MarkingResult } from "@/lib/types";
 import { gradeColor, gradeLabel, curriculumBand, bandToneGrade } from "@/lib/scoring";
 import { neutralizeFigureReferences } from "@/lib/questionGuard";
 import Graph from "@/components/Graph";
+import { trackEvent } from "@/lib/attribution";
 
 type ApiQuestion = {
   number: string; text: string; marks: number;
@@ -79,6 +80,21 @@ export default function GradePage() {
     const n = user?.firstName;
     if (n) setFirstName((v) => v || n);
   }, [user?.firstName]);
+  // Funnel: one event per step reached, so /admin/pulse can show where the
+  // grade check loses people. Deduped so going back doesn't double-count.
+  const loggedStep = useRef<string>("");
+  useEffect(() => {
+    const step = phase === "pick" ? pickStep : phase === "error" ? "" : phase;
+    if (!step || loggedStep.current === step) return;
+    loggedStep.current = step;
+    if (phase === "revealed" && results) {
+      const { bandLabel, pct } = computeSummary(results);
+      trackEvent("grade_revealed", { curriculum: curriculumId, subject, bandLabel, pct });
+    } else {
+      trackEvent("grade_step", { step, curriculum: curriculumId, subject });
+    }
+  }, [phase, pickStep]);
+
   // Drives the score-ring sweep + staggered reveal animations.
   const [ringOn, setRingOn] = useState(false);
   useEffect(() => {
@@ -641,7 +657,7 @@ export default function GradePage() {
     const RING_C = 2 * Math.PI * 64;
 
     const pitchCta = (
-      <Link href="/pricing"
+      <Link href="/pricing" onClick={() => trackEvent("cta_click", { cta: "grade-pitch", page: "/grade" })}
         className="inline-flex w-full justify-center items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-4 text-[15px] font-extrabold text-white shadow-lg shadow-indigo-500/30 hover:scale-[1.01] transition-transform">
         Start my plan — NZ$49/mo →
       </Link>
@@ -960,7 +976,7 @@ export default function GradePage() {
               </p>
               <p className="text-zinc-500 text-[11px] truncate">target by end of {targetMonth} · 20 min/day</p>
             </div>
-            <Link href="/pricing"
+            <Link href="/pricing" onClick={() => trackEvent("cta_click", { cta: "grade-sticky", page: "/grade" })}
               className="flex-1 sm:flex-none inline-flex justify-center items-center rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 px-6 py-3 text-[14px] font-extrabold text-white shadow-lg shadow-indigo-500/30">
               Start my plan — NZ$49/mo →
             </Link>

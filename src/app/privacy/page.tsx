@@ -284,6 +284,11 @@ export default function PrivacyPage() {
               small amount of site-functionality storage. We measure aggregate
               traffic (page views, rough location, device type) using our own
               first-party analytics, Vercel Analytics, and Google Analytics.
+              Our own analytics keep a random visitor id and the source you
+              arrived from (for example &ldquo;instagram&rdquo;) in your browser
+              and in two first-party cookies (<code>sa_vid</code>,{" "}
+              <code>sa_src</code>) so we can tell which of our adverts work; they
+              hold no name, email or anything else about you.
               Google Analytics sets its own cookie (<code>_ga</code>) to count
               returning visitors; we do not use advertising cookies, and we
               never sell your data. You can opt out of Google Analytics with

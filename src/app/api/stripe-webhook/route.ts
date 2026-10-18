@@ -90,6 +90,12 @@ export async function POST(req: NextRequest) {
         const session = event.data.object as Stripe.Checkout.Session;
         const userId = session.metadata?.userId;
         const tier = session.metadata?.tier as "student" | "pro" | undefined;
+        // Where this buyer came from (set on the checkout session by /api/checkout).
+        const from: Record<string, string> = {};
+        for (const k of ["source", "medium", "campaign", "content", "visitor_id"] as const) {
+          const v = session.metadata?.[k];
+          if (v) from[k] = v;
+        }
 
         if (!userId && session.metadata?.anonymous === "1") {
           // Paid before having an account. Invite this email (Clerk sign-ups
@@ -97,7 +103,7 @@ export async function POST(req: NextRequest) {
           // case they closed the tab; /start does the linking.
           const email = session.customer_details?.email ?? session.customer_email ?? null;
           if (email) await inviteEmail(email, session.id, true);
-          void logEvent("subscription_paid", null, { plan: tier ?? "pro", anonymous: true, email });
+          void logEvent("subscription_paid", null, { plan: tier ?? "pro", anonymous: true, email, ...from });
           console.log(`Anonymous purchase for ${email ?? "(no email)"} — invited to create a login`);
           break;
         }
@@ -152,7 +158,7 @@ export async function POST(req: NextRequest) {
 
         // Funnel: authoritative "paid" event, fired only on a real completed
         // checkout (fire-and-forget — never block the webhook ack).
-        void logEvent("subscription_paid", userId, { plan: tier });
+        void logEvent("subscription_paid", userId, { plan: tier, ...from });
 
         console.log(`User ${userId} upgraded to ${tier}`);
         break;

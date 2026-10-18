@@ -4,6 +4,7 @@ import { getStripe, PRICE_IDS } from "@/lib/stripe";
 import { isBilling } from "@/lib/tierLimits";
 import { getOrCreateProfile, logEvent } from "@/lib/supabase";
 import { getSupabase } from "@/lib/supabase";
+import { attributionFromRequest, attributionMetadata, attributionProps } from "@/lib/attributionServer";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +59,7 @@ export async function POST(req: NextRequest) {
     // /start attaches the subscription once the account exists.
     if (!userId) {
       const ref = typeof body.ref === "string" && body.ref.length < 200 ? body.ref : "";
+      const attr = attributionFromRequest(req);
       const session = await stripe.checkout.sessions.create({
         mode: "subscription",
         payment_method_types: ["card"],
@@ -65,10 +67,10 @@ export async function POST(req: NextRequest) {
         allow_promotion_codes: true,
         success_url: `${origin}/start?payment=success&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/pricing`,
-        metadata: { tier, billing, anonymous: "1", ref },
+        metadata: { tier, billing, anonymous: "1", ref, ...attributionMetadata(attr) },
         subscription_data: { metadata: { tier, billing } },
       });
-      void logEvent("checkout_started", null, { tier, billing, anonymous: true });
+      void logEvent("checkout_started", null, { tier, billing, anonymous: true, ...attributionProps(attr) });
       return NextResponse.json({ url: session.url });
     }
 
@@ -97,6 +99,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    const attr = attributionFromRequest(req);
     const session = await stripe.checkout.sessions.create({
       customer: stripeCustomerId,
       mode: "subscription",
@@ -105,14 +108,14 @@ export async function POST(req: NextRequest) {
       allow_promotion_codes: true,
       success_url: `${origin}/start?payment=success&plan=${tier}`,
       cancel_url: `${origin}/pricing`,
-      metadata: { userId, tier, billing },
+      metadata: { userId, tier, billing, ...attributionMetadata(attr) },
       subscription_data: {
         metadata: { userId, tier, billing },
       },
     });
 
     // Funnel: record that this user reached Stripe checkout (fire-and-forget).
-    void logEvent("checkout_started", userId, { tier, billing });
+    void logEvent("checkout_started", userId, { tier, billing, ...attributionProps(attr) });
 
     return NextResponse.json({ url: session.url });
   } catch (error) {

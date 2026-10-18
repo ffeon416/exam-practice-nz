@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { rateLimit } from "@/lib/rateLimit";
 import { logEvent } from "@/lib/supabase";
 import { resolveCurriculum } from "@/data/curricula";
+import { attributionFromRequest, attributionProps } from "@/lib/attributionServer";
 
 // Public. The Grade Detector's email gate: anonymous visitors type their
 // email here to reveal + receive their estimated grade. Sends via Resend
@@ -46,6 +47,7 @@ export async function POST(request: NextRequest) {
     // configured. skipLead=true marks a report send whose lead was already
     // banked at the wizard's contact step (avoids duplicate lead rows).
     if (!skipLead) void logEvent("diagnostic_lead", null, {
+      ...attributionProps(attributionFromRequest(request)),
       email: cleanEmail,
       ...(cleanName ? { name: cleanName } : {}),
       curriculum: curriculum.id,
