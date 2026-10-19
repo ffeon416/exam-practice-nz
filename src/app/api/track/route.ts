@@ -21,6 +21,8 @@ const CLIENT_EVENTS: Record<string, string[]> = {
   grade_step: ["step", "curriculum", "subject"],
   grade_revealed: ["curriculum", "subject", "bandLabel", "pct"],
   cta_click: ["cta", "page"],
+  ontrack_step: ["step", "curriculum", "subject"],
+  ontrack_result: ["verdict", "curriculum", "subject", "goal", "current"],
 };
 
 function deviceFrom(ua: string): "mobile" | "desktop" {

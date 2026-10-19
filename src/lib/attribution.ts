@@ -121,7 +121,7 @@ export function captureAttribution(): { attribution: Attribution; newSession: bo
 }
 
 /** The client events the server accepts (see /api/track). */
-export type ClientEvent = "session_start" | "grade_step" | "grade_revealed" | "cta_click";
+export type ClientEvent = "session_start" | "grade_step" | "grade_revealed" | "cta_click" | "ontrack_step" | "ontrack_result";
 
 /** Fire-and-forget product event for the admin funnel. Never throws. */
 export function trackEvent(event: ClientEvent, props: Record<string, string | number | boolean | null> = {}): void {

@@ -42,13 +42,17 @@ export async function GET(request: Request) {
       pct: typeof p.pct === "number" ? p.pct : null,
       source: str(p.source) || "unknown",
       campaign: str(p.campaign),
+      kind: str(p.kind) === "on-track" ? "parent" : "student",
+      teen: str(p.teen),
+      current: str(p.current),
+      goal: str(p.goal),
     });
   }
 
   if (new URL(request.url).searchParams.get("format") === "csv") {
     const esc = (v: string | number | null) => `"${String(v ?? "").replace(/"/g, '""')}"`;
-    const rows = [["when", "email", "name", "subject", "exam system", "grade", "pct", "source", "campaign"].join(",")]
-      .concat(leads.map((l) => [l.at, l.email, l.name, l.subject, l.curriculum, l.grade, l.pct, l.source, l.campaign].map(esc).join(",")));
+    const rows = [["when", "type", "email", "name", "teen", "subject", "exam system", "grade or verdict", "pct", "current", "goal", "source", "campaign"].join(",")]
+      .concat(leads.map((l) => [l.at, l.kind, l.email, l.name, l.teen, l.subject, l.curriculum, l.grade, l.pct, l.current, l.goal, l.source, l.campaign].map(esc).join(",")));
     return new NextResponse(rows.join("\n"), { headers: { "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": `attachment; filename="studyace-leads-${new Date().toISOString().slice(0, 10)}.csv"` } });
   }
   return NextResponse.json({ leads, total: leads.length });

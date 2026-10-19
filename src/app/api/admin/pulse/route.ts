@@ -53,7 +53,7 @@ export async function GET() {
   let leadsTotal = 0;
   try {
     const { data } = await supabase.from("events").select("name, created_at, props")
-      .in("name", ["diagnostic_lead", "checkout_started", "subscription_paid", "session_start", "grade_step", "grade_revealed", "cta_click"])
+      .in("name", ["diagnostic_lead", "checkout_started", "subscription_paid", "session_start", "grade_step", "grade_revealed", "cta_click", "ontrack_step", "ontrack_result"])
       .gte("created_at", iso(now - 30 * DAY)).order("created_at", { ascending: false }).limit(20000);
     events = (data ?? []) as Ev[];
     const { count } = await supabase.from("events").select("id", { count: "exact", head: true }).eq("name", "diagnostic_lead");
@@ -122,13 +122,22 @@ export async function GET() {
     else if (e.name === "grade_revealed") stepCounts.revealed++;
   }
 
+  // The parent check (/on-track), last 7 days: opened, got a verdict, left an email.
+  const parentCheck7d = {
+    opened: week.filter((e) => e.name === "ontrack_step" && str(e.props?.step) === "teen").length,
+    results: week.filter((e) => e.name === "ontrack_result").length,
+    leads: week.filter((e) => e.name === "diagnostic_lead" && str(e.props?.kind) === "on-track").length,
+    verdicts: Object.fromEntries(["on", "borderline", "off", "hold", "unknown"].map((v) => [v, week.filter((e) => e.name === "ontrack_result" && str(e.props?.verdict) === v).length])) as Record<string, number>,
+  };
+
   const feed = events.filter((e) => ["diagnostic_lead", "checkout_started", "subscription_paid"].includes(e.name)).slice(0, 15).map((e) => ({
-    kind: e.name === "subscription_paid" ? "paid" : e.name === "checkout_started" ? "checkout" : "lead",
+    kind: e.name === "subscription_paid" ? "paid" : e.name === "checkout_started" ? "checkout" : str(e.props?.kind) === "on-track" ? "parent" : "lead",
     at: e.created_at,
     who: str(e.props?.name) || str(e.props?.email) || "",
     email: str(e.props?.email),
     source: srcOf(e),
-    detail: e.name === "diagnostic_lead" ? [str(e.props?.subject), str(e.props?.curriculum), str(e.props?.bandLabel) && `got ${str(e.props?.bandLabel)}`].filter(Boolean).join(" · ")
+    detail: e.name === "diagnostic_lead" && str(e.props?.kind) === "on-track" ? [str(e.props?.teen), str(e.props?.subject), str(e.props?.current) && str(e.props?.goal) && `${str(e.props?.current)} → ${str(e.props?.goal)}`, str(e.props?.bandLabel)].filter(Boolean).join(" · ")
+      : e.name === "diagnostic_lead" ? [str(e.props?.subject), str(e.props?.curriculum), str(e.props?.bandLabel) && `got ${str(e.props?.bandLabel)}`].filter(Boolean).join(" · ")
       : e.name === "checkout_started" ? [str(e.props?.tier), str(e.props?.billing)].filter(Boolean).join(" · ")
       : str(e.props?.plan),
   }));
@@ -142,6 +151,7 @@ export async function GET() {
     tracking, sources7d,
     funnel: { all24h: funnel(DAY, false), all7d: funnel(7 * DAY, false), meta24h: funnel(DAY, true), meta7d: funnel(7 * DAY, true) },
     gradeSteps7d: stepCounts,
+    parentCheck7d,
     ga: await gaPromise,
     at: iso(now),
   });

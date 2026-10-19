@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
 
-type Lead = { at: string; email: string; name: string; subject: string; curriculum: string; grade: string; pct: number | null; source: string; campaign: string };
+type Lead = { at: string; email: string; name: string; subject: string; curriculum: string; grade: string; pct: number | null; source: string; campaign: string; kind: "parent" | "student"; teen: string; current: string; goal: string };
 
 const SOURCE_LABEL: Record<string, string> = { meta: "Meta ad", facebook: "Facebook", instagram: "Instagram", direct: "Direct", google: "Google", unknown: "Unknown source", ai: "ChatGPT / AI" };
 const title = (s: string) => s.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -43,7 +43,7 @@ export default function LeadsPage() {
           <div>
             <Link href="/admin/pulse" className="text-zinc-500 text-[12.5px]">← Pulse</Link>
             <h1 className={`${display.className} text-white font-bold text-[30px] tracking-[-0.03em] leading-tight mt-1`}>Leads</h1>
-            <p className="text-zinc-500 text-[12.5px] mt-0.5">{leads ? `${leads.length} people gave their email in the grade check` : "Loading…"}</p>
+            <p className="text-zinc-500 text-[12.5px] mt-0.5">{leads ? `${leads.length} emails · ${leads.filter((l) => l.kind === "parent").length} parents from the parent check, ${leads.filter((l) => l.kind === "student").length} from the grade check` : "Loading…"}</p>
           </div>
           <a href="/api/admin/leads?format=csv" className="rounded-full border border-white/[0.14] text-white text-[13px] font-semibold px-4 min-h-[40px] inline-flex items-center shrink-0">Download CSV</a>
         </div>
@@ -59,13 +59,13 @@ export default function LeadsPage() {
               <li key={l.email} className="rounded-[20px] border border-white/[0.08] bg-[#0e0f13] p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-white text-[15.5px] font-bold truncate">{l.name || "No name"}</p>
+                    <p className="text-white text-[15.5px] font-bold truncate">{l.name || "No name"}{l.kind === "parent" && <span className="ml-2 align-middle rounded-full bg-[#ff6b7a]/15 text-[#ff6b7a] text-[10.5px] font-bold px-2 py-0.5 tracking-wide">PARENT{l.teen ? ` of ${l.teen}` : ""}</span>}</p>
                     <a href={`mailto:${l.email}`} className="block text-[#8b8cf8] text-[14px] truncate underline-offset-4 hover:underline">{l.email}</a>
                   </div>
                   {l.grade && <span className={`${display.className} shrink-0 rounded-full border border-white/[0.1] px-3 py-1 text-white text-[15px] font-bold`}>{l.grade}{l.pct != null ? <span className="text-zinc-500 text-[11px] font-medium ml-1">{l.pct}%</span> : null}</span>}
                 </div>
                 <p className="text-zinc-400 text-[12.5px] mt-2">
-                  {[l.subject && title(l.subject), l.curriculum && l.curriculum.toUpperCase().replace("-", " "), !l.grade && "didn't finish the questions"].filter(Boolean).join(" · ")}
+                  {[l.subject && title(l.subject), l.curriculum && l.curriculum.toUpperCase().replace("-", " "), l.kind === "parent" && l.current && l.goal && `${l.current} now → wants ${l.goal}`, l.kind === "student" && !l.grade && "didn't finish the questions"].filter(Boolean).join(" · ")}
                 </p>
                 <p className="text-zinc-600 text-[12px] mt-1">{when(l.at)} · via {SOURCE_LABEL[l.source] ?? l.source}{l.campaign ? ` (${l.campaign})` : ""}</p>
               </li>

@@ -22,17 +22,18 @@ type Pulse = {
   leads: { total: number; last24h: number; last7d: number };
   checkouts7d: number; paid30d: number; visitors24h: number; views24h: number;
   days: { date: string; leads: number }[];
-  feed: { kind: "paid" | "checkout" | "lead"; at: string; who: string; email: string; source: string; detail: string }[];
+  feed: { kind: "paid" | "checkout" | "lead" | "parent"; at: string; who: string; email: string; source: string; detail: string }[];
   tracking: boolean;
   sources7d: { source: string; sessions: number; leads: number; checkouts: number; paid: number }[];
   funnel: { all24h: Funnel; all7d: Funnel; meta24h: Funnel; meta7d: Funnel };
   gradeSteps7d: Record<string, number>;
+  parentCheck7d: { opened: number; results: number; leads: number; verdicts: Record<string, number> };
   ga: Ga;
   at: string;
 };
 
 const GREEN = "#3ee6a0", VIOLET = "#8b8cf8", AMBER = "#fbbf24", SKY = "#7dd3fc", ROSE = "#ff6b7a";
-const KIND = { paid: { c: GREEN, t: "Paid" }, checkout: { c: AMBER, t: "Started checkout" }, lead: { c: VIOLET, t: "Grade check lead" } } as const;
+const KIND = { paid: { c: GREEN, t: "Paid" }, checkout: { c: AMBER, t: "Started checkout" }, lead: { c: VIOLET, t: "Grade check lead" }, parent: { c: ROSE, t: "Parent check lead" } } as const;
 const FUNNEL_ROWS: { k: keyof Funnel; l: string }[] = [
   { k: "sessions", l: "Visits" },
   { k: "opened", l: "Opened grade check" },
@@ -209,6 +210,19 @@ export default function PulsePage() {
                   ))}
                 </ul>
               )}
+            </Card>
+
+            {/* Parent check */}
+            <Card title="Parent check · /on-track · 7 days">
+              <div className="grid grid-cols-3 gap-2 mt-3">
+                {[{ l: "Opened", v: data.parentCheck7d.opened, c: SKY }, { l: "Got a verdict", v: data.parentCheck7d.results, c: AMBER }, { l: "Parent emails", v: data.parentCheck7d.leads, c: ROSE }].map((s) => (
+                  <div key={s.l} className="rounded-2xl border border-white/[0.07] p-3">
+                    <p className={`${display.className} font-bold text-[30px] leading-none tracking-[-0.04em]`} style={{ color: s.c }}>{s.v}</p>
+                    <p className="text-zinc-500 text-[10.5px] mt-1.5 leading-tight">{s.l}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-zinc-500 text-[12px] mt-3">Verdicts: {Object.entries(data.parentCheck7d.verdicts).filter(([, n]) => n).map(([k, n]) => `${n} ${{ on: "on track", borderline: "borderline", off: "off track", hold: "already there", unknown: "no grade" }[k] ?? k}`).join(" · ") || "none yet"}</p>
             </Card>
 
             {/* Grade check drop-off */}
