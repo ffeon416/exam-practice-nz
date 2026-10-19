@@ -22,7 +22,7 @@ type Pulse = {
   leads: { total: number; last24h: number; last7d: number };
   checkouts7d: number; paid30d: number; visitors24h: number; views24h: number;
   days: { date: string; leads: number }[];
-  feed: { kind: "paid" | "checkout" | "lead"; at: string; who: string; source: string; detail: string }[];
+  feed: { kind: "paid" | "checkout" | "lead"; at: string; who: string; email: string; source: string; detail: string }[];
   tracking: boolean;
   sources7d: { source: string; sessions: number; leads: number; checkouts: number; paid: number }[];
   funnel: { all24h: Funnel; all7d: Funnel; meta24h: Funnel; meta7d: Funnel };
@@ -149,13 +149,20 @@ export default function PulsePage() {
                 { e: "Visitors today", v: data.visitors24h, l: `${data.views24h} pages viewed`, c: SKY },
                 { e: "Checkouts", v: data.checkouts7d, l: "started this week", c: AMBER },
                 { e: "Payments", v: data.paid30d, l: "in the last 30 days", c: GREEN },
-              ].map((s) => (
-                <div key={s.e} className="relative rounded-[22px] border bg-[#0e0f13] p-4 overflow-clip" style={{ borderColor: `${s.c}40`, backgroundImage: `linear-gradient(160deg, ${s.c}1c 0%, transparent 55%)` }}>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: s.c }}>{s.e}</p>
-                  <p className={`${display.className} font-bold text-white text-[44px] leading-none tracking-[-0.04em] mt-2`}>{s.v}</p>
-                  <p className="text-zinc-400 text-[12.5px] mt-1.5">{s.l}</p>
-                </div>
-              ))}
+              ].map((s) => {
+                const inner = (
+                  <>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: s.c }}>{s.e}</p>
+                    <p className={`${display.className} font-bold text-white text-[44px] leading-none tracking-[-0.04em] mt-2`}>{s.v}</p>
+                    <p className="text-zinc-400 text-[12.5px] mt-1.5">{s.l}</p>
+                  </>
+                );
+                const cls = "relative block rounded-[22px] border bg-[#0e0f13] p-4 overflow-clip";
+                const style = { borderColor: `${s.c}40`, backgroundImage: `linear-gradient(160deg, ${s.c}1c 0%, transparent 55%)` };
+                return s.e === "Leads today"
+                  ? <Link key={s.e} href="/admin/leads" className={cls} style={style}>{inner}<span className="absolute top-4 right-4 text-zinc-500 text-[12px]">See all →</span></Link>
+                  : <div key={s.e} className={cls} style={style}>{inner}</div>;
+              })}
             </div>
 
             {/* The ad funnel */}
@@ -277,7 +284,7 @@ export default function PulsePage() {
                       <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ background: KIND[f.kind].c, boxShadow: `0 0 10px ${KIND[f.kind].c}` }} />
                       <span className="min-w-0 flex-1">
                         <span className="block text-white text-[14.5px] font-semibold truncate">{KIND[f.kind].t}{f.who ? ` · ${f.who}` : ""}</span>
-                        <span className="block text-zinc-500 text-[12.5px] truncate">{[f.source !== "unknown" && `via ${SOURCE_LABEL[f.source] ?? f.source}`, f.detail].filter(Boolean).join(" · ")}</span>
+                        <span className="block text-zinc-500 text-[12.5px] truncate">{[f.email && f.email !== f.who && f.email, f.source !== "unknown" && `via ${SOURCE_LABEL[f.source] ?? f.source}`, f.detail].filter(Boolean).join(" · ")}</span>
                       </span>
                       <span className="text-zinc-500 text-[12px] shrink-0">{ago(f.at)}</span>
                     </li>
@@ -286,7 +293,7 @@ export default function PulsePage() {
               )}
             </Card>
 
-            <p className="text-zinc-600 text-[12px] text-center mt-5">{data.accounts} accounts in total · <Link href="/admin" className="underline underline-offset-4">Full admin →</Link></p>
+            <p className="text-zinc-600 text-[12px] text-center mt-5">{data.accounts} accounts in total · <Link href="/admin/leads" className="underline underline-offset-4">All leads</Link> · <Link href="/admin" className="underline underline-offset-4">Full admin →</Link></p>
           </>
         )}
       </div>

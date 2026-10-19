@@ -126,6 +126,7 @@ export async function GET() {
     kind: e.name === "subscription_paid" ? "paid" : e.name === "checkout_started" ? "checkout" : "lead",
     at: e.created_at,
     who: str(e.props?.name) || str(e.props?.email) || "",
+    email: str(e.props?.email),
     source: srcOf(e),
     detail: e.name === "diagnostic_lead" ? [str(e.props?.subject), str(e.props?.curriculum), str(e.props?.bandLabel) && `got ${str(e.props?.bandLabel)}`].filter(Boolean).join(" · ")
       : e.name === "checkout_started" ? [str(e.props?.tier), str(e.props?.billing)].filter(Boolean).join(" · ")
