@@ -15,7 +15,8 @@ import Link from "next/link";
 import { display } from "@/lib/displayFont";
 import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
 import { trackEvent } from "@/lib/attribution";
-import { assess, examMonthOptions, DAYS, FOCUS, GOALS, GRADES, HOURS_PER_GRADE, MARKING, PRACTICE, type Days, type Focus, type GoalId, type Grade, type Marking, type OnTrackResult, type Practice } from "@/lib/onTrack";
+import DatePicker from "@/components/DatePicker";
+import { assess, typicalExamDate, DAYS, FOCUS, GOALS, GRADES, HOURS_PER_GRADE, MARKING, PRACTICE, type Days, type Focus, type GoalId, type Grade, type Marking, type OnTrackResult, type Practice } from "@/lib/onTrack";
 
 type Step = "teen" | "country" | "system" | "year" | "subject" | "current" | "goal" | "exam" | "days" | "practice" | "marking" | "focus" | "contact";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -218,7 +219,7 @@ export default function OnTrackPage() {
     subject: "One subject at a time — pick the one that decides the most.",
     current: "From the last report, mock or test. Pick the closest.",
     goal: "Be honest about the goal — the whole answer depends on it.",
-    exam: "The month is enough. If there are several papers, the first one.",
+    exam: "Tap the day. If there are several papers, the first one. Not sure? There’s a button for that.",
     days: "Not homework — actual revision or practice for this subject.",
     practice: "This is the question that decides most grades.",
     marking: "Marked by someone other than themselves.",
@@ -280,8 +281,12 @@ export default function OnTrackPage() {
         )}
         {step === "goal" && <Options items={GOALS.map((g) => ({ id: g.id, label: `${g.label} · ${g.grade}`, detail: g.detail }))} value={goal} onPick={setGoal} />}
         {step === "exam" && (
-          <div className="home-rise grid grid-cols-2 sm:grid-cols-3 gap-2.5" style={{ animationDelay: "160ms" }}>
-            {examMonthOptions().slice(0, 15).map((m) => <button key={m.value} onClick={() => { setExamMonth(m.value); next(); }} className={`${pill} text-center text-[13.5px] ${examMonth === m.value ? pillOn : ""}`}>{m.label}</button>)}
+          <div className="home-rise" style={{ animationDelay: "160ms" }}>
+            <DatePicker value={examMonth ?? ""} onChange={(d) => { setExamMonth(d); next(); }} />
+            <button onClick={() => { setExamMonth(typicalExamDate(country)); next(); }} className={`${pill} w-full mt-3 text-zinc-400`}>
+              I&apos;m not sure — use the usual exam season
+              <span className="block text-zinc-600 text-[12.5px] font-normal mt-0.5">{new Date(typicalExamDate(country) + "T12:00:00").toLocaleDateString("en-GB", { month: "long", year: "numeric" })} for {COUNTRIES.find((c) => c.code === country)?.label}</span>
+            </button>
           </div>
         )}
         {step === "days" && <Options items={DAYS} value={days} onPick={setDays} />}

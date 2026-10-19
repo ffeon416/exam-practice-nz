@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       current: current || null,
       goal: goal?.grade ?? null,
       verdict,
-      examMonth: str("examMonth", 7),
+      examMonth: str("examMonth", 10),
       days: str("days", 10), practice: str("practice", 10), marking: str("marking", 10), focus: str("focus", 10),
       weeks, requiredHours, effectiveHours,
       bandLabel: VERDICT_LABEL[verdict],

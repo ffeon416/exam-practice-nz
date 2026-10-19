@@ -49,7 +49,7 @@ export const HOURS_PER_GRADE = 30;
 export type OnTrackInput = {
   current: Grade | null;      // null = parent doesn't know
   goal: GoalId;
-  examMonth: string;          // "YYYY-MM"
+  examMonth: string;          // "YYYY-MM-DD" (or "YYYY-MM")
   days: Days;
   practice: Practice;
   marking: Marking;
@@ -71,12 +71,21 @@ export type OnTrackResult = {
   fixes: Fix[];
 };
 
-/** Whole weeks from `today` until the first day of the exam month (at least 1). */
-export function weeksUntil(examMonth: string, today = new Date()): number {
-  const [y, m] = examMonth.split("-").map(Number);
+/** Whole weeks from `today` until the exam (an ISO date, or a month → its first day). At least 1. */
+export function weeksUntil(examDate: string, today = new Date()): number {
+  const [y, m, d] = examDate.split("-").map(Number);
   if (!y || !m) return 1;
-  const exam = new Date(y, m - 1, 1);
+  const exam = new Date(y, m - 1, d || 1);
   return Math.max(1, Math.round((exam.getTime() - today.getTime()) / (7 * 864e5)));
+}
+
+/** When the main exams usually fall, for a parent who doesn't know the date yet. */
+export function typicalExamDate(country: "NZ" | "AU" | "GB" | "US" | "CA", today = new Date()): string {
+  const month = { NZ: 11, AU: 10, GB: 5, US: 5, CA: 6 }[country]; // Nov, Oct, May, May, June
+  let y = today.getFullYear();
+  // If this year's season is already here or gone (less than 3 weeks away), it's next year's.
+  if (new Date(y, month - 1, 15).getTime() - today.getTime() < 21 * 864e5) y++;
+  return `${y}-${String(month).padStart(2, "0")}-15`;
 }
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
