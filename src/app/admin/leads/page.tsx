@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
 
-type Lead = { at: string; email: string; name: string; subject: string; curriculum: string; grade: string; pct: number | null; source: string; campaign: string; kind: "parent" | "student"; teen: string; current: string; goal: string };
+type Lead = { at: string; email: string; name: string; subject: string; curriculum: string; grade: string; pct: number | null; source: string; campaign: string; kind: "parent" | "student"; teen: string; current: string; goal: string; story?: string };
 
 const SOURCE_LABEL: Record<string, string> = { meta: "Meta ad", facebook: "Facebook", instagram: "Instagram", direct: "Direct", google: "Google", unknown: "Unknown source", ai: "ChatGPT / AI" };
 const title = (s: string) => s.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -67,6 +67,7 @@ export default function LeadsPage() {
                 <p className="text-zinc-400 text-[12.5px] mt-2">
                   {[l.subject && title(l.subject), l.curriculum && l.curriculum.toUpperCase().replace("-", " "), l.kind === "parent" && l.current && l.goal && `${l.current} now → wants ${l.goal}`, l.kind === "student" && !l.grade && "didn't finish the questions"].filter(Boolean).join(" · ")}
                 </p>
+                {l.story && <p className="text-zinc-400 text-[13px] leading-relaxed italic mt-2 border-l-2 border-white/[0.08] pl-3">“{l.story.length > 220 ? l.story.slice(0, 220) + "…" : l.story}”</p>}
                 <p className="text-zinc-600 text-[12px] mt-1">{when(l.at)} · via {SOURCE_LABEL[l.source] ?? l.source}{l.campaign ? ` (${l.campaign})` : ""}</p>
               </li>
             ))}

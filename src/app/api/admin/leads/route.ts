@@ -46,6 +46,7 @@ export async function GET(request: Request) {
       teen: str(p.teen),
       current: str(p.current),
       goal: str(p.goal),
+      story: str(p.story),
     });
   }
 

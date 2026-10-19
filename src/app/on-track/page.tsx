@@ -4,8 +4,9 @@
 // "Is your teen on track for the grade you want?" The grade check is for the
 // student; this is for the parent who pays. Same shape: a wizard of short
 // questions (the teen, the subject, the grade now, the goal after StudyAce,
-// the exam date, one tick-list of the habits that decide whether study time
-// turns into marks), the parent's email right before the reveal, then a
+// the exam date, a few typed sentences on how they actually study — read by
+// the model into the habits the engine needs, so the verdict can quote the
+// parent back), the parent's email right before the reveal, then a
 // straight verdict. Eight screens when the timezone tells us the country.
 // The working is shown with the three things that would change it.
 // Arithmetic on their own answers — a rule of thumb, never a promise.
@@ -16,15 +17,14 @@ import { display } from "@/lib/displayFont";
 import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
 import { trackEvent } from "@/lib/attribution";
 import DatePicker from "@/components/DatePicker";
-import { assess, typicalExamDate, DAYS, GOALS, GRADES, HOURS_PER_GRADE, type GoalId, type Grade, type OnTrackResult } from "@/lib/onTrack";
+import { assess, typicalExamDate, DAYS, GOALS, GRADES, HOURS_PER_GRADE, type Days, type Focus, type GoalId, type Grade, type Marking, type OnTrackResult, type Practice } from "@/lib/onTrack";
 
 type Step = "teen" | "year" | "subject" | "current" | "goal" | "exam" | "habits" | "contact";
-type Habit = "days" | "timed" | "marked" | "weakest";
-const HABITS: { id: Habit; label: string; detail: string }[] = [
-  { id: "days", label: "Studies this subject 4 or more days a week", detail: "Actual revision or practice, not homework" },
-  { id: "timed", label: "Does timed exam questions, not just re-reading notes", detail: "The habit that decides most grades" },
-  { id: "marked", label: "Someone other than them marks the work most weeks", detail: "A teacher, a tutor — not self-marking" },
-  { id: "weakest", label: "Starts with the topics they find hardest", detail: "Rather than the ones they like" },
+type Reading = { days: Days; practice: Practice; marking: Marking; focus: Focus; observations: string[]; fixes: { title: string; why: string }[]; source: "ai" | "keywords" };
+const EXAMPLES = [
+  "She says she revises most nights but it’s mostly re-watching videos. Nobody checks it. Sunday she crams.",
+  "Two nights a week with a tutor, does the homework he sets, not much in between. Avoids the hard topics.",
+  "Honestly I don’t know what he does in his room. Grades have slipped since term two.",
 ];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -45,12 +45,29 @@ export default function OnTrackPage() {
   const [current, setCurrent] = useState<Grade | null | "unset">("unset");
   const [goal, setGoal] = useState<GoalId | null>(null);
   const [examMonth, setExamMonth] = useState<string | null>(null);
-  const [habits, setHabits] = useState<Set<Habit>>(new Set());
-  // One tick-list stands in for four questions; unticked = the usual version.
-  const days = habits.has("days") ? "4-5" : "2-3";
-  const practice = habits.has("timed") ? "timed" : "notes";
-  const marking = habits.has("marked") ? "regular" : "sometimes";
-  const focus = habits.has("weakest") ? "weakest" : "whatever";
+  const [story, setStory] = useState("");
+  const [reading, setReading] = useState<Reading | null>(null);
+  const [readingState, setReadingState] = useState<"idle" | "reading" | "error">("idle");
+  const [example] = useState(() => EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)]);
+  // The four habits the engine needs come from reading what the parent typed.
+  const days: Days = reading?.days ?? "2-3";
+  const practice: Practice = reading?.practice ?? "unsure";
+  const marking: Marking = reading?.marking ?? "sometimes";
+  const focus: Focus = reading?.focus ?? "whatever";
+
+  // Read the typed description into habits + specific observations. Falls
+  // back to a rough keyword read server-side, and to the middle options here.
+  async function readStory() {
+    if (story.trim().length < 8) { setReadingState("error"); return; }
+    setReadingState("reading");
+    try {
+      const res = await fetch("/api/on-track/read", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: story.trim(), teen: teen.trim(), subject: subjectLabel }) });
+      const data = (await res.json().catch(() => null)) as Reading | null;
+      if (res.ok && data && data.days) setReading(data); else setReading(null);
+    } catch { setReading(null); }
+    setReadingState("idle");
+    next();
+  }
   const [parentName, setParentName] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
@@ -109,11 +126,13 @@ export default function OnTrackPage() {
   function reveal() {
     if (!goal || !examMonth || current === "unset") return;
     const r = assess({ current, goal, examMonth, days, practice, marking, focus });
+    // The model's fixes are written for this teen; use them when we have them.
+    if (reading?.fixes.length) r.fixes = reading.fixes.slice(0, 3).map((f, i) => ({ id: (["timed", "marked", "weakest", "days"] as const)[i] ?? "days", title: f.title, why: f.why }));
     setResult(r);
     // Bank the lead and send the parent their copy. Fire-and-forget.
     void fetch("/api/on-track/email", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email.trim(), name: parentName.trim(), teen: teen.trim(), curriculum: curriculumId, subject, current, goal, examMonth, days, practice, marking, focus, verdict: r.verdict, weeks: r.weeks, requiredHours: r.requiredHours, effectiveHours: r.effectiveHours, fixes: r.fixes.map((f) => f.title) }),
+      body: JSON.stringify({ email: email.trim(), name: parentName.trim(), teen: teen.trim(), curriculum: curriculumId, subject, current, goal, examMonth, days, practice, marking, focus, verdict: r.verdict, weeks: r.weeks, requiredHours: r.requiredHours, effectiveHours: r.effectiveHours, fixes: r.fixes.map((f) => f.title), story: story.trim().slice(0, 1200), observations: reading?.observations ?? [] }),
     }).catch(() => {});
     window.scrollTo({ top: 0 });
   }
@@ -168,6 +187,16 @@ export default function OnTrackPage() {
             How we got there: {result.verdict === "unknown" ? "no current grade, so no gap to measure" : `${result.steps || "0"} grade${result.steps === 1 ? "" : "s"} × about ${HOURS_PER_GRADE} focused hours each, spread over ${result.weeks} weeks`}. Time only counts when it’s timed questions, marked honestly, on the weak topics — so the {DAYS.find((d) => d.id === days)?.hours ?? 0}h a week of study you described is worth about {result.effectiveHours}h. A rule of thumb from what you told us, not a measurement, and no app can promise a grade.
           </p>
 
+          {/* What they told us, read back */}
+          {reading && reading.observations.length > 0 && (
+            <div className="home-rise rounded-[22px] border border-white/[0.08] bg-[#0e0f13] p-5 mt-6" style={{ animationDelay: "190ms" }}>
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500">What you told us about {name}</p>
+              <ul className="mt-2.5 space-y-1.5">
+                {reading.observations.map((o, i) => <li key={i} className="text-zinc-300 text-[14.5px] leading-relaxed flex gap-2.5"><span className="text-zinc-600">—</span><span>{o}</span></li>)}
+              </ul>
+            </div>
+          )}
+
           {/* The fixes */}
           {result.fixes.length > 0 && (
             <div className="home-rise mt-8" style={{ animationDelay: "220ms" }}>
@@ -218,7 +247,7 @@ export default function OnTrackPage() {
     current: `What grade is ${name} getting in ${subjectLabel} right now?`,
     goal: `Where do you want ${name} to be after StudyAce?`,
     exam: `When is the ${subjectLabel} exam?`,
-    habits: `Which of these are true of how ${name} studies?`,
+    habits: `How does ${name} actually study ${subjectLabel}?`,
     contact: `Last one — where should we send ${name}’s plan?`,
   };
   const subline: Record<Step, string> = {
@@ -228,7 +257,7 @@ export default function OnTrackPage() {
     current: "From the last report, mock or test. Pick the closest.",
     goal: "Be honest about the goal — the whole answer depends on it.",
     exam: "Tap the day. If there are several papers, the first one. Not sure? There’s a button for that.",
-    habits: "Tick what’s true, honestly. Leave the rest. These four decide whether study time turns into marks.",
+    habits: "A few honest sentences. How often, what it looks like, whether anyone checks it. The more specific you are, the more specific the answer.",
     contact: "The verdict shows here the moment you tap — and a copy goes to your inbox.",
   };
 
@@ -302,20 +331,18 @@ export default function OnTrackPage() {
           </div>
         )}
         {step === "habits" && (
-          <div className="home-rise" style={{ animationDelay: "160ms" }}>
-            <div className="grid grid-cols-1 gap-2.5">
-              {HABITS.map((h) => {
-                const on = habits.has(h.id);
-                return (
-                  <button key={h.id} type="button" aria-pressed={on} onClick={() => setHabits((prev) => { const n = new Set(prev); if (n.has(h.id)) n.delete(h.id); else n.add(h.id); return n; })} className={`${pill} flex items-center gap-3.5 ${on ? pillOn : ""}`}>
-                    <span className={`shrink-0 w-6 h-6 rounded-md border flex items-center justify-center text-[14px] font-bold ${on ? "bg-[#3ee6a0] border-[#3ee6a0] text-[#07120d]" : "border-white/20 text-transparent"}`}>✓</span>
-                    <span><span className="block">{h.label}</span><span className="block text-zinc-500 text-[12.5px] font-normal mt-0.5">{h.detail}</span></span>
-                  </button>
-                );
-              })}
-            </div>
-            <button onClick={next} className="w-full rounded-full bg-white text-[#0a0a0f] font-bold py-4 text-[15px] mt-4">{habits.size === 0 ? "None of these — next →" : "Next →"}</button>
-          </div>
+          <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); void readStory(); }}>
+            <textarea
+              autoFocus value={story} onChange={(e) => { setStory(e.target.value); if (readingState === "error") setReadingState("idle"); }} rows={5} maxLength={1200}
+              placeholder={`e.g. ${example}`}
+              className="w-full rounded-2xl bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-[16px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/70 resize-none leading-relaxed"
+            />
+            {readingState === "error" && <p className="text-rose-400 text-[12.5px] mt-2">A sentence or two is enough — but we need something to go on.</p>}
+            <button type="submit" disabled={readingState === "reading"} className="w-full rounded-full bg-white text-[#0a0a0f] font-bold py-4 text-[15px] mt-4 disabled:opacity-70">
+              {readingState === "reading" ? <span className="inline-flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#0a0a0f] animate-pulse" />Reading what you wrote…</span> : "Next →"}
+            </button>
+            <p className="text-zinc-600 text-[12px] text-center mt-3">Things worth mentioning: days a week · videos and notes vs timed questions · who marks it · which topics they avoid.</p>
+          </form>
         )}
         {step === "contact" && (
           <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); if (!EMAIL_RE.test(email.trim())) { setEmailError("Please enter a valid email address."); return; } setEmailError(null); reveal(); }}>

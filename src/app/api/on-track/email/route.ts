@@ -40,6 +40,8 @@ export async function POST(request: NextRequest) {
     const requiredHours = num("requiredHours");
     const effectiveHours = num("effectiveHours");
     const fixes = Array.isArray(b.fixes) ? (b.fixes as unknown[]).filter((f): f is string => typeof f === "string").slice(0, 3).map((f) => f.slice(0, 120)) : [];
+    const observations = Array.isArray(b.observations) ? (b.observations as unknown[]).filter((f): f is string => typeof f === "string").slice(0, 3).map((f) => f.slice(0, 160)) : [];
+    const story = str("story", 1200);
 
     void logEvent("diagnostic_lead", null, {
       ...attributionProps(attributionFromRequest(request)),
@@ -55,6 +57,8 @@ export async function POST(request: NextRequest) {
       examMonth: str("examMonth", 10),
       days: str("days", 10), practice: str("practice", 10), marking: str("marking", 10), focus: str("focus", 10),
       weeks, requiredHours, effectiveHours,
+      ...(story ? { story } : {}),
+      ...(observations.length ? { observations } : {}),
       bandLabel: VERDICT_LABEL[verdict],
     });
 
@@ -76,6 +80,7 @@ export async function POST(request: NextRequest) {
                 <p>${name ? `Hi ${esc(name)}, here's` : "Here's"} where <b>${esc(teen)}</b> stands in <b>${subjectLabel}</b>${goal ? ` against the goal of <b>${goal.grade}</b>` : ""}:</p>
                 <div style="font-size:34px;font-weight:800;color:${VERDICT_COLOR[verdict]};margin:12px 0;">${VERDICT_LABEL[verdict]}</div>
                 <p style="color:#555;">${[current && goal ? `${current} now → ${goal.grade} wanted` : "", weeks != null ? `${weeks} weeks to the exam` : "", requiredHours != null && verdict !== "unknown" ? `needs about ${requiredHours}h a week of marked practice` : "", effectiveHours != null ? `currently about ${effectiveHours}h a week that counts` : ""].filter(Boolean).join(" · ")}</p>
+                ${observations.length ? `<p><b>What you told us:</b></p><ul>${observations.map((o) => `<li style="margin:4px 0;">${esc(o)}</li>`).join("")}</ul>` : ""}
                 ${fixesHtml ? `<p><b>What changes the answer:</b></p><ol>${fixesHtml}</ol>` : ""}
                 <p>StudyAce does all of that, every day: a plan to the exam, timed ${esc(curriculum.system)} questions, every answer marked honestly, and a pace line so you see whether ${esc(teen)} is heading for the grade before the report does.</p>
                 <p style="margin-top:24px;">
