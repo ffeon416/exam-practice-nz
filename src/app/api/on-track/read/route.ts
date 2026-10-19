@@ -60,7 +60,7 @@ Return exactly this shape:
   "practice": one of "timed" | "mixed" | "notes" | "unsure"   — "timed" = exam-style questions under time; "notes" = re-reading, videos, highlighting, flashcards; "mixed" = both; "unsure" if not stated,
   "marking": one of "regular" | "sometimes" | "nobody"   — who marks the practice work; "nobody" includes self-marking; "sometimes" if not stated,
   "focus": one of "weakest" | "whatever" | "favourite"   — what they spend time on; avoiding or skipping the hard topics = "favourite"; "whatever" if not stated,
-  "observations": 2 or 3 short plain sentences (max 110 characters each) that restate ONLY what the parent actually said, in a calm, honest tone. No praise, no judgement, nothing invented.
+  "observations": 2 or 3 short plain sentences (max 110 characters each) that restate ONLY what the parent actually said, in a calm, honest tone. No praise, no judgement, nothing invented, and never a sentence about what they did NOT mention — if there is only one thing to say, say one thing.
   "fixes": up to 3 objects {"title": max 60 chars, "why": max 160 chars}, the specific changes that would most raise ${teen}'s grade GIVEN WHAT WAS WRITTEN, biggest lever first. Draw only from: timed exam questions instead of passive review; honest marking by someone other than themselves; starting with the weakest topics; short sessions on more days; a fixed plan to the exam date. Use the parent's own details (e.g. "the YouTube videos", "the Sunday cram"). If the habits described are already right, return fewer fixes or none.
 }
 

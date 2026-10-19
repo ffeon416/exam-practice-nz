@@ -14,10 +14,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
+import { PRO_PRICING, proMonthlyEquivalent } from "@/lib/tierLimits";
 import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
 import { trackEvent } from "@/lib/attribution";
 import DatePicker from "@/components/DatePicker";
-import { assess, typicalExamDate, DAYS, GOALS, GRADES, HOURS_PER_GRADE, type Days, type Focus, type GoalId, type Grade, type Marking, type OnTrackResult, type Practice } from "@/lib/onTrack";
+import { assess, typicalExamDate, GOALS, GRADES, type Days, type Focus, type GoalId, type Grade, type Marking, type OnTrackResult, type Practice } from "@/lib/onTrack";
 
 type Step = "teen" | "year" | "subject" | "current" | "goal" | "exam" | "habits" | "contact";
 type Reading = { days: Days; practice: Practice; marking: Marking; focus: Focus; observations: string[]; fixes: { title: string; why: string }[]; source: "ai" | "keywords" };
@@ -80,7 +81,7 @@ export default function OnTrackPage() {
   const years = countryMismatch ? [] : curriculum.levels;
   const subjects = countryMismatch || year == null ? [] : curriculum.subjects.filter((s) => s.years.includes(year));
   const subjectLabel = curriculum.subjects.find((s) => s.value === subject)?.label ?? "the subject";
-  const name = teen.trim() || "your teen";
+  const name = teen.trim() ? teen.trim().charAt(0).toUpperCase() + teen.trim().slice(1) : "your teen";
 
   function pickCountry(code: Curriculum["country"]) {
     setCountry(code); setYear(null); setSubject(null);
@@ -156,84 +157,77 @@ export default function OnTrackPage() {
   if (result) {
     const v = VERDICT[result.verdict];
     const currentLabel = current === "unset" || current === null ? "?" : current;
+    const GREEN = "#3ee6a0";
+    const examLabel = examMonth ? new Date(examMonth + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long" }) : "the exam";
+    // The sell, by verdict. The breakdown is already in their inbox; this
+    // screen exists to turn the verdict into a start.
+    const sell =
+      result.verdict === "hold" ? { h: <>Hold {name}&rsquo;s {result.goalGrade} all the way to {examLabel}.</>, p: `Grades don’t fall off a cliff, they drift. ${name} needs the work marked honestly every night so the first slip shows up on a screen, not on the report.` }
+      : result.verdict === "on" ? { h: <>Keep {name} on track to {result.goalGrade} — every single night.</>, p: `The habits are right. StudyAce makes them automatic: one task a day, marked like an examiner, with a line you can see that says on track or not.` }
+      : result.verdict === "unknown" ? { h: <>Find {name}&rsquo;s real grade tonight. Then fix it.</>, p: `Day one is an 8-question ${subjectLabel} check marked like an examiner. From day two there’s a plan to the exam, 20 minutes a night.` }
+      : { h: <>{name} can still get to {result.goalGrade} by {examLabel}. Not by doing more of the same.</>, p: result.fixes[0] ? `The first thing to change: ${result.fixes[0].title.charAt(0).toLowerCase() + result.fixes[0].title.slice(1)}. StudyAce makes that happen from tonight, and marks every bit of it.` : `The way ${name} studies now is the thing to change. StudyAce changes it from tonight, and marks every bit of it.` };
+    const bullets = [
+      `Timed, exam-style ${subjectLabel} questions. 20 minutes a night, weakest topics first.`,
+      "Every answer marked like an examiner — one mark for working, one for the answer. No self-marking.",
+      `A plan from tonight to ${examLabel}, and a pace line you can check: on track for ${result.goalGrade}, or not.`,
+    ];
     return (
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
           <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${v.color}22 0%, ${v.color}08 45%, transparent 70%)` }} />
         </div>
         <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-16 pb-24">
-          <p className="home-rise font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 mb-4">{name} · {subjectLabel} · goal {result.goalGrade}</p>
+          <p className="home-rise font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 mb-4">{name} · {subjectLabel} · {currentLabel} now · goal {result.goalGrade}</p>
+
+          {/* The verdict */}
           <div className="home-rise rounded-[28px] border-2 bg-[#0e0f13] p-7 sm:p-9 overflow-clip" style={{ borderColor: `${v.color}80`, boxShadow: `0 30px 90px -30px ${v.color}66`, backgroundImage: `radial-gradient(90% 80% at 50% 0%, ${v.color}1f 0%, transparent 70%)` }}>
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: v.color }}>The verdict</p>
             <h1 className={`${display.className} text-white font-bold text-[40px] sm:text-[56px] tracking-[-0.03em] leading-[1] mt-2`}>{v.label}</h1>
             <p className="text-zinc-300 text-[15.5px] sm:text-[17px] leading-relaxed mt-4">{v.line(name)}</p>
+            {result.verdict !== "unknown" && (
+              <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-zinc-500 mt-5">{result.weeks} {result.weeks === 1 ? "week" : "weeks"} to the exam{result.steps > 0 ? ` · ${result.steps} grade${result.steps > 1 ? "s" : ""} to climb` : ""}</p>
+            )}
           </div>
+          <p className="home-rise text-zinc-500 text-[13px] text-center mt-3" style={{ animationDelay: "120ms" }}>The full breakdown — the numbers, what you told us, what changes it — is on its way to {email.trim()}.</p>
 
-          {/* The working */}
-          <div className="home-rise grid grid-cols-3 gap-2.5 mt-3" style={{ animationDelay: "120ms" }}>
-            {[
-              { e: "Grade", v: <>{currentLabel} <span className="text-zinc-500">→</span> {result.goalGrade}</>, l: result.verdict === "unknown" ? "current grade unknown" : result.steps === 0 ? "already at the goal" : `${result.steps} grade${result.steps > 1 ? "s" : ""} to climb` },
-              { e: "Time", v: `${result.weeks} wk`, l: "until the exam" },
-              { e: "Needs", v: result.verdict === "unknown" ? "?" : `${result.requiredHours}h`, l: `a week of marked practice · doing about ${result.effectiveHours}h that counts` },
-            ].map((s) => (
-              <div key={s.e} className="rounded-[20px] border border-white/[0.08] bg-[#0e0f13] p-3.5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">{s.e}</p>
-                <p className={`${display.className} text-white font-bold text-[24px] sm:text-[28px] tracking-[-0.03em] leading-none mt-1.5`}>{s.v}</p>
-                <p className="text-zinc-500 text-[11.5px] leading-snug mt-1.5">{s.l}</p>
-              </div>
-            ))}
-          </div>
-          <p className="home-rise text-zinc-600 text-[12px] leading-relaxed mt-3" style={{ animationDelay: "160ms" }}>
-            How we got there: {result.verdict === "unknown" ? "no current grade, so no gap to measure" : `${result.steps || "0"} grade${result.steps === 1 ? "" : "s"} × about ${HOURS_PER_GRADE} focused hours each, spread over ${result.weeks} weeks`}. Time only counts when it’s timed questions, marked honestly, on the weak topics — so the {DAYS.find((d) => d.id === days)?.hours ?? 0}h a week of study you described is worth about {result.effectiveHours}h. A rule of thumb from what you told us, not a measurement, and no app can promise a grade.
-          </p>
-
-          {/* What they told us, read back */}
-          {reading && reading.observations.length > 0 && (
-            <div className="home-rise rounded-[22px] border border-white/[0.08] bg-[#0e0f13] p-5 mt-6" style={{ animationDelay: "190ms" }}>
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500">What you told us about {name}</p>
-              <ul className="mt-2.5 space-y-1.5">
-                {reading.observations.map((o, i) => <li key={i} className="text-zinc-300 text-[14.5px] leading-relaxed flex gap-2.5"><span className="text-zinc-600">—</span><span>{o}</span></li>)}
-              </ul>
-            </div>
-          )}
-
-          {/* The fixes */}
-          {result.fixes.length > 0 && (
-            <div className="home-rise mt-8" style={{ animationDelay: "220ms" }}>
-              <h2 className={`${display.className} text-white font-bold text-[24px] sm:text-[28px] tracking-[-0.02em]`}>{result.verdict === "on" ? "What keeps it that way" : "What changes the answer"}</h2>
-              <ul className="mt-4 space-y-2.5">
-                {result.fixes.map((f, i) => (
-                  <li key={f.id} className="rounded-[20px] border border-white/[0.08] bg-[#0e0f13] p-4 flex gap-3.5">
-                    <span className={`${display.className} shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-[14px] font-bold text-[#0a0a0f]`} style={{ background: v.color }}>{i + 1}</span>
-                    <div><p className="text-white text-[15px] font-semibold">{f.title}</p><p className="text-zinc-400 text-[13.5px] leading-relaxed mt-1">{f.why}</p></div>
-                  </li>
+          {/* The sale */}
+          <div className="home-rise relative rounded-[28px] border-2 bg-[#0e0f13] p-6 sm:p-9 mt-8 overflow-clip" style={{ animationDelay: "220ms", borderColor: `${GREEN}73`, boxShadow: `0 30px 100px -30px ${GREEN}66`, backgroundImage: `radial-gradient(90% 70% at 50% 0%, ${GREEN}22 0%, transparent 70%)` }}>
+            <div className="sa-breathe absolute inset-0 pointer-events-none" aria-hidden style={{ background: `radial-gradient(60% 80% at 15% 0%, ${GREEN}26 0%, transparent 70%)` }} />
+            <div className="relative">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: GREEN }}>Fix it from tonight</p>
+              <h2 className={`${display.className} text-white font-bold text-[30px] sm:text-[40px] tracking-[-0.03em] leading-[1.02] mt-2`} style={{ textWrap: "balance" }}>{sell.h}</h2>
+              <p className="text-zinc-300 text-[15px] sm:text-[16px] leading-relaxed mt-4">{sell.p}</p>
+              <ul className="mt-5 space-y-2.5">
+                {bullets.map((b) => (
+                  <li key={b} className="flex gap-3 text-zinc-200 text-[14.5px] leading-relaxed"><span className="shrink-0 mt-[3px] w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold text-[#07120d]" style={{ background: GREEN }}>✓</span><span>{b}</span></li>
                 ))}
               </ul>
+
+              {/* Price */}
+              <div className="mt-7 rounded-[22px] border border-white/[0.1] bg-[#0b0b10] p-5">
+                <div className="flex items-end justify-between gap-4 flex-wrap">
+                  <div>
+                    <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500">StudyAce Pro · everything</p>
+                    <p className={`${display.className} text-white font-bold text-[40px] leading-none tracking-[-0.04em] mt-1.5`}>NZ${PRO_PRICING.monthly.amount}<span className="text-zinc-500 text-[16px] font-semibold tracking-normal"> /month</span></p>
+                    <p className="text-zinc-400 text-[13px] mt-1.5">or NZ${PRO_PRICING.yearly.amount} for the whole year — about NZ${proMonthlyEquivalent("yearly").toFixed(0)} a month</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500">A tutor</p>
+                    <p className={`${display.className} text-zinc-500 font-bold text-[28px] leading-none tracking-[-0.04em] mt-1.5 line-through decoration-[#ff6b7a]/70`}>NZ$70</p>
+                    <p className="text-zinc-600 text-[12px] mt-1.5">for one hour, once</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="/pricing" onClick={() => trackEvent("cta_click", { cta: "ontrack-pitch", page: "/on-track" })}
+                className="mt-5 inline-flex w-full justify-center items-center gap-2 rounded-full px-5 min-h-[64px] text-[18px] font-extrabold text-[#07120d] transition-transform hover:scale-[1.02]" style={{ background: GREEN, boxShadow: `0 0 44px ${GREEN}66` }}>
+                Start {name}&rsquo;s plan tonight →
+              </Link>
+              <p className="text-zinc-400 text-[13px] text-center mt-3">Cancel any time · 30-day money back · {name} is set up in 5 minutes</p>
             </div>
-          )}
-          {result.fixes.length === 0 && (
-            <p className="home-rise text-zinc-300 text-[15px] leading-relaxed mt-8" style={{ animationDelay: "220ms" }}>The habits are right: regular, timed, marked, on the weak topics. {result.verdict === "off" ? "The gap is just bigger than the time left — so every session has to count, and the exam date has to be the one on the calendar, not a hope." : "Keep the routine and keep the marking honest."}</p>
-          )}
-
-          {/* The pitch */}
-          <div className="home-rise rounded-[28px] border border-white/[0.1] bg-[#0e0f13] p-6 sm:p-8 mt-8" style={{ animationDelay: "300ms" }}>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#3ee6a0] font-bold">What StudyAce does about it</p>
-            <h2 className={`${display.className} text-white font-bold text-[26px] sm:text-[32px] tracking-[-0.02em] leading-[1.1] mt-2`}>Every one of those fixes, every day, for {name}.</h2>
-            <ul className="mt-4 space-y-2 text-zinc-300 text-[14.5px] leading-relaxed">
-              <li>· A plan from today to the {subjectLabel} exam, 20 minutes a day, weakest topics first.</li>
-              <li>· Exam-style questions in {curriculum.system} format, timed.</li>
-              <li>· Every answer marked honestly, like an examiner would — no soft marks.</li>
-              <li>· A pace line that shows whether {name} is heading for {result.goalGrade}, so you see it before the report does.</li>
-            </ul>
-            <Link href="/pricing" onClick={() => trackEvent("cta_click", { cta: "ontrack-pitch", page: "/on-track" })} className="mt-6 inline-flex w-full justify-center items-center gap-2 rounded-full bg-[#3ee6a0] px-5 py-4 text-[15px] font-extrabold text-[#0a0a0f] hover:brightness-105 transition">Start {name}’s plan — NZ$49/mo →</Link>
-            <p className="text-zinc-500 text-[12.5px] text-center mt-3">Cancel any time. Less than one hour with a tutor.</p>
           </div>
 
-          <div className="home-rise rounded-[22px] border border-white/[0.08] p-5 mt-4 flex items-center justify-between gap-4" style={{ animationDelay: "360ms" }}>
-            <div><p className="text-white text-[14.5px] font-semibold">{result.verdict === "unknown" ? `Get ${name}’s real grade first` : "Check the grade you entered"}</p><p className="text-zinc-500 text-[12.5px] mt-0.5">{name} sits 8 real {subjectLabel} questions, marked honestly. 2 minutes, free.</p></div>
-            <Link href="/grade" className="shrink-0 rounded-full border border-white/[0.14] text-white text-[13px] font-semibold px-4 py-2.5">Grade check →</Link>
-          </div>
-          <p className="text-zinc-600 text-[12px] text-center mt-6">A copy of this is on its way to {email.trim()}.</p>
+          <p className="text-zinc-600 text-[12.5px] text-center mt-8">Not sure of {name}&rsquo;s grade? {name} can sit the free 8-question <Link href="/grade" className="text-zinc-400 underline underline-offset-4">grade check</Link> first.</p>
         </div>
       </div>
     );
