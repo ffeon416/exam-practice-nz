@@ -3,12 +3,12 @@
 // ── The parent check ──
 // "Is your teen on track for the grade you want?" The grade check is for the
 // student; this is for the parent who pays. Same shape: a wizard of short
-// questions (the teen, where they study, the subject, the grade now, the goal
-// after StudyAce, the exam month, four habits that decide whether study time
+// questions (the teen, the subject, the grade now, the goal after StudyAce,
+// the exam date, one tick-list of the habits that decide whether study time
 // turns into marks), the parent's email right before the reveal, then a
-// straight verdict with the working shown and the three things that would
-// change it. Arithmetic on their own answers — a rule of thumb, never a
-// promise, and the page says so.
+// straight verdict. Eight screens when the timezone tells us the country.
+// The working is shown with the three things that would change it.
+// Arithmetic on their own answers — a rule of thumb, never a promise.
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -16,9 +16,16 @@ import { display } from "@/lib/displayFont";
 import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
 import { trackEvent } from "@/lib/attribution";
 import DatePicker from "@/components/DatePicker";
-import { assess, typicalExamDate, DAYS, FOCUS, GOALS, GRADES, HOURS_PER_GRADE, MARKING, PRACTICE, type Days, type Focus, type GoalId, type Grade, type Marking, type OnTrackResult, type Practice } from "@/lib/onTrack";
+import { assess, typicalExamDate, DAYS, GOALS, GRADES, HOURS_PER_GRADE, type GoalId, type Grade, type OnTrackResult } from "@/lib/onTrack";
 
-type Step = "teen" | "country" | "system" | "year" | "subject" | "current" | "goal" | "exam" | "days" | "practice" | "marking" | "focus" | "contact";
+type Step = "teen" | "country" | "system" | "year" | "subject" | "current" | "goal" | "exam" | "habits" | "contact";
+type Habit = "days" | "timed" | "marked" | "weakest";
+const HABITS: { id: Habit; label: string; detail: string }[] = [
+  { id: "days", label: "Studies this subject 4 or more days a week", detail: "Actual revision or practice, not homework" },
+  { id: "timed", label: "Does timed exam questions, not just re-reading notes", detail: "The habit that decides most grades" },
+  { id: "marked", label: "Someone other than them marks the work most weeks", detail: "A teacher, a tutor — not self-marking" },
+  { id: "weakest", label: "Starts with the topics they find hardest", detail: "Rather than the ones they like" },
+];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 const VERDICT = {
@@ -38,10 +45,13 @@ export default function OnTrackPage() {
   const [current, setCurrent] = useState<Grade | null | "unset">("unset");
   const [goal, setGoal] = useState<GoalId | null>(null);
   const [examMonth, setExamMonth] = useState<string | null>(null);
-  const [days, setDays] = useState<Days | null>(null);
-  const [practice, setPractice] = useState<Practice | null>(null);
-  const [marking, setMarking] = useState<Marking | null>(null);
-  const [focus, setFocus] = useState<Focus | null>(null);
+  const [habits, setHabits] = useState<Set<Habit>>(new Set());
+  const [countryKnown, setCountryKnown] = useState(false);
+  // One tick-list stands in for four questions; unticked = the usual version.
+  const days = habits.has("days") ? "4-5" : "2-3";
+  const practice = habits.has("timed") ? "timed" : "notes";
+  const marking = habits.has("marked") ? "regular" : "sometimes";
+  const focus = habits.has("weakest") ? "weakest" : "whatever";
   const [parentName, setParentName] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
@@ -67,11 +77,12 @@ export default function OnTrackPage() {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
       const CA_TZ = new Set(["America/Toronto", "America/Vancouver", "America/Edmonton", "America/Winnipeg", "America/Halifax", "America/St_Johns", "America/Regina", "America/Moncton"]);
       let detected: Curriculum["country"] | null = null;
-      if (tz.startsWith("Australia/")) detected = "AU";
+      if (tz === "Pacific/Auckland" || tz === "Pacific/Chatham") detected = "NZ";
+      else if (tz.startsWith("Australia/")) detected = "AU";
       else if (tz === "Europe/London") detected = "GB";
       else if (CA_TZ.has(tz)) detected = "CA";
       else if (tz.startsWith("America/")) detected = "US";
-      if (detected) pickCountry(detected);
+      if (detected) { pickCountry(detected); setCountryKnown(true); }
     }, 0);
     return () => clearTimeout(id);
   }, []);
@@ -88,13 +99,13 @@ export default function OnTrackPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, result]);
 
-  const steps: Step[] = ["teen", "country", ...(systems.length > 1 ? (["system"] as Step[]) : []), "year", "subject", "current", "goal", "exam", "days", "practice", "marking", "focus", "contact"];
+  const steps: Step[] = ["teen", ...(countryKnown ? [] : (["country"] as Step[])), ...(systems.length > 1 ? (["system"] as Step[]) : []), "year", "subject", "current", "goal", "exam", "habits", "contact"];
   const stepIdx = Math.max(0, steps.indexOf(step));
   const next = () => setStep(steps[Math.min(steps.length - 1, stepIdx + 1)]);
   const back = () => setStep(steps[Math.max(0, stepIdx - 1)]);
 
   function reveal() {
-    if (!goal || !examMonth || !days || !practice || !marking || !focus || current === "unset") return;
+    if (!goal || !examMonth || current === "unset") return;
     const r = assess({ current, goal, examMonth, days, practice, marking, focus });
     setResult(r);
     // Bank the lead and send the parent their copy. Fire-and-forget.
@@ -205,14 +216,11 @@ export default function OnTrackPage() {
     current: `What grade is ${name} getting in ${subjectLabel} right now?`,
     goal: `Where do you want ${name} to be after StudyAce?`,
     exam: `When is the ${subjectLabel} exam?`,
-    days: `How many days a week does ${name} actually study ${subjectLabel}?`,
-    practice: `When ${name} studies, what does it mostly look like?`,
-    marking: `Does anyone mark ${name}’s practice work?`,
-    focus: `What does ${name} spend study time on?`,
+    habits: `Which of these are true of how ${name} studies?`,
     contact: `Last one — where should we send ${name}’s plan?`,
   };
   const subline: Record<Step, string> = {
-    teen: "Nine quick questions. You’ll get a straight answer: on track, borderline, or not — and what would change it. No card, no sign-up.",
+    teen: "Eight quick taps. You’ll get a straight answer: on track, borderline, or not — and what would change it. No card, no sign-up.",
     country: "So the grades and exam dates match the system they’re in.",
     system: "Each system has its own exams and grading.",
     year: "The goal means something different in Year 11 than in the final year.",
@@ -220,10 +228,7 @@ export default function OnTrackPage() {
     current: "From the last report, mock or test. Pick the closest.",
     goal: "Be honest about the goal — the whole answer depends on it.",
     exam: "Tap the day. If there are several papers, the first one. Not sure? There’s a button for that.",
-    days: "Not homework — actual revision or practice for this subject.",
-    practice: "This is the question that decides most grades.",
-    marking: "Marked by someone other than themselves.",
-    focus: "There’s no wrong answer, but there is a telling one.",
+    habits: "Tick what’s true, honestly. Leave the rest. These four decide whether study time turns into marks.",
     contact: "The verdict shows here the moment you tap — and a copy goes to your inbox.",
   };
 
@@ -243,7 +248,7 @@ export default function OnTrackPage() {
         <p className="home-rise text-zinc-400 text-[14px] sm:text-[15.5px] mb-8 max-w-md" style={{ animationDelay: "80ms" }}>{subline[step]}</p>
 
         {step === "teen" && (
-          <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); if (teen.trim()) next(); }}>
+          <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); if (!teen.trim()) return; setStep(!countryKnown ? "country" : systems.length > 1 ? "system" : "year"); }}>
             <label className="block text-[13px] font-semibold text-zinc-300 mb-2">Their first name</label>
             <input autoFocus type="text" value={teen} onChange={(e) => setTeen(e.target.value)} placeholder="e.g. Maia" autoComplete="off" className="w-full rounded-2xl bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-[16px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/70 mb-4" />
             <button type="submit" disabled={!teen.trim()} className="w-full rounded-full bg-white text-[#0a0a0f] font-bold py-4 text-[15px] disabled:opacity-40">Next →</button>
@@ -253,7 +258,7 @@ export default function OnTrackPage() {
           <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
             {/* The step list depends on the country just picked (one system or
                 several), so go to the right next step explicitly. */}
-            {COUNTRIES.map((c) => <button key={c.code} onClick={() => { pickCountry(c.code); setStep(curriculaForCountry(c.code).length > 1 ? "system" : "year"); }} className={`${pill} ${country === c.code ? pillOn : ""}`}>{c.flag} {c.label}</button>)}
+            {COUNTRIES.map((c) => <button key={c.code} onClick={() => { pickCountry(c.code); setCountryKnown(true); setStep(curriculaForCountry(c.code).length > 1 ? "system" : "year"); }} className={`${pill} ${country === c.code ? pillOn : ""}`}>{c.flag} {c.label}</button>)}
           </div>
         )}
         {step === "system" && (
@@ -262,8 +267,11 @@ export default function OnTrackPage() {
           </div>
         )}
         {step === "year" && (
-          <div className="home-rise grid grid-cols-2 sm:grid-cols-3 gap-2.5" style={{ animationDelay: "160ms" }}>
-            {years.map((y) => <button key={y.value} onClick={() => { setYear(y.value); setSubject(null); next(); }} className={`${pill} text-center ${year === y.value ? pillOn : ""}`}>{y.label}</button>)}
+          <div className="home-rise" style={{ animationDelay: "160ms" }}>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              {years.map((y) => <button key={y.value} onClick={() => { setYear(y.value); setSubject(null); next(); }} className={`${pill} text-center ${year === y.value ? pillOn : ""}`}>{y.label}</button>)}
+            </div>
+            <p className="text-zinc-500 text-[13px] mt-5">{COUNTRIES.find((c) => c.code === country)?.flag} {curriculum.label} · <button onClick={() => setStep("country")} className="text-zinc-300 underline underline-offset-4">not right? change</button></p>
           </div>
         )}
         {step === "subject" && (
@@ -289,10 +297,22 @@ export default function OnTrackPage() {
             </button>
           </div>
         )}
-        {step === "days" && <Options items={DAYS} value={days} onPick={setDays} />}
-        {step === "practice" && <Options items={PRACTICE} value={practice} onPick={setPractice} />}
-        {step === "marking" && <Options items={MARKING} value={marking} onPick={setMarking} />}
-        {step === "focus" && <Options items={FOCUS} value={focus} onPick={setFocus} />}
+        {step === "habits" && (
+          <div className="home-rise" style={{ animationDelay: "160ms" }}>
+            <div className="grid grid-cols-1 gap-2.5">
+              {HABITS.map((h) => {
+                const on = habits.has(h.id);
+                return (
+                  <button key={h.id} type="button" aria-pressed={on} onClick={() => setHabits((prev) => { const n = new Set(prev); if (n.has(h.id)) n.delete(h.id); else n.add(h.id); return n; })} className={`${pill} flex items-center gap-3.5 ${on ? pillOn : ""}`}>
+                    <span className={`shrink-0 w-6 h-6 rounded-md border flex items-center justify-center text-[14px] font-bold ${on ? "bg-[#3ee6a0] border-[#3ee6a0] text-[#07120d]" : "border-white/20 text-transparent"}`}>✓</span>
+                    <span><span className="block">{h.label}</span><span className="block text-zinc-500 text-[12.5px] font-normal mt-0.5">{h.detail}</span></span>
+                  </button>
+                );
+              })}
+            </div>
+            <button onClick={next} className="w-full rounded-full bg-white text-[#0a0a0f] font-bold py-4 text-[15px] mt-4">{habits.size === 0 ? "None of these — next →" : "Next →"}</button>
+          </div>
+        )}
         {step === "contact" && (
           <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); if (!EMAIL_RE.test(email.trim())) { setEmailError("Please enter a valid email address."); return; } setEmailError(null); reveal(); }}>
             <label className="block text-[13px] font-semibold text-zinc-300 mb-2">Your first name</label>
