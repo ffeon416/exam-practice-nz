@@ -12,9 +12,8 @@
 // Arithmetic on their own answers — a rule of thumb, never a promise.
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { display } from "@/lib/displayFont";
-import { PRO_PRICING, proMonthlyEquivalent } from "@/lib/tierLimits";
+import OnTrackReveal from "@/components/OnTrackReveal";
 import { resolveCurriculum, COUNTRIES, curriculaForCountry, type Curriculum } from "@/data/curricula";
 import { trackEvent } from "@/lib/attribution";
 import DatePicker from "@/components/DatePicker";
@@ -29,13 +28,6 @@ const EXAMPLES = [
 ];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-const VERDICT = {
-  on: { label: "On track", color: "#3ee6a0", line: (n: string) => `${n} is putting in enough of the right kind of work to get there. The job now is to keep it up — and to know the moment it slips.` },
-  borderline: { label: "Borderline", color: "#fbbf24", line: (n: string) => `${n} could get there, but there isn’t much slack. One bad month, or study that stays as it is, and the goal slides.` },
-  off: { label: "Not on track", color: "#ff6b7a", line: (n: string) => `On what you’ve told us, ${n} won’t reach that grade by the exam the way things are. That’s fixable — but not by doing more of the same.` },
-  hold: { label: "Already there — now hold it", color: "#7dd3fc", line: (n: string) => `${n} is at the grade you want. The risk isn’t the gap, it’s drifting — grades slip quietly when nobody is marking the work.` },
-  unknown: { label: "We can’t tell yet", color: "#a78bfa", line: (n: string) => `Without a current grade there’s no gap to measure. The habits below still say a lot — and the free grade check gives ${n} a real grade in 2 minutes.` },
-} as const;
 
 export default function OnTrackPage() {
   const [teen, setTeen] = useState("");
@@ -155,81 +147,12 @@ export default function OnTrackPage() {
 
   // ── THE REVEAL ──
   if (result) {
-    const v = VERDICT[result.verdict];
-    const currentLabel = current === "unset" || current === null ? "?" : current;
-    const GREEN = "#3ee6a0";
-    const examLabel = examMonth ? new Date(examMonth + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long" }) : "the exam";
-    // The sell, by verdict. The breakdown is already in their inbox; this
-    // screen exists to turn the verdict into a start.
-    const sell =
-      result.verdict === "hold" ? { h: <>Hold {name}&rsquo;s {result.goalGrade} all the way to {examLabel}.</>, p: `Grades don’t fall off a cliff, they drift. ${name} needs the work marked honestly every night so the first slip shows up on a screen, not on the report.` }
-      : result.verdict === "on" ? { h: <>Keep {name} on track to {result.goalGrade} — every single night.</>, p: `The habits are right. StudyAce makes them automatic: one task a day, marked like an examiner, with a line you can see that says on track or not.` }
-      : result.verdict === "unknown" ? { h: <>Find {name}&rsquo;s real grade tonight. Then fix it.</>, p: `Day one is an 8-question ${subjectLabel} check marked like an examiner. From day two there’s a plan to the exam, 20 minutes a night.` }
-      : { h: <>{name} can still get to {result.goalGrade} by {examLabel}. Not by doing more of the same.</>, p: result.fixes[0] ? `The first thing to change: ${result.fixes[0].title.charAt(0).toLowerCase() + result.fixes[0].title.slice(1)}. StudyAce makes that happen from tonight, and marks every bit of it.` : `The way ${name} studies now is the thing to change. StudyAce changes it from tonight, and marks every bit of it.` };
-    const bullets = [
-      `Timed, exam-style ${subjectLabel} questions. 20 minutes a night, weakest topics first.`,
-      "Every answer marked like an examiner — one mark for working, one for the answer. No self-marking.",
-      `A plan from tonight to ${examLabel}, and a pace line you can check: on track for ${result.goalGrade}, or not.`,
-    ];
     return (
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
-          <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full" style={{ background: `radial-gradient(50% 50% at 50% 50%, ${v.color}22 0%, ${v.color}08 45%, transparent 70%)` }} />
-        </div>
-        <div className="max-w-xl mx-auto px-5 pt-10 sm:pt-16 pb-24">
-          <p className="home-rise font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 mb-4">{name} · {subjectLabel} · {currentLabel} now · goal {result.goalGrade}</p>
-
-          {/* The verdict */}
-          <div className="home-rise rounded-[28px] border-2 bg-[#0e0f13] p-7 sm:p-9 overflow-clip" style={{ borderColor: `${v.color}80`, boxShadow: `0 30px 90px -30px ${v.color}66`, backgroundImage: `radial-gradient(90% 80% at 50% 0%, ${v.color}1f 0%, transparent 70%)` }}>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: v.color }}>The verdict</p>
-            <h1 className={`${display.className} text-white font-bold text-[40px] sm:text-[56px] tracking-[-0.03em] leading-[1] mt-2`}>{v.label}</h1>
-            <p className="text-zinc-300 text-[15.5px] sm:text-[17px] leading-relaxed mt-4">{v.line(name)}</p>
-            {result.verdict !== "unknown" && (
-              <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-zinc-500 mt-5">{result.weeks} {result.weeks === 1 ? "week" : "weeks"} to the exam{result.steps > 0 ? ` · ${result.steps} grade${result.steps > 1 ? "s" : ""} to climb` : ""}</p>
-            )}
-          </div>
-          <p className="home-rise text-zinc-500 text-[13px] text-center mt-3" style={{ animationDelay: "120ms" }}>The full breakdown — the numbers, what you told us, what changes it — is on its way to {email.trim()}.</p>
-
-          {/* The sale */}
-          <div className="home-rise relative rounded-[28px] border-2 bg-[#0e0f13] p-6 sm:p-9 mt-8 overflow-clip" style={{ animationDelay: "220ms", borderColor: `${GREEN}73`, boxShadow: `0 30px 100px -30px ${GREEN}66`, backgroundImage: `radial-gradient(90% 70% at 50% 0%, ${GREEN}22 0%, transparent 70%)` }}>
-            <div className="sa-breathe absolute inset-0 pointer-events-none" aria-hidden style={{ background: `radial-gradient(60% 80% at 15% 0%, ${GREEN}26 0%, transparent 70%)` }} />
-            <div className="relative">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: GREEN }}>Fix it from tonight</p>
-              <h2 className={`${display.className} text-white font-bold text-[30px] sm:text-[40px] tracking-[-0.03em] leading-[1.02] mt-2`} style={{ textWrap: "balance" }}>{sell.h}</h2>
-              <p className="text-zinc-300 text-[15px] sm:text-[16px] leading-relaxed mt-4">{sell.p}</p>
-              <ul className="mt-5 space-y-2.5">
-                {bullets.map((b) => (
-                  <li key={b} className="flex gap-3 text-zinc-200 text-[14.5px] leading-relaxed"><span className="shrink-0 mt-[3px] w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold text-[#07120d]" style={{ background: GREEN }}>✓</span><span>{b}</span></li>
-                ))}
-              </ul>
-
-              {/* Price */}
-              <div className="mt-7 rounded-[22px] border border-white/[0.1] bg-[#0b0b10] p-5">
-                <div className="flex items-end justify-between gap-4 flex-wrap">
-                  <div>
-                    <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500">StudyAce Pro · everything</p>
-                    <p className={`${display.className} text-white font-bold text-[40px] leading-none tracking-[-0.04em] mt-1.5`}>NZ${PRO_PRICING.monthly.amount}<span className="text-zinc-500 text-[16px] font-semibold tracking-normal"> /month</span></p>
-                    <p className="text-zinc-400 text-[13px] mt-1.5">or NZ${PRO_PRICING.yearly.amount} for the whole year — about NZ${proMonthlyEquivalent("yearly").toFixed(0)} a month</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500">A tutor</p>
-                    <p className={`${display.className} text-zinc-500 font-bold text-[28px] leading-none tracking-[-0.04em] mt-1.5 line-through decoration-[#ff6b7a]/70`}>NZ$70</p>
-                    <p className="text-zinc-600 text-[12px] mt-1.5">for one hour, once</p>
-                  </div>
-                </div>
-              </div>
-
-              <Link href="/pricing" onClick={() => trackEvent("cta_click", { cta: "ontrack-pitch", page: "/on-track" })}
-                className="mt-5 inline-flex w-full justify-center items-center gap-2 rounded-full px-5 min-h-[64px] text-[18px] font-extrabold text-[#07120d] transition-transform hover:scale-[1.02]" style={{ background: GREEN, boxShadow: `0 0 44px ${GREEN}66` }}>
-                Start {name}&rsquo;s plan tonight →
-              </Link>
-              <p className="text-zinc-400 text-[13px] text-center mt-3">Cancel any time · 30-day money back · {name} is set up in 5 minutes</p>
-            </div>
-          </div>
-
-          <p className="text-zinc-600 text-[12.5px] text-center mt-8">Not sure of {name}&rsquo;s grade? {name} can sit the free 8-question <Link href="/grade" className="text-zinc-400 underline underline-offset-4">grade check</Link> first.</p>
-        </div>
-      </div>
+      <OnTrackReveal
+        result={result} name={name} subjectLabel={subjectLabel} system={curriculum.system}
+        current={current === "unset" ? null : current} examDate={examMonth ?? typicalExamDate(country)} email={email.trim()}
+        firstFix={result.fixes[0]?.title}
+      />
     );
   }
 

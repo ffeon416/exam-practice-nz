@@ -459,3 +459,6 @@ body {
 @keyframes sa-bar-shine { 0% { transform: translateX(-120px); opacity: 0; } 8% { opacity: 1; } 30% { transform: translateX(1300px); opacity: 0; } 100% { transform: translateX(1300px); opacity: 0; } }
 .sa-bar-shine { left: 0; opacity: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent); animation: sa-bar-shine 4.5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .sa-bar-grow { transition: none; transform: none !important; } .sa-bar-shine { animation: none; } }
+
+/* The parent check result carries its own header; hide the site one while it is up. */
+html[data-sa-result="1"] .sa-site-nav { display: none; }
