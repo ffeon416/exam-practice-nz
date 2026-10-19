@@ -18,7 +18,7 @@ import { trackEvent } from "@/lib/attribution";
 import DatePicker from "@/components/DatePicker";
 import { assess, typicalExamDate, DAYS, GOALS, GRADES, HOURS_PER_GRADE, type GoalId, type Grade, type OnTrackResult } from "@/lib/onTrack";
 
-type Step = "teen" | "country" | "system" | "year" | "subject" | "current" | "goal" | "exam" | "habits" | "contact";
+type Step = "teen" | "year" | "subject" | "current" | "goal" | "exam" | "habits" | "contact";
 type Habit = "days" | "timed" | "marked" | "weakest";
 const HABITS: { id: Habit; label: string; detail: string }[] = [
   { id: "days", label: "Studies this subject 4 or more days a week", detail: "Actual revision or practice, not homework" },
@@ -46,7 +46,6 @@ export default function OnTrackPage() {
   const [goal, setGoal] = useState<GoalId | null>(null);
   const [examMonth, setExamMonth] = useState<string | null>(null);
   const [habits, setHabits] = useState<Set<Habit>>(new Set());
-  const [countryKnown, setCountryKnown] = useState(false);
   // One tick-list stands in for four questions; unticked = the usual version.
   const days = habits.has("days") ? "4-5" : "2-3";
   const practice = habits.has("timed") ? "timed" : "notes";
@@ -69,7 +68,8 @@ export default function OnTrackPage() {
   function pickCountry(code: Curriculum["country"]) {
     setCountry(code); setYear(null); setSubject(null);
     const group = curriculaForCountry(code);
-    if (group.length === 1) setCurriculumId(group[0].id);
+    // One system → chosen; several → the state/system chips decide (year list waits).
+    setCurriculumId(group.length === 1 ? group[0].id : group.some((g) => g.id === curriculumId) ? curriculumId : "");
   }
   // Timezone → country, so most parents skip a question.
   useEffect(() => {
@@ -82,9 +82,11 @@ export default function OnTrackPage() {
       else if (tz === "Europe/London") detected = "GB";
       else if (CA_TZ.has(tz)) detected = "CA";
       else if (tz.startsWith("America/")) detected = "US";
-      if (detected) { pickCountry(detected); setCountryKnown(true); }
+      if (detected) pickCountry(detected);
     }, 0);
     return () => clearTimeout(id);
+    // Mount-only detection; pickCountry is stable per render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Funnel: one event per step reached (deduped), and the verdict.
@@ -99,7 +101,7 @@ export default function OnTrackPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step, result]);
 
-  const steps: Step[] = ["teen", ...(countryKnown ? [] : (["country"] as Step[])), ...(systems.length > 1 ? (["system"] as Step[]) : []), "year", "subject", "current", "goal", "exam", "habits", "contact"];
+  const steps: Step[] = ["teen", "year", "subject", "current", "goal", "exam", "habits", "contact"];
   const stepIdx = Math.max(0, steps.indexOf(step));
   const next = () => setStep(steps[Math.min(steps.length - 1, stepIdx + 1)]);
   const back = () => setStep(steps[Math.max(0, stepIdx - 1)]);
@@ -118,6 +120,8 @@ export default function OnTrackPage() {
 
   const pill = "rounded-full text-left border transition-colors min-h-[48px] py-3 px-4 text-[14px] font-medium bg-white/[0.02] border-white/[0.08] text-zinc-200 hover:border-indigo-400/60 hover:bg-indigo-500/[0.06]";
   const pillOn = "border-indigo-400/70 bg-indigo-500/[0.12] text-white";
+  const chip = "rounded-full border px-3.5 min-h-[40px] text-[13.5px] font-medium transition-colors border-white/[0.1] text-zinc-300 hover:border-white/30";
+  const chipOn = "!border-indigo-400/70 bg-indigo-500/[0.14] !text-white";
   const Options = <T extends string>({ items, value, onPick }: { items: { id: T; label: string; detail?: string }[]; value: T | null; onPick: (v: T) => void }) => (
     <div className="home-rise grid grid-cols-1 gap-2.5" style={{ animationDelay: "160ms" }}>
       {items.map((it) => (
@@ -209,9 +213,7 @@ export default function OnTrackPage() {
   // ── THE QUESTIONS ──
   const heading: Record<Step, string> = {
     teen: "What’s your teen’s first name?",
-    country: `Where does ${name} go to school?`,
-    system: country === "AU" ? "Which state?" : "Which exam system?",
-    year: country === "US" || country === "CA" ? `What grade is ${name} in?` : `What year is ${name} in?`,
+    year: `Where is ${name} at school, and what year?`,
     subject: "Which subject are you most worried about?",
     current: `What grade is ${name} getting in ${subjectLabel} right now?`,
     goal: `Where do you want ${name} to be after StudyAce?`,
@@ -221,9 +223,7 @@ export default function OnTrackPage() {
   };
   const subline: Record<Step, string> = {
     teen: "Eight quick taps. You’ll get a straight answer: on track, borderline, or not — and what would change it. No card, no sign-up.",
-    country: "So the grades and exam dates match the system they’re in.",
-    system: "Each system has its own exams and grading.",
-    year: "The goal means something different in Year 11 than in the final year.",
+    year: "Country, exam system, year. The goal means something different in Year 11 than in the final year.",
     subject: "One subject at a time — pick the one that decides the most.",
     current: "From the last report, mock or test. Pick the closest.",
     goal: "Be honest about the goal — the whole answer depends on it.",
@@ -248,30 +248,34 @@ export default function OnTrackPage() {
         <p className="home-rise text-zinc-400 text-[14px] sm:text-[15.5px] mb-8 max-w-md" style={{ animationDelay: "80ms" }}>{subline[step]}</p>
 
         {step === "teen" && (
-          <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); if (!teen.trim()) return; setStep(!countryKnown ? "country" : systems.length > 1 ? "system" : "year"); }}>
+          <form className="home-rise" style={{ animationDelay: "160ms" }} onSubmit={(e) => { e.preventDefault(); if (teen.trim()) next(); }}>
             <label className="block text-[13px] font-semibold text-zinc-300 mb-2">Their first name</label>
             <input autoFocus type="text" value={teen} onChange={(e) => setTeen(e.target.value)} placeholder="e.g. Maia" autoComplete="off" className="w-full rounded-2xl bg-white/[0.03] border border-white/[0.1] px-5 py-4 text-[16px] text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/70 mb-4" />
             <button type="submit" disabled={!teen.trim()} className="w-full rounded-full bg-white text-[#0a0a0f] font-bold py-4 text-[15px] disabled:opacity-40">Next →</button>
           </form>
         )}
-        {step === "country" && (
-          <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
-            {/* The step list depends on the country just picked (one system or
-                several), so go to the right next step explicitly. */}
-            {COUNTRIES.map((c) => <button key={c.code} onClick={() => { pickCountry(c.code); setCountryKnown(true); setStep(curriculaForCountry(c.code).length > 1 ? "system" : "year"); }} className={`${pill} ${country === c.code ? pillOn : ""}`}>{c.flag} {c.label}</button>)}
-          </div>
-        )}
-        {step === "system" && (
-          <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
-            {systems.map((s) => <button key={s.id} onClick={() => { setCurriculumId(s.id); setYear(null); setSubject(null); next(); }} className={`${pill} ${curriculumId === s.id ? pillOn : ""}`}>{s.regionShort ? `${s.regionShort} · ` : ""}{s.system}</button>)}
-          </div>
-        )}
         {step === "year" && (
           <div className="home-rise" style={{ animationDelay: "160ms" }}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-              {years.map((y) => <button key={y.value} onClick={() => { setYear(y.value); setSubject(null); next(); }} className={`${pill} text-center ${year === y.value ? pillOn : ""}`}>{y.label}</button>)}
+            <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500 mb-2">Country</p>
+            <div className="flex flex-wrap gap-2">
+              {COUNTRIES.map((c) => <button key={c.code} onClick={() => pickCountry(c.code)} className={`${chip} ${country === c.code ? chipOn : ""}`}>{c.flag} {c.label}</button>)}
             </div>
-            <p className="text-zinc-500 text-[13px] mt-5">{COUNTRIES.find((c) => c.code === country)?.flag} {curriculum.label} · <button onClick={() => setStep("country")} className="text-zinc-300 underline underline-offset-4">not right? change</button></p>
+            {systems.length > 1 && (
+              <>
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500 mt-5 mb-2">{country === "AU" ? "State" : "Exam system"}</p>
+                <div className="flex flex-wrap gap-2">
+                  {systems.map((sys) => <button key={sys.id} onClick={() => { setCurriculumId(sys.id); setYear(null); setSubject(null); }} className={`${chip} ${curriculumId === sys.id ? chipOn : ""}`}>{sys.regionShort ? `${sys.regionShort} · ` : ""}{sys.system}</button>)}
+                </div>
+              </>
+            )}
+            <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-zinc-500 mt-5 mb-2">{country === "US" || country === "CA" ? "Grade" : "Year"}</p>
+            {!curriculumId || countryMismatch ? (
+              <p className="text-zinc-500 text-[13.5px]">Pick the {country === "AU" ? "state" : "exam system"} first.</p>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                {years.map((y) => <button key={y.value} onClick={() => { setYear(y.value); setSubject(null); next(); }} className={`${pill} text-center ${year === y.value ? pillOn : ""}`}>{y.label}</button>)}
+              </div>
+            )}
           </div>
         )}
         {step === "subject" && (
