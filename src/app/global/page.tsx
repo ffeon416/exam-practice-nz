@@ -2,7 +2,7 @@
 
 // /global — every exam system StudyAce covers, by country. StudyAce is
 // global: no system is presented as the "home" one. Each card leads to the
-// free grade check (which asks for country, system and year itself).
+// free parent check (which asks for country, system and year itself).
 // Systems not yet checked by students who sit them carry a small Beta tag;
 // that label is an honesty guard, keep it until a system is validated.
 
@@ -34,8 +34,8 @@ export default function GlobalPage() {
             Wherever your child sits their exams, the questions, difficulty and style follow their own exam system. The marking is the same everywhere: honest.
           </p>
           <div className="home-rise mt-8" style={{ animationDelay: "240ms" }}>
-            <Link href="/grade" className="inline-flex items-center justify-center font-bold rounded-full text-[#07120d] text-[18px] sm:text-[20px] px-9 sm:px-11 min-h-[64px] transition-transform hover:scale-[1.03]" style={{ background: GREEN, boxShadow: `0 0 44px ${GREEN}55` }}>
-              Check their grade — free →
+            <Link href="/on-track" className="inline-flex items-center justify-center font-bold rounded-full text-[#07120d] text-[18px] sm:text-[20px] px-9 sm:px-11 min-h-[64px] transition-transform hover:scale-[1.03]" style={{ background: GREEN, boxShadow: `0 0 44px ${GREEN}55` }}>
+              Is your teen on track? — free →
             </Link>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function GlobalPage() {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {g.systems.map((c) => (
-                  <Link key={c.id} href="/grade" className="group rounded-[24px] border border-white/[0.08] bg-[#0e0f13] hover:border-white/25 p-6 flex flex-col transition-colors">
+                  <Link key={c.id} href="/on-track" className="group rounded-[24px] border border-white/[0.08] bg-[#0e0f13] hover:border-white/25 p-6 flex flex-col transition-colors">
                     <div className="flex items-center justify-between gap-3">
                       <h3 className={`${display.className} font-bold text-white text-[26px] leading-none tracking-[-0.03em]`}>{c.system}</h3>
                       {c.status === "early-access" && <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-400 border border-white/[0.12] rounded-full px-2.5 py-1">Beta</span>}

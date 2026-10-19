@@ -100,15 +100,16 @@ export async function GET() {
   // logged); "started" = picked a subject (contact step or straight to the paper).
   const funnel = (ms: number, metaOnly: boolean) => {
     const evs = inWindow(ms).filter((e) => !metaOnly || META.has(srcOf(e)));
-    const steps = evs.filter((e) => e.name === "grade_step");
-    const opened = new Set(steps.map((e) => str(e.props?.visitor_id)).filter(Boolean)).size || steps.filter((e) => str(e.props?.step) === "name").length;
-    const started = steps.filter((e) => ["contact", "loading"].includes(str(e.props?.step))).length;
+    // Both checks count: the parent check (/on-track) and the student grade check (/grade).
+    const steps = evs.filter((e) => e.name === "grade_step" || e.name === "ontrack_step");
+    const opened = new Set(steps.map((e) => str(e.props?.visitor_id)).filter(Boolean)).size || steps.filter((e) => ["name", "teen"].includes(str(e.props?.step))).length;
+    const started = steps.filter((e) => (e.name === "grade_step" && ["contact", "loading"].includes(str(e.props?.step))) || (e.name === "ontrack_step" && str(e.props?.step) === "goal")).length;
     return {
       sessions: evs.filter((e) => e.name === "session_start").length,
       opened,
       started,
       leads: evs.filter((e) => e.name === "diagnostic_lead").length,
-      revealed: evs.filter((e) => e.name === "grade_revealed").length,
+      revealed: evs.filter((e) => e.name === "grade_revealed" || e.name === "ontrack_result").length,
       pricing: evs.filter((e) => e.name === "cta_click").length,
       checkouts: evs.filter((e) => e.name === "checkout_started").length,
       paid: evs.filter((e) => e.name === "subscription_paid").length,

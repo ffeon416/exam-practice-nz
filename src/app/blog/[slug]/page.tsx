@@ -268,14 +268,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Ready to start practising?
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 mb-6">
-            StudyAce generates exam-style practice questions tailored to your syllabus. Start with a
-            free grade check.
+            Parents: find out in two minutes whether your teen is on track for the grade you want.
+            Students: sit a free grade check.
           </p>
           <Link
-            href="/grade"
+            href="/on-track"
             className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-fuchsia-500 px-6 py-3 text-white text-sm font-bold shadow-lg shadow-indigo-500/20 hover:opacity-95 transition-opacity"
           >
-            Get my free grade check
+            Is my teen on track? — free
           </Link>
         </div>
         </div>

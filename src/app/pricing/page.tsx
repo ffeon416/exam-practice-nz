@@ -397,18 +397,18 @@ export default function PricingPage() {
             style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(99,102,241,0.22) 0%, transparent 70%)" }} />
           <div className="relative">
             <h2 className={`${display.className} text-[26px] sm:text-[36px] md:text-[40px] font-bold text-white tracking-[-0.02em] mb-4`} style={{ textWrap: "balance" }}>
-              Not sure yet? See your{" "}
-              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">real grade</em>
+              Not sure yet? Find out if they&apos;re{" "}
+              <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">on track</em>
               {" "}first
             </h2>
             <p className="text-zinc-400 text-[15px] mb-8 max-w-md mx-auto">
-              Sit the free 8-question grade check — see exactly where you are before you pay a cent.
+              Nine questions for parents, two minutes: the grade now, the grade you want, how they study. A straight answer before you pay a cent.
             </p>
             <Link
-              href="/grade"
+              href="/on-track"
               className="inline-flex items-center justify-center gap-2 bg-white text-[#0a0a0f] font-bold px-9 py-4 rounded-full transition-all hover:scale-[1.02] shadow-2xl shadow-indigo-500/20 text-[15px]"
             >
-              Get my free grade check
+              Is my teen on track?
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

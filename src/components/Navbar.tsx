@@ -63,10 +63,10 @@ export default function Navbar() {
   }, [pathname]);
 
   // The header CTA always points at the next step of the funnel: the free
-  // grade check everywhere, and pricing once they're already on the check.
-  const cta = pathname.startsWith("/grade")
+  // parent check everywhere, and pricing once they're already on a check.
+  const cta = pathname.startsWith("/on-track") || pathname.startsWith("/grade")
     ? { href: "/pricing", label: "See pricing" }
-    : { href: "/grade", label: "Free grade check" };
+    : { href: "/on-track", label: "Is my teen on track?" };
 
   // The coach app has no header: the sidebar (desktop) and bottom tabs (phone)
   // carry everything, and mid-paper there is no chrome at all.

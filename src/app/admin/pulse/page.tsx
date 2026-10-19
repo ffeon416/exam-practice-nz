@@ -36,10 +36,10 @@ const GREEN = "#3ee6a0", VIOLET = "#8b8cf8", AMBER = "#fbbf24", SKY = "#7dd3fc",
 const KIND = { paid: { c: GREEN, t: "Paid" }, checkout: { c: AMBER, t: "Started checkout" }, lead: { c: VIOLET, t: "Grade check lead" }, parent: { c: ROSE, t: "Parent check lead" } } as const;
 const FUNNEL_ROWS: { k: keyof Funnel; l: string }[] = [
   { k: "sessions", l: "Visits" },
-  { k: "opened", l: "Opened grade check" },
-  { k: "started", l: "Started the questions" },
+  { k: "opened", l: "Opened a check (parent or grade)" },
+  { k: "started", l: "Answered the first questions" },
   { k: "leads", l: "Gave their email" },
-  { k: "revealed", l: "Saw the grade" },
+  { k: "revealed", l: "Saw the result" },
   { k: "pricing", l: "Tapped pricing" },
   { k: "checkouts", l: "Reached checkout" },
   { k: "paid", l: "Paid" },

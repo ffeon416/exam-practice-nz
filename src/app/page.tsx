@@ -2,7 +2,9 @@
 
 // ── Homepage: the Convert door (rebuilt 2026-10-05) ──
 // The buyer is a parent; the user is their teenager. This page has one job:
-// get the parent to the free grade check, then to Pro. It is deliberately
+// get the parent to the free parent check (/on-track: is their teen on track
+// for the grade they want?), then to Pro. The grade check (/grade) is the
+// student's, inside phase 2. It is deliberately
 // short — hero, what it does, what it costs against a tutor, what the grade
 // is worth, the price, five questions — in the same design language as the
 // paid app (dark cards, one accent per idea, big display type).
@@ -110,7 +112,7 @@ export default function HomePage() {
 
   // Signed-in here means a lead (paid users are redirected above).
   const lead = isLoaded && !!isSignedIn;
-  const cta = lead ? { href: "/start", label: "Get Pro →" } : { href: "/grade", label: "Check their grade — free →" };
+  const cta = lead ? { href: "/start", label: "Get Pro →" } : { href: "/on-track", label: "Is your teen on track? — free →" };
   const ctaButton = (big = false) => (
     <Link href={cta.href}
       className={`inline-flex items-center justify-center font-bold rounded-full text-[#07120d] transition-transform hover:scale-[1.03] ${big ? "text-[18px] sm:text-[20px] px-9 sm:px-11 min-h-[64px]" : "text-[16px] px-7 min-h-[54px]"}`}
@@ -120,8 +122,8 @@ export default function HomePage() {
   );
 
   const steps = [
-    { n: "01", color: GREEN, title: "Find the real grade", body: "A free grade check: 8 questions, marked like an examiner. You get a letter, from A+ to F, and the topics costing the most marks." },
-    { n: "02", color: VIOLET, title: "One task, every day", body: "They set a goal grade and their exam date. StudyAce builds the road there: a paper, a lesson on what they got wrong, or a mock. About 20 minutes." },
+    { n: "01", color: GREEN, title: "Find out if they're on track", body: "Tell us the grade they're getting, the grade you want and how they study. You get a straight answer: on track, borderline, or not, and what would change it. Free, 2 minutes." },
+    { n: "02", color: VIOLET, title: "One task, every day", body: "Your teen sits a real grade check, 8 questions marked like an examiner, then StudyAce builds the road to the goal: a paper, a lesson on what they got wrong, or a mock. About 20 minutes a day." },
     { n: "03", color: AMBER, title: "Marking that doesn't flatter", body: "One mark for the working, one for the answer. A guess scores zero, as it would on the day. A weekly grade check shows whether they're on pace." },
   ];
 
@@ -155,13 +157,13 @@ export default function HomePage() {
         <div className="home-rise flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 min-h-[64px]" style={{ animationDelay: "240ms" }}>
           {isLoaded && ctaButton(true)}
           {isLoaded && (
-            <Link href={lead ? "/grade" : "/pricing"} className="inline-flex items-center justify-center font-semibold text-[16px] text-white px-7 min-h-[54px] rounded-full border border-white/[0.14] hover:border-white/40 transition-colors">
-              {lead ? "Free grade check" : "See pricing"}
+            <Link href={lead ? "/on-track" : "/pricing"} className="inline-flex items-center justify-center font-semibold text-[16px] text-white px-7 min-h-[54px] rounded-full border border-white/[0.14] hover:border-white/40 transition-colors">
+              {lead ? "Parent check" : "See pricing"}
             </Link>
           )}
         </div>
         <p className="home-rise text-zinc-500 text-[13.5px] mt-4" style={{ animationDelay: "300ms" }}>
-          8 questions · no account · no card · then {nz(PRO_PRICING.yearly.amount)} a year, 30-day money back
+          9 questions · 2 minutes · no account · no card · then {nz(PRO_PRICING.yearly.amount)} a year, 30-day money back
         </p>
 
         {/* Sample of the product: the same card and line the student sees. */}
@@ -354,8 +356,8 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pb-16 sm:pb-24">
         <div className="relative rounded-[28px] border-2 bg-[#0e0f13] px-6 py-12 sm:py-16 text-center overflow-clip"
           style={{ borderColor: `${GREEN}66`, backgroundImage: `radial-gradient(70% 90% at 50% 0%, ${GREEN}24 0%, transparent 70%)`, boxShadow: `0 28px 90px -28px ${GREEN}59` }}>
-          <h2 className={`${display.className} font-bold text-white text-[36px] sm:text-[60px] leading-[0.98] tracking-[-0.045em]`} style={{ textWrap: "balance" }}>Start with one honest number.</h2>
-          <p className="text-zinc-300 text-[16px] sm:text-[18px] max-w-xl mx-auto mt-4">Sit the free grade check with your child tonight. 8 questions, no account, no card. Then decide.</p>
+          <h2 className={`${display.className} font-bold text-white text-[36px] sm:text-[60px] leading-[0.98] tracking-[-0.045em]`} style={{ textWrap: "balance" }}>Start with one honest answer.</h2>
+          <p className="text-zinc-300 text-[16px] sm:text-[18px] max-w-xl mx-auto mt-4">Two minutes tonight: is your teen on track for the grade you want? No account, no card. Then decide.</p>
           <div className="mt-7">{isLoaded && ctaButton(true)}</div>
         </div>
       </section>
