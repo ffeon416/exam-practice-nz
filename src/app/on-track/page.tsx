@@ -250,7 +250,9 @@ export default function OnTrackPage() {
         )}
         {step === "country" && (
           <div className="home-rise grid grid-cols-1 sm:grid-cols-2 gap-2.5" style={{ animationDelay: "160ms" }}>
-            {COUNTRIES.map((c) => <button key={c.code} onClick={() => { pickCountry(c.code); next(); }} className={`${pill} ${country === c.code ? pillOn : ""}`}>{c.flag} {c.label}</button>)}
+            {/* The step list depends on the country just picked (one system or
+                several), so go to the right next step explicitly. */}
+            {COUNTRIES.map((c) => <button key={c.code} onClick={() => { pickCountry(c.code); setStep(curriculaForCountry(c.code).length > 1 ? "system" : "year"); }} className={`${pill} ${country === c.code ? pillOn : ""}`}>{c.flag} {c.label}</button>)}
           </div>
         )}
         {step === "system" && (
