@@ -69,7 +69,7 @@ function useSeen<T extends Element>(threshold = 0.3): [React.RefObject<T | null>
 }
 
 // ── The two-lines chart ──
-function Lines({ current, goal, projected, weeks }: { current: Grade; goal: Grade; projected: Grade; weeks: number }) {
+export function Lines({ current, goal, projected, weeks }: { current: Grade; goal: Grade; projected: Grade; weeks: number }) {
   const top = GRADES.indexOf("A+");
   const low = Math.min(GRADES.indexOf(current), GRADES.indexOf("D"));
   const rows = GRADES.slice(low, top + 1).reverse(); // A+ … low
