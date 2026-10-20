@@ -73,7 +73,7 @@ function Lines({ current, goal, projected, weeks }: { current: Grade; goal: Grad
   const top = GRADES.indexOf("A+");
   const low = Math.min(GRADES.indexOf(current), GRADES.indexOf("D"));
   const rows = GRADES.slice(low, top + 1).reverse(); // A+ … low
-  const W = 520, H = 60 + rows.length * 46, L = 54, R = 36, T = 22, B = 44;
+  const W = 520, H = 56 + rows.length * 38, L = 54, R = 36, T = 20, B = 40;
   const y = (g: Grade) => T + (top - GRADES.indexOf(g)) * ((H - T - B) / Math.max(1, rows.length - 1));
   const x0 = L, x1 = W - R;
   const yNow = y(current), yGoal = y(goal), yProj = y(projected);
@@ -82,7 +82,7 @@ function Lines({ current, goal, projected, weeks }: { current: Grade; goal: Grad
   const plan = `M ${x0} ${yNow} C ${x0 + (x1 - x0) * 0.45} ${yNow}, ${x0 + (x1 - x0) * 0.6} ${yGoal}, ${x1} ${yGoal}`;
   const same = `M ${x0} ${yNow} L ${x1} ${nowEnd}`;
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto mt-4" role="img" aria-label={`Two lines from ${current} tonight: same as now stays near ${projected}; with a plan reaches ${goal} by the exam`}>
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto mt-3" role="img" aria-label={`Two lines from ${current} tonight: same as now stays near ${projected}; with a plan reaches ${goal} by the exam`}>
       {rows.map((g) => (
         <g key={g}>
           <line x1={x0} x2={x1} y1={y(g)} y2={y(g)} stroke="rgba(255,255,255,0.1)" strokeDasharray="2 5" />
@@ -147,32 +147,44 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
   }, []);
 
   const mono = "font-mono text-[10.5px] uppercase tracking-[0.2em]";
+  const startButton = (
+    <>
+      <button type="button" onClick={startPlan} disabled={busy} className="w-full rounded-full min-h-[60px] text-[17px] font-extrabold text-[#07120d] inline-flex items-center justify-center gap-2 transition-transform hover:scale-[1.01] disabled:opacity-70" style={{ background: GREEN, boxShadow: `0 0 0 6px ${GREEN}1f, 0 10px 44px ${GREEN}55` }}>
+        {busy ? "Opening checkout…" : <>Start {name}’s plan tonight · {ctaPrice} →</>}
+      </button>
+      <p className="text-zinc-500 text-[12px] text-center mt-2.5">Exam in <span className="font-mono" style={{ color: ROSE }}>{cd.d}d {pad(cd.h)}h {pad(cd.m)}m</span> · Set up in 5 minutes · 30-day money back</p>
+    </>
+  );
   const eyebrowRow = [name, subjectLabel, current ? `${current} now` : "grade unknown", `goal ${goal}`].join(" · ");
 
   return (
     <div className="relative">
       {/* Own header */}
       <div className="sticky top-0 z-40 bg-[#06060a]/85 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-xl mx-auto px-5 h-[60px] flex items-center justify-between">
+        <div className="max-w-xl lg:max-w-[1360px] mx-auto px-5 lg:px-10 h-[60px] flex items-center justify-between">
           <Link href="/" className="font-semibold text-white tracking-tight text-[18px]">study<span className="text-indigo-400">ace</span></Link>
           <span className={`${mono} text-zinc-500`}>{name}’s result</span>
         </div>
       </div>
 
-      <div className="max-w-xl mx-auto px-5 pt-8 pb-40">
+      {/* Phone: one column, sticky button at the bottom. Desktop: the verdict,
+          chart and countdown pinned on the left with the button under them;
+          everything that sells scrolls on the right. */}
+      <div className="max-w-xl lg:max-w-[1360px] mx-auto px-5 lg:px-10 pt-8 lg:pt-12 pb-40 lg:pb-24 lg:grid lg:grid-cols-[1.05fr_1fr] lg:gap-x-16 xl:gap-x-24 lg:items-start">
+      <div className="lg:sticky lg:top-[72px]">
         <p className={`home-rise ${mono} text-zinc-500`}>{eyebrowRow}</p>
 
         {/* The verdict */}
         <p className={`home-rise ${mono} font-bold mt-5 inline-flex items-center gap-2`} style={{ color: result.verdict === "on" || result.verdict === "hold" ? GREEN : ROSE, animationDelay: "60ms" }}><span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "currentColor" }} />The verdict</p>
-        <h1 className={`${display.className} home-rise text-white font-bold text-[46px] sm:text-[64px] tracking-[-0.04em] leading-[0.98] mt-2`} style={{ animationDelay: "120ms" }}>{v.label}</h1>
-        <p className="home-rise text-zinc-300 text-[16px] sm:text-[17px] leading-relaxed mt-4" style={{ animationDelay: "180ms" }}>{v.line(name, goal)}</p>
+        <h1 className={`${display.className} home-rise text-white font-bold text-[46px] sm:text-[64px] lg:text-[56px] tracking-[-0.04em] leading-[0.98] mt-2`} style={{ animationDelay: "120ms" }}>{v.label}</h1>
+        <p className="home-rise text-zinc-300 text-[16px] sm:text-[17px] lg:text-[15.5px] leading-relaxed mt-4 lg:mt-3 lg:max-w-[560px]" style={{ animationDelay: "180ms" }}>{v.line(name, goal)}</p>
 
         {/* Same as now vs with a plan */}
         {current && (
-          <div className="home-rise rounded-[24px] border border-white/[0.08] bg-[#0e0f13] p-5 mt-7" style={{ animationDelay: "260ms" }}>
+          <div className="home-rise rounded-[24px] border border-white/[0.08] bg-[#0e0f13] p-5 mt-7 lg:mt-5" style={{ animationDelay: "260ms" }}>
             <div className="flex items-start justify-between">
-              <div><p className={`${mono} font-bold`} style={{ color: ROSE }}>Same as now</p><p className={`${display.className} font-bold text-[40px] leading-none tracking-[-0.04em] mt-1`} style={{ color: ROSE }}>{projected}</p></div>
-              <div className="text-right"><p className={`${mono} font-bold`} style={{ color: GREEN }}>With a plan</p><p className={`${display.className} font-bold text-[40px] leading-none tracking-[-0.04em] mt-1`} style={{ color: GREEN }}>{goal}</p></div>
+              <div><p className={`${mono} font-bold`} style={{ color: ROSE }}>Same as now</p><p className={`${display.className} font-bold text-[40px] lg:text-[34px] leading-none tracking-[-0.04em] mt-1`} style={{ color: ROSE }}>{projected}</p></div>
+              <div className="text-right"><p className={`${mono} font-bold`} style={{ color: GREEN }}>With a plan</p><p className={`${display.className} font-bold text-[40px] lg:text-[34px] leading-none tracking-[-0.04em] mt-1`} style={{ color: GREEN }}>{goal}</p></div>
             </div>
             <Lines current={current} goal={goal} projected={projected} weeks={result.weeks} />
           </div>
@@ -190,8 +202,15 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
           <p className="font-mono text-white text-[17px] font-bold tabular-nums whitespace-nowrap">{cd.d}d {pad(cd.h)}h {pad(cd.m)}m <span style={{ color: ROSE }}>{pad(cd.s)}s</span></p>
         </div>
 
+        {/* Desktop: the button lives under the countdown, always in view. */}
+        <div className="hidden lg:block mt-5">
+          {startButton}
+        </div>
+      </div>
+
+      <div className="lg:pt-1">
         {/* The line */}
-        <h2 className={`${display.className} text-white font-bold text-[30px] sm:text-[38px] tracking-[-0.03em] leading-[1.05] mt-12`}>You’ve already put a lot into {name}’s education. <span className="text-zinc-500">{weeksWord}</span></h2>
+        <h2 className={`${display.className} text-white font-bold text-[30px] sm:text-[38px] tracking-[-0.03em] leading-[1.05] mt-12 lg:mt-0`}>You’ve already put a lot into {name}’s education. <span className="text-zinc-500">{weeksWord}</span></h2>
         <p className="text-zinc-400 text-[15px] leading-relaxed mt-4">The grade on results day is the one that follows them. The next few nights decide which one it is.</p>
 
         {/* The plan */}
@@ -262,11 +281,13 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
           <div><p className="text-white text-[15px] font-bold">30 days or your money back</p><p className="text-zinc-400 text-[13.5px] leading-relaxed mt-1">If it’s not working for {name}, you get every cent back. One email, no questions.</p></div>
         </div>
         {checkoutError && <p role="alert" className="text-amber-200 text-[13.5px] rounded-2xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3 mt-3">{checkoutError} <Link href="/pricing" className="underline underline-offset-4">Pricing page →</Link></p>}
+        <div className="hidden lg:block mt-6">{startButton}</div>
         <p className="text-zinc-600 text-[12.5px] text-center mt-8">A copy of this is on its way to {email}.{firstFix ? ` First thing to change: ${firstFix.charAt(0).toLowerCase()}${firstFix.slice(1)}.` : ""}</p>
       </div>
+      </div>
 
-      {/* Sticky start */}
-      <div className="fixed inset-x-0 bottom-0 z-40 bg-gradient-to-t from-[#06060a] via-[#06060a]/95 to-transparent pt-8" style={{ paddingBottom: "max(env(safe-area-inset-bottom), 14px)" }}>
+      {/* Sticky start (phone) */}
+      <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-gradient-to-t from-[#06060a] via-[#06060a]/95 to-transparent pt-8" style={{ paddingBottom: "max(env(safe-area-inset-bottom), 14px)" }}>
         <div className="max-w-xl mx-auto px-5">
           <button type="button" onClick={startPlan} disabled={busy} className="w-full rounded-full min-h-[60px] text-[17px] font-extrabold text-[#07120d] inline-flex items-center justify-center gap-2 transition-transform hover:scale-[1.01] disabled:opacity-70" style={{ background: GREEN, boxShadow: `0 0 0 6px ${GREEN}1f, 0 10px 44px ${GREEN}55` }}>
             {busy ? "Opening checkout…" : <>Start {name}’s plan tonight · {ctaPrice} →</>}
