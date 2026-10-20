@@ -73,7 +73,7 @@ export function Lines({ current, goal, projected, weeks }: { current: Grade; goa
   const top = GRADES.indexOf("A+");
   const low = Math.min(GRADES.indexOf(current), GRADES.indexOf("D"));
   const rows = GRADES.slice(low, top + 1).reverse(); // A+ … low
-  const W = 520, H = 56 + rows.length * 38, L = 54, R = 36, T = 20, B = 40;
+  const W = 520, H = 56 + rows.length * 38, L = 78, R = 36, T = 20, B = 40;
   const y = (g: Grade) => T + (top - GRADES.indexOf(g)) * ((H - T - B) / Math.max(1, rows.length - 1));
   const x0 = L, x1 = W - R;
   const yNow = y(current), yGoal = y(goal), yProj = y(projected);
@@ -85,8 +85,8 @@ export function Lines({ current, goal, projected, weeks }: { current: Grade; goa
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto mt-3" role="img" aria-label={`Two lines from ${current} tonight: same as now stays near ${projected}; with a plan reaches ${goal} by the exam`}>
       {rows.map((g) => (
         <g key={g}>
-          <line x1={x0} x2={x1} y1={y(g)} y2={y(g)} stroke="rgba(255,255,255,0.1)" strokeDasharray="2 5" />
-          <text x={x0 - 14} y={y(g) + 4} textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="11" fill="#8a8a96">{g}</text>
+          <line x1={x0 - 18} x2={x1} y1={y(g)} y2={y(g)} stroke="rgba(255,255,255,0.1)" strokeDasharray="2 5" />
+          <text x={x0 - 30} y={y(g) + 4} textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="11" fill="#8a8a96">{g}</text>
         </g>
       ))}
       <path d={same} pathLength={1} className="sa-draw" stroke={ROSE} strokeWidth="2.5" fill="none" strokeLinecap="round" style={{ animationDelay: "250ms" }} />
@@ -97,7 +97,7 @@ export function Lines({ current, goal, projected, weeks }: { current: Grade; goa
       <circle cx={x1} cy={yGoal} r="16" fill={GREEN} opacity="0.16" className="sa-fade-in" style={{ animationDelay: "2.1s" }} />
       <circle cx={x1} cy={yGoal} r="16" fill="none" stroke={GREEN} strokeWidth="1.5" className="sa-pulse-ring" style={{ animationDelay: "2.3s" }} />
       <circle cx={x1} cy={yGoal} r="6" fill={GREEN} className="sa-fade-in" style={{ animationDelay: "2s" }} />
-      <text x={x0} y={H - 12} fontFamily="ui-monospace, Menlo, monospace" fontSize="11" fill="#8a8a96" letterSpacing="1.5">TONIGHT</text>
+      <text x={x0 - 18} y={H - 12} fontFamily="ui-monospace, Menlo, monospace" fontSize="11" fill="#8a8a96" letterSpacing="1.5">TONIGHT</text>
       <text x={x1} y={H - 12} textAnchor="end" fontFamily="ui-monospace, Menlo, monospace" fontSize="11" fill="#8a8a96" letterSpacing="1.5">{weeks <= 1 ? "EXAM ·" : `EXAM · ${weeks} WK`}</text>
     </svg>
   );
