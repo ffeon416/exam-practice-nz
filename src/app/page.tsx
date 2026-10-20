@@ -159,7 +159,7 @@ export default function HomePage() {
         style={{ background: `radial-gradient(60% 55% at 50% 0%, ${GREEN}1c 0%, transparent 70%), radial-gradient(40% 40% at 85% 30%, ${VIOLET}14 0%, transparent 70%)` }} />
 
       {/* ═══ HERO ═══ */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-10 sm:pt-16 pb-10 sm:pb-14 text-center">
+      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 pt-10 sm:pt-16 pb-10 sm:pb-14 text-center">
         <p className="home-rise inline-flex items-center gap-2.5 rounded-full px-4 py-2 font-mono font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.16em]" style={{ color: GREEN, background: `${GREEN}1a` }}>
           <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: GREEN }} />For parents of high-school students
         </p>
@@ -167,7 +167,7 @@ export default function HomePage() {
           Know exactly where your child stands.{" "}
           <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${GREEN}, ${VIOLET})` }}>Then fix it.</span>
         </h1>
-        <p className="home-rise text-zinc-300 text-[17px] sm:text-[20px] leading-relaxed max-w-2xl mx-auto mt-6" style={{ animationDelay: "160ms" }}>
+        <p className="home-rise text-zinc-300 text-[17px] sm:text-[20px] lg:text-[22px] leading-relaxed max-w-2xl lg:max-w-3xl mx-auto mt-6" style={{ animationDelay: "160ms" }}>
           Two minutes tells you whether your teen is on track for the grade you want. Then StudyAce gets them there: one task a night, marked as strictly as an examiner. For less than the cost of three tutor sessions a year.
         </p>
         <div className="home-rise flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 min-h-[64px]" style={{ animationDelay: "240ms" }}>
@@ -209,7 +209,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ WHAT IT DOES ═══ */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
+      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
         <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[48px] leading-[1.02] tracking-[-0.04em] text-center`} style={{ textWrap: "balance" }}>Three things. Nothing else.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-10">
           {steps.map((s, i) => (
@@ -230,7 +230,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ THE COST ═══ */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
+      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
         <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-10 lg:p-12">
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Already paying a tutor?</p>
           <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[52px] leading-[1] tracking-[-0.04em] mt-3`} style={{ textWrap: "balance" }}>
@@ -269,7 +269,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ WHAT THE GRADE IS WORTH ═══ */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
+      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
         <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[52px] leading-[1] tracking-[-0.04em] text-center`} style={{ textWrap: "balance" }}>
           The real cost isn&apos;t the tutor. <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${ROSE}, ${AMBER})` }}>It&apos;s the grade they miss.</span>
         </h2>
@@ -301,10 +301,10 @@ export default function HomePage() {
       </section>
 
       {/* ═══ PRICE ═══ */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-12 sm:py-16">
+      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold text-center" style={{ color: GREEN }}>Pick a plan</p>
         <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[48px] leading-[1.02] tracking-[-0.04em] text-center mt-3`}>One plan. Everything included.</h2>
-        <div className="max-w-xl mx-auto mt-8 sm:mt-10 space-y-3">
+        <div className="max-w-xl lg:max-w-none mx-auto mt-8 sm:mt-10 space-y-3 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:items-stretch">
           {([
             { b: "yearly" as const, title: "Whole year", badge: "Best value", sub: `Every exam this year · about NZ$${proMonthlyEquivalent("yearly").toFixed(0)} a month`, price: <>NZ${PRO_PRICING.yearly.amount}</> },
             { b: "monthly" as const, title: "Monthly", sub: "Cancel any time", price: <>NZ${PRO_PRICING.monthly.amount}<span className="text-zinc-500 text-[15px] font-semibold tracking-normal">/mo</span></> },
@@ -327,7 +327,7 @@ export default function HomePage() {
             <svg className="w-7 h-7 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.8" aria-hidden><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
             <div><p className="text-white text-[15.5px] font-bold">30 days or your money back</p><p className="text-zinc-400 text-[13.5px] leading-relaxed mt-1">If it&apos;s not working for your teen, you get every cent back. One email, no questions.</p></div>
           </div>
-          {checkoutError && <p role="alert" className="text-amber-200 text-[13.5px] rounded-2xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3">{checkoutError} <Link href="/pricing" className="underline underline-offset-4">Pricing page →</Link></p>}
+          {checkoutError && <p role="alert" className="lg:col-span-3 text-amber-200 text-[13.5px] rounded-2xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3">{checkoutError} <Link href="/pricing" className="underline underline-offset-4">Pricing page →</Link></p>}
         </div>
         <p className="text-center text-zinc-500 text-[13px] mt-5">Cancel anytime · Billed in NZD by Stripe · No ads in the app, your child&apos;s data is never sold · <Link href="/pricing" className="underline underline-offset-4">3-month option</Link></p>
       </section>
@@ -349,7 +349,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ LAST WORD ═══ */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pb-16 sm:pb-24">
+      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 pb-16 sm:pb-24">
         <div className="relative rounded-[28px] border-2 bg-[#0e0f13] px-6 py-12 sm:py-16 text-center overflow-clip"
           style={{ borderColor: `${GREEN}66`, backgroundImage: `radial-gradient(70% 90% at 50% 0%, ${GREEN}24 0%, transparent 70%)`, boxShadow: `0 28px 90px -28px ${GREEN}59` }}>
           <h2 className={`${display.className} font-bold text-white text-[36px] sm:text-[60px] leading-[0.98] tracking-[-0.045em]`} style={{ textWrap: "balance" }}>Start with one honest answer.</h2>

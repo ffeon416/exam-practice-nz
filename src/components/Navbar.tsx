@@ -77,7 +77,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="sa-site-nav bg-[#06060a]/80 backdrop-blur-md border-b border-white/[0.06] sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-5 flex items-center justify-between gap-3 h-[68px]">
+        <div className="max-w-5xl lg:max-w-none mx-auto px-4 sm:px-5 lg:px-12 xl:px-20 2xl:px-28 flex items-center justify-between gap-3 h-[68px]">
           {/* Logo */}
           <Link
             href="/"

@@ -34,7 +34,7 @@ export default function SiteFooter() {
 
   return (
     <footer className="border-t border-white/[0.06] bg-[#06060a]">
-      <div className="max-w-5xl mx-auto px-5 py-12 sm:py-14">
+      <div className="max-w-5xl lg:max-w-none mx-auto px-5 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-14">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
           {/* Brand */}
           <div className="col-span-2">
