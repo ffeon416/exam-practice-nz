@@ -181,7 +181,7 @@ export default function PulsePage() {
                     return (
                       <li key={r.k} className="py-1.5">
                         <div className="flex items-baseline justify-between gap-3">
-                          <span className="text-zinc-300 text-[13.5px]">{r.l}</span>
+                          {r.k === "leads" ? <Link href="/admin/leads" className="text-zinc-300 text-[13.5px] underline underline-offset-4 decoration-white/30">{r.l} · see them →</Link> : <span className="text-zinc-300 text-[13.5px]">{r.l}</span>}
                           <span className="text-white text-[15px] font-bold tabular-nums">{v}<span className="text-zinc-500 text-[11.5px] font-medium ml-1.5">{i === 0 ? "" : `${pct(v, prev)} of previous`}</span></span>
                         </div>
                         <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden mt-1"><div className="h-full rounded-full" style={{ width: `${base ? Math.max(v ? 2 : 0, (v / base) * 100) : 0}%`, background: c }} /></div>
