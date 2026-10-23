@@ -65,6 +65,7 @@ Add to `.env.development.local`:
 RESEND_API_KEY=re_...                 # emails send for real: use +test addresses
 EMAIL_REPLY_TO=you@yourinbox.com      # where parents' replies go
 CRON_SECRET=any-long-random-string
+PROMISE_ALERT_EMAILS=you@example.com,ffeon@example.com   # who hears when a promise backstop acts
 ```
 
 Run the hourly job by hand (as often as you like; everything is idempotent):
@@ -78,7 +79,8 @@ first, then:
 ```bash
 STRIPE_SECRET_KEY=sk_test_... STRIPE_PRICE_FUNNEL_YEARLY=price_... npm run verify:promise
 ```
-It fast-forwards four free weeks with Stripe test clocks: cron cancel at the
+It fast-forwards six free weeks with Stripe test clocks: cron cancel at the
 cut-off, invoice guard voiding at trial end, release when the child did the
-check, and refund if a charge got through. Takes a few minutes; cleans up
-after itself.
+check, refund if a charge got through, a parent cancelling on day 3 (access
+kept, no bill ever raised), and a parent choosing "Keep the plan going".
+Takes a few minutes; cleans up after itself.

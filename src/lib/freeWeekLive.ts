@@ -9,7 +9,7 @@ import type Stripe from "stripe";
 import { getStripe } from "./stripe";
 import { getSupabase, logEvent } from "./supabase";
 import { sendEmail, type SendResult } from "./email";
-import { cancelLink, parentLink } from "./emailLinks";
+import { cancelLink, keepLink, parentLink } from "./emailLinks";
 import { ADMIN_EMAILS } from "./adminEmails";
 import { autoCancelledEmail, endingSoonEmail, gradeCheckEmail, notStartedEmail, welcomeEmail, type FreeWeekVars } from "./funnelEmails";
 import { FUNNEL_PRICES, funnelPrice, type FunnelCurrency } from "./funnelPricing";
@@ -24,11 +24,11 @@ const livemode = () => (process.env.STRIPE_SECRET_KEY ?? "").startsWith("sk_live
 type ChildRow = {
   id: string; parent_user_id: string; first_name: string; kid_user_id: string | null; stripe_subscription_id: string | null;
   invite_opened_at: string | null; grade_check_completed_at: string | null; grade_check: GradeCheckSummary | null;
-  timezone: string | null; auto_cancelled_at: string | null; created_at: string;
+  timezone: string | null; auto_cancelled_at: string | null; keep_opt_in_at: string | null; created_at: string;
 };
 type ParentRow = { user_id: string; email: string | null; trial_ends_at: string | null; subscription_status: string | null; signup_country: string | null };
 
-const CHILD_COLS = "id, parent_user_id, first_name, kid_user_id, stripe_subscription_id, invite_opened_at, grade_check_completed_at, grade_check, timezone, auto_cancelled_at, created_at";
+const CHILD_COLS = "id, parent_user_id, first_name, kid_user_id, stripe_subscription_id, invite_opened_at, grade_check_completed_at, grade_check, timezone, auto_cancelled_at, keep_opt_in_at, created_at";
 
 async function childForSub(subscriptionId: string): Promise<ChildRow | null> {
   const supabase = getSupabase();
@@ -43,10 +43,16 @@ async function parentOf(userId: string): Promise<ParentRow | null> {
   return (data as ParentRow | null) ?? null;
 }
 
+/** PROMISE_ALERT_EMAILS (comma-separated), else the admin list. */
+function alertRecipients(): string[] {
+  const list = (process.env.PROMISE_ALERT_EMAILS ?? "").split(",").map((e) => e.trim().toLowerCase()).filter((e) => /^[^\s@]+@[^\s@]+$/.test(e));
+  return list.length ? [...new Set(list)] : ADMIN_EMAILS;
+}
+
 export async function founderAlert(subject: string, detail: Record<string, unknown>): Promise<void> {
   const body = `<pre style="font-size:13px">${JSON.stringify(detail, null, 2).replace(/</g, "&lt;")}</pre>`;
   const key = `alert:${subject}:${String(detail.sub ?? detail.invoice ?? "")}`.slice(0, 250);
-  for (const to of ADMIN_EMAILS) {
+  for (const to of alertRecipients()) {
     await sendEmail({ to, subject: `[StudyAce] ${subject}`, html: body, text: JSON.stringify(detail, null, 2), key: `${key}:${to}`, template: "founder_alert" });
   }
   console.error(`ALERT ${subject}`, detail);
@@ -56,6 +62,10 @@ export const liveStore: PromiseStore = {
   async gradeCheckDone(subscriptionId) {
     const child = await childForSub(subscriptionId); // throws on DB error
     return !!child?.grade_check_completed_at;
+  },
+  async keepOptIn(subscriptionId) {
+    const child = await childForSub(subscriptionId); // throws on DB error
+    return !!child?.keep_opt_in_at;
   },
   async recordAutoCancel(subscriptionId, how) {
     try {
@@ -113,6 +123,8 @@ export async function sendChildEmail(kind: ChildEmail, childId: string, sub?: St
   if (s.metadata?.funnel !== "trial") return "skipped";
   const trialing = s.status === "trialing";
   if (kind !== "gradecheck" && !trialing) return "skipped";
+  // Parent already cancelled: no "hasn't started" or "ends soon" nudges.
+  if ((kind === "not_started" || kind === "ending_soon") && s.cancel_at_period_end) return "skipped";
   if (kind === "gradecheck" && !child.grade_check) return "skipped";
 
   const trialEnd = s.trial_end ?? Math.floor(Date.now() / 1000) + 7 * DAY;
@@ -124,6 +136,7 @@ export async function sendChildEmail(kind: ChildEmail, childId: string, sub?: St
     ...labels,
     inviteHref: parentLink(child.parent_user_id, "/invite"),
     cancelHref: cancelLink(s.id, child.parent_user_id),
+    keepHref: keepLink(s.id, child.parent_user_id),
     price: funnelPrice(cur, s.metadata?.billing === "monthly" ? "monthly" : "yearly").perPeriod,
   };
 
@@ -179,7 +192,7 @@ export async function runFreeWeekJobs(now = Math.floor(Date.now() / 1000)): Prom
       report.errors.push(`${subId}: ${String(err)}`);
       continue;
     }
-    const pSub: PromiseSub = { id: sub.id, status: sub.status, trial_end: sub.trial_end, metadata: (sub.metadata ?? {}) as Record<string, string> };
+    const pSub: PromiseSub = { id: sub.id, status: sub.status, trial_end: sub.trial_end, metadata: (sub.metadata ?? {}) as Record<string, string>, cancel_at_period_end: sub.cancel_at_period_end };
 
     // 1. The promise.
     if (sub.status === "trialing" && !child.grade_check_completed_at) {

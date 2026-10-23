@@ -20,6 +20,7 @@ const trialSub = (over: Partial<PromiseSub> = {}): PromiseSub => ({
 type World = {
   sub: PromiseSub;
   gradeDone: boolean;
+  optInDb: boolean;
   dbDown: boolean;
   paid: { id: string; amount_paid: number }[];
   invoice: { id: string; held: boolean; status: string };
@@ -32,7 +33,7 @@ type World = {
 
 function makeWorld(): World {
   return {
-    sub: trialSub(), gradeDone: false, dbDown: false, paid: [],
+    sub: trialSub(), gradeDone: false, optInDb: false, dbDown: false, paid: [],
     invoice: { id: "in_1", held: false, status: "draft" }, fail: {}, calls: [], records: [], alerts: [], refunds: 0,
   };
 }
@@ -55,6 +56,7 @@ function deps(w: World, now: number): Deps {
   };
   const store: PromiseStore = {
     async gradeCheckDone() { if (w.dbDown) throw new Error("db down"); return w.gradeDone; },
+    async keepOptIn() { if (w.dbDown) throw new Error("db down"); return w.optInDb; },
     async recordAutoCancel(_id, how) { maybeFail("record"); w.records.push(how); },
     async alert(subject) { w.alerts.push(subject); },
   };
@@ -332,5 +334,72 @@ describe("the whole week, hour by hour", () => {
     expect(charged).toBe(false);
     expect(world.refunds).toBe(1);
     expect(world.records).toEqual(["refund"]);
+  });
+});
+
+describe("parent chose 'Keep the plan going' (day-5 email)", () => {
+  const optedIn = (over: Partial<PromiseSub> = {}) => trialSub({ metadata: { funnel: "trial", tier: "pro", billing: "yearly", keep_opt_in: "1" }, ...over });
+
+  it("the decision respects it, from Stripe or from our database", () => {
+    expect(promiseDecision(optedIn(), false, DEADLINE + 60)).toBe("opted-in");
+    expect(promiseDecision(trialSub(), false, DEADLINE + 60, true)).toBe("opted-in");
+  });
+
+  it("cron doesn't cancel — even with the database down (Stripe metadata is enough)", async () => {
+    w.sub = optedIn(); w.dbDown = true;
+    const r = await enforcePromise(deps(w, DEADLINE + 60), "sub_1");
+    expect(r.decision).toBe("opted-in");
+    expect(w.calls).not.toContain("cancel");
+  });
+
+  it("cron doesn't cancel when only our database has the opt-in", async () => {
+    w.optInDb = true;
+    const r = await enforcePromise(deps(w, DEADLINE + 60), "sub_1");
+    expect(r.decision).toBe("opted-in");
+    expect(w.calls).not.toContain("cancel");
+  });
+
+  it("invoice guard releases the charge", async () => {
+    w.sub = optedIn({ status: "active" });
+    expect(await guardInvoice(deps(w, TRIAL_END + 60), firstInvoice(w))).toBe("released");
+    w = makeWorld(); w.sub = trialSub({ status: "active" }); w.optInDb = true;
+    expect(await guardInvoice(deps(w, TRIAL_END + 60), firstInvoice(w))).toBe("released");
+    expect(w.calls).not.toContain("void");
+  });
+
+  it("refund layer leaves the charge alone", async () => {
+    w.sub = optedIn({ status: "active" }); w.paid = [{ id: "in_1", amount_paid: 6900 }];
+    expect(await refundIfPromiseBroken(deps(w, TRIAL_END + 7200), { id: "in_1", subscriptionId: "sub_1", amount_paid: 6900 })).toBe(false);
+    expect(w.refunds).toBe(0);
+  });
+
+  it("whole week: opt in on day 5, child never starts → charged on day 7, as the parent chose", async () => {
+    for (let t = T0; t < TRIAL_END; t += 3600) {
+      if (t >= T0 + 4 * DAY) w.sub = { ...w.sub, metadata: { ...w.sub.metadata, keep_opt_in: "1" } };
+      await enforcePromise(deps(w, t), "sub_1");
+    }
+    expect(w.sub.status).toBe("trialing");
+    w.sub = { ...w.sub, status: "active" };
+    expect(await guardInvoice(deps(w, TRIAL_END + 60), firstInvoice(w))).toBe("released");
+    expect(w.records).toEqual([]);
+  });
+});
+
+describe("parent cancelled during the free week (cancel_at_period_end)", () => {
+  it("the promise has nothing to do: the child keeps access, Stripe ends it without a bill", async () => {
+    w.sub = trialSub({ cancel_at_period_end: true });
+    expect(promiseDecision(w.sub, false, DEADLINE + 60)).toBe("ending");
+    const r = await enforcePromise(deps(w, DEADLINE + 60), "sub_1");
+    expect(r).toMatchObject({ decision: "ending", cancelled: false });
+    expect(w.calls).not.toContain("cancel"); // no early cut-off of access
+  });
+
+  it("if Stripe ever did raise a bill for it, the guard still voids it", async () => {
+    w.sub = trialSub({ status: "active", cancel_at_period_end: true });
+    expect(await guardInvoice(deps(w, TRIAL_END + 60), firstInvoice(w))).toBe("voided");
+  });
+
+  it("a grade check done after cancelling doesn't change anything", () => {
+    expect(promiseDecision(trialSub({ cancel_at_period_end: true }), true, DEADLINE + 60)).toBe("kept");
   });
 });

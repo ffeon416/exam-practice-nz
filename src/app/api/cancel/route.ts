@@ -12,9 +12,10 @@ export const dynamic = "force-dynamic";
 //   POST { t, action: "info" }   → what would be cancelled
 //   POST { t, action: "cancel" } → cancel it
 // Opening the link never cancels anything (email scanners pre-open links):
-// it takes the tap on the page's button. During the free week the
-// subscription is cancelled at once and nothing is charged; after that it
-// stops renewing and access lasts to the end of the paid period (Terms).
+// it takes the tap on the page's button. Either way it's cancel_at_period_end:
+// during the free week the child keeps access to its end and Stripe ends the
+// subscription then WITHOUT raising a bill (proved in npm run verify:promise);
+// after that it stops renewing and access lasts to the end of the paid period.
 
 const dateLabel = (unix: number | null | undefined) =>
   unix ? new Date(unix * 1000).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" }) : null;
@@ -46,14 +47,13 @@ export async function POST(req: NextRequest) {
     duringTrial,
     alreadyCancelled: ended || sub.cancel_at_period_end,
     trialEnds: dateLabel(sub.trial_end),
-    accessUntil: duringTrial ? null : dateLabel(periodEnd),
+    accessUntil: duringTrial ? dateLabel(sub.trial_end) : dateLabel(periodEnd),
   };
 
   if (body.action !== "cancel") return NextResponse.json(info);
   if (info.alreadyCancelled) return NextResponse.json({ ...info, cancelled: true });
 
-  if (duringTrial) await stripe.subscriptions.cancel(sub.id, { invoice_now: false, prorate: false }, { idempotencyKey: `parent-cancel-${sub.id}` });
-  else await stripe.subscriptions.update(sub.id, { cancel_at_period_end: true });
+  await stripe.subscriptions.update(sub.id, { cancel_at_period_end: true });
   void logEvent("parent_cancelled", link.parentUserId, { sub: sub.id, during_trial: duringTrial, via: "email_link" });
 
   const { data: parent } = await supabase.from("profiles").select("email").eq("user_id", link.parentUserId).maybeSingle();

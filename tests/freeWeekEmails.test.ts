@@ -140,3 +140,22 @@ describe("each email goes once", () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
+
+describe("day-5 'keep the plan going'", () => {
+  const withKeep = { ...vars, keepHref: "https://studyace.co/keep?t=z" };
+  it("is offered only when the child hasn't done the check", () => {
+    expect(endingSoonEmail(withKeep, false).html).toContain("https://studyace.co/keep?t=z");
+    expect(endingSoonEmail(withKeep, false).text).toContain("Keep the plan going: https://studyace.co/keep?t=z");
+    expect(endingSoonEmail(withKeep, false).text).toContain("hasn't started yet");
+    expect(endingSoonEmail(withKeep, true).html).not.toContain("keep?t=");
+  });
+  it("cancelling says the child keeps access to the end of the free week", () => {
+    expect(endingSoonEmail(withKeep, true).text).toContain("keeps access to the end of the free week");
+  });
+  it("a keep link can't be used as a cancel link", () => {
+    const SECRET = "s".repeat(40);
+    const t = makeToken("keep", ["sub_1", "user_1"], 7, { secret: SECRET });
+    expect(readToken("cancel", t, { secret: SECRET })).toBeNull();
+    expect(readToken("keep", t, { secret: SECRET })).toEqual(["sub_1", "user_1"]);
+  });
+});

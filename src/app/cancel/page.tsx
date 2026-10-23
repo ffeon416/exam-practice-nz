@@ -47,9 +47,9 @@ function CancelInner() {
       <>
         <h1 className="text-[26px] font-bold leading-tight">Cancelled</h1>
         <p className="mt-3 text-[16px] text-[#4D4F58]">
-          {info.duringTrial || !info.accessUntil
-            ? `${n}'s free week is cancelled. Nothing has been charged, and nothing will be.`
-            : `${n}'s plan won't renew. ${n} keeps access until ${info.accessUntil}.`}
+          {info.duringTrial
+            ? `${n}'s free week is cancelled. ${n} keeps access${info.accessUntil ? ` until ${info.accessUntil}` : " to the end of it"}. Nothing has been charged, and nothing will be.`
+            : `${n}'s plan won't renew.${info.accessUntil ? ` ${n} keeps access until ${info.accessUntil}.` : ""}`}
         </p>
         <p className="mt-3 text-[16px] text-[#4D4F58]">We&rsquo;ve emailed you to confirm.</p>
         <Link href="/" className="mt-6 inline-flex min-h-[44px] items-center text-[16px] font-semibold text-[#4A3AC4] underline underline-offset-2">Back to StudyAce</Link>
@@ -62,7 +62,7 @@ function CancelInner() {
       <h1 className="text-[26px] font-bold leading-tight">{info.duringTrial ? `Cancel ${n}'s free week?` : `Cancel ${n}'s plan?`}</h1>
       <p className="mt-3 text-[16px] text-[#4D4F58]">
         {info.duringTrial
-          ? `Nothing has been charged, and nothing will be. ${n} loses access straight away.`
+          ? `Nothing has been charged, and nothing will be. ${n} keeps access${info.accessUntil ? ` until ${info.accessUntil}` : " to the end of the free week"}.`
           : `It won't renew.${info.accessUntil ? ` ${n} keeps access until ${info.accessUntil}.` : ""}`}
       </p>
       <button type="button" onClick={cancel} disabled={busy}

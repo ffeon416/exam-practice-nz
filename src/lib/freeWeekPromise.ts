@@ -22,6 +22,15 @@
 //
 // "Done the grade check" = child_profiles.grade_check_completed_at is set for
 // the child on this subscription.
+//
+// Two things switch the promise off for a family, and every layer respects both:
+//   - KEEP OPT-IN: the parent tapped "Keep the plan going" in the day-5 email
+//     ("charge me on day 7 anyway"). Stored on the Stripe subscription
+//     (metadata keep_opt_in = "1", readable even if our database is down) and
+//     in child_profiles.keep_opt_in_at.
+//   - PARENT CANCELLED: cancel_at_period_end is set, so Stripe will end the
+//     subscription at the end of the free week without raising a bill. The
+//     child keeps access until then; the promise has nothing left to do.
 
 export const DAY = 24 * 60 * 60;
 
@@ -35,7 +44,12 @@ export type PromiseSub = {
   status: string; // Stripe subscription status
   trial_end: number | null;
   metadata: Record<string, string>;
+  /** Parent cancelled: ends at the end of the free week, no bill. */
+  cancel_at_period_end?: boolean;
 };
+
+/** The parent chose "Keep the plan going" (charge on day 7 even without a grade check). */
+export const keptByParent = (sub: PromiseSub) => sub.metadata?.keep_opt_in === "1";
 
 /** Does the promise cover this subscription at all? */
 export function promiseApplies(sub: PromiseSub): boolean {
@@ -45,14 +59,18 @@ export function promiseApplies(sub: PromiseSub): boolean {
 export type Decision =
   | "not-covered"   // not a free-week trial (paid-now restart, legacy sub…)
   | "kept"          // the child did the grade check: nothing to do
+  | "opted-in"      // the parent chose to keep the plan going anyway
+  | "ending"        // the parent cancelled; it ends at the free week's end, no bill
   | "wait"          // still before the cut-off
   | "cancel"        // past the cut-off, no grade check: cancel now
   | "already-ended"; // subscription is no longer trialing/active
 
-export function promiseDecision(sub: PromiseSub, gradeCheckDone: boolean, now: number): Decision {
+export function promiseDecision(sub: PromiseSub, gradeCheckDone: boolean, now: number, keepOptIn = false): Decision {
   if (!promiseApplies(sub)) return "not-covered";
   if (gradeCheckDone) return "kept";
+  if (keepOptIn || keptByParent(sub)) return "opted-in";
   if (sub.status === "canceled" || sub.status === "incomplete_expired") return "already-ended";
+  if (sub.cancel_at_period_end) return "ending";
   if (now < promiseDeadline(sub.trial_end!)) return "wait";
   return "cancel";
 }
@@ -78,6 +96,8 @@ export interface PromiseStripe {
 export interface PromiseStore {
   /** Throws if the answer can't be known (DB down) — callers must not guess. */
   gradeCheckDone(subscriptionId: string): Promise<boolean>;
+  /** Did the parent opt in to keeping the plan (database copy)? Throws if unknown. */
+  keepOptIn(subscriptionId: string): Promise<boolean>;
   /** Records the auto-cancel and emails the parent (idempotent per subscription). */
   recordAutoCancel(subscriptionId: string, how: "cron" | "invoice-guard" | "refund"): Promise<void>;
   /** Founder alert for anything that needed a later layer or a human. */
@@ -95,8 +115,10 @@ export async function enforcePromise(deps: Deps, subscriptionId: string): Promis
   try {
     const sub = await deps.stripe.getSubscription(subscriptionId);
     if (!promiseApplies(sub)) return { subscriptionId, decision: "not-covered", cancelled: false };
+    if (keptByParent(sub)) return { subscriptionId, decision: "opted-in", cancelled: false };
     const done = await deps.store.gradeCheckDone(subscriptionId); // throws → no action this run
-    const decision = promiseDecision(sub, done, nowOf(deps));
+    const optIn = done ? false : await deps.store.keepOptIn(subscriptionId);
+    const decision = promiseDecision(sub, done, nowOf(deps), optIn);
     if (decision !== "cancel") return { subscriptionId, decision, cancelled: false };
     await deps.stripe.cancelSubscription(subscriptionId);
     await deps.store.recordAutoCancel(subscriptionId, "cron");
@@ -119,6 +141,13 @@ export type InvoiceLike = {
 
 export type GuardResult = "ignored" | "released" | "voided" | "held";
 
+/** Grade check done, or the parent opted in. Throws if it can't be known. */
+async function familyKeeps(deps: Deps, sub: PromiseSub): Promise<boolean> {
+  if (keptByParent(sub)) return true;
+  if (await deps.store.gradeCheckDone(sub.id)) return true;
+  return deps.store.keepOptIn(sub.id);
+}
+
 /**
  * Called for invoice.created. Throws (→ webhook 500 → Stripe retries) only
  * when the invoice is held and the answer couldn't be known yet.
@@ -138,7 +167,7 @@ export async function guardInvoice(deps: Deps, inv: InvoiceLike): Promise<GuardR
 
   let done: boolean;
   try {
-    done = await deps.store.gradeCheckDone(inv.subscriptionId);
+    done = await familyKeeps(deps, sub);
   } catch (err) {
     await deps.store.alert("Free week: invoice held, grade check status unknown", { invoice: inv.id, sub: inv.subscriptionId, error: String(err) });
     throw new Error(`invoice ${inv.id} held: grade check status unknown`);
@@ -167,7 +196,7 @@ export async function refundIfPromiseBroken(deps: Deps, inv: PaidInvoiceLike): P
   if (!promiseApplies(sub)) return false;
   const paid = await deps.stripe.paidRealInvoices(inv.subscriptionId);
   if (paid.some((p) => p.id !== inv.id)) return false; // not the first charge
-  const done = await deps.store.gradeCheckDone(inv.subscriptionId); // throws → Stripe retries
+  const done = await familyKeeps(deps, sub); // throws → Stripe retries
   if (done) return false;
   await deps.stripe.refundInvoice(inv.id);
   await deps.stripe.cancelSubscription(inv.subscriptionId);

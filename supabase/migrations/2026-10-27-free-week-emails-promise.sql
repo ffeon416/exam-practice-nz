@@ -22,3 +22,9 @@ exception when duplicate_object then null; end $$;
 -- When (and by which layer) the promise cancelled a free week.
 alter table child_profiles add column if not exists auto_cancelled_at timestamptz;
 alter table child_profiles add column if not exists auto_cancel_how text;  -- cron | invoice-guard | refund
+
+-- "Keep the plan going" (day-5 email): the parent chose to be charged on day 7
+-- even without a grade check. Also stored on the Stripe subscription
+-- (metadata keep_opt_in), which the promise layers read first.
+alter table child_profiles add column if not exists keep_opt_in_at timestamptz;
+

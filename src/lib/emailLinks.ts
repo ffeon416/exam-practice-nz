@@ -2,6 +2,7 @@
 //
 //   /go?t=…      signs the parent in (no password) and goes to a page
 //   /cancel?t=…  one-click cancel for one subscription
+//   /keep?t=…    "Keep the plan going" (opts out of the auto-cancel promise)
 //
 // HMAC-SHA256 with INVITE_SECRET, each kind domain-separated ("go:" vs
 // "cancel:" vs the invite links' "invite:"), so one kind can never be passed
@@ -12,7 +13,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { siteOrigin } from "./inviteLink";
 
-type Kind = "go" | "cancel";
+type Kind = "go" | "cancel" | "keep";
 
 function key(): string {
   const s = process.env.INVITE_SECRET;
@@ -65,6 +66,17 @@ export function cancelLink(subscriptionId: string, parentUserId: string): string
 
 export function readCancelLink(token: string): { subscriptionId: string; parentUserId: string } | null {
   const f = readToken("cancel", token);
+  if (!f || f.length !== 2 || !/^sub_[A-Za-z0-9]+$/.test(f[0]) || !/^user_[A-Za-z0-9]+$/.test(f[1])) return null;
+  return { subscriptionId: f[0], parentUserId: f[1] };
+}
+
+/** "Keep the plan going" from the day-5 email (charge on day 7 without a grade check). 7 days. */
+export function keepLink(subscriptionId: string, parentUserId: string): string {
+  return `${siteOrigin()}/keep?t=${makeToken("keep", [subscriptionId, parentUserId], 7)}`;
+}
+
+export function readKeepLink(token: string): { subscriptionId: string; parentUserId: string } | null {
+  const f = readToken("keep", token);
   if (!f || f.length !== 2 || !/^sub_[A-Za-z0-9]+$/.test(f[0]) || !/^user_[A-Za-z0-9]+$/.test(f[1])) return null;
   return { subscriptionId: f[0], parentUserId: f[1] };
 }

@@ -14,6 +14,9 @@
 //   B. Cron missed; invoice guard at trial end voids → invoice void, nothing charged
 //   C. Child did the check; guard releases           → first invoice paid
 //   D. Everything missed and it got charged          → refunded in full
+//   E. Parent cancels on day 3 (cancel_at_period_end) → access kept to the end,
+//      the promise stands aside, Stripe ends it with NO bill at all
+//   F. Parent chose "Keep the plan going"            → guard releases, charged
 
 import Stripe from "stripe";
 import { liveStripe } from "../src/lib/freeWeekStripe";
@@ -45,7 +48,7 @@ async function advance(clockId: string, to: number) {
   throw new Error(`clock ${clockId} didn't settle`);
 }
 
-async function freeWeek(label: string) {
+async function freeWeek(label: string, extraMetadata: Record<string, string> = {}) {
   const start = Math.floor(Date.now() / 1000);
   const clock = await stripe.testHelpers.testClocks.create({ frozen_time: start, name: `promise ${label}` });
   clocks.push(clock.id);
@@ -55,14 +58,14 @@ async function freeWeek(label: string) {
     items: [{ price }],
     currency: "gbp",
     trial_period_days: 7,
-    metadata: { funnel: "trial", tier: "pro", billing: "yearly", harness: "1" },
+    metadata: { funnel: "trial", tier: "pro", billing: "yearly", harness: "1", ...extraMetadata },
   });
   return { clock, sub, start, trialEnd: sub.trial_end! };
 }
 
 const depsFor = (gradeDone: boolean, now: number): Deps => ({
   stripe: liveStripe(stripe),
-  store: { gradeCheckDone: async () => gradeDone, recordAutoCancel: async () => {}, alert: async () => {} },
+  store: { gradeCheckDone: async () => gradeDone, keepOptIn: async () => false, recordAutoCancel: async () => {}, alert: async () => {} },
   now: () => now,
 });
 
@@ -142,6 +145,39 @@ async function main() {
       check(total2 === total, `a second run doesn't refund twice (acted again: ${again})`);
     }
   }
+
+  console.log("E. Parent cancels on day 3: keeps access, no bill ever");
+  {
+    const w = await freeWeek("E");
+    await advance(w.clock.id, w.start + 3 * DAY);
+    await stripe.subscriptions.update(w.sub.id, { cancel_at_period_end: true }); // exactly what /api/cancel does
+    const t = promiseDeadline(w.trialEnd) + 3600;
+    await advance(w.clock.id, t);
+    const r = await enforcePromise(depsFor(false, t), w.sub.id);
+    check(r.decision === "ending" && !r.cancelled, `promise stands aside (decision ${r.decision})`);
+    check((await stripe.subscriptions.retrieve(w.sub.id)).status === "trialing", "child still has access on day 7");
+    await advance(w.clock.id, w.trialEnd + 3 * 3600);
+    check((await stripe.subscriptions.retrieve(w.sub.id)).status === "canceled", "ended at the end of the free week");
+    check(!(await firstCycleInvoice(w.sub.id)), "no bill was ever raised");
+    check((await realCharges(w.sub.id)).length === 0, "nothing charged");
+  }
+
+  console.log("F. Parent opted in: charged on day 7 even without a grade check");
+  {
+    const w = await freeWeek("F", { keep_opt_in: "1" });
+    const t = promiseDeadline(w.trialEnd) + 3600;
+    await advance(w.clock.id, t);
+    const r = await enforcePromise(depsFor(false, t), w.sub.id);
+    check(r.decision === "opted-in" && !r.cancelled, `cron respects the opt-in (decision ${r.decision})`);
+    await advance(w.clock.id, w.trialEnd + 60);
+    const inv = await firstCycleInvoice(w.sub.id);
+    if (inv) {
+      const g = await guardInvoice(depsFor(false, w.trialEnd + 60), { id: inv.id!, subscriptionId: w.sub.id, billing_reason: inv.billing_reason, amount_due: inv.amount_due, status: inv.status });
+      check(g === "released", `guard releases (${g})`);
+      await advance(w.clock.id, w.trialEnd + 3 * 3600);
+      check((await realCharges(w.sub.id)).length === 1, "charged, as the parent chose");
+    } else check(false, "first invoice exists");
+  }
 }
 
 main()
@@ -152,4 +188,4 @@ main()
     process.exit(failures ? 1 : 0);
   });
 
-void DAY;
+

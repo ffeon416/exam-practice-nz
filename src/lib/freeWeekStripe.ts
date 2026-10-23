@@ -9,7 +9,7 @@ export function liveStripe(stripe: Stripe): PromiseStripe {
   return {
     async getSubscription(id) {
       const s = await stripe.subscriptions.retrieve(id);
-      return { id: s.id, status: s.status, trial_end: s.trial_end, metadata: (s.metadata ?? {}) as Record<string, string> };
+      return { id: s.id, status: s.status, trial_end: s.trial_end, metadata: (s.metadata ?? {}) as Record<string, string>, cancel_at_period_end: s.cancel_at_period_end };
     },
     async cancelSubscription(id) {
       const s = await stripe.subscriptions.retrieve(id);

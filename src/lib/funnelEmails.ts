@@ -33,6 +33,8 @@ export type FreeWeekVars = {
   inviteHref: string;
   /** Signed one-click cancel link */
   cancelHref: string;
+  /** Signed "keep the plan going" link (day-5 email, child not started) */
+  keepHref?: string;
   /** "£69 a year" */
   price: string;
 };
@@ -79,14 +81,20 @@ export function gradeCheckEmail(v: FreeWeekVars, s: GradeCheckSummary): Out {
 
 export function endingSoonEmail(v: FreeWeekVars, gradeCheckDone: boolean): Out {
   const n = esc(v.childName);
+  const keep = !gradeCheckDone && v.keepHref
+    ? [`${n} hasn&rsquo;t started yet. If you know they will, <a href="${esc(v.keepHref)}" style="color:#4A3AC4;font-weight:600">keep the plan going</a> and we&rsquo;ll charge you on ${esc(v.trialEnds)} anyway.`]
+    : [];
   const paras = [
     `Your free week ends on ${esc(v.trialEnds)}.`,
-    `<strong>Staying?</strong> Nothing to do. ${n} keeps going, and your plan starts on ${esc(v.trialEnds)} at ${esc(v.price)}.`,
-    `<strong>Not for you?</strong> Cancel in one click. Nothing is charged if you cancel before then.`,
-    ...(gradeCheckDone ? [] : [`${n} hasn&rsquo;t done the grade check yet. If they haven&rsquo;t by ${esc(v.deadline)}, we cancel for you and nothing is charged.`]),
+    gradeCheckDone
+      ? `<strong>Staying?</strong> Nothing to do. ${n} keeps going, and your plan starts on ${esc(v.trialEnds)} at ${esc(v.price)}.`
+      : `<strong>Staying?</strong> ${n} needs to do the grade check by ${esc(v.deadline)}. If they haven&rsquo;t, we cancel for you and nothing is charged.`,
+    ...keep,
+    `<strong>Not for you?</strong> Cancel in one click. ${n} keeps access to the end of the free week, and nothing is charged.`,
   ];
   const button = { label: "Cancel in one click", href: v.cancelHref };
-  return { subject: `Your free week ends ${v.trialEnds}`, html: layout(paras, button), text: text(paras, button) };
+  const t = text(paras, button) + (keep.length && v.keepHref ? `\n\nKeep the plan going: ${v.keepHref}` : "");
+  return { subject: `Your free week ends ${v.trialEnds}`, html: layout(paras, button), text: t };
 }
 
 export function autoCancelledEmail(v: Pick<FreeWeekVars, "childName">, how: "cron" | "invoice-guard" | "refund"): Out {
@@ -105,7 +113,7 @@ export function autoCancelledEmail(v: Pick<FreeWeekVars, "childName">, how: "cro
 export function parentCancelledEmail(v: Pick<FreeWeekVars, "childName"> & { duringTrial: boolean; accessUntil: string | null }): Out {
   const n = esc(v.childName);
   const paras = v.duringTrial
-    ? [`You&rsquo;ve cancelled ${n}&rsquo;s free week. Nothing has been charged, and nothing will be.`]
+    ? [`You&rsquo;ve cancelled ${n}&rsquo;s free week. ${n} keeps access${v.accessUntil ? ` until ${esc(v.accessUntil)}` : " to the end of it"}. Nothing has been charged, and nothing will be.`]
     : [`You&rsquo;ve cancelled ${n}&rsquo;s plan. It won&rsquo;t renew${v.accessUntil ? `, and ${n} keeps access until ${esc(v.accessUntil)}` : ""}.`,
        `Within 30 days of your first payment? Reply to this email for a full refund.`];
   paras.push(`Changed your mind? You can start again any time at studyace.co.`);
