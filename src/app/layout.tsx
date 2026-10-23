@@ -12,6 +12,8 @@ import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import UserScopeSync from "@/components/UserScopeSync";
 import DeferUntilIdle from "@/components/DeferUntilIdle";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import MetaPixel from "@/components/MetaPixel";
+import ConsentBanner from "@/components/ConsentBanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -146,6 +148,11 @@ export default function RootLayout({
             <Analytics />
             <PageViewTracker />
             <GoogleAnalytics />
+            {/* Meta Pixel (added 2026-10 at Rowan's explicit ask, for the Meta
+                ads): parent pages only, consent-gated for UK/EU/EEA, auto
+                click-tracking off. See src/lib/metaShared.ts. */}
+            <MetaPixel />
+            <ConsentBanner />
             {/* Google Analytics was re-added 2026-07-31. It had been removed
                 2026-07-19 because gtag's click listener collided with the heavy
                 blur backgrounds and cost ~2s per interaction (year picker: 34ms

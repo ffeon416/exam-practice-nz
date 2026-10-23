@@ -1,10 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { getStripe, PRICE_IDS } from "@/lib/stripe";
 import { isBilling } from "@/lib/tierLimits";
 import { getOrCreateProfile, logEvent } from "@/lib/supabase";
 import { getSupabase } from "@/lib/supabase";
-import { attributionFromRequest, attributionMetadata, attributionProps } from "@/lib/attributionServer";
+import { attributionFromRequest, attributionMetadata, attributionProps, type ServerAttribution } from "@/lib/attributionServer";
+import { metaMetadata, requestMeta, sendMetaEvent, utmFromRequest, utmMetadata } from "@/lib/metaCapi";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +17,36 @@ type CheckoutBody = {
   /** Referrer Clerk id captured from a ?ref= link (optional). */
   ref?: string;
 };
+
+// Meta InitiateCheckout: sent server-side here (reliable) and returned as
+// metaEventId so the page fires the browser Pixel with the same id before
+// it leaves for Stripe. The visitor's Meta identity and raw UTMs ride on the
+// subscription metadata so the webhook can send StartTrial / Purchase and
+// the parent's profile can record where they came from.
+function trackingFor(req: NextRequest, attr: ServerAttribution, sessionId: string) {
+  const m = requestMeta(req);
+  const sourceUrl = req.headers.get("referer");
+  const eventId = `ic_${sessionId.slice(-40)}`;
+  if (m.allowed) {
+    after(() =>
+      sendMetaEvent({
+        name: "InitiateCheckout",
+        eventId,
+        sourceUrl,
+        user: { ip: m.ip, ua: m.ua, fbp: m.fbp, fbc: m.fbc, country: m.country, externalId: attr.visitor_id },
+      })
+    );
+  }
+  return { metaEventId: m.allowed ? eventId : null };
+}
+
+function subscriptionTracking(req: NextRequest, attr: ServerAttribution): Record<string, string> {
+  return {
+    visitor_id: attr.visitor_id ?? "",
+    ...metaMetadata(requestMeta(req), req.headers.get("referer")),
+    ...utmMetadata(utmFromRequest(req)),
+  };
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -68,10 +99,10 @@ export async function POST(req: NextRequest) {
         success_url: `${origin}/start?payment=success&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/pricing`,
         metadata: { tier, billing, anonymous: "1", ref, ...attributionMetadata(attr) },
-        subscription_data: { metadata: { tier, billing } },
+        subscription_data: { metadata: { tier, billing, ...subscriptionTracking(req, attr) } },
       });
       void logEvent("checkout_started", null, { tier, billing, anonymous: true, ...attributionProps(attr) });
-      return NextResponse.json({ url: session.url });
+      return NextResponse.json({ url: session.url, ...trackingFor(req, attr, session.id) });
     }
 
     // ── Signed-in checkout (existing accounts changing plan) ──
@@ -110,14 +141,14 @@ export async function POST(req: NextRequest) {
       cancel_url: `${origin}/pricing`,
       metadata: { userId, tier, billing, ...attributionMetadata(attr) },
       subscription_data: {
-        metadata: { userId, tier, billing },
+        metadata: { userId, tier, billing, ...subscriptionTracking(req, attr) },
       },
     });
 
     // Funnel: record that this user reached Stripe checkout (fire-and-forget).
     void logEvent("checkout_started", userId, { tier, billing, ...attributionProps(attr) });
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ url: session.url, ...trackingFor(req, attr, session.id) });
   } catch (error) {
     console.error("Checkout error:", error);
     const message = error instanceof Error ? error.message : String(error);

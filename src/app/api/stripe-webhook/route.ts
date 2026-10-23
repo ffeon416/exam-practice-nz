@@ -1,8 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { getSupabase, logEvent } from "@/lib/supabase";
 import type Stripe from "stripe";
 import { inviteEmail } from "@/lib/clerkInvite";
+import { sendPurchaseIfFirst, sendStartTrial } from "@/lib/metaStripe";
 
 export const dynamic = "force-dynamic";
 
@@ -95,6 +96,20 @@ export async function POST(req: NextRequest) {
         for (const k of ["source", "medium", "campaign", "content", "visitor_id"] as const) {
           const v = session.metadata?.[k];
           if (v) from[k] = v;
+        }
+
+        // Meta StartTrial (only if the subscription is trialing). After the
+        // ack, so a slow Meta never delays Stripe; de-duplicated by sub id.
+        const trialSubId = typeof session.subscription === "string" ? session.subscription : session.subscription?.id;
+        if (trialSubId) {
+          const buyerEmail = session.customer_details?.email ?? session.customer_email ?? null;
+          after(async () => {
+            try {
+              await sendStartTrial(await stripe.subscriptions.retrieve(trialSubId), buyerEmail, userId ?? null);
+            } catch (err) {
+              console.error("Meta StartTrial failed:", err);
+            }
+          });
         }
 
         if (!userId && session.metadata?.anonymous === "1") {
@@ -236,6 +251,21 @@ export async function POST(req: NextRequest) {
           .eq("user_id", userId);
 
         console.log(`User ${userId} subscription canceled — downgraded to free`);
+        break;
+      }
+
+      case "invoice.paid": {
+        // Meta Purchase on the first real charge only (never the £0 trial
+        // invoice, never a renewal). Tier state is handled by the
+        // subscription events above; this is measurement only.
+        const invoice = event.data.object as Stripe.Invoice;
+        after(async () => {
+          try {
+            await sendPurchaseIfFirst(stripe, invoice);
+          } catch (err) {
+            console.error("Meta Purchase failed:", err);
+          }
+        });
         break;
       }
 

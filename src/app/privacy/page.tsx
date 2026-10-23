@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "How StudyAce collects, uses, and protects your personal information, in line with the New Zealand Privacy Act 2020.",
 };
 
-const LAST_UPDATED = "31 July 2026";
+const LAST_UPDATED = "23 October 2026";
 const CONTACT_EMAIL = "ffeon.io@gmail.com";
 
 export default function PrivacyPage() {
@@ -124,8 +124,11 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3">
               We will <strong className="text-zinc-300">not</strong> sell your
-              data, share it with advertisers, or use it for marketing by third
-              parties.
+              data or let third parties use it for their own marketing. The
+              only advertising-related sharing is with Meta, described under
+              &ldquo;Cookies and tracking&rdquo; below, so we can see whether
+              our own ads work. Your child&rsquo;s answers, marks and study
+              data are never shared with advertisers.
             </p>
           </Section>
 
@@ -158,6 +161,12 @@ export default function PrivacyPage() {
               <li>
                 <strong className="text-zinc-300">Vercel</strong> (USA) —
                 website hosting and infrastructure.
+              </li>
+              <li>
+                <strong className="text-zinc-300">Meta Platforms</strong> (USA /
+                Ireland) — the Meta Pixel and Conversions API, used only to
+                measure our ads on Facebook and Instagram (see &ldquo;Cookies
+                and tracking&rdquo;).
               </li>
               <li>
                 <strong className="text-zinc-300">Google LLC</strong> (USA) —
@@ -278,7 +287,7 @@ export default function PrivacyPage() {
             </ul>
           </Section>
 
-          <Section title="Cookies and tracking">
+          <Section title="Cookies and tracking" id="cookies">
             <p>
               We use session cookies set by Clerk to keep you signed in, and a
               small amount of site-functionality storage. We measure aggregate
@@ -302,6 +311,34 @@ export default function PrivacyPage() {
                 opt-out browser add-on
               </a>
               .
+            </p>
+            <p>
+              <strong className="text-zinc-300">Meta (Facebook and
+              Instagram ads).</strong> On our sales and checkout pages only, we
+              use the Meta Pixel, a small script from Meta, and Meta&rsquo;s
+              Conversions API (the same information sent from our server), so
+              we can tell whether our ads lead to people visiting, starting a
+              free week or subscribing. Meta receives the page you&rsquo;re on,
+              when one of those things happens, the subscription price, your
+              browser&rsquo;s technical details (IP address, browser type and
+              Meta&rsquo;s own cookies, <code>_fbp</code> and{" "}
+              <code>_fbc</code>) and a scrambled (hashed) copy of the
+              parent&rsquo;s email so Meta can match it to an ad. We keep a copy
+              of those browser details on the parent&rsquo;s account so later
+              steps (such as your child starting) can be matched to the same ad.
+              We also keep the ad campaign tags you arrived with
+              (<code>utm_*</code>, cookie <code>sa_utm</code>) on the
+              parent&rsquo;s account. Automatic click tracking is switched
+              off. The Pixel never runs on your child&rsquo;s screens, and we
+              never send Meta names, answers, marks or any study data.
+            </p>
+            <p>
+              If you&rsquo;re in the UK or the EU/EEA, none of this happens
+              unless you say yes on the banner; your choice is kept in a cookie
+              (<code>sa_consent</code>), and clearing it brings the banner back.
+              Elsewhere you can turn it off in your Facebook or Instagram ad
+              settings or with your browser&rsquo;s tracking protection.
+              StudyAce works exactly the same either way.
             </p>
           </Section>
 
@@ -332,9 +369,9 @@ export default function PrivacyPage() {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
-    <section>
+    <section id={id} className={id ? "scroll-mt-24" : undefined}>
       <h2 className="text-white font-semibold text-[17px] mb-3">{title}</h2>
       <div className="text-zinc-400 text-[14px] leading-relaxed space-y-3">
         {children}

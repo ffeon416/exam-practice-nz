@@ -14,6 +14,7 @@ import {
 } from "@/lib/tierLimits";
 import { gradeColor } from "@/lib/scoring";
 import type { Grade } from "@/lib/types";
+import { fireCheckoutPixel } from "@/lib/metaPixel";
 
 // Grade-check handoff (written by /grade on reveal) — keeps the funnel's
 // context alive so this page pitches THEIR jump, not generic pricing.
@@ -93,6 +94,7 @@ export default function PricingPage() {
         return;
       }
       if (data.url) {
+        fireCheckoutPixel(data.metaEventId);
         // Mobile Safari can drop window.location.href after an await.
         // An anchor click is treated as a user gesture and always navigates.
         const a = document.createElement("a");

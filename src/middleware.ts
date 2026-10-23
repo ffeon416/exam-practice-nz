@@ -1,5 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
+import { COUNTRY_COOKIE } from "@/lib/metaShared";
 
 const isPublicRoute = createRouteMatcher([
   "/",
@@ -27,6 +28,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/contact",
   "/api/checkout(.*)",
   "/api/track",
+  "/api/meta",
   "/api/rec",
   "/api/waitlist",
   "/api/diagnostic(.*)",
@@ -42,6 +44,14 @@ export default clerkMiddleware(async (auth, req) => {
     if (!userId) {
       return NextResponse.redirect(new URL("/sign-in", req.url));
     }
+  }
+  // Visitor country for the browser (consent banner, local prices), from
+  // Vercel's geo header. Only written when it changes.
+  const country = req.headers.get("x-vercel-ip-country");
+  if (country && req.cookies.get(COUNTRY_COOKIE)?.value !== country) {
+    const res = NextResponse.next();
+    res.cookies.set(COUNTRY_COOKIE, country, { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax", secure: true });
+    return res;
   }
 });
 

@@ -19,6 +19,7 @@ import { display } from "@/lib/displayFont";
 import { PRO_PRICING, proMonthlyEquivalent, type Billing } from "@/lib/tierLimits";
 import { trackEvent } from "@/lib/attribution";
 import { GRADES, type Grade, type OnTrackResult } from "@/lib/onTrack";
+import { fireCheckoutPixel } from "@/lib/metaPixel";
 
 const GREEN = "#3ee6a0", ROSE = "#ff6b7a", VIOLET = "#a78bfa";
 const TUTOR_HOURLY = 70;
@@ -133,8 +134,8 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
     trackEvent("cta_click", { cta: `ontrack-checkout-${billing}`, page: "/on-track" });
     try {
       const res = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tier: "pro", billing }) });
-      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string };
-      if (res.ok && data.url) { window.location.href = data.url; return; }
+      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string; metaEventId?: string | null };
+      if (res.ok && data.url) { fireCheckoutPixel(data.metaEventId); window.location.href = data.url; return; }
       setCheckoutError(data.error ?? "Couldn’t open checkout. Try the pricing page.");
     } catch { setCheckoutError("No connection. Try again, or use the pricing page."); }
     setBusy(false);

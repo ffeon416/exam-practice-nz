@@ -19,6 +19,7 @@ import { BILLING_PERIODS, PRO_PRICING, proMonthlyEquivalent, proSavingPct, type 
 import { gradeColor } from "@/lib/scoring";
 import { scopedKey } from "@/lib/userScope";
 import type { Grade } from "@/lib/types";
+import { fireCheckoutPixel } from "@/lib/metaPixel";
 
 type GradeResult = {
   bandLabel: string; grade: Grade; pct: number; subjectLabel: string;
@@ -165,6 +166,7 @@ function StartInner() {
       const data = await res.json();
       if (!res.ok || !data.url) { setError(data.error ?? "Something went wrong. Try again."); setBusy(null); return; }
       navigating.current = true;
+      fireCheckoutPixel(data.metaEventId);
       const a = document.createElement("a"); a.href = data.url; a.rel = "noopener";
       document.body.appendChild(a); a.click();
       setTimeout(() => window.location.assign(data.url), 100);

@@ -128,6 +128,44 @@ export async function setHeardAbout(userId: string, source: string): Promise<voi
 }
 
 /**
+ * Save where a paying parent came from onto their profile, at sign-up. Values
+ * come from the Stripe subscription metadata written by /api/checkout (raw
+ * utm_* + landing page + referrer, and the Meta identity for later
+ * server-side events). Write-once — guarded on attributed_at — and tolerant
+ * of the columns not existing yet (42703) so sign-up never fails on it.
+ */
+export async function saveSignupAttribution(userId: string, md: Record<string, string> | null | undefined): Promise<void> {
+  const supabase = getSupabase();
+  if (!supabase || !md) return;
+  const pick = (k: string) => (md[k] ? md[k] : null);
+  const metaOk = md.meta_ok === "1";
+  const { error } = await supabase
+    .from("profiles")
+    .update({
+      utm_source: pick("utm_source"),
+      utm_medium: pick("utm_medium"),
+      utm_campaign: pick("utm_campaign"),
+      utm_content: pick("utm_content"),
+      utm_term: pick("utm_term"),
+      landing_page: pick("landing_page"),
+      first_referrer: pick("referrer"),
+      signup_country: pick("meta_cc"),
+      meta_consent: md.meta_ok === "1" ? true : md.meta_ok === "0" ? false : null,
+      // Kept so kid-side events (KidStarted, GradeCheckCompleted) can be
+      // matched to the parent's ad click. Only stored when Meta is allowed.
+      meta_identity: metaOk
+        ? { fbp: pick("meta_fbp"), fbc: pick("meta_fbc"), ip: pick("meta_ip"), ua: pick("meta_ua"), cc: pick("meta_cc"), vid: pick("visitor_id") }
+        : null,
+      attributed_at: new Date().toISOString(),
+    })
+    .eq("user_id", userId)
+    .is("attributed_at", null);
+  if (error && (error as { code?: string }).code !== "42703") {
+    console.error("Failed to save signup attribution:", error);
+  }
+}
+
+/**
  * Get a user's effective tier — honours time-boxed grants.
  * A paid tier (Stripe) always wins. Otherwise we check, in order:
  *   1. pro_until    — a time-boxed Pro grant (e.g. a school trial code)

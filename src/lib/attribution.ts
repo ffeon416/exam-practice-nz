@@ -18,6 +18,7 @@ export type Attribution = {
 };
 
 const STORE_KEY = "studyace-source";
+const UTM_STORE_KEY = "studyace-utm";
 export const VISITOR_KEY = "studyace-visitor-id";
 const SESSION_KEY = "studyace-session";
 const YEAR = 60 * 60 * 24 * 365;
@@ -96,6 +97,33 @@ function setCookie(name: string, value: string, maxAge: number) {
   } catch { /* storage blocked */ }
 }
 
+// The raw UTM values + landing page + Meta click id, exactly as they arrived,
+// saved onto the parent's profile at sign-up (utm_* columns) and used to build
+// Meta's fbc. Same rule as the source above: a later arrival only replaces it
+// when it carries its own markers. Cookie `sa_utm` (see lib/metaShared.ts).
+function captureUtm(replace: boolean) {
+  try {
+    let rec = localStorage.getItem(UTM_STORE_KEY);
+    if (replace || !rec) {
+      const q = new URLSearchParams(window.location.search);
+      const raw = (k: string, max = 150) => (q.get(k) ?? "").trim().slice(0, max);
+      const out: Record<string, string | number> = {};
+      for (const k of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+        const v = raw(k);
+        if (v) out[k] = v;
+      }
+      out.landing_page = (window.location.pathname + window.location.search).slice(0, 300);
+      const ref = host(document.referrer);
+      if (ref && ref !== window.location.hostname.replace(/^www\./, "")) out.referrer = ref.slice(0, 150);
+      const fbclid = raw("fbclid", 300);
+      if (fbclid && /^[A-Za-z0-9_-]+$/.test(fbclid)) { out.fbclid = fbclid; out.fbclid_at = Date.now(); }
+      rec = JSON.stringify(out);
+      localStorage.setItem(UTM_STORE_KEY, rec);
+    }
+    setCookie("sa_utm", rec, YEAR);
+  } catch { /* storage blocked */ }
+}
+
 /**
  * Called on every page load (not on client-side route changes). Keeps the
  * stored source unless this arrival carries its own markers, so a parent
@@ -112,6 +140,7 @@ export function captureAttribution(): { attribution: Attribution; newSession: bo
   // Cookies for the server routes (lead, checkout) — same data, nothing more.
   setCookie("sa_vid", getVisitorId(), YEAR);
   setCookie("sa_src", [attribution.source, attribution.medium, attribution.campaign, attribution.content].join("|"), YEAR);
+  captureUtm(!stored || hasMarkers(now));
 
   let newSession = false;
   try {

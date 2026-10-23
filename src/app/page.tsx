@@ -21,6 +21,7 @@ import { display } from "@/lib/displayFont";
 import SiteFooter from "@/components/SiteFooter";
 import { Lines } from "@/components/OnTrackReveal";
 import { PRO_PRICING, proMonthlyEquivalent } from "@/lib/tierLimits";
+import { fireCheckoutPixel } from "@/lib/metaPixel";
 
 // Typical private tutoring sits at NZ$60–80 an hour; the comparison uses the
 // middle of that range and a school year of weekly sessions. Workbooks are
@@ -122,8 +123,8 @@ export default function HomePage() {
     setCheckoutBusy(billing); setCheckoutError(null);
     try {
       const res = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tier: "pro", billing }) });
-      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string };
-      if (res.ok && data.url) { window.location.assign(data.url); return; }
+      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string; metaEventId?: string | null };
+      if (res.ok && data.url) { fireCheckoutPixel(data.metaEventId); window.location.assign(data.url); return; }
       setCheckoutError(data.error ?? "Couldn’t open checkout.");
     } catch { setCheckoutError("No connection. Try again."); }
     setCheckoutBusy(null);

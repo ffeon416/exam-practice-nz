@@ -7,7 +7,7 @@
 
 import type Stripe from "stripe";
 import { getStripe } from "./stripe";
-import { getSupabase, logEvent, claimReferral } from "./supabase";
+import { getSupabase, logEvent, claimReferral, saveSignupAttribution } from "./supabase";
 
 type PaidTier = "pro" | "student";
 
@@ -33,6 +33,8 @@ async function attach(userId: string, email: string | null, sub: Stripe.Subscrip
     },
     { onConflict: "user_id" }
   );
+
+  await saveSignupAttribution(userId, sub.metadata);
 
   // Tag Stripe so future webhooks (renewals, cancellations) map to this user.
   if (sub.metadata?.userId !== userId) {
