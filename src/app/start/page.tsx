@@ -10,16 +10,17 @@
 // exist from before: one-tap checkout, nothing else.
 
 import Link from "next/link";
-import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SignUp, useClerk, useUser } from "@clerk/nextjs";
 import { display } from "@/lib/displayFont";
 import { useTier } from "@/hooks/useTier";
-import { BILLING_PERIODS, PRO_PRICING, proMonthlyEquivalent, proSavingPct, type Billing } from "@/lib/tierLimits";
 import { gradeColor } from "@/lib/scoring";
 import { scopedKey } from "@/lib/userScope";
 import type { Grade } from "@/lib/types";
-import { fireCheckoutPixel } from "@/lib/metaPixel";
+import FreeWeekButton from "@/components/FreeWeekButton";
+import { visitorCountry } from "@/lib/metaPixel";
+import { funnelPricesForCountry } from "@/lib/funnelPricing";
 
 type GradeResult = {
   bandLabel: string; grade: Grade; pct: number; subjectLabel: string;
@@ -152,26 +153,6 @@ function StartInner() {
     }).catch(() => {});
   }
 
-  const [busy, setBusy] = useState<Billing | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const navigating = useRef(false);
-  const checkout = useCallback(async (billing: Billing) => {
-    if (navigating.current) return;
-    setError(null); setBusy(billing);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tier: "pro", billing }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.url) { setError(data.error ?? "Something went wrong. Try again."); setBusy(null); return; }
-      navigating.current = true;
-      fireCheckoutPixel(data.metaEventId);
-      const a = document.createElement("a"); a.href = data.url; a.rel = "noopener";
-      document.body.appendChild(a); a.click();
-      setTimeout(() => window.location.assign(data.url), 100);
-    } catch { setError("Couldn't start checkout. Try again."); setBusy(null); }
-  }, []);
 
   if (!isLoaded) return <Spinner title="One moment…" />;
 
@@ -228,6 +209,9 @@ function StartInner() {
   }
 
   const firstName = user?.firstName?.trim() || null;
+  // Display only (this page renders client-side after Clerk loads); the
+  // server picks the currency it actually charges from the same geo data.
+  const localPrices = funnelPricesForCountry(visitorCountry());
 
   return (
     <div className="relative overflow-x-clip bg-[#06060a]">
@@ -249,10 +233,10 @@ function StartInner() {
         <h1 className={`${display.className} text-[34px] sm:text-[46px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-3`} style={{ textWrap: "balance" }}>
           {gradeResult
             ? <>Your account is ready. <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">Your plan isn&apos;t.</em></>
-            : <>One step left: <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">pick how to pay.</em></>}
+            : <>One step left: <em className="italic bg-gradient-to-r from-indigo-300 via-indigo-400 to-violet-400 bg-clip-text text-transparent">start your free week.</em></>}
         </h1>
         <p className="text-zinc-400 text-[15px] leading-relaxed mb-7">
-          Practice papers, marking, the tutor and the plan are all on Pro. Choose a period below and you&apos;ll be sitting your first paper in about a minute.
+          Practice papers, marking, the tutor and the plan are all on Pro. Seven days free, then one price. Cancel in one click.
         </p>
 
         {gradeResult && (
@@ -269,42 +253,27 @@ function StartInner() {
           </div>
         )}
 
-        {error && (
-          <div className="mb-4 rounded-xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-[13px] text-red-300">{error}</div>
-        )}
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-          {BILLING_PERIODS.map((b) => {
-            const p = PRO_PRICING[b];
+        {/* Free week (2026-10): 7 days free, card upfront, local currency. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          {(["yearly", "monthly"] as const).map((b) => {
+            const p = localPrices[b];
             const best = b === "yearly";
             return (
-              <button
-                key={b}
-                onClick={() => checkout(b)}
-                disabled={busy !== null}
-                className={`relative text-left rounded-[22px] border p-4 sm:p-5 transition-all min-h-[96px] disabled:opacity-60 ${
-                  best ? "border-indigo-400/40 bg-indigo-500/[0.08] hover:bg-indigo-500/[0.12]" : "border-white/[0.08] bg-white/[0.02] hover:border-white/[0.18]"
-                }`}
-              >
-                {best && (
-                  <span className="absolute -top-2.5 left-4 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-600 text-white text-[10px] font-bold uppercase tracking-wider">Best value</span>
-                )}
-                <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-400 mb-1.5">{p.label}</p>
-                <p className="flex items-baseline gap-1">
-                  <span className="text-zinc-400 text-[13px]">NZ$</span>
-                  <span className={`${display.className} text-white font-bold text-[30px] leading-none tracking-[-0.02em]`}>{p.amount}</span>
-                </p>
-                <p className="text-zinc-500 text-[11.5px] mt-1">
-                  {b === "monthly" ? "per month" : <>≈ NZ${proMonthlyEquivalent(b).toFixed(2)}/mo · save {proSavingPct(b)}%</>}
-                </p>
-                <p className={`mt-3 text-[13px] font-semibold ${best ? "text-indigo-300" : "text-zinc-300"}`}>
-                  {busy === b ? "Opening checkout…" : "Start Pro →"}
-                </p>
-              </button>
+              <div key={b} className={`relative rounded-[22px] border p-4 sm:p-5 ${best ? "border-indigo-400/40 bg-indigo-500/[0.08]" : "border-white/[0.08] bg-white/[0.02]"}`}>
+                {best && <span className="absolute -top-2.5 left-4 px-2.5 py-0.5 rounded-full bg-indigo-500 text-white text-[10px] font-bold uppercase tracking-wider">Best value</span>}
+                <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-400 mb-1.5">{best ? "Yearly" : "Monthly"}</p>
+                <p className={`${display.className} text-white font-bold text-[30px] leading-none tracking-[-0.02em]`}>{p.perPeriod}</p>
+                <p className="text-zinc-500 text-[11.5px] mt-1">After your free week</p>
+                <div className="mt-3">
+                  <FreeWeekButton billing={b} label="Start free week"
+                    className="inline-flex min-h-[44px] w-full items-center justify-center rounded-[10px] bg-indigo-500 px-4 text-[15px] font-semibold text-white hover:bg-indigo-400 disabled:opacity-60"
+                    confirmClassName="text-left text-[13.5px] text-zinc-200" />
+                </div>
+              </div>
             );
           })}
         </div>
-        <p className="text-center text-zinc-600 text-[11.5px] mb-8">Cancel anytime · 30-day money back · Billed in NZD by Stripe</p>
+        <p className="text-center text-zinc-600 text-[11.5px] mb-8">7 days free · Cancel in one click · 30-day money back</p>
 
         <div className="rounded-[24px] border border-white/[0.07] bg-white/[0.015] p-5 mb-8">
           <p className="font-mono text-[10.5px] uppercase tracking-wider text-zinc-500 mb-3">What Pro is</p>

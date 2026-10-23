@@ -18,9 +18,8 @@ export default function SiteFooter() {
         { href: "/profile", label: "Dashboard" },
       ]
     : [
-        { href: "/on-track", label: "Is your teen on track?" },
         { href: "/grade", label: "Grade check (students)" },
-        { href: "/pricing", label: "Pricing" },
+        { href: "/#pricing", label: "Pricing" },
         { href: "/global", label: "Exam systems" },
         { href: "/schools", label: "For schools" },
       ];
@@ -45,9 +44,9 @@ export default function SiteFooter() {
               Unlimited exam-style practice, marked as honestly as an examiner would, with a plan to the target grade. For NCEA, HSC, QCE, GCSE and more.
             </p>
             {!authed && (
-              <Link href="/on-track"
+              <Link href="/#pricing"
                 className="inline-flex items-center gap-2 mt-5 text-[13px] font-semibold text-indigo-300 hover:text-white transition-colors">
-                Is your teen on track? Free, 2 minutes <span aria-hidden>→</span>
+                Start a free week <span aria-hidden>→</span>
               </Link>
             )}
           </div>

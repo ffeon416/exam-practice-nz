@@ -42,6 +42,9 @@ referrals, a blog, and a first-party analytics/admin panel.
    ~2s slower per interaction (60× on the picker). GA4 is the one exception (re-added 2026-07-31 at
    Ffeon's explicit ask, loaded deferred in `GoogleAnalytics.tsx`); if the picker lags, disable GA
    Enhanced Measurement before touching anything else. Traffic truth is first-party: `/api/track` → `/admin`.
+   The **Meta Pixel + Conversions API** is the second exception (added 2026-10 at Rowan's explicit ask, for
+   the Meta ads): parent pages only, never kids' screens, consent-gated for UK/EU/EEA (GA4 too), auto
+   click-tracking off. See `src/lib/metaShared.ts`.
 3. **Never claim real / NZQA past papers** in any user-facing copy or marketing. Position strictly as
    *unlimited AI-generated NCEA-style practice*. (Past-paper JSON exists in code but is not a selling point.)
 4. **No UI flashes / wrong-tier flicker.** Gate tier-conditional UI on `tierLoading`; scope any
@@ -53,6 +56,11 @@ referrals, a blog, and a first-party analytics/admin panel.
    Safari **private** tab (installed PWAs otherwise resume stale JS).
 8. **Payments are legally under Rowan Clifford** (adult account holder). Keep that in mind for anything
    touching Stripe / billing / company identity.
+
+9. **The free-week auto-cancel promise is advertised at checkout.** "If your child hasn't done their grade
+   check by day 6, we cancel the free week and nothing is charged." All of it goes through
+   `src/lib/freeWeekPromise.ts` (four layers: hourly cron, invoice guard, refund, cron backstop). Any change
+   there needs `npm test` AND `npm run verify:promise` (real Stripe test mode) to pass.
 
 ## Local dev
 ```bash

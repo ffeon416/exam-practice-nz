@@ -1,365 +1,397 @@
-"use client";
-
-// ── Homepage: the Convert door (rebuilt 2026-10-05) ──
-// The buyer is a parent; the user is their teenager. This page has one job:
-// get the parent to the free parent check (/on-track: is their teen on track
-// for the grade they want?), then to Pro. The grade check (/grade) is the
-// student's, inside phase 2. It is deliberately
-// short — hero, what it does, what it costs against a tutor, what the grade
-// is worth, the price, five questions — in the same design language as the
-// paid app (dark cards, one accent per idea, big display type).
-// House rules: no invented statistics, no fake testimonials, no past-paper
-// claims; cost figures are labelled as typical rates; nothing is promised
-// that the product can't do. CSS keyframes only, no blur filters.
+// ── Homepage: the free-week door (rebuilt 2026-10, Phase 5) ──
+// The buyer is a parent; the user is their child. One job: start a free week.
+// Server-rendered so the exam names and prices are the visitor's own from the
+// first paint (Vercel geo header → lib/homeCopy.ts, lib/funnelPricing.ts).
+// House rules: "your child" / "they"; never "teen" or "track"; no invented
+// statistics or testimonials (placeholders are marked); exam-style, never
+// past-paper claims; cost figures labelled as typical.
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
-import { useTier } from "@/hooks/useTier";
-import { display } from "@/lib/displayFont";
-import SiteFooter from "@/components/SiteFooter";
-import { Lines } from "@/components/OnTrackReveal";
-import { PRO_PRICING, proMonthlyEquivalent } from "@/lib/tierLimits";
-import { fireCheckoutPixel } from "@/lib/metaPixel";
+import { headers } from "next/headers";
+import { Figtree } from "next/font/google";
+import FreeWeekButton from "@/components/FreeWeekButton";
+import HomePaidRedirect from "@/components/HomePaidRedirect";
+import { EXAMPLE_CHILD, EXAMPLE_SUBJECTS, homeCopy, homePrices, type HomeCopy } from "@/lib/homeCopy";
+import "./home.css";
 
-// Typical private tutoring sits at NZ$60–80 an hour; the comparison uses the
-// middle of that range and a school year of weekly sessions. Workbooks are
-// NZ$25–40 each; five subjects is a normal senior load.
-const TUTOR_HOURLY = 70;
-const TUTOR_WEEKS = 40;
-const TUTOR_YEAR = TUTOR_HOURLY * TUTOR_WEEKS; // 2,800
-const WORKBOOKS_YEAR = 5 * 32; // ~160
-const STUDYACE_YEAR = PRO_PRICING.yearly.amount; // 149
+const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-figtree" });
 
-const GREEN = "#3ee6a0", VIOLET = "#8b8cf8", AMBER = "#fbbf24", ROSE = "#ff6b7a";
-const nz = (n: number) => `NZ$${n.toLocaleString("en-NZ")}`;
+export const dynamic = "force-dynamic";
 
-/** A dollar figure that races up from zero once `run` turns true. Shows the
- *  final number until then (and always, under reduced motion). */
-function CountUp({ to, run, delay = 0 }: { to: number; run: boolean; delay?: number }) {
-  const [v, setV] = useState(to);
-  useEffect(() => {
-    if (!run || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const DUR = 900;
-    const zero = setTimeout(() => setV(0), 0);
-    const start = setTimeout(() => {
-      const t0 = performance.now();
-      const step = (t: number) => {
-        const p = Math.min(1, (t - t0) / DUR);
-        setV(Math.round(to * (1 - Math.pow(1 - p, 3)))); // fast, easing out at the end
-        if (p < 1) raf = requestAnimationFrame(step);
-      };
-      raf = requestAnimationFrame(step);
-    }, delay);
-    return () => { clearTimeout(zero); clearTimeout(start); cancelAnimationFrame(raf); };
-  }, [run, to, delay]);
-  return <>{nz(v)}</>;
+const wrap = "mx-auto w-full max-w-[1120px] px-4 sm:px-6";
+const h2 = "text-[30px] sm:text-[40px] font-bold leading-[1.1] tracking-[-0.02em]";
+const eyebrow = "text-[14px] font-semibold uppercase tracking-[0.06em] text-[var(--purple-text)]";
+const isDev = process.env.NODE_ENV !== "production";
+
+// ── Small pieces ──
+
+function Spark({ values, className = "" }: { values: number[]; className?: string }) {
+  const w = 72, h = 26, min = Math.min(...values) - 2, max = Math.max(...values) + 2;
+  const pts = values.map((v, i) => [(i / (values.length - 1)) * w, h - ((v - min) / (max - min)) * h]);
+  const d = pts.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join(" ");
+  return (
+    <svg viewBox={`0 0 ${w} ${h}`} width={w} height={h} className={className} aria-hidden>
+      <path d={d} pathLength={1} fill="none" stroke="var(--purple)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="draw" />
+    </svg>
+  );
 }
 
-const FAQS: { q: string; a: string }[] = [
-  { q: "Is the marking actually honest, or does it just encourage them?", a: "Honest, deliberately. Every answer is marked the way an examiner marks it: one mark for the working, one for the answer, scored separately, with exactly what was missing. A hedge like \"not sure, maybe 4?\" scores zero, the same as it would on the day. Encouraging in tone, truthful in content." },
-  { q: "Can it replace a tutor?", a: "For the part that moves grades, daily exam-style practice with honest marking and a plan, yes, and it's there every night instead of one hour a week. If your child needs a person to re-teach a topic from scratch, a tutor still earns their fee. Many families use both." },
-  { q: "Which exams does it cover?", a: "NCEA Levels 1 to 3 plus Year 10, and 15 more systems in beta: Australia's HSC, QCE, VCE, WACE and SACE, the UK's GCSE, A-Levels and SQA Highers, US AP, SAT, ACT and state exams, and Canada's Ontario, Alberta and BC. Questions and difficulty follow each system's own style." },
-  { q: "How much time does it take, and is it safe?", a: "About 20 minutes a day on a phone: one task, marked in seconds, with tomorrow's already planned. It's built for 13 to 18 year olds: no ads inside the app, no selling data, no public profiles. Everything your child types stays in their account." },
-  { q: "What does it cost, and what if they don't use it?", a: `NZ$${PRO_PRICING.monthly.amount} a month, NZ$${PRO_PRICING.quarterly.amount} for three months, or NZ$${PRO_PRICING.yearly.amount} for the whole year. Cancel any time, and there's a 30-day money-back guarantee, so if it doesn't get used, you're not out of pocket.` },
-];
+function Check() {
+  return (
+    <svg viewBox="0 0 20 20" width={20} height={20} aria-hidden className="mt-0.5 shrink-0">
+      <circle cx="10" cy="10" r="10" fill="var(--good-soft)" />
+      <path d="M6 10.4l2.6 2.6L14 7.6" fill="none" stroke="var(--good)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
-export default function HomePage() {
-  const { isSignedIn, isLoaded } = useAuth();
-  const router = useRouter();
-  const { tier, loading: tierLoading } = useTier();
+function TestimonialPlaceholder({ id }: { id: string }) {
+  // PLACEHOLDER: real parent testimonial goes here (name, child's year, what changed).
+  // Never invent one. Hidden in production until a real one is added.
+  if (!isDev) return null;
+  return (
+    <div className={`${wrap} py-6`} data-placeholder={`testimonial-${id}`}>
+      <div className="rounded-2xl border-2 border-dashed border-[var(--line)] p-6 text-center text-[15px] text-[var(--muted)]">
+        Testimonial placeholder ({id}): a real parent&rsquo;s words go here. Dev only — hidden in production.
+      </div>
+    </div>
+  );
+}
 
-  // Door split: a paying student has no business on the sales page.
-  useEffect(() => {
-    if (isSignedIn && !tierLoading && tier !== "free") router.replace("/schedule");
-  }, [isSignedIn, tier, tierLoading, router]);
+function ForecastCard({ copy }: { copy: HomeCopy }) {
+  return (
+    <div className="card rise rise-3 w-full max-w-[440px] p-5 sm:p-6 shadow-[0_1px_2px_rgba(21,21,27,0.04)]">
+      <div className="flex items-baseline justify-between">
+        <p className="text-[17px] font-bold">Where {EXAMPLE_CHILD} stands</p>
+        <p className="text-[13px] text-[var(--muted)]">Example</p>
+      </div>
+      <div className="mt-4 grid grid-cols-[1fr_auto_auto_auto] items-center gap-x-4 gap-y-3 text-[15px]">
+        <span className="text-[13px] text-[var(--muted)]">Subject</span>
+        <span className="text-[13px] text-[var(--muted)]">Now</span>
+        <span className="text-[13px] text-[var(--muted)]">Heading for</span>
+        <span className="text-[13px] text-[var(--muted)]">6 weeks</span>
+        {EXAMPLE_SUBJECTS.map((s) => (
+          <div key={s.name} className="contents">
+            <span className="font-semibold">{s.name}</span>
+            <span className="text-center font-semibold">{s.now}</span>
+            <span className="text-center font-bold text-[var(--good)]">{s.heading}</span>
+            <Spark values={s.trend} />
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 flex items-center gap-2 rounded-[10px] bg-[var(--good-soft)] px-3 py-2.5 text-[15px] font-semibold text-[var(--good)]">
+        <Check /> {copy.onPaceFor}
+      </div>
+    </div>
+  );
+}
 
-  // The cost bars grow when the section scrolls into view. IntersectionObserver,
-  // not a scroll listener: this page fires no window scroll events.
-  const costRef = useRef<HTMLDivElement>(null);
-  const [costSeen, setCostSeen] = useState(false);
-  useEffect(() => {
-    const el = costRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") { const id = setTimeout(() => setCostSeen(true), 0); return () => clearTimeout(id); }
-    // Plays every time the section comes back into view: it resets once the
-    // bars are fully off screen, and runs again at 30% visible.
-    const io = new IntersectionObserver((es) => {
-      for (const e of es) {
-        if (!e.isIntersecting) setCostSeen(false);
-        else if (e.intersectionRatio >= 0.3) setCostSeen(true);
-      }
-    }, { threshold: [0, 0.3] });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+function PhoneTask() {
+  return (
+    <div className="mx-auto w-full max-w-[300px] rounded-[36px] border-[10px] border-[var(--ink)] bg-white p-4 shadow-[0_1px_2px_rgba(21,21,27,0.06)]" aria-label="Tonight's task on a phone">
+      <div className="mx-auto mb-3 h-1.5 w-16 rounded-full bg-[var(--line-2)]" aria-hidden />
+      <p className="text-[13px] font-semibold text-[var(--muted)]">Tonight · Chemistry · 20 min</p>
+      <div className="mt-3 rounded-2xl border border-[var(--line)] p-3">
+        <p className="text-[14px] leading-snug">Q1. How many moles are in 4.0 g of sodium hydroxide? (M<sub>r</sub> = 40)</p>
+        <p className="mt-2 rounded-lg bg-[var(--band)] px-2.5 py-1.5 font-mono text-[13px]">4.0 ÷ 40 = 0.10 mol</p>
+        <p className="mt-2 inline-flex rounded-full bg-[var(--good-soft)] px-2.5 py-1 text-[13px] font-semibold text-[var(--good)]">2 out of 2</p>
+      </div>
+      <div className="mt-2.5 rounded-2xl border border-[var(--line)] p-3">
+        <p className="text-[14px] leading-snug">Q2. 0.10 mol is dissolved to make 250 cm³. What is the concentration?</p>
+        <p className="mt-2 rounded-lg bg-[var(--band)] px-2.5 py-1.5 font-mono text-[13px]">0.4 mol/dm³</p>
+        <p className="mt-2 inline-flex rounded-full bg-[var(--purple-soft)] px-2.5 py-1 text-[13px] font-semibold text-[var(--purple-text)]">1 out of 2: right answer, no working</p>
+      </div>
+    </div>
+  );
+}
 
-  const softwareApplicationSchema = {
+// ── Page ──
+
+export default async function HomePage() {
+  const country = (await headers()).get("x-vercel-ip-country");
+  const copy = homeCopy(country);
+  const prices = homePrices(country);
+  const perMonthOfYear = `${prices.yearly.label.replace(/[\d,.]+$/, "")}${(prices.yearly.amount / 12).toFixed(2)}`;
+
+  const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "StudyAce",
     applicationCategory: "EducationalApplication",
-    description:
-      "Unlimited AI-generated, exam-style practice for high-school students, marked honestly like an examiner, with a day-by-day schedule to a target grade. NCEA, HSC, QCE, GCSE, A-Levels, AP and more.",
+    description: "Exam practice app: exam-style questions on your child's phone, marked like the real exam, with a forecast of the grade they're heading for.",
     operatingSystem: "Web",
     url: "https://studyace.co",
-    offers: { "@type": "Offer", price: String(PRO_PRICING.monthly.amount), priceCurrency: "NZD" },
-  };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+    offers: { "@type": "Offer", price: String(prices.yearly.amount), priceCurrency: prices.currency.toUpperCase() },
   };
 
-  // Signed-in here means a lead (paid users are redirected above).
-  const lead = isLoaded && !!isSignedIn;
-
-  // The plan cards go straight to Stripe (same as the parent check's result page).
-  const [checkoutBusy, setCheckoutBusy] = useState<"monthly" | "yearly" | null>(null);
-  const [checkoutError, setCheckoutError] = useState<string | null>(null);
-  async function startCheckout(billing: "monthly" | "yearly") {
-    if (checkoutBusy) return;
-    setCheckoutBusy(billing); setCheckoutError(null);
-    try {
-      const res = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tier: "pro", billing }) });
-      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string; metaEventId?: string | null };
-      if (res.ok && data.url) { fireCheckoutPixel(data.metaEventId); window.location.assign(data.url); return; }
-      setCheckoutError(data.error ?? "Couldn’t open checkout.");
-    } catch { setCheckoutError("No connection. Try again."); }
-    setCheckoutBusy(null);
-  }
-  const cta = lead ? { href: "/start", label: "Get Pro →" } : { href: "/on-track", label: "Is your teen on track? — free →" };
-  const ctaButton = (big = false) => (
-    <Link href={cta.href}
-      className={`inline-flex items-center justify-center font-bold rounded-full text-[#07120d] transition-transform hover:scale-[1.03] ${big ? "text-[18px] sm:text-[20px] px-9 sm:px-11 min-h-[64px]" : "text-[16px] px-7 min-h-[54px]"}`}
-      style={{ background: GREEN, boxShadow: `0 0 44px ${GREEN}55` }}>
-      {cta.label}
-    </Link>
-  );
-
-  const steps = [
-    { n: "01", color: GREEN, title: "Find out if they're on track", body: "Tell us the grade they're getting, the grade you want and how they study. You get a straight answer: on track, borderline, or not, and what would change it. Free, 2 minutes." },
-    { n: "02", color: VIOLET, title: "One task, every day", body: "Your teen sits a real grade check, 8 questions marked like an examiner, then StudyAce builds the road to the goal: a paper, a lesson on what they got wrong, or a mock. About 20 minutes a day." },
-    { n: "03", color: AMBER, title: "Marking that doesn't flatter", body: "One mark for the working, one for the answer. A guess scores zero, as it would on the day. A weekly grade check shows whether they're on pace." },
-  ];
-
-  const bars = [
-    { label: "A tutor, one hour a week", note: `${nz(TUTOR_HOURLY)} an hour × ${TUTOR_WEEKS} school weeks`, amount: TUTOR_YEAR, color: ROSE },
-    { label: "Workbooks, five subjects", note: "about NZ$32 each", amount: WORKBOOKS_YEAR, color: AMBER },
-    { label: "StudyAce, the whole year", note: `every subject · every night · about ${nz(Number(proMonthlyEquivalent("yearly").toFixed(2)))} a month`, amount: STUDYACE_YEAR, color: GREEN },
-  ];
+  const freeWeekNote = "7 days free. Cancel in one click. 30-day money back.";
 
   return (
-    <div className="relative overflow-x-clip bg-[#06060a] isolate">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+    <div className={`sa-home ${figtree.variable}`}>
+      <HomePaidRedirect />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      {/* Ground: gradients only */}
-      <div className="absolute inset-x-0 top-0 h-[900px] -z-10 pointer-events-none" aria-hidden
-        style={{ background: `radial-gradient(60% 55% at 50% 0%, ${GREEN}1c 0%, transparent 70%), radial-gradient(40% 40% at 85% 30%, ${VIOLET}14 0%, transparent 70%)` }} />
-
-      {/* ═══ HERO ═══ */}
-      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 pt-10 sm:pt-16 pb-10 sm:pb-14 text-center">
-        <p className="home-rise inline-flex items-center gap-2.5 rounded-full px-4 py-2 font-mono font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.16em]" style={{ color: GREEN, background: `${GREEN}1a` }}>
-          <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: GREEN }} />For parents of high-school students
-        </p>
-        <h1 className={`${display.className} home-rise font-bold text-white text-[44px] sm:text-[72px] lg:text-[88px] leading-[0.98] tracking-[-0.045em] mt-6`} style={{ animationDelay: "80ms", textWrap: "balance" }}>
-          Know exactly where your child stands.{" "}
-          <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${GREEN}, ${VIOLET})` }}>Then fix it.</span>
-        </h1>
-        <p className="home-rise text-zinc-300 text-[17px] sm:text-[20px] lg:text-[22px] leading-relaxed max-w-2xl lg:max-w-3xl mx-auto mt-6" style={{ animationDelay: "160ms" }}>
-          Two minutes tells you whether your teen is on track for the grade you want. Then StudyAce gets them there: one task a night, marked as strictly as an examiner. For less than the cost of three tutor sessions a year.
-        </p>
-        <div className="home-rise flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 min-h-[64px]" style={{ animationDelay: "240ms" }}>
-          {isLoaded && ctaButton(true)}
-          {isLoaded && (
-            <Link href={lead ? "/on-track" : "/pricing"} className="inline-flex items-center justify-center font-semibold text-[16px] text-white px-7 min-h-[54px] rounded-full border border-white/[0.14] hover:border-white/40 transition-colors">
-              {lead ? "Parent check" : "See pricing"}
-            </Link>
-          )}
+      {/* Header */}
+      <header className="border-b border-[var(--line-2)] bg-white">
+        <div className={`${wrap} flex h-16 items-center justify-between gap-3`}>
+          <Link href="/" className="text-[19px] font-extrabold tracking-[-0.02em]" aria-label="StudyAce home">study<span className="text-[var(--purple-text)]">ace</span></Link>
+          <nav className="flex items-center gap-1 sm:gap-2 text-[15px] font-semibold">
+            <a href="#how" className="hidden sm:inline-flex min-h-[44px] items-center px-3 text-[var(--ink-2)] hover:text-[var(--ink)]">How it works</a>
+            <a href="#pricing" className="hidden sm:inline-flex min-h-[44px] items-center px-3 text-[var(--ink-2)] hover:text-[var(--ink)]">Pricing</a>
+            <Link href="/sign-in" className="inline-flex min-h-[44px] items-center px-3 text-[var(--ink-2)] hover:text-[var(--ink)]">Sign in</Link>
+            <a href="#pricing" className="btn btn-primary !min-h-[44px] !px-4 !text-[15px]">Start a free week</a>
+          </nav>
         </div>
-        <p className="home-rise text-zinc-500 text-[13.5px] mt-4" style={{ animationDelay: "300ms" }}>
-          9 questions · 2 minutes · no account · no card · then {nz(PRO_PRICING.yearly.amount)} a year, 30-day money back
-        </p>
+      </header>
 
-        {/* Sample of the answer: the same two-lines card a parent gets at the end of the check. */}
-        <div className="home-rise relative mt-10 sm:mt-14 rounded-[28px] border-2 bg-[#0e0f13] p-6 sm:p-9 text-left overflow-clip"
-          style={{ animationDelay: "380ms", borderColor: `${ROSE}59`, backgroundImage: `linear-gradient(135deg, ${ROSE}17 0%, ${ROSE}06 34%, transparent 62%)`, boxShadow: `0 28px 90px -28px ${ROSE}4d` }}>
-          <div className="sa-breathe absolute inset-0 pointer-events-none" aria-hidden style={{ background: `radial-gradient(60% 80% at 20% 0%, ${ROSE}22 0%, transparent 70%)` }} />
-          <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-8 items-center">
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Sample · the answer you get in 2 minutes</p>
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold mt-5 inline-flex items-center gap-2" style={{ color: ROSE }}><span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: ROSE }} aria-hidden />The verdict</p>
-              <p className={`${display.className} font-bold text-white text-[44px] sm:text-[60px] leading-[0.95] tracking-[-0.045em] mt-2`}>Not on track.</p>
-              <p className="text-zinc-300 text-[16px] sm:text-[17px] leading-relaxed mt-3 max-w-sm">On what you&apos;ve told us, Mia won&apos;t get to A the way things are going. The good news: it&apos;s fixable. Just not by doing more of the same.</p>
-              <div className="inline-flex items-center gap-3 rounded-[16px] border px-4 py-2.5 mt-5" style={{ borderColor: `${ROSE}40`, background: `${ROSE}0d` }}>
-                <span className="text-zinc-300 text-[13px]">Time left to turn it around</span>
-                <span className="font-mono text-white text-[14px] font-bold tabular-nums">41d 06h <span style={{ color: ROSE }}>12m</span></span>
-              </div>
-            </div>
-            <div className="rounded-[22px] border border-white/[0.08] bg-[#0b0b10] p-5">
-              <div className="flex items-start justify-between">
-                <div><p className="font-mono text-[10.5px] uppercase tracking-[0.2em] font-bold" style={{ color: ROSE }}>Same as now</p><p className={`${display.className} font-bold text-[36px] leading-none tracking-[-0.04em] mt-1`} style={{ color: ROSE }}>C</p></div>
-                <div className="text-right"><p className="font-mono text-[10.5px] uppercase tracking-[0.2em] font-bold" style={{ color: GREEN }}>With a plan</p><p className={`${display.className} font-bold text-[36px] leading-none tracking-[-0.04em] mt-1`} style={{ color: GREEN }}>A</p></div>
-              </div>
-              <Lines current="C" goal="A" projected="C" weeks={6} />
-            </div>
+      {/* 1. Hero */}
+      <section className={`${wrap} grid items-center gap-10 py-12 sm:py-20 lg:grid-cols-[1.1fr_1fr]`}>
+        <div>
+          <p className={`${eyebrow} rise`}>For parents of {copy.exams} students</p>
+          <h1 className="rise rise-2 mt-3 text-[40px] sm:text-[56px] font-extrabold leading-[1.04] tracking-[-0.03em]">
+            Don&rsquo;t guess. Know where they stand.
+          </h1>
+          <p className="rise rise-3 mt-4 text-[19px] sm:text-[21px] leading-snug text-[var(--ink-2)]">
+            Then follow the steps to get the results they want.
+          </p>
+          <p className="rise rise-3 mt-5 max-w-[560px] text-[16px] leading-relaxed text-[var(--ink-2)]">
+            StudyAce is an exam practice app for {copy.exams} students. Exam-style questions on their phone, marked like the
+            real exam, with a forecast of the grade they&rsquo;re heading for.
+          </p>
+          <div className="rise rise-4 mt-7 flex flex-wrap gap-3">
+            <FreeWeekButton billing="yearly" className="btn btn-primary" />
+            <a href="#pricing" className="btn btn-secondary">See pricing</a>
+          </div>
+          <p className="rise rise-4 mt-3 text-[14px] text-[var(--muted)]">{freeWeekNote}</p>
+        </div>
+        <div className="flex justify-center lg:justify-end"><ForecastCard copy={copy} /></div>
+      </section>
+
+      {/* 2. What StudyAce is */}
+      <section id="how" className="bg-[var(--band)] py-14 sm:py-20">
+        <div className={`${wrap} grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]`}>
+          <div className="reveal order-2 lg:order-1"><PhoneTask /></div>
+          <div className="reveal order-1 lg:order-2">
+            <p className={eyebrow}>What StudyAce is</p>
+            <h2 className={`${h2} mt-2`}>Exam practice on their phone. Marked like the real thing.</h2>
+            <ul className="mt-6 grid gap-3 text-[16px]">
+              {[
+                "Exam-style questions in every subject",
+                "Full mocks",
+                "Examiner-style marking: a mark for the working, a mark for the answer",
+                "Short lessons on what they got wrong",
+                "A grade forecast",
+                "Works on any phone. Add it to the home screen",
+              ].map((t) => (
+                <li key={t} className="flex gap-3"><Check /><span>{t}</span></li>
+              ))}
+            </ul>
+            {copy.earlyAccess && (
+              <p className="mt-5 text-[14px] leading-relaxed text-[var(--muted)]">
+                {copy.exams === "high-school exam" ? "Outside New Zealand, StudyAce" : `StudyAce for ${copy.exams}`} is in early access: questions are written for
+                those exams and marked the same honest way, and we&rsquo;re still fine-tuning them.
+              </p>
+            )}
           </div>
         </div>
       </section>
 
-      {/* ═══ WHAT IT DOES ═══ */}
-      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
-        <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[48px] leading-[1.02] tracking-[-0.04em] text-center`} style={{ textWrap: "balance" }}>Three things. Nothing else.</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-10">
-          {steps.map((s, i) => (
-            // Each card lights up in turn (01 → 02 → 03, on a loop), so the three read as a
-            // process. The last one (gold) holds about twice as long before the loop restarts.
-            <div key={s.n} className="relative">
-              <div className={`sa-step-glow sa-step-${i + 1} absolute inset-0 rounded-[24px] pointer-events-none`} aria-hidden
-                style={{ border: `2.5px solid ${s.color}`, boxShadow: `0 0 0 2px ${s.color}80, 0 0 34px 4px ${s.color}b3, 0 0 90px 14px ${s.color}66, inset 0 0 60px ${s.color}38` }} />
-              <div className="relative h-full rounded-[24px] border bg-[#0e0f13] p-6 sm:p-7 overflow-clip" style={{ borderColor: `${s.color}40`, backgroundImage: `linear-gradient(160deg, ${s.color}1c 0%, transparent 55%)` }}>
-                <span className="absolute left-6 right-6 top-0 h-[3px] rounded-b-full" style={{ background: s.color, boxShadow: `0 0 16px ${s.color}` }} aria-hidden />
-                <p className="font-mono text-[12px] font-bold tracking-[0.2em]" style={{ color: s.color }}>{s.n}</p>
-                <h3 className={`${display.className} font-bold text-white text-[24px] sm:text-[28px] leading-tight tracking-[-0.03em] mt-3`}>{s.title}</h3>
-                <p className="text-zinc-300 text-[15.5px] leading-relaxed mt-3">{s.body}</p>
-              </div>
+      {/* 3. Step 1 · No surprises on results day */}
+      <section className={`${wrap} py-14 sm:py-20`}>
+        <div className="reveal max-w-[720px]">
+          <p className={eyebrow}>Step 1 · No surprises on results day</p>
+          <h2 className={`${h2} mt-2`}>Know their grade now. Not on results day.</h2>
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="card reveal p-5 sm:p-6">
+            <p className="text-[15px] font-semibold text-[var(--muted)]">Without StudyAce</p>
+            <ol className="mt-4 grid gap-3">
+              {[["Term 1", "Working hard."], ["Mocks", "B. Maybe."], ["Results day", "C. Too late."]].map(([when, what], i) => (
+                <li key={when} className="flex items-baseline justify-between gap-4 border-t border-[var(--line-2)] pt-3 first:border-0 first:pt-0">
+                  <span className="text-[14px] text-[var(--muted)]">{when}</span>
+                  <span className={`text-[17px] font-semibold ${i === 2 ? "text-[var(--lost)]" : ""}`}>{what}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="card reveal border-[var(--purple)]/30 bg-[var(--purple-soft)] p-5 sm:p-6">
+            <p className="text-[15px] font-semibold text-[var(--purple-text)]">With StudyAce</p>
+            <ol className="mt-4 grid gap-3">
+              {[["Week 1", "C. Plan set."], ["Week 6", "B. Gap closing."], ["Mocks", "A. On pace."], ["Results day", "A. As forecast."]].map(([when, what], i) => (
+                <li key={when} className="flex items-baseline justify-between gap-4 border-t border-[var(--purple)]/15 pt-3 first:border-0 first:pt-0">
+                  <span className="text-[14px] text-[var(--muted)]">{when}</span>
+                  <span className={`text-[17px] font-semibold ${i === 3 ? "text-[var(--good)]" : ""}`}>{what}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          {[
+            ["A full mock. A real grade.", "Full exam-style mocks, marked the way an examiner marks them. A grade you can act on, not a guess."],
+            ["Updated every night.", "Every task they do moves the forecast, and it's saved every night, so you see which way it's heading."],
+            ["Time to fix it.", "Find out while there's still time to close the gap, not when the envelope arrives."],
+          ].map(([t, d]) => (
+            <div key={t} className="reveal">
+              <p className="text-[18px] font-bold">{t}</p>
+              <p className="mt-1.5 text-[16px] leading-relaxed text-[var(--ink-2)]">{d}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ═══ THE COST ═══ */}
-      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
-        <div className="rounded-[28px] border border-white/[0.08] bg-[#0e0f13] p-6 sm:p-10 lg:p-12">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Already paying a tutor?</p>
-          <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[52px] leading-[1] tracking-[-0.04em] mt-3`} style={{ textWrap: "balance" }}>
-            Keep them. <span style={{ color: GREEN }}>We cover the other six nights.</span>
-          </h2>
-          <p className="text-zinc-400 text-[15.5px] sm:text-[17px] leading-relaxed mt-4 max-w-2xl">A tutor is about {nz(TUTOR_YEAR)} a year for one hour a week. StudyAce is {nz(STUDYACE_YEAR)} for every night of the year, marked. Most families who use both keep the tutor for teaching and let StudyAce do the practice.</p>
-          <div ref={costRef} className="mt-8 space-y-5">
-            {bars.map((b, i) => (
-              <div key={b.label}>
-                <div className="flex items-baseline justify-between gap-4">
-                  <p className="text-white font-semibold text-[16px] sm:text-[17px]">{b.label} <span className="block sm:inline text-zinc-500 font-normal text-[13.5px] sm:ml-2">{b.note}</span></p>
-                  <p className={`${display.className} font-bold text-[24px] sm:text-[30px] leading-none tracking-[-0.03em] shrink-0`} style={{ color: b.color, fontVariantNumeric: "tabular-nums" }}><CountUp to={b.amount} run={costSeen} delay={i * 250} /></p>
-                </div>
-                <div className="h-3.5 rounded-full bg-white/[0.05] overflow-hidden mt-2.5">
-                  <div className="sa-bar-grow relative h-full rounded-full overflow-hidden" style={{ width: `${Math.max(2.5, (b.amount / TUTOR_YEAR) * 100)}%`, background: b.color, boxShadow: `0 0 18px ${b.color}80`, transform: costSeen ? "scaleX(1)" : "scaleX(0)", transitionDelay: `${i * 250}ms` }}>
-                    <span className="sa-bar-shine absolute inset-y-0 w-24" style={{ animationDelay: `${1.6 + i * 0.5}s` }} aria-hidden />
-                  </div>
-                </div>
-              </div>
+      {/* 4. Strip */}
+      <section className="border-y border-[var(--line-2)] bg-[var(--band)] py-8">
+        <div className={`${wrap} reveal flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between`}>
+          <p className="text-[16px] font-bold">Top courses go to top grades</p>
+          <ul className="flex flex-wrap gap-2 text-[14px] font-semibold text-[var(--ink-2)]">
+            {["Medicine", "Law", "Engineering", "Veterinary Science", "Architecture"].map((c) => (
+              <li key={c} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5">{c}</li>
             ))}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-9">
-            {[
-              { v: `${Math.round(TUTOR_YEAR / STUDYACE_YEAR)}×`, l: "what a weekly tutor costs, compared with StudyAce for the year" },
-              { v: "1 hr a week", l: "is what the tutor money buys. StudyAce is there every night" },
-              { v: "Every answer", l: "marked on the spot, so effort turns into a number you can both see" },
-            ].map((x) => (
-              <div key={x.v} className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-5">
-                <p className={`${display.className} font-bold text-white text-[26px] sm:text-[30px] leading-none tracking-[-0.03em]`}>{x.v}</p>
-                <p className="text-zinc-400 text-[14px] leading-relaxed mt-2">{x.l}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-zinc-600 text-[12.5px] mt-6">Tutor and workbook figures are typical rates, shown for comparison; yours may differ. A good tutor is still worth it for re-teaching a topic from scratch.</p>
+          </ul>
         </div>
       </section>
 
-      {/* ═══ WHAT THE GRADE IS WORTH ═══ */}
-      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
-        <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[52px] leading-[1] tracking-[-0.04em] text-center`} style={{ textWrap: "balance" }}>
-          The real cost isn&apos;t the tutor. <span className="bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(90deg, ${ROSE}, ${AMBER})` }}>It&apos;s the grade they miss.</span>
-        </h2>
-        <p className="text-zinc-400 text-[16px] sm:text-[18px] leading-relaxed max-w-2xl mx-auto text-center mt-5">
-          Universities fill their competitive courses on grades. A few marks either way decides which side of the line your child lands on.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mt-8 sm:mt-10">
-          <div className="rounded-[24px] border bg-[#0e0f13] p-6 sm:p-8" style={{ borderColor: `${ROSE}40`, backgroundImage: `linear-gradient(160deg, ${ROSE}17 0%, transparent 55%)` }}>
-            <p className="font-mono text-[12px] font-bold uppercase tracking-[0.2em]" style={{ color: ROSE }}>A few marks short</p>
-            <ul className="mt-4 space-y-3.5 text-zinc-300 text-[16px] leading-relaxed">
-              <li>The course they wanted goes to someone else, and they take the one that had room.</li>
-              <li>A different course is often a different city, a different first job, a different start.</li>
-              <li>Nobody saw it coming, because &ldquo;it went fine&rdquo; was the only report all year.</li>
-            </ul>
-          </div>
-          <div className="rounded-[24px] border bg-[#0e0f13] p-6 sm:p-8" style={{ borderColor: `${GREEN}40`, backgroundImage: `linear-gradient(160deg, ${GREEN}17 0%, transparent 55%)` }}>
-            <p className="font-mono text-[12px] font-bold uppercase tracking-[0.2em]" style={{ color: GREEN }}>On the right side of the line</p>
-            <ul className="mt-4 space-y-3.5 text-zinc-300 text-[16px] leading-relaxed">
-              <li>Their first-choice course at the university they actually want.</li>
-              <li>The qualifications that open the jobs they&apos;re aiming for.</li>
-              <li>You both knew the real grade months out, and had time to move it.</li>
-            </ul>
-          </div>
+      {/* 5. Step 2 · Know what to do */}
+      <section className={`${wrap} py-14 sm:py-20`}>
+        <div className="reveal max-w-[720px]">
+          <p className={eyebrow}>Step 2 · Know what to do</p>
+          <h2 className={`${h2} mt-2`}>One task a night. That&rsquo;s the plan.</h2>
         </div>
-        <p className="text-zinc-500 text-[13.5px] leading-relaxed max-w-3xl mx-auto text-center mt-6">
-          Government earnings data consistently shows people with a degree earning more across a career than those who finish with school qualifications alone (<a href="https://www.educationcounts.govt.nz/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">Education Counts</a> publishes the figures). No app can promise a grade or a place. What StudyAce does is make sure nobody is guessing.
-        </p>
-        <div className="text-center mt-8">{isLoaded && ctaButton()}</div>
-      </section>
-
-      {/* ═══ PRICE ═══ */}
-      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 py-12 sm:py-16">
-        <p className="font-mono text-[11px] uppercase tracking-[0.2em] font-bold text-center" style={{ color: GREEN }}>Pick a plan</p>
-        <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[48px] leading-[1.02] tracking-[-0.04em] text-center mt-3`}>One plan. Everything included.</h2>
-        <div className="max-w-xl lg:max-w-none mx-auto mt-8 sm:mt-10 space-y-3 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-4 lg:items-stretch">
-          {([
-            { b: "yearly" as const, title: "Whole year", badge: "Best value", sub: `Every exam this year · about NZ$${proMonthlyEquivalent("yearly").toFixed(0)} a month`, price: <>NZ${PRO_PRICING.yearly.amount}</> },
-            { b: "monthly" as const, title: "Monthly", sub: "Cancel any time", price: <>NZ${PRO_PRICING.monthly.amount}<span className="text-zinc-500 text-[15px] font-semibold tracking-normal">/mo</span></> },
-          ]).map((p) => {
-            const best = p.b === "yearly";
-            return (
-              <button key={p.b} type="button" onClick={() => startCheckout(p.b)} disabled={checkoutBusy !== null}
-                className="w-full text-left rounded-[22px] border-2 bg-[#0e0f13] px-6 py-5 flex items-center justify-between gap-4 transition-transform hover:-translate-y-0.5 disabled:opacity-70"
-                style={best ? { borderColor: GREEN, boxShadow: `0 0 0 4px ${GREEN}1a, 0 24px 70px -28px ${GREEN}66`, backgroundImage: `linear-gradient(160deg, ${GREEN}1a 0%, transparent 60%)` } : { borderColor: "rgba(255,255,255,0.1)" }}>
-                <div>
-                  <p className="text-white text-[18px] font-bold inline-flex items-center gap-2">{p.title}{p.badge && <span className="font-mono text-[10px] uppercase tracking-[0.16em] font-bold rounded-full px-2 py-0.5 text-[#07120d]" style={{ background: GREEN }}>{p.badge}</span>}</p>
-                  <p className="text-zinc-400 text-[13.5px] mt-1">{p.sub}</p>
-                  <p className="text-[13.5px] font-semibold mt-2" style={{ color: best ? GREEN : "#d4d4d8" }}>{checkoutBusy === p.b ? "Opening checkout…" : `Start tonight · ${p.title.toLowerCase()} →`}</p>
-                </div>
-                <p className={`${display.className} text-white font-bold text-[34px] sm:text-[40px] tracking-[-0.04em] shrink-0`}>{p.price}</p>
-              </button>
-            );
-          })}
-          <div className="rounded-[22px] border border-white/[0.08] bg-[#0e0f13] px-6 py-5 flex gap-3.5">
-            <svg className="w-7 h-7 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.8" aria-hidden><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            <div><p className="text-white text-[15.5px] font-bold">30 days or your money back</p><p className="text-zinc-400 text-[13.5px] leading-relaxed mt-1">If it&apos;s not working for your teen, you get every cent back. One email, no questions.</p></div>
-          </div>
-          {checkoutError && <p role="alert" className="lg:col-span-3 text-amber-200 text-[13.5px] rounded-2xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3">{checkoutError} <Link href="/pricing" className="underline underline-offset-4">Pricing page →</Link></p>}
-        </div>
-        <p className="text-center text-zinc-500 text-[13px] mt-5">Cancel anytime · Billed in NZD by Stripe · No ads in the app, your child&apos;s data is never sold · <Link href="/pricing" className="underline underline-offset-4">3-month option</Link></p>
-      </section>
-
-      {/* ═══ QUESTIONS ═══ */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <h2 className={`${display.className} font-bold text-white text-[32px] sm:text-[44px] leading-[1.02] tracking-[-0.04em] text-center`}>What parents ask</h2>
-        <div className="mt-8 rounded-[28px] border border-white/[0.08] bg-[#0e0f13] divide-y divide-white/[0.06]">
-          {FAQS.map((f) => (
-            <details key={f.q} className="group px-5 sm:px-7">
-              <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none text-white font-semibold text-[16px] sm:text-[17px] min-h-[56px]">
-                {f.q}
-                <span className="shrink-0 text-zinc-500 text-[22px] leading-none transition-transform group-open:rotate-45" aria-hidden>+</span>
-              </summary>
-              <p className="text-zinc-400 text-[15px] leading-relaxed pb-5 -mt-1">{f.a}</p>
-            </details>
+        <ol className="mt-8 grid gap-4 sm:grid-cols-3">
+          {[
+            ["9:00pm", "Task set", "Twenty minutes, aimed at what's costing them marks right now."],
+            ["9:20pm", "Marked", "Every answer marked like the real exam, with what was missing."],
+            ["9:21pm", "Forecast updated", "The grade they're heading for moves with what they just did."],
+          ].map(([time, title, d]) => (
+            <li key={time} className="card reveal p-5">
+              <p className="font-mono text-[14px] font-semibold text-[var(--purple-text)]">{time}</p>
+              <p className="mt-1 text-[18px] font-bold">{title}</p>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-[var(--ink-2)]">{d}</p>
+            </li>
           ))}
+        </ol>
+      </section>
+
+      {/* 6. Step 3 · Get the marks back */}
+      <section className="bg-[var(--band)] py-14 sm:py-20">
+        <div className={`${wrap} grid items-center gap-10 lg:grid-cols-2`}>
+          <div className="reveal">
+            <p className={eyebrow}>Step 3 · Get the marks back</p>
+            <h2 className={`${h2} mt-2`}>Every lost mark, explained.</h2>
+            <p className="mt-4 max-w-[520px] text-[16px] leading-relaxed text-[var(--ink-2)]">
+              Not just right or wrong. They see exactly which mark they dropped and why, the way an examiner would write it.
+            </p>
+          </div>
+          <div className="card reveal p-5 sm:p-6">
+            <p className="text-[13px] font-semibold text-[var(--muted)]">Chemistry · Question 4</p>
+            <p className="mt-2 text-[16px]">Calculate the mass of 0.25 mol of calcium carbonate. (M<sub>r</sub> = 100)</p>
+            <p className="mt-3 rounded-lg bg-[var(--band)] px-3 py-2 font-mono text-[14px]">0.25 × 100 = 25</p>
+            <div className="mt-4 grid grid-cols-2 gap-2 text-[15px]">
+              <div className="rounded-[10px] bg-[var(--good-soft)] px-3 py-2"><span className="text-[var(--muted)]">Working</span> <strong className="float-right text-[var(--good)]">1/1</strong></div>
+              <div className="rounded-[10px] bg-[#FBEFEB] px-3 py-2"><span className="text-[var(--muted)]">Answer</span> <strong className="float-right text-[var(--lost)]">0/1</strong></div>
+            </div>
+            <p className="mt-4 text-[16px] font-semibold">Right number. No unit. An examiner takes the mark.</p>
+          </div>
         </div>
       </section>
 
-      {/* ═══ LAST WORD ═══ */}
-      <section className="max-w-6xl lg:max-w-none mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-28 pb-16 sm:pb-24">
-        <div className="relative rounded-[28px] border-2 bg-[#0e0f13] px-6 py-12 sm:py-16 text-center overflow-clip"
-          style={{ borderColor: `${GREEN}66`, backgroundImage: `radial-gradient(70% 90% at 50% 0%, ${GREEN}24 0%, transparent 70%)`, boxShadow: `0 28px 90px -28px ${GREEN}59` }}>
-          <h2 className={`${display.className} font-bold text-white text-[36px] sm:text-[60px] leading-[0.98] tracking-[-0.045em]`} style={{ textWrap: "balance" }}>Start with one honest answer.</h2>
-          <p className="text-zinc-300 text-[16px] sm:text-[18px] max-w-xl mx-auto mt-4">Two minutes tonight: is your teen on track for the grade you want? No account, no card. Then decide.</p>
-          <div className="mt-7">{isLoaded && ctaButton(true)}</div>
+      <TestimonialPlaceholder id="after-marking" />
+
+      {/* 7. Side by side */}
+      <section className={`${wrap} py-14 sm:py-20`}>
+        <h2 className={`${h2} reveal`}>Side by side.</h2>
+        <div className="reveal mt-8 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <table className="w-full min-w-[720px] border-separate border-spacing-0 text-left text-[15px]">
+            <thead>
+              <tr>
+                <th className="w-[26%] p-3" />
+                <th className="rounded-t-2xl bg-[var(--purple-soft)] p-3 font-bold text-[var(--purple-text)]">StudyAce</th>
+                <th className="p-3 font-semibold">Private tutor</th>
+                <th className="p-3 font-semibold">Revision guides</th>
+                <th className="p-3 font-semibold">Free sites and YouTube</th>
+              </tr>
+            </thead>
+            <tbody>
+              {([
+                ["Cost a year", prices.yearly.label, copy.tutorYear, copy.guidesYear, "Free"],
+                ["How often", "Every night", "Once a week", "When they open it", "Whenever"],
+                ["Marked like the real exam", "Yes", "Depends on the tutor", "Answers in the back", "No"],
+                ["Know the grade they're heading for", "Yes", "Tutor's opinion", "No", "No"],
+                ["Know what to do next", "Yes, every night", "Yes, weekly", "No", "No"],
+                ["There at 9pm on a Tuesday", "Yes", "No", "Yes", "Yes"],
+              ] as const).map((row, r, all) => (
+                <tr key={row[0]}>
+                  <th scope="row" className="border-t border-[var(--line-2)] p-3 font-semibold">{row[0]}</th>
+                  <td className={`border-t border-[var(--purple)]/10 bg-[var(--purple-soft)] p-3 font-semibold ${r === all.length - 1 ? "rounded-b-2xl" : ""}`}>{row[1]}</td>
+                  <td className="border-t border-[var(--line-2)] p-3 text-[var(--ink-2)]">{row[2]}</td>
+                  <td className="border-t border-[var(--line-2)] p-3 text-[var(--ink-2)]">{row[3]}</td>
+                  <td className="border-t border-[var(--line-2)] p-3 text-[var(--ink-2)]">{row[4]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-[13px] text-[var(--muted)]">
+          Figures are typical, not quotes: a tutor at a common local rate for one hour a week over a school year; a few revision guides across their subjects.
+        </p>
+      </section>
+
+      {/* 8. Pricing */}
+      <section id="pricing" className="scroll-mt-4 bg-[var(--band)] py-14 sm:py-20">
+        <div className={wrap}>
+          <div className="reveal max-w-[680px]">
+            <h2 className={h2}>One price. Every subject.</h2>
+            <p className="mt-3 text-[17px] leading-relaxed text-[var(--ink-2)]">
+              Seven days free, then one price. Cancel in one click. Not working? Full refund within 30 days.
+            </p>
+          </div>
+          <div className="mt-8 grid max-w-[760px] gap-4 sm:grid-cols-2">
+            <div className="card reveal relative border-2 border-[var(--purple)] p-6">
+              <p className="absolute -top-3 left-5 rounded-full bg-[var(--purple)] px-2.5 py-0.5 text-[13px] font-semibold text-white">Best value</p>
+              <p className="text-[16px] font-semibold">Yearly</p>
+              <p className="mt-2 text-[36px] font-extrabold tracking-[-0.02em]">{prices.yearly.label}<span className="text-[17px] font-semibold text-[var(--muted)]"> a year</span></p>
+              <p className="text-[14px] text-[var(--muted)]">After your free week. About {perMonthOfYear} a month.</p>
+              <div className="mt-5"><FreeWeekButton billing="yearly" label="Start free week" className="btn btn-primary w-full" confirmClassName="text-left text-[15px]" /></div>
+            </div>
+            <div className="card reveal p-6">
+              <p className="text-[16px] font-semibold">Monthly</p>
+              <p className="mt-2 text-[36px] font-extrabold tracking-[-0.02em]">{prices.monthly.label}<span className="text-[17px] font-semibold text-[var(--muted)]"> a month</span></p>
+              <p className="text-[14px] text-[var(--muted)]">After your free week.</p>
+              <div className="mt-5"><FreeWeekButton billing="monthly" label="Start free week" className="btn btn-secondary w-full" confirmClassName="text-left text-[15px]" /></div>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] text-[var(--muted)]">
+            If your child hasn&rsquo;t done their first grade check by day 6, we cancel the free week for you and nothing is charged.
+          </p>
         </div>
       </section>
 
-      <SiteFooter />
+      <TestimonialPlaceholder id="after-pricing" />
+
+      {/* 9. Closing band */}
+      <section className="bg-[var(--ink)] py-16 sm:py-20 text-white">
+        <div className={`${wrap} reveal text-center`}>
+          <h2 className="text-[32px] sm:text-[44px] font-extrabold leading-[1.08] tracking-[-0.02em]">Don&rsquo;t leave exam day to luck.</h2>
+          <p className="mt-3 text-[19px] text-white/80">Know where they stand. Tonight.</p>
+          <div className="mt-7 flex justify-center">
+            <FreeWeekButton billing="yearly" className="btn btn-primary" confirmClassName="max-w-[420px] text-left text-[15px] text-white" />
+          </div>
+          <p className="mt-3 text-[14px] text-white/70">7 days free. Cancel in one click.</p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white py-8">
+        <div className={`${wrap} flex flex-col gap-3 text-[14px] text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between`}>
+          <p>© {new Date().getFullYear()} StudyAce</p>
+          <nav className="flex flex-wrap gap-x-5 gap-y-1">
+            {[["/blog", "Blog"], ["/schools", "For schools"], ["/contact", "Contact"], ["/privacy", "Privacy"], ["/terms", "Terms"]].map(([href, label]) => (
+              <Link key={href} href={href} className="inline-flex min-h-[44px] items-center hover:text-[var(--ink)]">{label}</Link>
+            ))}
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 }

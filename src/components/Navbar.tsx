@@ -65,11 +65,8 @@ export default function Navbar() {
     setMenuOpen(false);
   }
 
-  // The header CTA always points at the next step of the funnel: the free
-  // parent check everywhere, and pricing once they're already on a check.
-  const cta = pathname.startsWith("/on-track") || pathname.startsWith("/grade")
-    ? { href: "/pricing", label: "See pricing" }
-    : { href: "/on-track", label: "Is my teen on track?" };
+  // The header CTA always points at the free week (homepage pricing).
+  const cta = { href: "/#pricing", label: "Start a free week" };
 
   // The coach app has no header: the sidebar (desktop) and bottom tabs (phone)
   // carry everything, and mid-paper there is no chrome at all.
@@ -77,6 +74,8 @@ export default function Navbar() {
   // The kid's first screens (invite link, onboarding + grade check) carry no
   // marketing header: they're for the child, not a parent being sold to.
   if (/^\/(hello|join)(\/|$)/.test(pathname)) return null;
+  // The homepage carries its own light header.
+  if (pathname === "/") return null;
   // The phone numbers page is its own little app: no site header on it.
   if (pathname.startsWith("/admin/pulse") || pathname.startsWith("/admin/leads")) return null;
 

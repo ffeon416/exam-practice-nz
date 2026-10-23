@@ -16,13 +16,13 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { display } from "@/lib/displayFont";
-import { PRO_PRICING, proMonthlyEquivalent, type Billing } from "@/lib/tierLimits";
+import { funnelPricesForCountry, type FunnelBilling as Billing } from "@/lib/funnelPricing";
+import { TUTOR_HOURLY } from "@/lib/homeCopy";
 import { trackEvent } from "@/lib/attribution";
 import { GRADES, type Grade, type OnTrackResult } from "@/lib/onTrack";
-import { fireCheckoutPixel } from "@/lib/metaPixel";
+import { fireCheckoutPixel, visitorCountry } from "@/lib/metaPixel";
 
 const GREEN = "#3ee6a0", ROSE = "#ff6b7a", VIOLET = "#a78bfa";
-const TUTOR_HOURLY = 70;
 
 export type RevealProps = {
   result: OnTrackResult;
@@ -124,22 +124,36 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
     return GRADES[Math.min(GRADES.indexOf(goal), idx)];
   })();
 
-  const perWeekYearly = Math.round((PRO_PRICING.yearly.amount / 52) * 10) / 10;
+  // Free week (2026-10): local prices for display; the server picks the currency it charges.
+  const prices = funnelPricesForCountry(visitorCountry());
+  const money = (n: number) => `${prices.yearly.label.replace(/[\d,.]+$/, "")}${n}`;
+  const tutorHourly = TUTOR_HOURLY[prices.currency];
+  const perWeekYearly = Math.round((prices.yearly.amount / 52) * 10) / 10;
   const weeksWord = result.weeks <= 1 ? "This is the week it shows up on paper." : result.weeks <= 4 ? "These are the weeks it shows up on paper." : "The next few months decide what shows up on paper.";
-  const ctaPrice = billing === "yearly" ? `NZ$${PRO_PRICING.yearly.amount}/yr` : `NZ$${PRO_PRICING.monthly.amount}/mo`;
+  const planBilling = billing === "monthly" ? "monthly" : "yearly";
+  const ctaPrice = prices[planBilling].perPeriod;
+  // Already had a free week: say so before any payment; the next tap opens a paid checkout.
+  const [repeatPrice, setRepeatPrice] = useState<string | null>(null);
 
   async function startPlan() {
     if (busy) return;
     setBusy(true); setCheckoutError(null);
-    trackEvent("cta_click", { cta: `ontrack-checkout-${billing}`, page: "/on-track" });
+    trackEvent("cta_click", { cta: `ontrack-checkout-${planBilling}`, page: "/on-track" });
     try {
-      const res = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tier: "pro", billing }) });
-      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string; metaEventId?: string | null };
+      const res = await fetch("/api/checkout/trial", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ billing: planBilling, ...(repeatPrice !== null ? { confirmPaid: true } : {}) }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string; metaEventId?: string | null; alreadyTrialed?: boolean; price?: string };
+      if (data.alreadyTrialed) { setRepeatPrice(data.price ?? ctaPrice); setBusy(false); return; }
       if (res.ok && data.url) { fireCheckoutPixel(data.metaEventId); window.location.href = data.url; return; }
-      setCheckoutError(data.error ?? "Couldn’t open checkout. Try the pricing page.");
-    } catch { setCheckoutError("No connection. Try again, or use the pricing page."); }
+      setCheckoutError(data.error ?? "Couldn’t open checkout. Try again.");
+    } catch { setCheckoutError("No connection. Try again."); }
     setBusy(false);
   }
+  const ctaLabel = repeatPrice !== null
+    ? <>You&rsquo;ve had your free week · start {name}&rsquo;s plan today, {repeatPrice} →</>
+    : <>Start {name}&rsquo;s free week · then {ctaPrice} →</>;
 
   // Hide the site header while the result is up: this screen carries its own.
   useEffect(() => {
@@ -151,9 +165,9 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
   const startButton = (
     <>
       <button type="button" onClick={startPlan} disabled={busy} className="w-full rounded-full min-h-[60px] text-[17px] font-extrabold text-[#07120d] inline-flex items-center justify-center gap-2 transition-transform hover:scale-[1.01] disabled:opacity-70" style={{ background: GREEN, boxShadow: `0 0 0 6px ${GREEN}1f, 0 10px 44px ${GREEN}55` }}>
-        {busy ? "Opening checkout…" : <>Start {name}’s plan tonight · {ctaPrice} →</>}
+        {busy ? "Opening checkout…" : ctaLabel}
       </button>
-      <p className="text-zinc-500 text-[12px] text-center mt-2.5">Exam in <span className="font-mono" style={{ color: ROSE }}>{cd.d}d {pad(cd.h)}h {pad(cd.m)}m</span> · Set up in 5 minutes · 30-day money back</p>
+      <p className="text-zinc-500 text-[12px] text-center mt-2.5">Exam in <span className="font-mono" style={{ color: ROSE }}>{cd.d}d {pad(cd.h)}h {pad(cd.m)}m</span> · 7 days free · Cancel in one click</p>
     </>
   );
   const eyebrowRow = [name, subjectLabel, current ? `${current} now` : "grade unknown", `goal ${goal}`].join(" · ");
@@ -251,9 +265,9 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
         <h2 className={`${display.className} text-white font-bold text-[28px] sm:text-[34px] tracking-[-0.03em] leading-[1.05] mt-2`}>Keep them. We cover the other six nights.</h2>
         <div ref={costRef} className="rounded-[22px] border border-white/[0.08] bg-[#0e0f13] p-5 mt-5">
           <p className={`${mono} text-zinc-500`}>Exam practice each week</p>
-          <div className="flex items-baseline justify-between mt-3 text-[14px]"><span className="text-zinc-200">A tutor · 1 hour a week</span><span className="text-zinc-500 text-[13px]">60 min · ~NZ${TUTOR_HOURLY}</span></div>
+          <div className="flex items-baseline justify-between mt-3 text-[14px]"><span className="text-zinc-200">A tutor · 1 hour a week</span><span className="text-zinc-500 text-[13px]">60 min · ~{money(tutorHourly)}</span></div>
           <div className="h-2.5 rounded-full bg-white/[0.06] overflow-hidden mt-2"><div className="h-full rounded-full sa-bar-grow bg-zinc-500" style={{ transform: costSeen ? "scaleX(0.43)" : "scaleX(0)" }} /></div>
-          <div className="flex items-baseline justify-between mt-4 text-[14px]"><span className="text-white font-semibold">StudyAce · 20 min every night</span><span className="text-[13px] font-semibold" style={{ color: GREEN }}>140 min · ~NZ${Math.round(perWeekYearly)}</span></div>
+          <div className="flex items-baseline justify-between mt-4 text-[14px]"><span className="text-white font-semibold">StudyAce · 20 min every night</span><span className="text-[13px] font-semibold" style={{ color: GREEN }}>140 min · ~{money(Math.round(perWeekYearly))}</span></div>
           <div className="h-2.5 rounded-full bg-white/[0.06] overflow-hidden mt-2 relative"><div className="h-full rounded-full sa-bar-grow" style={{ background: GREEN, transform: costSeen ? "scaleX(1)" : "scaleX(0)", transitionDelay: ".15s" }} /></div>
           <p className="text-zinc-600 text-[12px] mt-3">StudyAce cost per week on the yearly plan. Tutor rate is a typical hourly figure.</p>
         </div>
@@ -262,8 +276,8 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
         <p className={`${mono} font-bold mt-12`} style={{ color: GREEN }}>Pick a plan</p>
         <div className="mt-3 space-y-2.5">
           {([
-            { b: "yearly" as Billing, title: "Whole year", badge: "Best value", sub: `Every exam this year · about NZ$${proMonthlyEquivalent("yearly").toFixed(0)} a month`, price: <>NZ${PRO_PRICING.yearly.amount}</> },
-            { b: "monthly" as Billing, title: "Monthly", sub: "Cancel any time", price: <>NZ${PRO_PRICING.monthly.amount}<span className="text-zinc-500 text-[14px] font-semibold tracking-normal">/mo</span></> },
+            { b: "yearly" as Billing, title: "Whole year", badge: "Best value", sub: `After a free week · about ${money(Math.round(prices.yearly.amount / 12))} a month`, price: <>{prices.yearly.label}</> },
+            { b: "monthly" as Billing, title: "Monthly", sub: "After a free week · cancel any time", price: <>{prices.monthly.label}<span className="text-zinc-500 text-[14px] font-semibold tracking-normal">/mo</span></> },
           ]).map((p) => {
             const on = billing === p.b;
             return (
@@ -281,7 +295,7 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
           <svg className="w-7 h-7 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.8" aria-hidden><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
           <div><p className="text-white text-[15px] font-bold">30 days or your money back</p><p className="text-zinc-400 text-[13.5px] leading-relaxed mt-1">If it’s not working for {name}, you get every cent back. One email, no questions.</p></div>
         </div>
-        {checkoutError && <p role="alert" className="text-amber-200 text-[13.5px] rounded-2xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3 mt-3">{checkoutError} <Link href="/pricing" className="underline underline-offset-4">Pricing page →</Link></p>}
+        {checkoutError && <p role="alert" className="text-amber-200 text-[13.5px] rounded-2xl bg-amber-500/[0.07] border border-amber-500/20 px-4 py-3 mt-3">{checkoutError} <Link href="/#pricing" className="underline underline-offset-4">See pricing →</Link></p>}
         <div className="hidden lg:block mt-6">{startButton}</div>
         <p className="text-zinc-600 text-[12.5px] text-center mt-8">A copy of this is on its way to {email}.{firstFix ? ` First thing to change: ${firstFix.charAt(0).toLowerCase()}${firstFix.slice(1)}.` : ""}</p>
       </div>
@@ -291,9 +305,9 @@ export default function OnTrackReveal({ result, name, subjectLabel, system, curr
       <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-gradient-to-t from-[#06060a] via-[#06060a]/95 to-transparent pt-8" style={{ paddingBottom: "max(env(safe-area-inset-bottom), 14px)" }}>
         <div className="max-w-xl mx-auto px-5">
           <button type="button" onClick={startPlan} disabled={busy} className="w-full rounded-full min-h-[60px] text-[17px] font-extrabold text-[#07120d] inline-flex items-center justify-center gap-2 transition-transform hover:scale-[1.01] disabled:opacity-70" style={{ background: GREEN, boxShadow: `0 0 0 6px ${GREEN}1f, 0 10px 44px ${GREEN}55` }}>
-            {busy ? "Opening checkout…" : <>Start {name}’s plan tonight · {ctaPrice} →</>}
+            {busy ? "Opening checkout…" : ctaLabel}
           </button>
-          <p className="text-zinc-500 text-[12px] text-center mt-2.5">Exam in <span className="font-mono" style={{ color: ROSE }}>{cd.d}d {pad(cd.h)}h {pad(cd.m)}m</span> · Set up in 5 minutes · 30-day money back</p>
+          <p className="text-zinc-500 text-[12px] text-center mt-2.5">Exam in <span className="font-mono" style={{ color: ROSE }}>{cd.d}d {pad(cd.h)}h {pad(cd.m)}m</span> · 7 days free · Cancel in one click</p>
         </div>
       </div>
     </div>
