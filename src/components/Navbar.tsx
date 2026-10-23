@@ -57,10 +57,13 @@ export default function Navbar() {
     return getDueCount();
   }, [version, mounted, isPaid]);
 
-  // Close menu when route changes
-  useEffect(() => {
+  // Close menu when route changes (adjusting state during render, not in an
+  // effect, so there's no extra render pass).
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
     setMenuOpen(false);
-  }, [pathname]);
+  }
 
   // The header CTA always points at the next step of the funnel: the free
   // parent check everywhere, and pricing once they're already on a check.
