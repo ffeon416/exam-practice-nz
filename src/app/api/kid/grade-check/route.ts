@@ -10,6 +10,7 @@ import { questionMaxMarks, bandToneGrade } from "@/lib/scoring";
 import { resolveCurriculum } from "@/data/curricula";
 import { CHECK_QUESTIONS, publicQuestions, summarise, type Marked } from "@/lib/gradeCheck";
 import { sendParentEvent } from "@/lib/metaFunnel";
+import { sendChildEmail } from "@/lib/freeWeekLive";
 import type { ExamAttempt, Question } from "@/lib/types";
 
 export const maxDuration = 300;
@@ -130,6 +131,8 @@ export async function POST(req: NextRequest) {
     await updateChild(child.id, { grade_check_completed_at: now, grade_check: summary });
     void logEvent("grade_check_completed", userId, { child: child.id, subject: paper.subject, pct: summary.pct, band: summary.bandId });
     after(() => sendParentEvent("GradeCheckCompleted", child.parent_user_id, child.id).catch((e) => console.error("GradeCheckCompleted failed:", e)));
+    // "Here's where [name] actually stands" — now; the hourly job retries if it fails.
+    after(() => sendChildEmail("gradecheck", child.id).then(() => undefined).catch((e) => console.error("grade check email failed:", e)));
 
     return NextResponse.json({
       done: true,

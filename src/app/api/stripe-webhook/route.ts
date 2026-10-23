@@ -5,6 +5,9 @@ import type Stripe from "stripe";
 import { inviteEmail } from "@/lib/clerkInvite";
 import { sendPurchaseIfFirst, sendStartTrial } from "@/lib/metaStripe";
 import { provisionFromCheckout } from "@/lib/funnelProvision";
+import { guardInvoice, refundIfPromiseBroken } from "@/lib/freeWeekPromise";
+import { liveDeps, sendChildEmail } from "@/lib/freeWeekLive";
+import { subscriptionIdOfInvoice } from "@/lib/metaStripe";
 
 export const dynamic = "force-dynamic";
 
@@ -114,6 +117,9 @@ export async function POST(req: NextRequest) {
           if (done && !done.repeatTrial && done.status === "trialing") {
             const buyerEmail = done.email;
             const subId = done.subscriptionId;
+            const childId = done.childId;
+            // Welcome email (once per child; the hourly job catches up if this fails).
+            if (childId) after(() => sendChildEmail("welcome", childId).then(() => undefined).catch((e) => console.error("welcome email failed:", e)));
             after(async () => {
               try {
                 await sendStartTrial(await stripe.subscriptions.retrieve(subId), buyerEmail, done.parentUserId);
@@ -267,11 +273,36 @@ export async function POST(req: NextRequest) {
         break;
       }
 
+      case "invoice.created": {
+        // AUTO-CANCEL PROMISE, layer 2: hold the first post-trial invoice and
+        // decide before Stripe can charge it. Awaited: if it can't decide,
+        // this throws → 500 → Stripe retries, and the invoice stays held.
+        const invoice = event.data.object as Stripe.Invoice;
+        const deps = liveDeps();
+        if (deps) {
+          const result = await guardInvoice(deps, {
+            id: invoice.id!, subscriptionId: subscriptionIdOfInvoice(invoice), billing_reason: invoice.billing_reason,
+            amount_due: invoice.amount_due, status: invoice.status,
+          });
+          if (result !== "ignored") console.log(`Free-week invoice guard: ${invoice.id} ${result}`);
+        }
+        break;
+      }
+
       case "invoice.paid": {
         // Meta Purchase on the first real charge only (never the £0 trial
         // invoice, never a renewal). Tier state is handled by the
         // subscription events above; this is measurement only.
         const invoice = event.data.object as Stripe.Invoice;
+
+        // AUTO-CANCEL PROMISE, layer 3: if a charge got through for a family
+        // the promise covers, refund it in full and cancel. Awaited (retries on failure).
+        const deps = liveDeps();
+        if (deps) {
+          const refunded = await refundIfPromiseBroken(deps, { id: invoice.id!, subscriptionId: subscriptionIdOfInvoice(invoice), amount_paid: invoice.amount_paid });
+          if (refunded) { console.error(`Free-week promise: refunded ${invoice.id}`); break; }
+        }
+
         after(async () => {
           try {
             await sendPurchaseIfFirst(stripe, invoice);

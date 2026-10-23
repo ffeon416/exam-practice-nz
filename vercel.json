@@ -2,7 +2,21 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "crons": [
-    { "path": "/api/cron/revalidate-blog", "schedule": "5 0 * * *" },
-    { "path": "/api/cron/check-indexing", "schedule": "0 10 * * 1" }
+    {
+      "path": "/api/cron/revalidate-blog",
+      "schedule": "5 0 * * *"
+    },
+    {
+      "path": "/api/cron/check-indexing",
+      "schedule": "0 10 * * 1"
+    },
+    {
+      "path": "/api/cron/free-week",
+      "schedule": "7 * * * *"
+    },
+    {
+      "path": "/api/cron/reminders",
+      "schedule": "*/10 * * * *"
+    }
   ]
 }

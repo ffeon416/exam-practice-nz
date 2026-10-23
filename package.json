@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify:promise": "tsx scripts/verify-free-week-promise.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.81.0",
