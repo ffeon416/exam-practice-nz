@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { getTier } from "@/lib/supabase";
+import { getSupabase, getTier } from "@/lib/supabase";
 import { claimPurchase } from "@/lib/claimPurchase";
 import ExamGate from "@/components/ExamGate";
 
@@ -27,6 +27,10 @@ export default async function CoachLayout({ children }: { children: ReactNode })
     } catch {}
   }
   if (tier === "free") redirect("/start");
+  // Parents who bought the free week don't use the learning app themselves:
+  // their page is /invite (send the invite, see how their child is doing).
+  const { data: me } = (await getSupabase()?.from("profiles").select("role").eq("user_id", userId).maybeSingle()) ?? { data: null };
+  if (me?.role === "parent") redirect("/invite");
   // ExamGate: after the last exam date, Pace/Streak/Practise send the
   // student to /schedule to set the next exam (see the component).
   return <><ExamGate />{children}</>;

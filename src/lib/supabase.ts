@@ -172,7 +172,7 @@ export async function saveSignupAttribution(userId: string, md: Record<string, s
  *   2. student_until — a referral-granted Student window (cheap, no tutor)
  * Both lapse on their own with no charge — getTier just stops returning them.
  */
-export async function getTier(userId: string): Promise<"free" | "student" | "pro"> {
+export async function getTier(userId: string, parentLookup = false): Promise<"free" | "student" | "pro"> {
   const supabase = getSupabase();
   if (!supabase) return "free";
 
@@ -204,6 +204,12 @@ export async function getTier(userId: string): Promise<"free" | "student" | "pro
   }
   if (data?.student_until && new Date(data.student_until).getTime() > now) {
     return "student";
+  }
+  // A kid who joined from a parent's invite has the parent's plan: their own
+  // row stays "free" and the parent's subscription decides. One hop only.
+  if (!parentLookup) {
+    const { data: link } = await supabase.from("child_profiles").select("parent_user_id").eq("kid_user_id", userId).maybeSingle();
+    if (link?.parent_user_id) return getTier(link.parent_user_id as string, true);
   }
   return baseTier;
 }

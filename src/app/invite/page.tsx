@@ -11,6 +11,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useSignIn, useUser } from "@clerk/nextjs";
+import InviteComposer from "@/components/InviteComposer";
 
 type Child = { id: string; firstName: string };
 type SessionReply = {
@@ -31,7 +32,7 @@ type SessionReply = {
 
 type View =
   | { kind: "loading"; title: string }
-  | { kind: "ready"; childName: string; trialEnd: string | null }
+  | { kind: "ready"; childName: string; childId: string | null; trialEnd: string | null }
   | { kind: "signin"; email: string | null }
   | { kind: "repeat"; childName: string; childId: string | null; billing: "yearly" | "monthly"; price: string | null }
   | { kind: "error"; message: string };
@@ -74,7 +75,7 @@ function InviteInner() {
         const res = await fetch("/api/funnel/session", { cache: "no-store" });
         const data = (await res.json().catch(() => ({}))) as SessionReply;
         const first = data.children?.[0];
-        if (first) setView({ kind: "ready", childName: first.firstName, trialEnd: null });
+        if (first) setView({ kind: "ready", childName: first.firstName, childId: first.id, trialEnd: null });
         else setView({ kind: "error", message: "We couldn't find a child on this account." });
         return;
       }
@@ -111,7 +112,7 @@ function InviteInner() {
         setView({ kind: "repeat", childName, childId: data.childId ?? null, billing: data.billing ?? "yearly", price: data.paidPrice ?? null });
         return;
       }
-      setView({ kind: "ready", childName, trialEnd: data.trialEnd ?? null });
+      setView({ kind: "ready", childName, childId: data.childId ?? null, trialEnd: data.trialEnd ?? null });
     })();
   }, [isLoaded, isSignedIn, sessionId, signIn]);
 
@@ -159,15 +160,15 @@ function InviteInner() {
   const end = endsOn(view.trialEnd);
   return (
     <Shell>
-      <p className="text-[14px] font-semibold text-[#1F8A55]">You&rsquo;re in</p>
-      <h1 className="mt-1 text-[28px] font-bold leading-tight">{view.childName}&rsquo;s free week has started</h1>
-      <p className="mt-3 text-[16px] text-[#4D4F58]">
-        {end ? <>It ends on {end}. </> : null}We&rsquo;ll email you before it does.
+      <p className="text-[14px] font-semibold text-[#1F8A55]">
+        You&rsquo;re in. {view.childName}&rsquo;s free week has started{end ? <>, and ends on {end}</> : null}.
       </p>
-      {/* PHASE 3: "Send [name] their invite" composer (text, WhatsApp, email, QR) goes here. */}
-      <div className="mt-8 rounded-2xl border border-[#E2E2E8] bg-[#F6F6F8] p-5">
-        <p className="text-[16px] font-semibold">Next: send {view.childName} their invite</p>
-        <p className="mt-1 text-[15px] text-[#62646D]">[Invite composer — built in Phase 3]</p>
+      <h1 className="mt-2 text-[28px] font-bold leading-tight">Send {view.childName} their invite</h1>
+      <p className="mt-2 text-[16px] text-[#4D4F58]">
+        It opens StudyAce on their phone, signed in to their own account. No password.
+      </p>
+      <div className="mt-6">
+        <InviteComposer childId={view.childId} />
       </div>
     </Shell>
   );

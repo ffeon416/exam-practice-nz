@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { getSupabase } from "@/lib/supabase";
-import { isCheckoutSessionId, parentSignInTicket, provisionFromCheckout } from "@/lib/funnelProvision";
+import { isCheckoutSessionId, signInTicket, provisionFromCheckout } from "@/lib/funnelProvision";
 import { rateLimit } from "@/lib/rateLimit";
 import { TRIAL_COOKIE } from "@/lib/trialGuard";
 import { FUNNEL_PRICES, funnelPrice, type FunnelCurrency } from "@/lib/funnelPricing";
@@ -103,6 +103,6 @@ export async function GET(req: NextRequest) {
 
   // Signed out (or signed in as someone else): a ticket, if still in the window.
   const fresh = Date.now() / 1000 - done.checkoutCreated < TICKET_WINDOW_SECONDS;
-  const ticket = fresh && (await takeTicket(id)) ? await parentSignInTicket(done.parentUserId) : null;
+  const ticket = fresh && (await takeTicket(id)) ? await signInTicket(done.parentUserId) : null;
   return reply({ ...base, signedIn: false, signedInAsOther: !!userId, ticket });
 }

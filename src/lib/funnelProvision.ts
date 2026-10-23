@@ -208,14 +208,14 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
   };
 }
 
-/** A short-lived Clerk sign-in token for the parent (consumed on /invite). */
-export async function parentSignInTicket(userId: string): Promise<string | null> {
+/** A short-lived Clerk sign-in token (parent on /invite, kid on /join). */
+export async function signInTicket(userId: string): Promise<string | null> {
   try {
     const clerk = await clerkClient();
     const t = await clerk.signInTokens.createSignInToken({ userId, expiresInSeconds: 600 });
     return t.token;
   } catch (err) {
-    console.error("parentSignInTicket failed:", err);
+    console.error("signInTicket failed:", err);
     return null;
   }
 }

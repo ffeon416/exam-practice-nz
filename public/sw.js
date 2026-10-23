@@ -61,3 +61,33 @@ self.addEventListener("fetch", (event) => {
       .catch(() => caches.match(request).then((cached) => cached || caches.match("/"))),
   );
 });
+
+// ── Web push (kid reminders: "Not now, remind me at 7pm") ──
+// Shows the notification and opens the app on tap. Nothing is cached.
+self.addEventListener("push", (event) => {
+  let data = {};
+  try { data = event.data ? event.data.json() : {}; } catch { data = { body: event.data && event.data.text() }; }
+  const title = data.title || "StudyAce";
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: data.body || "Your grade check is ready when you are.",
+      icon: "/icon.png",
+      badge: "/icon.png",
+      tag: data.tag || "studyace-reminder",
+      data: { url: data.url || "/hello" },
+    }),
+  );
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = (event.notification.data && event.notification.data.url) || "/hello";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((wins) => {
+      for (const w of wins) {
+        if ("focus" in w) { w.navigate(url).catch(() => {}); return w.focus(); }
+      }
+      return self.clients.openWindow(url);
+    }),
+  );
+});
