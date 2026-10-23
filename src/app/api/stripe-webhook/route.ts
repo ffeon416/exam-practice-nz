@@ -4,6 +4,7 @@ import { getSupabase, logEvent } from "@/lib/supabase";
 import type Stripe from "stripe";
 import { inviteEmail } from "@/lib/clerkInvite";
 import { sendPurchaseIfFirst, sendStartTrial } from "@/lib/metaStripe";
+import { provisionFromCheckout } from "@/lib/funnelProvision";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +35,8 @@ function tierForSubscription(sub: Stripe.Subscription): "student" | "pro" | null
     process.env.STRIPE_PRICE_PRO_MONTHLY,
     process.env.STRIPE_PRICE_PRO_QUARTERLY,
     process.env.STRIPE_PRICE_PRO_YEARLY,
+    process.env.STRIPE_PRICE_FUNNEL_YEARLY,
+    process.env.STRIPE_PRICE_FUNNEL_MONTHLY,
   ].filter(Boolean);
   const studentPrices = [
     process.env.STRIPE_PRICE_STUDENT_MONTHLY,
@@ -110,6 +113,15 @@ export async function POST(req: NextRequest) {
               console.error("Meta StartTrial failed:", err);
             }
           });
+        }
+
+        if (session.metadata?.funnel === "trial") {
+          // Free-week checkout: create the parent account + child profile.
+          // Awaited on purpose — if it fails we return 500 and Stripe retries.
+          // /invite runs the same idempotent step if the parent gets there first.
+          const done = await provisionFromCheckout(session);
+          console.log(`Free week started: ${done?.parentUserId ?? "(not provisioned)"} sub ${done?.subscriptionId ?? "-"}`);
+          break;
         }
 
         if (!userId && session.metadata?.anonymous === "1") {

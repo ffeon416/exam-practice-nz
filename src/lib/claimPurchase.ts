@@ -63,7 +63,9 @@ export async function claimPurchase(opts: { userId: string; email: string | null
     try {
       const session = await stripe.checkout.sessions.retrieve(sessionId, { expand: ["subscription"] });
       const sub = session.subscription;
-      if (session.payment_status === "paid" && sub && typeof sub !== "string") {
+      // A free-week (trial) checkout completes with "no_payment_required".
+      const settled = session.payment_status === "paid" || session.payment_status === "no_payment_required";
+      if (session.status === "complete" && settled && sub && typeof sub !== "string" && (sub.status === "active" || sub.status === "trialing")) {
         const owner = sub.metadata?.userId;
         if (!owner || owner === userId) {
           const sessionEmail = session.customer_details?.email ?? session.customer_email ?? email;
@@ -85,8 +87,11 @@ export async function claimPurchase(opts: { userId: string; email: string | null
   try {
     const customers = await stripe.customers.list({ email, limit: 10 });
     for (const c of customers.data) {
-      const subs = await stripe.subscriptions.list({ customer: c.id, status: "active", limit: 5 });
-      const sub = subs.data.find((s) => !s.metadata?.userId || s.metadata.userId === userId);
+      // status "all" so trialing subscriptions are found too; only live ones count.
+      const subs = await stripe.subscriptions.list({ customer: c.id, status: "all", limit: 10 });
+      const sub = subs.data.find(
+        (s) => (s.status === "active" || s.status === "trialing") && (!s.metadata?.userId || s.metadata.userId === userId)
+      );
       if (sub) return attach(userId, email, sub, null);
     }
   } catch (err) {

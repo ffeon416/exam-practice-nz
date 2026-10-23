@@ -44,10 +44,15 @@ export function visitorCountry(): string | null {
   return readCookie(COUNTRY_COOKIE);
 }
 
+/** May this visitor be measured (GA4, Meta)? Consent rules in metaShared.ts. */
+export function trackingAllowed(): boolean {
+  if (typeof window === "undefined") return false;
+  return metaAllowed(visitorCountry(), readConsent());
+}
+
 /** Pixel configured and this visitor allowed? */
 export function metaEnabled(): boolean {
-  if (typeof window === "undefined" || !META_PIXEL_ID) return false;
-  return metaAllowed(visitorCountry(), readConsent());
+  return !!META_PIXEL_ID && trackingAllowed();
 }
 
 export function newMetaEventId(): string {

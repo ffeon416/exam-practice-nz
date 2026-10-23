@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { trackingAllowed } from "@/lib/metaPixel";
+import { CONSENT_EVENT } from "./MetaPixel";
 
 /**
  * Google Analytics 4.
@@ -11,6 +13,9 @@ import { usePathname } from "next/navigation";
  * ~2s per interaction; those backgrounds are GPU-promoted now, and this loads
  * only inside <DeferUntilIdle> (after first paint + idle), so it never competes
  * with the first tap.
+ *
+ * UK and EU/EEA visitors get no GA until they say yes on the consent banner
+ * (PECR / GDPR) — same rule as the Meta Pixel (lib/metaShared.ts).
  *
  * The Measurement ID is not a secret — it's visible in every browser — so it can
  * live in NEXT_PUBLIC_GA_ID. Set it in .env.local AND in Vercel's env for prod.
@@ -26,10 +31,18 @@ declare global {
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
+  // Re-checked when the visitor answers the consent banner. Safe to read
+  // cookies here: this mounts only in the browser, inside <DeferUntilIdle>.
+  const [allowed, setAllowed] = useState(() => trackingAllowed());
+  useEffect(() => {
+    const on = () => setAllowed(trackingAllowed());
+    window.addEventListener(CONSENT_EVENT, on);
+    return () => window.removeEventListener(CONSENT_EVENT, on);
+  }, []);
 
   // Load gtag once.
   useEffect(() => {
-    if (!GA_ID || window.gtag) return;
+    if (!GA_ID || !allowed || window.gtag) return;
     const s = document.createElement("script");
     s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
     s.async = true;
@@ -44,17 +57,17 @@ export default function GoogleAnalytics() {
     // We send page_views manually per route change below (App Router does not
     // do full page loads), so turn off the automatic initial one here.
     window.gtag("config", GA_ID, { send_page_view: false });
-  }, []);
+  }, [allowed]);
 
   // One page_view per client-side route change (plus the first render).
   useEffect(() => {
-    if (!GA_ID || typeof window.gtag !== "function") return;
+    if (!GA_ID || !allowed || typeof window.gtag !== "function") return;
     window.gtag("event", "page_view", {
       page_path: pathname,
       page_location: window.location.href,
       page_title: document.title,
     });
-  }, [pathname]);
+  }, [pathname, allowed]);
 
   return null;
 }

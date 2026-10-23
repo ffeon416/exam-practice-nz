@@ -7,7 +7,8 @@ export default function SignInPage() {
         // There is no sign-up page: accounts are created on /start after
         // paying. Anyone without one belongs on pricing.
         signUpUrl="/pricing"
-        forceRedirectUrl="/schedule"
+        // fallback, not force: a ?redirect_url (e.g. /invite for parents
+        // coming back after the free-week checkout) is honoured.
         fallbackRedirectUrl="/schedule"
         signUpForceRedirectUrl="/start"
         signUpFallbackRedirectUrl="/start"

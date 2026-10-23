@@ -25,3 +25,10 @@ export const PRICE_IDS = {
   student_monthly: process.env.STRIPE_PRICE_STUDENT_MONTHLY ?? "",
   student_yearly: process.env.STRIPE_PRICE_STUDENT_YEARLY ?? "",
 };
+
+// Free-week funnel (2026-10): one multi-currency Price per period, NZD default
+// with GBP/AUD/USD/CAD currency_options (created by scripts/stripe-funnel-prices.mjs).
+export const FUNNEL_PRICE_IDS = {
+  yearly: process.env.STRIPE_PRICE_FUNNEL_YEARLY ?? "",
+  monthly: process.env.STRIPE_PRICE_FUNNEL_MONTHLY ?? "",
+};

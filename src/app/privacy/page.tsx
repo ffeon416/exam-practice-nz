@@ -333,8 +333,8 @@ export default function PrivacyPage() {
               never send Meta names, answers, marks or any study data.
             </p>
             <p>
-              If you&rsquo;re in the UK or the EU/EEA, none of this happens
-              unless you say yes on the banner; your choice is kept in a cookie
+              If you&rsquo;re in the UK or the EU/EEA, neither Meta nor Google
+              Analytics runs unless you say yes on the banner; your choice is kept in a cookie
               (<code>sa_consent</code>), and clearing it brings the banner back.
               Elsewhere you can turn it off in your Facebook or Instagram ad
               settings or with your browser&rsquo;s tracking protection.

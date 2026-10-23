@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "The terms that apply when you use StudyAce — NCEA exam practice for New Zealand students.",
 };
 
-const LAST_UPDATED = "22 April 2026";
+const LAST_UPDATED = "23 October 2026";
 const CONTACT_EMAIL = "ffeon.io@gmail.com";
 
 export default function TermsPage() {
@@ -115,13 +115,15 @@ export default function TermsPage() {
               long as their subscription stays active.
             </p>
             <ul className="list-disc pl-5 space-y-1.5 mt-2">
+              <li><strong className="text-zinc-300">Free week.</strong> New Pro subscriptions start with 7 days free. We take a card (or Apple Pay / Google Pay) at the start, but nothing is charged during the free week. The first payment is taken when the 7 days end, unless you cancel before then. We email you before the free week ends.</li>
+              <li><strong className="text-zinc-300">Our auto-cancel promise.</strong> If your child hasn&apos;t completed their first grade check by day 6 of the free week, we cancel the subscription for you before the free week ends, so nothing is charged, and we email you to say so.</li>
               <li>Subscriptions renew automatically at the end of each billing period (monthly, quarterly or yearly) until cancelled.</li>
-              <li>You can cancel any time from your account billing page. Cancellation takes effect at the end of the current billing period — you keep access until then.</li>
+              <li>You can cancel any time, in one click from the link in our emails or from your account billing page. If you cancel during the free week you are not charged. After that, cancellation takes effect at the end of the current billing period — you keep access until then.</li>
               <li><strong className="text-zinc-300">30-day money-back guarantee on Pro</strong> — if you subscribe to Pro and want a refund within 30 days of your first payment, email us at <a href={`mailto:${CONTACT_EMAIL}`} className="text-indigo-400 hover:text-indigo-300 transition-colors">{CONTACT_EMAIL}</a> and we&apos;ll refund the most recent Pro payment, no questions asked.</li>
               <li>Outside of the Pro 30-day guarantee, we don&apos;t offer refunds for partial periods, quarterly or yearly subscriptions beyond the guarantee window, or unused portions of a subscription.</li>
-              <li>Prices are shown in NZD. We may change pricing with reasonable notice; any change will only affect billing cycles that start after the notice period.</li>
+              <li>Prices are shown and charged in your local currency where we offer one (GBP, AUD, NZD, USD or CAD), based on where you are when you start; elsewhere they are in USD. We may change pricing with reasonable notice; any change will only affect billing cycles that start after the notice period.</li>
               <li>Price changes never apply to an existing subscription automatically: you keep the price you subscribed at until you cancel or change plan yourself.</li>
-              <li>All prices include GST where applicable.</li>
+              <li>All prices include GST / VAT / sales tax where applicable.</li>
             </ul>
           </Section>
 
