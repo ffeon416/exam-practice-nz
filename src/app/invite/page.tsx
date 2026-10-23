@@ -23,12 +23,17 @@ type SessionReply = {
   ticket?: string | null;
   error?: string;
   retry?: boolean;
+  childId?: string | null;
+  repeatTrial?: boolean;
+  billing?: "yearly" | "monthly";
+  paidPrice?: string | null;
 };
 
 type View =
   | { kind: "loading"; title: string }
   | { kind: "ready"; childName: string; trialEnd: string | null }
   | { kind: "signin"; email: string | null }
+  | { kind: "repeat"; childName: string; childId: string | null; billing: "yearly" | "monthly"; price: string | null }
   | { kind: "error"; message: string };
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -102,6 +107,10 @@ function InviteInner() {
       }
       // The session id is proof of purchase: don't leave it in the address bar / history.
       window.history.replaceState({}, "", "/invite");
+      if (data.repeatTrial) {
+        setView({ kind: "repeat", childName, childId: data.childId ?? null, billing: data.billing ?? "yearly", price: data.paidPrice ?? null });
+        return;
+      }
       setView({ kind: "ready", childName, trialEnd: data.trialEnd ?? null });
     })();
   }, [isLoaded, isSignedIn, sessionId, signIn]);
@@ -133,6 +142,8 @@ function InviteInner() {
     );
   }
 
+  if (view.kind === "repeat") return <RepeatTrial {...view} />;
+
   if (view.kind === "error") {
     return (
       <Shell>
@@ -158,6 +169,48 @@ function InviteInner() {
         <p className="text-[16px] font-semibold">Next: send {view.childName} their invite</p>
         <p className="mt-1 text-[15px] text-[#62646D]">[Invite composer — built in Phase 3]</p>
       </div>
+    </Shell>
+  );
+}
+
+// Same email or card already had a free week. The new trial was cancelled
+// before anything was charged; the parent decides whether to pay now.
+function RepeatTrial({ childName, childId, billing, price }: { childName: string; childId: string | null; billing: "yearly" | "monthly"; price: string | null }) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  async function startPaid() {
+    if (busy) return;
+    setBusy(true); setErr(null);
+    try {
+      const res = await fetch("/api/checkout/trial", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ billing, confirmPaid: true, childId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { url?: string; error?: string };
+      if (res.ok && data.url) { window.location.assign(data.url); return; }
+      setErr(data.error ?? "Couldn't open checkout.");
+    } catch { setErr("No connection. Try again."); }
+    setBusy(false);
+  }
+  return (
+    <Shell>
+      <h1 className="text-[28px] font-bold leading-tight">You&rsquo;ve already had your free week</h1>
+      <p className="mt-3 text-[16px] text-[#4D4F58]">
+        This email or card has used its free week before, so we haven&rsquo;t started another one.
+        Nothing has been charged.
+      </p>
+      <p className="mt-3 text-[16px] text-[#4D4F58]">
+        If you&rsquo;d like {childName} to carry on, your plan can start today{price ? <> at <strong className="text-[#15151B]">{price}</strong></> : null}.
+        Cancel any time in one click. Full refund within 30 days.
+      </p>
+      <button type="button" onClick={startPaid} disabled={busy}
+        className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-[10px] bg-[#5B47E0] px-5 text-[16px] font-semibold text-white hover:bg-[#4A3AC4] disabled:opacity-60">
+        {busy ? "Opening checkout…" : `Start ${childName}'s plan`}
+      </button>
+      {err && <p className="mt-3 text-[15px] text-[#A2381B]" role="alert">{err}</p>}
+      <p className="mt-6 text-[15px]">
+        <Link href="/" className="font-semibold text-[#4A3AC4] underline underline-offset-2">No thanks</Link>
+      </p>
     </Shell>
   );
 }

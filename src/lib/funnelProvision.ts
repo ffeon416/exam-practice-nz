@@ -15,6 +15,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import { getStripe } from "./stripe";
 import { getSupabase, logEvent, saveSignupAttribution } from "./supabase";
 import { childNameFromSession } from "./trialCheckout";
+import { cardFingerprint, recordTrial } from "./trialGuard";
 
 export type Provisioned = {
   parentUserId: string;
@@ -26,6 +27,10 @@ export type Provisioned = {
   trialEnd: string | null;
   /** Unix seconds the checkout session was created (ticket window). */
   checkoutCreated: number;
+  /** This email/card already had a free week: the trial was cancelled, nothing charged. */
+  repeatTrial: boolean;
+  billing: "yearly" | "monthly";
+  currency: string;
 };
 
 const SESSION_ID_RE = /^cs_(test|live)_[A-Za-z0-9]{10,200}$/;
@@ -34,7 +39,7 @@ export const isCheckoutSessionId = (v: unknown): v is string => typeof v === "st
 const iso = (unix: number | null | undefined) => (unix ? new Date(unix * 1000).toISOString() : null);
 
 /** Find the Clerk user for this email, or create one (race-safe). */
-async function parentUserFor(email: string): Promise<string> {
+async function parentUserFor(email: string, isTest: boolean): Promise<string> {
   const clerk = await clerkClient();
   const find = async () => (await clerk.users.getUserList({ emailAddress: [email], limit: 1 })).data[0]?.id ?? null;
   const existing = await find();
@@ -43,7 +48,8 @@ async function parentUserFor(email: string): Promise<string> {
     const user = await clerk.users.createUser({
       emailAddress: [email],
       skipPasswordRequirement: true,
-      publicMetadata: { role: "parent" },
+      // test: true = made by a Stripe TEST-mode checkout; safe to delete.
+      publicMetadata: { role: "parent", ...(isTest ? { test: true } : {}) },
     });
     return user.id;
   } catch (err) {
@@ -76,7 +82,23 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
   const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id ?? null;
   const childFirstName = childNameFromSession(session);
 
-  const parentUserId = session.metadata?.userId || sub.metadata?.userId || (await parentUserFor(email));
+  const isTest = !session.livemode;
+  const parentUserId = session.metadata?.userId || sub.metadata?.userId || (await parentUserFor(email, isTest));
+
+  // ── One free week per person (email OR card). A repeat is cancelled at
+  // once — before any charge — and /invite asks if they want to pay instead.
+  let repeatTrial = false;
+  let liveSub = sub;
+  if (sub.trial_end) {
+    const fingerprint = await cardFingerprint(stripe, sub);
+    ({ repeat: repeatTrial } = await recordTrial({
+      email, fingerprint, subscriptionId: sub.id, checkoutSessionId: session.id, livemode: session.livemode,
+    }));
+    if (repeatTrial && sub.status !== "canceled") {
+      liveSub = await stripe.subscriptions.cancel(sub.id, { invoice_now: false, prorate: false });
+      void logEvent("trial_repeat_blocked", parentUserId, { sub: sub.id, by_card: !!fingerprint, test: isTest });
+    }
+  }
 
   // ── Profile (subscription lives on the parent) ──
   const { data: existing } = await supabase
@@ -88,7 +110,7 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
   const hasOtherPaid =
     !!existing?.stripe_subscription_id && !alreadyThis && existing.tier !== "free" &&
     (existing.subscription_status === "active" || existing.subscription_status === "trialing");
-  const paid = sub.status === "trialing" || sub.status === "active";
+  const paid = !repeatTrial && (liveSub.status === "trialing" || liveSub.status === "active");
   const periodEnd = sub.items.data[0]?.current_period_end;
 
   if (hasOtherPaid) {
@@ -103,7 +125,7 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
         tier: paid ? "pro" : "free",
         stripe_customer_id: customerId,
         stripe_subscription_id: sub.id,
-        subscription_status: sub.status,
+        subscription_status: liveSub.status,
         current_period_end: iso(periodEnd),
         updated_at: new Date().toISOString(),
       },
@@ -115,26 +137,38 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
   // New columns (migration 2026-10-24): tolerated if not applied yet.
   const { error: roleErr } = await supabase
     .from("profiles")
-    .update({ role: "parent", trial_ends_at: iso(sub.trial_end) })
+    .update({ role: "parent", trial_ends_at: repeatTrial ? null : iso(sub.trial_end), ...(isTest ? { is_test: true } : {}) })
     .eq("user_id", parentUserId);
   if (roleErr && (roleErr as { code?: string }).code !== "42703") console.error("provision: role update failed:", roleErr);
 
   // ── Child profile, one per checkout ──
+  // A paid restart after a blocked repeat carries the existing child's id,
+  // so the family keeps one child profile rather than gaining a duplicate.
   let childId: string | null = null;
   let childName = childFirstName;
-  const { data: child, error: childErr } = await supabase
-    .from("child_profiles")
-    .upsert(
-      {
-        parent_user_id: parentUserId,
-        first_name: childFirstName ?? "your child",
-        checkout_session_id: session.id,
-        stripe_subscription_id: sub.id,
-      },
-      { onConflict: "checkout_session_id", ignoreDuplicates: false }
-    )
-    .select("id, first_name")
-    .single();
+  const reuseId = session.metadata?.childId;
+  const { data: child, error: childErr } = reuseId
+    ? await supabase
+        .from("child_profiles")
+        .update({ stripe_subscription_id: sub.id })
+        .eq("id", reuseId)
+        .eq("parent_user_id", parentUserId)
+        .select("id, first_name")
+        .single()
+    : await supabase
+        .from("child_profiles")
+        .upsert(
+          {
+            parent_user_id: parentUserId,
+            first_name: childFirstName ?? "your child",
+            checkout_session_id: session.id,
+            stripe_subscription_id: sub.id,
+            ...(isTest ? { is_test: true } : {}),
+          },
+          { onConflict: "checkout_session_id", ignoreDuplicates: false }
+        )
+        .select("id, first_name")
+        .single();
   if (child) {
     childId = child.id as string;
     childName = (child.first_name as string) ?? childName;
@@ -142,7 +176,7 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
     console.error("provision: child upsert failed:", childErr);
   }
 
-  if (!alreadyThis && !hasOtherPaid) {
+  if (!alreadyThis && !hasOtherPaid && !repeatTrial) {
     await saveSignupAttribution(parentUserId, sub.metadata);
     // Tag Stripe so renewals / cancellations / the auto-cancel job map back.
     if (sub.metadata?.userId !== parentUserId || (childId && sub.metadata?.childId !== childId)) {
@@ -165,9 +199,12 @@ export async function provisionFromCheckout(sessionOrId: string | Stripe.Checkou
     childId,
     childFirstName: childName,
     subscriptionId: sub.id,
-    status: sub.status,
-    trialEnd: iso(sub.trial_end),
+    status: liveSub.status,
+    trialEnd: repeatTrial ? null : iso(sub.trial_end),
     checkoutCreated: session.created,
+    repeatTrial,
+    billing: sub.metadata?.billing === "monthly" ? "monthly" : "yearly",
+    currency: sub.currency,
   };
 }
 

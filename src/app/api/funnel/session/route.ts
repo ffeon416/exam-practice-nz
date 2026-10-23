@@ -3,6 +3,8 @@ import { auth } from "@clerk/nextjs/server";
 import { getSupabase } from "@/lib/supabase";
 import { isCheckoutSessionId, parentSignInTicket, provisionFromCheckout } from "@/lib/funnelProvision";
 import { rateLimit } from "@/lib/rateLimit";
+import { TRIAL_COOKIE } from "@/lib/trialGuard";
+import { FUNNEL_PRICES, funnelPrice, type FunnelCurrency } from "@/lib/funnelPricing";
 
 export const dynamic = "force-dynamic";
 
@@ -77,18 +79,30 @@ export async function GET(req: NextRequest) {
   if (!done) return NextResponse.json({ error: "We couldn't find that checkout.", retry: true }, { status: 404 });
 
   const children = await childrenOf(done.parentUserId);
+  const cur = (done.currency in FUNNEL_PRICES ? done.currency : "usd") as FunnelCurrency;
   const base = {
     childFirstName: done.childFirstName,
+    childId: done.childId,
     children,
     trialEnd: done.trialEnd,
     // Shown so the parent knows where sign-in codes go; it's their own email.
     email: done.email,
+    // Already had a free week: nothing was charged; the page offers a paid start.
+    repeatTrial: done.repeatTrial,
+    billing: done.billing,
+    paidPrice: done.repeatTrial ? funnelPrice(cur, done.billing).perPeriod : null,
+  };
+  // This browser has now had its free week (pre-check on the next checkout).
+  const reply = (body: Record<string, unknown>) => {
+    const res = NextResponse.json(body);
+    res.cookies.set(TRIAL_COOKIE, "1", { path: "/", maxAge: 60 * 60 * 24 * 400, sameSite: "lax", secure: true, httpOnly: true });
+    return res;
   };
 
-  if (userId === done.parentUserId) return NextResponse.json({ ...base, signedIn: true });
+  if (userId === done.parentUserId) return reply({ ...base, signedIn: true });
 
   // Signed out (or signed in as someone else): a ticket, if still in the window.
   const fresh = Date.now() / 1000 - done.checkoutCreated < TICKET_WINDOW_SECONDS;
   const ticket = fresh && (await takeTicket(id)) ? await parentSignInTicket(done.parentUserId) : null;
-  return NextResponse.json({ ...base, signedIn: false, signedInAsOther: !!userId, ticket });
+  return reply({ ...base, signedIn: false, signedInAsOther: !!userId, ticket });
 }

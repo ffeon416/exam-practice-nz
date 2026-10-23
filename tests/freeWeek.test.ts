@@ -108,3 +108,35 @@ describe("checkout session ids", () => {
     for (const v of ["", "cs_test_", "pi_123", "cs_test_abc;drop", null, 42]) expect(isCheckoutSessionId(v)).toBe(false);
   });
 });
+
+import { isRepeatTrial } from "@/lib/trialGuard";
+
+describe("one free week per person", () => {
+  const earlier = [{ email: "mum@example.com", card_fingerprint: "fp_A", stripe_subscription_id: "sub_1" }];
+  it("catches the same email, any case", () => {
+    expect(isRepeatTrial(earlier, { email: " Mum@Example.com", fingerprint: "fp_Z", subscriptionId: "sub_2" })).toBe(true);
+  });
+  it("catches the same card under a different email", () => {
+    expect(isRepeatTrial(earlier, { email: "dad@example.com", fingerprint: "fp_A", subscriptionId: "sub_2" })).toBe(true);
+  });
+  it("lets a new person through", () => {
+    expect(isRepeatTrial(earlier, { email: "new@example.com", fingerprint: "fp_B", subscriptionId: "sub_2" })).toBe(false);
+    expect(isRepeatTrial(earlier, { email: "new@example.com", fingerprint: null, subscriptionId: "sub_2" })).toBe(false);
+  });
+  it("never counts the trial against itself (webhook + page both run)", () => {
+    expect(isRepeatTrial(earlier, { email: "mum@example.com", fingerprint: "fp_A", subscriptionId: "sub_1" })).toBe(false);
+  });
+
+  it("a paid-now checkout has no trial and says so before payment", () => {
+    const p = buildTrialSessionParams({
+      priceId: "price_1", currency: "gbp", billing: "yearly", origin: "https://studyace.co",
+      sessionMetadata: {}, subscriptionMetadata: {}, trial: false, userId: "user_1", childId: "00000000-0000-0000-0000-000000000001", priceLabel: "£69 a year",
+    });
+    expect(p.subscription_data).not.toHaveProperty("trial_period_days");
+    expect(p).not.toHaveProperty("custom_fields");
+    expect(p.metadata).toMatchObject({ paid_now: "1", childId: "00000000-0000-0000-0000-000000000001", funnel: "trial" });
+    const submit = p.custom_text?.submit;
+    expect(submit && typeof submit === "object" ? submit.message : "").toContain("already had your free week");
+    expect(submit && typeof submit === "object" ? submit.message : "").toContain("£69 a year");
+  });
+});

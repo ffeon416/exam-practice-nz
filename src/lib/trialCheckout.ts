@@ -23,10 +23,21 @@ export type TrialSessionInput = {
   customerId?: string | null;
   sessionMetadata: Record<string, string>;
   subscriptionMetadata: Record<string, string>;
+  /** false = this person already had a free week and chose to pay now. */
+  trial?: boolean;
+  /** Paid restart for an existing child profile (no name field needed). */
+  childId?: string | null;
+  /** "£69 a year" — shown on the paid-now checkout. */
+  priceLabel?: string;
 };
 
 export function buildTrialSessionParams(i: TrialSessionInput): Stripe.Checkout.SessionCreateParams {
-  const identity: Record<string, string> = i.userId ? { userId: i.userId } : {};
+  const trial = i.trial !== false;
+  const identity: Record<string, string> = {
+    ...(i.userId ? { userId: i.userId } : {}),
+    ...(i.childId ? { childId: i.childId } : {}),
+    ...(trial ? {} : { paid_now: "1" }),
+  };
   return {
     mode: "subscription",
     line_items: [{ price: i.priceId, quantity: 1 }],
@@ -34,25 +45,32 @@ export function buildTrialSessionParams(i: TrialSessionInput): Stripe.Checkout.S
     payment_method_collection: "always",
     ...(i.customerId ? { customer: i.customerId } : {}),
     allow_promotion_codes: true,
-    custom_fields: [
-      {
-        key: CHILD_NAME_FIELD,
-        label: { type: "custom", custom: "Your child's first name" },
-        type: "text",
-        text: { minimum_length: 1, maximum_length: 40 },
-      },
-    ],
+    ...(i.childId
+      ? {}
+      : {
+          custom_fields: [
+            {
+              key: CHILD_NAME_FIELD,
+              label: { type: "custom" as const, custom: "Your child's first name" },
+              type: "text" as const,
+              text: { minimum_length: 1, maximum_length: 40 },
+            },
+          ],
+        }),
     custom_text: {
       submit: {
-        message:
-          `Free for ${TRIAL_DAYS} days, then your plan starts. We email you before the free week ends. ` +
-          "If your child hasn't done their grade check by day 6, we cancel it for you and nothing is charged. " +
-          "Cancel any time in one click. Not working? Full refund within 30 days.",
+        message: trial
+          ? `Free for ${TRIAL_DAYS} days, then your plan starts. We email you before the free week ends. ` +
+            "If your child hasn't done their grade check by day 6, we cancel it for you and nothing is charged. " +
+            "Cancel any time in one click. Not working? Full refund within 30 days."
+          : `You've already had your free week, so your plan starts today${i.priceLabel ? ` at ${i.priceLabel}` : ""}. ` +
+            "Cancel any time in one click. Not working? Full refund within 30 days.",
       },
     },
     subscription_data: {
-      trial_period_days: TRIAL_DAYS,
-      trial_settings: { end_behavior: { missing_payment_method: "cancel" } },
+      ...(trial
+        ? { trial_period_days: TRIAL_DAYS, trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } }
+        : {}),
       metadata: { tier: "pro", billing: i.billing, funnel: "trial", ...identity, ...i.subscriptionMetadata },
     },
     metadata: { tier: "pro", billing: i.billing, funnel: "trial", ...identity, ...i.sessionMetadata },

@@ -101,26 +101,27 @@ export async function POST(req: NextRequest) {
           if (v) from[k] = v;
         }
 
-        // Meta StartTrial (only if the subscription is trialing). After the
-        // ack, so a slow Meta never delays Stripe; de-duplicated by sub id.
-        const trialSubId = typeof session.subscription === "string" ? session.subscription : session.subscription?.id;
-        if (trialSubId) {
-          const buyerEmail = session.customer_details?.email ?? session.customer_email ?? null;
-          after(async () => {
-            try {
-              await sendStartTrial(await stripe.subscriptions.retrieve(trialSubId), buyerEmail, userId ?? null);
-            } catch (err) {
-              console.error("Meta StartTrial failed:", err);
-            }
-          });
-        }
-
         if (session.metadata?.funnel === "trial") {
           // Free-week checkout: create the parent account + child profile.
           // Awaited on purpose — if it fails we return 500 and Stripe retries.
           // /invite runs the same idempotent step if the parent gets there first.
           const done = await provisionFromCheckout(session);
-          console.log(`Free week started: ${done?.parentUserId ?? "(not provisioned)"} sub ${done?.subscriptionId ?? "-"}`);
+          console.log(`Free week: ${done?.parentUserId ?? "(not provisioned)"} sub ${done?.subscriptionId ?? "-"}${done?.repeatTrial ? " (repeat, cancelled)" : ""}`);
+
+          // Meta StartTrial — only for a real free week (never a blocked
+          // repeat). After the ack, so a slow Meta never delays Stripe;
+          // de-duplicated by subscription id.
+          if (done && !done.repeatTrial && done.status === "trialing") {
+            const buyerEmail = done.email;
+            const subId = done.subscriptionId;
+            after(async () => {
+              try {
+                await sendStartTrial(await stripe.subscriptions.retrieve(subId), buyerEmail, done.parentUserId);
+              } catch (err) {
+                console.error("Meta StartTrial failed:", err);
+              }
+            });
+          }
           break;
         }
 
