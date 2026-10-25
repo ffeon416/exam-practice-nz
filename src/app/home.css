@@ -88,3 +88,8 @@ body:has(.sa-home) {
   .sa-home .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
   .sa-home .draw { animation: none !important; stroke-dashoffset: 0 !important; }
 }
+
+/* The hero buttons jump to #pricing / #how. */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.sa-home) { scroll-behavior: smooth; }
+}

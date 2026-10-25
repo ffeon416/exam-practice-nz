@@ -159,8 +159,8 @@ export default async function HomePage() {
             real exam, with a forecast of the grade they&rsquo;re heading for.
           </p>
           <div className="rise rise-4 mt-7 flex flex-wrap gap-3">
-            <FreeWeekButton billing="yearly" className="btn btn-primary" />
-            <a href="#pricing" className="btn btn-secondary">See pricing</a>
+            <a href="#pricing" className="btn btn-primary">Start a free week</a>
+            <a href="#how" className="btn btn-secondary">How it works</a>
           </div>
           <p className="rise rise-4 mt-3 text-[14px] text-[var(--muted)]">{freeWeekNote}</p>
         </div>
@@ -168,7 +168,7 @@ export default async function HomePage() {
       </section>
 
       {/* 2. What StudyAce is */}
-      <section id="how" className="bg-[var(--band)] py-14 sm:py-20">
+      <section id="how" className="scroll-mt-4 bg-[var(--band)] py-14 sm:py-20">
         <div className={`${wrap} grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]`}>
           <div className="reveal order-2 lg:order-1"><PhoneTask /></div>
           <div className="reveal order-1 lg:order-2">
