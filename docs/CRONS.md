@@ -15,7 +15,11 @@ idempotent, so running one twice (external + Vercel) is harmless.
 `vercel.json` also runs `/api/cron/free-week` once a day (03:07 UTC) as a last
 backstop in case the external scheduler stops.
 
-## Setting up cron-job.org (one-off, ~5 minutes)
+## Setting up cron-job.org
+
+Quickest: make a free account, create an API key (Console → Settings), then
+`CRONJOB_API_KEY=... CRON_SECRET=... node scripts/setup-cron-jobs.mjs` creates
+all three jobs paused; re-run with `--enable` after the deploy. By hand:
 
 1. Sign up at cron-job.org (free).
 2. For each row above: **Create cronjob** → URL `https://studyace.co/api/cron/<name>`,
