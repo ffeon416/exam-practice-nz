@@ -12,15 +12,7 @@
     },
     {
       "path": "/api/cron/free-week",
-      "schedule": "7 * * * *"
-    },
-    {
-      "path": "/api/cron/reminders",
-      "schedule": "*/10 * * * *"
-    },
-    {
-      "path": "/api/cron/forecast",
-      "schedule": "15 * * * *"
+      "schedule": "7 3 * * *"
     }
   ]
 }

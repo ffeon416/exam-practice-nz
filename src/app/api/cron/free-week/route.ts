@@ -4,7 +4,8 @@ import { runFreeWeekJobs } from "@/lib/freeWeekLive";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
 
-// Hourly: the auto-cancel promise (layer 1), held-invoice sweep, and the
+// Hourly (external scheduler; daily Vercel backstop, see docs/CRONS.md): the
+// auto-cancel promise (layer 1), held-invoice sweep, and the
 // parent emails. Vercel Cron calls it with GET and "Authorization: Bearer
 // $CRON_SECRET"; any external scheduler can call it the same way (GET or
 // POST) as a backup. Safe to run more often or twice at once: every action is
